@@ -520,14 +520,17 @@
 }
 
 .theme-toggle button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: none;
   border: 1px solid rgba(255,255,255,0.15);
   color: var(--text-sidebar);
-  font-size: 0.75rem;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
+  padding: 0.4rem;
+  border-radius: 6px;
   cursor: pointer;
-  width: 100%;
+  width: 32px;
+  height: 32px;
 }
 
 .theme-toggle button:hover {
