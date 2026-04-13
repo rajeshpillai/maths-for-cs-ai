@@ -74,15 +74,15 @@
 - [x] 10 — Numerical vs symbolic vs automatic differentiation
 
 ### Tier 4 — Probability & Statistics
-- [ ] 01 — Sample spaces, events, probability axioms
-- [ ] 02 — Conditional probability and Bayes' Theorem
-- [ ] 03 — Random variables: discrete and continuous
-- [ ] 04 — Expectation, variance, standard deviation
-- [ ] 05 — Key distributions (Bernoulli, Binomial, Poisson, Uniform, Gaussian)
-- [ ] 06 — Central Limit Theorem
-- [ ] 07 — Maximum Likelihood Estimation (MLE)
-- [ ] 08 — Information theory: entropy, cross-entropy, KL divergence
-- [ ] 09 — Covariance and correlation matrices
+- [x] 01 — Sample spaces, events, probability axioms
+- [x] 02 — Conditional probability and Bayes' Theorem
+- [x] 03 — Random variables: discrete and continuous
+- [x] 04 — Expectation, variance, standard deviation
+- [x] 05 — Key distributions (Bernoulli, Binomial, Poisson, Uniform, Gaussian)
+- [x] 06 — Central Limit Theorem
+- [x] 07 — Maximum Likelihood Estimation (MLE)
+- [x] 08 — Information theory: entropy, cross-entropy, KL divergence
+- [x] 09 — Covariance and correlation matrices
 
 ### Tier 5 — Optimisation
 - [ ] 01 — Objective functions and loss functions
