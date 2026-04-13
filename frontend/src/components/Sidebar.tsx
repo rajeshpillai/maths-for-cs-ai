@@ -17,6 +17,8 @@ const TIER_LABELS: Record<string, string> = {
   "tier-10": "Advanced Topics",
   "supplementary-graphs": "Graph Shapes & Curves",
   "supplementary-activations": "Activation Functions",
+  "supplementary-foundations": "Foundations (Pre-Calculus)",
+  "supplementary-applied": "Applied Maths & Mechanics",
 };
 
 function formatLessonName(slug: string): string {

@@ -167,76 +167,31 @@ Already covered:
 - [x] Ratio, proportion → Tier 0 examples
 - [x] Basic probability → Tier 4 (when written)
 
-Gaps to add:
-- [ ] Surds, indices, and logarithm laws (pre-calc foundations)
-- [ ] Algebraic manipulation: expanding, factorising, completing the square
-- [ ] Linear & quadratic equations and inequalities
-- [ ] Graphs of functions: linear, quadratic, cubic, reciprocal
-- [ ] Simultaneous equations (2 unknowns, pen & paper)
-- [ ] Ratio, proportion, and rates of change
-- [ ] Pythagoras and basic trigonometry (SOH-CAH-TOA)
-- [ ] Basic statistics: mean, median, mode, standard deviation, box plots
+Now covered in supplementary sections:
+- [x] Surds, indices, logarithm laws → Foundations 01
+- [x] Algebraic manipulation, completing the square → Foundations 02
+- [x] Linear & quadratic equations, simultaneous, inequalities → Foundations 02
+- [x] Graphs of functions → Supplementary Graphs 01
+- [x] Coordinate geometry: lines, circles, distance, midpoint → Foundations 03
+- [x] Sequences, series, binomial expansion → Foundations 04
+- [x] Trig identities: double angle, addition, R-formula → Foundations 05
+- [x] Complex numbers: Argand, polar, De Moivre, roots of unity → Foundations 06
+- [x] Kinematics: SUVAT → Applied 01
+- [x] Projectile motion → Applied 02
+- [x] Forces and equilibrium → Applied 03
+- [x] Simple harmonic motion → Applied 04
+- [x] Differential equations: separable, 1st/2nd order → Applied 05
+- [x] Hypothesis testing: z-test, t-test, chi-squared → Applied 06
+- [x] Regression and R² → Applied 07
+- [x] Conic sections → Supplementary Graphs 03
 
-### IGCSE Extended / Additional Maths (ages 15–16)
-Already covered:
-- [x] Functions: domain, range, inverse, composite → Tier 1-03
-- [x] Permutations & combinations → Tier 1-04
-
-Gaps to add:
-- [ ] Polynomial division, factor theorem, remainder theorem
-- [ ] Exponential and logarithmic functions
-- [ ] Trigonometric functions and identities (basic)
-- [ ] Coordinate geometry: distance, midpoint, equation of a line/circle
-- [ ] Differentiation: basic rules (power, chain), tangent/normal
-- [ ] Integration: basic rules, definite integrals, area under curves
-
-### AS-Level Mathematics (ages 16–17)
-Already covered:
-- [x] Proof techniques → Tier 1-06
-- [x] Vectors → Tier 2-01, 2-02
-- [x] Differentiation rules → Tier 3-02
-- [x] Integration → Tier 3-06, 3-07
-- [x] Matrices basics → Tier 2-01, 2-04
-
-Gaps to add:
-- [ ] Sequences and series: arithmetic, geometric, sigma notation, convergence
-- [ ] Binomial expansion (positive integer + rational powers)
-- [ ] Trigonometric identities: double angle, addition formulae, R-formula
+Remaining gaps (lower priority):
+- [ ] Pythagoras and basic SOH-CAH-TOA (partially in Tier 8-02/03)
+- [ ] Basic statistics: mean, median, mode, box plots
+- [ ] Polynomial division, factor/remainder theorem
 - [ ] Parametric equations and implicit differentiation
-- [ ] Numerical methods: iteration, Newton-Raphson, trapezium rule
-- [ ] Statistical distributions: binomial, normal (link to Tier 4)
-- [ ] Hypothesis testing basics: z-test, t-test
-- [ ] Kinematics: SUVAT equations, velocity-time graphs
-
-### A-Level Mathematics (ages 17–18)
-Already covered:
-- [x] Partial fractions → embedded in integration
-- [x] Taylor/Maclaurin series → Tier 3-09
-- [x] Partial derivatives → Tier 3-03
-
-Gaps to add:
-- [ ] Differential equations: separable, first-order linear, second-order
-- [ ] Further integration techniques: by parts, partial fractions, trig substitution
-- [ ] Regression and correlation coefficients (R² derivation)
-- [ ] Conditional probability and Bayes' theorem (link to Tier 4)
-- [ ] Normal distribution: z-scores, confidence intervals
-- [ ] Moments, forces, and equilibrium (game physics foundations)
-- [ ] Projectile motion and kinematics (game dev physics)
-
-### Further Mathematics (A-Level, ages 17–18)
-Already covered:
-- [x] Complex numbers basics → Tier 0-01
-- [x] Eigenvalues/eigenvectors → Tier 2-09
-- [x] Determinants → Tier 2-07
-- [x] Linear transformations → Tier 2-05
-- [x] Proof by induction → Tier 1-06
-
-Gaps to add:
-- [ ] Complex numbers: Argand diagram, modulus-argument form, De Moivre's theorem, roots of unity
+- [ ] Numerical methods: trapezium rule
 - [ ] Polar coordinates and curves
-- [ ] Hyperbolic functions: sinh, cosh, tanh and their inverses
-- [ ] Matrices: Cayley-Hamilton theorem, matrix exponential
-- [ ] Further vectors: lines & planes in 3D, scalar/vector product applications
-- [ ] Further differential equations: second-order, SHM, coupled systems
-- [ ] Conic sections: ellipse, hyperbola, parabola (link to graph shapes)
-- [ ] Simple harmonic motion (oscillations, springs in simulations)
+- [ ] Hyperbolic functions: sinh, cosh, tanh
+- [ ] Cayley-Hamilton theorem, matrix exponential
+- [ ] Further vectors: lines & planes in 3D

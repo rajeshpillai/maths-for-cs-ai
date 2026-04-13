@@ -16,6 +16,8 @@ const TIER_DESCRIPTIONS: Record<string, string> = {
   "tier-10": "GNNs, Transformers, RNNs, Markov chains, Monte Carlo, automatic differentiation",
   "supplementary-graphs": "Linear, quadratic, cubic, exponential, logarithmic, conic sections, bell curve, sigmoid, ReLU, power laws",
   "supplementary-activations": "Sigmoid, tanh, ReLU, Leaky ReLU, ELU, GELU, Swish, softmax — full derivations and comparison",
+  "supplementary-foundations": "Surds, indices, logarithm laws, algebraic manipulation, coordinate geometry, sequences & series, trig identities, binomial expansion",
+  "supplementary-applied": "Kinematics (SUVAT), projectile motion, forces & equilibrium, SHM, differential equations, hypothesis testing, regression",
 };
 
 export default function Home() {
