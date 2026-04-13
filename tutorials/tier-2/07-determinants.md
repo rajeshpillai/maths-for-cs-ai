@@ -51,7 +51,7 @@ $= 1(45 - 48) - 2(36 - 42) + 3(32 - 35)$
 $= 1(-3) - 2(-6) + 3(-3)$
 $= -3 + 12 - 9 = 0$
 
-Determinant is 0 — this matrix is **singular** (row 3 = row 1 + row 2 - row 1... actually $R_3 = 2R_2 - R_1$).
+Determinant is 0 — this matrix is **singular** (the rows are linearly dependent: $R_3 = 2R_2 - R_1$, which you can verify: $2(4,5,6) - (1,2,3) = (7,8,9)$).
 
 ### Properties of determinants
 

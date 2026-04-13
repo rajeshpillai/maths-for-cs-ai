@@ -47,7 +47,7 @@ the $n \times n$ matrix of second partial derivatives:
 
 $$\mathbf{H} = \begin{pmatrix} \frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} & \cdots \\ \frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} & \cdots \\ \vdots & \vdots & \ddots \end{pmatrix}$$
 
-The Hessian is always **symmetric** (by Clairaut's theorem, mixed partials are equal).
+The Hessian is always **symmetric**: $\frac{\partial^2 f}{\partial x \partial y} = \frac{\partial^2 f}{\partial y \partial x}$ (this is **Clairaut's theorem** — the order of differentiation doesn't matter, as long as the second derivatives are continuous).
 
 **Pen & paper:** $f(x, y) = x^3 + 2x^2y - y^2$
 

@@ -42,21 +42,21 @@ Rules:
 | $v_2 = e^{v_0} = e^2$ | $7.389$ | $7.389 \times 1 = 7.389$ |
 | $v_3 = v_1 \times v_2$ | $29.556$ | $4 \times 7.389 + 4 \times 7.389 = 59.112$ |
 
-Wait: $v_3 = v_1 v_2$, so $\dot{v}_3 = \dot{v}_1 v_2 + v_1 \dot{v}_2 = 4(7.389) + 4(7.389) = 59.112$.
+Product rule: $\dot{v}_3 = \dot{v}_1 v_2 + v_1 \dot{v}_2 = 4(7.389) + 4(7.389) = 29.556 + 29.556 = 59.112$.
 
 Exact: $f'(x) = 2xe^x + x^2e^x = e^x(2x + x^2)$.  At $x=2$: $e^2(4+4) = 8e^2 = 59.112$ ✓
 
-### Reverse mode (adjoint method)
+### Reverse mode
 
 **Forward pass:** compute all values, store intermediate results.
 
-**Backward pass:** propagate $\bar{v}_i = \frac{\partial f}{\partial v_i}$ from output to inputs.
+**Backward pass:** For each variable $v_i$, compute $\bar{v}_i = \frac{\partial f}{\partial v_i}$ (called the **adjoint** — "how much does the final output change if $v_i$ changes?").  Propagate from output back to inputs.
 
-Start: $\bar{v}_{\text{output}} = 1$.
+Start: $\bar{v}_{\text{output}} = 1$ (the output changes by 1 when it changes by 1).
 
-Rules (backward):
-- If $v_3 = v_1 + v_2$: $\bar{v}_1 += \bar{v}_3$, $\bar{v}_2 += \bar{v}_3$
-- If $v_3 = v_1 \times v_2$: $\bar{v}_1 += \bar{v}_3 \times v_2$, $\bar{v}_2 += \bar{v}_3 \times v_1$
+Rules (these come from the chain rule applied to each operation):
+- **Addition:** If $v_3 = v_1 + v_2$: $\bar{v}_1 += \bar{v}_3$, $\bar{v}_2 += \bar{v}_3$ (both inputs contribute equally)
+- **Multiplication:** If $v_3 = v_1 \times v_2$: $\bar{v}_1 += \bar{v}_3 \times v_2$, $\bar{v}_2 += \bar{v}_3 \times v_1$ (chain rule: $\frac{\partial}{\partial v_1}(v_1 v_2) = v_2$)
 
 ### Pen & paper: Reverse mode for same function
 

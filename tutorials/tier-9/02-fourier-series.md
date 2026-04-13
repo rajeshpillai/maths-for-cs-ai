@@ -28,15 +28,21 @@ $$a_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\cos(nx)\,dx$$
 
 $$b_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin(nx)\,dx$$
 
-### Why this works: orthogonality
+### Why this works: orthogonality of functions
 
-Sines and cosines are **orthogonal** over one period:
+Two functions $f$ and $g$ are **orthogonal** over an interval if their "inner product" is zero:
 
-$$\int_{-\pi}^{\pi}\sin(mx)\cos(nx)\,dx = 0 \quad \text{always}$$
+$$\langle f, g \rangle = \int_{-\pi}^{\pi} f(x) g(x)\,dx = 0$$
 
-$$\int_{-\pi}^{\pi}\sin(mx)\sin(nx)\,dx = \begin{cases} \pi & m = n \\ 0 & m \ne n \end{cases}$$
+This is the function analogue of the vector dot product $\mathbf{a} \cdot \mathbf{b} = 0$ meaning perpendicular.
 
-This is like how orthogonal vectors have zero dot product.  Multiplying by $\sin(nx)$ and integrating "picks out" only the $b_n$ coefficient.
+Sines and cosines satisfy this over $[-\pi, \pi]$:
+
+$$\int_{-\pi}^{\pi}\sin(mx)\cos(nx)\,dx = 0 \quad \text{for all } m, n$$
+
+$$\int_{-\pi}^{\pi}\sin(mx)\sin(nx)\,dx = \begin{cases} \pi & \text{if } m = n \\ 0 & \text{if } m \ne n \end{cases}$$
+
+**Why this matters:** To find $b_n$, multiply both sides of the Fourier series by $\sin(nx)$ and integrate.  All terms vanish except the one where $m = n$ — isolating $b_n \times \pi$.  Divide by $\pi$ and you get the formula for $b_n$.
 
 ### Pen & paper: Square wave
 

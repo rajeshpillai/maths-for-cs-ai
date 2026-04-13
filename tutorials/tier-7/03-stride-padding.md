@@ -20,12 +20,11 @@ Instead of moving the kernel 1 pixel at a time, move it $s$ pixels.
 
 **Pen & paper:** Input 6×6, kernel 3×3, stride 2.
 
-Positions in one dimension: $0, 2, 4$ → 3 positions.
+Without stride: the kernel fits at positions $0, 1, 2, 3$ → $6 - 3 + 1 = 4$ positions.
 
-Without stride: $6 - 3 + 1 = 4$ positions.
-With stride 2: $\lfloor(6 - 3)/2\rfloor + 1 = 2$ positions. Wait: $(6-3)/2 + 1 = 2.5$, floor to $2$?
+With stride 2: the kernel starts at positions $0, 2$ (position 4 would place the kernel at indices $4, 5, 6$ — but index 6 is out of bounds for a size-6 input).  So **2 positions**.
 
-Let me be precise. Positions: $0, 2$ (position 4 would need index $4+2=6$, which is out of bounds for a size-6 input with 0-indexing up to 5). So 2 positions.
+Using the formula: $\lfloor(6 - 3)/2\rfloor + 1 = \lfloor 1.5 \rfloor + 1 = 1 + 1 = 2$ ✓
 
 **General formula (no padding):**
 

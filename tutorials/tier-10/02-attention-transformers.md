@@ -25,7 +25,7 @@ $$\text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{softmax}\left(\fr
 
 1. **Similarity scores:** $\mathbf{S} = \mathbf{QK}^T$ (dot product measures how similar each query is to each key)
 2. **Scale:** $\mathbf{S} / \sqrt{d_k}$ (prevent dot products from being too large for softmax)
-3. **Attention weights:** $\mathbf{A} = \text{softmax}(\mathbf{S} / \sqrt{d_k})$ (normalise to probabilities)
+3. **Attention weights:** $\mathbf{A} = \text{softmax}(\mathbf{S} / \sqrt{d_k})$ — apply softmax to each row: $\text{softmax}(z_i) = \frac{e^{z_i}}{\sum_j e^{z_j}}$, producing a probability distribution that sums to 1
 4. **Weighted sum:** $\mathbf{O} = \mathbf{A}\mathbf{V}$ (each output is a weighted combination of values)
 
 ### Pen & paper: 3 tokens, $d_k = 2$
@@ -38,7 +38,11 @@ Scale by $1/\sqrt{2} \approx 0.707$:
 
 $\begin{pmatrix} 0.707 & 0 & 0.354 \\ 0 & 0.707 & 0.354 \\ 0.707 & 0.707 & 0.707 \end{pmatrix}$
 
-Softmax each row (e.g., row 0): $e^{0.707}, e^{0}, e^{0.354}$ → normalise.
+**Softmax row 0:** $e^{0.707} = 2.028$, $e^{0} = 1$, $e^{0.354} = 1.425$.  Sum = $4.453$.
+
+Weights: $(2.028/4.453,\; 1/4.453,\; 1.425/4.453) = (0.455,\; 0.225,\; 0.320)$.  Sum = 1 ✓
+
+**Output for token 0:** $0.455 \times 10 + 0.225 \times 20 + 0.320 \times 30 = 4.55 + 4.50 + 9.60 = 18.65$
 
 Token 0 attends most to key 0 (highest similarity).
 Token 2 attends equally to all (its query matches all keys).

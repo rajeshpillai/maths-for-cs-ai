@@ -56,9 +56,11 @@ Input: $\mathbf{x} = \begin{pmatrix} 1 \\ 2 \end{pmatrix}$
 
 **Layer 1:**
 
-$\mathbf{z}^{(1)} = \begin{pmatrix} 0.5 & -0.3 \\ 0.2 & 0.7 \end{pmatrix}\begin{pmatrix} 1 \\ 2 \end{pmatrix} + \begin{pmatrix} 0.1 \\ -0.1 \end{pmatrix} = \begin{pmatrix} -0.1 + 0.1 \\ 1.6 - 0.1 \end{pmatrix} = \begin{pmatrix} 0.0 \\ 1.5 \end{pmatrix}$
+$z_1 = 0.5(1) + (-0.3)(2) + 0.1 = 0.5 - 0.6 + 0.1 = 0.0$
 
-Wait, let me recompute: $0.5(1) + (-0.3)(2) = 0.5 - 0.6 = -0.1$, plus 0.1 = 0.0. And $0.2(1) + 0.7(2) = 0.2 + 1.4 = 1.6$, plus $-0.1 = 1.5$.
+$z_2 = 0.2(1) + 0.7(2) + (-0.1) = 0.2 + 1.4 - 0.1 = 1.5$
+
+$$\mathbf{z}^{(1)} = \begin{pmatrix} 0.0 \\ 1.5 \end{pmatrix}$$
 
 $\mathbf{a}^{(1)} = \text{ReLU}\begin{pmatrix} 0.0 \\ 1.5 \end{pmatrix} = \begin{pmatrix} 0 \\ 1.5 \end{pmatrix}$
 

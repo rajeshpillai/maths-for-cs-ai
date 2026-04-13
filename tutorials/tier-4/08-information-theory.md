@@ -81,7 +81,12 @@ $$= 0.235 - 0.153 = 0.082$$
 
 ### Cross-entropy as a loss function
 
-For multi-class classification with true distribution $\mathbf{y}$ (one-hot) and predicted $\hat{\mathbf{p}}$ (softmax output):
+For multi-class classification with $C$ classes:
+
+- **One-hot encoding:** The true label is a vector $\mathbf{y}$ with a 1 in the true class position and 0s elsewhere.  E.g., class 2 of 3: $\mathbf{y} = (0, 1, 0)$.
+- **Softmax:** Converts raw scores (logits) $\mathbf{z}$ into probabilities: $\hat{p}_c = \frac{e^{z_c}}{\sum_j e^{z_j}}$.  All outputs are positive and sum to 1.
+
+With true distribution $\mathbf{y}$ (one-hot) and predicted $\hat{\mathbf{p}}$ (softmax output):
 
 $$\text{Loss} = H(\mathbf{y}, \hat{\mathbf{p}}) = -\sum_c y_c \ln \hat{p}_c$$
 

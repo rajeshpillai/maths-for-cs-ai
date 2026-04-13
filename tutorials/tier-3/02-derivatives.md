@@ -27,7 +27,15 @@ $$= \lim_{h \to 0} \frac{2xh + h^2}{h} = \lim_{h \to 0} (2x + h) = 2x$$
 
 ### Pen & paper: Derive $\frac{d}{dx}(x^3)$
 
-$$f'(x) = \lim_{h \to 0} \frac{(x+h)^3 - x^3}{h} = \lim_{h \to 0} \frac{3x^2h + 3xh^2 + h^3}{h} = 3x^2$$
+First expand $(x+h)^3$ using the binomial formula:
+
+$(x+h)^3 = x^3 + 3x^2h + 3xh^2 + h^3$
+
+Now substitute:
+
+$$f'(x) = \lim_{h \to 0} \frac{(x^3 + 3x^2h + 3xh^2 + h^3) - x^3}{h} = \lim_{h \to 0} \frac{3x^2h + 3xh^2 + h^3}{h}$$
+
+$$= \lim_{h \to 0} (3x^2 + 3xh + h^2) = 3x^2$$
 
 ### The power rule (general)
 

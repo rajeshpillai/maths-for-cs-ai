@@ -49,9 +49,15 @@ $$\lim_{x \to 3} \frac{x^2 - 9}{x - 3} = \lim_{x \to 3} \frac{(x-3)(x+3)}{x-3} =
 
 **Trick 2: Multiply by conjugate**
 
-$$\lim_{x \to 0} \frac{\sqrt{x+4} - 2}{x} = \lim_{x \to 0} \frac{(\sqrt{x+4} - 2)(\sqrt{x+4} + 2)}{x(\sqrt{x+4} + 2)}$$
+$$\lim_{x \to 0} \frac{\sqrt{x+4} - 2}{x}$$
 
-$$= \lim_{x \to 0} \frac{x + 4 - 4}{x(\sqrt{x+4} + 2)} = \lim_{x \to 0} \frac{1}{\sqrt{x+4} + 2} = \frac{1}{4}$$
+Multiply top and bottom by the conjugate $(\sqrt{x+4} + 2)$:
+
+$$= \lim_{x \to 0} \frac{(\sqrt{x+4} - 2)(\sqrt{x+4} + 2)}{x(\sqrt{x+4} + 2)}$$
+
+The numerator uses the **difference of squares**: $(a-b)(a+b) = a^2 - b^2$:
+
+$$= \lim_{x \to 0} \frac{(x+4) - 4}{x(\sqrt{x+4} + 2)} = \lim_{x \to 0} \frac{x}{x(\sqrt{x+4} + 2)} = \lim_{x \to 0} \frac{1}{\sqrt{x+4} + 2} = \frac{1}{4}$$
 
 **Trick 3: Divide by highest power**
 
