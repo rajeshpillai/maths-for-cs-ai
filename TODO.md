@@ -40,12 +40,12 @@
 - [x] 05 — Prime numbers, GCD, LCM (Euclidean algorithm)
 
 ### Tier 1 — Discrete Mathematics
-- [ ] 01 — Logic: propositions, truth tables, Boolean algebra
-- [ ] 02 — Set theory: unions, intersections, power sets, Cartesian products
-- [ ] 03 — Relations and functions (injective, surjective, bijective)
-- [ ] 04 — Combinatorics: permutations, combinations, pigeonhole principle
-- [ ] 05 — Graph theory basics: vertices, edges, paths, trees
-- [ ] 06 — Proof techniques: induction, contradiction, contrapositive
+- [x] 01 — Logic: propositions, truth tables, Boolean algebra
+- [x] 02 — Set theory: unions, intersections, power sets, Cartesian products
+- [x] 03 — Relations and functions (injective, surjective, bijective)
+- [x] 04 — Combinatorics: permutations, combinations, pigeonhole principle
+- [x] 05 — Graph theory basics: vertices, edges, paths, trees
+- [x] 06 — Proof techniques: induction, contradiction, contrapositive
 
 ### Tier 2 — Linear Algebra
 - [ ] 01 — Scalars, vectors, matrices, tensors
