@@ -1,13 +1,44 @@
 /* Layout */
 .app-layout {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
 }
 
-/* Sidebar */
+/* Theme toggle — top right corner of main content */
+.theme-toggle {
+  position: fixed;
+  top: 0.75rem;
+  right: 1rem;
+  z-index: 100;
+}
+
+.theme-toggle button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.4rem;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 34px;
+  height: 34px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.theme-toggle button:hover {
+  border-color: var(--accent);
+}
+
+/* Sidebar — fixed, scrolls independently */
 .sidebar {
   width: var(--sidebar-width);
   min-width: var(--sidebar-width);
+  height: 100vh;
+  position: sticky;
+  top: 0;
   background: var(--bg-sidebar);
   color: var(--text-sidebar);
   padding: 1.5rem 0;
@@ -95,15 +126,17 @@
   background: rgba(137, 180, 250, 0.15);
   color: var(--accent);
   border-left: 3px solid var(--accent);
-  padding-left: calc(1.75rem - 3px);
+  padding-left: calc(1.5rem - 3px);
 }
 
-/* Main content */
+/* Main content — uses browser scroll */
 .main-content {
   flex: 1;
-  overflow-y: auto;
   padding: 2rem 3rem;
   max-width: 900px;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
 }
 
 /* Home page */
@@ -231,7 +264,7 @@
   border-left: 3px solid var(--accent);
   padding: 0.5rem 1rem;
   margin: 1rem 0;
-  background: rgba(137, 180, 250, 0.06);
+  background: var(--card-bg);
   color: var(--text-muted);
 }
 
@@ -249,6 +282,7 @@
 .lesson-content code {
   font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
   font-size: 0.88em;
+  color: var(--text);
 }
 
 .lesson-content p code,
@@ -275,6 +309,20 @@
   font-weight: 600;
 }
 
+.lesson-content a {
+  color: var(--accent);
+}
+
+.lesson-content strong {
+  color: var(--text);
+}
+
+.lesson-content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
 /* KaTeX overrides */
 .katex-display {
   margin: 1.5rem 0;
@@ -283,6 +331,11 @@
 
 .katex-error {
   color: #e64553;
+}
+
+/* KaTeX colour fix for dark mode */
+[data-theme="dark"] .katex {
+  color: var(--text);
 }
 
 /* Prerequisite links */
@@ -309,7 +362,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #e8e8e8;
+  background: var(--code-header-bg);
   padding: 0.35rem 0.75rem;
   border-bottom: 1px solid var(--border);
 }
@@ -330,7 +383,7 @@
 
 .run-btn {
   background: #2d8c4e;
-  color: white;
+  color: #fff;
   border: none;
   padding: 0.3rem 1rem;
   border-radius: 4px;
@@ -350,8 +403,8 @@
 }
 
 .reset-btn {
-  background: #6c7086;
-  color: white;
+  background: var(--text-muted);
+  color: #fff;
   border: none;
   padding: 0.3rem 0.75rem;
   border-radius: 4px;
@@ -362,7 +415,7 @@
 }
 
 .reset-btn:hover {
-  background: #585b6e;
+  opacity: 0.85;
 }
 
 /* CodeMirror wrapper */
@@ -398,12 +451,12 @@
 .code-output {
   margin: 0;
   padding: 0.75rem 1rem;
-  background: #f8f8f0;
-  color: #1e1e2e;
+  background: var(--output-bg);
+  color: var(--output-text);
   font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
   font-size: 0.88rem;
   line-height: 1.6;
-  border-top: 2px solid #ccc;
+  border-top: 2px solid var(--border);
   white-space: pre-wrap;
   overflow-x: auto;
   max-height: 300px;
@@ -411,8 +464,8 @@
 }
 
 .code-output.error-output {
-  color: #d32f2f;
-  background: #fff5f5;
+  color: var(--output-error-text);
+  background: var(--output-error-bg);
 }
 
 .loading, .error {
@@ -456,7 +509,7 @@
 
 .lesson-nav a:hover {
   border-color: var(--accent);
-  background: rgba(137, 180, 250, 0.06);
+  background: var(--card-bg);
 }
 
 .nav-direction {
@@ -513,64 +566,6 @@
   text-align: center;
 }
 
-/* Dark/light theme toggle */
-.theme-toggle {
-  padding: 0.5rem 1.25rem;
-  margin-bottom: 0.5rem;
-}
-
-.theme-toggle button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: none;
-  border: 1px solid rgba(255,255,255,0.15);
-  color: var(--text-sidebar);
-  padding: 0.4rem;
-  border-radius: 6px;
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-}
-
-.theme-toggle button:hover {
-  background: rgba(255,255,255,0.06);
-}
-
-/* Dark theme */
-[data-theme="dark"] {
-  --bg: #1e1e2e;
-  --text: #cdd6f4;
-  --text-muted: #6c7086;
-  --border: #313244;
-  --card-bg: #2a2a3c;
-  --code-bg: #1e1e2e;
-}
-
-[data-theme="dark"] .code-output {
-  background: #11111b;
-  color: #cdd6f4;
-}
-
-[data-theme="dark"] .code-output.error-output {
-  color: #f38ba8;
-  background: #1e1020;
-}
-
-[data-theme="dark"] .code-runner-header {
-  background: #313244;
-}
-
-[data-theme="dark"] .complete-btn {
-  background: var(--card-bg);
-  color: var(--text);
-}
-
-[data-theme="dark"] .complete-btn.completed {
-  background: #a6e3a1;
-  color: #1e1e2e;
-}
-
 /* Responsive layout */
 @media (max-width: 768px) {
   .app-layout {
@@ -602,5 +597,10 @@
 
   .home h1 {
     font-size: 1.5rem;
+  }
+
+  .theme-toggle {
+    top: 0.5rem;
+    right: 0.5rem;
   }
 }
