@@ -57,7 +57,15 @@ $\mathbf{A}^{-1} = \frac{1}{2}(\mathbf{A} - 5\mathbf{I}) = \frac{1}{2}\begin{pma
 
 Since $\mathbf{A}^2 = 5\mathbf{A} + 2\mathbf{I}$:
 
-$\mathbf{A}^3 = \mathbf{A} \cdot \mathbf{A}^2 = \mathbf{A}(5\mathbf{A} + 2\mathbf{I}) = 5\mathbf{A}^2 + 2\mathbf{A} = 5(5\mathbf{A}+2\mathbf{I}) + 2\mathbf{A} = 27\mathbf{A} + 10\mathbf{I}$
+$\mathbf{A}^3 = \mathbf{A} \cdot \mathbf{A}^2$
+
+Substitute $\mathbf{A}^2 = 5\mathbf{A} + 2\mathbf{I}$:
+
+$= \mathbf{A}(5\mathbf{A} + 2\mathbf{I}) = 5\mathbf{A}^2 + 2\mathbf{A}$
+
+Substitute $\mathbf{A}^2$ again:
+
+$= 5(5\mathbf{A} + 2\mathbf{I}) + 2\mathbf{A} = 25\mathbf{A} + 10\mathbf{I} + 2\mathbf{A} = 27\mathbf{A} + 10\mathbf{I}$
 
 ### Matrix exponential
 

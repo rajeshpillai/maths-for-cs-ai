@@ -18,7 +18,7 @@ skills that all higher maths assumes you have.
 
 **Single bracket:** $3(2x + 5) = 6x + 15$
 
-**Double brackets (FOIL):**
+**Double brackets (FOIL — First, Outer, Inner, Last):**
 
 $(x + 3)(x + 5) = x^2 + 5x + 3x + 15 = x^2 + 8x + 15$
 

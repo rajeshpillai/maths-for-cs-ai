@@ -72,15 +72,31 @@ Weight $W = 100$ N downward.
 
 At the junction, equilibrium gives:
 
-$T_1\cos 30° = T_2\cos 60°$ → $T_1\frac{\sqrt{3}}{2} = T_2\frac{1}{2}$ → $T_1 = \frac{T_2}{\sqrt{3}}$
+**Horizontal equilibrium** ($\sum F_x = 0$):
 
-$T_1\sin 30° + T_2\sin 60° = 100$ → $\frac{T_2}{2\sqrt{3}} + \frac{T_2\sqrt{3}}{2} = 100$
+$T_1\cos 30° = T_2\cos 60°$
 
-$T_2\left(\frac{1}{2\sqrt{3}} + \frac{\sqrt{3}}{2}\right) = 100$
+$T_1 \times \frac{\sqrt{3}}{2} = T_2 \times \frac{1}{2}$
 
-$T_2 \times \frac{1 + 3}{2\sqrt{3}} = 100$ → $T_2 = \frac{200\sqrt{3}}{4} = 50\sqrt{3} \approx 86.6$ N
+Solve for $T_1$: $T_1 = \frac{T_2}{\sqrt{3}}$ ... (equation 1)
 
-$T_1 = 50$ N
+**Vertical equilibrium** ($\sum F_y = 0$):
+
+$T_1\sin 30° + T_2\sin 60° = 100$
+
+Substitute equation 1 ($T_1 = T_2/\sqrt{3}$):
+
+$\frac{T_2}{\sqrt{3}} \times \frac{1}{2} + T_2 \times \frac{\sqrt{3}}{2} = 100$
+
+$\frac{T_2}{2\sqrt{3}} + \frac{T_2\sqrt{3}}{2} = 100$
+
+Factor out $T_2$ and find a common denominator ($2\sqrt{3}$):
+
+$T_2 \times \frac{1 + 3}{2\sqrt{3}} = 100$ (since $\frac{\sqrt{3}}{2} = \frac{3}{2\sqrt{3}}$, so numerators add: $1 + 3 = 4$)
+
+$T_2 = \frac{100 \times 2\sqrt{3}}{4} = 50\sqrt{3} \approx 86.6$ N
+
+Back-substitute: $T_1 = \frac{50\sqrt{3}}{\sqrt{3}} = 50$ N
 
 ## Python Verification
 
@@ -140,3 +156,4 @@ print(f"  Check: ΣFx = {check_x:.6f}, ΣFy = {check_y:.6f}")
 1. **Pen & paper:** Forces of 5N, 8N, and 10N act at angles 0°, 120°, and 240°. Find the resultant.
 2. **Pen & paper:** An object of mass 2kg sits on a slope of angle 20°, $\mu = 0.5$.  Does it slide?
 3. **Pen & paper:** A 50N weight hangs from two equal strings, each at 45° to the vertical.  Find the tension.
+4. **Think about it:** Why must both $\sum F_x = 0$ AND $\sum F_y = 0$ for equilibrium?  Could an object be in equilibrium if only one of these is zero?

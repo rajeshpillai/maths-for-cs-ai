@@ -145,7 +145,7 @@ for k in range(5):
 
 ## Connection to CS / Games / AI
 
-- **FFT** — the DFT uses roots of unity: $W_N = e^{-i2\pi/N}$ (Tier 9-04)
+- **Fourier transforms** — the Discrete Fourier Transform (DFT) uses roots of unity: $W_N = e^{-i2\pi/N}$, and the Fast Fourier Transform (FFT) exploits their symmetry (Tier 9-04)
 - **Signal processing** — complex exponentials represent oscillations with amplitude and phase
 - **Quantum computing** — quantum states are complex vectors; gates are unitary matrices
 - **Control theory** — stability analysis uses complex eigenvalues (poles and zeros)
