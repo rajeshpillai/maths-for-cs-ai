@@ -34,10 +34,10 @@
 
 ### Tier 0 — Number Systems & Arithmetic
 - [x] 01 — Number systems (N, Z, Q, R, C)
-- [ ] 02 — Number bases: binary, hex
-- [ ] 03 — Floating-point representation (IEEE 754)
-- [ ] 04 — Modular arithmetic & clock arithmetic
-- [ ] 05 — Prime numbers, GCD, LCM (Euclidean algorithm)
+- [x] 02 — Number bases: binary, hex
+- [x] 03 — Floating-point representation (IEEE 754)
+- [x] 04 — Modular arithmetic & clock arithmetic
+- [x] 05 — Prime numbers, GCD, LCM (Euclidean algorithm)
 
 ### Tier 1 — Discrete Mathematics
 - [ ] 01 — Logic: propositions, truth tables, Boolean algebra
