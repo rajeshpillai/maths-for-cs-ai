@@ -27,6 +27,14 @@
   margin-bottom: 0.75rem;
 }
 
+.sidebar-progress {
+  padding: 0 1.25rem 0.75rem;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 0.5rem;
+}
+
 .sidebar-tiers {
   flex: 1;
   overflow-y: auto;
@@ -37,6 +45,9 @@
 }
 
 .tier-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 0.4rem 1.25rem;
   font-size: 0.75rem;
   font-weight: 600;
@@ -45,13 +56,31 @@
   color: var(--text-muted);
 }
 
+.tier-progress {
+  font-size: 0.65rem;
+  opacity: 0.7;
+}
+
 .tier-lessons {
   list-style: none;
 }
 
+.lesson-status {
+  display: inline-block;
+  width: 1.1em;
+  margin-right: 0.3rem;
+  font-size: 0.8em;
+  color: var(--text-muted);
+}
+
+.lesson-status.done {
+  color: #a6e3a1;
+}
+
 .tier-lessons li a {
-  display: block;
-  padding: 0.35rem 1.25rem 0.35rem 1.75rem;
+  display: flex;
+  align-items: center;
+  padding: 0.35rem 1.25rem 0.35rem 1.5rem;
   font-size: 0.85rem;
   color: var(--text-sidebar);
   text-decoration: none;
@@ -445,4 +474,130 @@
   font-size: 0.95rem;
   font-weight: 600;
   color: var(--accent);
+}
+
+/* Lesson completion button */
+.lesson-complete {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.complete-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.5rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background: var(--card-bg);
+  color: var(--text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.complete-btn:hover {
+  border-color: var(--accent);
+}
+
+.complete-btn.completed {
+  background: #a6e3a1;
+  border-color: #a6e3a1;
+  color: #1e1e2e;
+}
+
+.complete-check {
+  font-size: 1.1rem;
+  width: 1.2rem;
+  text-align: center;
+}
+
+/* Dark/light theme toggle */
+.theme-toggle {
+  padding: 0.5rem 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.theme-toggle button {
+  background: none;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--text-sidebar);
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.theme-toggle button:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  --bg: #1e1e2e;
+  --text: #cdd6f4;
+  --text-muted: #6c7086;
+  --border: #313244;
+  --card-bg: #2a2a3c;
+  --code-bg: #1e1e2e;
+}
+
+[data-theme="dark"] .code-output {
+  background: #11111b;
+  color: #cdd6f4;
+}
+
+[data-theme="dark"] .code-output.error-output {
+  color: #f38ba8;
+  background: #1e1020;
+}
+
+[data-theme="dark"] .code-runner-header {
+  background: #313244;
+}
+
+[data-theme="dark"] .complete-btn {
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+[data-theme="dark"] .complete-btn.completed {
+  background: #a6e3a1;
+  color: #1e1e2e;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: 100%;
+    max-height: 50vh;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .main-content {
+    padding: 1.5rem 1rem;
+  }
+
+  .tier-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-nav {
+    flex-direction: column;
+  }
+
+  .lesson-nav-next {
+    text-align: left;
+  }
+
+  .home h1 {
+    font-size: 1.5rem;
+  }
 }

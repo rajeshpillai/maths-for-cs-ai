@@ -19,9 +19,9 @@
 - [x] Syntax-highlighted Python code blocks
 - [x] In-browser Python runner (Pyodide) for verification code
 - [x] Prerequisite links: render "Prerequisites" section as clickable links to other lessons
-- [ ] Progress tracking (mark lessons as complete)
-- [ ] Responsive layout / mobile-friendly
-- [ ] Dark/light theme toggle
+- [x] Progress tracking (mark lessons as complete, localStorage persistence)
+- [x] Responsive layout / mobile-friendly
+- [x] Dark/light theme toggle
 
 ## Backend — API
 

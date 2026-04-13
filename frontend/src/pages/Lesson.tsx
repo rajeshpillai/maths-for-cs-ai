@@ -1,8 +1,9 @@
-import { createResource, createEffect, createMemo, Show, onCleanup } from "solid-js";
+import { createResource, createEffect, createMemo, createSignal, Show, onCleanup } from "solid-js";
 import { render } from "solid-js/web";
 import { A, useParams } from "@solidjs/router";
 import { fetchLesson, fetchTiers, type TierInfo } from "../lib/api";
 import { renderMarkdown } from "../lib/markdown";
+import { isCompleted, toggleCompleted } from "../lib/progress";
 import CodeRunner from "../components/CodeRunner";
 
 interface LessonNav {
@@ -27,6 +28,18 @@ export default function Lesson() {
   );
 
   const [tiers] = createResource(fetchTiers);
+
+  const [completed, setCompleted] = createSignal(false);
+
+  // Update completed state when lesson changes
+  createEffect(() => {
+    setCompleted(isCompleted(params.tier, params.slug));
+  });
+
+  function handleToggleComplete() {
+    const newState = toggleCompleted(params.tier, params.slug);
+    setCompleted(newState);
+  }
 
   const nav = createMemo((): LessonNav => {
     const allTiers = tiers();
@@ -135,6 +148,15 @@ export default function Lesson() {
               class="lesson-content"
               innerHTML={renderMarkdown(data().content)}
             />
+            <div class="lesson-complete">
+              <button
+                class={`complete-btn ${completed() ? "completed" : ""}`}
+                onClick={handleToggleComplete}
+              >
+                <span class="complete-check">{completed() ? "\u2713" : ""}</span>
+                {completed() ? "Completed" : "Mark as complete"}
+              </button>
+            </div>
             <nav class="lesson-nav">
               <div class="lesson-nav-prev">
                 <Show when={nav().prev}>
