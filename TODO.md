@@ -62,16 +62,16 @@
 - [x] 12 — Norms: L1, L2, Lp, Frobenius
 
 ### Tier 3 — Calculus & Analysis
-- [ ] 01 — Limits from epsilon-delta definition
-- [ ] 02 — Derivatives: slope of tangent, formal definition, rules
-- [ ] 03 — Partial derivatives and the gradient
-- [ ] 04 — Chain rule (backpropagation foundation)
-- [ ] 05 — Jacobian and Hessian matrices
-- [ ] 06 — Integrals: Riemann sums to definite integral
-- [ ] 07 — Fundamental Theorem of Calculus
-- [ ] 08 — Multivariable integration
-- [ ] 09 — Taylor / Maclaurin series
-- [ ] 10 — Numerical vs symbolic differentiation
+- [x] 01 — Limits from epsilon-delta definition
+- [x] 02 — Derivatives: slope of tangent, formal definition, rules
+- [x] 03 — Partial derivatives and the gradient
+- [x] 04 — Chain rule (backpropagation foundation)
+- [x] 05 — Jacobian and Hessian matrices
+- [x] 06 — Integrals: Riemann sums to definite integral
+- [x] 07 — Fundamental Theorem of Calculus
+- [x] 08 — Multivariable integration
+- [x] 09 — Taylor / Maclaurin series
+- [x] 10 — Numerical vs symbolic vs automatic differentiation
 
 ### Tier 4 — Probability & Statistics
 - [ ] 01 — Sample spaces, events, probability axioms
@@ -161,27 +161,90 @@
 - [ ] Softmax: multi-class output, derivation, temperature parameter
 - [ ] Choosing activation functions: when and why
 
-## Supplementary — AS / A-Level Further Maths Coverage
+## Cambridge Curriculum Integration (Year 8 → IGCSE → AS → A-Level → Further Maths)
 
-Topics from AS/A-Level (and Further Maths) that intersect with CS/AI.
-Many are already covered in tiers above; uncovered ones listed here.
+Mapping to show which tier covers which Cambridge syllabus topic.
+Gaps marked for new lessons to be added.
 
-### Pure Mathematics (gaps to fill)
+### Year 8–9 / IGCSE Foundation (ages 13–16)
+Already covered:
+- [x] Number types, HCF/LCM, primes → Tier 0
+- [x] Binary, hex → Tier 0-02
+- [x] Basic logic, sets, Venn diagrams → Tier 1-01, 1-02
+- [x] Coordinates, plotting → embedded in examples
+- [x] Ratio, proportion → Tier 0 examples
+- [x] Basic probability → Tier 4 (when written)
+
+Gaps to add:
 - [ ] Surds, indices, and logarithm laws (pre-calc foundations)
+- [ ] Algebraic manipulation: expanding, factorising, completing the square
+- [ ] Linear & quadratic equations and inequalities
+- [ ] Graphs of functions: linear, quadratic, cubic, reciprocal
+- [ ] Simultaneous equations (2 unknowns, pen & paper)
+- [ ] Ratio, proportion, and rates of change
+- [ ] Pythagoras and basic trigonometry (SOH-CAH-TOA)
+- [ ] Basic statistics: mean, median, mode, standard deviation, box plots
+
+### IGCSE Extended / Additional Maths (ages 15–16)
+Already covered:
+- [x] Functions: domain, range, inverse, composite → Tier 1-03
+- [x] Permutations & combinations → Tier 1-04
+
+Gaps to add:
 - [ ] Polynomial division, factor theorem, remainder theorem
-- [ ] Sequences and series: arithmetic, geometric, convergence tests
-- [ ] Binomial expansion for rational/negative powers
-- [ ] Trigonometric identities: double angle, addition, R-formula
+- [ ] Exponential and logarithmic functions
+- [ ] Trigonometric functions and identities (basic)
+- [ ] Coordinate geometry: distance, midpoint, equation of a line/circle
+- [ ] Differentiation: basic rules (power, chain), tangent/normal
+- [ ] Integration: basic rules, definite integrals, area under curves
+
+### AS-Level Mathematics (ages 16–17)
+Already covered:
+- [x] Proof techniques → Tier 1-06
+- [x] Vectors → Tier 2-01, 2-02
+- [x] Differentiation rules → Tier 3-02
+- [x] Integration → Tier 3-06, 3-07
+- [x] Matrices basics → Tier 2-01, 2-04
+
+Gaps to add:
+- [ ] Sequences and series: arithmetic, geometric, sigma notation, convergence
+- [ ] Binomial expansion (positive integer + rational powers)
+- [ ] Trigonometric identities: double angle, addition formulae, R-formula
 - [ ] Parametric equations and implicit differentiation
+- [ ] Numerical methods: iteration, Newton-Raphson, trapezium rule
+- [ ] Statistical distributions: binomial, normal (link to Tier 4)
+- [ ] Hypothesis testing basics: z-test, t-test
+- [ ] Kinematics: SUVAT equations, velocity-time graphs
+
+### A-Level Mathematics (ages 17–18)
+Already covered:
+- [x] Partial fractions → embedded in integration
+- [x] Taylor/Maclaurin series → Tier 3-09
+- [x] Partial derivatives → Tier 3-03
+
+Gaps to add:
 - [ ] Differential equations: separable, first-order linear, second-order
-- [ ] Complex numbers: Argand diagram, modulus-argument form, De Moivre's theorem
+- [ ] Further integration techniques: by parts, partial fractions, trig substitution
+- [ ] Regression and correlation coefficients (R² derivation)
+- [ ] Conditional probability and Bayes' theorem (link to Tier 4)
+- [ ] Normal distribution: z-scores, confidence intervals
+- [ ] Moments, forces, and equilibrium (game physics foundations)
+- [ ] Projectile motion and kinematics (game dev physics)
+
+### Further Mathematics (A-Level, ages 17–18)
+Already covered:
+- [x] Complex numbers basics → Tier 0-01
+- [x] Eigenvalues/eigenvectors → Tier 2-09
+- [x] Determinants → Tier 2-07
+- [x] Linear transformations → Tier 2-05
+- [x] Proof by induction → Tier 1-06
+
+Gaps to add:
+- [ ] Complex numbers: Argand diagram, modulus-argument form, De Moivre's theorem, roots of unity
 - [ ] Polar coordinates and curves
 - [ ] Hyperbolic functions: sinh, cosh, tanh and their inverses
 - [ ] Matrices: Cayley-Hamilton theorem, matrix exponential
-
-### Statistics & Mechanics (gaps to fill)
-- [ ] Hypothesis testing: z-test, t-test, chi-squared
-- [ ] Regression and correlation coefficients (R² derivation)
-- [ ] Moments, forces, and equilibrium (game physics foundations)
-- [ ] Projectile motion and kinematics (game dev physics)
+- [ ] Further vectors: lines & planes in 3D, scalar/vector product applications
+- [ ] Further differential equations: second-order, SHM, coupled systems
+- [ ] Conic sections: ellipse, hyperbola, parabola (link to graph shapes)
 - [ ] Simple harmonic motion (oscillations, springs in simulations)
