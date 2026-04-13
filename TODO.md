@@ -185,13 +185,15 @@ Now covered in supplementary sections:
 - [x] Regression and R² → Applied 07
 - [x] Conic sections → Supplementary Graphs 03
 
-Remaining gaps (lower priority):
-- [ ] Pythagoras and basic SOH-CAH-TOA (partially in Tier 8-02/03)
-- [ ] Basic statistics: mean, median, mode, box plots
-- [ ] Polynomial division, factor/remainder theorem
-- [ ] Parametric equations and implicit differentiation
+Now also covered:
+- [x] Pythagoras and SOH-CAH-TOA → Tier 8-02, 8-03
+- [x] Basic statistics: mean, median, mode, box plots → Foundations 07
+- [x] Polynomial division, factor/remainder theorem → Foundations 08
+- [x] Parametric equations and implicit differentiation → Foundations 09
+- [x] Polar coordinates and curves → Foundations 10
+- [x] Hyperbolic functions: sinh, cosh, tanh → Foundations 11
+
+Remaining (skipped — very niche):
 - [ ] Numerical methods: trapezium rule
-- [ ] Polar coordinates and curves
-- [ ] Hyperbolic functions: sinh, cosh, tanh
 - [ ] Cayley-Hamilton theorem, matrix exponential
 - [ ] Further vectors: lines & planes in 3D
