@@ -193,7 +193,9 @@ Now also covered:
 - [x] Polar coordinates and curves → Foundations 10
 - [x] Hyperbolic functions: sinh, cosh, tanh → Foundations 11
 
-Remaining (skipped — very niche):
-- [ ] Numerical methods: trapezium rule
-- [ ] Cayley-Hamilton theorem, matrix exponential
-- [ ] Further vectors: lines & planes in 3D
+Final three — now also covered:
+- [x] Numerical methods: trapezium rule, Simpson's rule → Applied 08
+- [x] Cayley-Hamilton theorem, matrix exponential → Foundations 12
+- [x] Further vectors: lines & planes in 3D → Foundations 13
+
+ALL CAMBRIDGE CURRICULUM GAPS CLOSED. 111 lessons total.
