@@ -1,4 +1,11 @@
-const API_BASE = import.meta.env.VITE_API_URL ?? "http://localhost:8000";
+// API client — works with both static JSON files and FastAPI backend.
+// Static mode: fetches from /api/tiers.json, /api/tiers/{tier}/{slug}.json
+// Backend mode: fetches from http://localhost:8000/api/tiers, etc.
+//
+// Set VITE_API_URL to use backend mode. Unset (default) = static mode.
+
+const API_BASE = import.meta.env.VITE_API_URL ?? "";
+const IS_STATIC = !API_BASE;
 
 export interface TierInfo {
   tier: string;
@@ -11,21 +18,6 @@ export interface LessonContent {
   slug: string;
   filename: string;
   content: string;
-}
-
-export async function fetchTiers(): Promise<TierInfo[]> {
-  const res = await fetch(`${API_BASE}/api/tiers`);
-  if (!res.ok) throw new Error("Failed to fetch tiers");
-  return res.json();
-}
-
-export async function fetchLesson(
-  tier: string,
-  slug: string
-): Promise<LessonContent> {
-  const res = await fetch(`${API_BASE}/api/tiers/${tier}/${slug}`);
-  if (!res.ok) throw new Error("Lesson not found");
-  return res.json();
 }
 
 export interface Prerequisite {
@@ -43,11 +35,35 @@ export interface LessonMeta {
   sections: string[];
 }
 
+export async function fetchTiers(): Promise<TierInfo[]> {
+  const url = IS_STATIC
+    ? `/api/tiers.json`
+    : `${API_BASE}/api/tiers`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error("Failed to fetch tiers");
+  return res.json();
+}
+
+export async function fetchLesson(
+  tier: string,
+  slug: string
+): Promise<LessonContent> {
+  const url = IS_STATIC
+    ? `/api/tiers/${tier}/${slug}.json`
+    : `${API_BASE}/api/tiers/${tier}/${slug}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error("Lesson not found");
+  return res.json();
+}
+
 export async function fetchLessonMeta(
   tier: string,
   slug: string
 ): Promise<LessonMeta> {
-  const res = await fetch(`${API_BASE}/api/tiers/${tier}/${slug}/meta`);
+  const url = IS_STATIC
+    ? `/api/tiers/${tier}/${slug}.meta.json`
+    : `${API_BASE}/api/tiers/${tier}/${slug}/meta`;
+  const res = await fetch(url);
   if (!res.ok) throw new Error("Metadata not found");
   return res.json();
 }

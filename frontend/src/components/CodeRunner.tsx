@@ -65,7 +65,7 @@ export default function CodeRunner(props: CodeRunnerProps) {
       </div>
       {(() => {
         // Keyed re-render to reset editor content
-        const _key = editorKey();
+        void editorKey();
         return (
           <CodeEditor
             initialCode={currentCode()}

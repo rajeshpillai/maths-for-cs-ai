@@ -51,12 +51,9 @@ function linkPrerequisites(md: string): string {
   //   "Tier 9, Lessons 1–5"
   return md.replace(
     /Tier (\d+),\s*Lesson\s+(\d+)(?::\s*([^\n(]*))?/g,
-    (match, tier, lesson, title) => {
+    (match, tier, lesson, _title) => {
       const tierStr = `tier-${tier}`;
       const lessonNum = lesson.padStart(2, "0");
-      // We don't know the exact slug, but the sidebar will have it.
-      // Link to the tier/lesson pattern — the Lesson page will resolve it.
-      const label = title ? title.trim() : match;
       return `<a href="/lesson/${tierStr}/${lessonNum}" class="prereq-link" data-tier="${tierStr}" data-lesson="${lessonNum}">${match.trim()}</a>`;
     }
   );
