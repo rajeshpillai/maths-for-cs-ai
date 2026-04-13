@@ -1,7 +1,7 @@
 import { createResource, createEffect, createMemo, createSignal, Show, onCleanup } from "solid-js";
 import { render } from "solid-js/web";
 import { A, useParams } from "@solidjs/router";
-import { fetchLesson, fetchTiers, type TierInfo } from "../lib/api";
+import { fetchLesson, fetchLessonMeta, fetchTiers } from "../lib/api";
 import { renderMarkdown } from "../lib/markdown";
 import { isCompleted, toggleCompleted } from "../lib/progress";
 import CodeRunner from "../components/CodeRunner";
@@ -12,9 +12,9 @@ interface LessonNav {
 }
 
 function formatLabel(tier: string, slug: string): string {
-  const tierNum = tier.replace("tier-", "T");
+  const tierNum = tier.startsWith("tier-") ? `T${tier.replace("tier-", "")}` : "";
   const name = slug.replace(/^\d+-/, "").split("-").map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
-  return `${tierNum}: ${name}`;
+  return tierNum ? `${tierNum}: ${name}` : name;
 }
 
 export default function Lesson() {
@@ -27,11 +27,15 @@ export default function Lesson() {
     ({ tier, slug }) => fetchLesson(tier, slug)
   );
 
+  const [meta] = createResource(
+    () => ({ tier: params.tier, slug: params.slug }),
+    ({ tier, slug }) => fetchLessonMeta(tier, slug)
+  );
+
   const [tiers] = createResource(fetchTiers);
 
   const [completed, setCompleted] = createSignal(false);
 
-  // Update completed state when lesson changes
   createEffect(() => {
     setCompleted(isCompleted(params.tier, params.slug));
   });
@@ -45,7 +49,6 @@ export default function Lesson() {
     const allTiers = tiers();
     if (!allTiers) return { prev: null, next: null };
 
-    // Build flat list of all lessons across all tiers
     const flat: { tier: string; slug: string }[] = [];
     for (const t of allTiers) {
       for (const l of t.lessons) {
@@ -93,17 +96,14 @@ export default function Lesson() {
 
   function resolvePrereqLinks() {
     if (!containerRef) return;
-    const allTiers = tiers();
-    if (!allTiers) return;
+    const m = meta();
+    if (!m) return;
 
-    // Build a lookup: "tier-X/0Y" → "tier-X/0Y-full-slug"
-    const slugLookup = new Map<string, string>();
-    for (const t of allTiers) {
-      for (const l of t.lessons) {
-        // l is like "01-number-systems"
-        const num = l.match(/^(\d+)/)?.[1] ?? "";
-        slugLookup.set(`${t.tier}/${num}`, `${t.tier}/${l}`);
-        slugLookup.set(`${t.tier}/${num.padStart(2, "0")}`, `${t.tier}/${l}`);
+    // Build lookup from metadata prereqs
+    const resolved = new Map<string, string>();
+    for (const p of m.prerequisites) {
+      if (p.slug) {
+        resolved.set(`${p.tier}/${p.lesson_num}`, `${p.tier}/${p.slug}`);
       }
     }
 
@@ -112,9 +112,9 @@ export default function Lesson() {
       const tier = link.getAttribute("data-tier") ?? "";
       const lessonNum = link.getAttribute("data-lesson") ?? "";
       const key = `${tier}/${lessonNum}`;
-      const resolved = slugLookup.get(key);
-      if (resolved) {
-        link.setAttribute("href", `/lesson/${resolved}`);
+      const slug = resolved.get(key);
+      if (slug) {
+        link.setAttribute("href", `/lesson/${slug}`);
       }
     });
   }
@@ -123,6 +123,14 @@ export default function Lesson() {
     if (lesson()) {
       requestAnimationFrame(() => {
         mountCodeRunners();
+      });
+    }
+  });
+
+  // Resolve prereq links once both lesson content and metadata are available
+  createEffect(() => {
+    if (lesson() && meta()) {
+      requestAnimationFrame(() => {
         resolvePrereqLinks();
       });
     }

@@ -1,3 +1,4 @@
+import re
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
@@ -27,6 +28,85 @@ class LessonContent(BaseModel):
     slug: str
     filename: str
     content: str
+
+
+class Prerequisite(BaseModel):
+    tier: str
+    lesson_num: str
+    description: str
+    slug: str | None = None  # resolved slug if found
+
+
+class LessonMeta(BaseModel):
+    tier: str
+    slug: str
+    title: str
+    prerequisites: list[Prerequisite]
+    sections: list[str]
+
+
+def _parse_meta(tier: str, slug: str, content: str) -> LessonMeta:
+    """Extract metadata from lesson markdown."""
+    lines = content.split("\n")
+
+    # Title: first H1
+    title = slug
+    for line in lines:
+        if line.startswith("# "):
+            title = line[2:].strip()
+            break
+
+    # Prerequisites: between "## Prerequisites" and next "##"
+    prereqs: list[Prerequisite] = []
+    in_prereqs = False
+    prereq_re = re.compile(
+        r"Tier\s+(\d+),\s*Lesson\s+(\d+)(?::\s*(.+))?"
+    )
+    for line in lines:
+        if line.strip().startswith("## Prerequisites"):
+            in_prereqs = True
+            continue
+        if in_prereqs and line.startswith("## "):
+            break
+        if in_prereqs and line.strip().startswith("- "):
+            m = prereq_re.search(line)
+            if m:
+                tier_num, lesson_num, desc = m.group(1), m.group(2), m.group(3)
+                prereq_tier = f"tier-{tier_num}"
+                # Try to resolve slug
+                resolved_slug = _resolve_slug(prereq_tier, lesson_num)
+                prereqs.append(Prerequisite(
+                    tier=prereq_tier,
+                    lesson_num=lesson_num.zfill(2),
+                    description=desc.strip() if desc else "",
+                    slug=resolved_slug,
+                ))
+
+    # Sections: all H2 headings
+    sections = [
+        line[3:].strip()
+        for line in lines
+        if line.startswith("## ")
+    ]
+
+    return LessonMeta(
+        tier=tier,
+        slug=slug,
+        title=title,
+        prerequisites=prereqs,
+        sections=sections,
+    )
+
+
+def _resolve_slug(tier: str, lesson_num: str) -> str | None:
+    """Find the full slug for a lesson number within a tier."""
+    tier_dir = TUTORIALS_DIR / tier
+    if not tier_dir.is_dir():
+        return None
+    prefix = lesson_num.zfill(2)
+    for f in tier_dir.glob(f"{prefix}-*.md"):
+        return f.stem
+    return None
 
 
 @app.get("/api/tiers", response_model=list[TierInfo])
@@ -68,6 +148,15 @@ def get_lesson(tier: str, slug: str):
         filename=md_path.name,
         content=md_path.read_text(),
     )
+
+
+@app.get("/api/tiers/{tier}/{slug}/meta", response_model=LessonMeta)
+def get_lesson_meta(tier: str, slug: str):
+    """Return structured metadata for a lesson (title, prerequisites, sections)."""
+    md_path = TUTORIALS_DIR / tier / f"{slug}.md"
+    if not md_path.is_file():
+        raise HTTPException(status_code=404, detail="Lesson not found")
+    return _parse_meta(tier, slug, md_path.read_text())
 
 
 if __name__ == "__main__":

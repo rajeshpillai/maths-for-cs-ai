@@ -27,3 +27,27 @@ export async function fetchLesson(
   if (!res.ok) throw new Error("Lesson not found");
   return res.json();
 }
+
+export interface Prerequisite {
+  tier: string;
+  lesson_num: string;
+  description: string;
+  slug: string | null;
+}
+
+export interface LessonMeta {
+  tier: string;
+  slug: string;
+  title: string;
+  prerequisites: Prerequisite[];
+  sections: string[];
+}
+
+export async function fetchLessonMeta(
+  tier: string,
+  slug: string
+): Promise<LessonMeta> {
+  const res = await fetch(`${API_BASE}/api/tiers/${tier}/${slug}/meta`);
+  if (!res.ok) throw new Error("Metadata not found");
+  return res.json();
+}

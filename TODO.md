@@ -27,7 +27,7 @@
 
 - [x] GET /api/tiers — list all tiers and lessons
 - [x] GET /api/tiers/{tier}/{slug} — return lesson markdown
-- [ ] GET /api/tiers/{tier}/{slug}/meta — lesson metadata (title, prereqs)
+- [x] GET /api/tiers/{tier}/{slug}/meta — lesson metadata (title, prereqs, sections)
 - [ ] POST /api/progress — save lesson completion status
 - [ ] POST /api/run — server-side Python code execution (optional)
 
