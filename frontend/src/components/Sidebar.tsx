@@ -15,6 +15,8 @@ const TIER_LABELS: Record<string, string> = {
   "tier-8": "Geometry & Trig (Game Dev)",
   "tier-9": "Signals & Fourier",
   "tier-10": "Advanced Topics",
+  "supplementary-graphs": "Graph Shapes & Curves",
+  "supplementary-activations": "Activation Functions",
 };
 
 function formatLessonName(slug: string): string {
@@ -97,7 +99,10 @@ export default function Sidebar() {
               <div class="sidebar-tier">
                 <div class="tier-label">
                   <span>
-                    {tier.tier.replace("tier-", "T")}: {TIER_LABELS[tier.tier] ?? tier.title}
+                    {tier.tier.startsWith("tier-")
+                      ? `T${tier.tier.replace("tier-", "")}: `
+                      : ""}
+                    {TIER_LABELS[tier.tier] ?? tier.title}
                   </span>
                   {tier.lessons.length > 0 && (
                     <span class="tier-progress">

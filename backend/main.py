@@ -33,15 +33,22 @@ class LessonContent(BaseModel):
 def list_tiers():
     """Return every tier that has at least one .md file."""
     tiers: list[TierInfo] = []
-    def tier_sort_key(p: Path) -> int:
-        """Extract numeric tier index for natural sorting (tier-2 before tier-10)."""
-        try:
-            return int(p.name.split("-", 1)[1])
-        except (IndexError, ValueError):
-            return 999
+    def tier_sort_key(p: Path) -> tuple[int, int]:
+        """Sort tiers numerically, supplementary sections after main tiers."""
+        name = p.name
+        if name.startswith("tier-"):
+            try:
+                return (0, int(name.split("-", 1)[1]))
+            except (IndexError, ValueError):
+                return (0, 999)
+        elif name.startswith("supplementary-"):
+            return (1, hash(name) % 1000)
+        return (2, 0)
 
     for tier_dir in sorted(TUTORIALS_DIR.iterdir(), key=tier_sort_key):
-        if not tier_dir.is_dir() or not tier_dir.name.startswith("tier-"):
+        if not tier_dir.is_dir():
+            continue
+        if not (tier_dir.name.startswith("tier-") or tier_dir.name.startswith("supplementary-")):
             continue
         lessons = sorted(f.stem for f in tier_dir.glob("*.md"))
         title = tier_dir.name.replace("-", " ").title()

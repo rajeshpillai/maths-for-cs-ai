@@ -14,6 +14,8 @@ const TIER_DESCRIPTIONS: Record<string, string> = {
   "tier-8": "Unit circle, trig, rotation matrices, quaternions, projections, Bezier curves, ray intersection",
   "tier-9": "Fourier series/transform, DFT, FFT, convolution theorem, image/audio applications",
   "tier-10": "GNNs, Transformers, RNNs, Markov chains, Monte Carlo, automatic differentiation",
+  "supplementary-graphs": "Linear, quadratic, cubic, exponential, logarithmic, conic sections, bell curve, sigmoid, ReLU, power laws",
+  "supplementary-activations": "Sigmoid, tanh, ReLU, Leaky ReLU, ELU, GELU, Swish, softmax — full derivations and comparison",
 };
 
 export default function Home() {

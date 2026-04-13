@@ -139,28 +139,19 @@
 - [x] 06 — Numerical linear algebra: iterative solvers, sparse matrices
 - [x] 07 — Automatic differentiation: forward vs reverse mode (dual numbers, tape)
 
-## Supplementary — Graph Shapes & Curve Types (to arrange into tiers)
+## Supplementary — Graph Shapes & Curve Types
 
-- [ ] Types of graphs/curves: linear, quadratic, cubic, exponential, logarithmic
-- [ ] Parabola: vertex form, focus, directrix, real-world applications
-- [ ] Hyperbola: asymptotes, conic sections
-- [ ] Ellipse: foci, eccentricity, orbits
-- [ ] Bell curve (Gaussian): link to normal distribution, central limit theorem
-- [ ] S-curve (sigmoid/logistic): growth models, logistic regression, activation
-- [ ] Exponential growth & decay: compound interest, radioactive decay, learning rates
-- [ ] Power laws and log-log plots
-- [ ] Step functions, piecewise functions, and ReLU family
+- [x] 01 — Linear, quadratic, cubic (vertex form, discriminant, turning points)
+- [x] 02 — Exponential and logarithmic (growth/decay, log laws, change of base)
+- [x] 03 — Conic sections (parabola, ellipse, hyperbola, eccentricity)
+- [x] 04 — Bell curve, sigmoid, step function, ReLU family (shape comparison)
+- [x] 05 — Power laws, log plots, exponential growth & decay (Zipf, compound interest)
 
 ## Supplementary — Activation Functions (detailed maths)
 
-- [ ] Sigmoid: derivation, derivative, vanishing gradient problem
-- [ ] Tanh: relationship to sigmoid, derivative, advantages
-- [ ] ReLU: definition, derivative, dying ReLU problem
-- [ ] Leaky ReLU & Parametric ReLU
-- [ ] GELU: Gaussian Error Linear Unit (used in Transformers)
-- [ ] Swish / SiLU: self-gated activation
-- [ ] Softmax: multi-class output, derivation, temperature parameter
-- [ ] Choosing activation functions: when and why
+- [x] 01 — Complete deep dive: sigmoid, tanh, ReLU, Leaky ReLU, ELU, GELU,
+      Swish, softmax — all derivations, derivatives, gradient analysis,
+      temperature parameter, and selection guide
 
 ## Cambridge Curriculum Integration (Year 8 → IGCSE → AS → A-Level → Further Maths)
 
