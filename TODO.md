@@ -85,13 +85,13 @@
 - [x] 09 — Covariance and correlation matrices
 
 ### Tier 5 — Optimisation
-- [ ] 01 — Objective functions and loss functions
-- [ ] 02 — Gradient Descent
-- [ ] 03 — SGD and mini-batches
-- [ ] 04 — Momentum, RMSProp, Adam
-- [ ] 05 — Convexity, saddle points, local minima
-- [ ] 06 — Lagrange multipliers
-- [ ] 07 — Newton-Raphson, bisection
+- [x] 01 — Objective functions and loss functions
+- [x] 02 — Gradient Descent
+- [x] 03 — SGD and mini-batches
+- [x] 04 — Momentum, RMSProp, Adam
+- [x] 05 — Convexity, saddle points, local minima
+- [x] 06 — Lagrange multipliers
+- [x] 07 — Newton-Raphson, bisection
 
 ### Tier 6 — Linear Algebra for Neural Networks
 - [ ] 01 — The neuron as dot product + activation
