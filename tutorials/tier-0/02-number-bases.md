@@ -184,3 +184,4 @@ print(f"Remainders (reversed): {''.join(reversed(remainders))}")
 2. **Pen & paper:** Convert $255_{10}$ to binary and to hex. What is special about this number?
 3. **Pen & paper:** Add $1101_2 + 1011_2$ in binary. Verify by converting both to decimal.
 4. **Think about it:** Why do programmers prefer hex over binary when reading memory dumps?
+5. **Think about it:** A computer uses binary because transistors have two states (on/off).  Could you build a computer that uses base 3 (ternary)?  What would the hardware need to distinguish?

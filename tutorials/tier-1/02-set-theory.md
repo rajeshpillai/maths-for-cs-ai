@@ -93,7 +93,14 @@ If $U = \{1, 2, 3, 4, 5, 6, 7\}$, then $\overline{A} = \{5, 6, 7\}$.
 
 ### Set algebra laws (pen & paper simplification)
 
-These mirror Boolean algebra exactly:
+These mirror Boolean algebra exactly.  To prove any of these, show that
+an element in the left side must be in the right side, and vice versa.
+
+**Pen & paper: Prove De Morgan's** $\overline{A \cup B} = \overline{A} \cap \overline{B}$
+
+Let $x \in \overline{A \cup B}$.  Then $x \notin A \cup B$.
+So $x \notin A$ AND $x \notin B$.  So $x \in \overline{A}$ AND $x \in \overline{B}$.
+Therefore $x \in \overline{A} \cap \overline{B}$.  ✓ (The reverse direction works the same way.)
 
 | Law | Expression |
 |-----|-----------|

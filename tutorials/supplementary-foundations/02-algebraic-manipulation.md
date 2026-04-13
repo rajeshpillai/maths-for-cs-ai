@@ -44,11 +44,24 @@ $x^2 - 5x + 6$: numbers are $-2$ and $-3$ → $(x - 2)(x - 3)$
 
 **Difference of squares:** $x^2 - 16 = (x+4)(x-4)$
 
-**Harder quadratic ($ax^2 + bx + c$):**
+**Harder quadratic ($ax^2 + bx + c$) — the "ac method":**
 
-$2x^2 + 7x + 3$: need $ac = 6$, sum = 7 → split as $6, 1$
+Factorise $2x^2 + 7x + 3$.
 
-$= 2x^2 + 6x + x + 3 = 2x(x+3) + 1(x+3) = (2x+1)(x+3)$
+**Step 1:** Compute $a \times c = 2 \times 3 = 6$.
+
+**Step 2:** Find two numbers that **multiply** to $ac = 6$ and **add** to $b = 7$.
+Try: $6 \times 1 = 6$ ✓ and $6 + 1 = 7$ ✓.
+
+**Step 3:** Split the middle term using these numbers:
+
+$2x^2 + 7x + 3 = 2x^2 + 6x + x + 3$
+
+**Step 4:** Factor by grouping:
+
+$= 2x(x + 3) + 1(x + 3) = (2x + 1)(x + 3)$
+
+**Verify:** $(2x+1)(x+3) = 2x^2 + 6x + x + 3 = 2x^2 + 7x + 3$ ✓
 
 ### Completing the square
 

@@ -184,12 +184,13 @@ truth_table("Implication (p → q)", lambda p, q: (not p) or q)
 truth_table("Biconditional (p ↔ q)", lambda p, q: p == q)
 
 # Verify: p → q ≡ ¬p ∨ q
+# Implication: only false when p=True and q=False
 print("\n=== Verify: p → q ≡ ¬p ∨ q ===")
 for p in [True, False]:
     for q in [True, False]:
-        impl = (not p) or q
-        alt = (not p) or q
-        print(f"p={p}, q={q}: {impl} == {alt} → {impl == alt}")
+        impl = not (p and not q)  # p → q is false only when p=T, q=F
+        alt = (not p) or q        # equivalent form
+        print(f"p={p}, q={q}: (p→q)={impl}, (¬p∨q)={alt}, equal={impl == alt}")
 
 # De Morgan's Laws
 print("\n=== De Morgan's Laws ===")

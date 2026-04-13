@@ -19,11 +19,13 @@ array indices wrap in circular buffers.
 ### The modulo operation
 
 We say $a$ and $b$ are **congruent modulo $n$** if they have the same
-remainder when divided by $n$:
+remainder when divided by $n$.
+
+**Notation:** $n \mid k$ means "$n$ divides $k$ evenly" (i.e., $k/n$ is an integer).
 
 $$a \equiv b \pmod{n} \iff n \mid (a - b)$$
 
-In plain English: $n$ divides the difference $(a - b)$ evenly.
+In plain English: $n$ divides the difference $(a - b)$ with no remainder.
 
 **Pen & paper examples:**
 
@@ -68,14 +70,27 @@ $$(a \times b) \mod n = ((a \mod n) \times (b \mod n)) \mod n$$
 
 To compute $3^{13} \mod 7$ without calculating $3^{13} = 1{,}594{,}323$:
 
-$$3^1 \equiv 3 \pmod{7}$$
-$$3^2 \equiv 9 \equiv 2 \pmod{7}$$
-$$3^4 \equiv 2^2 = 4 \pmod{7}$$
-$$3^8 \equiv 4^2 = 16 \equiv 2 \pmod{7}$$
+**Step 1: Build a table of powers by repeated squaring.**
 
-Now $13 = 8 + 4 + 1$, so:
+$3^1 = 3$.  $3 \mod 7 = 3$ → $3^1 \equiv 3$
 
-$$3^{13} \equiv 3^8 \times 3^4 \times 3^1 \equiv 2 \times 4 \times 3 = 24 \equiv 3 \pmod{7}$$
+$3^2 = 3 \times 3 = 9$.  $9 \mod 7 = 2$ → $3^2 \equiv 2$
+
+$3^4 = (3^2)^2 \equiv 2^2 = 4$.  $4 \mod 7 = 4$ → $3^4 \equiv 4$
+
+$3^8 = (3^4)^2 \equiv 4^2 = 16$.  $16 \mod 7 = 2$ (since $16 = 2 \times 7 + 2$) → $3^8 \equiv 2$
+
+**Step 2: Write the exponent in binary.**
+
+$13 = 8 + 4 + 1$ (in binary: $1101_2$)
+
+**Step 3: Multiply the corresponding powers.**
+
+$$3^{13} = 3^8 \times 3^4 \times 3^1 \equiv 2 \times 4 \times 3 = 24$$
+
+$24 \mod 7 = 3$ (since $24 = 3 \times 7 + 3$)
+
+$$3^{13} \equiv 3 \pmod{7}$$
 
 This is **modular exponentiation** — the backbone of RSA encryption.
 

@@ -95,7 +95,14 @@ $$\binom{4}{2} = \frac{4!}{2! \times 2!} = \frac{24}{2 \times 2} = 6$$
 List them: {A,B}, {A,C}, {A,D}, {B,C}, {B,D}, {C,D} — exactly 6 ✓
 
 **Why divide by $r!$?**  Each combination corresponds to $r!$ permutations
-(the different orderings of the same subset).  So:
+(the different orderings of the same subset).
+
+**Concrete example:** The permutations AB and BA are *different* permutations
+but the *same* combination {A, B}.  For $r = 2$: each combination appears
+$2! = 2$ times in the permutation list.  For $r = 3$: the combination
+{A, B, C} appears as ABC, ACB, BAC, BCA, CAB, CBA — that's $3! = 6$ times.
+
+So to go from permutations to combinations, divide out the repeated orderings:
 
 $$\binom{n}{r} = \frac{P(n,r)}{r!}$$
 

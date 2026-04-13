@@ -57,10 +57,22 @@ $$\mathbb{Q} = \left\{ \frac{p}{q} \;\middle|\; p, q \in \mathbb{Z},\; q \neq 0 
 
 **Key test (try it on paper):** Is √2 rational?
 
-Assume √2 = p/q in lowest terms.  Then 2 = p²/q², so p² = 2q².
-This means p² is even, so p is even.  Write p = 2k.
-Then 4k² = 2q², so q² = 2k², meaning q is also even.
-But we said p/q was in *lowest terms* — contradiction!
+Assume (for contradiction) that √2 = p/q where p and q are integers
+with no common factor (i.e., the fraction is in lowest terms).
+
+**Step 1:** Square both sides: $2 = p^2/q^2$, so $p^2 = 2q^2$.
+
+**Step 2:** Since $p^2 = 2q^2$, $p^2$ is even.  But if $p^2$ is even, $p$
+itself must be even.  (Why?  If $p$ were odd, say $p = 2m+1$, then
+$p^2 = 4m^2 + 4m + 1$ is odd — contradiction.)
+
+**Step 3:** Since $p$ is even, write $p = 2k$.  Substitute:
+$(2k)^2 = 2q^2$ → $4k^2 = 2q^2$ → $q^2 = 2k^2$.
+
+**Step 4:** By the same reasoning as Step 2, $q$ must be even.
+
+**Step 5:** But both $p$ and $q$ are even, meaning they share a factor of 2.
+This contradicts our assumption that p/q was in *lowest terms*!
 
 Therefore √2 is **irrational**.  We need a bigger family.
 
