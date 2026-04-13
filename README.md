@@ -32,10 +32,8 @@ maths-for-cs/
 
 ```bash
 cd backend
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python main.py
+uv sync
+uv run python main.py
 ```
 
 The API runs at `http://localhost:8000`. Docs at `http://localhost:8000/docs`.
