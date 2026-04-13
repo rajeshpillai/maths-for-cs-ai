@@ -18,6 +18,7 @@
 - [x] Markdown renderer with LaTeX/KaTeX support
 - [x] Syntax-highlighted Python code blocks
 - [x] In-browser Python runner (Pyodide) for verification code
+- [ ] Prerequisite links: render "Prerequisites" section as clickable links to other lessons
 - [ ] Progress tracking (mark lessons as complete)
 - [ ] Responsive layout / mobile-friendly
 - [ ] Dark/light theme toggle
@@ -102,12 +103,12 @@
 - [x] 06 — Compare with PyTorch equivalent
 
 ### Tier 7 — Convolutional Neural Networks
-- [ ] 01 — 2D convolution from first principles
-- [ ] 02 — Convolution vs cross-correlation
-- [ ] 03 — Stride and padding: output size formula
-- [ ] 04 — Pooling operations
-- [ ] 05 — Implement 2D convolution kernel (pure Python, NumPy, PyTorch)
-- [ ] 06 — Receptive field analysis
+- [x] 01 — 2D convolution from first principles
+- [x] 02 — Convolution vs cross-correlation
+- [x] 03 — Stride and padding: output size formula
+- [x] 04 — Pooling operations
+- [x] 05 — Implement 2D convolution (pure Python, multi-channel)
+- [x] 06 — Receptive field analysis
 
 ### Tier 8 — Geometry & Trigonometry for Game Dev
 - [ ] 01 — Unit circle, radians, degrees
