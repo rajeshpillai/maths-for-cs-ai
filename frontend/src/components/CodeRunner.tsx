@@ -8,6 +8,7 @@ interface CodeRunnerProps {
 
 export default function CodeRunner(props: CodeRunnerProps) {
   const [output, setOutput] = createSignal<string | null>(null);
+  const [hasError, setHasError] = createSignal(false);
   const [running, setRunning] = createSignal(false);
   const [loaded, setLoaded] = createSignal(false);
   const [currentCode, setCurrentCode] = createSignal(props.code);
@@ -30,14 +31,17 @@ export default function CodeRunner(props: CodeRunnerProps) {
   async function handleRun() {
     setRunning(true);
     setOutput(null);
+    setHasError(false);
     try {
       if (!loaded()) {
         setOutput("Loading Python runtime...");
       }
       const result = await runPython(currentCode());
       setLoaded(true);
+      setHasError(result.includes("Error") || result.includes("Traceback"));
       setOutput(result || "(no output)");
     } catch (err: any) {
+      setHasError(true);
       setOutput(`Error: ${err.message || err}`);
     } finally {
       setRunning(false);
@@ -70,7 +74,7 @@ export default function CodeRunner(props: CodeRunnerProps) {
         );
       })()}
       <Show when={output() !== null}>
-        <pre class="code-output">{output()}</pre>
+        <pre class={`code-output${hasError() ? " error-output" : ""}`}>{output()}</pre>
       </Show>
     </div>
   );

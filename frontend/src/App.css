@@ -357,16 +357,20 @@
 .code-output {
   margin: 0;
   padding: 0.75rem 1rem;
-  background: #1e1e2e;
-  color: #a6e3a1;
+  background: #1a1a2e;
+  color: #e0e0e0;
   font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", monospace;
   font-size: 0.84rem;
   line-height: 1.5;
-  border-top: 1px solid var(--border);
+  border-top: 2px solid #333;
   white-space: pre-wrap;
   overflow-x: auto;
   max-height: 300px;
   overflow-y: auto;
+}
+
+.code-output.error-output {
+  color: #f38ba8;
 }
 
 .loading, .error {
