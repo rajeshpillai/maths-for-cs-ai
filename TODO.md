@@ -18,7 +18,7 @@
 - [x] Markdown renderer with LaTeX/KaTeX support
 - [x] Syntax-highlighted Python code blocks
 - [x] In-browser Python runner (Pyodide) for verification code
-- [ ] Prerequisite links: render "Prerequisites" section as clickable links to other lessons
+- [x] Prerequisite links: render "Prerequisites" section as clickable links to other lessons
 - [ ] Progress tracking (mark lessons as complete)
 - [ ] Responsive layout / mobile-friendly
 - [ ] Dark/light theme toggle

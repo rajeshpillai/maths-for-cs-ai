@@ -78,9 +78,40 @@ export default function Lesson() {
     });
   }
 
+  function resolvePrereqLinks() {
+    if (!containerRef) return;
+    const allTiers = tiers();
+    if (!allTiers) return;
+
+    // Build a lookup: "tier-X/0Y" → "tier-X/0Y-full-slug"
+    const slugLookup = new Map<string, string>();
+    for (const t of allTiers) {
+      for (const l of t.lessons) {
+        // l is like "01-number-systems"
+        const num = l.match(/^(\d+)/)?.[1] ?? "";
+        slugLookup.set(`${t.tier}/${num}`, `${t.tier}/${l}`);
+        slugLookup.set(`${t.tier}/${num.padStart(2, "0")}`, `${t.tier}/${l}`);
+      }
+    }
+
+    const links = containerRef.querySelectorAll("a.prereq-link");
+    links.forEach((link) => {
+      const tier = link.getAttribute("data-tier") ?? "";
+      const lessonNum = link.getAttribute("data-lesson") ?? "";
+      const key = `${tier}/${lessonNum}`;
+      const resolved = slugLookup.get(key);
+      if (resolved) {
+        link.setAttribute("href", `/lesson/${resolved}`);
+      }
+    });
+  }
+
   createEffect(() => {
     if (lesson()) {
-      requestAnimationFrame(() => mountCodeRunners());
+      requestAnimationFrame(() => {
+        mountCodeRunners();
+        resolvePrereqLinks();
+      });
     }
   });
 

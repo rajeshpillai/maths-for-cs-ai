@@ -256,6 +256,18 @@
   color: #e64553;
 }
 
+/* Prerequisite links */
+.prereq-link {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--accent);
+  transition: border-color 0.15s;
+}
+
+.prereq-link:hover {
+  border-bottom-style: solid;
+}
+
 /* Code Runner */
 .code-runner {
   margin: 1rem 0;
