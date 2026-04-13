@@ -13,11 +13,11 @@
 
 ## Frontend — Web App
 
-- [ ] Set up routing (home, tier list, lesson view)
-- [ ] Create sidebar navigation with tier/lesson tree
-- [ ] Markdown renderer with LaTeX/KaTeX support
-- [ ] Syntax-highlighted Python code blocks
-- [ ] In-browser Python runner (Pyodide) for verification code
+- [x] Set up routing (home, tier list, lesson view)
+- [x] Create sidebar navigation with tier/lesson tree
+- [x] Markdown renderer with LaTeX/KaTeX support
+- [x] Syntax-highlighted Python code blocks
+- [x] In-browser Python runner (Pyodide) for verification code
 - [ ] Progress tracking (mark lessons as complete)
 - [ ] Responsive layout / mobile-friendly
 - [ ] Dark/light theme toggle
