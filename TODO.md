@@ -111,16 +111,16 @@
 - [x] 06 — Receptive field analysis
 
 ### Tier 8 — Geometry & Trigonometry for Game Dev
-- [ ] 01 — Unit circle, radians, degrees
-- [ ] 02 — Sine, cosine, tangent
-- [ ] 03 — Pythagorean theorem, distance formula in N dimensions
-- [ ] 04 — 2D / 3D rotation matrices
-- [ ] 05 — Quaternions and gimbal lock
-- [ ] 06 — Homogeneous coordinates and 4x4 transform matrices
-- [ ] 07 — Projection: orthographic vs perspective
-- [ ] 08 — Bezier curves and splines
-- [ ] 09 — Ray-sphere / ray-plane intersection
-- [ ] 10 — Collision detection math
+- [x] 01 — Unit circle, radians, degrees
+- [x] 02 — Sine, cosine, tangent (+ tangent as slope, cosine as similarity)
+- [x] 03 — Pythagorean theorem, distance formula in N dimensions
+- [x] 04 — 2D / 3D rotation matrices
+- [x] 05 — Quaternions and gimbal lock
+- [x] 06 — Homogeneous coordinates and 4x4 transform matrices
+- [x] 07 — Projection: orthographic vs perspective
+- [x] 08 — Bezier curves and splines
+- [x] 09 — Ray-sphere / ray-plane intersection
+- [x] 10 — Collision detection math
 
 ### Tier 9 — Signals & Fourier Analysis
 - [ ] 01 — Periodic functions and superposition
