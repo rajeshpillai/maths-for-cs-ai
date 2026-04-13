@@ -94,12 +94,12 @@
 - [x] 07 — Newton-Raphson, bisection
 
 ### Tier 6 — Linear Algebra for Neural Networks
-- [ ] 01 — The neuron as dot product + activation
-- [ ] 02 — Activation functions: sigmoid, tanh, ReLU, GELU
-- [ ] 03 — Forward pass as matrix multiplication chains
-- [ ] 04 — Backpropagation from chain rule
-- [ ] 05 — Fully connected network from scratch in NumPy
-- [ ] 06 — Compare with PyTorch equivalent
+- [x] 01 — The neuron as dot product + activation
+- [x] 02 — Activation functions: sigmoid, tanh, ReLU, GELU
+- [x] 03 — Forward pass as matrix multiplication chains
+- [x] 04 — Backpropagation from chain rule
+- [x] 05 — Fully connected network from scratch (pure Python)
+- [x] 06 — Compare with PyTorch equivalent
 
 ### Tier 7 — Convolutional Neural Networks
 - [ ] 01 — 2D convolution from first principles
