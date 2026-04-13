@@ -123,21 +123,21 @@
 - [x] 10 — Collision detection math
 
 ### Tier 9 — Signals & Fourier Analysis
-- [ ] 01 — Periodic functions and superposition
-- [ ] 02 — Fourier Series
-- [ ] 03 — Fourier Transform
-- [ ] 04 — DFT and FFT algorithm
-- [ ] 05 — Convolution theorem
-- [ ] 06 — Applications: image filtering, audio, CNNs
+- [x] 01 — Periodic functions and superposition
+- [x] 02 — Fourier Series
+- [x] 03 — Fourier Transform
+- [x] 04 — DFT and FFT algorithm
+- [x] 05 — Convolution theorem
+- [x] 06 — Applications: image filtering, audio, CNNs
 
 ### Tier 10 — Advanced Topics
-- [ ] 01 — Graph neural networks (spectral convolution)
-- [ ] 02 — Attention mechanism & Transformers
-- [ ] 03 — Recurrent networks: BPTT
-- [ ] 04 — Markov chains and MDPs
-- [ ] 05 — Monte Carlo methods and MCMC
-- [ ] 06 — Numerical linear algebra: iterative solvers, sparse matrices
-- [ ] 07 — Automatic differentiation: forward vs reverse mode
+- [x] 01 — Graph neural networks (spectral convolution)
+- [x] 02 — Attention mechanism & Transformers (scaled dot-product, multi-head)
+- [x] 03 — Recurrent networks: BPTT (vanishing gradients, LSTM)
+- [x] 04 — Markov chains and MDPs (PageRank, Bellman equation)
+- [x] 05 — Monte Carlo methods and MCMC (Metropolis-Hastings)
+- [x] 06 — Numerical linear algebra: iterative solvers, sparse matrices
+- [x] 07 — Automatic differentiation: forward vs reverse mode (dual numbers, tape)
 
 ## Supplementary — Graph Shapes & Curve Types (to arrange into tiers)
 
