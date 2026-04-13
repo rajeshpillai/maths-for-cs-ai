@@ -6,6 +6,7 @@
 
 const API_BASE = import.meta.env.VITE_API_URL ?? "";
 const IS_STATIC = !API_BASE;
+const BASE_PATH = import.meta.env.BASE_URL ?? "/";
 
 export interface TierInfo {
   tier: string;
@@ -37,7 +38,7 @@ export interface LessonMeta {
 
 export async function fetchTiers(): Promise<TierInfo[]> {
   const url = IS_STATIC
-    ? `/api/tiers.json`
+    ? `${BASE_PATH}api/tiers.json`
     : `${API_BASE}/api/tiers`;
   const res = await fetch(url);
   if (!res.ok) throw new Error("Failed to fetch tiers");
@@ -49,7 +50,7 @@ export async function fetchLesson(
   slug: string
 ): Promise<LessonContent> {
   const url = IS_STATIC
-    ? `/api/tiers/${tier}/${slug}.json`
+    ? `${BASE_PATH}api/tiers/${tier}/${slug}.json`
     : `${API_BASE}/api/tiers/${tier}/${slug}`;
   const res = await fetch(url);
   if (!res.ok) throw new Error("Lesson not found");
@@ -61,7 +62,7 @@ export async function fetchLessonMeta(
   slug: string
 ): Promise<LessonMeta> {
   const url = IS_STATIC
-    ? `/api/tiers/${tier}/${slug}.meta.json`
+    ? `${BASE_PATH}api/tiers/${tier}/${slug}.meta.json`
     : `${API_BASE}/api/tiers/${tier}/${slug}/meta`;
   const res = await fetch(url);
   if (!res.ok) throw new Error("Metadata not found");

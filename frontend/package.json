@@ -7,6 +7,8 @@
     "dev": "vite",
     "build:api": "python3 ../scripts/build-static.py",
     "build": "npm run build:api && tsc -b && vite build",
+    "build:ghpages": "npm run build:api && tsc -b && GITHUB_PAGES=true vite build",
+    "deploy": "cd .. && bash scripts/deploy-gh-pages.sh",
     "preview": "vite preview"
   },
   "dependencies": {
