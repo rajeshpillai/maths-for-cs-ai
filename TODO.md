@@ -48,18 +48,18 @@
 - [x] 06 — Proof techniques: induction, contradiction, contrapositive
 
 ### Tier 2 — Linear Algebra
-- [ ] 01 — Scalars, vectors, matrices, tensors
-- [ ] 02 — Vector operations: addition, scalar multiplication, dot product, cross product
-- [ ] 03 — Geometric meaning of the dot product
-- [ ] 04 — Matrix multiplication: why rows x columns
-- [ ] 05 — Linear transformations
-- [ ] 06 — Identity, inverse, transpose
-- [ ] 07 — Determinants: geometric meaning
-- [ ] 08 — Systems of linear equations, Gaussian elimination, LU decomposition
-- [ ] 09 — Eigenvalues & eigenvectors
-- [ ] 10 — SVD (Singular Value Decomposition)
-- [ ] 11 — PCA derived from SVD
-- [ ] 12 — Norms: L1, L2, Lp, Frobenius
+- [x] 01 — Scalars, vectors, matrices, tensors
+- [x] 02 — Vector operations: addition, scalar multiplication, dot product, cross product
+- [x] 03 — Geometric meaning of the dot product
+- [x] 04 — Matrix multiplication: why rows x columns
+- [x] 05 — Linear transformations
+- [x] 06 — Identity, inverse, transpose
+- [x] 07 — Determinants: geometric meaning
+- [x] 08 — Systems of linear equations, Gaussian elimination
+- [x] 09 — Eigenvalues & eigenvectors
+- [x] 10 — SVD (Singular Value Decomposition)
+- [x] 11 — PCA derived from SVD
+- [x] 12 — Norms: L1, L2, Lp, Frobenius
 
 ### Tier 3 — Calculus & Analysis
 - [ ] 01 — Limits from epsilon-delta definition
@@ -137,3 +137,51 @@
 - [ ] 05 — Monte Carlo methods and MCMC
 - [ ] 06 — Numerical linear algebra: iterative solvers, sparse matrices
 - [ ] 07 — Automatic differentiation: forward vs reverse mode
+
+## Supplementary — Graph Shapes & Curve Types (to arrange into tiers)
+
+- [ ] Types of graphs/curves: linear, quadratic, cubic, exponential, logarithmic
+- [ ] Parabola: vertex form, focus, directrix, real-world applications
+- [ ] Hyperbola: asymptotes, conic sections
+- [ ] Ellipse: foci, eccentricity, orbits
+- [ ] Bell curve (Gaussian): link to normal distribution, central limit theorem
+- [ ] S-curve (sigmoid/logistic): growth models, logistic regression, activation
+- [ ] Exponential growth & decay: compound interest, radioactive decay, learning rates
+- [ ] Power laws and log-log plots
+- [ ] Step functions, piecewise functions, and ReLU family
+
+## Supplementary — Activation Functions (detailed maths)
+
+- [ ] Sigmoid: derivation, derivative, vanishing gradient problem
+- [ ] Tanh: relationship to sigmoid, derivative, advantages
+- [ ] ReLU: definition, derivative, dying ReLU problem
+- [ ] Leaky ReLU & Parametric ReLU
+- [ ] GELU: Gaussian Error Linear Unit (used in Transformers)
+- [ ] Swish / SiLU: self-gated activation
+- [ ] Softmax: multi-class output, derivation, temperature parameter
+- [ ] Choosing activation functions: when and why
+
+## Supplementary — AS / A-Level Further Maths Coverage
+
+Topics from AS/A-Level (and Further Maths) that intersect with CS/AI.
+Many are already covered in tiers above; uncovered ones listed here.
+
+### Pure Mathematics (gaps to fill)
+- [ ] Surds, indices, and logarithm laws (pre-calc foundations)
+- [ ] Polynomial division, factor theorem, remainder theorem
+- [ ] Sequences and series: arithmetic, geometric, convergence tests
+- [ ] Binomial expansion for rational/negative powers
+- [ ] Trigonometric identities: double angle, addition, R-formula
+- [ ] Parametric equations and implicit differentiation
+- [ ] Differential equations: separable, first-order linear, second-order
+- [ ] Complex numbers: Argand diagram, modulus-argument form, De Moivre's theorem
+- [ ] Polar coordinates and curves
+- [ ] Hyperbolic functions: sinh, cosh, tanh and their inverses
+- [ ] Matrices: Cayley-Hamilton theorem, matrix exponential
+
+### Statistics & Mechanics (gaps to fill)
+- [ ] Hypothesis testing: z-test, t-test, chi-squared
+- [ ] Regression and correlation coefficients (R² derivation)
+- [ ] Moments, forces, and equilibrium (game physics foundations)
+- [ ] Projectile motion and kinematics (game dev physics)
+- [ ] Simple harmonic motion (oscillations, springs in simulations)
