@@ -273,6 +273,12 @@
   border-bottom: 1px solid var(--border);
 }
 
+.code-runner-actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 .code-lang {
   font-size: 0.75rem;
   font-weight: 600;
@@ -300,6 +306,36 @@
 .run-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+.reset-btn {
+  background: #6c7086;
+  color: white;
+  border: none;
+  padding: 0.3rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.reset-btn:hover {
+  background: #585b6e;
+}
+
+/* CodeMirror wrapper */
+.cm-wrapper {
+  border-top: none;
+}
+
+.cm-wrapper .cm-editor {
+  max-height: 400px;
+  overflow: auto;
+}
+
+.cm-wrapper .cm-editor.cm-focused {
+  outline: none;
 }
 
 .code-runner .code-block {

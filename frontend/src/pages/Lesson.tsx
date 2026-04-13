@@ -31,16 +31,13 @@ export default function Lesson() {
       // Extract the raw code from the highlighted HTML
       // We need to get the text content (unformatted) for execution
       const rawCode = codeEl.textContent || "";
-      const highlightedHtml = codeEl.innerHTML;
 
       // Create a mount point
       const wrapper = document.createElement("div");
       pre.replaceWith(wrapper);
 
       const dispose = render(
-        () => (
-          <CodeRunner code={rawCode} highlightedHtml={highlightedHtml} />
-        ),
+        () => <CodeRunner code={rawCode} />,
         wrapper
       );
       disposers.push(dispose);

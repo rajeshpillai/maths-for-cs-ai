@@ -1,15 +1,31 @@
-import { createSignal } from "solid-js";
+import { createSignal, Show } from "solid-js";
 import { runPython } from "../lib/pyodide";
+import CodeEditor from "./CodeEditor";
 
 interface CodeRunnerProps {
   code: string;
-  highlightedHtml: string;
 }
 
 export default function CodeRunner(props: CodeRunnerProps) {
   const [output, setOutput] = createSignal<string | null>(null);
   const [running, setRunning] = createSignal(false);
   const [loaded, setLoaded] = createSignal(false);
+  const [currentCode, setCurrentCode] = createSignal(props.code);
+  const [modified, setModified] = createSignal(false);
+  const [editorKey, setEditorKey] = createSignal(0);
+
+  function handleCodeChange(code: string) {
+    setCurrentCode(code);
+    setModified(code !== props.code);
+  }
+
+  function handleReset() {
+    setCurrentCode(props.code);
+    setModified(false);
+    setOutput(null);
+    // Force re-mount of editor by changing key
+    setEditorKey((k) => k + 1);
+  }
 
   async function handleRun() {
     setRunning(true);
@@ -18,7 +34,7 @@ export default function CodeRunner(props: CodeRunnerProps) {
       if (!loaded()) {
         setOutput("Loading Python runtime...");
       }
-      const result = await runPython(props.code);
+      const result = await runPython(currentCode());
       setLoaded(true);
       setOutput(result || "(no output)");
     } catch (err: any) {
@@ -32,20 +48,30 @@ export default function CodeRunner(props: CodeRunnerProps) {
     <div class="code-runner">
       <div class="code-runner-header">
         <span class="code-lang">python</span>
-        <button
-          class="run-btn"
-          onClick={handleRun}
-          disabled={running()}
-        >
-          {running() ? "Running..." : "Run"}
-        </button>
+        <div class="code-runner-actions">
+          <Show when={modified()}>
+            <button class="reset-btn" onClick={handleReset} title="Revert to original code">
+              Reset
+            </button>
+          </Show>
+          <button class="run-btn" onClick={handleRun} disabled={running()}>
+            {running() ? "Running..." : "Run"}
+          </button>
+        </div>
       </div>
-      <pre class="code-block">
-        <code class="hljs language-python" innerHTML={props.highlightedHtml} />
-      </pre>
-      {output() !== null && (
+      {(() => {
+        // Keyed re-render to reset editor content
+        const _key = editorKey();
+        return (
+          <CodeEditor
+            initialCode={currentCode()}
+            onCodeChange={handleCodeChange}
+          />
+        );
+      })()}
+      <Show when={output() !== null}>
         <pre class="code-output">{output()}</pre>
-      )}
+      </Show>
     </div>
   );
 }
