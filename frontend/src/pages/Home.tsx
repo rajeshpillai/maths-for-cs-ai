@@ -44,6 +44,8 @@ const TIER_NAMES: Record<string, string> = {
   "tier-14": "Advanced Statistics",
   "tier-15": "Methods of Proof",
   "tier-16": "Abstract Algebra",
+  "tier-17": "JEE Advanced & Problem Solving",
+  "vedic-maths": "Vedic Mathematics",
   "supplementary-applied": "Applied Maths",
 };
 
@@ -69,8 +71,10 @@ const TIER_DESCRIPTIONS: Record<string, string> = {
   "tier-14": "Estimation, hypothesis testing, ANOVA, regression, logistic regression, Bayesian inference, MCMC, causal inference",
   "tier-15": "Propositional/predicate logic, direct proof, contradiction, contrapositive, induction, epsilon-delta, proof writing",
   "tier-16": "Groups, subgroups, permutations, cosets, Lagrange, homomorphisms, rings, fields, elliptic curve crypto, equivariant NNs",
+  "tier-17": "Properties of triangles, advanced conics, advanced integration, competition inequalities, Vieta's, problem-solving strategies",
   "supplementary-graphs": "Linear, quadratic, cubic, exponential, logarithmic, conic sections, bell curve, sigmoid, ReLU, power laws",
   "supplementary-activations": "Sigmoid, tanh, ReLU, Leaky ReLU, ELU, GELU, Swish, softmax — full derivations and comparison",
+  "vedic-maths": "Nikhilam, Urdhva-Tiryak, duplex squaring, Vinculum, digital roots, recurring decimals, mental math mastery",
   "supplementary-foundations": "Parametric & implicit differentiation, polar coordinates, hyperbolic functions, Cayley-Hamilton, 3D lines & planes",
   "supplementary-applied": "Kinematics (SUVAT), projectile motion, forces & equilibrium, SHM, differential equations, hypothesis testing, regression",
 };
@@ -85,6 +89,13 @@ async function fetchLearningPaths(): Promise<{ paths: LearningPath[] }> {
 async function fetchMLCurriculum(): Promise<MLCurriculum | null> {
   const base = import.meta.env.BASE_URL ?? "/";
   const res = await fetch(`${base}api/ml-curriculum.json`);
+  if (!res.ok) return null;
+  return res.json();
+}
+
+async function fetchJEECurriculum(): Promise<MLCurriculum | null> {
+  const base = import.meta.env.BASE_URL ?? "/";
+  const res = await fetch(`${base}api/jee-curriculum.json`);
   if (!res.ok) return null;
   return res.json();
 }
@@ -104,8 +115,10 @@ export default function Home() {
   const [tiers] = createResource(fetchTiers);
   const [paths] = createResource(fetchLearningPaths);
   const [mlCurriculum] = createResource(fetchMLCurriculum);
+  const [jeeCurriculum] = createResource(fetchJEECurriculum);
   const [selectedPath, setSelectedPath] = createSignal<string | null>(null);
   const [showAllTiers, setShowAllTiers] = createSignal(false);
+  const [activeCurriculum, setActiveCurriculum] = createSignal<"ml" | "jee">("ml");
 
   const mlTotalLessons = () => {
     const ml = mlCurriculum();
@@ -115,28 +128,50 @@ export default function Home() {
 
   return (
     <div class="home">
-      <h1>Mathematics from First Principles</h1>
+      <h1>Maths for CS + AI/ML</h1>
       <p class="subtitle">
-        For Computer Science, Game Development, and AI/ML
+        Mathematics from First Principles — for Computer Science, Game Development, and AI/ML
       </p>
       <p class="philosophy">
         Learn math so you can solve it with <strong>paper and pen</strong>.
         Python is only used to verify your hand-computed answers.
       </p>
 
-      {/* Mathematics for Machine Learning — featured section */}
-      <Show when={mlCurriculum()}>
-        {(ml) => (
+      {/* Curriculum selector: ML / JEE */}
+      {(() => {
+        const curriculum = () => activeCurriculum() === "ml" ? mlCurriculum() : jeeCurriculum();
+        const totalLessons = () => {
+          const c = curriculum();
+          if (!c) return 0;
+          return c.units.reduce((sum, u) => sum + getUnitLessonCount(u), 0);
+        };
+        return (
+          <Show when={curriculum()}>
+            {(curr) => (
           <div class="ml-curriculum">
             <div class="ml-header">
+              <div class="curriculum-tabs">
+                <button
+                  class={`curriculum-tab ${activeCurriculum() === "ml" ? "active" : ""}`}
+                  onClick={() => setActiveCurriculum("ml")}
+                >
+                  AI / ML
+                </button>
+                <button
+                  class={`curriculum-tab ${activeCurriculum() === "jee" ? "active" : ""}`}
+                  onClick={() => setActiveCurriculum("jee")}
+                >
+                  JEE Advanced
+                </button>
+              </div>
               <div class="ml-header-text">
-                <h2>{ml().title}</h2>
-                <p class="ml-desc">{ml().description}</p>
-                <p class="ml-outcome">{ml().outcome}</p>
+                <h2>{curr().title}</h2>
+                <p class="ml-desc">{curr().description}</p>
+                <p class="ml-outcome">{curr().outcome}</p>
                 <div class="ml-stats">
-                  <span class="ml-stat">{ml().units.length} units</span>
+                  <span class="ml-stat">{curr().units.length} units</span>
                   <span class="ml-stat-sep">/</span>
-                  <span class="ml-stat">{mlTotalLessons()} lessons</span>
+                  <span class="ml-stat">{totalLessons()} lessons</span>
                   <span class="ml-stat-sep">/</span>
                   <span class="ml-stat">paper &amp; pen first</span>
                 </div>
@@ -144,7 +179,7 @@ export default function Home() {
             </div>
 
             <div class="ml-units">
-              <For each={ml().units}>
+              <For each={curr().units}>
                 {(unit, idx) => {
                   const lessonCount = getUnitLessonCount(unit);
                   return (
@@ -192,8 +227,10 @@ export default function Home() {
               then follow the units above in order.
             </div>
           </div>
-        )}
-      </Show>
+            )}
+          </Show>
+        );
+      })()}
 
       {/* Other learning paths */}
       <div class="start-here">

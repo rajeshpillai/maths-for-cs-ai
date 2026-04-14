@@ -1,0 +1,109 @@
+{
+  "title": "Mathematics for JEE Advanced",
+  "description": "Complete preparation for the mathematics section of JEE Advanced. Covers algebra, trigonometry, coordinate geometry, calculus, vectors, probability — all from first principles with pen-and-paper derivations.",
+  "outcome": "On completing this curriculum plus dedicated problem practice, you will have the conceptual depth needed for JEE Advanced mathematics. Pair with past papers and timed practice for exam readiness.",
+  "units": [
+    {
+      "name": "Unit 1: Algebra Foundations",
+      "icon": "x\u00b2",
+      "tiers": [
+        { "tier": "foundation-1", "lessons": ["01", "02", "03", "04", "05"], "label": "Index laws, manipulation, equations, inequalities, simultaneous" },
+        { "tier": "foundation-1", "lessons": ["06", "07", "08", "09", "10", "11", "12"], "label": "Functions, linear, quadratic, polynomial, rational, absolute value, exponents" }
+      ]
+    },
+    {
+      "name": "Unit 2: Complex Numbers",
+      "icon": "i",
+      "tiers": [
+        { "tier": "foundation-4", "lessons": ["07"], "label": "Argand diagram, polar form, De Moivre, roots of unity" }
+      ]
+    },
+    {
+      "name": "Unit 3: Sequences, Series & Binomial Theorem",
+      "icon": "\u03a3",
+      "tiers": [
+        { "tier": "foundation-3", "lessons": ["06", "09"], "label": "AP, GP, sigma notation, binomial expansion" }
+      ]
+    },
+    {
+      "name": "Unit 4: Permutations, Combinations & Probability",
+      "icon": "nCr",
+      "tiers": [
+        { "tier": "tier-1", "lessons": ["04"], "label": "Permutations, combinations, pigeonhole" },
+        { "tier": "tier-4", "lessons": ["01", "02", "05"], "label": "Probability axioms, Bayes' theorem, distributions" }
+      ]
+    },
+    {
+      "name": "Unit 5: Matrices & Determinants",
+      "icon": "det",
+      "tiers": [
+        { "tier": "tier-2", "lessons": ["01", "04", "06", "07", "08"], "label": "Matrices, multiplication, inverse, determinants, systems" }
+      ]
+    },
+    {
+      "name": "Unit 6: Trigonometry",
+      "icon": "\u03b8",
+      "tiers": [
+        { "tier": "foundation-2", "lessons": ["06"], "label": "SOH-CAH-TOA, unit circle, radians" },
+        { "tier": "foundation-4", "lessons": ["02", "03", "04"], "label": "All six functions, inverse trig, identities (double angle, addition)" },
+        { "tier": "tier-17", "lessons": ["01"], "label": "Properties of triangles (circumradius, inradius, heights & distances)" }
+      ]
+    },
+    {
+      "name": "Unit 7: Coordinate Geometry",
+      "icon": "(x,y)",
+      "tiers": [
+        { "tier": "foundation-1", "lessons": ["07"], "label": "Straight lines (slope, forms, parallel, perpendicular)" },
+        { "tier": "foundation-2", "lessons": ["05"], "label": "Circles (equation, tangent, intersection)" },
+        { "tier": "foundation-4", "lessons": ["05"], "label": "Conic sections (parabola, ellipse, hyperbola)" },
+        { "tier": "tier-17", "lessons": ["02"], "label": "Conics advanced (tangent, normal, chord of contact, locus)" }
+      ]
+    },
+    {
+      "name": "Unit 8: Calculus — Limits & Derivatives",
+      "icon": "dy/dx",
+      "tiers": [
+        { "tier": "foundation-4", "lessons": ["01", "08"], "label": "Intuitive limits, continuity" },
+        { "tier": "tier-3", "lessons": ["01", "02"], "label": "Epsilon-delta limits, derivatives & rules" }
+      ]
+    },
+    {
+      "name": "Unit 9: Calculus — Integration",
+      "icon": "\u222b",
+      "tiers": [
+        { "tier": "tier-3", "lessons": ["06", "07"], "label": "Riemann sums, FTC, integration techniques" },
+        { "tier": "tier-17", "lessons": ["03"], "label": "Advanced techniques (reduction, Wallis, definite integral properties)" }
+      ]
+    },
+    {
+      "name": "Unit 10: Calculus — Applications",
+      "icon": "\u2207",
+      "tiers": [
+        { "tier": "tier-3", "lessons": ["03", "08", "09"], "label": "Partial derivatives, area/volume, Taylor series" },
+        { "tier": "tier-11", "lessons": ["01", "02", "03"], "label": "Differential equations (separable, first-order linear)" }
+      ]
+    },
+    {
+      "name": "Unit 11: Vectors & 3D Geometry",
+      "icon": "\u2192",
+      "tiers": [
+        { "tier": "foundation-4", "lessons": ["06"], "label": "Vectors intuitive (components, magnitude)" },
+        { "tier": "tier-2", "lessons": ["02", "03"], "label": "Dot product, cross product, projection" }
+      ]
+    },
+    {
+      "name": "Unit 12: Inequalities & Problem-Solving",
+      "icon": "\u2265",
+      "tiers": [
+        { "tier": "tier-17", "lessons": ["04", "05"], "label": "AM-GM, Cauchy-Schwarz, Jensen + theory of equations (Vieta's)" }
+      ]
+    },
+    {
+      "name": "Unit 13: Competition Problem-Solving Strategies",
+      "icon": "\ud83c\udfaf",
+      "tiers": [
+        { "tier": "tier-17", "lessons": ["06", "07", "08", "09", "10", "11", "12"], "label": "Substitution tricks, symmetry, bounding, multi-concept integration" }
+      ]
+    }
+  ]
+}

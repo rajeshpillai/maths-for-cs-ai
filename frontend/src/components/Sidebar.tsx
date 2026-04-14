@@ -25,8 +25,10 @@ const TIER_LABELS: Record<string, string> = {
   "tier-14": "Advanced Statistics",
   "tier-15": "Methods of Proof",
   "tier-16": "Abstract Algebra",
+  "tier-17": "JEE Advanced & Problem Solving",
   "supplementary-graphs": "Graph Shapes & Curves",
   "supplementary-activations": "Activation Functions",
+  "vedic-maths": "Vedic Mathematics",
   "supplementary-foundations": "Advanced Topics (Parametric, Polar, Hyperbolic)",
   "supplementary-applied": "Applied Maths & Mechanics",
 };
@@ -123,7 +125,7 @@ export default function Sidebar() {
   return (
     <nav class="sidebar">
       <A href="/" class="sidebar-title">
-        Maths for CS
+        Maths for CS + AI/ML
       </A>
       <div class="sidebar-controls">
         <span class="sidebar-progress-text">

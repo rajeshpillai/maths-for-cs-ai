@@ -22,7 +22,7 @@ ROOT = Path(__file__).resolve().parent.parent
 TUTORIALS_DIR = ROOT / "tutorials"
 OUTPUT_DIR = ROOT / "frontend" / "public" / "api"
 
-TIER_PREFIXES = ("foundation-", "tier-", "supplementary-")
+TIER_PREFIXES = ("foundation-", "tier-", "vedic-", "supplementary-")
 
 
 def tier_sort_key(p: Path) -> tuple[int, int]:
@@ -37,6 +37,8 @@ def tier_sort_key(p: Path) -> tuple[int, int]:
             return (0, int(name.split("-", 1)[1]))
         except (IndexError, ValueError):
             return (0, 999)
+    elif name.startswith("vedic-"):
+        return (0, 500)  # After tiers, before supplementary
     elif name.startswith("supplementary-"):
         return (1, hash(name) % 10000)
     return (2, 0)
@@ -216,7 +218,7 @@ def build():
     )
 
     # Copy learning paths and ML curriculum if present
-    for extra in ("learning-paths.json", "ml-curriculum.json"):
+    for extra in ("learning-paths.json", "ml-curriculum.json", "jee-curriculum.json"):
         src = TUTORIALS_DIR / extra
         if src.exists():
             shutil.copy2(src, OUTPUT_DIR / extra)

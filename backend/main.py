@@ -15,7 +15,7 @@ app.add_middleware(
 )
 
 TUTORIALS_DIR = Path(__file__).resolve().parent.parent / "tutorials"
-TIER_PREFIXES = ("foundation-", "tier-", "supplementary-")
+TIER_PREFIXES = ("foundation-", "tier-", "vedic-", "supplementary-")
 
 
 class TierInfo(BaseModel):
@@ -71,6 +71,8 @@ def _discover_tiers() -> list[Path]:
                 return (0, int(name.split("-", 1)[1]))
             except (IndexError, ValueError):
                 return (0, 999)
+        elif name.startswith("vedic-"):
+            return (0, 500)
         elif name.startswith("supplementary-"):
             return (1, hash(name) % 1000)
         return (2, 0)

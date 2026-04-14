@@ -1,0 +1,254 @@
+# Substitution Tricks
+
+## Intuition
+
+Substitution is the art of making a hard problem look easy by changing the variable. The right substitution transforms a tangled expression into something clean and recognisable. In JEE Advanced, recognising *which* substitution to use is often the entire battle — the remaining algebra is routine.
+
+Think of it as changing coordinate systems: the problem is the same, but one viewpoint makes the structure obvious.
+
+## Prerequisites
+
+- Tier 3, Lesson 6 (Integration techniques)
+- Foundation 4, Lesson 4 (Trigonometric identities and equations)
+
+## The Strategy
+
+**When to use substitution:**
+1. You see `sqrt(a^2 - x^2)` → try `x = a sin(t)` or `x = a cos(t)`
+2. You see `sqrt(a^2 + x^2)` → try `x = a tan(t)`
+3. You see `sqrt(x^2 - a^2)` → try `x = a sec(t)`
+4. The integrand has `f(x)` and `f(1/x)` related → try `x → 1/x`
+5. Expression has `x^n + x^(-n)` pattern → try `t = x + 1/x` or `t = x - 1/x`
+6. Completing the square turns a quadratic into a standard form
+7. Rationalisation: multiply by conjugate to remove radicals
+
+**Key principle:** After substitution, the new integral/expression must be *simpler*. If it gets messier, try a different substitution.
+
+## Worked Problems
+
+### Problem 1: Definite Integral with sqrt(a^2 - x^2)
+
+**Problem:** Evaluate integral from 0 to 1 of x^2 / sqrt(1 - x^2) dx.
+
+**Recognise:** The `sqrt(1 - x^2)` screams `x = sin(t)`.
+
+**Solution:**
+
+Let x = sin(t), so dx = cos(t) dt.
+
+When x = 0: t = 0. When x = 1: t = pi/2.
+
+sqrt(1 - x^2) = sqrt(1 - sin^2(t)) = cos(t)
+
+The integral becomes:
+
+integral from 0 to pi/2 of sin^2(t) / cos(t) * cos(t) dt
+= integral from 0 to pi/2 of sin^2(t) dt
+
+Using the identity sin^2(t) = (1 - cos(2t))/2:
+
+= integral from 0 to pi/2 of (1 - cos(2t))/2 dt
+= [t/2 - sin(2t)/4] from 0 to pi/2
+= (pi/4 - 0) - (0 - 0)
+= pi/4
+
+### Problem 2: Reciprocal Substitution in Definite Integral
+
+**Problem:** Evaluate integral from 0 to infinity of ln(x) / (1 + x^2) dx.
+
+**Recognise:** The limits 0 to infinity and the structure suggest trying x → 1/x to exploit symmetry.
+
+**Solution:**
+
+Let I = integral from 0 to infinity of ln(x) / (1 + x^2) dx.
+
+Substitute x = 1/t, so dx = -1/t^2 dt.
+
+When x = 0: t = infinity. When x = infinity: t = 0.
+
+I = integral from infinity to 0 of ln(1/t) / (1 + 1/t^2) * (-1/t^2) dt
+= integral from 0 to infinity of (-ln(t)) / ((t^2 + 1)/t^2) * (1/t^2) dt
+= integral from 0 to infinity of -ln(t) / (1 + t^2) dt
+= -I
+
+So I = -I, which gives 2I = 0, hence I = 0.
+
+### Problem 3: Completing the Square for Integration
+
+**Problem:** Evaluate integral of dx / (x^2 + 4x + 13).
+
+**Recognise:** Quadratic in denominator with no real roots — complete the square to get standard arctan form.
+
+**Solution:**
+
+x^2 + 4x + 13 = (x^2 + 4x + 4) + 9 = (x + 2)^2 + 3^2
+
+Let u = x + 2, du = dx.
+
+Integral = integral of du / (u^2 + 9)
+= (1/3) arctan(u/3) + C
+= (1/3) arctan((x + 2)/3) + C
+
+### Problem 4: Rationalisation in Limits
+
+**Problem:** Evaluate lim(x → 0) of [sqrt(1 + x) - sqrt(1 - x)] / x.
+
+**Recognise:** 0/0 form with difference of square roots — rationalise by multiplying by conjugate.
+
+**Solution:**
+
+Multiply numerator and denominator by [sqrt(1 + x) + sqrt(1 - x)]:
+
+= lim(x → 0) [(1 + x) - (1 - x)] / [x * (sqrt(1 + x) + sqrt(1 - x))]
+= lim(x → 0) [2x] / [x * (sqrt(1 + x) + sqrt(1 - x))]
+= lim(x → 0) 2 / (sqrt(1 + x) + sqrt(1 - x))
+= 2 / (1 + 1)
+= 1
+
+### Problem 5: Trigonometric Substitution for Algebraic Identity
+
+**Problem:** If x = tan(A) and y = tan(B), simplify (x + y) / (1 - xy) and hence prove the addition formula.
+
+**Recognise:** The expression (x + y)/(1 - xy) appears when dealing with tan(A + B). Working backwards from a substitution reveals the identity.
+
+**Solution:**
+
+We know tan(A + B) = (tan A + tan B) / (1 - tan A * tan B).
+
+With x = tan(A), y = tan(B):
+(x + y) / (1 - xy) = tan(A + B)
+
+This is actually the *derivation* of the tangent addition formula from the sine and cosine addition formulas:
+
+tan(A + B) = sin(A + B) / cos(A + B)
+= (sin A cos B + cos A sin B) / (cos A cos B - sin A sin B)
+
+Divide numerator and denominator by cos A cos B:
+= (tan A + tan B) / (1 - tan A tan B)
+
+### Problem 6: Substitution x = t - 1/t for Symmetric Integrands
+
+**Problem:** Evaluate integral from 0 to infinity of (x^2 - 1) / (x^4 + 1) dx.
+
+**Recognise:** Divide numerator and denominator by x^2 to get a form involving (1 - 1/x^2) and (x^2 + 1/x^2). Then substitute t = x + 1/x.
+
+**Solution:**
+
+Divide by x^2:
+
+integral from 0 to infinity of (1 - 1/x^2) / (x^2 + 1/x^2) dx
+
+Note that x^2 + 1/x^2 = (x - 1/x)^2 + 2.
+
+Let t = x - 1/x, so dt = (1 + 1/x^2) dx. Wait — we have (1 - 1/x^2) dx, not (1 + 1/x^2) dx.
+
+Let's reconsider. Actually let t = x + 1/x, dt = (1 - 1/x^2) dx. Good!
+
+And x^2 + 1/x^2 = (x + 1/x)^2 - 2 = t^2 - 2.
+
+When x → 0+: t → +infinity. When x → infinity: t → +infinity.
+When x = 1: t = 2 (minimum value of x + 1/x for x > 0).
+
+We need to split at x = 1. For x in (0,1): as x goes 0→1, t goes infinity→2, and (1 - 1/x^2) < 0.
+For x in (1, infinity): as x goes 1→infinity, t goes 2→infinity, and (1 - 1/x^2) > 0.
+
+Integral = integral from 2 to infinity of dt/(t^2 - 2) + integral from infinity to 2 of (-dt)/(t^2 - 2)
+
+Wait, let me be more careful. Actually for the substitution approach, note:
+
+integral from 0 to infinity of (1 - 1/x^2)/(x^2 + 1/x^2) dx
+
+Split: integral from 0 to 1 + integral from 1 to infinity.
+
+In the first integral, let x = 1/u: it becomes integral from 1 to infinity of (1 - u^2)/(u^2 + 1/u^2) * (-1/u^2)... This approach gets complicated.
+
+**Simpler method:** Note (x^2 - 1)/(x^4 + 1). Factor x^4 + 1 = (x^2 + sqrt(2)x + 1)(x^2 - sqrt(2)x + 1) and use partial fractions. But let's use the substitution directly on [1, infinity):
+
+For x in [1, infinity), let t = x - 1/x, dt = (1 + 1/x^2)dx.
+
+Hmm, this doesn't match. Let's use a cleaner approach:
+
+integral from 0 to infinity of (x^2 - 1)/(x^4 + 1) dx
+
+In the portion [0,1], substitute x = 1/u:
+= integral from 1 to infinity of (1/u^2 - 1)/(1/u^4 + 1) * (1/u^2) du
+= integral from 1 to infinity of (1 - u^2)/(1 + u^4) du
+
+So the full integral = integral from 1 to infinity of [(x^2-1)/(x^4+1) + (1-x^2)/(1+x^4)] dx = 0.
+
+**Answer:** The integral equals 0.
+
+### Problem 7: Euler Substitution
+
+**Problem:** Evaluate integral of dx / (x + sqrt(x^2 + x + 1)).
+
+**Recognise:** Square root of a quadratic with no clean trig substitution — use Euler substitution: set sqrt(x^2 + x + 1) = t - x.
+
+**Solution:**
+
+Let sqrt(x^2 + x + 1) = t - x.
+
+Squaring: x^2 + x + 1 = t^2 - 2tx + x^2
+
+So x + 1 = t^2 - 2tx
+x(1 + 2t) = t^2 - 1
+x = (t^2 - 1)/(2t + 1)
+
+dx = [2t(2t + 1) - 2(t^2 - 1)] / (2t + 1)^2 dt = (2t^2 + 2t + 2)/(2t + 1)^2 dt
+
+Also: x + sqrt(x^2 + x + 1) = x + (t - x) = t
+
+So the integral becomes:
+integral of [1/t] * (2t^2 + 2t + 2)/(2t + 1)^2 dt
+= integral of (2t^2 + 2t + 2) / [t(2t + 1)^2] dt
+
+This can be solved by partial fractions. The key insight is that the Euler substitution converted an irrational integrand into a rational function.
+
+## Python Verification
+
+```python
+import numpy as np
+from scipy import integrate
+import sympy as sp
+
+# Problem 1: integral of x^2/sqrt(1-x^2) from 0 to 1
+result1, _ = integrate.quad(lambda x: x**2 / np.sqrt(1 - x**2), 0, 1-1e-10)
+print(f"Problem 1: numerical = {result1:.6f}, exact = pi/4 = {np.pi/4:.6f}")
+
+# Problem 2: integral of ln(x)/(1+x^2) from 0 to infinity
+# Split at 1 due to the singularity of ln at 0
+result2a, _ = integrate.quad(lambda x: np.log(x) / (1 + x**2), 0, 1)
+result2b, _ = integrate.quad(lambda x: np.log(x) / (1 + x**2), 1, np.inf)
+print(f"Problem 2: numerical = {result2a + result2b:.6f}, exact = 0")
+
+# Problem 3: verify derivative of (1/3)arctan((x+2)/3)
+x = sp.Symbol('x')
+antideriv = sp.Rational(1, 3) * sp.atan((x + 2) / 3)
+deriv = sp.diff(antideriv, x)
+print(f"Problem 3: d/dx[(1/3)arctan((x+2)/3)] = {sp.simplify(deriv)}")
+# Should equal 1/(x^2 + 4x + 13)
+
+# Problem 4: limit of [sqrt(1+x) - sqrt(1-x)] / x as x -> 0
+expr = (sp.sqrt(1 + x) - sp.sqrt(1 - x)) / x
+lim = sp.limit(expr, x, 0)
+print(f"Problem 4: limit = {lim}")
+
+# Problem 6: integral of (x^2-1)/(x^4+1) from 0 to infinity
+result6, _ = integrate.quad(lambda x: (x**2 - 1) / (x**4 + 1), 0, np.inf)
+print(f"Problem 6: numerical = {result6:.6f}, exact = 0")
+```
+
+## When This Strategy Fails
+
+- **Over-substitution:** If the new variable makes the expression *more* complex, undo it. Not every radical needs a trig substitution — sometimes direct integration or another method is faster.
+- **Forgetting to change limits:** In definite integrals, you must transform the limits. A common error is substituting the integrand but keeping the old limits.
+- **Domain issues:** sin(t) only covers [-1, 1]. If you need x in [1, 2] for sqrt(x^2 - 1), use x = sec(t) not x = sin(t).
+- **Multiple substitutions needed:** Sometimes one substitution doesn't finish the job. Know when to chain substitutions vs. try a completely different approach.
+
+## Check Your Understanding
+
+1. Evaluate integral from 0 to pi/2 of dx / (1 + tan(x))^(1/2). [Hint: try the substitution x → pi/2 - x to exploit symmetry, then combine.]
+
+2. Find lim(x → 0) of [cbrt(1 + x) - (1 + x/3)] / x^2. [Hint: rationalise using a^3 - b^3 = (a-b)(a^2 + ab + b^2), or use Taylor expansion.]
+
+3. Evaluate integral of sqrt((x-1)/(x+1)) * (1/x) dx. [Hint: let t = sqrt((x-1)/(x+1)), express x in terms of t, then simplify.]
