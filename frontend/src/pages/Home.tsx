@@ -33,6 +33,8 @@ const TIER_DESCRIPTIONS: Record<string, string> = {
   "tier-12": "Vector calculus, multiple integrals, line/surface integrals, Green's/Stokes'/Divergence theorems, applications",
   "tier-13": "Number theory, RSA crypto, Boolean algebra, recurrences, graph algorithms, automata, Turing machines, complexity",
   "tier-14": "Estimation, hypothesis testing, ANOVA, regression, logistic regression, Bayesian inference, MCMC, causal inference",
+  "tier-15": "Propositional/predicate logic, direct proof, contradiction, contrapositive, induction, epsilon-delta, proof writing",
+  "tier-16": "Groups, subgroups, permutations, cosets, Lagrange, homomorphisms, rings, fields, elliptic curve crypto, equivariant NNs",
   "supplementary-graphs": "Linear, quadratic, cubic, exponential, logarithmic, conic sections, bell curve, sigmoid, ReLU, power laws",
   "supplementary-activations": "Sigmoid, tanh, ReLU, Leaky ReLU, ELU, GELU, Swish, softmax — full derivations and comparison",
   "supplementary-foundations": "Surds, indices, logarithm laws, algebraic manipulation, coordinate geometry, sequences & series, trig identities, binomial expansion",
@@ -59,6 +61,8 @@ const TIER_NAMES: Record<string, string> = {
   "tier-12": "Multivariable Calculus",
   "tier-13": "Advanced Discrete Math",
   "tier-14": "Advanced Statistics",
+  "tier-15": "Methods of Proof",
+  "tier-16": "Abstract Algebra",
   "supplementary-applied": "Applied Maths",
 };
 

@@ -289,6 +289,34 @@
 - [x] 14 — Experimental design (A/B testing, power analysis)
 - [x] 15 — Bootstrap & resampling
 
+### Tier 15 — Methods of Proof
+- [x] 01 — Propositional logic (formal: tautologies, DNF/CNF)
+- [x] 02 — Predicate logic (quantifiers, negation)
+- [x] 03 — Direct proof
+- [x] 04 — Proof by contradiction (sqrt(2) irrational, infinite primes)
+- [x] 05 — Proof by contrapositive
+- [x] 06 — Mathematical induction (strong induction, well-ordering)
+- [x] 07 — Proof by cases
+- [x] 08 — Set theory proofs (subset, equality, De Morgan's)
+- [x] 09 — Function proofs (injectivity, surjectivity, bijectivity)
+- [x] 10 — Cardinality (Cantor's diagonal, uncountability of R)
+- [x] 11 — Epsilon-delta proofs
+- [x] 12 — Proof writing workshop
+
+### Tier 16 — Abstract Algebra
+- [x] 01 — Groups (axioms, Cayley table, examples)
+- [x] 02 — Subgroups & cyclic groups
+- [x] 03 — Permutation groups (S_n, cycle notation)
+- [x] 04 — Cosets & Lagrange's theorem
+- [x] 05 — Normal subgroups & quotient groups
+- [x] 06 — Homomorphisms & isomorphisms
+- [x] 07 — Rings (commutative, integral domains, fields)
+- [x] 08 — Polynomial rings (R[x], irreducibility)
+- [x] 09 — Ideals & quotient rings
+- [x] 10 — Fields & extensions (GF(p^n))
+- [x] 11 — Applications: cryptography (elliptic curves, AES)
+- [x] 12 — Symmetry in neural networks (equivariant NNs)
+
 ## Supplementary — Graph Shapes & Curve Types
 
 - [x] 01 — Linear, quadratic, cubic (vertex form, discriminant, turning points)
@@ -348,4 +376,4 @@ Final three — now also covered:
 - [x] Cayley-Hamilton theorem, matrix exponential → Foundations 12
 - [x] Further vectors: lines & planes in 3D → Foundations 13
 
-ALL CAMBRIDGE CURRICULUM GAPS CLOSED. 245 lessons total (40 foundation + 127 core + 45 university + 33 advanced).
+ALL CAMBRIDGE CURRICULUM GAPS CLOSED. 269 lessons total (40 foundation + 127 core + 45 university + 33 advanced + 24 formal math).

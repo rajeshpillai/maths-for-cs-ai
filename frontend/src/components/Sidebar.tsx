@@ -23,6 +23,8 @@ const TIER_LABELS: Record<string, string> = {
   "tier-12": "Multivariable Calculus",
   "tier-13": "Advanced Discrete Math",
   "tier-14": "Advanced Statistics",
+  "tier-15": "Methods of Proof",
+  "tier-16": "Abstract Algebra",
   "supplementary-graphs": "Graph Shapes & Curves",
   "supplementary-activations": "Activation Functions",
   "supplementary-foundations": "Foundations (Pre-Calculus)",

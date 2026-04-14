@@ -286,6 +286,22 @@ then immediately implemented in clean Python**.
 - Experimental design, A/B testing, power analysis
 - Bootstrap & resampling methods
 
+### Tier 15 — Methods of Proof (Formal)
+- Propositional logic: tautologies, logical equivalence, DNF/CNF
+- Predicate logic: quantifiers, nested quantifiers, negation
+- Proof techniques: direct, contradiction, contrapositive, induction, cases
+- Set theory proofs, function proofs (injectivity, surjectivity)
+- Cardinality: countable/uncountable, Cantor's diagonal argument
+- Epsilon-delta proofs, proof writing workshop
+
+### Tier 16 — Abstract Algebra
+- Groups: axioms, Cayley tables, subgroups, cyclic groups
+- Permutation groups, cosets, Lagrange's theorem
+- Normal subgroups, quotient groups, homomorphisms, isomorphism theorems
+- Rings, integral domains, fields, polynomial rings
+- Ideals, quotient rings, field extensions, finite fields GF(p^n)
+- Applications: elliptic curve crypto, AES, equivariant neural networks
+
 ---
 
 ## Response Format for Every Lesson
