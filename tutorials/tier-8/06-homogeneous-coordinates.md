@@ -44,6 +44,51 @@ $$\begin{pmatrix} \mathbf{R}_{3\times3} & \mathbf{t}_{3\times1} \\ \mathbf{0}_{1
 
 Upper-left 3×3: rotation + scale.  Right column: translation.  Bottom row: $(0, 0, 0, 1)$.
 
+### Full pen-and-paper pipeline: Scale → Rotate → Translate
+
+Transform the point $(1, 0, 0)$ by: scale by 2, rotate 90° around z, translate by $(10, 5, 0)$.
+
+**Step 1: Build the individual matrices**
+
+$$\mathbf{S} = \begin{pmatrix} 2 & 0 & 0 & 0 \\ 0 & 2 & 0 & 0 \\ 0 & 0 & 2 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}, \quad
+\mathbf{R}_z(90°) = \begin{pmatrix} 0 & -1 & 0 & 0 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}, \quad
+\mathbf{T} = \begin{pmatrix} 1 & 0 & 0 & 10 \\ 0 & 1 & 0 & 5 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{pmatrix}$$
+
+**Step 2: Apply S to the point**
+
+$$\mathbf{S}\begin{pmatrix} 1 \\ 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 2 \\ 0 \\ 0 \\ 1 \end{pmatrix}$$
+
+**Step 3: Apply R to the scaled result**
+
+$$\mathbf{R}_z\begin{pmatrix} 2 \\ 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \cdot 2 + (-1) \cdot 0 \\ 1 \cdot 2 + 0 \cdot 0 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 2 \\ 0 \\ 1 \end{pmatrix}$$
+
+**Step 4: Apply T to the rotated result**
+
+$$\mathbf{T}\begin{pmatrix} 0 \\ 2 \\ 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 + 10 \\ 2 + 5 \\ 0 + 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 10 \\ 7 \\ 0 \\ 1 \end{pmatrix}$$
+
+Final result: $(10, 7, 0)$. The combined matrix $\mathbf{M} = \mathbf{T}\mathbf{R}\mathbf{S}$ does all three in one multiply.
+
+### Why the bottom row is (0, 0, 0, 1)
+
+The bottom row preserves the $w$-component:
+
+- **Points** have $w = 1$: they are affected by translation (the right column adds $t_x, t_y, t_z$ scaled by $w=1$).
+- **Directions/vectors** have $w = 0$: they are NOT affected by translation (multiplying the right column by $w=0$ gives zero). Directions should not move when you translate an object — only points should.
+
+The bottom row $(0, 0, 0, 1)$ ensures that after any rigid transform, a point ($w=1$) stays a point and a direction ($w=0$) stays a direction.
+
+If the bottom row is anything other than $(0, 0, 0, 1)$, the transform is a **projective** transformation (used for perspective projection). In that case, $w \ne 1$ after the multiply, and you must perform **perspective division**.
+
+### The w-component and perspective division
+
+After a perspective projection matrix multiply, a point $(x, y, z, 1)$ becomes $(x', y', z', w')$ where $w' \ne 1$.
+
+**Perspective divide:** convert back to 3D by dividing:
+
+$$\left(\frac{x'}{w'},\; \frac{y'}{w'},\; \frac{z'}{w'}\right)$$
+
+This is how farther objects get smaller: the perspective matrix sets $w' = -z$ (or similar), so dividing by a larger $z$ shrinks the coordinates.  The GPU performs this division automatically between the vertex shader and the rasteriser.
+
 ## Python Verification
 
 ```python

@@ -91,18 +91,6 @@ $(x+2)^2 = 9$ → $x + 2 = \pm 3$ → $x = 1$ or $x = -5$
 
 **Method 3: Quadratic formula** — $x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$
 
-### Simultaneous equations
-
-**Pen & paper:** Solve $2x + y = 7$ and $x - y = 2$.
-
-Add: $3x = 9$ → $x = 3$.  Substitute: $y = 1$.
-
-### Inequalities
-
-$2x + 3 > 11$ → $2x > 8$ → $x > 4$
-
-**Quadratic inequality:** $x^2 - 4 < 0$ → $(x-2)(x+2) < 0$ → $-2 < x < 2$
-
 ## Python Verification
 
 ```python
@@ -149,14 +137,6 @@ disc = b**2 - 4*a*c
 x1 = (-b + math.sqrt(disc)) / (2*a)
 x2 = (-b - math.sqrt(disc)) / (2*a)
 print(f"x² - 5x + 6 = 0: x = {x1:.0f} or x = {x2:.0f}")
-
-# Simultaneous equations
-print(f"\n=== Simultaneous: 2x+y=7, x-y=2 ===")
-# Add: 3x = 9
-x = 9 / 3
-y = 7 - 2*x
-print(f"x = {x:.0f}, y = {y:.0f}")
-print(f"Check: 2({x:.0f})+{y:.0f} = {2*x+y:.0f}, {x:.0f}-{y:.0f} = {x-y:.0f}")
 ```
 
 ## Connection to CS / Games / AI
@@ -164,12 +144,13 @@ print(f"Check: 2({x:.0f})+{y:.0f} = {2*x+y:.0f}, {x:.0f}-{y:.0f} = {x-y:.0f}")
 - **Quadratic formula** — solving ray-sphere intersections (Tier 8-09)
 - **Completing the square** — finding minima of loss functions analytically
 - **Factorising** — simplifying expressions in symbolic differentiation
-- **Simultaneous equations** — any linear system $\mathbf{Ax} = \mathbf{b}$
-- **Inequalities** — constraint satisfaction, boundary checking in games
 
 ## Check Your Understanding
 
 1. **Pen & paper:** Expand and simplify $(3x - 2)(x + 4) - (x + 1)^2$.
 2. **Pen & paper:** Factorise $3x^2 - 11x - 4$.
 3. **Pen & paper:** Complete the square for $x^2 - 10x + 21$ and find the vertex.
-4. **Pen & paper:** Solve $x^2 + 2x - 15 > 0$.
+4. **Pen & paper:** Use the quadratic formula to solve $3x^2 - 2x - 5 = 0$.
+
+> **Note:** Simultaneous equations are covered in **Foundation 1, Lesson 4**
+> and inequalities in **Foundation 1, Lesson 5**.

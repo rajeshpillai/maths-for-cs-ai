@@ -232,15 +232,7 @@ Expand along row 1: $= 8(3) - 0(\ldots) + 4(6 - (-1)) = 24 + 28 = 52$ ✓
 
 $R_2 \leftarrow R_2 + 2R_1$: $\begin{pmatrix} 2 & 0 & 1 \\ 7 & 1 & 2 \\ -1 & 2 & 3 \end{pmatrix}$
 
-Expand along column 2 (the zero helps):
-
-$= -(0)(\ldots) + (1)(2 \cdot 3 - 2 \cdot (-1)) - (2)(2 \cdot 2 - 1 \cdot 7)$
-
-$= 0 + 1(6 + 2) - 2(4 - 7)$
-
-$= 8 - 2(-3) = 8 + 6 = 14$
-
-Hmm — let's be careful and expand fully. Expand along row 1:
+Expand along row 1 (the zero in position (1,2) eliminates one term):
 
 $= 2(1 \cdot 3 - 2 \cdot 2) - 0(\ldots) + 1(7 \cdot 2 - 1 \cdot (-1))$
 

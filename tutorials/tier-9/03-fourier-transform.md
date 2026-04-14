@@ -12,13 +12,39 @@ It reveals the frequency content: "how much of each frequency is present?"
 
 ## From First Principles
 
-### From series to transform
+### From series to transform (the limiting argument)
 
-As the period $T \to \infty$, the discrete harmonics become a continuous spectrum:
+Start with the Fourier series of a periodic function with period $T$:
+
+$$f(t) = \sum_{n=-\infty}^{\infty} c_n \, e^{i n \omega_0 t}, \quad \omega_0 = \frac{2\pi}{T}$$
+
+where the coefficients are:
+
+$$c_n = \frac{1}{T}\int_{-T/2}^{T/2} f(t)\, e^{-i n \omega_0 t}\, dt$$
+
+**Step 1:** Define $\omega_n = n\omega_0$ and $\Delta\omega = \omega_0 = 2\pi/T$. Substitute $c_n$
+back into the series:
+
+$$f(t) = \sum_{n=-\infty}^{\infty} \left[\frac{1}{T}\int_{-T/2}^{T/2} f(\tau)\, e^{-i \omega_n \tau}\, d\tau\right] e^{i \omega_n t}$$
+
+**Step 2:** Since $1/T = \Delta\omega / (2\pi)$, rewrite:
+
+$$f(t) = \frac{1}{2\pi}\sum_{n=-\infty}^{\infty} \left[\int_{-T/2}^{T/2} f(\tau)\, e^{-i \omega_n \tau}\, d\tau\right] e^{i \omega_n t}\, \Delta\omega$$
+
+**Step 3:** As $T \to \infty$:
+- The discrete frequencies $\omega_n = n \cdot 2\pi/T$ become **continuous**: $\Delta\omega \to d\omega$
+- The sum becomes an **integral** over all $\omega$
+- The integration limits $-T/2$ to $T/2$ become $-\infty$ to $\infty$
+
+$$f(t) = \frac{1}{2\pi}\int_{-\infty}^{\infty} \left[\int_{-\infty}^{\infty} f(\tau)\, e^{-i\omega\tau}\, d\tau\right] e^{i\omega t}\, d\omega$$
+
+**Step 4:** The inner integral is the **Fourier Transform**:
 
 $$\hat{f}(\omega) = \int_{-\infty}^{\infty} f(t)\, e^{-i\omega t}\, dt$$
 
-This is the **Fourier Transform** of $f(t)$.
+This is the **Fourier Transform** of $f(t)$. The key insight: as the period
+becomes infinite, the harmonic "comb" of discrete frequencies merges into a
+continuous spectrum.
 
 ### Inverse Fourier Transform
 
@@ -93,6 +119,47 @@ for a in [0.5, 1.0, 4.0]:
     time_width = 1/math.sqrt(a)
     freq_width = math.sqrt(a)
     print(f"  a={a}: σ_time={time_width:.2f}, σ_freq={freq_width:.2f}, product={time_width*freq_width:.2f}")
+```
+
+### Visualisation: time domain signal and its frequency spectrum
+
+```python
+# ── Fourier Transform visualisation ────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Create a signal: sum of two sine waves at 5 Hz and 12 Hz
+fs = 200  # sampling rate
+t = np.linspace(0, 1, fs, endpoint=False)
+signal = 1.0 * np.sin(2 * np.pi * 5 * t) + 0.5 * np.sin(2 * np.pi * 12 * t)
+
+# Compute FFT (discrete Fourier transform)
+fft_vals = np.fft.fft(signal)
+freqs = np.fft.fftfreq(len(t), d=1/fs)
+
+# Only positive frequencies
+pos_mask = freqs >= 0
+freqs_pos = freqs[pos_mask]
+magnitude = np.abs(fft_vals[pos_mask]) * 2 / len(t)  # normalise
+
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(10, 6))
+
+# Time domain
+ax1.plot(t, signal, 'b-', linewidth=1)
+ax1.set_xlabel('Time (s)')
+ax1.set_ylabel('Amplitude')
+ax1.set_title('Time Domain: sin(2π·5t) + 0.5·sin(2π·12t)')
+ax1.grid(True, alpha=0.3)
+
+# Frequency domain
+ax2.stem(freqs_pos[:30], magnitude[:30], linefmt='r-', markerfmt='ro', basefmt='k-')
+ax2.set_xlabel('Frequency (Hz)')
+ax2.set_ylabel('Magnitude')
+ax2.set_title('Frequency Domain (Fourier Transform): peaks at 5 Hz and 12 Hz')
+ax2.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
 ```
 
 ## Connection to CS / Games / AI

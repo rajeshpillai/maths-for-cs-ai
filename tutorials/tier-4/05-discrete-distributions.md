@@ -59,12 +59,45 @@ $$\binom{n}{k} p^k (1-p)^{n-k} \to \frac{\lambda^k e^{-\lambda}}{k!}$$
 
 $P(\text{exactly 3 failures}) \approx \frac{2^3 e^{-2}}{3!} = \frac{8 \times 0.1353}{6} = 0.180$
 
+### Geometric distribution
+
+Models the number of trials until the **first success**.
+
+$$P(X = k) = (1 - p)^{k-1} p, \quad k = 1, 2, 3, \ldots$$
+
+$E[X] = \frac{1}{p}$, $\text{Var}(X) = \frac{1-p}{p^2}$
+
+**Intuition:** "How many coin flips until I get the first heads?" With $p = 0.5$: on average 2 flips. With $p = 0.01$: on average 100.
+
+**Memoryless property:** $P(X > s + t \mid X > s) = P(X > t)$
+
+Past failures don't change the probability of future success. The Geometric distribution is the **only** discrete distribution with this property.
+
+**Pen & paper:** A network packet has $p = 0.2$ chance of arriving. How many attempts on average? What is $P(\text{exactly 3 attempts})$?
+
+$E[X] = 1/0.2 = 5$ attempts on average.
+
+$P(X = 3) = (1 - 0.2)^{3-1} \times 0.2 = 0.8^2 \times 0.2 = 0.64 \times 0.2 = 0.128$
+
+$P(X = 1) = 0.2$ (success on first try)
+
+$P(X = 2) = 0.8 \times 0.2 = 0.16$
+
+$P(\text{need more than 3}) = 1 - P(1) - P(2) - P(3) = 1 - 0.2 - 0.16 - 0.128 = 0.512$
+
+**Pen & paper: CDF (probability of success within $k$ trials):**
+
+$P(X \le k) = 1 - (1-p)^k$
+
+For our example: $P(X \le 5) = 1 - 0.8^5 = 1 - 0.328 = 0.672$ (67.2% chance within 5 attempts).
+
 ### Summary table
 
 | Distribution | Parameters | $E[X]$ | $\text{Var}(X)$ |
 |-------------|-----------|--------|-----------------|
 | Bernoulli | $p$ | $p$ | $p(1-p)$ |
 | Binomial | $n, p$ | $np$ | $np(1-p)$ |
+| Geometric | $p$ | $1/p$ | $(1-p)/p^2$ |
 | Poisson | $\lambda$ | $\lambda$ | $\lambda$ |
 
 ## Python Verification
@@ -103,6 +136,22 @@ for k in range(11):
     p_k = comb(10, k) * 0.5**10
     bar = '#' * int(p_k * 200)
     print(f"  k={k:2d}: {p_k:.4f} {bar}")
+
+# Geometric distribution
+print(f"\n=== Geometric: P(X=k) for p=0.2 ===")
+p = 0.2
+print(f"E[X] = 1/p = {1/p:.1f}")
+print(f"Var(X) = (1-p)/p² = {(1-p)/p**2:.2f}")
+for k in range(1, 11):
+    p_k = (1-p)**(k-1) * p
+    bar = '#' * int(p_k * 200)
+    print(f"  k={k:2d}: {p_k:.4f} {bar}")
+
+# CDF: probability of success within k trials
+print(f"\n=== Geometric CDF: P(X ≤ k) for p=0.2 ===")
+for k in [1, 3, 5, 10, 20]:
+    cdf = 1 - (1-p)**k
+    print(f"  P(X ≤ {k:2d}) = {cdf:.4f}")
 ```
 
 ## Connection to CS / Games / AI
@@ -110,6 +159,7 @@ for k in range(11):
 - **Bernoulli** — dropout (each neuron is a Bernoulli trial), click-through rates
 - **Binomial** — "how many of $n$ users convert?" in A/B testing
 - **Poisson** — server request rates, rare event modelling, network packet arrivals
+- **Geometric** — retry loops (expected retries until success), hash table probe counts, coupon collector analysis, expected time to find a free slot
 - **Loss functions** — cross-entropy loss assumes Bernoulli-distributed outcomes
 
 ## Check Your Understanding

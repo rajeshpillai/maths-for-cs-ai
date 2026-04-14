@@ -31,15 +31,41 @@ $$\mathbf{H}^{(l+1)} = \sigma\left(\hat{\mathbf{D}}^{-1/2}\hat{\mathbf{A}}\hat{\
 
 where $\hat{\mathbf{A}} = \mathbf{A} + \mathbf{I}$ (adjacency + self-loops), $\hat{\mathbf{D}}$ = degree matrix.
 
-### Spectral view
+### Spectral view (detailed derivation)
 
-The **graph Laplacian** $\mathbf{L} = \mathbf{D} - \mathbf{A}$ has eigenvectors that form a "Fourier basis" for the graph.
+The **graph Laplacian** $\mathbf{L} = \mathbf{D} - \mathbf{A}$ is symmetric positive
+semi-definite, so it has an eigendecomposition:
+
+$$\mathbf{L} = \mathbf{U}\mathbf{\Lambda}\mathbf{U}^T$$
+
+Here each matrix has a concrete meaning:
+
+- **$\mathbf{U}$** — columns are eigenvectors of $\mathbf{L}$, forming a "Fourier basis" for
+  the graph. The first eigenvector (eigenvalue 0) is constant — it represents the "DC
+  component" (global average). Later eigenvectors oscillate more across the graph,
+  like higher-frequency sines on a regular grid.
+
+- **$\mathbf{\Lambda}$** — diagonal matrix of eigenvalues $\lambda_1 \le \lambda_2 \le \ldots$.
+  Small $\lambda$ = low frequency (smooth signal), large $\lambda$ = high frequency
+  (rapidly changing across edges). These are the "graph frequencies."
+
+- **$\mathbf{U}^T x$** — the **Graph Fourier Transform** of signal $x$. It projects
+  the node features onto the graph's frequency basis, just as the regular FT projects
+  a time signal onto sine/cosine frequencies.
 
 Graph convolution in the spectral domain:
 
 $$g * x = \mathbf{U} \cdot g(\mathbf{\Lambda}) \cdot \mathbf{U}^T x$$
 
-where $\mathbf{L} = \mathbf{U}\mathbf{\Lambda}\mathbf{U}^T$.
+Reading right to left: (1) $\mathbf{U}^T x$ transforms $x$ to the frequency domain,
+(2) $g(\mathbf{\Lambda})$ applies a learnable filter (scaling each frequency by a
+learned weight — exactly like multiplying in frequency domain), (3) $\mathbf{U}$
+transforms back to the spatial domain. This is the convolution theorem on graphs.
+
+**Problem:** Computing $\mathbf{U}$ requires eigendecomposing $\mathbf{L}$, which is
+$O(n^3)$. ChebNet approximates $g(\mathbf{\Lambda})$ with Chebyshev polynomials to
+avoid this. GCN simplifies further to a first-order approximation, giving the
+$\hat{\mathbf{D}}^{-1/2}\hat{\mathbf{A}}\hat{\mathbf{D}}^{-1/2}$ formula above.
 
 ### Pen & paper: Simple message passing
 
@@ -88,7 +114,17 @@ for row in A_norm:
     print(f"  {[f'{v:.3f}' for v in row]}")
 ```
 
+## Connection to CS / Games / AI
+
+- **Drug discovery** — molecules are graphs (atoms = nodes, bonds = edges); GNNs predict drug properties
+- **Social networks** — node classification (detect bots), link prediction (friend recommendations)
+- **Recommendation systems** — user-item interaction graphs; GNNs power Pinterest and Uber Eats recommendations
+- **Game AI** — navigation meshes as graphs; GNNs for pathfinding and spatial reasoning
+- **Traffic prediction** — road networks as graphs; GNNs predict congestion (Google Maps)
+- **Code analysis** — abstract syntax trees and control flow graphs; GNNs for bug detection
+
 ## Check Your Understanding
 
 1. **Pen & paper:** For a path graph 1—2—3 (not fully connected), compute one step of mean message passing with features $[1, 0, 1]$.
 2. **Think about it:** Why is over-smoothing a problem, and how do skip connections help?
+3. **Pen & paper:** For the triangle graph with $\mathbf{A} = \begin{pmatrix} 0 & 1 & 1 \\ 1 & 0 & 1 \\ 1 & 1 & 0 \end{pmatrix}$, compute the graph Laplacian $\mathbf{L} = \mathbf{D} - \mathbf{A}$ and verify that $\mathbf{L}$ has eigenvalue 0 with eigenvector $(1, 1, 1)^T / \sqrt{3}$ (the constant vector).

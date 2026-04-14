@@ -76,6 +76,60 @@ $$\text{Variance explained by PC}_i = \frac{\lambda_i}{\sum_j \lambda_j}$$
 
 In our example: PC1 captures $13.33 / 13.33 = 100\%$ of the variance.
 
+### Worked example 2: Non-trivial data (both eigenvalues nonzero)
+
+**Sample data:** 4 points in 2D with variance in two directions
+
+| Point | $x_1$ | $x_2$ |
+|-------|--------|--------|
+| A | 2 | 3 |
+| B | 4 | 5 |
+| C | 6 | 4 |
+| D | 8 | 8 |
+
+**Step 1: Centre the data**
+
+Mean: $\bar{x}_1 = (2+4+6+8)/4 = 5$, $\bar{x}_2 = (3+5+4+8)/4 = 5$
+
+| Point | $x_1 - 5$ | $x_2 - 5$ |
+|-------|-----|-----|
+| A | -3 | -2 |
+| B | -1 | 0 |
+| C | 1 | -1 |
+| D | 3 | 3 |
+
+**Step 2: Covariance matrix**
+
+$$\mathbf{X}_c = \begin{pmatrix} -3 & -2 \\ -1 & 0 \\ 1 & -1 \\ 3 & 3 \end{pmatrix}$$
+
+$$\mathbf{X}_c^T\mathbf{X}_c = \begin{pmatrix} (-3)^2+(-1)^2+1^2+3^2 & (-3)(-2)+(-1)(0)+(1)(-1)+(3)(3) \\ \text{same} & (-2)^2+0^2+(-1)^2+3^2 \end{pmatrix} = \begin{pmatrix} 20 & 14 \\ 14 & 14 \end{pmatrix}$$
+
+$$\mathbf{C} = \frac{1}{3}\begin{pmatrix} 20 & 14 \\ 14 & 14 \end{pmatrix} = \begin{pmatrix} 6.67 & 4.67 \\ 4.67 & 4.67 \end{pmatrix}$$
+
+**Step 3: Eigenvalues**
+
+$\det\begin{pmatrix} 6.67 - \lambda & 4.67 \\ 4.67 & 4.67 - \lambda \end{pmatrix} = 0$
+
+$(6.67 - \lambda)(4.67 - \lambda) - 4.67^2 = 0$
+
+$\lambda^2 - 11.33\lambda + (31.11 - 21.78) = 0$
+
+$\lambda^2 - 11.33\lambda + 9.33 = 0$
+
+$\lambda = \frac{11.33 \pm \sqrt{128.37 - 37.33}}{2} = \frac{11.33 \pm \sqrt{91.04}}{2} = \frac{11.33 \pm 9.54}{2}$
+
+$\lambda_1 \approx 10.44$, $\lambda_2 \approx 0.89$
+
+**Both eigenvalues are nonzero** — the data has variance in two directions (it does not lie on a perfect line).
+
+**Step 4: Variance explained**
+
+PC1: $10.44 / (10.44 + 0.89) = 10.44 / 11.33 \approx 92.1\%$
+
+PC2: $0.89 / 11.33 \approx 7.9\%$
+
+**Interpretation:** PC1 captures 92% of the variance. If we reduce to 1D, we lose only 8% of the information. Unlike Example 1 (perfectly collinear data), here we genuinely have some spread in the second direction — so the "explained variance" metric becomes meaningful for deciding how many components to keep.
+
 ### PCA via SVD (the practical method)
 
 Instead of computing the covariance matrix, use SVD directly on $\mathbf{X}_c$:

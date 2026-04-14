@@ -74,90 +74,111 @@ After Sigmoid:     (batch_size, 1)
 ## Python Implementation
 
 ```python
-# ── PyTorch XOR: same network, framework style ─────────────
-# NOTE: This requires PyTorch. If running in browser (Pyodide),
-# this won't work — use the pure Python version from Lesson 05.
+# ── PyTorch XOR: scratch vs framework, side by side ────────
+# We implement the FULL training loop in pure NumPy, showing exactly
+# what PyTorch does behind the scenes for each operation.
 
-# Here's what the PyTorch code looks like:
-#
-# import torch
-# import torch.nn as nn
-#
-# # Same architecture as our scratch version
-# model = nn.Sequential(
-#     nn.Linear(2, 4),
-#     nn.ReLU(),
-#     nn.Linear(4, 1),
-#     nn.Sigmoid()
-# )
-#
-# # Same loss and optimizer
-# criterion = nn.BCELoss()
-# optimizer = torch.optim.SGD(model.parameters(), lr=0.5)
-#
-# # Same data
-# X = torch.tensor([[0,0],[0,1],[1,0],[1,1]], dtype=torch.float32)
-# y = torch.tensor([[0],[1],[1],[0]], dtype=torch.float32)
-#
-# # Training loop — compare to our 30-line backward pass!
-# for epoch in range(1000):
-#     y_hat = model(X)                    # Forward pass
-#     loss = criterion(y_hat, y)          # Compute loss
-#     optimizer.zero_grad()               # Clear old gradients
-#     loss.backward()                     # Backpropagation
-#     optimizer.step()                    # Update weights
-#
-# # Test
-# with torch.no_grad():
-#     predictions = model(X)
-#     print(predictions)
+import numpy as np
 
-# Since Pyodide doesn't have PyTorch, let's demonstrate the
-# MAPPING between our scratch code and what PyTorch does:
+np.random.seed(42)
 
-print("=== Mapping: Scratch vs PyTorch ===")
-print()
-print("FORWARD PASS:")
-print("  Scratch: z1 = mat_mul(W1, x) + b1;  a1 = relu(z1)")
-print("  PyTorch: a1 = F.relu(self.fc1(x))")
-print("  → Same math: W@x + b, then ReLU element-wise")
-print()
-print("LOSS:")
-print("  Scratch: -(y*log(y_hat) + (1-y)*log(1-y_hat))")
-print("  PyTorch: criterion = nn.BCELoss(); loss = criterion(y_hat, y)")
-print("  → Same formula, numerically stable implementation")
-print()
-print("BACKWARD PASS:")
-print("  Scratch: delta2 = y_hat - y")
-print("           dW2 = delta2 @ a1.T")
-print("           delta1 = W2.T @ delta2 * relu_deriv(z1)")
-print("           dW1 = delta1 @ x.T")
-print("  PyTorch: loss.backward()")
-print("  → Autograd applies chain rule on computation graph")
-print()
-print("UPDATE:")
-print("  Scratch: W -= alpha * dW")
-print("  PyTorch: optimizer.step()")
-print("  → For SGD: identical. For Adam: adds momentum + adaptive rates")
-print()
+# === XOR DATA ===
+X = np.array([[0,0],[0,1],[1,0],[1,1]], dtype=np.float64)  # (4, 2)
+y = np.array([[0],[1],[1],[0]], dtype=np.float64)            # (4, 1)
 
-print("=== Parameter count comparison ===")
-print("Layer 1 (Linear 2→4): weights=8, biases=4, total=12")
-print("Layer 2 (Linear 4→1): weights=4, biases=1, total=5")
-print("Grand total: 17 parameters")
-print()
-print("PyTorch: sum(p.numel() for p in model.parameters()) → 17")
+# === PARAMETER INITIALIZATION (what nn.Linear does internally) ===
+# PyTorch uses Kaiming uniform by default for Linear layers
+# For a Linear(in, out), W shape is (out, in), b shape is (out,)
+# We use He init: std = sqrt(2/fan_in)
 
-print()
-print("=== What PyTorch adds beyond our scratch code ===")
-print("1. Automatic differentiation (no manual backward pass)")
-print("2. GPU acceleration (move tensors to CUDA)")
-print("3. Built-in optimizers (Adam, SGD, AdamW, etc.)")
-print("4. DataLoader for batching and shuffling")
-print("5. Numerical stability (log-sum-exp tricks)")
-print("6. Gradient clipping, learning rate scheduling")
-print("7. Model saving/loading (state_dict)")
-print("8. Pre-built layers (Conv2d, LSTM, Transformer, etc.)")
+def he_init(fan_in, fan_out):
+    std = np.sqrt(2.0 / fan_in)
+    W = np.random.randn(fan_out, fan_in) * std
+    b = np.zeros((fan_out, 1))
+    return W, b
+
+# nn.Linear(2, 4)
+W1, b1 = he_init(2, 4)   # W1: (4,2), b1: (4,1)
+# nn.Linear(4, 1)
+W2, b2 = he_init(4, 1)   # W2: (1,4), b2: (1,1)
+
+print("=== Initialisation (He init, like PyTorch default) ===")
+print(f"W1 shape: {W1.shape}, b1 shape: {b1.shape}")
+print(f"W2 shape: {W2.shape}, b2 shape: {b2.shape}")
+print(f"Total parameters: {W1.size + b1.size + W2.size + b2.size}")
+
+# === ACTIVATION FUNCTIONS ===
+def relu(z):
+    return np.maximum(0, z)
+
+def sigmoid(z):
+    return 1 / (1 + np.exp(-np.clip(z, -500, 500)))
+
+# === TRAINING LOOP ===
+lr = 0.5  # Same as: optimizer = torch.optim.SGD(params, lr=0.5)
+losses = []
+
+print(f"\n=== Training (1000 epochs, lr={lr}) ===")
+for epoch in range(1000):
+    # --- FORWARD PASS (what model(X) does) ---
+    # Layer 1: z1 = W1 @ x + b1, a1 = relu(z1)
+    Z1 = W1 @ X.T + b1        # (4,2)@(2,4) + (4,1) → (4,4)
+    A1 = relu(Z1)              # nn.ReLU()
+
+    # Layer 2: z2 = W2 @ a1 + b2, a2 = sigmoid(z2)
+    Z2 = W2 @ A1 + b2         # (1,4)@(4,4) + (1,1) → (1,4)
+    A2 = sigmoid(Z2)          # nn.Sigmoid()
+
+    # --- LOSS (what criterion(y_hat, y) does) ---
+    # BCE: L = -mean(y*log(yhat) + (1-y)*log(1-yhat))
+    y_hat = A2.T               # (4,1)
+    eps = 1e-8
+    loss = -np.mean(y * np.log(y_hat + eps) + (1-y) * np.log(1 - y_hat + eps))
+    losses.append(loss)
+
+    # --- BACKWARD PASS (what loss.backward() does) ---
+    # Autograd computes these exact gradients via chain rule
+    m = X.shape[0]  # batch size
+
+    # Output layer gradient
+    dZ2 = (A2 - y.T) / m      # (1,4) — gradient of BCE+sigmoid combined
+    dW2 = dZ2 @ A1.T          # (1,4)@(4,4).T → (1,4)
+    db2 = np.sum(dZ2, axis=1, keepdims=True)  # (1,1)
+
+    # Hidden layer gradient (chain rule through ReLU)
+    dA1 = W2.T @ dZ2          # (4,1)@(1,4) → (4,4)
+    dZ1 = dA1 * (Z1 > 0)     # ReLU derivative: 1 if z>0, else 0
+    dW1 = dZ1 @ X             # (4,4)@(4,2) → (4,2)
+    db1 = np.sum(dZ1, axis=1, keepdims=True)  # (4,1)
+
+    # --- UPDATE (what optimizer.step() does for SGD) ---
+    # optimizer.zero_grad() is implicit — we compute fresh grads each time
+    W2 -= lr * dW2
+    b2 -= lr * db2
+    W1 -= lr * dW1
+    b1 -= lr * db1
+
+    if epoch % 200 == 0:
+        print(f"  Epoch {epoch:4d}: loss = {loss:.4f}")
+
+# === FINAL PREDICTIONS ===
+Z1 = W1 @ X.T + b1
+A1 = relu(Z1)
+Z2 = W2 @ A1 + b2
+predictions = sigmoid(Z2).T
+
+print(f"\n=== Final predictions (XOR) ===")
+print(f"  Input → Prediction (Target)")
+for i in range(4):
+    print(f"  {X[i]} → {predictions[i,0]:.4f}  ({y[i,0]:.0f})")
+
+print(f"\n=== Correspondence: Scratch ↔ PyTorch ===")
+print(f"  he_init(in, out)       ↔  nn.Linear(in, out)")
+print(f"  relu(W@x + b)         ↔  F.relu(self.fc(x))")
+print(f"  sigmoid(W@x + b)      ↔  torch.sigmoid(self.fc(x))")
+print(f"  -mean(y*log(ŷ)+...)   ↔  nn.BCELoss()(ŷ, y)")
+print(f"  chain rule by hand     ↔  loss.backward()")
+print(f"  W -= lr * dW           ↔  optimizer.step()  (SGD)")
 ```
 
 ## The Complete Training Pipeline

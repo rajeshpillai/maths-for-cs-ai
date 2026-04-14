@@ -44,7 +44,53 @@ $$p' = q \cdot p \cdot q^{-1}$$
 
 For unit quaternions: $q^{-1} = q^* = (w, -\mathbf{v})$ (conjugate).
 
-### Quaternion multiplication
+### Gimbal lock demonstration (Euler angles failing at 90° pitch)
+
+Apply Euler rotation $R_z(\gamma) \cdot R_y(90°) \cdot R_x(\alpha)$ to the
+vector $(1, 0, 0)$:
+
+**Pen & paper:** $\alpha = 30°, \gamma = 0°$:
+
+$R_x(30°)(1,0,0) = (1, 0, 0)$ (x-axis rotation doesn't move x-axis vector)
+
+$R_y(90°)(1,0,0) = (0, 0, -1)$ (x maps to -z)
+
+$R_z(0°)(0,0,-1) = (0, 0, -1)$
+
+Now $\alpha = 0°, \gamma = -30°$:
+
+$R_x(0°)(1,0,0) = (1, 0, 0)$
+
+$R_y(90°)(1,0,0) = (0, 0, -1)$
+
+$R_z(-30°)(0,0,-1) = (0, 0, -1)$ (z-rotation doesn't move z-axis vector)
+
+Both give the same result! Try rotating a **different** starting vector
+$(0, 1, 0)$ and you'll see that changing $\alpha$ and changing $\gamma$ produce
+the same effect — they both rotate around the same axis. The system has
+collapsed from 3 DOF to 2 DOF.
+
+Quaternions avoid this entirely because they represent rotation as a single
+axis + angle, with no sequential decomposition.
+
+### Quaternion multiplication (derived from ijk rules)
+
+Starting from Hamilton's rules: $i^2 = j^2 = k^2 = ijk = -1$.
+
+From these we derive: $ij = k$, $jk = i$, $ki = j$, $ji = -k$, $kj = -i$, $ik = -j$.
+
+Multiply $q_1 = w_1 + x_1 i + y_1 j + z_1 k$ by $q_2 = w_2 + x_2 i + y_2 j + z_2 k$:
+
+Distribute all 16 terms and collect using the rules above:
+
+- Scalar part: $w_1 w_2 - x_1 x_2 - y_1 y_2 - z_1 z_2 = w_1 w_2 - \mathbf{v}_1 \cdot \mathbf{v}_2$
+- $i$ part: $w_1 x_2 + x_1 w_2 + y_1 z_2 - z_1 y_2$
+- $j$ part: $w_1 y_2 - x_1 z_2 + y_1 w_2 + z_1 x_2$
+- $k$ part: $w_1 z_2 + x_1 y_2 - y_1 x_2 + z_1 w_2$
+
+The vector part is $w_1\mathbf{v}_2 + w_2\mathbf{v}_1 + \mathbf{v}_1 \times \mathbf{v}_2$.
+
+Compact form:
 
 $$q_1 q_2 = (w_1 w_2 - \mathbf{v}_1 \cdot \mathbf{v}_2,\; w_1\mathbf{v}_2 + w_2\mathbf{v}_1 + \mathbf{v}_1 \times \mathbf{v}_2)$$
 
@@ -142,3 +188,4 @@ for t in [0.0, 0.25, 0.5, 0.75, 1.0]:
 1. **Pen & paper:** Write the quaternion for a 180° rotation around the y-axis.
 2. **Pen & paper:** Using quaternion rotation, rotate $(0, 1, 0)$ by 90° around the x-axis.
 3. **Think about it:** Why does the quaternion use $\theta/2$ instead of $\theta$?  (Hint: the rotation formula applies $q$ twice: $q \cdot p \cdot q^{-1}$.)
+4. **Pen & paper:** Multiply the quaternions $q_1 = (1, 0, 0, 0)$ (identity) and $q_2 = (0, 1, 0, 0)$ (180° around x-axis) using the multiplication formula. Verify that $q_1 q_2 = q_2$ and $q_2 q_2 = (-1, 0, 0, 0)$ (360° = negative identity).

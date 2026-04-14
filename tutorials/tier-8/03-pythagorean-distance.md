@@ -38,6 +38,29 @@ $$d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2}$$
 
 $d = \sqrt{1 + 4 + 4} = \sqrt{9} = 3$
 
+### Deriving ND distance by extension from 2D → 3D → ND
+
+**From 2D to 3D:** Suppose we know the 2D distance in the $xy$-plane between
+$(x_1, y_1)$ and $(x_2, y_2)$ is $d_{xy} = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$.
+
+Now the two points also differ in $z$. The 3D distance forms a right triangle
+where one leg is $d_{xy}$ and the other is $|z_2 - z_1|$. Apply Pythagoras again:
+
+$d_{3D}^2 = d_{xy}^2 + (z_2-z_1)^2 = (x_2-x_1)^2 + (y_2-y_1)^2 + (z_2-z_1)^2$
+
+**From 3D to 4D:** The same argument applies. If we have distance $d_{3D}$ in
+the first three coordinates, and the points differ by $w_2 - w_1$ in the fourth:
+
+$d_{4D}^2 = d_{3D}^2 + (w_2-w_1)^2 = \sum_{i=1}^{4}(a_i - b_i)^2$
+
+**Inductive step:** If the formula holds for $(n-1)$ dimensions, then for $n$
+dimensions the distance in the first $(n-1)$ coordinates is a leg, the $n$-th
+coordinate difference is the other leg, and Pythagoras gives:
+
+$d_n^2 = d_{n-1}^2 + (a_n - b_n)^2 = \sum_{i=1}^{n}(a_i - b_i)^2$
+
+This completes the induction.
+
 ### N-dimensional distance
 
 $$d(\mathbf{a}, \mathbf{b}) = \sqrt{\sum_{i=1}^{n}(a_i - b_i)^2} = \|\mathbf{a} - \mathbf{b}\|_2$$
@@ -110,6 +133,50 @@ linf = max(abs(a-b) for a, b in zip(p1, p2))
 print(f"L2 (Euclidean): {l2:.2f}")
 print(f"L1 (Manhattan): {l1}")
 print(f"L∞ (Chebyshev): {linf}")
+```
+
+### Visualisation: 2D distance with Pythagorean triangle
+
+```python
+# ── Visualise the Pythagorean triangle behind 2D distance ──
+import matplotlib.pyplot as plt
+
+p1, p2 = (1, 2), (4, 6)
+dx, dy = p2[0] - p1[0], p2[1] - p1[1]
+d = (dx**2 + dy**2)**0.5
+
+fig, ax = plt.subplots(1, 1, figsize=(5, 5))
+
+# Draw the right triangle
+# Horizontal leg
+ax.plot([p1[0], p2[0]], [p1[1], p1[1]], 'b--', linewidth=1.5, label=f'Δx = {dx}')
+# Vertical leg
+ax.plot([p2[0], p2[0]], [p1[1], p2[1]], 'r--', linewidth=1.5, label=f'Δy = {dy}')
+# Hypotenuse (distance)
+ax.plot([p1[0], p2[0]], [p1[1], p2[1]], 'k-', linewidth=2, label=f'd = {d:.0f}')
+
+# Right angle marker
+ax.plot([p2[0]-0.3, p2[0]-0.3, p2[0]], [p1[1], p1[1]+0.3, p1[1]+0.3], 'k-', linewidth=1)
+
+# Points
+ax.plot(*p1, 'ko', markersize=8)
+ax.plot(*p2, 'ko', markersize=8)
+ax.annotate(f'({p1[0]},{p1[1]})', p1, textcoords="offset points", xytext=(-30,-15), fontsize=11)
+ax.annotate(f'({p2[0]},{p2[1]})', p2, textcoords="offset points", xytext=(5,5), fontsize=11)
+
+# Label hypotenuse
+mid = ((p1[0]+p2[0])/2, (p1[1]+p2[1])/2)
+ax.annotate(f'd = √({dx}² + {dy}²) = {d:.0f}', mid, textcoords="offset points",
+            xytext=(-80, 10), fontsize=10, color='black')
+
+ax.set_xlim(0, 6)
+ax.set_ylim(0, 8)
+ax.set_aspect('equal')
+ax.legend(loc='upper left')
+ax.set_title('Pythagorean Distance in 2D')
+ax.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()
 ```
 
 ## Connection to CS / Games / AI

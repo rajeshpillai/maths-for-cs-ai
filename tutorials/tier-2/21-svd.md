@@ -63,6 +63,62 @@ $\mathbf{u}_1 = \frac{1}{3}\begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}\frac{1}{
 
 $\mathbf{u}_2 = \frac{1}{1}\begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}\frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ -1 \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ -1 \end{pmatrix}$
 
+### Non-square matrix SVD (pen & paper, 3×2)
+
+This is the primary use case — most real data matrices are not square.
+
+$$\mathbf{A} = \begin{pmatrix} 1 & 0 \\ 0 & 1 \\ 1 & 1 \end{pmatrix}$$
+
+**Step 1:** Compute $\mathbf{A}^T\mathbf{A}$ (2×2):
+
+$$\mathbf{A}^T\mathbf{A} = \begin{pmatrix} 1 & 0 & 1 \\ 0 & 1 & 1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ 0 & 1 \\ 1 & 1 \end{pmatrix} = \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}$$
+
+**Step 2:** Eigenvalues of $\mathbf{A}^T\mathbf{A}$:
+
+$\det\begin{pmatrix} 2-\lambda & 1 \\ 1 & 2-\lambda \end{pmatrix} = (2-\lambda)^2 - 1 = 0$
+
+$\lambda^2 - 4\lambda + 3 = 0$ → $\lambda_1 = 3$, $\lambda_2 = 1$
+
+**Singular values:** $\sigma_1 = \sqrt{3}$, $\sigma_2 = \sqrt{1} = 1$
+
+**Step 3:** Eigenvectors of $\mathbf{A}^T\mathbf{A}$ give $\mathbf{V}$ (2×2):
+
+For $\lambda = 3$: $(2-3)v_1 + v_2 = 0$ → $v_2 = v_1$ → $\mathbf{v}_1 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix}$
+
+For $\lambda = 1$: $(2-1)v_1 + v_2 = 0$ → $v_2 = -v_1$ → $\mathbf{v}_2 = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ -1 \end{pmatrix}$
+
+**Step 4:** $\mathbf{\Sigma}$ is 3×2 (same shape as $\mathbf{A}$):
+
+$$\mathbf{\Sigma} = \begin{pmatrix} \sqrt{3} & 0 \\ 0 & 1 \\ 0 & 0 \end{pmatrix}$$
+
+**Step 5:** Compute $\mathbf{U}$ columns from $\mathbf{u}_i = \frac{1}{\sigma_i}\mathbf{A}\mathbf{v}_i$:
+
+$\mathbf{u}_1 = \frac{1}{\sqrt{3}}\begin{pmatrix} 1 & 0 \\ 0 & 1 \\ 1 & 1 \end{pmatrix}\frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ 1 \end{pmatrix} = \frac{1}{\sqrt{6}}\begin{pmatrix} 1 \\ 1 \\ 2 \end{pmatrix}$
+
+$\mathbf{u}_2 = \frac{1}{1}\begin{pmatrix} 1 & 0 \\ 0 & 1 \\ 1 & 1 \end{pmatrix}\frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ -1 \end{pmatrix} = \frac{1}{\sqrt{2}}\begin{pmatrix} 1 \\ -1 \\ 0 \end{pmatrix}$
+
+For the full $\mathbf{U}$ (3×3), we need a third column $\mathbf{u}_3$ orthogonal to both.
+Using Gram–Schmidt or inspection: $\mathbf{u}_3 = \frac{1}{\sqrt{3}}\begin{pmatrix} -1 \\ -1 \\ 1 \end{pmatrix}$
+
+**Verify:** $\mathbf{U}\mathbf{\Sigma}\mathbf{V}^T$ should recover $\mathbf{A}$. The third column of $\mathbf{U}$ is multiplied by the zero row of $\mathbf{\Sigma}$, so it doesn't contribute — which brings us to economy SVD.
+
+### Economy SVD vs full SVD
+
+| | Full SVD | Economy (thin) SVD |
+|-|----------|-------------------|
+| $\mathbf{U}$ | $m \times m$ | $m \times r$ |
+| $\mathbf{\Sigma}$ | $m \times n$ (padded with zeros) | $r \times r$ |
+| $\mathbf{V}^T$ | $n \times n$ | $r \times n$ |
+
+Here $r = \min(m, n)$ (or the rank, if truncated).
+
+For our 3×2 example, the economy SVD is:
+
+$\mathbf{U}_{\text{thin}} = \begin{pmatrix} 1/\sqrt{6} & 1/\sqrt{2} \\ 1/\sqrt{6} & -1/\sqrt{2} \\ 2/\sqrt{6} & 0 \end{pmatrix}$, $\mathbf{\Sigma}_{\text{thin}} = \begin{pmatrix} \sqrt{3} & 0 \\ 0 & 1 \end{pmatrix}$, $\mathbf{V}^T$ stays 2×2.
+
+This is what NumPy's `np.linalg.svd(A, full_matrices=False)` returns.
+The economy form saves storage: for a 1000×50 matrix, $\mathbf{U}$ is 1000×50 instead of 1000×1000.
+
 ### Low-rank approximation
 
 Keep only the top $k$ singular values:

@@ -10,7 +10,7 @@ and roots.  This connects to Fourier analysis, signal processing, and quantum co
 ## Prerequisites
 
 - Tier 0, Lesson 1: Number Systems (complex numbers basics)
-- Tier 8, Lesson 1: Unit Circle, Radians
+- Foundation 2, Lesson 6: Basic Trigonometry
 
 ## From First Principles
 
@@ -83,6 +83,98 @@ They form a regular $n$-gon on the unit circle.
 $z_0 = 1$, $z_1 = e^{i2\pi/3} = -\frac{1}{2} + \frac{\sqrt{3}}{2}i$, $z_2 = e^{i4\pi/3} = -\frac{1}{2} - \frac{\sqrt{3}}{2}i$
 
 These form an equilateral triangle on the unit circle.
+
+## Visualisation
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+
+# (a) Argand diagram: z = 3+4i in polar form
+ax = axes[0]
+z_real, z_imag = 3, 4
+r = np.sqrt(z_real**2 + z_imag**2)
+theta = np.arctan2(z_imag, z_real)
+
+# Draw axes
+ax.axhline(0, color='k', linewidth=0.5)
+ax.axvline(0, color='k', linewidth=0.5)
+
+# Draw the vector from origin to z
+ax.annotate('', xy=(z_real, z_imag), xytext=(0, 0),
+            arrowprops=dict(arrowstyle='->', color='blue', lw=2))
+ax.plot(z_real, z_imag, 'bo', markersize=8, zorder=5)
+ax.annotate(f'$z = {z_real}+{z_imag}i$', (z_real, z_imag),
+            (z_real+0.3, z_imag+0.3), fontsize=12, color='blue')
+
+# Draw modulus label
+ax.text(1.2, 2.5, f'$|z| = {r:.0f}$', fontsize=11, color='blue', rotation=53)
+
+# Draw angle arc
+arc_angles = np.linspace(0, theta, 50)
+arc_r = 1.2
+ax.plot(arc_r*np.cos(arc_angles), arc_r*np.sin(arc_angles), 'r-', linewidth=1.5)
+ax.text(1.5, 0.5, f'$\\theta \\approx {np.degrees(theta):.1f}°$',
+        fontsize=10, color='red')
+
+# Draw projections (dashed)
+ax.plot([z_real, z_real], [0, z_imag], 'g--', alpha=0.5)
+ax.plot([0, z_real], [z_imag, z_imag], 'g--', alpha=0.5)
+
+ax.set_xlim(-1, 6)
+ax.set_ylim(-1, 6)
+ax.set_aspect('equal')
+ax.set_xlabel('Real', fontsize=11)
+ax.set_ylabel('Imaginary', fontsize=11)
+ax.set_title('Argand diagram: $z = 3+4i$ in polar form', fontsize=12)
+ax.grid(True, alpha=0.3)
+
+# (b) Roots of unity: 5th roots on the unit circle
+ax = axes[1]
+n = 5
+
+# Draw unit circle
+circle_angles = np.linspace(0, 2*np.pi, 200)
+ax.plot(np.cos(circle_angles), np.sin(circle_angles), 'k-',
+        linewidth=1, alpha=0.3)
+
+# Draw roots
+colors = plt.cm.tab10(np.linspace(0, 1, n))
+for k in range(n):
+    angle = 2*np.pi*k/n
+    x, y = np.cos(angle), np.sin(angle)
+    ax.plot(x, y, 'o', markersize=10, color=colors[k], zorder=5)
+    label_r = 1.25
+    ax.annotate(f'$z_{k}$', (x, y),
+                (label_r*np.cos(angle), label_r*np.sin(angle)),
+                fontsize=11, ha='center', va='center')
+
+# Connect roots to form regular pentagon
+for k in range(n):
+    angle1 = 2*np.pi*k/n
+    angle2 = 2*np.pi*((k+1) % n)/n
+    ax.plot([np.cos(angle1), np.cos(angle2)],
+            [np.sin(angle1), np.sin(angle2)],
+            'b-', linewidth=1.5, alpha=0.6)
+
+# Draw axes
+ax.axhline(0, color='k', linewidth=0.5)
+ax.axvline(0, color='k', linewidth=0.5)
+
+ax.set_xlim(-1.5, 1.5)
+ax.set_ylim(-1.5, 1.5)
+ax.set_aspect('equal')
+ax.set_xlabel('Real', fontsize=11)
+ax.set_ylabel('Imaginary', fontsize=11)
+ax.set_title(f'{n}th roots of unity (regular pentagon)', fontsize=12)
+ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.savefig('complex_argand_roots.png', dpi=100)
+plt.show()
+```
 
 ## Python Verification
 

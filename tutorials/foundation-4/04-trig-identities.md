@@ -7,9 +7,15 @@ solving equations, integrating, and simplifying signals.  The addition formulae
 are the foundation: everything else (double angle, half angle, R-formula)
 derives from them.
 
+**Concrete example:** The double angle formula says $\sin 2x = 2\sin x\cos x$.
+This means you can replace one trig expression with another that is
+algebraically equivalent.  In signal processing, this converts a product of
+two oscillations into a single oscillation at double the frequency — a fact
+that is used in AM radio modulation and Fourier analysis.
+
 ## Prerequisites
 
-- Tier 8, Lesson 2: Sine, Cosine, Tangent
+- Foundation 4, Lesson 2: Trigonometric Functions — Advanced
 
 ## From First Principles
 
@@ -76,6 +82,47 @@ $\sin x = -1/2$ → $x = 7\pi/6, 11\pi/6$
 $\sin x = 1$ → $x = \pi/2$
 
 Solutions: $x = \pi/2, 7\pi/6, 11\pi/6$
+
+## Visualisation
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+# (a) sin(2x) vs 2sin(x)cos(x) — they overlap perfectly
+ax = axes[0]
+x = np.linspace(0, 2*np.pi, 300)
+ax.plot(x, np.sin(2*x), 'b-', linewidth=3, label='$\\sin(2x)$')
+ax.plot(x, 2*np.sin(x)*np.cos(x), 'r--', linewidth=2,
+        label='$2\\sin(x)\\cos(x)$')
+ax.set_xlabel('$x$ (radians)', fontsize=11)
+ax.set_title('Double angle: $\\sin(2x) = 2\\sin(x)\\cos(x)$', fontsize=12)
+ax.legend(fontsize=11)
+ax.grid(True, alpha=0.3)
+
+# (b) R-formula: 3sin(θ) + 4cos(θ) = 5sin(θ + α)
+ax = axes[1]
+theta = np.linspace(0, 2*np.pi, 300)
+lhs = 3*np.sin(theta) + 4*np.cos(theta)
+alpha = np.arctan2(4, 3)
+rhs = 5*np.sin(theta + alpha)
+ax.plot(theta, lhs, 'b-', linewidth=3,
+        label='$3\\sin\\theta + 4\\cos\\theta$')
+ax.plot(theta, rhs, 'r--', linewidth=2,
+        label='$5\\sin(\\theta + 53.1°)$')
+ax.axhline(5, color='green', linestyle=':', alpha=0.7, label='$R = 5$ (max)')
+ax.axhline(-5, color='green', linestyle=':', alpha=0.7)
+ax.set_xlabel('$\\theta$ (radians)', fontsize=11)
+ax.set_title('R-formula: amplitude = $R = \\sqrt{a^2+b^2}$', fontsize=12)
+ax.legend(fontsize=11)
+ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.savefig('trig_identities_visualisation.png', dpi=100)
+plt.show()
+```
 
 ## Python Verification
 
