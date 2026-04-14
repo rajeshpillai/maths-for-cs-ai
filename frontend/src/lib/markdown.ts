@@ -1,31 +1,47 @@
-import { marked } from "marked";
-import renderLatex from "./latex";
+import { Marked } from "marked";
+import { markedHighlight } from "marked-highlight";
+import hljs from "highlight.js/lib/core";
+import python from "highlight.js/lib/languages/python";
+import katex from "katex";
 
-export const renderer = new marked.Renderer();
+hljs.registerLanguage("python", python);
 
-marked.setOptions(
-  marked.getDefaults()
-);
-marked.use(
-  { renderer },
-  {
-    async: false,
-    gfm: true,
-    breaks: false,
-    pedantic: false,
-    extensions: [],
-    hooks: {
-      preprocess(md: string) {
-        return md;
-      },
-      postprocess(html: string) {
-        return html;
-      },
+// Render LaTeX blocks: $$...$$ and inline $...$
+function renderLatex(md: string): string {
+  // Block math: $$...$$
+  md = md.replace(/\$\$([\s\S]+?)\$\$/g, (_, tex) => {
+    try {
+      return katex.renderToString(tex.trim(), { displayMode: true });
+    } catch {
+      return `<pre class="katex-error">${tex}</pre>`;
+    }
+  });
+
+  // Inline math: $...$ (but not $$)
+  md = md.replace(/(?<!\$)\$(?!\$)(.+?)(?<!\$)\$(?!\$)/g, (_, tex) => {
+    try {
+      return katex.renderToString(tex.trim(), { displayMode: false });
+    } catch {
+      return `<code class="katex-error">${tex}</code>`;
+    }
+  });
+
+  return md;
+}
+
+const marked = new Marked(
+  markedHighlight({
+    langPrefix: "hljs language-",
+    highlight(code, lang) {
+      if (lang && hljs.getLanguage(lang)) {
+        return hljs.highlight(code, { language: lang }).value;
+      }
+      return code;
     },
-  }
+  })
 );
 
-// Map old tier numbers to new meaningful directory names
+// Map old "Tier N" references to new meaningful directory names
 const PREREQ_MAP: Record<string, string> = {
   "tier-0": "number-systems", "tier-1": "discrete-mathematics",
   "tier-2": "linear-algebra", "tier-3": "calculus",
