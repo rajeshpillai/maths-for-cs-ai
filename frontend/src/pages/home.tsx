@@ -188,26 +188,21 @@ export default function Home() {
                         </div>
                         <div class="ml-unit-tiers">
                           <For each={unit.tiers}>
-                            {(tierRef) => (
+                            {(tierRef) => {
+                              const resolvedSlug = () => {
+                                const t = tiers()?.find((t) => t.tier === tierRef.tier);
+                                return t?.lessons.find((l) => l.startsWith(tierRef.lessons[0])) ?? tierRef.lessons[0];
+                              };
+                              return (
                               <A
-                                href={`/lesson/${tierRef.tier}/${tierRef.lessons[0]}-`}
+                                href={`/lesson/${tierRef.tier}/${resolvedSlug()}`}
                                 class="ml-unit-link"
-                                onClick={(e) => {
-                                  // Navigate to first lesson of this tier segment
-                                  e.preventDefault();
-                                  const t = tiers()?.find((t) => t.tier === tierRef.tier);
-                                  if (t) {
-                                    const slug = t.lessons.find((l) => l.startsWith(tierRef.lessons[0]));
-                                    if (slug) {
-                                      window.location.href = `/lesson/${tierRef.tier}/${slug}`;
-                                    }
-                                  }
-                                }}
                               >
                                 <span class="ml-tier-badge">{TIER_NAMES[tierRef.tier] ?? tierRef.tier}</span>
                                 <span class="ml-tier-label">{tierRef.label}</span>
                               </A>
-                            )}
+                              );
+                            }}
                           </For>
                         </div>
                       </div>
