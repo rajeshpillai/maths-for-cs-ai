@@ -146,8 +146,6 @@ export default function Home() {
             <div class="ml-units">
               <For each={ml().units}>
                 {(unit, idx) => {
-                  const firstTier = unit.tiers[0];
-                  const firstLesson = firstTier?.lessons[0];
                   const lessonCount = getUnitLessonCount(unit);
                   return (
                     <div class="ml-unit">
