@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
-app = FastAPI(title="Maths for CS — API")
+app = FastAPI(title="Maths for CS + AI/ML — API")
 
 app.add_middleware(
     CORSMiddleware,
@@ -15,7 +15,41 @@ app.add_middleware(
 )
 
 TUTORIALS_DIR = Path(__file__).resolve().parent.parent / "tutorials"
-TIER_PREFIXES = ("foundation-", "tier-", "vedic-", "supplementary-")
+
+# Sort order
+GROUP_ORDER = {
+    "01-foundations": 0, "02-core-mathematics": 1, "03-applied-ml": 2,
+    "04-specializations": 3, "05-university": 4, "06-formal-mathematics": 5,
+    "07-supplementary": 6,
+}
+
+TIER_ORDER = {
+    "foundation-1": 0, "foundation-2": 1, "foundation-3": 2, "foundation-4": 3,
+    "number-systems": 0, "discrete-mathematics": 1, "linear-algebra": 2,
+    "calculus": 3, "probability-statistics": 4,
+    "optimisation": 0, "neural-networks": 1, "cnns": 2,
+    "geometry-trigonometry": 0, "fourier-analysis": 1, "advanced-ml": 2,
+    "jee-problem-solving": 3, "vedic-maths": 4,
+    "differential-equations": 0, "multivariable-calculus": 1,
+    "advanced-discrete-math": 2, "advanced-statistics": 3,
+    "methods-of-proof": 0, "abstract-algebra": 1,
+    "supplementary-activations": 0, "supplementary-graphs": 1,
+    "supplementary-foundations": 2, "supplementary-applied": 3,
+}
+
+PREREQ_MAP = {
+    "tier-0": "number-systems", "tier-1": "discrete-mathematics",
+    "tier-2": "linear-algebra", "tier-3": "calculus",
+    "tier-4": "probability-statistics", "tier-5": "optimisation",
+    "tier-6": "neural-networks", "tier-7": "cnns",
+    "tier-8": "geometry-trigonometry", "tier-9": "fourier-analysis",
+    "tier-10": "advanced-ml", "tier-11": "differential-equations",
+    "tier-12": "multivariable-calculus", "tier-13": "advanced-discrete-math",
+    "tier-14": "advanced-statistics", "tier-15": "methods-of-proof",
+    "tier-16": "abstract-algebra", "tier-17": "jee-problem-solving",
+    "foundation-1": "foundation-1", "foundation-2": "foundation-2",
+    "foundation-3": "foundation-3", "foundation-4": "foundation-4",
+}
 
 
 class TierInfo(BaseModel):
@@ -47,7 +81,6 @@ class LessonMeta(BaseModel):
 
 
 def _find_tier_dir(tier_name: str) -> Path | None:
-    """Find a tier directory by name across all group folders."""
     for group_dir in TUTORIALS_DIR.iterdir():
         if not group_dir.is_dir():
             continue
@@ -58,33 +91,17 @@ def _find_tier_dir(tier_name: str) -> Path | None:
 
 
 def _discover_tiers() -> list[Path]:
-    """Find all tier directories inside group folders."""
-    def tier_sort_key(p: Path) -> tuple[int, int]:
-        name = p.name
-        if name.startswith("foundation-"):
-            try:
-                return (-1, int(name.split("-", 1)[1]))
-            except (IndexError, ValueError):
-                return (-1, 999)
-        elif name.startswith("tier-"):
-            try:
-                return (0, int(name.split("-", 1)[1]))
-            except (IndexError, ValueError):
-                return (0, 999)
-        elif name.startswith("vedic-"):
-            return (0, 500)
-        elif name.startswith("supplementary-"):
-            return (1, hash(name) % 1000)
-        return (2, 0)
-
     tiers = []
     for group_dir in sorted(TUTORIALS_DIR.iterdir()):
-        if not group_dir.is_dir():
+        if not group_dir.is_dir() or group_dir.name.startswith("."):
             continue
+        group_order = GROUP_ORDER.get(group_dir.name, 99)
         for tier_dir in group_dir.iterdir():
-            if tier_dir.is_dir() and any(tier_dir.name.startswith(p) for p in TIER_PREFIXES):
-                tiers.append(tier_dir)
-    return sorted(tiers, key=tier_sort_key)
+            if tier_dir.is_dir() and any(tier_dir.glob("*.md")):
+                tier_order = TIER_ORDER.get(tier_dir.name, 99)
+                tiers.append((group_order, tier_order, tier_dir))
+    tiers.sort(key=lambda x: (x[0], x[1]))
+    return [t[2] for t in tiers]
 
 
 def _resolve_slug(tier: str, lesson_num: str) -> str | None:
@@ -108,9 +125,7 @@ def _parse_meta(tier: str, slug: str, content: str) -> LessonMeta:
 
     prereqs: list[Prerequisite] = []
     in_prereqs = False
-    prereq_re = re.compile(
-        r"(?:Tier|Foundation)\s+(\d+),\s*Lesson\s+(\d+)(?::\s*(.+))?"
-    )
+    prereq_re = re.compile(r"(?:Tier|Foundation)\s+(\d+),\s*Lesson\s+(\d+)(?::\s*(.+))?")
     for line in lines:
         if line.strip().startswith("## Prerequisites"):
             in_prereqs = True
@@ -122,10 +137,11 @@ def _parse_meta(tier: str, slug: str, content: str) -> LessonMeta:
             if m:
                 kind = "foundation-" if "Foundation" in line else "tier-"
                 tier_num, lesson_num, desc = m.group(1), m.group(2), m.group(3)
-                prereq_tier = f"{kind}{tier_num}"
-                resolved_slug = _resolve_slug(prereq_tier, lesson_num)
+                old_tier = f"{kind}{tier_num}"
+                new_tier = PREREQ_MAP.get(old_tier, old_tier)
+                resolved_slug = _resolve_slug(new_tier, lesson_num)
                 prereqs.append(Prerequisite(
-                    tier=prereq_tier,
+                    tier=new_tier,
                     lesson_num=lesson_num.zfill(2),
                     description=desc.strip() if desc else "",
                     slug=resolved_slug,
@@ -133,18 +149,12 @@ def _parse_meta(tier: str, slug: str, content: str) -> LessonMeta:
 
     sections = [line[3:].strip() for line in lines if line.startswith("## ")]
 
-    return LessonMeta(
-        tier=tier,
-        slug=slug,
-        title=title,
-        prerequisites=prereqs,
-        sections=sections,
-    )
+    return LessonMeta(tier=tier, slug=slug, title=title,
+                      prerequisites=prereqs, sections=sections)
 
 
 @app.get("/api/tiers", response_model=list[TierInfo])
 def list_tiers():
-    """Return every tier that has at least one .md file."""
     tiers: list[TierInfo] = []
     for tier_dir in _discover_tiers():
         lessons = sorted(f.stem for f in tier_dir.glob("*.md"))
@@ -161,12 +171,8 @@ def get_lesson(tier: str, slug: str):
     md_path = tier_dir / f"{slug}.md"
     if not md_path.is_file():
         raise HTTPException(status_code=404, detail="Lesson not found")
-    return LessonContent(
-        tier=tier,
-        slug=slug,
-        filename=md_path.name,
-        content=md_path.read_text(),
-    )
+    return LessonContent(tier=tier, slug=slug, filename=md_path.name,
+                         content=md_path.read_text())
 
 
 @app.get("/api/tiers/{tier}/{slug}/meta", response_model=LessonMeta)
@@ -182,5 +188,4 @@ def get_lesson_meta(tier: str, slug: str):
 
 if __name__ == "__main__":
     import uvicorn
-
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)

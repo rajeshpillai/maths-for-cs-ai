@@ -11,7 +11,7 @@
         },
         {
           "name": "Stage 2: Number Systems & Logic",
-          "tiers": ["tier-0", "tier-1"]
+          "tiers": ["number-systems", "discrete-mathematics"]
         },
         {
           "name": "Stage 3: Advanced Algebra & Pre-Calc",
@@ -19,15 +19,15 @@
         },
         {
           "name": "Stage 4: Core Mathematics",
-          "tiers": ["tier-2", "tier-3", "tier-4"]
+          "tiers": ["linear-algebra", "calculus", "probability-statistics"]
         },
         {
           "name": "Stage 5: Applied ML",
-          "tiers": ["tier-5", "tier-6", "tier-7"]
+          "tiers": ["optimisation", "neural-networks", "cnns"]
         },
         {
           "name": "Stage 6: Advanced Topics",
-          "tiers": ["tier-10"]
+          "tiers": ["advanced-ml"]
         }
       ]
     },
@@ -42,7 +42,7 @@
         },
         {
           "name": "Stage 2: Number Systems & Logic",
-          "tiers": ["tier-0", "tier-1"]
+          "tiers": ["number-systems", "discrete-mathematics"]
         },
         {
           "name": "Stage 3: Advanced Algebra & Pre-Calc",
@@ -50,11 +50,11 @@
         },
         {
           "name": "Stage 4: Core Mathematics",
-          "tiers": ["tier-2", "tier-3"]
+          "tiers": ["linear-algebra", "calculus"]
         },
         {
           "name": "Stage 5: Game Dev Mathematics",
-          "tiers": ["tier-8", "tier-9"]
+          "tiers": ["geometry-trigonometry", "fourier-analysis"]
         },
         {
           "name": "Stage 6: Physics & Signals",
@@ -69,19 +69,19 @@
       "stages": [
         {
           "name": "Stage 1: Foundations",
-          "tiers": ["tier-0", "tier-1"]
+          "tiers": ["number-systems", "discrete-mathematics"]
         },
         {
           "name": "Stage 2: Core Mathematics",
-          "tiers": ["tier-2", "tier-3", "tier-4"]
+          "tiers": ["linear-algebra", "calculus", "probability-statistics"]
         },
         {
           "name": "Stage 3: Applied ML",
-          "tiers": ["tier-5", "tier-6", "tier-7"]
+          "tiers": ["optimisation", "neural-networks", "cnns"]
         },
         {
           "name": "Stage 4: Specializations",
-          "tiers": ["tier-8", "tier-9", "tier-10"]
+          "tiers": ["geometry-trigonometry", "fourier-analysis", "advanced-ml"]
         }
       ]
     }

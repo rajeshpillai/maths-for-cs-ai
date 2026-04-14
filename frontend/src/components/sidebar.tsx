@@ -8,42 +8,57 @@ const TIER_LABELS: Record<string, string> = {
   "foundation-2": "Functions & Graphs",
   "foundation-3": "Advanced Algebra",
   "foundation-4": "Pre-Calculus",
-  "tier-0": "Number Systems & Arithmetic",
-  "tier-1": "Discrete Mathematics",
-  "tier-2": "Linear Algebra",
-  "tier-3": "Calculus & Analysis",
-  "tier-4": "Probability & Statistics",
-  "tier-5": "Optimisation",
-  "tier-6": "LA for Neural Networks",
-  "tier-7": "CNNs",
-  "tier-8": "Geometry & Trig (Game Dev)",
-  "tier-9": "Signals & Fourier",
-  "tier-10": "Advanced Topics",
-  "tier-11": "Differential Equations",
-  "tier-12": "Multivariable Calculus",
-  "tier-13": "Advanced Discrete Math",
-  "tier-14": "Advanced Statistics",
-  "tier-15": "Methods of Proof",
-  "tier-16": "Abstract Algebra",
-  "tier-17": "JEE Advanced & Problem Solving",
+  "number-systems": "Number Systems & Arithmetic",
+  "discrete-mathematics": "Discrete Mathematics",
+  "linear-algebra": "Linear Algebra",
+  "calculus": "Calculus & Analysis",
+  "probability-statistics": "Probability & Statistics",
+  "optimisation": "Optimisation",
+  "neural-networks": "Neural Networks",
+  "cnns": "CNNs",
+  "geometry-trigonometry": "Geometry & Trig (Game Dev)",
+  "fourier-analysis": "Signals & Fourier",
+  "advanced-ml": "Advanced ML Topics",
+  "differential-equations": "Differential Equations",
+  "multivariable-calculus": "Multivariable Calculus",
+  "advanced-discrete-math": "Advanced Discrete Math",
+  "advanced-statistics": "Advanced Statistics",
+  "methods-of-proof": "Methods of Proof",
+  "abstract-algebra": "Abstract Algebra",
+  "jee-problem-solving": "JEE Advanced & Problem Solving",
+  "vedic-maths": "Vedic Mathematics",
   "supplementary-graphs": "Graph Shapes & Curves",
   "supplementary-activations": "Activation Functions",
-  "vedic-maths": "Vedic Mathematics",
   "supplementary-foundations": "Advanced Topics (Parametric, Polar, Hyperbolic)",
   "supplementary-applied": "Applied Maths & Mechanics",
 };
 
-// Group tiers into sections for the sidebar
 function getTierSection(tier: string): string {
   if (tier.startsWith("foundation-")) return "foundations";
-  if (tier.startsWith("tier-")) return "tiers";
-  return "supplementary";
+  if (tier.startsWith("supplementary-")) return "supplementary";
+  // Check specific names for grouping
+  const coreNames = ["number-systems", "discrete-mathematics", "linear-algebra", "calculus", "probability-statistics"];
+  if (coreNames.includes(tier)) return "core";
+  const mlNames = ["optimisation", "neural-networks", "cnns"];
+  if (mlNames.includes(tier)) return "applied-ml";
+  const specNames = ["geometry-trigonometry", "fourier-analysis", "advanced-ml", "jee-problem-solving", "vedic-maths"];
+  if (specNames.includes(tier)) return "specializations";
+  const uniNames = ["differential-equations", "multivariable-calculus", "advanced-discrete-math", "advanced-statistics"];
+  if (uniNames.includes(tier)) return "university";
+  const formalNames = ["methods-of-proof", "abstract-algebra"];
+  if (formalNames.includes(tier)) return "formal";
+  return "other";
 }
 
 const SECTION_LABELS: Record<string, string> = {
   foundations: "Foundations (Start Here)",
-  tiers: "Core Curriculum",
+  core: "Core Mathematics",
+  "applied-ml": "Applied ML",
+  specializations: "Specializations",
+  university: "University Level",
+  formal: "Formal Mathematics",
   supplementary: "Supplementary",
+  other: "Other",
 };
 
 function formatLessonName(slug: string): string {
@@ -53,17 +68,10 @@ function formatLessonName(slug: string): string {
   return `${num}. ${name}`;
 }
 
-function tierPrefix(tier: string): string {
-  if (tier.startsWith("foundation-")) return `F${tier.replace("foundation-", "")}`;
-  if (tier.startsWith("tier-")) return `T${tier.replace("tier-", "")}`;
-  return "";
-}
-
 export default function Sidebar() {
   const [tiers] = createResource(fetchTiers);
   const location = useLocation();
 
-  // Track which tiers are expanded (collapsed by default except active)
   const [expanded, setExpanded] = createSignal<Record<string, boolean>>({});
   const [allExpanded, setAllExpanded] = createSignal(false);
 
@@ -73,7 +81,6 @@ export default function Sidebar() {
     setProgressVersion((v) => v + 1);
   });
 
-  // Auto-expand the tier containing the current lesson
   createEffect(() => {
     const path = location.pathname;
     const match = path.match(/\/lesson\/([^/]+)\//);
@@ -105,7 +112,6 @@ export default function Sidebar() {
     }
   };
 
-  // Group tiers by section
   const groupedTiers = () => {
     const t = tiers();
     if (!t) return [];
@@ -136,9 +142,7 @@ export default function Sidebar() {
             const totalLessons = allTiers
               ? allTiers.reduce((sum, t) => sum + t.lessons.length, 0)
               : 0;
-            return totalLessons > 0
-              ? `${total}/${totalLessons} lessons`
-              : "";
+            return totalLessons > 0 ? `${total}/${totalLessons} lessons` : "";
           })()}
         </span>
         <button
@@ -161,18 +165,13 @@ export default function Sidebar() {
                     return getCompletedCount(tier.tier, tier.lessons);
                   };
                   const isExpanded = () => expanded()[tier.tier] ?? false;
-                  const prefix = tierPrefix(tier.tier);
                   return (
                     <div class="sidebar-tier">
-                      <div
-                        class="tier-label"
-                        onClick={() => toggleTier(tier.tier)}
-                      >
+                      <div class="tier-label" onClick={() => toggleTier(tier.tier)}>
                         <span class="tier-toggle">
                           {isExpanded() ? "\u25BE" : "\u25B8"}
                         </span>
                         <span class="tier-label-text">
-                          {prefix ? `${prefix}: ` : ""}
                           {TIER_LABELS[tier.tier] ?? tier.title}
                         </span>
                         {tier.lessons.length > 0 && (

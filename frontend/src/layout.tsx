@@ -1,8 +1,8 @@
 import { createSignal, onMount, createEffect, type ParentProps } from "solid-js";
 import { useLocation } from "@solidjs/router";
-import Sidebar from "./components/Sidebar";
-import SearchBar from "./components/SearchBar";
-import "./App.css";
+import Sidebar from "./components/sidebar";
+import SearchBar from "./components/search-bar";
+import "./app.css";
 
 export default function Layout(props: ParentProps) {
   const [theme, setTheme] = createSignal<"light" | "dark">("light");

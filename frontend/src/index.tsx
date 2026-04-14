@@ -1,9 +1,9 @@
 /* @refresh reload */
 import { render } from "solid-js/web";
 import { Router, Route } from "@solidjs/router";
-import Layout from "./Layout.tsx";
-import Home from "./pages/Home.tsx";
-import Lesson from "./pages/Lesson.tsx";
+import Layout from "./layout.tsx";
+import Home from "./pages/home.tsx";
+import Lesson from "./pages/lesson.tsx";
 import "./index.css";
 
 const root = document.getElementById("root");

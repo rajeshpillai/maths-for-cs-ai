@@ -3,14 +3,10 @@
 Build static JSON files from tutorial markdown.
 
 Generates:
-  dist/api/tiers.json                          — list of all tiers
-  dist/api/tiers/{tier}/{slug}.json            — lesson content
-  dist/api/tiers/{tier}/{slug}.meta.json       — lesson metadata
-
-Tutorials are organised in group folders:
-  tutorials/01-foundations/foundation-1/
-  tutorials/02-core-mathematics/tier-0/
-  etc.
+  api/tiers.json                          — list of all tiers
+  api/tiers/{tier}/{slug}.json            — lesson content
+  api/tiers/{tier}/{slug}.meta.json       — lesson metadata
+  api/search-index.json                   — full-text search index
 """
 
 import json
@@ -22,39 +18,61 @@ ROOT = Path(__file__).resolve().parent.parent
 TUTORIALS_DIR = ROOT / "tutorials"
 OUTPUT_DIR = ROOT / "frontend" / "public" / "api"
 
-TIER_PREFIXES = ("foundation-", "tier-", "vedic-", "supplementary-")
+# Sort order for tier directories (by group folder prefix, then alphabetically)
+GROUP_ORDER = {
+    "01-foundations": 0,
+    "02-core-mathematics": 1,
+    "03-applied-ml": 2,
+    "04-specializations": 3,
+    "05-university": 4,
+    "06-formal-mathematics": 5,
+    "07-supplementary": 6,
+}
 
+# Within each group, define explicit ordering for tiers
+TIER_ORDER = {
+    "foundation-1": 0, "foundation-2": 1, "foundation-3": 2, "foundation-4": 3,
+    "number-systems": 0, "discrete-mathematics": 1, "linear-algebra": 2,
+    "calculus": 3, "probability-statistics": 4,
+    "optimisation": 0, "neural-networks": 1, "cnns": 2,
+    "geometry-trigonometry": 0, "fourier-analysis": 1, "advanced-ml": 2,
+    "jee-problem-solving": 3, "vedic-maths": 4,
+    "differential-equations": 0, "multivariable-calculus": 1,
+    "advanced-discrete-math": 2, "advanced-statistics": 3,
+    "methods-of-proof": 0, "abstract-algebra": 1,
+    "supplementary-activations": 0, "supplementary-graphs": 1,
+    "supplementary-foundations": 2, "supplementary-applied": 3,
+}
 
-def tier_sort_key(p: Path) -> tuple[int, int]:
-    name = p.name
-    if name.startswith("foundation-"):
-        try:
-            return (-1, int(name.split("-", 1)[1]))
-        except (IndexError, ValueError):
-            return (-1, 999)
-    elif name.startswith("tier-"):
-        try:
-            return (0, int(name.split("-", 1)[1]))
-        except (IndexError, ValueError):
-            return (0, 999)
-    elif name.startswith("vedic-"):
-        return (0, 500)  # After tiers, before supplementary
-    elif name.startswith("supplementary-"):
-        return (1, hash(name) % 10000)
-    return (2, 0)
+# Map old "Tier N" / "Foundation N" references to new directory names
+PREREQ_MAP = {
+    "tier-0": "number-systems", "tier-1": "discrete-mathematics",
+    "tier-2": "linear-algebra", "tier-3": "calculus",
+    "tier-4": "probability-statistics", "tier-5": "optimisation",
+    "tier-6": "neural-networks", "tier-7": "cnns",
+    "tier-8": "geometry-trigonometry", "tier-9": "fourier-analysis",
+    "tier-10": "advanced-ml", "tier-11": "differential-equations",
+    "tier-12": "multivariable-calculus", "tier-13": "advanced-discrete-math",
+    "tier-14": "advanced-statistics", "tier-15": "methods-of-proof",
+    "tier-16": "abstract-algebra", "tier-17": "jee-problem-solving",
+    "foundation-1": "foundation-1", "foundation-2": "foundation-2",
+    "foundation-3": "foundation-3", "foundation-4": "foundation-4",
+}
 
 
 def discover_tiers() -> list[Path]:
-    """Find all tier directories inside group folders (one level of nesting)."""
+    """Find all tier directories inside group folders, sorted by group then tier order."""
     tiers = []
     for group_dir in sorted(TUTORIALS_DIR.iterdir()):
-        if not group_dir.is_dir():
+        if not group_dir.is_dir() or group_dir.name.startswith("."):
             continue
-        # Look for tier dirs inside each group folder
+        group_order = GROUP_ORDER.get(group_dir.name, 99)
         for tier_dir in group_dir.iterdir():
-            if tier_dir.is_dir() and any(tier_dir.name.startswith(p) for p in TIER_PREFIXES):
-                tiers.append(tier_dir)
-    return sorted(tiers, key=tier_sort_key)
+            if tier_dir.is_dir() and any(tier_dir.glob("*.md")):
+                tier_order = TIER_ORDER.get(tier_dir.name, 99)
+                tiers.append((group_order, tier_order, tier_dir))
+    tiers.sort(key=lambda x: (x[0], x[1]))
+    return [t[2] for t in tiers]
 
 
 def find_tier_dir(tier_name: str) -> Path | None:
@@ -81,14 +99,12 @@ def resolve_slug(tier: str, lesson_num: str) -> str | None:
 def parse_meta(tier: str, slug: str, content: str) -> dict:
     lines = content.split("\n")
 
-    # Title
     title = slug
     for line in lines:
         if line.startswith("# "):
             title = line[2:].strip()
             break
 
-    # Prerequisites
     prereqs = []
     in_prereqs = False
     prereq_re = re.compile(r"(?:Tier|Foundation)\s+(\d+),\s*Lesson\s+(\d+)(?::\s*(.+))?")
@@ -103,16 +119,16 @@ def parse_meta(tier: str, slug: str, content: str) -> dict:
             if m:
                 kind = "foundation-" if "Foundation" in line else "tier-"
                 tier_num, lesson_num, desc = m.group(1), m.group(2), m.group(3)
-                prereq_tier = f"{kind}{tier_num}"
-                resolved = resolve_slug(prereq_tier, lesson_num)
+                old_tier = f"{kind}{tier_num}"
+                new_tier = PREREQ_MAP.get(old_tier, old_tier)
+                resolved = resolve_slug(new_tier, lesson_num)
                 prereqs.append({
-                    "tier": prereq_tier,
+                    "tier": new_tier,
                     "lesson_num": lesson_num.zfill(2),
                     "description": desc.strip() if desc else "",
                     "slug": resolved,
                 })
 
-    # Sections
     sections = [line[3:].strip() for line in lines if line.startswith("## ")]
 
     return {
@@ -125,7 +141,6 @@ def parse_meta(tier: str, slug: str, content: str) -> dict:
 
 
 def extract_search_text(content: str) -> str:
-    """Extract plain text from markdown for search indexing (strip code blocks, LaTeX)."""
     lines = content.split("\n")
     result = []
     in_code = False
@@ -135,12 +150,9 @@ def extract_search_text(content: str) -> str:
             continue
         if in_code:
             continue
-        # Strip LaTeX blocks
         if line.strip().startswith("$$"):
             continue
-        # Strip inline LaTeX, keep surrounding text
         clean = re.sub(r'\$[^$]+\$', '', line)
-        # Strip markdown formatting
         clean = re.sub(r'[#*_`|>]', '', clean)
         clean = clean.strip()
         if clean:
@@ -149,7 +161,6 @@ def extract_search_text(content: str) -> str:
 
 
 def build():
-    # Clean output
     if OUTPUT_DIR.exists():
         shutil.rmtree(OUTPUT_DIR)
 
@@ -167,7 +178,6 @@ def build():
             "lessons": lessons,
         })
 
-        # Generate per-lesson JSON
         tier_out = OUTPUT_DIR / "tiers" / tier_dir.name
         tier_out.mkdir(parents=True, exist_ok=True)
 
@@ -175,7 +185,6 @@ def build():
             slug = lesson_file.stem
             content = lesson_file.read_text()
 
-            # Content JSON
             content_data = {
                 "tier": tier_dir.name,
                 "slug": slug,
@@ -186,16 +195,12 @@ def build():
                 json.dumps(content_data, ensure_ascii=False)
             )
 
-            # Meta JSON
             meta_data = parse_meta(tier_dir.name, slug, content)
             (tier_out / f"{slug}.meta.json").write_text(
                 json.dumps(meta_data, ensure_ascii=False)
             )
 
-            # Search index entry
             search_text = extract_search_text(content)
-            # Keep first ~500 chars of plain text as snippet
-            snippet = search_text[:500]
             search_index.append({
                 "tier": tier_dir.name,
                 "slug": slug,
@@ -206,18 +211,14 @@ def build():
 
             total_lessons += 1
 
-    # Tiers index
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     (OUTPUT_DIR / "tiers.json").write_text(
         json.dumps(tiers_list, ensure_ascii=False, indent=2)
     )
-
-    # Search index
     (OUTPUT_DIR / "search-index.json").write_text(
         json.dumps(search_index, ensure_ascii=False)
     )
 
-    # Copy learning paths and ML curriculum if present
     for extra in ("learning-paths.json", "ml-curriculum.json", "jee-curriculum.json"):
         src = TUTORIALS_DIR / extra
         if src.exists():

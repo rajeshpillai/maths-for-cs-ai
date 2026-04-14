@@ -4,7 +4,7 @@ import { A, useParams } from "@solidjs/router";
 import { fetchLesson, fetchLessonMeta, fetchTiers } from "../lib/api";
 import { renderMarkdown } from "../lib/markdown";
 import { isCompleted, toggleCompleted } from "../lib/progress";
-import CodeRunner from "../components/CodeRunner";
+import CodeRunner from "../components/code-runner";
 
 interface LessonNav {
   prev: { tier: string; slug: string; label: string } | null;

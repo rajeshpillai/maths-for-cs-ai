@@ -1,6 +1,6 @@
 import { createSignal, Show } from "solid-js";
 import { runPython } from "../lib/pyodide";
-import CodeEditor from "./CodeEditor";
+import CodeEditor from "./code-editor";
 
 interface CodeRunnerProps {
   code: string;
