@@ -6,16 +6,23 @@ Generates:
   dist/api/tiers.json                          — list of all tiers
   dist/api/tiers/{tier}/{slug}.json            — lesson content
   dist/api/tiers/{tier}/{slug}.meta.json       — lesson metadata
+
+Tutorials are organised in group folders:
+  tutorials/01-foundations/foundation-1/
+  tutorials/02-core-mathematics/tier-0/
+  etc.
 """
 
 import json
 import re
-import sys
+import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 TUTORIALS_DIR = ROOT / "tutorials"
 OUTPUT_DIR = ROOT / "frontend" / "public" / "api"
+
+TIER_PREFIXES = ("foundation-", "tier-", "supplementary-")
 
 
 def tier_sort_key(p: Path) -> tuple[int, int]:
@@ -31,14 +38,37 @@ def tier_sort_key(p: Path) -> tuple[int, int]:
         except (IndexError, ValueError):
             return (0, 999)
     elif name.startswith("supplementary-"):
-        # Sort supplementary alphabetically after tiers
         return (1, hash(name) % 10000)
     return (2, 0)
 
 
+def discover_tiers() -> list[Path]:
+    """Find all tier directories inside group folders (one level of nesting)."""
+    tiers = []
+    for group_dir in sorted(TUTORIALS_DIR.iterdir()):
+        if not group_dir.is_dir():
+            continue
+        # Look for tier dirs inside each group folder
+        for tier_dir in group_dir.iterdir():
+            if tier_dir.is_dir() and any(tier_dir.name.startswith(p) for p in TIER_PREFIXES):
+                tiers.append(tier_dir)
+    return sorted(tiers, key=tier_sort_key)
+
+
+def find_tier_dir(tier_name: str) -> Path | None:
+    """Find a tier directory by name across all group folders."""
+    for group_dir in TUTORIALS_DIR.iterdir():
+        if not group_dir.is_dir():
+            continue
+        candidate = group_dir / tier_name
+        if candidate.is_dir():
+            return candidate
+    return None
+
+
 def resolve_slug(tier: str, lesson_num: str) -> str | None:
-    tier_dir = TUTORIALS_DIR / tier
-    if not tier_dir.is_dir():
+    tier_dir = find_tier_dir(tier)
+    if tier_dir is None:
         return None
     prefix = lesson_num.zfill(2)
     for f in tier_dir.glob(f"{prefix}-*.md"):
@@ -59,7 +89,7 @@ def parse_meta(tier: str, slug: str, content: str) -> dict:
     # Prerequisites
     prereqs = []
     in_prereqs = False
-    prereq_re = re.compile(r"Tier\s+(\d+),\s*Lesson\s+(\d+)(?::\s*(.+))?")
+    prereq_re = re.compile(r"(?:Tier|Foundation)\s+(\d+),\s*Lesson\s+(\d+)(?::\s*(.+))?")
     for line in lines:
         if line.strip().startswith("## Prerequisites"):
             in_prereqs = True
@@ -69,8 +99,9 @@ def parse_meta(tier: str, slug: str, content: str) -> dict:
         if in_prereqs and line.strip().startswith("- "):
             m = prereq_re.search(line)
             if m:
+                kind = "foundation-" if "Foundation" in line else "tier-"
                 tier_num, lesson_num, desc = m.group(1), m.group(2), m.group(3)
-                prereq_tier = f"tier-{tier_num}"
+                prereq_tier = f"{kind}{tier_num}"
                 resolved = resolve_slug(prereq_tier, lesson_num)
                 prereqs.append({
                     "tier": prereq_tier,
@@ -94,18 +125,12 @@ def parse_meta(tier: str, slug: str, content: str) -> dict:
 def build():
     # Clean output
     if OUTPUT_DIR.exists():
-        import shutil
         shutil.rmtree(OUTPUT_DIR)
 
     tiers_list = []
     total_lessons = 0
 
-    for tier_dir in sorted(TUTORIALS_DIR.iterdir(), key=tier_sort_key):
-        if not tier_dir.is_dir():
-            continue
-        if not (tier_dir.name.startswith("foundation-") or tier_dir.name.startswith("tier-") or tier_dir.name.startswith("supplementary-")):
-            continue
-
+    for tier_dir in discover_tiers():
         lessons = sorted(f.stem for f in tier_dir.glob("*.md"))
         title = tier_dir.name.replace("-", " ").title()
 
@@ -151,7 +176,6 @@ def build():
     # Copy learning paths if present
     lp = TUTORIALS_DIR / "learning-paths.json"
     if lp.exists():
-        import shutil
         shutil.copy2(lp, OUTPUT_DIR / "learning-paths.json")
 
     print(f"Built {total_lessons} lessons across {len(tiers_list)} sections → {OUTPUT_DIR}")

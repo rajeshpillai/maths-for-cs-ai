@@ -15,6 +15,7 @@ app.add_middleware(
 )
 
 TUTORIALS_DIR = Path(__file__).resolve().parent.parent / "tutorials"
+TIER_PREFIXES = ("foundation-", "tier-", "supplementary-")
 
 
 class TierInfo(BaseModel):
@@ -34,7 +35,7 @@ class Prerequisite(BaseModel):
     tier: str
     lesson_num: str
     description: str
-    slug: str | None = None  # resolved slug if found
+    slug: str | None = None
 
 
 class LessonMeta(BaseModel):
@@ -45,76 +46,20 @@ class LessonMeta(BaseModel):
     sections: list[str]
 
 
-def _parse_meta(tier: str, slug: str, content: str) -> LessonMeta:
-    """Extract metadata from lesson markdown."""
-    lines = content.split("\n")
-
-    # Title: first H1
-    title = slug
-    for line in lines:
-        if line.startswith("# "):
-            title = line[2:].strip()
-            break
-
-    # Prerequisites: between "## Prerequisites" and next "##"
-    prereqs: list[Prerequisite] = []
-    in_prereqs = False
-    prereq_re = re.compile(
-        r"Tier\s+(\d+),\s*Lesson\s+(\d+)(?::\s*(.+))?"
-    )
-    for line in lines:
-        if line.strip().startswith("## Prerequisites"):
-            in_prereqs = True
+def _find_tier_dir(tier_name: str) -> Path | None:
+    """Find a tier directory by name across all group folders."""
+    for group_dir in TUTORIALS_DIR.iterdir():
+        if not group_dir.is_dir():
             continue
-        if in_prereqs and line.startswith("## "):
-            break
-        if in_prereqs and line.strip().startswith("- "):
-            m = prereq_re.search(line)
-            if m:
-                tier_num, lesson_num, desc = m.group(1), m.group(2), m.group(3)
-                prereq_tier = f"tier-{tier_num}"
-                # Try to resolve slug
-                resolved_slug = _resolve_slug(prereq_tier, lesson_num)
-                prereqs.append(Prerequisite(
-                    tier=prereq_tier,
-                    lesson_num=lesson_num.zfill(2),
-                    description=desc.strip() if desc else "",
-                    slug=resolved_slug,
-                ))
-
-    # Sections: all H2 headings
-    sections = [
-        line[3:].strip()
-        for line in lines
-        if line.startswith("## ")
-    ]
-
-    return LessonMeta(
-        tier=tier,
-        slug=slug,
-        title=title,
-        prerequisites=prereqs,
-        sections=sections,
-    )
-
-
-def _resolve_slug(tier: str, lesson_num: str) -> str | None:
-    """Find the full slug for a lesson number within a tier."""
-    tier_dir = TUTORIALS_DIR / tier
-    if not tier_dir.is_dir():
-        return None
-    prefix = lesson_num.zfill(2)
-    for f in tier_dir.glob(f"{prefix}-*.md"):
-        return f.stem
+        candidate = group_dir / tier_name
+        if candidate.is_dir():
+            return candidate
     return None
 
 
-@app.get("/api/tiers", response_model=list[TierInfo])
-def list_tiers():
-    """Return every tier that has at least one .md file."""
-    tiers: list[TierInfo] = []
+def _discover_tiers() -> list[Path]:
+    """Find all tier directories inside group folders."""
     def tier_sort_key(p: Path) -> tuple[int, int]:
-        """Sort tiers: foundation first, then tiers, then supplementary."""
         name = p.name
         if name.startswith("foundation-"):
             try:
@@ -130,11 +75,76 @@ def list_tiers():
             return (1, hash(name) % 1000)
         return (2, 0)
 
-    for tier_dir in sorted(TUTORIALS_DIR.iterdir(), key=tier_sort_key):
-        if not tier_dir.is_dir():
+    tiers = []
+    for group_dir in sorted(TUTORIALS_DIR.iterdir()):
+        if not group_dir.is_dir():
             continue
-        if not (tier_dir.name.startswith("foundation-") or tier_dir.name.startswith("tier-") or tier_dir.name.startswith("supplementary-")):
+        for tier_dir in group_dir.iterdir():
+            if tier_dir.is_dir() and any(tier_dir.name.startswith(p) for p in TIER_PREFIXES):
+                tiers.append(tier_dir)
+    return sorted(tiers, key=tier_sort_key)
+
+
+def _resolve_slug(tier: str, lesson_num: str) -> str | None:
+    tier_dir = _find_tier_dir(tier)
+    if tier_dir is None:
+        return None
+    prefix = lesson_num.zfill(2)
+    for f in tier_dir.glob(f"{prefix}-*.md"):
+        return f.stem
+    return None
+
+
+def _parse_meta(tier: str, slug: str, content: str) -> LessonMeta:
+    lines = content.split("\n")
+
+    title = slug
+    for line in lines:
+        if line.startswith("# "):
+            title = line[2:].strip()
+            break
+
+    prereqs: list[Prerequisite] = []
+    in_prereqs = False
+    prereq_re = re.compile(
+        r"(?:Tier|Foundation)\s+(\d+),\s*Lesson\s+(\d+)(?::\s*(.+))?"
+    )
+    for line in lines:
+        if line.strip().startswith("## Prerequisites"):
+            in_prereqs = True
             continue
+        if in_prereqs and line.startswith("## "):
+            break
+        if in_prereqs and line.strip().startswith("- "):
+            m = prereq_re.search(line)
+            if m:
+                kind = "foundation-" if "Foundation" in line else "tier-"
+                tier_num, lesson_num, desc = m.group(1), m.group(2), m.group(3)
+                prereq_tier = f"{kind}{tier_num}"
+                resolved_slug = _resolve_slug(prereq_tier, lesson_num)
+                prereqs.append(Prerequisite(
+                    tier=prereq_tier,
+                    lesson_num=lesson_num.zfill(2),
+                    description=desc.strip() if desc else "",
+                    slug=resolved_slug,
+                ))
+
+    sections = [line[3:].strip() for line in lines if line.startswith("## ")]
+
+    return LessonMeta(
+        tier=tier,
+        slug=slug,
+        title=title,
+        prerequisites=prereqs,
+        sections=sections,
+    )
+
+
+@app.get("/api/tiers", response_model=list[TierInfo])
+def list_tiers():
+    """Return every tier that has at least one .md file."""
+    tiers: list[TierInfo] = []
+    for tier_dir in _discover_tiers():
         lessons = sorted(f.stem for f in tier_dir.glob("*.md"))
         title = tier_dir.name.replace("-", " ").title()
         tiers.append(TierInfo(tier=tier_dir.name, title=title, lessons=lessons))
@@ -143,8 +153,10 @@ def list_tiers():
 
 @app.get("/api/tiers/{tier}/{slug}", response_model=LessonContent)
 def get_lesson(tier: str, slug: str):
-    """Return the raw markdown for a single lesson."""
-    md_path = TUTORIALS_DIR / tier / f"{slug}.md"
+    tier_dir = _find_tier_dir(tier)
+    if tier_dir is None:
+        raise HTTPException(status_code=404, detail="Lesson not found")
+    md_path = tier_dir / f"{slug}.md"
     if not md_path.is_file():
         raise HTTPException(status_code=404, detail="Lesson not found")
     return LessonContent(
@@ -157,8 +169,10 @@ def get_lesson(tier: str, slug: str):
 
 @app.get("/api/tiers/{tier}/{slug}/meta", response_model=LessonMeta)
 def get_lesson_meta(tier: str, slug: str):
-    """Return structured metadata for a lesson (title, prerequisites, sections)."""
-    md_path = TUTORIALS_DIR / tier / f"{slug}.md"
+    tier_dir = _find_tier_dir(tier)
+    if tier_dir is None:
+        raise HTTPException(status_code=404, detail="Lesson not found")
+    md_path = tier_dir / f"{slug}.md"
     if not md_path.is_file():
         raise HTTPException(status_code=404, detail="Lesson not found")
     return _parse_meta(tier, slug, md_path.read_text())
