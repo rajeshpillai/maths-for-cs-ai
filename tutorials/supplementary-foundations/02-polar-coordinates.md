@@ -11,7 +11,7 @@ motion in games.
 ## Prerequisites
 
 - Tier 8, Lesson 1: Unit Circle, Radians
-- Supplementary Foundations, Lesson 6: Complex Numbers (polar form)
+- Foundation 4, Lesson 7: Complex Numbers
 
 ## From First Principles
 

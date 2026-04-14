@@ -37,7 +37,7 @@ const TIER_DESCRIPTIONS: Record<string, string> = {
   "tier-16": "Groups, subgroups, permutations, cosets, Lagrange, homomorphisms, rings, fields, elliptic curve crypto, equivariant NNs",
   "supplementary-graphs": "Linear, quadratic, cubic, exponential, logarithmic, conic sections, bell curve, sigmoid, ReLU, power laws",
   "supplementary-activations": "Sigmoid, tanh, ReLU, Leaky ReLU, ELU, GELU, Swish, softmax — full derivations and comparison",
-  "supplementary-foundations": "Surds, indices, logarithm laws, algebraic manipulation, coordinate geometry, sequences & series, trig identities, binomial expansion",
+  "supplementary-foundations": "Parametric & implicit differentiation, polar coordinates, hyperbolic functions, Cayley-Hamilton, 3D lines & planes",
   "supplementary-applied": "Kinematics (SUVAT), projectile motion, forces & equilibrium, SHM, differential equations, hypothesis testing, regression",
 };
 

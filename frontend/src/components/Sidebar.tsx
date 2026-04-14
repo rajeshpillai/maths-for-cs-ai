@@ -27,7 +27,7 @@ const TIER_LABELS: Record<string, string> = {
   "tier-16": "Abstract Algebra",
   "supplementary-graphs": "Graph Shapes & Curves",
   "supplementary-activations": "Activation Functions",
-  "supplementary-foundations": "Foundations (Pre-Calculus)",
+  "supplementary-foundations": "Advanced Topics (Parametric, Polar, Hyperbolic)",
   "supplementary-applied": "Applied Maths & Mechanics",
 };
 

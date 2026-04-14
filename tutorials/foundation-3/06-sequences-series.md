@@ -10,7 +10,7 @@ series in probability, and algorithm analysis.
 
 ## Prerequisites
 
-- Supplementary Foundations, Lesson 1: Surds, Indices
+- Foundation 1, Lesson 1: Surds, Indices, Logarithms
 
 ## From First Principles
 

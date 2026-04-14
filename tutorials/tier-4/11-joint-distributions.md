@@ -115,11 +115,41 @@ $$f_X(x) = \int_0^{1-x} 6x\,dy = 6x(1-x) \quad \text{for } 0 \le x \le 1$$
 
 $$P(X \le 0.5) = \int_0^{0.5} 6x(1-x)\,dx = \left[3x^2 - 2x^3\right]_0^{0.5} = 0.75 - 0.25 = 0.50$$
 
-## Visualisation
+### Visualisation
 
-A heatmap of the joint PDF shows probability density as colour intensity.
-For the continuous example above, the triangular support region $0 \le y \le 1-x$
-creates a triangular heatmap where density increases with $x$.
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+# Left: discrete joint distribution as heatmap
+joint_table = np.array([[0.60, 0.10], [0.15, 0.15]])
+im = axes[0].imshow(joint_table, cmap="Blues", vmin=0, vmax=0.65)
+axes[0].set_xticks([0, 1])
+axes[0].set_xticklabels(["No accident", "Accident"])
+axes[0].set_yticks([0, 1])
+axes[0].set_yticklabels(["Sunny", "Rainy"])
+for i in range(2):
+    for j in range(2):
+        axes[0].text(j, i, f"{joint_table[i,j]:.2f}", ha="center", va="center", fontsize=14)
+axes[0].set_title("Discrete Joint PMF", fontsize=13)
+
+# Right: continuous joint PDF f(x,y) = 6x on triangle
+x = np.linspace(0, 1, 200)
+y = np.linspace(0, 1, 200)
+X, Y = np.meshgrid(x, y)
+Z = np.where(Y <= 1 - X, 6 * X, np.nan)
+axes[1].contourf(X, Y, Z, levels=20, cmap="viridis")
+axes[1].plot([0, 1], [1, 0], "r-", linewidth=2, label="y = 1 - x")
+axes[1].set_xlabel("x")
+axes[1].set_ylabel("y")
+axes[1].set_title("Continuous Joint PDF: f(x,y) = 6x", fontsize=13)
+axes[1].legend()
+
+plt.tight_layout()
+plt.show()
+```
 
 ## Python Verification
 
@@ -159,35 +189,6 @@ for x in [0, 1]:
 
 # Continuous joint PDF: f(x,y) = 6x on triangle
 print(f"\n=== Continuous Joint PDF: f(x,y) = 6x ===")
-# Numerical integration to verify
-N = 10000
-import random
-random.seed(42)
-count_le_half = 0
-total_samples = 0
-for _ in range(100000):
-    x = random.random()
-    y = random.random()
-    if y <= 1 - x:  # inside the support
-        total_samples += 1
-        if x <= 0.5:
-            count_le_half += 1
-
-# Area of triangle = 0.5, so acceptance rate ~ 0.5
-# Among accepted: P(X <= 0.5) should weight by 6x
-# Use proper rejection sampling
-hits = 0
-total = 0
-for _ in range(200000):
-    x = random.random()
-    y_lim = 1 - x
-    if y_lim <= 0:
-        continue
-    y = random.uniform(0, y_lim)
-    # Weight by PDF: f(x,y) = 6x
-    # But for uniform sampling on triangle, density is 2 (area = 0.5)
-    # So weight = 6x / 2 = 3x ... simpler to just integrate numerically
-    pass
 
 # Direct numerical integration
 dx = 0.001

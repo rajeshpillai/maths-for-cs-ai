@@ -9,7 +9,7 @@ check an inequality.
 
 ## Prerequisites
 
-- Supplementary Foundations, Lesson 2: Algebraic Manipulation
+- Foundation 1, Lesson 2: Algebraic Manipulation
 - Tier 8, Lesson 3: Distance Formula
 
 ## From First Principles

@@ -9,7 +9,7 @@ cubics and higher-degree polynomials by hand.
 
 ## Prerequisites
 
-- Supplementary Foundations, Lesson 2: Algebraic Manipulation
+- Foundation 1, Lesson 2: Algebraic Manipulation
 
 ## From First Principles
 

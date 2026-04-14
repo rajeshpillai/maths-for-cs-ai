@@ -10,7 +10,7 @@ the algebra is understanding **why** these systems are secure.
 ## Prerequisites
 
 - Tier 16, Lesson 10 (Fields and Extensions)
-- Tier 13, Lesson 4 (if available — number-theoretic foundations)
+- Tier 13, Lesson 4: RSA Cryptography
 
 ## From First Principles
 

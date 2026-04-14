@@ -10,7 +10,7 @@ skills that all higher maths assumes you have.
 
 ## Prerequisites
 
-- Supplementary Foundations, Lesson 1: Surds, Indices
+- Foundation 1, Lesson 1: Surds, Indices, Logarithms
 
 ## From First Principles
 

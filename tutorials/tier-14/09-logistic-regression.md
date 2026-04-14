@@ -172,11 +172,16 @@ print(f"Predictions:   {preds}")
 print(f"Actual:        {y.astype(int)}")
 print(f"Accuracy:      {np.mean(preds == y):.2f}")
 
-# Step 4: Verify with sklearn
-from sklearn.linear_model import LogisticRegression
-clf = LogisticRegression(penalty=None, fit_intercept=True)
-clf.fit(x.reshape(-1, 1), y)
-print(f"\nsklearn: intercept = {clf.intercept_[0]:.4f}, coef = {clf.coef_[0][0]:.4f}")
+# Step 4: Verify with scipy.optimize
+from scipy.optimize import minimize
+
+def neg_log_lik(params):
+    b0, b1 = params
+    z = b0 + b1 * x
+    return -np.sum(y * z - np.log(1 + np.exp(z)))
+
+result = minimize(neg_log_lik, [0, 0], method="Nelder-Mead")
+print(f"\nscipy verify: intercept = {result.x[0]:.4f}, coef = {result.x[1]:.4f}")
 ```
 
 ## Connection to CS / Games / AI
