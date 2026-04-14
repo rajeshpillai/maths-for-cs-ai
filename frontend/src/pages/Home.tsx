@@ -120,11 +120,6 @@ export default function Home() {
   const [showAllTiers, setShowAllTiers] = createSignal(false);
   const [activeCurriculum, setActiveCurriculum] = createSignal<"ml" | "jee">("ml");
 
-  const mlTotalLessons = () => {
-    const ml = mlCurriculum();
-    if (!ml) return 0;
-    return ml.units.reduce((sum, u) => sum + getUnitLessonCount(u), 0);
-  };
 
   return (
     <div class="home">
