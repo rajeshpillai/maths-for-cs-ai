@@ -1,15 +1,24 @@
-import { createSignal, onMount, type ParentProps } from "solid-js";
+import { createSignal, onMount, createEffect, type ParentProps } from "solid-js";
+import { useLocation } from "@solidjs/router";
 import Sidebar from "./components/Sidebar";
 import "./App.css";
 
 export default function Layout(props: ParentProps) {
   const [theme, setTheme] = createSignal<"light" | "dark">("light");
+  const [sidebarOpen, setSidebarOpen] = createSignal(false);
+  const location = useLocation();
 
   onMount(() => {
     const saved = localStorage.getItem("theme") as "light" | "dark" | null;
     const initial = saved ?? "light";
     setTheme(initial);
     document.documentElement.setAttribute("data-theme", initial);
+  });
+
+  // Close sidebar on navigation (mobile)
+  createEffect(() => {
+    void location.pathname;
+    setSidebarOpen(false);
   });
 
   function toggleTheme() {
@@ -21,7 +30,24 @@ export default function Layout(props: ParentProps) {
 
   return (
     <div class="app-layout">
-      <Sidebar />
+      {/* Hamburger button — visible only on mobile */}
+      <button
+        class="hamburger-btn"
+        onClick={() => setSidebarOpen((v) => !v)}
+        title={sidebarOpen() ? "Close menu" : "Open menu"}
+      >
+        {sidebarOpen() ? "\u2715" : "\u2630"}
+      </button>
+
+      {/* Overlay backdrop — visible when sidebar open on mobile */}
+      <div
+        class={`sidebar-overlay ${sidebarOpen() ? "open" : ""}`}
+        onClick={() => setSidebarOpen(false)}
+      />
+
+      <div class={`sidebar-wrapper ${sidebarOpen() ? "open" : ""}`}>
+        <Sidebar />
+      </div>
       <main class="main-content">
         {props.children}
       </main>
