@@ -72,8 +72,25 @@ export default function Sidebar() {
   const [tiers] = createResource(fetchTiers);
   const location = useLocation();
 
-  const [expanded, setExpanded] = createSignal<Record<string, boolean>>({});
+  // Persist sidebar expand/collapse state in localStorage
+  const loadSavedState = (): Record<string, boolean> => {
+    if (typeof window === "undefined") return {};
+    try {
+      const saved = localStorage.getItem("sidebar-expanded");
+      return saved ? JSON.parse(saved) : {};
+    } catch { return {}; }
+  };
+
+  const [expanded, setExpanded] = createSignal<Record<string, boolean>>(loadSavedState());
   const [allExpanded, setAllExpanded] = createSignal(false);
+
+  // Save state to localStorage whenever it changes
+  createEffect(() => {
+    const state = expanded();
+    if (typeof window !== "undefined") {
+      localStorage.setItem("sidebar-expanded", JSON.stringify(state));
+    }
+  });
 
   const [progressVersion, setProgressVersion] = createSignal(0);
   createEffect(() => {
@@ -81,6 +98,7 @@ export default function Sidebar() {
     setProgressVersion((v) => v + 1);
   });
 
+  // Auto-expand the tier containing the current lesson
   createEffect(() => {
     const path = location.pathname;
     const match = path.match(/\/lesson\/([^/]+)\//);

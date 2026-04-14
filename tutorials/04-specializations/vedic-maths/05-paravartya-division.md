@@ -61,11 +61,11 @@ Divisor 12 → flag: -2
               → remainder adjustment
 ```
 
-Step 1: Bring down 1.
-Step 2: 1 × (-2) = -2. Add to next column: 2 + (-2) = 0.
-Step 3: 0 × (-2) = 0. Add to next column: 3 + 0 = 3.
+1. **Step 1:** Bring down 1.
+2. **Step 2:** 1 × (-2) = -2. Add to next column: 2 + (-2) = 0.
+3. **Step 3:** 0 × (-2) = 0. Add to next column: 3 + 0 = 3.
    Wait — 3 is in the remainder section.
-Step 4: 3 × (-2) = -6. Add to last column: 4 + (-6) = -2.
+4. **Step 4:** 3 × (-2) = -6. Add to last column: 4 + (-6) = -2.
 
 Hmm, negative remainder. Adjust: reduce quotient by 1 to get remainder +12.
 Quotient: 10 → adjust to 102, remainder: 34 - 102×... 

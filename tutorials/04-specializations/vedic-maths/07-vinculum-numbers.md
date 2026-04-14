@@ -83,9 +83,9 @@ Now multiply $9\bar{1}$ by 73 using Urdhva:
   7    3
 ```
 
-Step 1 (vertical right): $(-1) \times 3 = -3$
-Step 2 (crosswise): $9 \times 3 + (-1) \times 7 = 27 - 7 = 20$
-Step 3 (vertical left): $9 \times 7 = 63$
+1. **Step 1:** (vertical right): $(-1) \times 3 = -3$
+2. **Step 2:** (crosswise): $9 \times 3 + (-1) \times 7 = 27 - 7 = 20$
+3. **Step 3:** (vertical left): $9 \times 7 = 63$
 
 Combine: $63 | 20 | (-3)$
 = $6300 + 200 + (-3) = 6497$

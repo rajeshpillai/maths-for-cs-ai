@@ -51,9 +51,9 @@ last digit: 10 - 7 = 3, so the complement is 03.
 | 97     | 100  | 3          |
 | 96     | 100  | 4          |
 
-Step 1: Cross-subtract: 97 - 4 = 93 (or equivalently, 96 - 3 = 93).
-Step 2: Multiply deficiencies: 3 x 4 = 12.
-Step 3: Concatenate: 93 | 12 → **9312**.
+1. **Step 1:** Cross-subtract: 97 - 4 = 93 (or equivalently, 96 - 3 = 93).
+2. **Step 2:** Multiply deficiencies: 3 x 4 = 12.
+3. **Step 3:** Concatenate: 93 | 12 → **9312**.
 
 Check: 97 x 96 = 9312. Correct.
 
@@ -66,9 +66,9 @@ Check: 97 x 96 = 9312. Correct.
 | 88     | 100  | 12         |
 | 91     | 100  | 9          |
 
-Step 1: Cross-subtract: 88 - 9 = 79 (or 91 - 12 = 79).
-Step 2: Multiply deficiencies: 12 x 9 = 108.
-Step 3: Since the base is 100 (2 zeros), the right part should be 2 digits.
+1. **Step 1:** Cross-subtract: 88 - 9 = 79 (or 91 - 12 = 79).
+2. **Step 2:** Multiply deficiencies: 12 x 9 = 108.
+3. **Step 3:** Since the base is 100 (2 zeros), the right part should be 2 digits.
    But 108 is 3 digits — carry the 1 over: 79 + 1 = 80, right part = 08.
 Result: **8008**.
 
@@ -83,9 +83,9 @@ Check: 88 x 91 = 8008. Correct.
 | 993    | 1000 | 7          |
 | 997    | 1000 | 3          |
 
-Step 1: Cross-subtract: 993 - 3 = 990.
-Step 2: Multiply deficiencies: 7 x 3 = 21.
-Step 3: Base is 1000 (3 zeros), so pad right part to 3 digits: 021.
+1. **Step 1:** Cross-subtract: 993 - 3 = 990.
+2. **Step 2:** Multiply deficiencies: 7 x 3 = 21.
+3. **Step 3:** Base is 1000 (3 zeros), so pad right part to 3 digits: 021.
 Result: 990 | 021 → **990021**.
 
 Check: 993 x 997 = 990021. Correct.

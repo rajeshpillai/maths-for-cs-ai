@@ -61,9 +61,9 @@ Each column gives a single result digit (with carry forwarded).
 
 Digits: 2, 3
 
-Column 1: D(3) = 9. Write 9, carry 0.
-Column 2: D(23) = 2×2×3 = 12. Write 2, carry 1.
-Column 3: D(2) = 4 + carry 1 = 5. Write 5.
+1. **Column 1:** D(3) = 9. Write 9, carry 0.
+2. **Column 2:** D(23) = 2×2×3 = 12. Write 2, carry 1.
+3. **Column 3:** D(2) = 4 + carry 1 = 5. Write 5.
 
 Result: **529**.
 
@@ -73,9 +73,9 @@ Check: 23² = 529. Correct.
 
 **Example 2: 64²**
 
-Column 1: D(4) = 16. Write 6, carry 1.
-Column 2: D(64) = 2×6×4 = 48 + 1 = 49. Write 9, carry 4.
-Column 3: D(6) = 36 + 4 = 40. Write 40.
+1. **Column 1:** D(4) = 16. Write 6, carry 1.
+2. **Column 2:** D(64) = 2×6×4 = 48 + 1 = 49. Write 9, carry 4.
+3. **Column 3:** D(6) = 36 + 4 = 40. Write 40.
 
 Result: **4096**.
 
@@ -87,11 +87,11 @@ Check: 64² = 4096. Correct.
 
 Digits: 1, 2, 3
 
-Column 1: D(3) = 9. Write 9, carry 0.
-Column 2: D(23) = 2×2×3 = 12. Write 2, carry 1.
-Column 3: D(123) = 2×1×3 + 2² = 6 + 4 = 10, + carry 1 = 11. Write 1, carry 1.
-Column 4: D(12) = 2×1×2 = 4, + carry 1 = 5. Write 5.
-Column 5: D(1) = 1. Write 1.
+1. **Column 1:** D(3) = 9. Write 9, carry 0.
+2. **Column 2:** D(23) = 2×2×3 = 12. Write 2, carry 1.
+3. **Column 3:** D(123) = 2×1×3 + 2² = 6 + 4 = 10, + carry 1 = 11. Write 1, carry 1.
+4. **Column 4:** D(12) = 2×1×2 = 4, + carry 1 = 5. Write 5.
+5. **Column 5:** D(1) = 1. Write 1.
 
 Result: **15129**.
 
@@ -103,11 +103,11 @@ Check: 123² = 15129. Correct.
 
 Digits: 3, 0, 5
 
-Column 1: D(5) = 25. Write 5, carry 2.
-Column 2: D(05) = 2×0×5 = 0, + carry 2 = 2. Write 2, carry 0.
-Column 3: D(305) = 2×3×5 + 0² = 30. Write 0, carry 3.
-Column 4: D(30) = 2×3×0 = 0, + carry 3 = 3. Write 3.
-Column 5: D(3) = 9. Write 9.
+1. **Column 1:** D(5) = 25. Write 5, carry 2.
+2. **Column 2:** D(05) = 2×0×5 = 0, + carry 2 = 2. Write 2, carry 0.
+3. **Column 3:** D(305) = 2×3×5 + 0² = 30. Write 0, carry 3.
+4. **Column 4:** D(30) = 2×3×0 = 0, + carry 3 = 3. Write 3.
+5. **Column 5:** D(3) = 9. Write 9.
 
 Result: **93025**.
 

@@ -57,9 +57,9 @@ Write the result.
   4  1
 ```
 
-Step 1 (vertical right): 3 x 1 = 3. Write 3, carry 0.
-Step 2 (crosswise): 2 x 1 + 3 x 4 = 2 + 12 = 14. Write 4, carry 1.
-Step 3 (vertical left): 2 x 4 + carry 1 = 8 + 1 = 9.
+1. **Step 1:** (vertical right): 3 x 1 = 3. Write 3, carry 0.
+2. **Step 2:** (crosswise): 2 x 1 + 3 x 4 = 2 + 12 = 14. Write 4, carry 1.
+3. **Step 3:** (vertical left): 2 x 4 + carry 1 = 8 + 1 = 9.
 
 Result: **943**.
 
@@ -74,9 +74,9 @@ Check: 23 x 41 = 943. Correct.
   8  3
 ```
 
-Step 1: 7 x 3 = 21. Write 1, carry 2.
-Step 2: 6 x 3 + 7 x 8 + 2 = 18 + 56 + 2 = 76. Write 6, carry 7.
-Step 3: 6 x 8 + 7 = 48 + 7 = 55.
+1. **Step 1:** 7 x 3 = 21. Write 1, carry 2.
+2. **Step 2:** 6 x 3 + 7 x 8 + 2 = 18 + 56 + 2 = 76. Write 6, carry 7.
+3. **Step 3:** 6 x 8 + 7 = 48 + 7 = 55.
 
 Result: **5561**.
 
@@ -107,11 +107,11 @@ Check: 67 x 83 = 5561. Correct.
   4  5  6
 ```
 
-Step 1: 3 x 6 = 18. Write 8, carry 1.
-Step 2: 2 x 6 + 3 x 5 + 1 = 12 + 15 + 1 = 28. Write 8, carry 2.
-Step 3: 1 x 6 + 2 x 5 + 3 x 4 + 2 = 6 + 10 + 12 + 2 = 30. Write 0, carry 3.
-Step 4: 1 x 5 + 2 x 4 + 3 = 5 + 8 + 3 = 16. Write 6, carry 1.
-Step 5: 1 x 4 + 1 = 5.
+1. **Step 1:** 3 x 6 = 18. Write 8, carry 1.
+2. **Step 2:** 2 x 6 + 3 x 5 + 1 = 12 + 15 + 1 = 28. Write 8, carry 2.
+3. **Step 3:** 1 x 6 + 2 x 5 + 3 x 4 + 2 = 6 + 10 + 12 + 2 = 30. Write 0, carry 3.
+4. **Step 4:** 1 x 5 + 2 x 4 + 3 = 5 + 8 + 3 = 16. Write 6, carry 1.
+5. **Step 5:** 1 x 4 + 1 = 5.
 
 Result: **56088**.
 
