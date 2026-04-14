@@ -9,9 +9,43 @@ interface LearningPath {
   stages: { name: string; tiers: string[] }[];
 }
 
-interface LearningPathsData {
-  paths: LearningPath[];
+interface MLUnit {
+  name: string;
+  icon: string;
+  tiers: { tier: string; lessons: string[]; label: string }[];
 }
+
+interface MLCurriculum {
+  title: string;
+  description: string;
+  outcome: string;
+  units: MLUnit[];
+}
+
+const TIER_NAMES: Record<string, string> = {
+  "foundation-1": "Algebra Foundations",
+  "foundation-2": "Functions & Graphs",
+  "foundation-3": "Advanced Algebra",
+  "foundation-4": "Pre-Calculus",
+  "tier-0": "Number Systems",
+  "tier-1": "Discrete Mathematics",
+  "tier-2": "Linear Algebra",
+  "tier-3": "Calculus",
+  "tier-4": "Probability & Stats",
+  "tier-5": "Optimisation",
+  "tier-6": "Neural Networks",
+  "tier-7": "CNNs",
+  "tier-8": "Geometry & Trig",
+  "tier-9": "Fourier Analysis",
+  "tier-10": "Advanced Topics",
+  "tier-11": "Differential Equations",
+  "tier-12": "Multivariable Calculus",
+  "tier-13": "Advanced Discrete Math",
+  "tier-14": "Advanced Statistics",
+  "tier-15": "Methods of Proof",
+  "tier-16": "Abstract Algebra",
+  "supplementary-applied": "Applied Maths",
+};
 
 const TIER_DESCRIPTIONS: Record<string, string> = {
   "foundation-1": "Surds, indices, equations, inequalities, functions, linear & quadratic, polynomials, absolute value, exponent rules",
@@ -41,35 +75,17 @@ const TIER_DESCRIPTIONS: Record<string, string> = {
   "supplementary-applied": "Kinematics (SUVAT), projectile motion, forces & equilibrium, SHM, differential equations, hypothesis testing, regression",
 };
 
-const TIER_NAMES: Record<string, string> = {
-  "foundation-1": "Algebra Foundations",
-  "foundation-2": "Functions & Graphs",
-  "foundation-3": "Advanced Algebra",
-  "foundation-4": "Pre-Calculus",
-  "tier-0": "Number Systems",
-  "tier-1": "Discrete Mathematics",
-  "tier-2": "Linear Algebra",
-  "tier-3": "Calculus",
-  "tier-4": "Probability & Stats",
-  "tier-5": "Optimisation",
-  "tier-6": "Neural Networks",
-  "tier-7": "CNNs",
-  "tier-8": "Geometry & Trig",
-  "tier-9": "Fourier Analysis",
-  "tier-10": "Advanced Topics",
-  "tier-11": "Differential Equations",
-  "tier-12": "Multivariable Calculus",
-  "tier-13": "Advanced Discrete Math",
-  "tier-14": "Advanced Statistics",
-  "tier-15": "Methods of Proof",
-  "tier-16": "Abstract Algebra",
-  "supplementary-applied": "Applied Maths",
-};
-
-async function fetchLearningPaths(): Promise<LearningPathsData> {
+async function fetchLearningPaths(): Promise<{ paths: LearningPath[] }> {
   const base = import.meta.env.BASE_URL ?? "/";
   const res = await fetch(`${base}api/learning-paths.json`);
   if (!res.ok) return { paths: [] };
+  return res.json();
+}
+
+async function fetchMLCurriculum(): Promise<MLCurriculum | null> {
+  const base = import.meta.env.BASE_URL ?? "/";
+  const res = await fetch(`${base}api/ml-curriculum.json`);
+  if (!res.ok) return null;
   return res.json();
 }
 
@@ -80,10 +96,22 @@ function getLessonCount(tiers: TierInfo[], tierIds: string[]): number {
   }, 0);
 }
 
+function getUnitLessonCount(unit: MLUnit): number {
+  return unit.tiers.reduce((sum, t) => sum + t.lessons.length, 0);
+}
+
 export default function Home() {
   const [tiers] = createResource(fetchTiers);
   const [paths] = createResource(fetchLearningPaths);
+  const [mlCurriculum] = createResource(fetchMLCurriculum);
   const [selectedPath, setSelectedPath] = createSignal<string | null>(null);
+  const [showAllTiers, setShowAllTiers] = createSignal(false);
+
+  const mlTotalLessons = () => {
+    const ml = mlCurriculum();
+    if (!ml) return 0;
+    return ml.units.reduce((sum, u) => sum + getUnitLessonCount(u), 0);
+  };
 
   return (
     <div class="home">
@@ -96,13 +124,82 @@ export default function Home() {
         Python is only used to verify your hand-computed answers.
       </p>
 
-      {/* Start Here callout */}
+      {/* Mathematics for Machine Learning — featured section */}
+      <Show when={mlCurriculum()}>
+        {(ml) => (
+          <div class="ml-curriculum">
+            <div class="ml-header">
+              <div class="ml-header-text">
+                <h2>{ml().title}</h2>
+                <p class="ml-desc">{ml().description}</p>
+                <p class="ml-outcome">{ml().outcome}</p>
+                <div class="ml-stats">
+                  <span class="ml-stat">{ml().units.length} units</span>
+                  <span class="ml-stat-sep">/</span>
+                  <span class="ml-stat">{mlTotalLessons()} lessons</span>
+                  <span class="ml-stat-sep">/</span>
+                  <span class="ml-stat">paper &amp; pen first</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="ml-units">
+              <For each={ml().units}>
+                {(unit, idx) => {
+                  const firstTier = unit.tiers[0];
+                  const firstLesson = firstTier?.lessons[0];
+                  const lessonCount = getUnitLessonCount(unit);
+                  return (
+                    <div class="ml-unit">
+                      <div class="ml-unit-number">{idx() + 1}</div>
+                      <div class="ml-unit-content">
+                        <div class="ml-unit-header">
+                          <span class="ml-unit-icon">{unit.icon}</span>
+                          <span class="ml-unit-name">{unit.name}</span>
+                          <span class="ml-unit-count">{lessonCount} lessons</span>
+                        </div>
+                        <div class="ml-unit-tiers">
+                          <For each={unit.tiers}>
+                            {(tierRef) => (
+                              <A
+                                href={`/lesson/${tierRef.tier}/${tierRef.lessons[0]}-`}
+                                class="ml-unit-link"
+                                onClick={(e) => {
+                                  // Navigate to first lesson of this tier segment
+                                  e.preventDefault();
+                                  const t = tiers()?.find((t) => t.tier === tierRef.tier);
+                                  if (t) {
+                                    const slug = t.lessons.find((l) => l.startsWith(tierRef.lessons[0]));
+                                    if (slug) {
+                                      window.location.href = `/lesson/${tierRef.tier}/${slug}`;
+                                    }
+                                  }
+                                }}
+                              >
+                                <span class="ml-tier-badge">{TIER_NAMES[tierRef.tier] ?? tierRef.tier}</span>
+                                <span class="ml-tier-label">{tierRef.label}</span>
+                              </A>
+                            )}
+                          </For>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                }}
+              </For>
+            </div>
+
+            <div class="ml-prereq-note">
+              New to math? Complete <A href="/lesson/foundation-1/01-surds-indices-logarithms">Foundation 1-4</A> first,
+              then follow the units above in order.
+            </div>
+          </div>
+        )}
+      </Show>
+
+      {/* Other learning paths */}
       <div class="start-here">
-        <h2>Choose Your Path</h2>
-        <p class="start-here-desc">
-          New to math beyond grade 8? Start with <strong>Grade 8 to AI/ML</strong>.
-          Already comfortable with algebra? Jump in at <strong>Tier 0</strong>.
-        </p>
+        <h2>Other Learning Paths</h2>
         <div class="path-cards">
           <For each={paths()?.paths ?? []}>
             {(path) => {
@@ -128,7 +225,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Learning path stages (shown when a path is selected) */}
       <Show when={selectedPath()}>
         {(pathId) => {
           const path = () => paths()?.paths.find((p) => p.id === pathId());
@@ -171,38 +267,44 @@ export default function Home() {
         }}
       </Show>
 
-      {/* Full tier grid */}
-      <h2 class="all-tiers-heading">All Topics</h2>
-      <div class="tier-grid">
-        <For each={tiers()}>
-          {(tier) => {
-            const isFoundation = tier.tier.startsWith("foundation-");
-            const tierNum = isFoundation
-              ? tier.tier.replace("foundation-", "")
-              : tier.tier.replace("tier-", "");
-            const tierPrefix = isFoundation ? "F" : "T";
-            const hasLessons = tier.lessons.length > 0;
-            return (
-              <div class={`tier-card ${hasLessons ? "" : "empty"}`}>
-                <div class="tier-card-header">
-                  <span class="tier-num">{tierPrefix}{tierNum}</span>
-                  <span class="tier-name">{TIER_NAMES[tier.tier] ?? tier.title}</span>
-                </div>
-                <p class="tier-desc">
-                  {TIER_DESCRIPTIONS[tier.tier] ?? ""}
-                </p>
-                {hasLessons && (
-                  <A href={`/lesson/${tier.tier}/${tier.lessons[0]}`} class="tier-start">
-                    Start ({tier.lessons.length} lesson{tier.lessons.length > 1 ? "s" : ""})
-                  </A>
-                )}
-                {!hasLessons && (
-                  <span class="tier-coming">Coming soon</span>
-                )}
-              </div>
-            );
-          }}
-        </For>
+      {/* All Topics */}
+      <div class="all-tiers-section">
+        <h2 class="all-tiers-heading">
+          All Topics
+          <button class="show-all-btn" onClick={() => setShowAllTiers(v => !v)}>
+            {showAllTiers() ? "Collapse" : `Show all ${tiers()?.reduce((s, t) => s + t.lessons.length, 0) ?? 0} lessons`}
+          </button>
+        </h2>
+        <Show when={showAllTiers()}>
+          <div class="tier-grid">
+            <For each={tiers()}>
+              {(tier) => {
+                const isFoundation = tier.tier.startsWith("foundation-");
+                const tierNum = isFoundation
+                  ? tier.tier.replace("foundation-", "")
+                  : tier.tier.replace("tier-", "");
+                const tierPrefix = isFoundation ? "F" : "T";
+                const hasLessons = tier.lessons.length > 0;
+                return (
+                  <div class={`tier-card ${hasLessons ? "" : "empty"}`}>
+                    <div class="tier-card-header">
+                      <span class="tier-num">{tierPrefix}{tierNum}</span>
+                      <span class="tier-name">{TIER_NAMES[tier.tier] ?? tier.title}</span>
+                    </div>
+                    <p class="tier-desc">
+                      {TIER_DESCRIPTIONS[tier.tier] ?? ""}
+                    </p>
+                    {hasLessons && (
+                      <A href={`/lesson/${tier.tier}/${tier.lessons[0]}`} class="tier-start">
+                        Start ({tier.lessons.length} lesson{tier.lessons.length > 1 ? "s" : ""})
+                      </A>
+                    )}
+                  </div>
+                );
+              }}
+            </For>
+          </div>
+        </Show>
       </div>
     </div>
   );

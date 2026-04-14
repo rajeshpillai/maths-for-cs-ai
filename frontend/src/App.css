@@ -538,10 +538,206 @@
   font-weight: 700;
 }
 
+/* ML Curriculum featured section */
+.ml-curriculum {
+  margin-bottom: 2.5rem;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.ml-header {
+  background: var(--bg-sidebar);
+  color: var(--text-sidebar);
+  padding: 1.5rem;
+}
+
+.ml-header h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent);
+}
+
+.ml-desc {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  opacity: 0.9;
+  margin-bottom: 0.5rem;
+}
+
+.ml-outcome {
+  font-size: 0.82rem;
+  opacity: 0.7;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+
+.ml-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.ml-stat {
+  color: var(--accent);
+}
+
+.ml-stat-sep {
+  opacity: 0.3;
+}
+
+.ml-units {
+  padding: 0.5rem 0;
+}
+
+.ml-unit {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+
+.ml-unit:last-child {
+  border-bottom: none;
+}
+
+.ml-unit:hover {
+  background: rgba(137, 180, 250, 0.04);
+}
+
+.ml-unit-number {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background: var(--bg-sidebar);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.ml-unit-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.ml-unit-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.ml-unit-icon {
+  font-size: 1rem;
+  width: 1.5rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.ml-unit-name {
+  font-weight: 600;
+  font-size: 0.88rem;
+  flex: 1;
+}
+
+.ml-unit-count {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.ml-unit-tiers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-left: 2rem;
+}
+
+.ml-unit-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.2rem 0.6rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.78rem;
+  color: var(--text);
+  transition: border-color 0.15s, background 0.15s;
+  cursor: pointer;
+}
+
+.ml-unit-link:hover {
+  border-color: var(--accent);
+  background: rgba(137, 180, 250, 0.08);
+}
+
+.ml-tier-badge {
+  font-weight: 600;
+  color: var(--accent);
+  font-size: 0.72rem;
+}
+
+.ml-tier-label {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.ml-prereq-note {
+  padding: 0.75rem 1.25rem;
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.ml-prereq-note a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ml-prereq-note a:hover {
+  text-decoration: underline;
+}
+
+/* All tiers section */
+.all-tiers-section {
+  margin-top: 1rem;
+}
+
 .all-tiers-heading {
   font-size: 1.3rem;
   margin-bottom: 1rem;
-  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.show-all-btn {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: none;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.show-all-btn:hover {
+  background: rgba(137, 180, 250, 0.1);
+}
 }
 
 /* Lesson page */
