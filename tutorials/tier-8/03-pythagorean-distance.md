@@ -10,7 +10,7 @@ physics, and ML (L2 norm, Euclidean distance).
 ## Prerequisites
 
 - Tier 0, Lesson 1: Number Systems (square roots)
-- Tier 2, Lesson 12: Norms
+- Tier 2, Lesson 16: Norms
 
 ## From First Principles
 

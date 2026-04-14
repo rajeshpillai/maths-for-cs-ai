@@ -11,7 +11,7 @@ the mathematical framework for reinforcement learning.
 
 - Tier 4, Lesson 1: Probability Axioms
 - Tier 2, Lesson 4: Matrix Multiplication
-- Tier 2, Lesson 9: Eigenvalues
+- Tier 2, Lesson 13: Eigenvalues
 
 ## From First Principles
 

@@ -9,7 +9,7 @@ and the mathematical foundation of PCA all use SVD.
 
 ## Prerequisites
 
-- Tier 2, Lesson 9: Eigenvalues & Eigenvectors
+- Tier 2, Lesson 13: Eigenvalues & Eigenvectors
 
 ## From First Principles
 

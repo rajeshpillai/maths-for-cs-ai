@@ -11,7 +11,7 @@ GPT, BERT, and most modern AI systems.
 
 - Tier 2, Lesson 2: Dot Product
 - Tier 6, Lesson 3: Forward Pass
-- Tier 4, Lesson 8: Information Theory (softmax)
+- Tier 4, Lesson 9: Information Theory (softmax)
 
 ## From First Principles
 

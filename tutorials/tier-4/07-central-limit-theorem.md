@@ -9,7 +9,7 @@ appears everywhere in nature and why statistical tests work.
 
 ## Prerequisites
 
-- Tier 4, Lesson 5: Key Distributions (Gaussian)
+- Tier 4, Lesson 6: Continuous Distributions (Gaussian)
 - Tier 4, Lesson 4: Expectation and Variance
 
 ## From First Principles

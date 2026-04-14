@@ -133,6 +133,139 @@ print(f"det(M) = {np.linalg.det(M):.0f} → transformed area = {abs(np.linalg.de
 - **Cramer's rule** — solving small linear systems using determinants
 - **Eigenvalue computation** — eigenvalues satisfy $\det(\mathbf{A} - \lambda\mathbf{I}) = 0$
 
+### NxN Determinants: Laplace Expansion (Cofactor Expansion)
+
+The 3x3 formula above is actually a **special case** of a general method that
+works for any $n \times n$ matrix.
+
+**Definition:** For an $n \times n$ matrix $\mathbf{A}$, the **minor** $M_{ij}$
+is the determinant of the $(n-1) \times (n-1)$ submatrix obtained by deleting
+row $i$ and column $j$.
+
+**Cofactor:** $C_{ij} = (-1)^{i+j} M_{ij}$
+
+The sign factor $(-1)^{i+j}$ follows a **checkerboard pattern**:
+
+$$\begin{pmatrix} + & - & + & - & \cdots \\ - & + & - & + & \cdots \\ + & - & + & - & \cdots \\ \vdots & & & & \ddots \end{pmatrix}$$
+
+**Laplace expansion along row $i$:**
+
+$$\det(\mathbf{A}) = \sum_{j=1}^{n} (-1)^{i+j} a_{ij} M_{ij} = \sum_{j=1}^{n} a_{ij} C_{ij}$$
+
+You can expand along **any** row or column — the result is always the same.
+Choose the row or column with the most zeros to minimise work.
+
+**Pen & paper: 3x3 example by cofactor expansion along row 1**
+
+$$\mathbf{A} = \begin{pmatrix} 2 & 0 & 1 \\ 3 & 1 & 0 \\ -1 & 2 & 3 \end{pmatrix}$$
+
+Expand along row 1 ($i = 1$):
+
+$\det(\mathbf{A}) = a_{11} C_{11} + a_{12} C_{12} + a_{13} C_{13}$
+
+Signs from checkerboard: $+, -, +$
+
+$= (+1)(2) \det\begin{pmatrix} 1 & 0 \\ 2 & 3 \end{pmatrix} + (-1)(0) \det\begin{pmatrix} 3 & 0 \\ -1 & 3 \end{pmatrix} + (+1)(1) \det\begin{pmatrix} 3 & 1 \\ -1 & 2 \end{pmatrix}$
+
+$= 2(1 \cdot 3 - 0 \cdot 2) - 0(3 \cdot 3 - 0 \cdot (-1)) + 1(3 \cdot 2 - 1 \cdot (-1))$
+
+$= 2(3) - 0(9) + 1(7)$
+
+$= 6 + 0 + 7 = 13$
+
+**Tip:** Notice that $a_{12} = 0$, so the second term vanishes entirely. This is
+why expanding along a row or column with zeros saves computation.
+
+**Pen & paper: Expand the same matrix along column 2 (has a zero)**
+
+$\det(\mathbf{A}) = a_{12} C_{12} + a_{22} C_{22} + a_{32} C_{32}$
+
+Signs for column 2: $-, +, -$
+
+$= (-1)(0) \det\begin{pmatrix} 3 & 0 \\ -1 & 3 \end{pmatrix} + (+1)(1) \det\begin{pmatrix} 2 & 1 \\ -1 & 3 \end{pmatrix} + (-1)(2) \det\begin{pmatrix} 2 & 1 \\ 3 & 0 \end{pmatrix}$
+
+$= 0 + 1(6 - (-1)) - 2(0 - 3)$
+
+$= 0 + 7 + 6 = 13$ ✓
+
+Same answer regardless of which row or column we expand along.
+
+### Properties of Determinants Under Row Operations
+
+These properties let you simplify a matrix **before** computing its determinant,
+which is far more efficient than brute-force expansion for large matrices.
+
+| Row operation | Effect on det |
+|---------------|---------------|
+| Swap two rows | Multiplies det by $-1$ |
+| Multiply a row by scalar $k$ | Multiplies det by $k$ |
+| Add a multiple of one row to another | Det **unchanged** |
+
+Two additional key properties:
+
+- **Product rule:** $\det(\mathbf{AB}) = \det(\mathbf{A})\det(\mathbf{B})$
+- **Transpose rule:** $\det(\mathbf{A}^T) = \det(\mathbf{A})$
+
+**Pen & paper: Verify all properties with a concrete 3x3 matrix**
+
+Use $\mathbf{A} = \begin{pmatrix} 2 & 0 & 1 \\ 3 & 1 & 0 \\ -1 & 2 & 3 \end{pmatrix}$, which we already know has $\det(\mathbf{A}) = 13$.
+
+**Property 1 — Row swap ($\det$ negates):**
+
+Swap $R_1$ and $R_2$: $\mathbf{A'} = \begin{pmatrix} 3 & 1 & 0 \\ 2 & 0 & 1 \\ -1 & 2 & 3 \end{pmatrix}$
+
+Expand along row 1:
+
+$= 3(0 \cdot 3 - 1 \cdot 2) - 1(2 \cdot 3 - 1 \cdot (-1)) + 0(\ldots)$
+
+$= 3(-2) - 1(7) + 0 = -6 - 7 = -13$ ✓ (sign flipped)
+
+**Property 2 — Row scaling ($\det$ scales by $k$):**
+
+Multiply $R_1$ by 4: $\begin{pmatrix} 8 & 0 & 4 \\ 3 & 1 & 0 \\ -1 & 2 & 3 \end{pmatrix}$
+
+Expected: $4 \times 13 = 52$.
+
+Expand along row 1: $= 8(3) - 0(\ldots) + 4(6 - (-1)) = 24 + 28 = 52$ ✓
+
+**Property 3 — Adding a row multiple (det unchanged):**
+
+$R_2 \leftarrow R_2 + 2R_1$: $\begin{pmatrix} 2 & 0 & 1 \\ 7 & 1 & 2 \\ -1 & 2 & 3 \end{pmatrix}$
+
+Expand along column 2 (the zero helps):
+
+$= -(0)(\ldots) + (1)(2 \cdot 3 - 2 \cdot (-1)) - (2)(2 \cdot 2 - 1 \cdot 7)$
+
+$= 0 + 1(6 + 2) - 2(4 - 7)$
+
+$= 8 - 2(-3) = 8 + 6 = 14$
+
+Hmm — let's be careful and expand fully. Expand along row 1:
+
+$= 2(1 \cdot 3 - 2 \cdot 2) - 0(\ldots) + 1(7 \cdot 2 - 1 \cdot (-1))$
+
+$= 2(3 - 4) + 1(14 + 1)$
+
+$= 2(-1) + 15 = -2 + 15 = 13$ ✓ (det unchanged)
+
+**Property 4 — Product rule:**
+
+Let $\mathbf{B} = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 2 & 0 \\ 0 & 0 & 3 \end{pmatrix}$ (diagonal, so $\det(\mathbf{B}) = 1 \cdot 2 \cdot 3 = 6$)
+
+$\det(\mathbf{AB})$ should equal $13 \times 6 = 78$. (Verify in the Python code below.)
+
+**Property 5 — Transpose rule:**
+
+$\mathbf{A}^T = \begin{pmatrix} 2 & 3 & -1 \\ 0 & 1 & 2 \\ 1 & 0 & 3 \end{pmatrix}$
+
+Expand along column 1 (two zeros in column 2 of $\mathbf{A}^T$, but let's use row 2 which has a zero):
+
+$= -(0)(\ldots) + (1)(2 \cdot 3 - (-1)(1)) - (2)(2 \cdot 0 - 3 \cdot 1)$
+
+$= 0 + 1(6 + 1) - 2(0 - 3)$
+
+$= 7 + 6 = 13$ ✓ (same as $\det(\mathbf{A})$)
+
 ## Check Your Understanding
 
 1. **Pen & paper:** Compute $\det\begin{pmatrix} 5 & 3 \\ -2 & 4 \end{pmatrix}$.  Is this matrix invertible?

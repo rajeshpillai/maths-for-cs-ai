@@ -153,9 +153,128 @@ print(f"  P(0.5 ≤ X ≤ 1) ≈ {count/100000:.4f} (exact: 0.75)")
 - **Sensor readings** — modelled as continuous random variables with noise
 - **Sampling** — generating random data for Monte Carlo, data augmentation, dropout
 
+## Transformations of Random Variables
+
+### The problem
+
+You know the distribution of $X$, and you define $Y = g(X)$.  What is the
+distribution of $Y$?  This is fundamental — in ML you constantly transform
+random variables (e.g., passing inputs through activation functions).
+
+### Method 1: Distribution function (CDF) method
+
+This always works:
+
+1. Write $F_Y(y) = P(Y \le y) = P(g(X) \le y)$
+2. Express the right side in terms of $X$
+3. Differentiate to get the PDF: $f_Y(y) = F_Y'(y)$
+
+### Method 2: One-to-one (monotonic) transformation formula
+
+If $g$ is strictly monotonic (always increasing or always decreasing) and
+differentiable, there is a direct formula:
+
+$$f_Y(y) = f_X\!\left(g^{-1}(y)\right) \cdot \left|\frac{d}{dy}g^{-1}(y)\right|$$
+
+**Why the absolute value of the derivative?**  The factor $|{(g^{-1})'(y)}|$
+accounts for how $g$ stretches or compresses the probability.  If $g$ maps a
+wide interval of $x$-values to a narrow interval of $y$-values, the density
+must increase to keep total probability = 1.
+
+### Pen & paper example 1: $X \sim \text{Uniform}(0,1)$, $Y = X^2$
+
+We know $f_X(x) = 1$ for $0 \le x \le 1$.
+
+Since $X \ge 0$, $g(x) = x^2$ is monotonically increasing on $[0, 1]$.
+
+Step 1 — find the range of $Y$: since $x \in [0,1]$, $y = x^2 \in [0,1]$.
+
+Step 2 — CDF method:
+$F_Y(y) = P(Y \le y) = P(X^2 \le y) = P(X \le \sqrt{y}) = \sqrt{y}$
+(for $0 \le y \le 1$, using $F_X(x) = x$)
+
+Step 3 — differentiate:
+$$f_Y(y) = \frac{d}{dy}\sqrt{y} = \frac{1}{2\sqrt{y}} \quad \text{for } 0 < y \le 1$$
+
+**Verify with the formula:** $g^{-1}(y) = \sqrt{y}$, $(g^{-1})'(y) = \frac{1}{2\sqrt{y}}$
+
+$f_Y(y) = f_X(\sqrt{y}) \cdot \left|\frac{1}{2\sqrt{y}}\right| = 1 \cdot \frac{1}{2\sqrt{y}} = \frac{1}{2\sqrt{y}}$ ✓
+
+**Sanity check:** $\int_0^1 \frac{1}{2\sqrt{y}}\,dy = [\sqrt{y}]_0^1 = 1$ ✓
+
+### Pen & paper example 2: $X \sim \text{Exp}(1)$, $Y = 2X + 3$
+
+We know $f_X(x) = e^{-x}$ for $x \ge 0$.
+
+$g(x) = 2x + 3$ is strictly increasing.
+
+Step 1 — range: since $x \ge 0$, $y \ge 3$.
+
+Step 2 — inverse: $g^{-1}(y) = \frac{y - 3}{2}$, $(g^{-1})'(y) = \frac{1}{2}$
+
+Step 3 — apply the formula:
+
+$$f_Y(y) = f_X\!\left(\frac{y-3}{2}\right) \cdot \left|\frac{1}{2}\right| = e^{-(y-3)/2} \cdot \frac{1}{2} = \frac{1}{2}e^{-(y-3)/2} \quad \text{for } y \ge 3$$
+
+**Sanity check:** $\int_3^{\infty} \frac{1}{2}e^{-(y-3)/2}\,dy$. Let $u = (y-3)/2$, $du = dy/2$:
+
+$= \int_0^{\infty} e^{-u}\,du = 1$ ✓
+
+This is a shifted and scaled exponential.
+
+### Python Verification (Transformations)
+
+```python
+# ── Transformations of Random Variables ───────────────────────
+import random
+import math
+
+random.seed(42)
+N = 200000
+
+# Example 1: X ~ Uniform(0,1), Y = X²
+print("=== Y = X² where X ~ Uniform(0,1) ===")
+samples_x = [random.random() for _ in range(N)]
+samples_y = [x**2 for x in samples_x]
+
+# Check P(Y ≤ 0.25) — should be √0.25 = 0.5
+p_sim = sum(1 for y in samples_y if y <= 0.25) / N
+print(f"P(Y ≤ 0.25) simulated: {p_sim:.4f}")
+print(f"P(Y ≤ 0.25) exact:     {0.25**0.5:.4f}")
+
+# Check density at y=0.25: f_Y(0.25) = 1/(2√0.25) = 1
+# Estimate density by counting samples in a small bin
+bin_lo, bin_hi = 0.24, 0.26
+count = sum(1 for y in samples_y if bin_lo <= y < bin_hi)
+density_est = count / N / (bin_hi - bin_lo)
+density_exact = 1 / (2 * math.sqrt(0.25))
+print(f"f_Y(0.25) estimated: {density_est:.2f}")
+print(f"f_Y(0.25) exact:     {density_exact:.2f}")
+
+# Example 2: X ~ Exp(1), Y = 2X + 3
+print("\n=== Y = 2X + 3 where X ~ Exp(1) ===")
+samples_x2 = [random.expovariate(1.0) for _ in range(N)]
+samples_y2 = [2*x + 3 for x in samples_x2]
+
+# Mean of Y should be 2·E[X] + 3 = 2·1 + 3 = 5
+mean_y = sum(samples_y2) / N
+print(f"E[Y] simulated: {mean_y:.4f}")
+print(f"E[Y] exact:     5.0000")
+
+# Check density at y=5: f_Y(5) = 0.5·exp(-(5-3)/2) = 0.5·exp(-1)
+bin_lo, bin_hi = 4.9, 5.1
+count = sum(1 for y in samples_y2 if bin_lo <= y < bin_hi)
+density_est = count / N / (bin_hi - bin_lo)
+density_exact = 0.5 * math.exp(-1)
+print(f"f_Y(5) estimated: {density_est:.4f}")
+print(f"f_Y(5) exact:     {density_exact:.4f}")
+```
+
 ## Check Your Understanding
 
 1. **Pen & paper:** A coin is flipped 3 times. $X$ = number of heads.  Write out the PMF table.
 2. **Pen & paper:** For $f(x) = 3x^2$ on $[0, 1]$, verify it's a valid PDF.  Find $P(X > 0.5)$.
 3. **Pen & paper:** If $F(x) = 1 - e^{-x}$ for $x \ge 0$, find the PDF $f(x)$.  What distribution is this?
 4. **Think about it:** Why is $P(X = 0.5) = 0$ for a continuous random variable, yet $P(0.499 \le X \le 0.501) > 0$?
+5. **Pen & paper:** $X \sim \text{Uniform}(0, 1)$, $Y = -\ln(X)$.  Find the PDF of $Y$.  What well-known distribution is this?
+6. **Pen & paper:** $X \sim \text{Uniform}(0, 1)$, $Y = X^3$.  Find $f_Y(y)$ and verify $\int_0^1 f_Y(y)\,dy = 1$.

@@ -9,7 +9,7 @@ under the hood when you train a neural network with cross-entropy loss.
 
 ## Prerequisites
 
-- Tier 4, Lesson 5: Key Distributions (Bernoulli, Gaussian)
+- Tier 4, Lessons 5-6: Discrete and Continuous Distributions (Bernoulli, Gaussian)
 - Tier 3, Lesson 2: Derivatives (finding maxima)
 
 ## From First Principles

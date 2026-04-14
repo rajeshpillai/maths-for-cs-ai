@@ -11,7 +11,7 @@ faster, and the noise actually helps escape local minima.
 ## Prerequisites
 
 - Tier 5, Lesson 2: Gradient Descent
-- Tier 4, Lesson 6: Central Limit Theorem (why mini-batch means are approximately normal)
+- Tier 4, Lesson 7: Central Limit Theorem (why mini-batch means are approximately normal)
 
 ## From First Principles
 

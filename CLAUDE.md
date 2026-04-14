@@ -84,8 +84,11 @@ then immediately implemented in clean Python**.
 - Prime numbers, GCD, LCM (Euclidean algorithm from scratch)
 
 ### Tier 1 — Discrete Mathematics (CS backbone)
-- Logic: propositions, truth tables, Boolean algebra
+- Logic: propositions, truth tables, Boolean algebra, implications, biconditionals
+- Truth sets, Boolean functions, XOR problem (linear separability)
 - Set theory: unions, intersections, power sets, Cartesian products
+- Set-builder notation, indicator functions, cardinality (countable/uncountable)
+- Supremum, infimum, argmax, argmin
 - Relations and functions (injective, surjective, bijective)
 - Combinatorics: permutations, combinations, pigeonhole principle
 - Graph theory basics: vertices, edges, paths, trees
@@ -96,21 +99,32 @@ then immediately implemented in clean Python**.
 - Vector operations: addition, scalar multiplication, dot product, cross product
 - Geometric meaning of the dot product (projection, angle, similarity)
 - Matrix multiplication: why rows × columns, what it *means*
-- Linear transformations: what a matrix *does* to space
+- Linear transformations: what a matrix *does* to space, affine transforms
 - Identity, inverse, transpose
-- Determinants: geometric meaning (signed volume / area scaling)
-- Systems of linear equations → Gaussian elimination → LU decomposition
+- Determinants: geometric meaning, Laplace expansion, properties under row ops
+- Systems of linear equations → Gaussian elimination
+- Linear combinations, span, linear independence, Hadamard product
+- Subspaces: column space, null space
+- Bases, change-of-coordinates matrix
+- Dimension, rank, rank-nullity theorem, invertible matrix theorem
 - Eigenvalues & eigenvectors: intuition (what directions survive a transform?)
+- Diagonalization: P D P⁻¹, matrix powers
+- Symmetric matrices & spectral theorem
+- Norms: L1, L2, Lp, Frobenius — when to use which
+- Orthogonality: Cauchy-Schwarz, orthogonal complements, orthogonal matrices
+- Orthogonal projections onto subspaces
+- Gram-Schmidt process, QR decomposition
+- Quadratic forms, definiteness, pseudoinverse
 - SVD (Singular Value Decomposition) — the workhorse of ML
 - PCA derived from SVD
-- Norms: L1, L2, Lp, Frobenius — when to use which
 
 ### Tier 3 — Calculus & Analysis (the engine of learning)
 - Limits from ε–δ definition (intuition first)
 - Derivatives: slope of tangent, formal limit definition, rules
-- Partial derivatives and the gradient ∇
+- Partial derivatives, gradient ∇, directional derivatives, gradient as steepest ascent
 - Chain rule — crucial: derive backpropagation from it
-- Jacobian and Hessian matrices
+- Jacobian and Hessian matrices, matrix calculus (vector/matrix gradients)
+- Inverse function theorem
 - Integrals: Riemann sums → the definite integral
 - Fundamental Theorem of Calculus
 - Multivariable integration (surface area, volume)
@@ -120,13 +134,19 @@ then immediately implemented in clean Python**.
 ### Tier 4 — Probability & Statistics (the foundation of inference)
 - Sample spaces, events, probability axioms
 - Conditional probability and Bayes' Theorem (derive it)
-- Random variables: discrete and continuous
-- Expectation E[X], Variance Var(X), Standard Deviation
-- Key distributions: Bernoulli, Binomial, Poisson, Uniform, Gaussian (Normal)
+- Random variables: discrete and continuous, transformations of RVs
+- Expectation E[X], Variance, moments, moment generating functions
+- Discrete distributions: Bernoulli, Binomial, Poisson, Discrete Uniform
+- Continuous distributions: Uniform, Gaussian, Exponential, Gamma, Chi-square, Student's t
 - Central Limit Theorem (demonstrate with simulation)
 - Maximum Likelihood Estimation (MLE) — derive from scratch
 - Information theory: entropy H(X), cross-entropy, KL divergence
 - Covariance and correlation matrices
+- Joint distributions: discrete and continuous, marginal, conditional
+- Expectation for joint distributions: sums, products, conditional expectation
+- Bivariate normal distribution
+- Sampling distributions and point estimation
+- Confidence intervals: for means, proportions
 
 ### Tier 5 — Optimisation (how models learn)
 - Objective functions and loss functions

@@ -224,6 +224,147 @@ print(f"Equal? {comp_union == comp_A_inter_comp_B}")
 - **Bloom filters** — probabilistic set membership testing
 - **Game dev** — collision groups, entity component systems use set operations
 
+### Set-Builder Notation
+
+We introduced this briefly above.  Let's formalise it.
+
+The general form is:
+
+$$\{x \in S : P(x)\}$$
+
+Read: "the set of all $x$ in $S$ such that property $P(x)$ holds."
+
+The colon ":" (or vertical bar "$\mid$") means "such that."
+
+**Examples:**
+
+$$\{n \in \mathbb{N} : n \text{ is even}\} = \{0, 2, 4, 6, \ldots\}$$
+
+$$\{x \in \mathbb{R} : x^2 = 4\} = \{-2, 2\}$$
+
+$$\{w \in \{\text{cat, dog, fish, bird}\} : \text{len}(w) = 3\} = \{\text{cat, dog}\}$$
+
+**Why this matters:** Set-builder notation is everywhere in mathematics.
+When you read "let $S = \{x \in \mathbb{R}^n : \|x\| \leq 1\}$" in an ML
+paper, that's the unit ball — all vectors with norm at most 1.
+
+### Indicator Functions
+
+Given a set $A$ within a universe $U$, the **indicator function** (also called
+the **characteristic function**) is:
+
+$$\mathbf{1}_A(x) = \begin{cases} 1 & \text{if } x \in A \\ 0 & \text{if } x \notin A \end{cases}$$
+
+**Pen & paper example:**
+
+Let $U = \{1, 2, 3, 4, 5\}$ and $A = \{2, 4\}$.
+
+| $x$ | 1 | 2 | 3 | 4 | 5 |
+|-----|---|---|---|---|---|
+| $\mathbf{1}_A(x)$ | 0 | 1 | 0 | 1 | 0 |
+
+**Useful property — counting elements:**
+
+$$|A| = \sum_{x \in U} \mathbf{1}_A(x)$$
+
+From our example: $0 + 1 + 0 + 1 + 0 = 2 = |A|$ ✓
+
+**Set operations with indicators:**
+
+- $\mathbf{1}_{A \cap B}(x) = \mathbf{1}_A(x) \cdot \mathbf{1}_B(x)$ (both must be 1 → multiply)
+- $\mathbf{1}_{A \cup B}(x) = \mathbf{1}_A(x) + \mathbf{1}_B(x) - \mathbf{1}_A(x) \cdot \mathbf{1}_B(x)$
+- $\mathbf{1}_{\overline{A}}(x) = 1 - \mathbf{1}_A(x)$
+
+> **Connection to ML:** One-hot encoding is exactly an indicator function.
+> If your categories are $\{\text{cat, dog, fish}\}$ and the input is "dog",
+> the one-hot vector $[0, 1, 0]$ is $[\mathbf{1}_{\{\text{cat}\}}, \mathbf{1}_{\{\text{dog}\}}, \mathbf{1}_{\{\text{fish}\}}]$.
+
+### Cardinality: Countable and Uncountable Sets
+
+For finite sets, $|A|$ is simply the number of elements.  But what about
+infinite sets?  Are all infinities the same size?
+
+**Countably infinite:** A set is **countably infinite** if its elements can be
+listed in a sequence (i.e., put in one-to-one correspondence with $\mathbb{N}$).
+
+$$|\mathbb{N}| = |\mathbb{Z}| = |\mathbb{Q}| = \aleph_0 \quad \text{("aleph-naught")}$$
+
+This is surprising:
+- $\mathbb{Z}$ looks "twice as big" as $\mathbb{N}$, but list them as $0, 1, -1, 2, -2, 3, -3, \ldots$ — every integer appears exactly once.
+- $\mathbb{Q}$ looks "infinitely denser" than $\mathbb{Z}$, but a diagonal zigzag through a grid of fractions lists them all.
+
+**Uncountably infinite:** $\mathbb{R}$ is **uncountable** — you cannot list
+all real numbers in a sequence.
+
+**Cantor's diagonal argument (brief sketch):**
+
+Suppose you *could* list all reals in $[0, 1)$ as an infinite sequence:
+
+$$r_1 = 0.d_{11} d_{12} d_{13} \ldots$$
+$$r_2 = 0.d_{21} d_{22} d_{23} \ldots$$
+$$r_3 = 0.d_{31} d_{32} d_{33} \ldots$$
+
+Now construct a new number $r^*$ whose $n$-th digit differs from $d_{nn}$
+(e.g., if $d_{nn} = 5$, pick 6; otherwise pick 5).  Then $r^*$ differs from
+every $r_n$ in at least the $n$-th digit, so $r^*$ is NOT in the list.
+Contradiction. ∎
+
+> **Why this matters for CS:** The set of all computer programs is countable
+> (they're finite strings).  The set of all functions $\mathbb{N} \to \{0,1\}$
+> is uncountable.  Therefore most functions are **not computable** — a
+> foundational result in computability theory.
+
+### Supremum, Infimum, Argmax, Argmin
+
+For a subset $S \subseteq \mathbb{R}$:
+
+- $\max(S)$ = the largest element of $S$ (must be IN $S$)
+- $\min(S)$ = the smallest element of $S$ (must be IN $S$)
+- $\sup(S)$ = the **least upper bound** of $S$ (need NOT be in $S$)
+- $\inf(S)$ = the **greatest lower bound** of $S$ (need NOT be in $S$)
+
+**When max exists, $\sup = \max$.  But sup is more general.**
+
+**Pen & paper example:**
+
+$$S = \left\{\frac{1}{n} : n \in \mathbb{N}, n \geq 1\right\} = \left\{1, \frac{1}{2}, \frac{1}{3}, \frac{1}{4}, \ldots\right\}$$
+
+- $\max(S) = 1$ (achieved at $n = 1$)
+- $\sup(S) = 1$
+- $\min(S)$ = **does not exist** (no smallest positive element — $1/n$ gets
+  arbitrarily close to 0 but never reaches it)
+- $\inf(S) = 0$ (0 is the greatest lower bound, but $0 \notin S$)
+
+**Another example:** $S = (0, 1) = \{x \in \mathbb{R} : 0 < x < 1\}$ (open interval)
+
+- $\sup(S) = 1$ but $1 \notin S$, so $\max(S)$ does not exist
+- $\inf(S) = 0$ but $0 \notin S$, so $\min(S)$ does not exist
+
+**Argmax and Argmin:**
+
+Given a function $f$ and a set $S$:
+
+$$\arg\max_{x \in S} f(x) = \text{the value of } x \text{ that makes } f(x) \text{ largest}$$
+$$\arg\min_{x \in S} f(x) = \text{the value of } x \text{ that makes } f(x) \text{ smallest}$$
+
+Note: $\max$ returns the **value** of $f$, while $\arg\max$ returns the **input** $x$.
+
+**Pen & paper example:**
+
+Let $f(x) = -x^2 + 4x$ and $S = \{0, 1, 2, 3, 4\}$.
+
+| $x$ | 0 | 1 | 2 | 3 | 4 |
+|-----|---|---|---|---|---|
+| $f(x)$ | 0 | 3 | 4 | 3 | 0 |
+
+- $\max_{x \in S} f(x) = 4$ (the largest output value)
+- $\arg\max_{x \in S} f(x) = 2$ (the input that produces it)
+
+> **In ML:**
+> - MLE (Maximum Likelihood Estimation): $\hat{\theta} = \arg\max_\theta \mathcal{L}(\theta)$ — find the parameter that maximises the likelihood.
+> - Classification output: $\hat{y} = \arg\max_k P(y = k \mid x)$ — pick the class with highest probability.
+> - Training: $\hat{w} = \arg\min_w \mathcal{L}(w)$ — find the weights that minimise the loss function.
+
 ## Check Your Understanding
 
 1. **Pen & paper:** Let $C = \{a, b, c, d\}$ and $D = \{c, d, e, f\}$. Find $C \cup D$, $C \cap D$, $C \setminus D$, $C \triangle D$.
@@ -231,3 +372,5 @@ print(f"Equal? {comp_union == comp_A_inter_comp_B}")
 3. **Pen & paper:** Using inclusion-exclusion, if $|A| = 20$, $|B| = 15$, $|A \cup B| = 30$, what is $|A \cap B|$?
 4. **Pen & paper:** Prove using set algebra that $A \cap (A \cup B) = A$.
    (Hint: use the absorption law, or expand with distributive + complement laws.)
+5. **Pen & paper:** Let $U = \{1, 2, 3, 4, 5\}$, $A = \{1, 3, 5\}$, $B = \{2, 3\}$. Write out the indicator functions $\mathbf{1}_A$, $\mathbf{1}_B$, and $\mathbf{1}_{A \cap B}$ as tables. Verify that $\mathbf{1}_{A \cap B}(x) = \mathbf{1}_A(x) \cdot \mathbf{1}_B(x)$ for each $x$.
+6. **Think about it:** Let $S = \{x \in \mathbb{R} : x^2 < 2\}$.  What are $\sup(S)$ and $\inf(S)$?  Are they in $S$?  If $f(x) = 10 - (x - 3)^2$ and $S = \{1, 2, 3, 4, 5\}$, what is $\arg\max_{x \in S} f(x)$?

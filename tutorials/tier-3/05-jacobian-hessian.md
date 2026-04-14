@@ -168,8 +168,210 @@ print(f"-x²-y²: eigenvalues={evals3} → maximum (all negative)")
 - **Change of variables** — Jacobian determinant appears when transforming probability distributions (normalising flows)
 - **Curvature** — Hessian eigenvalues determine how "steep" vs "flat" the loss landscape is along each direction
 
+## Matrix Calculus: Vector and Matrix Gradients
+
+### Gradient of a scalar-valued function of a vector
+
+For a function $f: \mathbb{R}^n \to \mathbb{R}$, the **gradient** is the
+column vector of all partial derivatives:
+
+$$\nabla_\mathbf{x} f = \begin{pmatrix} \frac{\partial f}{\partial x_1} \\ \vdots \\ \frac{\partial f}{\partial x_n} \end{pmatrix}$$
+
+This is the direction of steepest ascent.  It points "uphill" in the input
+space.
+
+### Common matrix calculus results
+
+These identities appear constantly in ML derivations.  Learn them like
+multiplication tables.
+
+**Result 1:** $\nabla_\mathbf{x}(\mathbf{a}^T\mathbf{x}) = \mathbf{a}$
+
+This is the vector analogue of $\frac{d}{dx}(ax) = a$.
+
+**Pen & paper verification:** Let $\mathbf{a} = (a_1, a_2)^T$, $\mathbf{x} = (x_1, x_2)^T$.
+
+$\mathbf{a}^T\mathbf{x} = a_1 x_1 + a_2 x_2$
+
+$\frac{\partial}{\partial x_1}(a_1 x_1 + a_2 x_2) = a_1$, $\frac{\partial}{\partial x_2}(a_1 x_1 + a_2 x_2) = a_2$
+
+$\nabla_\mathbf{x}(\mathbf{a}^T\mathbf{x}) = \begin{pmatrix} a_1 \\ a_2 \end{pmatrix} = \mathbf{a}$ ✓
+
+**Result 2:** $\nabla_\mathbf{x}(\mathbf{x}^T\mathbf{A}\mathbf{x}) = (\mathbf{A} + \mathbf{A}^T)\mathbf{x}$
+
+If $\mathbf{A}$ is symmetric ($\mathbf{A} = \mathbf{A}^T$), this simplifies to $2\mathbf{A}\mathbf{x}$.
+
+This is the vector analogue of $\frac{d}{dx}(ax^2) = 2ax$.
+
+**Pen & paper verification (2×2 case):**
+
+Let $\mathbf{A} = \begin{pmatrix} 2 & 1 \\ 3 & 4 \end{pmatrix}$, $\mathbf{x} = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}$
+
+Step 1 — expand $\mathbf{x}^T\mathbf{A}\mathbf{x}$:
+
+$\mathbf{A}\mathbf{x} = \begin{pmatrix} 2x_1 + x_2 \\ 3x_1 + 4x_2 \end{pmatrix}$
+
+$\mathbf{x}^T\mathbf{A}\mathbf{x} = x_1(2x_1 + x_2) + x_2(3x_1 + 4x_2) = 2x_1^2 + x_1 x_2 + 3x_1 x_2 + 4x_2^2 = 2x_1^2 + 4x_1 x_2 + 4x_2^2$
+
+Step 2 — take partial derivatives:
+
+$\frac{\partial}{\partial x_1} = 4x_1 + 4x_2$, $\frac{\partial}{\partial x_2} = 4x_1 + 8x_2$
+
+$\nabla = \begin{pmatrix} 4x_1 + 4x_2 \\ 4x_1 + 8x_2 \end{pmatrix}$
+
+Step 3 — verify with the formula:
+
+$\mathbf{A} + \mathbf{A}^T = \begin{pmatrix} 2 & 1 \\ 3 & 4 \end{pmatrix} + \begin{pmatrix} 2 & 3 \\ 1 & 4 \end{pmatrix} = \begin{pmatrix} 4 & 4 \\ 4 & 8 \end{pmatrix}$
+
+$(\mathbf{A} + \mathbf{A}^T)\mathbf{x} = \begin{pmatrix} 4x_1 + 4x_2 \\ 4x_1 + 8x_2 \end{pmatrix}$ ✓
+
+### The total derivative and the Jacobian as best linear approximation
+
+The Jacobian isn't just a table of partial derivatives — it is the **best
+linear approximation** to the function near a point:
+
+$$\mathbf{f}(\mathbf{x} + \mathbf{h}) \approx \mathbf{f}(\mathbf{x}) + \mathbf{J}(\mathbf{x})\,\mathbf{h}$$
+
+This is the multivariable analogue of $f(x + h) \approx f(x) + f'(x)h$.
+
+The matrix $\mathbf{J}$ is the **total derivative** — it captures how all
+outputs change with respect to all inputs simultaneously.
+
+### Tensor derivatives: gradient of a vector w.r.t. a vector
+
+When you differentiate a **scalar** w.r.t. a vector, you get a vector (the gradient).
+When you differentiate a **vector** w.r.t. a vector, you get a **matrix** — and
+that matrix is exactly the Jacobian:
+
+$$\frac{\partial \mathbf{f}}{\partial \mathbf{x}} = \mathbf{J} \quad \text{(the Jacobian)}$$
+
+More generally: differentiating an order-$m$ tensor w.r.t. an order-$n$ tensor
+gives an order-$(m+n)$ tensor.  In deep learning, frameworks like PyTorch handle
+this bookkeeping automatically, but the principle is the same.
+
+### Python Verification (Matrix Calculus)
+
+```python
+# ── Matrix Calculus: verifying gradient identities ────────────
+import numpy as np
+
+h = 1e-7
+
+# Result 1: ∇_x(a^T x) = a
+print("=== ∇(a^T x) = a ===")
+a = np.array([3.0, -2.0])
+x = np.array([1.0, 4.0])
+
+def f_linear(x):
+    return a @ x
+
+grad_numerical = np.zeros(2)
+for i in range(2):
+    e = np.zeros(2)
+    e[i] = h
+    grad_numerical[i] = (f_linear(x + e) - f_linear(x)) / h
+
+print(f"Numerical gradient: {np.round(grad_numerical, 6)}")
+print(f"a = {a}  ← should match")
+
+# Result 2: ∇_x(x^T A x) = (A + A^T)x
+print("\n=== ∇(x^T A x) = (A + A^T)x ===")
+A = np.array([[2.0, 1.0],
+              [3.0, 4.0]])
+x = np.array([1.0, 2.0])
+
+def f_quad(x):
+    return x @ A @ x
+
+grad_numerical = np.zeros(2)
+for i in range(2):
+    e = np.zeros(2)
+    e[i] = h
+    grad_numerical[i] = (f_quad(x + e) - f_quad(x)) / h
+
+grad_formula = (A + A.T) @ x
+print(f"Numerical gradient: {np.round(grad_numerical, 4)}")
+print(f"(A + A^T)x = {grad_formula}  ← should match")
+
+# Jacobian as best linear approximation
+print("\n=== Jacobian as linear approximation ===")
+def f_vec(v):
+    x, y = v
+    return np.array([x**2 + y, x * y])
+
+point = np.array([2.0, 3.0])
+J = np.array([[4.0, 1.0],   # analytical Jacobian at (2,3)
+              [3.0, 2.0]])
+
+delta = np.array([0.01, -0.02])
+exact = f_vec(point + delta)
+approx = f_vec(point) + J @ delta
+print(f"f(x + h) exact:  {exact}")
+print(f"f(x) + J·h:      {approx}")
+print(f"Error:            {np.abs(exact - approx)}  ← very small")
+```
+
+## Inverse Function Theorem (brief)
+
+### Statement
+
+If $\mathbf{f}: \mathbb{R}^n \to \mathbb{R}^n$ is continuously differentiable
+at a point $\mathbf{a}$, and the Jacobian determinant is non-zero:
+
+$$\det(\mathbf{J}_f(\mathbf{a})) \ne 0$$
+
+then $\mathbf{f}$ is **locally invertible** near $\mathbf{a}$.  That is, there
+exists a neighbourhood of $\mathbf{a}$ where $\mathbf{f}^{-1}$ exists and is
+also differentiable.
+
+### The Jacobian of the inverse
+
+The Jacobian of the inverse function is the matrix inverse of the Jacobian:
+
+$$\mathbf{J}_{f^{-1}}(\mathbf{f}(\mathbf{a})) = \left(\mathbf{J}_f(\mathbf{a})\right)^{-1}$$
+
+This is the multivariable version of the single-variable rule: if $y = f(x)$
+and $f'(x) \ne 0$, then $(f^{-1})'(y) = \frac{1}{f'(x)}$.
+
+### Intuition
+
+The Jacobian is the best linear approximation to $\mathbf{f}$.  If that linear
+map is invertible (non-zero determinant), then the function itself is invertible
+nearby.  A zero determinant means the linear approximation "crushes" some
+dimension — it loses information — so you cannot invert.
+
+**Pen & paper:** Recall our function $\mathbf{f}(x, y) = (x^2 + y,\; xy)$ with
+Jacobian at $(2, 3)$:
+
+$\mathbf{J}(2, 3) = \begin{pmatrix} 4 & 1 \\ 3 & 2 \end{pmatrix}$, $\det = 5 \ne 0$
+
+So $\mathbf{f}$ is locally invertible near $(2, 3)$.  The Jacobian of the
+inverse at $\mathbf{f}(2, 3) = (7, 6)$ is:
+
+$\mathbf{J}_{f^{-1}}(7, 6) = \frac{1}{5}\begin{pmatrix} 2 & -1 \\ -3 & 4 \end{pmatrix}$
+
+### Python Verification (Inverse Function Theorem)
+
+```python
+# ── Inverse Function Theorem: verify J_inv = (J)^(-1) ────────
+import numpy as np
+
+J = np.array([[4.0, 1.0],
+              [3.0, 2.0]])
+
+print("=== Inverse Function Theorem ===")
+print(f"det(J) = {np.linalg.det(J):.1f} ≠ 0 → locally invertible")
+
+J_inv = np.linalg.inv(J)
+print(f"\nJ⁻¹ = \n{J_inv}")
+print(f"\nVerify J · J⁻¹ = I:\n{np.round(J @ J_inv, 10)}")
+```
+
 ## Check Your Understanding
 
 1. **Pen & paper:** Find the Jacobian of $\mathbf{f}(x, y) = \begin{pmatrix} e^x \cos y \\ e^x \sin y \end{pmatrix}$ at $(0, 0)$.
 2. **Pen & paper:** Find the Hessian of $f(x, y) = x^2 + xy + y^2$.  Classify the critical point at $(0, 0)$.
 3. **Think about it:** Why is second-order optimisation (using the Hessian) rarely used for training neural networks with millions of parameters?
+4. **Pen & paper:** Compute $\nabla_\mathbf{x}(\mathbf{x}^T\mathbf{A}\mathbf{x})$ for the symmetric matrix $\mathbf{A} = \begin{pmatrix} 3 & 1 \\ 1 & 2 \end{pmatrix}$.  Evaluate at $\mathbf{x} = (1, -1)^T$.
+5. **Pen & paper:** For $\mathbf{f}(x, y) = (x + y,\; x - y)$, compute $\mathbf{J}_f$ and $\mathbf{J}_f^{-1}$.  Verify that $\mathbf{J}_f \cdot \mathbf{J}_f^{-1} = \mathbf{I}$.
+6. **Think about it:** In normalising flows (a generative model), we need $\det(\mathbf{J})$ to be cheap to compute.  Why do these models use architectures where the Jacobian is triangular?

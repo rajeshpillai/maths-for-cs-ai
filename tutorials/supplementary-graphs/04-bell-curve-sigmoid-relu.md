@@ -10,7 +10,7 @@ Understanding their shapes tells you how they behave and why we choose them.
 
 ## Prerequisites
 
-- Tier 4, Lesson 5: Key Distributions (Gaussian)
+- Tier 4, Lesson 6: Continuous Distributions (Gaussian)
 - Tier 6, Lesson 2: Activation Functions
 
 ## From First Principles

@@ -9,7 +9,7 @@ the noise, keep the signal.
 
 ## Prerequisites
 
-- Tier 2, Lesson 10: SVD
+- Tier 2, Lesson 21: SVD
 
 ## From First Principles
 

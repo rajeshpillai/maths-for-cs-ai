@@ -11,7 +11,7 @@ solve systems, and how sparse neural networks operate.
 ## Prerequisites
 
 - Tier 2, Lesson 8: Gaussian Elimination
-- Tier 2, Lesson 9: Eigenvalues
+- Tier 2, Lesson 13: Eigenvalues
 
 ## From First Principles
 

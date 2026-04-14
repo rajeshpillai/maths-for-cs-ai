@@ -9,8 +9,8 @@ data would be under that assumption, and reject if it's too unlikely.
 
 ## Prerequisites
 
-- Tier 4, Lesson 5: Key Distributions (Gaussian)
-- Tier 4, Lesson 6: Central Limit Theorem
+- Tier 4, Lesson 6: Continuous Distributions (Gaussian)
+- Tier 4, Lesson 7: Central Limit Theorem
 
 ## From First Principles
 

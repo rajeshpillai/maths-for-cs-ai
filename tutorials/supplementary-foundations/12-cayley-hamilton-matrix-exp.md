@@ -12,7 +12,7 @@ and continuous-time neural networks.
 ## Prerequisites
 
 - Tier 2, Lesson 7: Determinants
-- Tier 2, Lesson 9: Eigenvalues & Eigenvectors
+- Tier 2, Lesson 13: Eigenvalues & Eigenvectors
 - Tier 3, Lesson 9: Taylor Series
 
 ## From First Principles

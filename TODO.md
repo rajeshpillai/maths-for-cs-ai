@@ -41,8 +41,8 @@
 - [x] 05 — Prime numbers, GCD, LCM (Euclidean algorithm)
 
 ### Tier 1 — Discrete Mathematics
-- [x] 01 — Logic: propositions, truth tables, Boolean algebra
-- [x] 02 — Set theory: unions, intersections, power sets, Cartesian products
+- [x] 01 — Logic: propositions, truth tables, Boolean algebra, implications, biconditionals, XOR problem
+- [x] 02 — Set theory: unions, intersections, power sets, Cartesian products, indicator functions, cardinality, sup/inf, argmax/argmin
 - [x] 03 — Relations and functions (injective, surjective, bijective)
 - [x] 04 — Combinatorics: permutations, combinations, pigeonhole principle
 - [x] 05 — Graph theory basics: vertices, edges, paths, trees
@@ -53,21 +53,31 @@
 - [x] 02 — Vector operations: addition, scalar multiplication, dot product, cross product
 - [x] 03 — Geometric meaning of the dot product
 - [x] 04 — Matrix multiplication: why rows x columns
-- [x] 05 — Linear transformations
+- [x] 05 — Linear transformations (+ affine transforms)
 - [x] 06 — Identity, inverse, transpose
-- [x] 07 — Determinants: geometric meaning
+- [x] 07 — Determinants: geometric meaning, Laplace expansion, row op properties
 - [x] 08 — Systems of linear equations, Gaussian elimination
-- [x] 09 — Eigenvalues & eigenvectors
-- [x] 10 — SVD (Singular Value Decomposition)
-- [x] 11 — PCA derived from SVD
-- [x] 12 — Norms: L1, L2, Lp, Frobenius
+- [x] 09 — Linear combinations, span, independence, Hadamard product
+- [x] 10 — Subspaces: column space & null space
+- [x] 11 — Bases & change of coordinates
+- [x] 12 — Dimension, rank, rank-nullity theorem
+- [x] 13 — Eigenvalues & eigenvectors
+- [x] 14 — Diagonalization (P D P⁻¹, matrix powers)
+- [x] 15 — Symmetric matrices & spectral theorem
+- [x] 16 — Norms: L1, L2, Lp, Frobenius
+- [x] 17 — Orthogonality & Cauchy-Schwarz
+- [x] 18 — Orthogonal projections
+- [x] 19 — Gram-Schmidt process
+- [x] 20 — Quadratic forms, definiteness, pseudoinverse
+- [x] 21 — SVD (Singular Value Decomposition)
+- [x] 22 — PCA derived from SVD
 
 ### Tier 3 — Calculus & Analysis
 - [x] 01 — Limits from epsilon-delta definition
 - [x] 02 — Derivatives: slope of tangent, formal definition, rules
-- [x] 03 — Partial derivatives and the gradient
+- [x] 03 — Partial derivatives, gradient, directional derivatives, steepest ascent
 - [x] 04 — Chain rule (backpropagation foundation)
-- [x] 05 — Jacobian and Hessian matrices
+- [x] 05 — Jacobian, Hessian, matrix calculus, inverse function theorem
 - [x] 06 — Integrals: Riemann sums to definite integral
 - [x] 07 — Fundamental Theorem of Calculus
 - [x] 08 — Multivariable integration
@@ -77,13 +87,19 @@
 ### Tier 4 — Probability & Statistics
 - [x] 01 — Sample spaces, events, probability axioms
 - [x] 02 — Conditional probability and Bayes' Theorem
-- [x] 03 — Random variables: discrete and continuous
-- [x] 04 — Expectation, variance, standard deviation
-- [x] 05 — Key distributions (Bernoulli, Binomial, Poisson, Uniform, Gaussian)
-- [x] 06 — Central Limit Theorem
-- [x] 07 — Maximum Likelihood Estimation (MLE)
-- [x] 08 — Information theory: entropy, cross-entropy, KL divergence
-- [x] 09 — Covariance and correlation matrices
+- [x] 03 — Random variables: discrete and continuous, transformations of RVs
+- [x] 04 — Expectation, variance, moments, moment generating functions
+- [x] 05 — Discrete distributions (Bernoulli, Binomial, Poisson, Discrete Uniform)
+- [x] 06 — Continuous distributions (Uniform, Gaussian, Exponential, Gamma, Chi-square, Student's t)
+- [x] 07 — Central Limit Theorem
+- [x] 08 — Maximum Likelihood Estimation (MLE)
+- [x] 09 — Information theory: entropy, cross-entropy, KL divergence
+- [x] 10 — Covariance and correlation matrices
+- [x] 11 — Joint distributions (joint PMF/PDF, marginal, conditional)
+- [x] 12 — Expectation for joint distributions (conditional expectation, law of total expectation)
+- [x] 13 — Bivariate normal distribution
+- [x] 14 — Sampling distributions & point estimation
+- [x] 15 — Confidence intervals
 
 ### Tier 5 — Optimisation
 - [x] 01 — Objective functions and loss functions
@@ -198,4 +214,4 @@ Final three — now also covered:
 - [x] Cayley-Hamilton theorem, matrix exponential → Foundations 12
 - [x] Further vectors: lines & planes in 3D → Foundations 13
 
-ALL CAMBRIDGE CURRICULUM GAPS CLOSED. 111 lessons total.
+ALL CAMBRIDGE CURRICULUM GAPS CLOSED. 127 lessons total.

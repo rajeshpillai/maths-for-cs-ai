@@ -11,7 +11,7 @@ information from its neighbours, like convolution but on a graph.
 
 - Tier 1, Lesson 5: Graph Theory
 - Tier 7, Lesson 1: 2D Convolution
-- Tier 2, Lesson 9: Eigenvalues
+- Tier 2, Lesson 13: Eigenvalues
 
 ## From First Principles
 

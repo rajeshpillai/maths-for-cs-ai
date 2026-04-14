@@ -9,7 +9,7 @@ predictive modelling, from simple line fitting to neural networks.
 
 ## Prerequisites
 
-- Tier 4, Lesson 9: Covariance and Correlation
+- Tier 4, Lesson 10: Covariance and Correlation
 - Tier 3, Lesson 2: Derivatives (minimisation)
 
 ## From First Principles

@@ -11,7 +11,7 @@ functions, and the choice has deep mathematical consequences.
 ## Prerequisites
 
 - Tier 3, Lesson 2: Derivatives (finding minima)
-- Tier 4, Lesson 7: MLE (connection to cross-entropy)
+- Tier 4, Lesson 8: MLE (connection to cross-entropy)
 
 ## From First Principles
 

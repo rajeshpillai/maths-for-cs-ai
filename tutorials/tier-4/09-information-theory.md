@@ -11,8 +11,8 @@ loss function in deep learning.
 
 ## Prerequisites
 
-- Tier 4, Lesson 5: Key Distributions
-- Tier 4, Lesson 7: MLE (log-likelihood)
+- Tier 4, Lessons 5-6: Discrete and Continuous Distributions
+- Tier 4, Lesson 8: MLE (log-likelihood)
 
 ## From First Principles
 
