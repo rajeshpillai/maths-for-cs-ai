@@ -1,6 +1,7 @@
 import { createSignal, onMount, createEffect, type ParentProps } from "solid-js";
 import { useLocation } from "@solidjs/router";
 import Sidebar from "./components/Sidebar";
+import SearchBar from "./components/SearchBar";
 import "./App.css";
 
 export default function Layout(props: ParentProps) {
@@ -49,6 +50,9 @@ export default function Layout(props: ParentProps) {
         <Sidebar />
       </div>
       <main class="main-content">
+        <div class="top-bar">
+          <SearchBar />
+        </div>
         {props.children}
       </main>
       <div class="theme-toggle">

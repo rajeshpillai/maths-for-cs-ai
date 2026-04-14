@@ -122,12 +122,37 @@ def parse_meta(tier: str, slug: str, content: str) -> dict:
     }
 
 
+def extract_search_text(content: str) -> str:
+    """Extract plain text from markdown for search indexing (strip code blocks, LaTeX)."""
+    lines = content.split("\n")
+    result = []
+    in_code = False
+    for line in lines:
+        if line.strip().startswith("```"):
+            in_code = not in_code
+            continue
+        if in_code:
+            continue
+        # Strip LaTeX blocks
+        if line.strip().startswith("$$"):
+            continue
+        # Strip inline LaTeX, keep surrounding text
+        clean = re.sub(r'\$[^$]+\$', '', line)
+        # Strip markdown formatting
+        clean = re.sub(r'[#*_`|>]', '', clean)
+        clean = clean.strip()
+        if clean:
+            result.append(clean)
+    return " ".join(result)
+
+
 def build():
     # Clean output
     if OUTPUT_DIR.exists():
         shutil.rmtree(OUTPUT_DIR)
 
     tiers_list = []
+    search_index = []
     total_lessons = 0
 
     for tier_dir in discover_tiers():
@@ -165,12 +190,29 @@ def build():
                 json.dumps(meta_data, ensure_ascii=False)
             )
 
+            # Search index entry
+            search_text = extract_search_text(content)
+            # Keep first ~500 chars of plain text as snippet
+            snippet = search_text[:500]
+            search_index.append({
+                "tier": tier_dir.name,
+                "slug": slug,
+                "title": meta_data["title"],
+                "sections": meta_data["sections"],
+                "text": search_text,
+            })
+
             total_lessons += 1
 
     # Tiers index
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     (OUTPUT_DIR / "tiers.json").write_text(
         json.dumps(tiers_list, ensure_ascii=False, indent=2)
+    )
+
+    # Search index
+    (OUTPUT_DIR / "search-index.json").write_text(
+        json.dumps(search_index, ensure_ascii=False)
     )
 
     # Copy learning paths if present
