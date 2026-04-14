@@ -203,6 +203,55 @@
 - [x] 06 — Numerical linear algebra: iterative solvers, sparse matrices
 - [x] 07 — Automatic differentiation: forward vs reverse mode (dual numbers, tape)
 
+### Tier 11 — Differential Equations
+- [x] 01 — Introduction & classification (ODE vs PDE, order, linearity)
+- [x] 02 — Separable equations
+- [x] 03 — First-order linear ODEs (integrating factor)
+- [x] 04 — Direction fields & qualitative analysis
+- [x] 05 — Existence & uniqueness
+- [x] 06 — Euler's method
+- [x] 07 — Second-order homogeneous (characteristic equation)
+- [x] 08 — Second-order nonhomogeneous
+- [x] 09 — Spring-mass systems (SHM, damping, resonance)
+- [x] 10 — Systems of ODEs (matrix form, eigenvalue method)
+- [x] 11 — Phase portraits (fixed point classification)
+- [x] 12 — Stability analysis (Jacobian linearization, Lyapunov)
+- [x] 13 — Laplace transform basics
+- [x] 14 — Solving ODEs with Laplace transforms
+- [x] 15 — Convolution & Laplace
+- [x] 16 — Series solutions
+- [x] 17 — Fourier series for DEs
+- [x] 18 — Boundary value problems
+- [x] 19 — PDE introduction (heat, wave, classification)
+- [x] 20 — Heat equation (separation of variables)
+- [x] 21 — Wave equation (d'Alembert)
+- [x] 22 — Numerical methods for ODEs (Runge-Kutta)
+- [x] 23 — Stiff systems & implicit methods
+- [x] 24 — Dynamical systems & chaos (Lorenz attractor)
+- [x] 25 — Applications: Neural ODEs, PINNs
+
+### Tier 12 — Multivariable Calculus
+- [x] 01 — Vector-valued functions
+- [x] 02 — Arc length & curvature
+- [x] 03 — Multivariable limits & continuity
+- [x] 04 — Partial derivatives (deeper treatment)
+- [x] 05 — Tangent planes & linearization
+- [x] 06 — Multivariable chain rule
+- [x] 07 — Gradient & directional derivatives (deeper)
+- [x] 08 — Optimization & Lagrange (deeper)
+- [x] 09 — Double integrals (Fubini's theorem)
+- [x] 10 — Double integrals in polar coordinates
+- [x] 11 — Triple integrals (cylindrical, spherical)
+- [x] 12 — Change of variables (Jacobian for integration)
+- [x] 13 — Vector fields (conservative, potential functions)
+- [x] 14 — Line integrals (scalar and vector)
+- [x] 15 — Green's theorem
+- [x] 16 — Divergence & curl
+- [x] 17 — Surface integrals & flux
+- [x] 18 — Stokes' theorem
+- [x] 19 — Divergence theorem
+- [x] 20 — Applications (fluid dynamics, electromagnetism, ML)
+
 ## Supplementary — Graph Shapes & Curve Types
 
 - [x] 01 — Linear, quadratic, cubic (vertex form, discriminant, turning points)
@@ -262,4 +311,4 @@ Final three — now also covered:
 - [x] Cayley-Hamilton theorem, matrix exponential → Foundations 12
 - [x] Further vectors: lines & planes in 3D → Foundations 13
 
-ALL CAMBRIDGE CURRICULUM GAPS CLOSED. 167 lessons total (including 40 foundation lessons).
+ALL CAMBRIDGE CURRICULUM GAPS CLOSED. 212 lessons total (40 foundation + 127 core + 45 university-level).

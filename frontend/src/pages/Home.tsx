@@ -29,6 +29,8 @@ const TIER_DESCRIPTIONS: Record<string, string> = {
   "tier-8": "Unit circle, trig, rotation matrices, quaternions, projections, Bezier curves, ray intersection",
   "tier-9": "Fourier series/transform, DFT, FFT, convolution theorem, image/audio applications",
   "tier-10": "GNNs, Transformers, RNNs, Markov chains, Monte Carlo, automatic differentiation",
+  "tier-11": "First-order & second-order ODEs, systems, Laplace transforms, PDEs, numerical methods, chaos, Neural ODEs",
+  "tier-12": "Vector calculus, multiple integrals, line/surface integrals, Green's/Stokes'/Divergence theorems, applications",
   "supplementary-graphs": "Linear, quadratic, cubic, exponential, logarithmic, conic sections, bell curve, sigmoid, ReLU, power laws",
   "supplementary-activations": "Sigmoid, tanh, ReLU, Leaky ReLU, ELU, GELU, Swish, softmax — full derivations and comparison",
   "supplementary-foundations": "Surds, indices, logarithm laws, algebraic manipulation, coordinate geometry, sequences & series, trig identities, binomial expansion",
@@ -51,6 +53,8 @@ const TIER_NAMES: Record<string, string> = {
   "tier-8": "Geometry & Trig",
   "tier-9": "Fourier Analysis",
   "tier-10": "Advanced Topics",
+  "tier-11": "Differential Equations",
+  "tier-12": "Multivariable Calculus",
   "supplementary-applied": "Applied Maths",
 };
 

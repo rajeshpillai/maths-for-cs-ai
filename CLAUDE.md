@@ -240,6 +240,30 @@ then immediately implemented in clean Python**.
 - Numerical linear algebra: iterative solvers, sparse matrices
 - Automatic differentiation: forward mode vs reverse mode
 
+### Tier 11 — Differential Equations
+- First-order ODEs: separable, linear (integrating factor)
+- Direction fields, existence & uniqueness, Euler's method
+- Second-order: homogeneous (characteristic equation), nonhomogeneous
+- Spring-mass systems, SHM, damping, resonance
+- Systems of ODEs, phase portraits, stability analysis
+- Laplace transforms: definition, solving IVPs, convolution
+- Series solutions, Fourier series for DEs
+- PDEs: heat equation, wave equation, boundary value problems
+- Numerical methods: Runge-Kutta, stiff systems
+- Dynamical systems, chaos, Lorenz attractor
+- Applications: Neural ODEs, physics-informed neural networks
+
+### Tier 12 — Multivariable Calculus
+- Vector-valued functions, arc length, curvature
+- Multivariable limits, continuity, partial derivatives (deeper)
+- Tangent planes, linearization, multivariable chain rule
+- Gradient & directional derivatives (deeper), optimization
+- Double integrals, polar coordinates, triple integrals
+- Change of variables (Jacobian), vector fields
+- Line integrals, surface integrals
+- Green's theorem, Stokes' theorem, divergence theorem
+- Applications: fluid dynamics, electromagnetism, normalizing flows
+
 ---
 
 ## Response Format for Every Lesson

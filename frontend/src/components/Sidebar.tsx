@@ -19,6 +19,8 @@ const TIER_LABELS: Record<string, string> = {
   "tier-8": "Geometry & Trig (Game Dev)",
   "tier-9": "Signals & Fourier",
   "tier-10": "Advanced Topics",
+  "tier-11": "Differential Equations",
+  "tier-12": "Multivariable Calculus",
   "supplementary-graphs": "Graph Shapes & Curves",
   "supplementary-activations": "Activation Functions",
   "supplementary-foundations": "Foundations (Pre-Calculus)",
