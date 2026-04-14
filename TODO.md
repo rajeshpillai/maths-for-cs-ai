@@ -252,6 +252,43 @@
 - [x] 19 — Divergence theorem
 - [x] 20 — Applications (fluid dynamics, electromagnetism, ML)
 
+### Tier 13 — Advanced Discrete Mathematics
+- [x] 01 — Number theory foundations
+- [x] 02 — Modular arithmetic advanced (CRT)
+- [x] 03 — Fermat & Euler's theorems
+- [x] 04 — RSA cryptography
+- [x] 05 — Boolean algebra advanced (DNF, CNF, K-maps)
+- [x] 06 — Recurrence relations
+- [x] 07 — Generating functions
+- [x] 08 — Advanced graph theory (coloring, planar, Euler/Hamilton)
+- [x] 09 — Graph algorithms (BFS, DFS, Dijkstra, MST)
+- [x] 10 — Network flow (max-flow min-cut)
+- [x] 11 — Matching theory (bipartite, Hall's theorem)
+- [x] 12 — Automata basics (DFA, NFA)
+- [x] 13 — Context-free grammars
+- [x] 14 — Turing machines & halting problem
+- [x] 15 — Computational complexity (P, NP, NP-complete)
+- [x] 16 — Information theory advanced (channel capacity, Hamming codes)
+- [x] 17 — Algorithmic game theory (Nash, minimax)
+- [x] 18 — Lattices & partial orders
+
+### Tier 14 — Advanced Statistics & Inference
+- [x] 01 — Estimation theory (bias, consistency, MSE)
+- [x] 02 — Method of moments
+- [x] 03 — Hypothesis testing foundations (Type I/II, p-value, power)
+- [x] 04 — Z-test & t-test
+- [x] 05 — Chi-squared tests
+- [x] 06 — ANOVA (one-way, F-distribution)
+- [x] 07 — Linear regression (matrix form, OLS)
+- [x] 08 — Multiple regression (R², multicollinearity)
+- [x] 09 — Logistic regression (sigmoid, MLE)
+- [x] 10 — Nonparametric methods (Mann-Whitney, permutation)
+- [x] 11 — Bayesian inference (conjugate priors, MAP)
+- [x] 12 — Bayesian computation (MCMC, Metropolis-Hastings)
+- [x] 13 — Causal inference (Simpson's paradox, do-calculus)
+- [x] 14 — Experimental design (A/B testing, power analysis)
+- [x] 15 — Bootstrap & resampling
+
 ## Supplementary — Graph Shapes & Curve Types
 
 - [x] 01 — Linear, quadratic, cubic (vertex form, discriminant, turning points)
@@ -311,4 +348,4 @@ Final three — now also covered:
 - [x] Cayley-Hamilton theorem, matrix exponential → Foundations 12
 - [x] Further vectors: lines & planes in 3D → Foundations 13
 
-ALL CAMBRIDGE CURRICULUM GAPS CLOSED. 212 lessons total (40 foundation + 127 core + 45 university-level).
+ALL CAMBRIDGE CURRICULUM GAPS CLOSED. 245 lessons total (40 foundation + 127 core + 45 university + 33 advanced).

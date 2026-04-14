@@ -264,6 +264,28 @@ then immediately implemented in clean Python**.
 - Green's theorem, Stokes' theorem, divergence theorem
 - Applications: fluid dynamics, electromagnetism, normalizing flows
 
+### Tier 13 — Advanced Discrete Mathematics
+- Number theory: divisibility, FTA, modular arithmetic, CRT
+- Fermat & Euler theorems, RSA cryptography from first principles
+- Boolean algebra: DNF, CNF, Karnaugh maps, NAND universality
+- Recurrence relations, generating functions
+- Advanced graph theory: coloring, planar graphs, Euler/Hamilton
+- Graph algorithms: BFS, DFS, Dijkstra, MST, network flow, matching
+- Automata: DFA, NFA, context-free grammars, Turing machines
+- Computational complexity: P, NP, NP-complete, reductions
+- Information theory: channel capacity, Shannon, error-correcting codes
+- Algorithmic game theory, lattices & partial orders
+
+### Tier 14 — Advanced Statistics & Inference
+- Estimation theory: bias, consistency, efficiency, method of moments
+- Hypothesis testing: z-test, t-test, chi-squared, ANOVA
+- Linear regression via matrices, multiple regression, logistic regression
+- Nonparametric methods: Mann-Whitney, permutation tests
+- Bayesian inference: conjugate priors, MCMC, Metropolis-Hastings
+- Causal inference: Simpson's paradox, do-calculus
+- Experimental design, A/B testing, power analysis
+- Bootstrap & resampling methods
+
 ---
 
 ## Response Format for Every Lesson
