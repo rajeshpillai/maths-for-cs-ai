@@ -1,0 +1,89 @@
+{
+  "paths": [
+    {
+      "id": "grade8-to-ai",
+      "name": "Grade 8 to AI/ML",
+      "description": "Complete self-study path from grade 8 math to neural networks and beyond",
+      "stages": [
+        {
+          "name": "Stage 1: Build Algebra",
+          "tiers": ["foundation-1", "foundation-2"]
+        },
+        {
+          "name": "Stage 2: Number Systems & Logic",
+          "tiers": ["tier-0", "tier-1"]
+        },
+        {
+          "name": "Stage 3: Advanced Algebra & Pre-Calc",
+          "tiers": ["foundation-3", "foundation-4"]
+        },
+        {
+          "name": "Stage 4: Core Mathematics",
+          "tiers": ["tier-2", "tier-3", "tier-4"]
+        },
+        {
+          "name": "Stage 5: Applied ML",
+          "tiers": ["tier-5", "tier-6", "tier-7"]
+        },
+        {
+          "name": "Stage 6: Advanced Topics",
+          "tiers": ["tier-10"]
+        }
+      ]
+    },
+    {
+      "id": "grade8-to-gamedev",
+      "name": "Grade 8 to Game Dev",
+      "description": "Path focused on geometry, graphics, physics, and game mathematics",
+      "stages": [
+        {
+          "name": "Stage 1: Build Algebra",
+          "tiers": ["foundation-1", "foundation-2"]
+        },
+        {
+          "name": "Stage 2: Number Systems & Logic",
+          "tiers": ["tier-0", "tier-1"]
+        },
+        {
+          "name": "Stage 3: Advanced Algebra & Pre-Calc",
+          "tiers": ["foundation-3", "foundation-4"]
+        },
+        {
+          "name": "Stage 4: Core Mathematics",
+          "tiers": ["tier-2", "tier-3"]
+        },
+        {
+          "name": "Stage 5: Game Dev Mathematics",
+          "tiers": ["tier-8", "tier-9"]
+        },
+        {
+          "name": "Stage 6: Physics & Signals",
+          "tiers": ["supplementary-applied"]
+        }
+      ]
+    },
+    {
+      "id": "algebra-ready",
+      "name": "Already Know Algebra",
+      "description": "Skip foundations — start directly at Tier 0 if you have Algebra II skills",
+      "stages": [
+        {
+          "name": "Stage 1: Foundations",
+          "tiers": ["tier-0", "tier-1"]
+        },
+        {
+          "name": "Stage 2: Core Mathematics",
+          "tiers": ["tier-2", "tier-3", "tier-4"]
+        },
+        {
+          "name": "Stage 3: Applied ML",
+          "tiers": ["tier-5", "tier-6", "tier-7"]
+        },
+        {
+          "name": "Stage 4: Specializations",
+          "tiers": ["tier-8", "tier-9", "tier-10"]
+        }
+      ]
+    }
+  ]
+}

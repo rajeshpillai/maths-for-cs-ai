@@ -148,6 +148,12 @@ def build():
         json.dumps(tiers_list, ensure_ascii=False, indent=2)
     )
 
+    # Copy learning paths if present
+    lp = TUTORIALS_DIR / "learning-paths.json"
+    if lp.exists():
+        import shutil
+        shutil.copy2(lp, OUTPUT_DIR / "learning-paths.json")
+
     print(f"Built {total_lessons} lessons across {len(tiers_list)} sections → {OUTPUT_DIR}")
 
 
