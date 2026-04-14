@@ -98,13 +98,20 @@ export default function Sidebar() {
     setProgressVersion((v) => v + 1);
   });
 
-  // Auto-expand the tier containing the current lesson
+  // Auto-expand the tier containing the current lesson and scroll it into view
   createEffect(() => {
     const path = location.pathname;
     const match = path.match(/\/lesson\/([^/]+)\//);
     if (match) {
       const activeTier = match[1];
       setExpanded((prev) => ({ ...prev, [activeTier]: true }));
+      // Scroll the active lesson into view after a short delay (DOM needs to update)
+      setTimeout(() => {
+        const activeLink = document.querySelector(".tier-lessons li a.active");
+        if (activeLink) {
+          activeLink.scrollIntoView({ block: "nearest", behavior: "smooth" });
+        }
+      }, 100);
     }
   });
 
