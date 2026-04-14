@@ -1,39 +1,29 @@
-# Calculus I
+# AP Calculus AB
 
-> Provides in-depth coverage of differential calculus including limits, continuity, differentiation techniques, and applications of differentiation. This comprehensive course, together with Calculus II, will prepare students for further studies in advanced mathematics, engineering, statistics, machine learning, and other fields requiring a solid foundation in differential calculus.
+> Learn about limits, continuity, derivatives, indefinite and definite integrals and how to apply these concepts in a variety of contexts.
 
-**Prerequisites:** None
+**Prerequisites:** Precalculus or Integrated Math III (Honors)
 
 ---
 
 ## Agenda
 
-### Unit 1: Hyperbolic Functions
+### Unit 1: Limits and Continuity (43 topics)
 
-#### 1.1 The Hyperbolic Functions
-- The Hyperbolic Functions
-- The Reciprocal Hyperbolic Functions
-- Solving Equations Containing Hyperbolic Functions
-- Graphs of the Hyperbolic Functions
-- Graphs of the Reciprocal Hyperbolic Functions
-- The Inverse Hyperbolic Functions
-
-### Unit 2: Limits
-
-#### 2.2 Estimating Limits from Graphs
+**1.1 Estimating Limits from Graphs**
 - The Finite Limit of a Function
 - The Left and Right-Sided Limits of a Function
 - Finding the Existence of a Limit Using One-Sided Limits
 - Limits at Infinity from Graphs
 - Infinite Limits from Graphs
 
-#### 2.3 The Algebra of Limits
+**1.2 The Algebra of Limits**
 - Limits of Power Functions, and the Constant Rule for Limits
 - The Sum Rule for Limits
 - The Product and Quotient Rules for Limits
 - The Power and Root Rules for Limits
 
-#### 2.4 Limits of Functions
+**1.3 Limits of Functions**
 - Limits at Infinity of Polynomials
 - Limits of Reciprocal Functions
 - Limits of Exponential Functions
@@ -41,10 +31,9 @@
 - Limits of Radical Functions
 - Limits of Trigonometric Functions
 - Limits of Reciprocal Trigonometric Functions
-- Limits of Inverse Trigonometric Functions
 - Limits of Piecewise Functions
 
-#### 2.5 Determining Limits Using Algebraic Manipulation
+**1.4 Determining Limits Using Algebraic Manipulation**
 - Calculating Limits of Rational Functions by Factoring
 - Limits of Absolute Value Functions
 - Calculating Limits of Radical Functions Using Conjugate Multiplication
@@ -55,17 +44,13 @@
 - Vertical Asymptotes of Rational Functions
 - Connecting Infinite Limits and Vertical Asymptotes of Rational Functions
 
-#### 2.6 Special Limits
+**1.5 Special Limits**
 - The Squeeze Theorem
 - Special Limits Involving Sine
 - Evaluating Special Limits Involving Sine Using a Substitution
 - Special Limits Involving Cosine
-- Limits Involving the Exponential Function
-- Further Limits Involving the Exponential Function
 
-### Unit 3: Continuity
-
-#### 3.7 Continuity
+**1.6 Continuity**
 - Determining Continuity from Graphs
 - Defining Continuity at a Point
 - Left and Right Continuity
@@ -77,15 +62,14 @@
 - Continuity of Functions
 - The Intermediate Value Theorem
 
-#### 3.8 Removing Discontinuities
+**1.7 Removing Discontinuities**
 - Removing Point Discontinuities
 - Removing Jump Discontinuities
 - Removing Discontinuities From Rational Functions
 
-### Unit 4: Introduction to Differentiation
+### Unit 2: Differentiation: Definition and Fundamental Properties (19 topics)
 
-#### 4.9 Introduction to Differentiation
-- The Average Rate of Change of a Function
+**2.8 Introduction to Differentiation**
 - The Average Rate of Change of a Function over a Varying Interval
 - The Instantaneous Rate of Change of a Function at a Point
 - Defining the Derivative Using Derivative Notation
@@ -96,12 +80,10 @@
 - Calculating the Equation of a Tangent Line Using Differentiation
 - Calculating the Equation of a Normal Line Using Differentiation
 
-#### 4.10 Derivatives of Functions and the Rules of Differentiation
+**2.9 Derivatives of Functions and the Rules of Differentiation**
 - Differentiating Exponential Functions
 - Differentiating Logarithmic Functions
 - Differentiating Trigonometric Functions
-- Differentiating Hyperbolic Functions
-- Differentiating Reciprocal Hyperbolic Functions
 - Second and Higher-Order Derivatives
 - The Product Rule for Differentiation
 - The Quotient Rule for Differentiation
@@ -110,9 +92,9 @@
 - Calculating Derivatives From Graphs
 - Recognizing Derivatives in Limits
 
-### Unit 5: Advanced Differentiation Techniques
+### Unit 3: Differentiation: Composite, Implicit, and Inverse Functions (13 topics)
 
-#### 5.11 Differentiating Composite Functions
+**3.10 Differentiating Composite Functions**
 - The Chain Rule for Differentiation
 - The Chain Rule With Exponential Functions
 - The Chain Rule With Logarithmic Functions
@@ -121,33 +103,31 @@
 - Calculating Derivatives From Graphs Using the Chain Rule
 - Selecting Procedures for Calculating Derivatives
 
-#### 5.12 Differentiating Implicit and Inverse Functions
+**3.11 Differentiating Implicit and Inverse Functions**
 - Implicit Differentiation
-- Calculating Slopes of Circles, Ellipses, and Parabolas
 - Calculating dy/dx Using dx/dy
 - Differentiating Inverse Functions
 - Differentiating an Inverse Function at a Point
 - Differentiating Inverse Trigonometric Functions
 - Differentiating Inverse Reciprocal Trigonometric Functions
-- Differentiating Inverse Hyperbolic Functions
-- Differentiating Inverse Reciprocal Hyperbolic Functions
 
-#### 5.13 Differentiation Using Logarithms
-- Logarithmic Differentiation
-- Further Logarithmic Differentiation
+### Unit 4: Contextual Applications of Differentiation (17 topics)
 
-### Unit 6: Applications of Differentiation
-
-#### 6.14 Contextual Applications of Differentiation
+**4.12 Contextual Applications of Differentiation**
 - Interpreting the Meaning of the Derivative in Context
 - Rates of Change in Applied Contexts
 
-#### 6.15 Estimating Derivatives
+**4.13 Estimating Derivatives**
 - Estimating Derivatives Using a Forward Difference Quotient
 - Estimating Derivatives Using a Backward Difference Quotient
 - Estimating Derivatives Using a Central Difference Quotient
 
-#### 6.16 Related Rates of Change
+**4.14 Displacement, Velocity, and Acceleration**
+- Calculating Velocity for Straight-Line Motion Using Differentiation
+- Determining Characteristics of Moving Objects Using Differentiation
+- Calculating Acceleration for Straight-Line Motion Using Differentiation
+
+**4.15 Related Rates of Change**
 - Introduction to Related Rates
 - Related Rates With Implicit Functions
 - Calculating Related Rates With Circles and Spheres
@@ -158,13 +138,13 @@
 - Calculating Related Rates Using Trigonometry
 - Calculating Related Rates With Cones
 
-#### 6.17 L'Hopital's Rule
+### Unit 5: Analytical Applications of Differentiation (29 topics)
+
+**5.16 L'Hopital's Rule**
 - L'Hopital's Rule
 - L'Hopital's Rule Applied to Tables
 
-### Unit 7: Analytical Applications of Differentiation
-
-#### 7.18 Analytical Applications of Differentiation
+**5.17 Analytical Applications of Differentiation**
 - The Mean Value Theorem
 - Global vs. Local Extrema and Critical Points
 - The Extreme Value Theorem
@@ -177,19 +157,19 @@
 - Points of Inflection
 - The Second Derivative Test
 
-#### 7.19 Analysis of Curves
+**5.18 Analysis of Curves**
 - Sketching the Derivative of a Function From the Function's Graph
 - Interpreting the Graph of a Function's Derivative
 - Interpreting the Graph of a Function's Derivative: Concavity and Points of Inflection
 - Sketching a Function From the Graph of its Derivative
 - Sketching a Function Given Some Derivative Properties
 
-#### 7.20 Approximating Values of a Function
+**5.19 Approximating Values of a Function**
 - Approximating Functions Using Local Linearity and Linearization
 - Approximating the Roots of a Number Using Local Linearity
 - Approximating Trigonometric Functions Using Local Linearity
 
-#### 7.21 Optimization
+**5.20 Optimization**
 - Solving Optimization Problems Using Derivatives
 - Optimization Problems Involving Sectors of Circles
 - Optimization Problems Involving Boxes and Trays
@@ -198,18 +178,10 @@
 - Optimizing Distances to Curves
 - Optimization Problems With Inscribed Shapes
 - Optimization Problems in Economics
-- Newton's Method
-- Newton's Method for Optimizing Single-Variable Functions
 
-#### 7.22 Displacement, Velocity, and Acceleration
-- Calculating Velocity for Straight-Line Motion Using Differentiation
-- Calculating Acceleration for Straight-Line Motion Using Differentiation
-- Determining Characteristics of Moving Objects Using Differentiation
-- Newton's Second Law
+### Unit 6: Integration (48 topics)
 
-### Unit 8: Integration
-
-#### 8.23 Indefinite Integrals
+**6.21 Indefinite Integrals**
 - The Antiderivative
 - The Constant Multiple Rule for Indefinite Integrals
 - The Sum Rule for Indefinite Integrals
@@ -217,11 +189,8 @@
 - Integrating Exponential Functions
 - Integrating Trigonometric Functions
 - Integration Using Inverse Trigonometric Functions
-- Integrating Hyperbolic Functions
-- Integration Using Inverse Hyperbolic Functions
-- Integration Using Inverse Reciprocal Hyperbolic Functions
 
-#### 8.24 Approximating Areas with Riemann Sums
+**6.22 Approximating Areas with Riemann Sums**
 - Approximating Areas With the Left Riemann Sum
 - Approximating Areas With the Right Riemann Sum
 - Approximating Areas With the Midpoint Riemann Sum
@@ -230,14 +199,14 @@
 - Midpoint and Trapezoidal Rules in Sigma Notation
 - Approximating Areas Under Graphs of Composite Functions
 
-#### 8.25 Definite Integrals
+**6.23 Definite Integrals**
 - Defining Definite Integrals Using Left and Right Riemann Sums
 - The Fundamental Theorem of Calculus
 - Applying the Fundamental Theorem of Calculus to Exponential and Trigonometric Functions
 - The Sum and Constant Multiple Rules for Definite Integrals
 - Properties of Definite Integrals Involving the Limits of Integration
 
-#### 8.26 The Area Under a Curve
+**6.24 The Area Under a Curve**
 - The Area Bounded by a Curve and the X-Axis
 - Evaluating Definite Integrals Using Symmetry
 - Finding the Area Between a Curve and the X-Axis When They Intersect
@@ -246,38 +215,116 @@
 - Calculating the Definite Integral of a Function's Derivative Given its Graph
 - Definite Integrals of Piecewise Functions
 
-#### 8.27 Accumulation Functions
+**6.25 Accumulation Functions**
 - The Integral as an Accumulation Function
 - The Second Fundamental Theorem of Calculus
 - Maximizing a Function Using the Graph of Its Derivative
 - Minimizing a Function Using the Graph of its Derivative
 - Further Optimizing Functions Using Graphs of Derivatives
+- Integrating Rates of Change
+- Integrating Density Functions
+
+**6.26 Integration Using Substitution**
+- Integrating Algebraic Functions Using Substitution
+- Integrating Linear Rational Functions Using Substitution
+- Integration Using Substitution
+- Calculating Definite Integrals Using Substitution
+- Further Integration of Algebraic Functions Using Substitution
+- Integrating Exponential Functions Using Linear Substitution
+- Integrating Exponential Functions Using Substitution
+- Integrating Trigonometric Functions Using Substitution
+- Integrating Logarithmic Functions Using Substitution
+- Integration by Substitution With Inverse Trigonometric Functions
+
+**6.27 Integration Using Trigonometric Identities**
+- Integration Using Basic Trigonometric Identities
+- Integration Using the Pythagorean Identities
+- Integration Using the Double-Angle Formulas
+
+**6.28 Special Techniques for Integration**
+- Integrating Functions Using Polynomial Division
+- Integrating Functions by Completing the Square
+
+### Unit 7: Differential Equations (18 topics)
+
+**7.29 Introduction to Differential Equations**
+- Introduction to Differential Equations
+- Verifying Solutions of Differential Equations
+- Solving First-Order ODEs Using Direct Integration
+- Solving First-Order ODEs Using Separation of Variables
+- Solving First-Order IVPs Using Separation of Variables
+- Modeling With First-Order ODEs
+- Further Modeling With First-Order ODEs
+- Exponential Growth and Decay Models With First-Order ODEs
+- Exponential Growth and Decay Models: Calculating Unknown Times and Initial Values
+- Exponential Growth and Decay Models: Half-Life Problems
+
+**7.30 Qualitative Techniques for Differential Equations**
+- Qualitative Analysis of First-Order ODEs
+- Equilibrium Solutions of First-Order ODEs
+
+**7.31 Slope Fields**
+- Slope Fields for Directly Integrable Differential Equations
+- Slope Fields for Autonomous Differential Equations
+- Slope Fields for Nonautonomous Differential Equations
+- Analyzing Slope Fields for Directly Integrable Differential Equations
+- Analyzing Slope Fields for Autonomous Differential Equations
+- Analyzing Slope Fields for Nonautonomous Differential Equations
+
+### Unit 8: Applications of Integration (18 topics)
+
+**8.32 Applications of Integration**
+- The Average Value of a Function
+- The Area Between Curves Expressed as Functions of X
+- The Area Between Curves Expressed as Functions of Y
+- Finding Areas Between Curves that Intersect at More Than Two Points
+
+**8.33 Connecting Position, Velocity and Acceleration Using Integrals**
+- Calculating Velocity Using Integration
+- Determining Characteristics of Moving Objects Using Integration
+- Calculating the Position Function of a Particle Using Integration
+- Calculating the Displacement of a Particle Using Integration
+- Calculating the Total Distance Traveled by a Particle
+- Average Position, Velocity, and Acceleration
+
+**8.34 Volumes of Solids With Known Cross Sections**
+- Volumes of Solids with Square Cross Sections
+- Volumes of Solids with Rectangular Cross Sections
+- Volumes of Solids with Triangular Cross Sections
+- Volumes of Solids with Circular Cross Sections
+
+**8.35 Volumes of Revolution**
+- Volumes of Revolution Using the Disc Method: Rotation About the Coordinate Axes
+- Volumes of Revolution Using the Disc Method: Rotation About Other Axes
+- Volumes of Revolution Using the Washer Method: Rotation About the Coordinate Axes
+- Volumes of Revolution Using the Washer Method: Rotation About Other Axes
+
+### Unit 9: Applications of Technology (7 topics)
+
+**9.36 Using Graphing Calculators**
+- Evaluating Expressions Using a Graphing Calculator
+- Finding Roots of Functions Using a Graphing Calculator
+- Finding Intersections of Functions Using a Graphing Calculator
+- Finding Extrema of Functions Using a Graphing Calculator
+- Finding Derivatives Using a Graphing Calculator
+- Finding Definite Integrals Using a Graphing Calculator
+- Exploring Functions Using Technology
 
 ---
 
 ## Learning Outcomes
 
-Upon successful completion of this course, students will have mastered the following:
+Upon completing AP Calculus AB, students will be able to:
 
-### Limits and Continuity
-- Connect algebraic and graphical interpretations of limits, including relationships to vertical and horizontal asymptotes.
-- Estimate limits numerically and compute limits using algebraic manipulation.
-- Define continuity in terms of limits, determine intervals over which a function is continuous, and remove discontinuities of functions.
-- Explain the behavior of a function on an interval using the Intermediate Value Theorem.
-
-### Differentiation
-- Interpret the difference quotient geometrically and use it to compute the derivative of a function.
-- Estimate derivatives numerically and apply rules to compute derivatives of a variety of algebraic functions, including higher-order derivatives.
-- Understand the relationship between differentiability and continuity.
-- Use implicit differentiation to solve related rates problems.
-- Approximate values of functions using linearization.
-- Use L'Hopital's Rule to calculate limits of indeterminate forms.
-- Relate the graph of a function to properties of its derivative.
-- Solve optimization problems by using the derivative to find extrema of functions.
-
-### Integration
-- Evaluate Riemann sums and interpret them geometrically and contextually.
-- Compute the integral of a function as the limit of a Riemann sum.
-- Relate integrals and antiderivatives through the fundamental theorem of calculus.
-- Use integration to compute the area between a curve and an axis.
-- Interpret accumulation functions geometrically and contextually and compute their derivatives.
+- Evaluate limits using graphical, algebraic, and analytical methods
+- Determine continuity and identify/remove discontinuities
+- Compute derivatives using the power, product, quotient, and chain rules
+- Apply implicit differentiation and differentiate inverse functions
+- Solve related rates and optimization problems
+- Apply the Mean Value Theorem and analyze functions using derivatives
+- Compute indefinite and definite integrals using multiple techniques
+- Apply the Fundamental Theorem of Calculus
+- Use Riemann sums and substitution for integration
+- Solve separable differential equations and analyze slope fields
+- Calculate areas between curves and volumes of revolution
+- Connect position, velocity, and acceleration through calculus
