@@ -3,6 +3,10 @@ import { createResource, For } from "solid-js";
 import { fetchTiers } from "../lib/api";
 
 const TIER_DESCRIPTIONS: Record<string, string> = {
+  "foundation-1": "Surds, indices, equations, inequalities, functions, linear & quadratic, polynomials, absolute value, exponent rules",
+  "foundation-2": "Cartesian plane, transformations, exponentials, logarithms, trigonometry, composition, statistics, piecewise functions",
+  "foundation-3": "Polynomial division & roots, radicals, exp/log equations, sequences & series, nonlinear systems, matrices intro, sigma notation",
+  "foundation-4": "Intuitive limits, advanced trig, inverse trig, trig identities, conic sections, vectors, complex numbers, continuity",
   "tier-0": "Natural numbers, integers, rationals, reals, complex numbers, binary, hex, IEEE 754, modular arithmetic, primes, GCD/LCM",
   "tier-1": "Logic, Boolean algebra, set theory, relations, functions, combinatorics, graph theory, proof techniques",
   "tier-2": "Vectors, matrices, dot product, linear transformations, determinants, eigenvalues, SVD, PCA, norms",
@@ -37,12 +41,16 @@ export default function Home() {
       <div class="tier-grid">
         <For each={tiers()}>
           {(tier) => {
-            const tierNum = tier.tier.replace("tier-", "");
+            const isFoundation = tier.tier.startsWith("foundation-");
+            const tierNum = isFoundation
+              ? tier.tier.replace("foundation-", "")
+              : tier.tier.replace("tier-", "");
+            const tierPrefix = isFoundation ? "F" : "T";
             const hasLessons = tier.lessons.length > 0;
             return (
               <div class={`tier-card ${hasLessons ? "" : "empty"}`}>
                 <div class="tier-card-header">
-                  <span class="tier-num">T{tierNum}</span>
+                  <span class="tier-num">{tierPrefix}{tierNum}</span>
                   <span class="tier-name">{tier.title.replace(/^Tier \d+$/, TIER_DESCRIPTIONS[tier.tier]?.split(",")[0] ?? tier.title)}</span>
                 </div>
                 <p class="tier-desc">

@@ -76,6 +76,44 @@ then immediately implemented in clean Python**.
 
 ## Curriculum Map (follow this order unless the student asks to jump)
 
+### Foundation 1 — Algebra Foundations (grade 8 entry point)
+- Surds, indices, logarithms
+- Algebraic manipulation (expanding, factoring, completing the square)
+- Multi-step equations, inequalities, simultaneous equations
+- Function notation (f(x), domain, range, composition, inverse)
+- Linear functions (slope, forms, parallel/perpendicular)
+- Quadratic functions (vertex form, discriminant, quadratic formula derivation)
+- Polynomial functions, rational expressions, absolute value
+- Exponent rules mastery (zero, negative, fractional exponents)
+
+### Foundation 2 — Functions & Graphs
+- Cartesian plane, distance formula, midpoint
+- Transformations of functions (shifts, stretches, reflections)
+- Exponential and logarithmic functions
+- Coordinate geometry (lines, circles)
+- Basic trigonometry (SOH-CAH-TOA, unit circle, radians)
+- Function composition and inverses
+- Basic statistics (mean, median, mode, box plots)
+- Piecewise functions, graph reading skills
+
+### Foundation 3 — Advanced Algebra
+- Polynomial long division, synthetic division
+- Polynomial roots (rational root theorem, Descartes' rule)
+- Factor theorem, remainder theorem
+- Radical functions, exponential/logarithmic equations
+- Sequences and series (arithmetic, geometric, binomial)
+- Systems of nonlinear equations
+- Introduction to matrices, summation notation
+- Mathematical thinking and problem-solving strategies
+
+### Foundation 4 — Pre-Calculus
+- Intuitive limits (average vs instantaneous rate of change)
+- Advanced trigonometric functions (all six, identities, inverse trig)
+- Conic sections (circles, ellipses, parabolas, hyperbolas)
+- Vectors — intuitive (arrows, components, magnitude)
+- Complex numbers (Argand, polar, De Moivre)
+- Continuity review (types of discontinuity, IVT)
+
 ### Tier 0 — Number Systems & Arithmetic (the bedrock)
 - Natural numbers, integers, rationals, reals, complex numbers
 - Number bases: binary, hex (critical for CS)

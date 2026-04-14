@@ -41,15 +41,19 @@ const marked = new Marked(
   })
 );
 
-// Convert prerequisite references like "Tier 2, Lesson 4" into clickable links
+// Convert prerequisite references like "Tier 2, Lesson 4" or "Foundation 1, Lesson 3" into clickable links
 function linkPrerequisites(md: string): string {
-  // Match patterns like:
-  //   "Tier 0, Lesson 1: Number Systems"
-  //   "Tier 2, Lesson 4: Matrix Multiplication"
-  //   "Tier 10, Lesson 4: Markov Chains"
-  //   "Tier 6, Lessons 1–4"
-  //   "Tier 9, Lessons 1–5"
-  return md.replace(
+  // Match "Foundation N, Lesson M" references
+  let result = md.replace(
+    /Foundation (\d+),\s*Lesson\s+(\d+)(?::\s*([^\n(]*))?/g,
+    (match, foundation, lesson, _title) => {
+      const tierStr = `foundation-${foundation}`;
+      const lessonNum = lesson.padStart(2, "0");
+      return `<a href="/lesson/${tierStr}/${lessonNum}" class="prereq-link" data-tier="${tierStr}" data-lesson="${lessonNum}">${match.trim()}</a>`;
+    }
+  );
+  // Match "Tier N, Lesson M" references
+  result = result.replace(
     /Tier (\d+),\s*Lesson\s+(\d+)(?::\s*([^\n(]*))?/g,
     (match, tier, lesson, _title) => {
       const tierStr = `tier-${tier}`;
@@ -57,6 +61,7 @@ function linkPrerequisites(md: string): string {
       return `<a href="/lesson/${tierStr}/${lessonNum}" class="prereq-link" data-tier="${tierStr}" data-lesson="${lessonNum}">${match.trim()}</a>`;
     }
   );
+  return result;
 }
 
 export function renderMarkdown(raw: string): string {

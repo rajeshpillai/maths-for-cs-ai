@@ -114,9 +114,14 @@ def list_tiers():
     """Return every tier that has at least one .md file."""
     tiers: list[TierInfo] = []
     def tier_sort_key(p: Path) -> tuple[int, int]:
-        """Sort tiers numerically, supplementary sections after main tiers."""
+        """Sort tiers: foundation first, then tiers, then supplementary."""
         name = p.name
-        if name.startswith("tier-"):
+        if name.startswith("foundation-"):
+            try:
+                return (-1, int(name.split("-", 1)[1]))
+            except (IndexError, ValueError):
+                return (-1, 999)
+        elif name.startswith("tier-"):
             try:
                 return (0, int(name.split("-", 1)[1]))
             except (IndexError, ValueError):
@@ -128,7 +133,7 @@ def list_tiers():
     for tier_dir in sorted(TUTORIALS_DIR.iterdir(), key=tier_sort_key):
         if not tier_dir.is_dir():
             continue
-        if not (tier_dir.name.startswith("tier-") or tier_dir.name.startswith("supplementary-")):
+        if not (tier_dir.name.startswith("foundation-") or tier_dir.name.startswith("tier-") or tier_dir.name.startswith("supplementary-")):
             continue
         lessons = sorted(f.stem for f in tier_dir.glob("*.md"))
         title = tier_dir.name.replace("-", " ").title()

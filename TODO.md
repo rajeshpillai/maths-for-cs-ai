@@ -33,6 +33,54 @@
 
 ## Tutorials — Content
 
+### Foundation 1 — Algebra Foundations (grade 8 entry point)
+- [x] 01 — Surds, indices, logarithms
+- [x] 02 — Algebraic manipulation (expanding, factoring, completing the square)
+- [x] 03 — Multi-step equations
+- [x] 04 — Inequalities (linear, compound, interval notation)
+- [x] 05 — Simultaneous equations (substitution, elimination)
+- [x] 06 — Function notation (f(x), domain, range, composition, inverse)
+- [x] 07 — Linear functions (slope, forms, parallel/perpendicular)
+- [x] 08 — Quadratic functions (vertex form, discriminant, quadratic formula)
+- [x] 09 — Polynomial functions (degree, end behavior, roots)
+- [x] 10 — Rational expressions (simplifying, operations, undefined values)
+- [x] 11 — Absolute value (equations, inequalities, piecewise)
+- [x] 12 — Exponent rules mastery (zero, negative, fractional exponents)
+
+### Foundation 2 — Functions & Graphs
+- [x] 01 — The Cartesian plane (plotting, distance, midpoint)
+- [x] 02 — Transformations of functions (shifts, stretches, reflections)
+- [x] 03 — Exponential functions (growth, decay, natural base e)
+- [x] 04 — Logarithmic functions (inverse of exp, log scales, change of base)
+- [x] 05 — Coordinate geometry (lines, circles, distance, midpoint)
+- [x] 06 — Basic trigonometry (SOH-CAH-TOA, unit circle, radians)
+- [x] 07 — Function composition & inverses
+- [x] 08 — Basic statistics (mean, median, mode, box plots)
+- [x] 09 — Piecewise functions (continuity intuition, ReLU connection)
+- [x] 10 — Graph reading skills (rate of change, concavity)
+
+### Foundation 3 — Advanced Algebra
+- [x] 01 — Polynomial long division & synthetic division
+- [x] 02 — Polynomial roots (rational root theorem, Descartes' rule)
+- [x] 03 — Factor theorem & remainder theorem
+- [x] 04 — Radical functions (nth roots, rational exponents)
+- [x] 05 — Exponential & logarithmic equations (growth/decay models)
+- [x] 06 — Sequences & series (arithmetic, geometric, sigma, binomial)
+- [x] 07 — Systems of nonlinear equations
+- [x] 08 — Introduction to matrices (operations, real-world framing)
+- [x] 09 — Summation notation (sigma, properties, telescoping)
+- [x] 10 — Mathematical thinking (problem-solving strategies)
+
+### Foundation 4 — Pre-Calculus
+- [x] 01 — Limits — intuitive (average vs instantaneous rate)
+- [x] 02 — Trigonometric functions — advanced (all six, identities, CAST)
+- [x] 03 — Inverse trigonometric functions (arcsin, arccos, arctan)
+- [x] 04 — Trigonometric identities (double angle, addition, R-formula)
+- [x] 05 — Conic sections introduction (circles, ellipses, parabolas, hyperbolas)
+- [x] 06 — Vectors — intuitive (arrows, components, magnitude)
+- [x] 07 — Complex numbers (Argand, polar, De Moivre, roots of unity)
+- [x] 08 — Continuity review (discontinuity types, IVT)
+
 ### Tier 0 — Number Systems & Arithmetic
 - [x] 01 — Number systems (N, Z, Q, R, C)
 - [x] 02 — Number bases: binary, hex
@@ -214,4 +262,4 @@ Final three — now also covered:
 - [x] Cayley-Hamilton theorem, matrix exponential → Foundations 12
 - [x] Further vectors: lines & planes in 3D → Foundations 13
 
-ALL CAMBRIDGE CURRICULUM GAPS CLOSED. 127 lessons total.
+ALL CAMBRIDGE CURRICULUM GAPS CLOSED. 167 lessons total (including 40 foundation lessons).

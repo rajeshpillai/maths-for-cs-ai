@@ -4,6 +4,10 @@ import { fetchTiers } from "../lib/api";
 import { isCompleted, getCompletedCount, getTotalCompleted } from "../lib/progress";
 
 const TIER_LABELS: Record<string, string> = {
+  "foundation-1": "Algebra Foundations",
+  "foundation-2": "Functions & Graphs",
+  "foundation-3": "Advanced Algebra",
+  "foundation-4": "Pre-Calculus",
   "tier-0": "Number Systems & Arithmetic",
   "tier-1": "Discrete Mathematics",
   "tier-2": "Linear Algebra",
@@ -72,7 +76,9 @@ export default function Sidebar() {
               <div class="sidebar-tier">
                 <div class="tier-label">
                   <span>
-                    {tier.tier.startsWith("tier-")
+                    {tier.tier.startsWith("foundation-")
+                      ? `F${tier.tier.replace("foundation-", "")}: `
+                      : tier.tier.startsWith("tier-")
                       ? `T${tier.tier.replace("tier-", "")}: `
                       : ""}
                     {TIER_LABELS[tier.tier] ?? tier.title}
