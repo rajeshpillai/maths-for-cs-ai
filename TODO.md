@@ -376,4 +376,5 @@ Final three — now also covered:
 - [x] Cayley-Hamilton theorem, matrix exponential → Foundations 12
 - [x] Further vectors: lines & planes in 3D → Foundations 13
 
-ALL CAMBRIDGE CURRICULUM GAPS CLOSED. 269 lessons total (40 foundation + 127 core + 45 university + 33 advanced + 24 formal math).
+ALL CAMBRIDGE CURRICULUM GAPS CLOSED. 261 lessons total (40 foundation + 119 core + 45 university + 33 advanced + 24 formal math).
+8 supplementary-foundations lessons relocated to foundation tiers; 5 advanced topics remain.
