@@ -1,0 +1,1 @@
+{"tier": "cnns", "slug": "06-receptive-field", "title": "Receptive Field Analysis", "prerequisites": [{"tier": "cnns", "lesson_num": "03", "description": "Stride and Padding", "slug": "03-stride-padding"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI", "Check Your Understanding"]}

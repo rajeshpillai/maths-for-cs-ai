@@ -1,0 +1,1 @@
+{"tier": "methods-of-proof", "slug": "10-cardinality", "title": "Cardinality — Countable and Uncountable Sets", "prerequisites": [{"tier": "methods-of-proof", "lesson_num": "09", "description": "", "slug": "09-function-proofs"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI", "Check Your Understanding"]}

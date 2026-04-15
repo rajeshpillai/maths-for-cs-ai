@@ -1,0 +1,1 @@
+{"tier": "multivariable-calculus", "slug": "09-double-integrals", "title": "Double Integrals", "prerequisites": [{"tier": "calculus", "lesson_num": "06", "description": "", "slug": "06-integrals"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI", "Check Your Understanding"]}

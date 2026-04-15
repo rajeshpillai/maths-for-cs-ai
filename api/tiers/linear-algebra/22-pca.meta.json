@@ -1,0 +1,1 @@
+{"tier": "linear-algebra", "slug": "22-pca", "title": "PCA — Principal Component Analysis from SVD", "prerequisites": [{"tier": "linear-algebra", "lesson_num": "21", "description": "SVD", "slug": "21-svd"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI", "Check Your Understanding"]}

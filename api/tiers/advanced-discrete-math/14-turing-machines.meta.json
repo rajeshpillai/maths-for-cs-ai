@@ -1,0 +1,1 @@
+{"tier": "advanced-discrete-math", "slug": "14-turing-machines", "title": "Turing Machines", "prerequisites": [{"tier": "advanced-discrete-math", "lesson_num": "12", "description": "", "slug": "12-automata-basics"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI", "Check Your Understanding"]}

@@ -1,0 +1,1 @@
+{"tier": "advanced-discrete-math", "slug": "11-matching-theory", "title": "Matching Theory", "prerequisites": [{"tier": "advanced-discrete-math", "lesson_num": "08", "description": "", "slug": "08-advanced-graph-theory"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI", "Check Your Understanding"]}

@@ -1,0 +1,1 @@
+{"tier": "advanced-discrete-math", "slug": "08-advanced-graph-theory", "title": "Advanced Graph Theory", "prerequisites": [{"tier": "discrete-mathematics", "lesson_num": "05", "description": "", "slug": "05-graph-theory"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI", "Check Your Understanding"]}

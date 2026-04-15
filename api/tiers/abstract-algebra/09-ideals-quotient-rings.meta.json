@@ -1,0 +1,1 @@
+{"tier": "abstract-algebra", "slug": "09-ideals-quotient-rings", "title": "Ideals and Quotient Rings", "prerequisites": [{"tier": "abstract-algebra", "lesson_num": "08", "description": "", "slug": "08-polynomial-rings"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI", "Check Your Understanding"]}

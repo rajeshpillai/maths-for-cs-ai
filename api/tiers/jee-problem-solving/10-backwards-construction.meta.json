@@ -1,0 +1,1 @@
+{"tier": "jee-problem-solving", "slug": "10-backwards-construction", "title": "Backwards Construction", "prerequisites": [{"tier": "foundation-1", "lesson_num": "08", "description": "", "slug": "08-quadratic-functions"}], "sections": ["Intuition", "Prerequisites", "The Strategy", "Worked Problems", "Python Verification", "When This Strategy Fails", "Check Your Understanding"]}

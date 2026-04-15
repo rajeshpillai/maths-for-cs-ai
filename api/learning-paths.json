@@ -1,0 +1,89 @@
+{
+  "paths": [
+    {
+      "id": "grade8-to-ai",
+      "name": "Grade 8 to AI/ML",
+      "description": "Complete self-study path from grade 8 math to neural networks and beyond",
+      "stages": [
+        {
+          "name": "Stage 1: Build Algebra",
+          "tiers": ["foundation-1", "foundation-2"]
+        },
+        {
+          "name": "Stage 2: Number Systems & Logic",
+          "tiers": ["number-systems", "discrete-mathematics"]
+        },
+        {
+          "name": "Stage 3: Advanced Algebra & Pre-Calc",
+          "tiers": ["foundation-3", "foundation-4"]
+        },
+        {
+          "name": "Stage 4: Core Mathematics",
+          "tiers": ["linear-algebra", "calculus", "probability-statistics"]
+        },
+        {
+          "name": "Stage 5: Applied ML",
+          "tiers": ["optimisation", "neural-networks", "cnns"]
+        },
+        {
+          "name": "Stage 6: Advanced Topics",
+          "tiers": ["advanced-ml"]
+        }
+      ]
+    },
+    {
+      "id": "grade8-to-gamedev",
+      "name": "Grade 8 to Game Dev",
+      "description": "Path focused on geometry, graphics, physics, and game mathematics",
+      "stages": [
+        {
+          "name": "Stage 1: Build Algebra",
+          "tiers": ["foundation-1", "foundation-2"]
+        },
+        {
+          "name": "Stage 2: Number Systems & Logic",
+          "tiers": ["number-systems", "discrete-mathematics"]
+        },
+        {
+          "name": "Stage 3: Advanced Algebra & Pre-Calc",
+          "tiers": ["foundation-3", "foundation-4"]
+        },
+        {
+          "name": "Stage 4: Core Mathematics",
+          "tiers": ["linear-algebra", "calculus"]
+        },
+        {
+          "name": "Stage 5: Game Dev Mathematics",
+          "tiers": ["geometry-trigonometry", "fourier-analysis"]
+        },
+        {
+          "name": "Stage 6: Physics & Signals",
+          "tiers": ["supplementary-applied"]
+        }
+      ]
+    },
+    {
+      "id": "algebra-ready",
+      "name": "Already Know Algebra",
+      "description": "Skip foundations — start directly at Number Systems & Logic if you have Algebra II skills",
+      "stages": [
+        {
+          "name": "Stage 1: Foundations",
+          "tiers": ["number-systems", "discrete-mathematics"]
+        },
+        {
+          "name": "Stage 2: Core Mathematics",
+          "tiers": ["linear-algebra", "calculus", "probability-statistics"]
+        },
+        {
+          "name": "Stage 3: Applied ML",
+          "tiers": ["optimisation", "neural-networks", "cnns"]
+        },
+        {
+          "name": "Stage 4: Specializations",
+          "tiers": ["geometry-trigonometry", "fourier-analysis", "advanced-ml"]
+        }
+      ]
+    }
+  ]
+}

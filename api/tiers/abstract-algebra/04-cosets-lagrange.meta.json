@@ -1,0 +1,1 @@
+{"tier": "abstract-algebra", "slug": "04-cosets-lagrange", "title": "Cosets and Lagrange's Theorem", "prerequisites": [{"tier": "abstract-algebra", "lesson_num": "02", "description": "", "slug": "02-subgroups-cyclic"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI", "Check Your Understanding"]}

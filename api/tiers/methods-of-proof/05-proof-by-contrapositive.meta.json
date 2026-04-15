@@ -1,0 +1,1 @@
+{"tier": "methods-of-proof", "slug": "05-proof-by-contrapositive", "title": "Proof by Contrapositive", "prerequisites": [{"tier": "methods-of-proof", "lesson_num": "03", "description": "", "slug": "03-direct-proof"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI", "Check Your Understanding"]}

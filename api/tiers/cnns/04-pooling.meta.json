@@ -1,0 +1,1 @@
+{"tier": "cnns", "slug": "04-pooling", "title": "Pooling Operations — Max-Pool and Average-Pool", "prerequisites": [{"tier": "cnns", "lesson_num": "01", "description": "2D Convolution", "slug": "01-2d-convolution"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI", "Check Your Understanding"]}

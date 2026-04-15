@@ -1,0 +1,1 @@
+{"tier": "abstract-algebra", "slug": "02-subgroups-cyclic", "title": "Subgroups and Cyclic Groups", "prerequisites": [{"tier": "abstract-algebra", "lesson_num": "01", "description": "", "slug": "01-groups"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI", "Check Your Understanding"]}

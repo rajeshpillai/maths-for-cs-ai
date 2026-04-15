@@ -1,0 +1,1 @@
+{"tier": "calculus", "slug": "06-integrals", "title": "Integrals — Riemann Sums to the Definite Integral", "prerequisites": [{"tier": "calculus", "lesson_num": "02", "description": "Derivatives", "slug": "02-derivatives"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI", "Check Your Understanding"]}
