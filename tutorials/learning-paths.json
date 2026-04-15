@@ -65,7 +65,7 @@
     {
       "id": "algebra-ready",
       "name": "Already Know Algebra",
-      "description": "Skip foundations — start directly at Tier 0 if you have Algebra II skills",
+      "description": "Skip foundations — start directly at Number Systems & Logic if you have Algebra II skills",
       "stages": [
         {
           "name": "Stage 1: Foundations",
