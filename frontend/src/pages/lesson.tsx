@@ -114,7 +114,8 @@ export default function Lesson() {
       const key = `${tier}/${lessonNum}`;
       const slug = resolved.get(key);
       if (slug) {
-        link.setAttribute("href", `/lesson/${slug}`);
+        const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+        link.setAttribute("href", `${base}/lesson/${slug}`);
       }
     });
   }

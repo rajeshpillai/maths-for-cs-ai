@@ -56,13 +56,14 @@ const PREREQ_MAP: Record<string, string> = {
 
 // Convert prerequisite references into clickable links
 function linkPrerequisites(md: string): string {
+  const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   // Match "Foundation N, Lesson M" references
   let result = md.replace(
     /Foundation (\d+),\s*Lesson\s+(\d+)(?::\s*([^\n(]*))?/g,
     (match, foundation, lesson, _title) => {
       const tierStr = `foundation-${foundation}`;
       const lessonNum = lesson.padStart(2, "0");
-      return `<a href="/lesson/${tierStr}/${lessonNum}" class="prereq-link" data-tier="${tierStr}" data-lesson="${lessonNum}">${match.trim()}</a>`;
+      return `<a href="${base}/lesson/${tierStr}/${lessonNum}" class="prereq-link" data-tier="${tierStr}" data-lesson="${lessonNum}">${match.trim()}</a>`;
     }
   );
   // Match "Tier N, Lesson M" references — map to new directory names
@@ -72,7 +73,7 @@ function linkPrerequisites(md: string): string {
       const oldTier = `tier-${tier}`;
       const tierStr = PREREQ_MAP[oldTier] ?? oldTier;
       const lessonNum = lesson.padStart(2, "0");
-      return `<a href="/lesson/${tierStr}/${lessonNum}" class="prereq-link" data-tier="${tierStr}" data-lesson="${lessonNum}">${match.trim()}</a>`;
+      return `<a href="${base}/lesson/${tierStr}/${lessonNum}" class="prereq-link" data-tier="${tierStr}" data-lesson="${lessonNum}">${match.trim()}</a>`;
     }
   );
   return result;
