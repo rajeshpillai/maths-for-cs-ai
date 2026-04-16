@@ -1,5 +1,7 @@
 # Mathematics from First Principles
 
+Live Site at: https://rajeshpillai.github.io/maths-for-cs-ai/
+
 A structured learning platform for mastering the mathematics behind computer science, game development, and AI/ML. **111 lessons** across 15 sections, from number systems to Transformers.
 
 ## Philosophy
