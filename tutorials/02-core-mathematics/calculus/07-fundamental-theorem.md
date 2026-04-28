@@ -114,6 +114,99 @@ print(f"\n=== Net change theorem ===")
 print(f"Displacement = [t³]₀² = {2**3 - 0**3}")
 ```
 
+## Visualisation — Differentiation and integration as inverses
+
+The Fundamental Theorem says: **integration and differentiation undo
+each other**. Two pictures make that visible — an "area-so-far"
+function $F(x) = \int_a^x f$ whose derivative is $f$, and an
+antiderivative $F$ whose increase $F(b) - F(a)$ is exactly the area
+under $f$ from $a$ to $b$.
+
+```python
+# ── Visualising the Fundamental Theorem of Calculus ─────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Original function (the rate) and its antiderivative (the cumulative).
+f = lambda x: x ** 2                       # rate
+F = lambda x: x ** 3 / 3                   # antiderivative ⇒ F'(x) = f(x)
+
+a, b = 0.0, 2.0
+xs = np.linspace(a, b, 200)
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5.2))
+
+# (1) f and the running area F(x) = ∫₀ˣ f(t) dt on the SAME plot.
+# At every x, the slope of the orange curve equals the height of the
+# blue curve — that's FTC part 1.
+ax = axes[0]
+ax.plot(xs, f(xs), color="tab:blue",   lw=2, label="f(x) = x²")
+ax.plot(xs, F(xs), color="tab:orange", lw=2,
+        label="F(x) = ∫₀ˣ t² dt = x³/3")
+# Mark a few points and draw the tangent of F there to show its slope = f.
+for xc in [0.5, 1.0, 1.5]:
+    slope = f(xc)
+    ax.scatter([xc], [F(xc)], color="tab:red", s=60, zorder=5)
+    h = 0.25
+    ax.plot([xc - h, xc + h],
+            [F(xc) - slope * h, F(xc) + slope * h],
+            color="tab:red", lw=1.4)
+    ax.annotate(f"slope = f({xc}) = {slope:.2f}",
+                xy=(xc + h, F(xc) + slope * h),
+                xytext=(xc + 0.05, F(xc) + slope * h + 0.4),
+                fontsize=8, color="tab:red")
+ax.set_title("FTC part 1: derivative of the area function = f\n"
+             "tangent to F(x) at any x has slope f(x)")
+ax.set_xlabel("x"); ax.set_ylabel("value")
+ax.legend(loc="upper left"); ax.grid(True, alpha=0.3)
+
+# (2) FTC part 2: ∫_a^b f = F(b) − F(a).  The shaded area on the LEFT is
+# numerically equal to the vertical drop on the RIGHT (a single subtraction).
+ax = axes[1]
+ax.plot(xs, f(xs), color="tab:blue", lw=2, label="f(x) = x²")
+ax.fill_between(xs, f(xs), color="tab:blue", alpha=0.30,
+                label=f"area = ∫₀² x² dx = {F(b) - F(a):.4f}")
+# Shade the SAME total along F's vertical axis (right side overlay).
+ax.axhline(F(b),                   color="tab:orange", lw=1.5, linestyle="--")
+ax.axhline(F(a),                   color="tab:orange", lw=1.5, linestyle="--")
+ax.annotate("", xy=(2.05, F(b)), xytext=(2.05, F(a)),
+            arrowprops=dict(arrowstyle="<->", color="tab:orange", lw=2))
+ax.text(2.10, (F(b) + F(a)) / 2,
+        f"F(b) − F(a)\n= {F(b):.4f} − {F(a):.4f}\n= {F(b) - F(a):.4f}",
+        color="tab:orange", fontsize=10, va="center")
+ax.set_title("FTC part 2: ∫_a^b f(x) dx  =  F(b) − F(a)\n"
+             "(area on the left = vertical jump in F on the right)")
+ax.set_xlabel("x"); ax.set_ylabel("value")
+ax.set_xlim(0, 3.4); ax.set_ylim(0, 4.5)
+ax.legend(loc="upper left"); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Numerical check by sampling F via a Riemann sum.
+n = 10_000
+sample = np.linspace(a, b, n + 1)
+riemann = (f(sample[:-1]) * np.diff(sample)).sum()
+print(f"FTC: ∫_{a}^{b} x² dx = F({b}) - F({a}) = {F(b)} - {F(a)} = {F(b) - F(a):.6f}")
+print(f"Numerical (Riemann, n = {n}): {riemann:.6f}")
+print(f"Gap (numerical vs FTC): {abs(riemann - (F(b) - F(a))):.2e}")
+```
+
+**Why this theorem is the single most useful in calculus:**
+
+- **It links two operations that look completely different.**
+  Differentiation is local (slope at a single point); integration is
+  global (area over an interval). FTC says they're inverses — and
+  that's why you can compute most integrals *symbolically* by
+  guessing an antiderivative.
+- **It eliminates the need for Riemann limits in practice.** Once you
+  know $F$ with $F'(x) = f(x)$, the definite integral is a
+  *subtraction*, not a limit. Compare the right panel: a single
+  vertical jump on the orange curve replaces an entire blue area.
+- **It is the bridge between any "rate" quantity and its accumulated
+  total.** Velocity ↔ position, current ↔ charge, marginal cost ↔
+  total cost, PDF ↔ CDF — every one of those pairs is an FTC pair.
+
 ## Connection to CS / Games / AI
 
 - **Probability** — The CDF is the integral of the PDF; the FTC connects them: $\frac{d}{dx}F(x) = f(x)$

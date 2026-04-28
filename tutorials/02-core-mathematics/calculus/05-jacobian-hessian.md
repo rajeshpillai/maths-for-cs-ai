@@ -160,6 +160,90 @@ evals3 = np.linalg.eigvalsh(H3)
 print(f"-x²-y²: eigenvalues={evals3} → maximum (all negative)")
 ```
 
+## Visualisation — Hessian curvature: minimum, maximum, saddle
+
+The **Hessian** is the matrix of second partial derivatives. For a 2-D
+function the eigenvalues of the Hessian tell you the *curvature in two
+perpendicular directions* — and the *signs* of those eigenvalues
+classify what kind of critical point you are at.
+
+```python
+# ── Visualising what the Hessian classifies ────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401  (registers 3-D)
+
+# Three quadratic surfaces with different Hessian signatures.
+specs = [
+    ("Local minimum\n(both eigenvalues > 0, bowl)",       lambda x, y: x**2 + y**2),
+    ("Saddle point\n(mixed signs, Pringles chip)",        lambda x, y: x**2 - y**2),
+    ("Local maximum\n(both eigenvalues < 0, dome)",       lambda x, y: -x**2 - y**2),
+]
+
+xs = np.linspace(-2, 2, 60)
+X, Y = np.meshgrid(xs, xs)
+
+fig = plt.figure(figsize=(15, 9))
+for col, (title, f) in enumerate(specs):
+    Z = f(X, Y)
+
+    # Top: contour plot, with grad arrows pointing uphill.
+    ax = fig.add_subplot(2, 3, col + 1)
+    cs = ax.contour(X, Y, Z, levels=12, cmap="viridis")
+    # Approximate gradient on a coarser grid for arrows.
+    Xc = X[::8, ::8]; Yc = Y[::8, ::8]; Zc = f(Xc, Yc)
+    Gx, Gy = np.gradient(Zc, xs[::8], xs[::8])
+    ax.quiver(Xc, Yc, Gx, Gy, color="black", alpha=0.5, scale=40, width=0.005)
+    ax.scatter([0], [0], color="red", s=140, zorder=5,
+               label="critical point\n(grad = 0)")
+    ax.set_title(title)
+    ax.set_aspect("equal")
+    ax.legend(loc="upper left", fontsize=8)
+    ax.grid(True, alpha=0.3)
+
+    # Bottom: 3-D surface, same colormap.
+    ax3 = fig.add_subplot(2, 3, col + 4, projection="3d")
+    ax3.plot_surface(X, Y, Z, cmap="viridis", alpha=0.9, linewidth=0)
+    ax3.scatter([0], [0], [f(0, 0)], color="red", s=120)
+    ax3.set_xlabel("x"); ax3.set_ylabel("y"); ax3.set_zlabel("f")
+
+plt.tight_layout()
+plt.show()
+
+# Print the Hessian and its eigenvalues for each function.
+print("Each Hessian (constant for a quadratic) tells you the type of critical point:")
+for label, H in [("f = x² + y²  (min)",     np.array([[2, 0], [0, 2]])),
+                 ("f = x² - y²  (saddle)",  np.array([[2, 0], [0, -2]])),
+                 ("f = -x² - y² (max)",     np.array([[-2, 0], [0, -2]]))]:
+    evals = np.linalg.eigvalsh(H)
+    if (evals > 0).all():
+        kind = "minimum (positive definite)"
+    elif (evals < 0).all():
+        kind = "maximum (negative definite)"
+    else:
+        kind = "saddle  (indefinite — mixed signs)"
+    print(f"  {label:<24} H = {H.tolist()}   eigenvalues = {evals}   →  {kind}")
+```
+
+**Three pictures, one rule:**
+
+- **All Hessian eigenvalues positive → local minimum** (a bowl). Every
+  direction curves *up* away from the critical point.
+- **All eigenvalues negative → local maximum** (a dome). Every
+  direction curves *down*.
+- **Mixed signs → saddle point** (a Pringles chip). One direction
+  curves up, another curves down — the gradient is zero, but you are
+  not at an extremum.
+
+This is more than abstract calculus. **In high-dimensional optimisation
+(deep neural networks have millions of parameters) almost every
+critical point is a saddle, not a minimum** — that's because for any
+random Hessian most eigenvalues come in mixed signs by sheer
+combinatorics. The whole field of *escaping saddles* — momentum, Adam,
+SGD's noise, second-order methods — exists because of the picture in
+the middle column above. The eigenvalues of the loss-Hessian determine
+*everything* about local optimisation behaviour.
+
 ## Connection to CS / Games / AI
 
 - **Backpropagation** — computes the Jacobian-vector product efficiently (not the full Jacobian)

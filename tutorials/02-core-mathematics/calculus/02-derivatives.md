@@ -155,6 +155,112 @@ for x in [-1, 1]:
     print(f"x={x}: f={f(x)}, f'={fprime}, f''={fdouble} → local {kind}")
 ```
 
+## Visualisation — The derivative as the slope of the tangent
+
+A derivative is a **slope** — the slope of the *tangent line* that best
+fits the curve at a single point. Three pictures show that exactly:
+the secant line tilts toward the tangent as the step $h$ shrinks; the
+derivative function reads off slopes everywhere; and zeros of $f'$
+mark maxima, minima, and saddle points of $f$.
+
+```python
+# ── Visualising the derivative ──────────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 4.8))
+
+# (1) Secant lines closing in on the tangent.
+# As h shrinks, the secant through (x, f(x)) and (x+h, f(x+h))
+# rotates onto the tangent line at x. That limiting slope IS f'(x).
+ax = axes[0]
+def f(x): return x ** 2
+def fp(x): return 2 * x
+xs = np.linspace(-1, 3.2, 200)
+ax.plot(xs, f(xs), color="tab:blue", lw=2, label="f(x) = x²")
+
+x0 = 1.5
+hs = [1.5, 0.8, 0.3]                            # decreasing h's → secant → tangent
+for h, color in zip(hs, ["tab:red", "tab:orange", "tab:green"]):
+    slope = (f(x0 + h) - f(x0)) / h
+    line  = f(x0) + slope * (xs - x0)
+    ax.plot(xs, line, color=color, lw=1.4, alpha=0.8,
+            label=f"secant, h = {h}, slope = {slope:.2f}")
+    ax.scatter([x0 + h], [f(x0 + h)], color=color, zorder=5)
+# Tangent line at x = x0.
+slope_true = fp(x0)
+tangent = f(x0) + slope_true * (xs - x0)
+ax.plot(xs, tangent, color="black", lw=2, linestyle="--",
+        label=f"tangent at x = {x0}, slope = {slope_true:.2f}")
+ax.scatter([x0], [f(x0)], color="black", zorder=5, s=80)
+ax.set_xlim(-1, 3.5); ax.set_ylim(-1, 11)
+ax.set_title(f"Secants converge to the tangent\n(slope → f'({x0}) = {slope_true})")
+ax.legend(fontsize=8); ax.grid(True, alpha=0.3)
+
+# (2) f and f' on the same axes. The peak of f' (where f' = 0) is
+# where f has a horizontal tangent — local extremum.
+ax = axes[1]
+def g(x):  return x ** 3 - 3 * x + 2
+def gp(x): return 3 * x ** 2 - 3
+xs = np.linspace(-2.5, 2.5, 200)
+ax.plot(xs, g(xs),  color="tab:blue",   lw=2, label="f(x) = x³ − 3x + 2")
+ax.plot(xs, gp(xs), color="tab:orange", lw=2, label="f'(x) = 3x² − 3")
+ax.axhline(0, color="black", lw=0.6)
+# f' = 0 at x = ±1 → critical points of f.
+for x_crit, kind in [(-1, "max"), (1, "min")]:
+    ax.scatter([x_crit], [g(x_crit)],  color="tab:red",   s=100, zorder=5)
+    ax.scatter([x_crit], [gp(x_crit)], color="tab:green", s=100, zorder=5)
+    ax.annotate(f"local {kind}\n(f' = 0)", xy=(x_crit, g(x_crit)),
+                xytext=(x_crit + 0.3, g(x_crit) + 1.3),
+                arrowprops=dict(arrowstyle="->", color="tab:red"))
+ax.set_xlim(-2.5, 2.5); ax.set_ylim(-6, 6)
+ax.set_title("f and f' on the same plot:\nzeros of f' mark f's max/min")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (3) Sign of f' tells you "increasing" vs "decreasing" — colour the
+# axis underneath f to make the connection visible.
+ax = axes[2]
+xs = np.linspace(-2.5, 2.5, 600)
+ax.plot(xs, g(xs), color="tab:blue", lw=2, label="f(x) = x³ − 3x + 2")
+gprime = gp(xs)
+# Colour the x-axis: green where f' > 0 (rising), red where f' < 0 (falling).
+ax.fill_between(xs, -6, 6, where=gprime > 0, color="tab:green",  alpha=0.10,
+                label="f' > 0  (f rising)")
+ax.fill_between(xs, -6, 6, where=gprime < 0, color="tab:red",    alpha=0.10,
+                label="f' < 0  (f falling)")
+ax.axhline(0, color="black", lw=0.6)
+ax.set_xlim(-2.5, 2.5); ax.set_ylim(-6, 6)
+ax.set_title("Sign of f' = direction of motion of f\n(green: rising,  red: falling)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Numerical check: the secant slope converges to 2x = 3 at x = 1.5.
+print(f"f(x) = x², f'(1.5) = 3 (analytical)")
+for h in [1, 0.1, 0.01, 0.001, 0.0001]:
+    slope = ((1.5 + h) ** 2 - 1.5 ** 2) / h
+    print(f"  h = {h:<7} → secant slope = {slope:.6f}   gap = {abs(slope - 3):.2e}")
+```
+
+**The three plots make the chain of ideas concrete:**
+
+- **The derivative is a *limit* of slopes.** The leftmost panel shows
+  three secants approaching the tangent. Algebraically, $f'(x) =
+  \lim_{h \to 0}\frac{f(x+h) - f(x)}{h}$. The values printed below
+  prove the convergence is real — the secant slope homes in on the
+  exact derivative as $h$ shrinks.
+- **$f'$ is itself a function.** The middle panel plots both $f$ and
+  $f'$ together. Where $f'$ crosses zero, $f$ is locally flat — a
+  candidate maximum or minimum. The second derivative $f''$ resolves
+  the ambiguity (positive ⇒ valley ⇒ minimum; negative ⇒ peak ⇒
+  maximum). This is the mechanism that **gradient descent** — the
+  workhorse of machine learning — exploits.
+- **Sign of $f'$ tells the story of $f$.** The rightmost panel colours
+  the regions where $f$ is rising (green, $f' > 0$) versus falling
+  (red, $f' < 0$). This sign pattern *is* the qualitative behaviour of
+  the function — turning a continuous calculation into a finite story.
+
 ## Connection to CS / Games / AI
 
 - **Gradient descent** — the derivative tells the optimiser which direction to step

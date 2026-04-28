@@ -142,6 +142,95 @@ for h_exp in range(-1, -17, -1):
     print(f"h=10^{h_exp:3d}: error = {error:.2e}" + (" ← best" if h_exp == -8 else ""))
 ```
 
+## Visualisation — The U-shape of finite-difference error
+
+Numerical differentiation by finite differences has *two* sources of
+error pulling in opposite directions: making the step $h$ smaller
+reduces the truncation error (math wants $h \to 0$), but eventually
+floating-point round-off blows up (computer science wants $h$ not
+*too* small). The result is a famous **U-shaped error curve**.
+
+```python
+# ── Visualising forward vs central differences vs round-off ─
+import numpy as np
+import matplotlib.pyplot as plt
+
+f       = np.exp                  # f(x) = e^x
+fprime  = np.exp                  # f'(x) = e^x  ⇒ true derivative at x = 1 is e
+x       = 1.0
+exact   = fprime(x)               # = e
+
+# Sweep h from 10⁻¹ down to 10⁻¹⁶ on a log grid.
+hs = np.logspace(-1, -16, 80)
+err_forward = []                  # 1st-order: O(h) truncation
+err_central = []                  # 2nd-order: O(h²) truncation, much faster convergence
+for h in hs:
+    fwd = (f(x + h) - f(x)) / h
+    ctr = (f(x + h) - f(x - h)) / (2 * h)
+    err_forward.append(abs(fwd - exact))
+    err_central.append(abs(ctr - exact))
+
+fig, ax = plt.subplots(1, 1, figsize=(10, 6))
+
+ax.loglog(hs, err_forward, "o-", color="tab:red", lw=2,
+          label="forward difference  (f(x+h)−f(x))/h   — O(h) truncation")
+ax.loglog(hs, err_central, "o-", color="tab:blue", lw=2,
+          label="central difference  (f(x+h)−f(x−h))/(2h) — O(h²) truncation")
+
+# Reference slopes to identify the regimes.
+ax.loglog(hs, hs,                  color="tab:red",  linestyle="--", lw=1, alpha=0.5,
+          label="$\\propto h$  (forward truncation)")
+ax.loglog(hs, hs ** 2,             color="tab:blue", linestyle="--", lw=1, alpha=0.5,
+          label="$\\propto h^2$  (central truncation)")
+ax.loglog(hs, 1e-16 / hs,          color="grey",     linestyle="--", lw=1, alpha=0.6,
+          label="$\\propto 1/h$  (round-off)")
+
+# Mark the empirical sweet spots.
+i_fwd = int(np.argmin(err_forward))
+i_ctr = int(np.argmin(err_central))
+ax.scatter([hs[i_fwd]], [err_forward[i_fwd]], color="tab:red",  s=160, zorder=5,
+           label=f"forward best: h ≈ {hs[i_fwd]:.0e}")
+ax.scatter([hs[i_ctr]], [err_central[i_ctr]], color="tab:blue", s=160, zorder=5,
+           label=f"central best: h ≈ {hs[i_ctr]:.0e}")
+
+ax.set_xlabel("step size h (log)"); ax.set_ylabel("|approx − exact| (log)")
+ax.set_title("Finite-difference error vs h\n"
+             "left side: round-off floor;  right side: truncation error")
+ax.invert_xaxis()                 # so smaller h is on the right
+ax.legend(loc="upper right", fontsize=9)
+ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the table of errors for forward vs central difference.
+print(f"True derivative at x = 1 is e ≈ {exact:.12f}\n")
+print(f"{'h':>10}   {'forward error':>15}   {'central error':>15}")
+for h_exp in range(-1, -17, -2):
+    h = 10.0 ** h_exp
+    f_err = abs((f(x + h) - f(x)) / h          - exact)
+    c_err = abs((f(x + h) - f(x - h)) / (2*h)  - exact)
+    print(f"  10^{h_exp:>4}   {f_err:>15.2e}   {c_err:>15.2e}")
+```
+
+**The single most important practical takeaway:**
+
+- **Don't make $h$ "as small as possible".** Beginners often think
+  $h = 10^{-15}$ should give them 15 digits of accuracy. The plot
+  shows the opposite: round-off completely *dominates* below
+  $h \approx 10^{-8}$ for forward differences, and below
+  $h \approx 10^{-5}$ for central differences. The optimum is
+  somewhere in the middle.
+- **Central differences win whenever you can afford two function
+  evaluations.** They have $O(h^2)$ truncation versus $O(h)$ for
+  forward, so they hit a much lower minimum error at a *larger*
+  $h$ — twice as much arithmetic for many extra digits of accuracy.
+- **This is exactly why the world moved on to automatic
+  differentiation.** Autodiff (PyTorch, JAX) computes derivatives
+  *exactly* — no $h$, no round-off, no sweet spot to tune. Use
+  finite differences only for **gradient checking** of an autodiff
+  implementation, never as the production gradient itself.
+
 ## Connection to CS / Games / AI
 
 - **PyTorch autograd** — reverse-mode AD; builds a computation graph and runs backward pass

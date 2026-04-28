@@ -118,6 +118,112 @@ numerical = sum((i*dx) * math.exp(i*dx) * dx for i in range(n))
 print(f"  Numerical (n={n}): {numerical:.6f}")
 ```
 
+## Visualisation — The integral as area under a curve
+
+A definite integral is, in one phrase, **the signed area** between the
+curve and the x-axis. The classical Riemann picture — slicing the area
+into thin rectangles whose heights are the function values — is the
+simplest way to *see* what the integral is and why it converges.
+
+```python
+# ── Visualising integration as area ─────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+def f(x): return x ** 2
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 4.8))
+
+# (1) Riemann sum with a small number of rectangles — coarse, visibly
+# under-/overshoots the true area.
+ax = axes[0]
+xs = np.linspace(0, 2, 400)
+ax.plot(xs, f(xs), color="tab:blue", lw=2)
+ax.fill_between(xs, f(xs), color="tab:blue", alpha=0.10)
+
+n = 6
+edges  = np.linspace(0, 2, n + 1)
+widths = np.diff(edges)
+heights = f(edges[:-1])                              # left endpoints
+ax.bar(edges[:-1], heights, width=widths, align="edge",
+       color="tab:orange", alpha=0.55, edgecolor="darkorange")
+riemann = (heights * widths).sum()
+exact   = 2 ** 3 / 3
+ax.set_title(f"Riemann sum, n = {n} rectangles\n"
+             f"area ≈ {riemann:.4f},  true value 8/3 ≈ {exact:.4f}")
+ax.set_xlim(0, 2.2); ax.set_ylim(0, 4.5)
+ax.set_xlabel("x"); ax.set_ylabel("f(x) = x²")
+ax.grid(True, alpha=0.3)
+
+# (2) Same picture but with many more rectangles — visually
+# indistinguishable from the curve. This is the geometric content of
+# "Riemann sum → integral as n → ∞".
+ax = axes[1]
+ax.plot(xs, f(xs), color="tab:blue", lw=2)
+ax.fill_between(xs, f(xs), color="tab:blue", alpha=0.10)
+
+n = 50
+edges  = np.linspace(0, 2, n + 1)
+widths = np.diff(edges)
+heights = f(edges[:-1])
+ax.bar(edges[:-1], heights, width=widths, align="edge",
+       color="tab:orange", alpha=0.65, edgecolor="darkorange", linewidth=0.5)
+riemann = (heights * widths).sum()
+ax.set_title(f"Riemann sum, n = {n} rectangles\n"
+             f"area ≈ {riemann:.4f}  (closing in on 8/3)")
+ax.set_xlim(0, 2.2); ax.set_ylim(0, 4.5)
+ax.set_xlabel("x"); ax.set_ylabel("f(x) = x²")
+ax.grid(True, alpha=0.3)
+
+# (3) Convergence: plot Riemann error vs n on log–log axes; the slope
+# is exactly −1 (i.e. error ∝ 1/n) for left-endpoint rules on smooth
+# functions. Geometrically: cut n in half, error doubles.
+ax = axes[2]
+ns_test = np.array([2, 4, 8, 16, 32, 64, 128, 256, 1024, 4096])
+errs = []
+for nn in ns_test:
+    edges = np.linspace(0, 2, nn + 1)
+    widths = np.diff(edges)
+    heights = f(edges[:-1])
+    errs.append(abs((heights * widths).sum() - exact))
+errs = np.array(errs)
+ax.loglog(ns_test, errs, "o-", color="tab:red", lw=2, label="left-endpoint Riemann")
+# Reference line proportional to 1/n.
+ax.loglog(ns_test, errs[0] * (ns_test[0] / ns_test), color="black",
+          linestyle="--", lw=1, label="$1/n$ reference")
+ax.set_xlabel("n (number of rectangles)"); ax.set_ylabel("|error| (log scale)")
+ax.set_title("Riemann error shrinks like 1/n\n(double n → halve the error)")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the convergence table that mirrors the third panel.
+print(f"True value: ∫₀² x² dx = 8/3 ≈ {exact:.6f}")
+print(f"\n{'n':>6}  {'Riemann sum':>15}  {'error':>12}")
+for nn in [2, 8, 32, 128, 512, 4096]:
+    edges = np.linspace(0, 2, nn + 1)
+    R = (f(edges[:-1]) * np.diff(edges)).sum()
+    print(f"  {nn:>5}  {R:>15.6f}  {abs(R - exact):>12.6f}")
+```
+
+**Three things to take away:**
+
+- **Definite integral = signed area.** The leftmost picture is the
+  geometric *definition*. Every $\int_a^b f(x)\,dx$ is the limit of
+  rectangle sums as the rectangles get thinner.
+- **Approximation by rectangles converges.** As $n \to \infty$ the
+  staircase approaches the true area. The middle picture shows it
+  visually; the right one shows the error decay $\propto 1/n$. (More
+  sophisticated rules — trapezoidal, Simpson's, Gaussian quadrature —
+  converge faster.)
+- **Integration ≠ random number-crunching.** Many practical
+  questions — total energy used, total revenue over a quarter, total
+  charge through a circuit — are integrals in disguise. The next
+  lesson (the Fundamental Theorem) shows that whenever you can
+  *antidifferentiate* the integrand symbolically, you skip the
+  rectangle limit entirely.
+
 ## Connection to CS / Games / AI
 
 - **Probability** — $P(a \le X \le b) = \int_a^b f(x)\,dx$ for continuous distributions

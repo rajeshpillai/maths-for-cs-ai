@@ -107,6 +107,116 @@ print(f"Numerical: {total:.4f}")
 print(f"Exact (πR²): {math.pi * R**2:.4f}")
 ```
 
+## Visualisation — Volumes by stacking thin slabs
+
+A double integral is just *adding up the volume under a 2-D surface*,
+slab by slab. Switching coordinates (here: rectangular → polar) is the
+single most-useful trick in multivariable integration; the picture
+shows why polar coordinates *fit a disk like a glove*.
+
+```python
+# ── Visualising multivariable integration ───────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
+
+fig = plt.figure(figsize=(15, 5.2))
+
+# (1) The surface z = f(x, y) and the volume below it (over a square
+# region [0, 1]²). The integral is the volume of that solid.
+ax = fig.add_subplot(1, 3, 1, projection="3d")
+xs = np.linspace(0, 1, 40); ys = np.linspace(0, 1, 40)
+X, Y = np.meshgrid(xs, ys)
+Z = X * Y * (1 - X) * (1 - Y) * 4               # smooth bump that vanishes at edges
+ax.plot_surface(X, Y, Z, cmap="viridis", alpha=0.85, edgecolor="none")
+ax.contourf(X, Y, Z, zdir="z", offset=0, cmap="viridis", alpha=0.4)
+ax.set_xlabel("x"); ax.set_ylabel("y"); ax.set_zlabel("f(x, y)")
+ax.set_title("∬ f(x,y) dA = volume under the surface\nover the (x, y) region")
+
+# (2) Riemann slabs: split [0, 1]² into a small grid of cells, each
+# a thin column of height f(x_c, y_c). Total volume = sum of column
+# volumes. Shown for a coarse 6×6 grid so you can see what's happening.
+ax = fig.add_subplot(1, 3, 2, projection="3d")
+n = 6
+xs_c = np.linspace(0, 1, n + 1)[:-1] + 0.5 / n
+ys_c = np.linspace(0, 1, n + 1)[:-1] + 0.5 / n
+Xc, Yc = np.meshgrid(xs_c, ys_c)
+Zc = Xc * Yc * (1 - Xc) * (1 - Yc) * 4
+dx = dy = 1.0 / n
+ax.bar3d(Xc.flatten() - dx / 2, Yc.flatten() - dy / 2,
+         np.zeros_like(Zc).flatten(),
+         dx, dy, Zc.flatten(),
+         color="tab:orange", alpha=0.7, edgecolor="darkorange")
+ax.set_xlabel("x"); ax.set_ylabel("y"); ax.set_zlabel("f")
+riemann_2d = (Zc * dx * dy).sum()
+ax.set_title(f"Riemann columns (n = {n}×{n})\nVolume ≈ Σ f · dxdy = {riemann_2d:.4f}")
+
+# (3) Polar grid over a disk of radius R. Each cell has area
+# r·Δr·Δθ — the famous "extra r" you must remember in polar.
+# Cell areas are visibly LARGER far from the origin and smaller near
+# it: that's exactly the Jacobian.
+ax = fig.add_subplot(1, 3, 3)
+R = 1.0
+n_r, n_t = 6, 18
+rs = np.linspace(0, R, n_r + 1)
+ts = np.linspace(0, 2 * np.pi, n_t + 1)
+for r in rs:
+    angles = np.linspace(0, 2 * np.pi, 200)
+    ax.plot(r * np.cos(angles), r * np.sin(angles), color="grey", lw=0.7)
+for t in ts:
+    ax.plot([0, R * np.cos(t)], [0, R * np.sin(t)], color="grey", lw=0.7)
+# Highlight a sample cell to show the area formula r·Δr·Δθ.
+i, j = 4, 3
+r0, r1 = rs[i], rs[i + 1]
+t0, t1 = ts[j], ts[j + 1]
+phi = np.linspace(t0, t1, 30)
+ax.fill_between(np.concatenate([r1 * np.cos(phi), r0 * np.cos(phi[::-1])]),
+                np.concatenate([r1 * np.sin(phi), r0 * np.sin(phi[::-1])]),
+                color="tab:red", alpha=0.5)
+ax.text(0.05, -0.95, "polar element\n   dA = r · dr · dθ", color="tab:red", fontsize=10)
+ax.set_aspect("equal"); ax.set_xlim(-1.2, 1.2); ax.set_ylim(-1.2, 1.2)
+ax.set_title("Polar grid over a disk:\ncell area is r · Δr · Δθ (Jacobian!)")
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+
+plt.tight_layout()
+plt.show()
+
+# Numerical confirmation with a finer grid.
+n_fine = 200
+xs_f = np.linspace(0, 1, n_fine)
+ys_f = np.linspace(0, 1, n_fine)
+Xf, Yf = np.meshgrid(xs_f, ys_f)
+Zf = Xf * Yf * (1 - Xf) * (1 - Yf) * 4
+volume_fine = Zf.mean()                         # mean × area = total volume (area = 1)
+print(f"Coarse Riemann volume (6×6):  {riemann_2d:.6f}")
+print(f"Fine Riemann volume (200×200): {volume_fine:.6f}")
+print(f"\nArea of disk of radius {R} via polar:")
+n = 100
+dr, dtheta = R / n, 2 * np.pi / n
+total = 0.0
+for i in range(n):
+    r = (i + 0.5) * dr
+    for j in range(n):
+        total += r * dr * dtheta
+print(f"  Numerical: {total:.4f}")
+print(f"  Exact π·R²: {np.pi * R**2:.4f}")
+```
+
+**Two intuitions that make multivariable calculus easy:**
+
+- **A double integral is volume.** Stack thin columns of cross-section
+  $\Delta x \,\Delta y$ and height $f(x, y)$, and add them up. The
+  middle picture is what your CPU actually does when you call
+  `scipy.integrate.dblquad`.
+- **Coordinate change = paying the Jacobian.** The right picture shows
+  that polar cells aren't square — they're little wedges whose area is
+  $r \,\Delta r \,\Delta\theta$. The factor $r$ is the *Jacobian
+  determinant* of the rectangular-to-polar map. Forget it and your
+  disk integral will be wrong by an order of magnitude. Every change
+  of variables in higher dimensions carries a Jacobian factor; in
+  graphics this is what makes UV-mapped textures stretch correctly,
+  and in ML it is the heart of normalising-flow generative models.
+
 ## Connection to CS / Games / AI
 
 - **Probability** — marginal distributions: $p(x) = \int p(x, y)\,dy$

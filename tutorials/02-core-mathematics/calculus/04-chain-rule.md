@@ -167,6 +167,109 @@ y_new = 1 / (1 + math.exp(-(w_new * x + b_new)))
 print(f"\nAfter update: w={w_new:.5f}, b={b_new:.5f}, ŷ={y_new:.4f} (closer to {t})")
 ```
 
+## Visualisation — The chain rule as a flow of slopes
+
+The chain rule is the calculus of *composed* functions: if $y = f(g(x))$
+then $\frac{dy}{dx} = f'(g(x)) \cdot g'(x)$. Two pictures pin this down:
+the local slope of a composition really IS the product of the inner and
+outer slopes; and the *vanishing gradient problem* is just what happens
+when you multiply many small slopes together.
+
+```python
+# ── Visualising the chain rule ──────────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(13, 5.3))
+
+# (1) Outer function f(u) = sin(u), inner g(x) = x²,
+#     composed h(x) = sin(x²).  At x = √(π/4):
+#       g(x) = π/4,  g'(x) = 2x = √(π/2)
+#       f(u) = sin(u),  f'(u) = cos(u),  f'(g(x)) = cos(π/4) = √2/2
+#     so h'(x) = f'(g(x)) · g'(x) = (√2/2) · √(π/2)
+ax = axes[0]
+def g(x):  return x ** 2
+def gp(x): return 2 * x
+def f(u):  return np.sin(u)
+def fp(u): return np.cos(u)
+def h(x):  return np.sin(x ** 2)
+def hp(x): return fp(g(x)) * gp(x)              # the chain rule!
+
+xs = np.linspace(0, 2.4, 400)
+ax.plot(xs, h(xs), color="tab:blue", lw=2, label="h(x) = sin(x²)")
+
+x0 = np.sqrt(np.pi / 4)                          # x where g(x) = π/4
+slope_inner = gp(x0)                             # g'(x₀) = 2x₀
+slope_outer = fp(g(x0))                          # f'(g(x₀)) = cos(π/4)
+slope_total = slope_outer * slope_inner          # chain rule
+
+# Tangent line to h at x₀.
+tangent = h(x0) + slope_total * (xs - x0)
+ax.plot(xs, tangent, color="tab:red", lw=1.8, linestyle="--",
+        label=(f"tangent slope = f'(g(x₀)) · g'(x₀)\n"
+               f"         = cos(π/4) · 2·x₀\n"
+               f"         = {slope_outer:.3f} × {slope_inner:.3f}\n"
+               f"         = {slope_total:.3f}"))
+ax.scatter([x0], [h(x0)], color="black", s=80, zorder=5)
+ax.set_title("The chain rule in action\nh'(x₀) = f'(g(x₀)) · g'(x₀)")
+ax.set_xlabel("x"); ax.set_ylabel("h(x)")
+ax.set_xlim(0, 2.4); ax.set_ylim(-1.2, 1.4)
+ax.legend(loc="lower left", fontsize=9); ax.grid(True, alpha=0.3)
+
+# (2) Vanishing-gradient demonstration.
+# In a deep network with sigmoid activations, the gradient w.r.t. an
+# early-layer parameter is the PRODUCT of σ'(z_k) values along the
+# chain. σ' tops out at 0.25 — so multiplying many of them gives a
+# tiny number, gradient ≈ 0, and that layer barely learns.
+ax = axes[1]
+depths = np.arange(1, 31)
+prod_05  = 0.50 ** depths        # if every factor is 0.5 (a kind activation)
+prod_025 = 0.25 ** depths        # peak σ' value (very generous!)
+prod_2   = 2.00 ** depths        # if factors are > 1 (exploding gradients!)
+ax.plot(depths, prod_025, "o-", lw=2, label="each factor = 0.25 (max σ')")
+ax.plot(depths, prod_05,  "o-", lw=2, label="each factor = 0.5")
+ax.plot(depths, prod_2,   "o-", lw=2, label="each factor = 2.0 (exploding!)")
+ax.set_yscale("log")
+ax.axhline(1, color="black", lw=0.6)
+ax.axhline(1e-5, color="grey", lw=0.6, linestyle=":")
+ax.text(31, 1e-5, "≈ float32\nnoise floor", fontsize=8, color="grey", va="center")
+ax.set_xlabel("network depth (number of chain-rule factors)")
+ax.set_ylabel("product of slopes  (log scale)")
+ax.set_title("Why deep networks need ReLU/skip connections:\nproducts of small slopes vanish exponentially")
+ax.legend(fontsize=9); ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Verify the analytical chain rule answer numerically by finite differences.
+x0 = np.sqrt(np.pi / 4)
+analytical = np.cos(x0 ** 2) * 2 * x0
+hh = 1e-6
+numerical = (np.sin((x0 + hh) ** 2) - np.sin(x0 ** 2)) / hh
+print(f"At x₀ = √(π/4) ≈ {x0:.4f}:")
+print(f"  Analytical h'(x₀) = f'(g(x₀)) · g'(x₀) = {analytical:.6f}")
+print(f"  Numerical (finite difference)         = {numerical:.6f}")
+print(f"  Gap (smaller h → smaller gap)          = {abs(analytical - numerical):.2e}")
+```
+
+**Two consequences the visuals make undeniable:**
+
+- **Composition multiplies slopes.** The slope of $\sin(x^2)$ at any
+  point is *exactly* the product of the outer slope $\cos(x^2)$ and
+  the inner slope $2x$. This is the entire content of the chain rule
+  — and it is what makes **backpropagation possible**: gradient at a
+  parameter = (gradient at output) × (downstream Jacobian-vector
+  products) all the way back.
+- **Vanishing and exploding gradients are a calculus problem, not a
+  software bug.** When every factor in the chain is $\le 0.25$ (the
+  maximum derivative of a sigmoid), a 30-layer chain produces a
+  gradient of $0.25^{30} \approx 10^{-18}$. That number is below the
+  noise floor of float32, so early-layer weights effectively don't
+  receive any learning signal. ReLU (whose derivative is exactly 1
+  on the active half), batch normalisation, and residual ("skip")
+  connections were all invented to fight this single product-of-slopes
+  effect.
+
 ## Connection to CS / Games / AI
 
 - **Backpropagation IS the chain rule** — every neural network training step applies this

@@ -137,6 +137,90 @@ for n in range(6):
 print(f"  math.sin: {math.sin(x):.10f}")
 ```
 
+## Visualisation — Taylor approximations climbing in degree
+
+A Taylor series approximates a function near a point by a polynomial.
+Adding more terms ⇒ better approximation, fitting wider intervals. The
+plot shows $\sin(x)$ approximated by polynomials of degree 1, 3, 5, 7
+— each one tracking the curve a little farther.
+
+```python
+# ── Visualising Taylor polynomials ──────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+from math import factorial
+
+fig, axes = plt.subplots(1, 2, figsize=(13, 5.2))
+
+# (1) sin(x) and its Taylor polynomials of increasing degree, all
+# expanded around x = 0 (Maclaurin series).
+ax = axes[0]
+xs = np.linspace(-4, 4, 400)
+ax.plot(xs, np.sin(xs), color="black", lw=2.5, label="sin(x) (true)")
+
+# Term k of the sine series is x^(2k+1) / (2k+1)!  with alternating sign.
+def taylor_sin(x, n_terms):
+    return sum((-1)**k * x**(2*k + 1) / factorial(2*k + 1)
+               for k in range(n_terms))
+
+colors = ["tab:red", "tab:orange", "tab:green", "tab:blue"]
+for n_terms, color in zip([1, 2, 3, 4], colors):
+    degree = 2 * n_terms - 1
+    ax.plot(xs, taylor_sin(xs, n_terms), color=color, lw=1.8,
+            label=f"degree {degree}  ({n_terms} terms)")
+ax.set_ylim(-3, 3)
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.set_title("Taylor approximations of sin(x) around 0\n— more terms → tracks the curve farther")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) Pointwise error |sin(x) − Tₙ(x)| in log scale: error grows
+# rapidly outside a "window" that widens with n. Inside the window
+# you cannot tell the polynomial from the function — that's exactly
+# how libm/calculators evaluate trig functions.
+ax = axes[1]
+for n_terms, color in zip([1, 2, 3, 4, 6, 8], plt.cm.viridis(np.linspace(0, 0.9, 6))):
+    err = np.abs(np.sin(xs) - taylor_sin(xs, n_terms))
+    err = np.maximum(err, 1e-16)                # avoid log(0)
+    ax.plot(xs, err, lw=1.5, color=color,
+            label=f"{2 * n_terms - 1}-degree")
+ax.set_yscale("log")
+ax.set_xlabel("x"); ax.set_ylabel("|sin(x) − T(x)|  (log scale)")
+ax.set_title("Approximation error grows away from the expansion point\n(degree determines the useful 'window')")
+ax.legend(title="degree", fontsize=8)
+ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print degree-by-degree convergence at a single x = 0.5 to make the
+# numerical claim explicit.
+print(f"sin(0.5) =  {np.sin(0.5):.12f}")
+print(f"\nDegree   T(0.5)        |error|")
+print("-" * 50)
+for n_terms in [1, 2, 3, 4, 5, 6]:
+    val = taylor_sin(0.5, n_terms)
+    print(f"  {2*n_terms - 1:>3}    {val:.12f}   {abs(val - np.sin(0.5)):.2e}")
+```
+
+**Two big take-aways:**
+
+- **Every smooth function looks like a polynomial *near a point*.**
+  This is the practical content of Taylor's theorem — and the reason
+  *gradient descent works at all*. Each gradient step uses the
+  first-order Taylor approximation $f(x + \Delta) \approx f(x) + f'(x)
+  \Delta$ to decide which way is downhill; **Newton's method** keeps
+  the second-order term too and converges much faster on a smooth
+  loss.
+- **Library functions are Taylor (or Chebyshev) polynomials inside.**
+  The `math.sin` you call from Python is, ultimately, a fixed
+  polynomial evaluated on a small input range, with argument-reduction
+  tricks to bring any input into that range. The middle of the
+  rightmost log plot shows why this works: very high accuracy is
+  available with a handful of multiplications, *as long as* the input
+  is close to the expansion point. Argument reduction (modular
+  reduction by $\pi$, or domain folding) gets it close.
+
 ## Connection to CS / Games / AI
 
 - **How computers compute functions** — $\sin$, $\cos$, $e^x$, $\log$ are all computed via polynomial approximations
