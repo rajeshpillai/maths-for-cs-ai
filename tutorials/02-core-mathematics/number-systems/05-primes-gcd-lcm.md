@@ -249,6 +249,105 @@ print(f"gcd = {g}, x = {x}, y = {y}")
 print(f"Verify: 252*{x} + 105*{y} = {252*x + 105*y}")
 ```
 
+## Visualisation — Primes, sieve, and the prime-counting function
+
+Three views of the prime numbers: the **Sieve of Eratosthenes** in
+action (composite numbers crossed out), the **distribution of primes**
+(Ulam spiral hint and prime gaps), and the famous π(n) curve compared
+with the **Prime Number Theorem**'s estimate $n / \ln n$.
+
+```python
+# ── Visualising primes and the sieve ────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+def sieve(n):
+    is_prime = np.ones(n + 1, dtype=bool)
+    is_prime[:2] = False
+    for p in range(2, int(np.sqrt(n)) + 1):
+        if is_prime[p]:
+            is_prime[p*p::p] = False
+    return is_prime
+
+N = 100
+prime_mask = sieve(N)
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 5.5))
+
+# (1) Sieve of Eratosthenes drawn as a 10×10 grid; primes are coloured.
+ax = axes[0]
+grid = np.zeros((10, 10), dtype=int)
+for n in range(1, N + 1):
+    row, col = (n - 1) // 10, (n - 1) % 10
+    grid[row, col] = 1 if prime_mask[n] else 0
+ax.imshow(grid, cmap="Greens", aspect="equal", vmin=0, vmax=1)
+for n in range(1, N + 1):
+    row, col = (n - 1) // 10, (n - 1) % 10
+    color = "white" if prime_mask[n] else "grey"
+    weight = "bold" if prime_mask[n] else "normal"
+    ax.text(col, row, str(n), ha="center", va="center",
+            color=color, fontsize=10, fontweight=weight)
+ax.set_title(f"Primes up to {N}\n({prime_mask.sum()} primes, marked green)")
+ax.set_xticks([]); ax.set_yticks([])
+
+# (2) Gaps between consecutive primes.
+primes = np.where(prime_mask)[0]
+gaps = np.diff(primes)
+ax = axes[1]
+ax.plot(primes[1:], gaps, "o-", markersize=3, color="tab:purple", lw=0.8)
+ax.set_xlabel("prime p")
+ax.set_ylabel("gap to next prime")
+ax.set_title(f"Prime gaps grow on average ~ ln(p)\n"
+             f"(largest gap ≤ {N}: {gaps.max()})")
+ax.grid(True, alpha=0.3)
+
+# (3) Prime-counting function π(n) vs the PNT estimate n / ln n.
+ax = axes[2]
+big_N = 5000
+big_mask = sieve(big_N)
+pi_n = np.cumsum(big_mask)
+ns_pnt = np.arange(2, big_N + 1)
+estimate = ns_pnt / np.log(ns_pnt)
+ax.plot(ns_pnt, pi_n[2:],     color="tab:blue",   lw=2, label="π(n) — exact")
+ax.plot(ns_pnt, estimate, color="tab:red",    lw=2, linestyle="--",
+        label="$n / \\ln n$ — PNT estimate")
+ax.set_xlabel("n"); ax.set_ylabel("count of primes ≤ n")
+ax.set_title("Prime Number Theorem:  π(n) ~ n / ln n")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print Euclidean GCD trace and the prime count.
+print(f"Number of primes up to {N}: {prime_mask.sum()}")
+print(f"Number of primes up to 5000: {sieve(5000).sum()}    "
+      f"(PNT estimate: {int(5000/np.log(5000))})")
+print()
+print("Euclidean algorithm gcd(252, 105):")
+a, b = 252, 105
+while b:
+    print(f"  {a} mod {b} = {a % b}")
+    a, b = b, a % b
+print(f"  gcd = {a}")
+```
+
+**Three foundational facts about primes:**
+
+- **The sieve is the simplest fast prime test.** Mark multiples of
+  each found prime as composite; what's left is the primes. $O(n
+  \log \log n)$ operations — fast enough for $n$ up to billions on a
+  laptop. Modern variants (segmented sieve, wheel sieves) extend to
+  trillions.
+- **Primes are *predictably unpredictable*.** Individual gaps are
+  irregular, but the *average* gap near $n$ is approximately $\ln n$
+  — slow logarithmic growth. The Prime Number Theorem
+  $\pi(n) \sim n / \ln n$ is the precise statement: roughly
+  $1 / \ln n$ of integers near $n$ are prime.
+- **Primes underpin cryptography.** RSA security rests on "it's easy
+  to multiply two large primes, hard to factor their product".
+  Diffie-Hellman uses *generators* in the multiplicative group of a
+  prime field. **Without primes, modern internet security collapses**.
+
 ## Connection to CS / Games / AI
 
 - **RSA cryptography** — relies on the fact that factoring large numbers is hard, but GCD is fast

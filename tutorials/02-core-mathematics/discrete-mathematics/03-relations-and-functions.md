@@ -224,6 +224,92 @@ for i in range(8):
     print(f"  {i} → {n_to_z(i)}")
 ```
 
+## Visualisation — Injective, surjective, bijective at a glance
+
+The three classifications of a function — **injective** (one-to-one),
+**surjective** (onto), and **bijective** (both) — are easiest to see
+as arrow diagrams between two finite sets.
+
+```python
+# ── Visualising injective / surjective / bijective ──────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Four small functions, one of each kind, drawn as arrow diagrams.
+cases = [
+    {"title": "Not injective, not surjective\n(f: arbitrary)",
+     "domain": [1, 2, 3, 4],
+     "codomain": ["a", "b", "c"],
+     "mapping": {1: "a", 2: "a", 3: "b", 4: "b"}},
+    {"title": "Injective only (one-to-one)\n(every input → distinct output, but 'a' missing)",
+     "domain": [1, 2, 3],
+     "codomain": ["a", "b", "c", "d"],
+     "mapping": {1: "b", 2: "c", 3: "d"}},
+    {"title": "Surjective only (onto)\n(every output reached, but '1' and '2' both → 'a')",
+     "domain": [1, 2, 3, 4],
+     "codomain": ["a", "b", "c"],
+     "mapping": {1: "a", 2: "a", 3: "b", 4: "c"}},
+    {"title": "Bijective (both injective AND surjective)\n→ has an inverse",
+     "domain": [1, 2, 3, 4],
+     "codomain": ["a", "b", "c", "d"],
+     "mapping": {1: "b", 2: "a", 3: "d", 4: "c"}},
+]
+
+fig, axes = plt.subplots(1, 4, figsize=(18, 5.5))
+
+for ax, case in zip(axes, cases):
+    dom = case["domain"]; cod = case["codomain"]; m = case["mapping"]
+    # Place domain dots on the left, codomain on the right.
+    for i, x in enumerate(dom):
+        y = (len(dom) - 1) / 2 - i
+        ax.scatter(0, y, color="tab:blue", s=400, zorder=5)
+        ax.text(0, y, str(x), ha="center", va="center", fontsize=12,
+                fontweight="bold", color="white")
+    for i, y_lab in enumerate(cod):
+        y = (len(cod) - 1) / 2 - i
+        ax.scatter(2, y, color="tab:orange", s=400, zorder=5)
+        ax.text(2, y, y_lab, ha="center", va="center", fontsize=12,
+                fontweight="bold", color="white")
+    # Draw arrows.
+    for x in dom:
+        y_in  = (len(dom) - 1) / 2 - dom.index(x)
+        y_out = (len(cod) - 1) / 2 - cod.index(m[x])
+        ax.annotate("", xy=(2, y_out), xytext=(0, y_in),
+                    arrowprops=dict(arrowstyle="->", color="black", lw=1.5))
+    ax.set_xlim(-0.5, 2.5); ax.set_ylim(-2.5, 2.5)
+    ax.axis("off")
+    ax.set_title(case["title"], fontsize=10)
+
+plt.tight_layout()
+plt.show()
+
+# Print the formal checks for each.
+print("Function classification cheat-sheet:")
+print(" - Injective  (one-to-one): different inputs → different outputs")
+print(" - Surjective (onto):       every codomain element is hit by some input")
+print(" - Bijective: both → the function has a well-defined inverse")
+print()
+for case in cases:
+    m = case["mapping"]; cod = set(case["codomain"])
+    inj = len(set(m.values())) == len(m)
+    sur = set(m.values()) == cod
+    print(f"  {case['title'].splitlines()[0]:<55}  inj={inj}  sur={sur}  bij={inj and sur}")
+```
+
+**Three terms with three real-world consequences:**
+
+- **Injective** (one-to-one): no two inputs share an output. **Hash
+  functions** *aspire* to be injective — collisions = security
+  vulnerabilities (think MD5).
+- **Surjective** (onto): every codomain element is produced by *some*
+  input. A surjection from "queries" → "rows of a table" means every
+  row could be retrieved by some query.
+- **Bijective** (both): a function has an inverse iff it is bijective.
+  **Encryption is bijective** — you have to be able to decrypt
+  everything you encrypt. AES is a bijection on 128-bit blocks; if it
+  weren't, ciphertext could not be recovered. **Lossless compression**
+  is also bijective by construction.
+
 ## Connection to CS / Games / AI
 
 - **Hash functions** — ideally injective (no collisions), but in practice collisions happen

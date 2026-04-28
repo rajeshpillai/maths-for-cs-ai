@@ -252,6 +252,98 @@ for n in range(2, 8):
     print(f"K_{n}: {comb(n, 2)} edges")
 ```
 
+## Visualisation — Drawing graphs (and their adjacency matrices)
+
+Graphs have *two* equally useful representations: a **picture** (dots
+and lines) and an **adjacency matrix**. Drawing both side by side
+makes algorithms like BFS, shortest-paths, and PageRank much easier
+to reason about.
+
+```python
+# ── Visualising graphs and adjacency matrices ───────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Three simple graphs that illustrate different structures.
+graphs = [
+    ("Path graph P₅", {0: [1], 1: [0, 2], 2: [1, 3], 3: [2, 4], 4: [3]}),
+    ("Cycle C₅",      {0: [1, 4], 1: [0, 2], 2: [1, 3], 3: [2, 4], 4: [3, 0]}),
+    ("Complete K₅",   {0: [1, 2, 3, 4], 1: [0, 2, 3, 4], 2: [0, 1, 3, 4],
+                       3: [0, 1, 2, 4], 4: [0, 1, 2, 3]}),
+]
+
+def graph_layout_circle(n):
+    """Place n nodes evenly around a circle for visual clarity."""
+    return {i: (np.cos(2 * np.pi * i / n + np.pi / 2),
+                np.sin(2 * np.pi * i / n + np.pi / 2)) for i in range(n)}
+
+fig, axes = plt.subplots(2, len(graphs), figsize=(15, 9))
+
+for col, (name, g) in enumerate(graphs):
+    n = len(g)
+    pos = graph_layout_circle(n)
+    A = np.zeros((n, n), dtype=int)
+    for u, neighbours in g.items():
+        for v in neighbours:
+            A[u, v] = 1
+
+    # Top row: drawn graph.
+    ax = axes[0, col]
+    seen = set()
+    for u, neighbours in g.items():
+        for v in neighbours:
+            if (v, u) not in seen:                   # avoid duplicate edges
+                ax.plot([pos[u][0], pos[v][0]], [pos[u][1], pos[v][1]],
+                        color="tab:grey", lw=2, zorder=1)
+                seen.add((u, v))
+    for v, p in pos.items():
+        ax.scatter(p[0], p[1], color="tab:blue", s=600, zorder=5)
+        ax.text(p[0], p[1], str(v), ha="center", va="center",
+                fontsize=14, fontweight="bold", color="white")
+    ax.set_xlim(-1.5, 1.5); ax.set_ylim(-1.5, 1.5); ax.set_aspect("equal")
+    ax.axis("off")
+    ax.set_title(f"{name}\n{n} nodes, {A.sum() // 2} edges")
+
+    # Bottom row: adjacency matrix.
+    ax = axes[1, col]
+    ax.imshow(A, cmap="Blues", vmin=0, vmax=1)
+    for i in range(n):
+        for j in range(n):
+            ax.text(j, i, str(A[i, j]), ha="center", va="center",
+                    color="white" if A[i, j] else "black", fontsize=11)
+    ax.set_xticks(range(n)); ax.set_yticks(range(n))
+    ax.set_xlabel("to"); ax.set_ylabel("from")
+    ax.set_title("Adjacency matrix\n(symmetric for undirected graphs)")
+
+plt.tight_layout()
+plt.show()
+
+# Print the adjacency-matrix powers — they count walks of length k.
+A_K5 = np.zeros((5, 5), dtype=int)
+for u, ns in graphs[2][1].items():
+    for v in ns:
+        A_K5[u, v] = 1
+print(f"For the complete graph K₅, count of walks of length k = (A^k)[i, j]:")
+print(f"  walks of length 1 from 0 to 1: {A_K5[0, 1]}")
+print(f"  walks of length 2 from 0 to 1: {(A_K5 @ A_K5)[0, 1]}")
+print(f"  walks of length 3 from 0 to 1: {(A_K5 @ A_K5 @ A_K5)[0, 1]}")
+```
+
+**Why both views are essential:**
+
+- **The picture** is what humans use to spot bridges, cycles, central
+  vertices, and disconnected components. Networking diagrams,
+  flowcharts, and dependency graphs are all instances of this view.
+- **The matrix** is what computers prefer: $A^k$ counts walks of
+  length $k$, BFS / Dijkstra / Floyd-Warshall iterate over rows,
+  PageRank computes the dominant eigenvector. **Spectral graph
+  theory** — community detection, graph neural networks — works
+  *exclusively* on the matrix.
+- **Sparse graphs need adjacency lists** (storing only the existing
+  edges) when the matrix would be 99%-zero. Most real-world graphs
+  (social networks, web graphs) are extremely sparse — that's why
+  Facebook's graph store and PageRank both use sparse representations.
+
 ## Connection to CS / Games / AI
 
 - **Social networks** — friend graphs, follower digraphs, community detection

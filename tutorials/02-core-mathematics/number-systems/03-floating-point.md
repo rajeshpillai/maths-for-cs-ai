@@ -178,6 +178,112 @@ epsilon = 1e-9
 print(f"abs(a - b) < epsilon? {abs(a - b) < epsilon}")
 ```
 
+## Visualisation — Floating-point precision and the gaps between numbers
+
+Two pictures explain everything: a layout of the IEEE 754 double-
+precision bit fields, and the *non-uniform spacing* between
+floating-point numbers (the spacing doubles every time the exponent
+increases by 1).
+
+```python
+# ── Visualising IEEE 754 floating-point ─────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+import struct
+
+fig, axes = plt.subplots(1, 2, figsize=(15, 5))
+
+# (1) Bit-field diagram for the value 6.5 in IEEE 754 double precision.
+# 1 sign bit · 11 exponent bits · 52 mantissa bits.
+ax = axes[0]
+val = 6.5
+bits = bin(struct.unpack(">Q", struct.pack(">d", val))[0])[2:].zfill(64)
+
+# Three coloured rectangles for the three sections of the bit string.
+sign_bits = bits[0]
+exp_bits  = bits[1:12]
+mant_bits = bits[12:]
+
+x = 0
+for label, b, color in [("sign\n(1 bit)", sign_bits, "tab:red"),
+                         ("exponent\n(11 bits)", exp_bits, "tab:orange"),
+                         ("mantissa\n(52 bits)", mant_bits, "tab:blue")]:
+    width = len(b) * 0.18 + 0.4
+    ax.add_patch(plt.Rectangle((x, 0), width, 1.0, color=color, alpha=0.45,
+                                edgecolor="black", lw=2))
+    # Bit values inside.
+    for i, bit in enumerate(b):
+        ax.text(x + 0.2 + i * 0.18, 0.5, bit, ha="center", va="center",
+                fontsize=9 if len(b) > 12 else 11, family="monospace")
+    ax.text(x + width / 2, 1.2, label, ha="center", fontsize=11, fontweight="bold")
+    x += width + 0.3
+
+ax.set_xlim(-0.5, x); ax.set_ylim(-1.5, 2)
+ax.axis("off")
+ax.set_title(f"IEEE 754 double for the value {val}\nsign·(1 + mantissa)·2^(exp − 1023)")
+
+# Decode and label.
+sign = -1 if sign_bits == "1" else 1
+exp_val = int(exp_bits, 2) - 1023
+mant_val = 1.0 + sum(int(b) / 2**(i+1) for i, b in enumerate(mant_bits))
+ax.text(0, -0.6,
+        f"sign  = {sign}    "
+        f"exp = {int(exp_bits, 2)} − 1023 = {exp_val}    "
+        f"mantissa = {mant_val:.6f}    "
+        f"→ {sign} × {mant_val:.6f} × 2^{exp_val} = {sign * mant_val * 2**exp_val}",
+        fontsize=10)
+
+# (2) Gaps between floats. Spacing is uniform within an exponent
+# block, doubling each time the exponent increases.
+ax = axes[1]
+# For each value v, the next representable double is v + ulp(v).
+def ulp(x):
+    nx = np.nextafter(x, np.inf)
+    return nx - x
+xs = np.logspace(-3, 6, 400)
+gaps = np.array([ulp(x) for x in xs])
+ax.loglog(xs, gaps, color="tab:blue", lw=2)
+# Mark a few specific x's.
+for x_mark in [0.1, 1, 1024, 1e6]:
+    ax.scatter([x_mark], [ulp(x_mark)], color="tab:red", s=80, zorder=5)
+    ax.text(x_mark, ulp(x_mark) * 2, f"x = {x_mark}\nulp = {ulp(x_mark):.2e}",
+            ha="center", fontsize=8)
+ax.set_xlabel("magnitude of x (log)")
+ax.set_ylabel("gap to next double  (log)")
+ax.set_title("Float spacing doubles with each exponent — \n"
+             "absolute precision DROPS as numbers grow")
+ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# The classic example: why 0.1 + 0.2 ≠ 0.3
+print(f"  0.1                    = {0.1:.20f}")
+print(f"  0.2                    = {0.2:.20f}")
+print(f"  0.1 + 0.2              = {0.1 + 0.2:.20f}")
+print(f"  0.3                    = {0.3:.20f}")
+print(f"  difference (0.1+0.2 − 0.3) = {0.1 + 0.2 - 0.3:.2e}")
+print()
+print("Neither 0.1, 0.2, nor 0.3 is representable exactly in binary.")
+print("Their closest IEEE 754 doubles round at the 17th decimal place.")
+print("Adding the rounded 0.1 and 0.2 lands one ULP away from the rounded 0.3.")
+```
+
+**The two facts every numerical-code engineer learns the hard way:**
+
+- **Precision is *relative*, not absolute.** A double has ~15–17
+  decimal digits of *relative* precision. The absolute gap between
+  representable values doubles every power of 2 — at $x \approx 10^9$
+  the gap is already $\sim 2 \cdot 10^{-7}$. This is why physics
+  engines that track positions in millions of metres get *jitter*
+  near the origin and *catastrophe* at the level boundary; AAA games
+  re-centre coordinates on the player every few minutes.
+- **`==` on floats is almost always wrong.** Use $|a - b| <
+  \varepsilon$ with $\varepsilon$ chosen for the magnitudes
+  involved. Better: `math.isclose(a, b)`. ML code does this
+  constantly when checking gradients; the sweet $\varepsilon \approx
+  10^{-7}$ for relative comparisons in float32, $10^{-15}$ in float64.
+
 ## Connection to CS / Games / AI
 
 - **Neural network weights** — stored as 32-bit or 16-bit floats; precision limits affect training stability

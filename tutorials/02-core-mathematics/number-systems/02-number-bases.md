@@ -170,6 +170,96 @@ while n > 0:
 print(f"Remainders (reversed): {''.join(reversed(remainders))}")
 ```
 
+## Visualisation — Numbers in different bases
+
+The same integer looks completely different in different bases. The
+plot shows numbers 0–31 in binary, decimal, and hex side by side, and
+illustrates the *positional value* idea (each digit weighted by a
+power of the base).
+
+```python
+# ── Visualising number bases ────────────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(15, 5.5))
+
+# (1) A grid showing 0..31 written in three bases.
+ax = axes[0]
+ax.axis("off")
+N = 32
+header = ["dec", "binary", "hex", "octal"]
+ax.text(0.05, 1.0, header[0], fontsize=12, fontweight="bold", transform=ax.transAxes)
+ax.text(0.20, 1.0, header[1], fontsize=12, fontweight="bold", transform=ax.transAxes)
+ax.text(0.55, 1.0, header[2], fontsize=12, fontweight="bold", transform=ax.transAxes)
+ax.text(0.75, 1.0, header[3], fontsize=12, fontweight="bold", transform=ax.transAxes)
+
+for i, n in enumerate(range(N)):
+    y = 0.96 - 0.029 * i
+    ax.text(0.05, y, f"{n:>2}",      fontsize=10, transform=ax.transAxes,
+            family="monospace")
+    ax.text(0.20, y, f"{n:>5b}",     fontsize=10, transform=ax.transAxes,
+            family="monospace", color="tab:blue")
+    ax.text(0.55, y, f"0x{n:02X}",   fontsize=10, transform=ax.transAxes,
+            family="monospace", color="tab:orange")
+    ax.text(0.75, y, f"0o{n:02o}",   fontsize=10, transform=ax.transAxes,
+            family="monospace", color="tab:green")
+ax.set_title("Same numbers, different bases")
+
+# (2) Place-value picture for the number 173.
+# In base 10: 173 = 1·10² + 7·10¹ + 3·10⁰
+# In base 2 (10101101): 1·128 + 0·64 + 1·32 + 0·16 + 1·8 + 1·4 + 0·2 + 1·1 = 173
+ax = axes[1]
+n = 173
+binary = list(map(int, format(n, "08b")))
+weights = [2 ** k for k in range(7, -1, -1)]
+positions = list(range(8))
+ax.bar(positions, [w if b else 0 for w, b in zip(weights, binary)],
+       color=["tab:blue" if b else "lightgrey" for b in binary],
+       edgecolor="navy")
+for x, (w, b) in enumerate(zip(weights, binary)):
+    ax.text(x, w if b else 1, f"{b}", ha="center", va="bottom",
+            fontsize=14, fontweight="bold",
+            color="tab:red" if b else "grey")
+    ax.text(x, -10, f"$2^{{{7-x}}}$\n={w}", ha="center", va="top", fontsize=9)
+ax.set_xticks([])
+ax.set_ylabel("place value (power of 2)")
+total = sum(b * w for b, w in zip(binary, weights))
+ax.set_title(f"173 in binary: {format(n, '08b')}\n"
+             f"= 1·128 + 0·64 + 1·32 + 0·16 + 1·8 + 1·4 + 0·2 + 1·1 = {total}")
+ax.set_ylim(-30, 150)
+
+plt.tight_layout()
+plt.show()
+
+# Print the size scaling: how many digits do you need in each base?
+print("Number of digits to represent 2^k in different bases:")
+print(f"{'k':>3}  {'value':>15}  {'binary':>10}  {'decimal':>10}  {'hex':>6}")
+for k in [4, 8, 16, 32, 64]:
+    val = 2 ** k
+    print(f"  {k:>3}  {val:>15,}  {len(bin(val)) - 2:>10}  "
+          f"{len(str(val)):>10}  {len(hex(val)) - 2:>6}")
+```
+
+**Why CS lives in binary, hex, and octal — but rarely decimal:**
+
+- **Binary** is what every transistor stores: a bit is 0 or 1. All
+  arithmetic in your CPU happens in binary. Bitwise operators
+  (`&`, `|`, `^`, `<<`, `>>`) work directly on the binary
+  representation.
+- **Hex is binary, regrouped 4 bits at a time.** Each hex digit
+  ($\textsf{0}$–$\textsf{F}$) maps to exactly 4 bits — that's why
+  memory addresses (`0xDEADBEEF`), colours (`#FF6347`), and Ethernet
+  MAC addresses (`a1:b2:c3:d4:e5:f6`) are written in hex. Compact and
+  exact.
+- **Octal** groups 3 bits and was huge in 1970s minicomputers; today
+  it survives mainly in **Unix file-permission codes** (`chmod 755`
+  = `rwxr-xr-x`). Still a useful trick.
+- **Base-1024 / base-1000 confusion.** "1 KB" in storage is sometimes
+  $1000$ bytes, sometimes $1024$. The IEC introduced **KiB / MiB / GiB**
+  for powers-of-2 units to disambiguate. If you see "GB" in a hard
+  drive ad it's base-10; in OS memory readouts it's base-2.
+
 ## Connection to CS / Games / AI
 
 - **Binary** — how every number is stored in memory; bitwise operations in C/Python

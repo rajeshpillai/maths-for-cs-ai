@@ -214,6 +214,108 @@ print(f"(U\\A) ∩ (U\\B) = {comp_A_inter_comp_B}")
 print(f"Equal? {comp_union == comp_A_inter_comp_B}")
 ```
 
+## Visualisation — Venn diagrams for the four set operations
+
+Set operations are easiest *seen*. Three overlapping circles show
+union, intersection, difference, complement, and symmetric difference
+all at once.
+
+```python
+# ── Visualising set operations as Venn diagrams ─────────────
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Rectangle
+
+A = {1, 2, 3, 4, 5}
+B = {4, 5, 6, 7, 8}
+U = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}        # universe
+
+operations = [
+    ("A ∪ B (union)",                  A | B,             "tab:blue"),
+    ("A ∩ B (intersection)",           A & B,             "tab:orange"),
+    ("A − B (difference)",             A - B,             "tab:green"),
+    ("A △ B (symmetric difference)",   A ^ B,             "tab:red"),
+]
+
+fig, axes = plt.subplots(2, 2, figsize=(11, 9))
+
+for ax, (label, result, color) in zip(axes.flatten(), operations):
+    # Universe rectangle.
+    ax.add_patch(Rectangle((-3, -2.2), 6, 4.4, fill=False, edgecolor="black", lw=1.2))
+    ax.text(-2.85, 2.0, "U", fontsize=11, color="black")
+
+    # Two overlapping circles for A and B.
+    ax.add_patch(Circle((-0.7, 0), 1.5, alpha=0.25, color="tab:blue"))
+    ax.add_patch(Circle(( 0.7, 0), 1.5, alpha=0.25, color="tab:orange"))
+
+    # Highlight the result region in colour. We do this by drawing
+    # solid-filled circles/regions that match the operation:
+    if "union" in label:
+        ax.add_patch(Circle((-0.7, 0), 1.5, alpha=0.55, color=color))
+        ax.add_patch(Circle(( 0.7, 0), 1.5, alpha=0.55, color=color))
+    elif "intersection" in label:
+        # The lens-shaped intersection.
+        ts = np.linspace(0, 2 * np.pi, 200)
+        xs = 0.7 + 1.5 * np.cos(ts); ys = 1.5 * np.sin(ts)
+        # Approximate by clipping with both circle masks via fill.
+        # Easier: fill the intersection by rasterised mask.
+        grid_x, grid_y = np.meshgrid(np.linspace(-3, 3, 300),
+                                      np.linspace(-2.2, 2.2, 220))
+        in_A = (grid_x + 0.7) ** 2 + grid_y ** 2 <= 1.5 ** 2
+        in_B = (grid_x - 0.7) ** 2 + grid_y ** 2 <= 1.5 ** 2
+        mask = in_A & in_B
+        ax.contourf(grid_x, grid_y, mask, levels=[0.5, 1.5],
+                    colors=[color], alpha=0.55)
+    elif "− B" in label:
+        # A but not B.
+        grid_x, grid_y = np.meshgrid(np.linspace(-3, 3, 300),
+                                      np.linspace(-2.2, 2.2, 220))
+        in_A = (grid_x + 0.7) ** 2 + grid_y ** 2 <= 1.5 ** 2
+        in_B = (grid_x - 0.7) ** 2 + grid_y ** 2 <= 1.5 ** 2
+        mask = in_A & ~in_B
+        ax.contourf(grid_x, grid_y, mask, levels=[0.5, 1.5],
+                    colors=[color], alpha=0.55)
+    elif "symmetric" in label:
+        grid_x, grid_y = np.meshgrid(np.linspace(-3, 3, 300),
+                                      np.linspace(-2.2, 2.2, 220))
+        in_A = (grid_x + 0.7) ** 2 + grid_y ** 2 <= 1.5 ** 2
+        in_B = (grid_x - 0.7) ** 2 + grid_y ** 2 <= 1.5 ** 2
+        mask = in_A ^ in_B
+        ax.contourf(grid_x, grid_y, mask, levels=[0.5, 1.5],
+                    colors=[color], alpha=0.55)
+
+    # Outline the circles on top so the boundaries are visible.
+    ax.add_patch(Circle((-0.7, 0), 1.5, fill=False, edgecolor="navy",   lw=1.5))
+    ax.add_patch(Circle(( 0.7, 0), 1.5, fill=False, edgecolor="darkorange", lw=1.5))
+    ax.text(-1.9, 1.1, "A", color="navy",       fontsize=14, fontweight="bold")
+    ax.text( 1.7, 1.1, "B", color="darkorange", fontsize=14, fontweight="bold")
+    ax.set_xlim(-3, 3); ax.set_ylim(-2.2, 2.2); ax.set_aspect("equal")
+    ax.axis("off")
+    ax.set_title(f"{label}\nresult = {sorted(result)}")
+
+plt.tight_layout()
+plt.show()
+
+# Also confirm De Morgan's law numerically.
+not_union   = U - (A | B)
+not_int_dem = (U - A) & (U - B)
+print(f"De Morgan: U \\ (A ∪ B) = {sorted(not_union)}")
+print(f"           (U\\A) ∩ (U\\B) = {sorted(not_int_dem)}")
+print(f"           Equal? {not_union == not_int_dem}  ✓")
+```
+
+**Two ideas every CS student needs to internalise:**
+
+- **Set operations are operations on regions.** Every union,
+  intersection, difference, and complement is just colouring in part
+  of a Venn diagram. Once you can see them as shapes, the algebraic
+  identities (associativity, distributivity, De Morgan's laws) become
+  *obvious*.
+- **Sets power most data manipulation.** Python's `set`, SQL's
+  `UNION`/`INTERSECT`/`EXCEPT`, the join operations in pandas/Spark/
+  Polars, and the type-theory operations in TypeScript and Rust are
+  all set algebra in disguise.
+
 ## Connection to CS / Games / AI
 
 - **Python `set`** — built-in set type with `|`, `&`, `-`, `^` operators

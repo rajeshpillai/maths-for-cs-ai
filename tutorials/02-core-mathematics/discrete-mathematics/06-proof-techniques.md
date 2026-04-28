@@ -201,6 +201,103 @@ print("\n=== Counterexample: 'All primes are odd' ===")
 print(f"2 is prime: True, 2 is odd: {2 % 2 != 0} → Claim disproved!")
 ```
 
+## Visualisation — Induction as a row of dominos
+
+The clearest mental picture of induction: a row of dominos, each one
+ready to fall on the next. The base case knocks down the first
+domino; the inductive step says "if domino $n$ falls, domino $n+1$
+will fall too." Together → all of them fall. Below we use the same
+picture to *visually verify* the canonical $1 + 2 + \cdots + n =
+n(n+1)/2$ identity.
+
+```python
+# ── Visualising induction and proof techniques ──────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5.2))
+
+# (1) The dominos picture: each "domino" represents proposition P(n).
+# The base case fells the leftmost; the inductive step is the chain
+# of arrows.
+ax = axes[0]
+positions = list(range(1, 9))
+for n in positions:
+    ax.add_patch(plt.Rectangle((n - 0.2, 0), 0.4, 1.5,
+                               color="tab:blue", alpha=0.7,
+                               edgecolor="navy", lw=2))
+    ax.text(n, 0.75, f"P({n})", ha="center", va="center",
+            color="white", fontsize=11, fontweight="bold")
+# Mark the base case.
+ax.scatter([1], [-0.3], color="tab:red", marker="*", s=300, zorder=5)
+ax.text(1, -0.75, "base case\nP(1) holds", color="tab:red",
+        ha="center", fontsize=10)
+# Inductive arrows P(n) → P(n+1).
+for n in positions[:-1]:
+    ax.annotate("", xy=(n + 1 - 0.25, 1.7), xytext=(n + 0.25, 1.7),
+                arrowprops=dict(arrowstyle="->", color="tab:green", lw=2))
+ax.text(4.5, 2.2, "inductive step:  P(n) ⇒ P(n+1)",
+        color="tab:green", fontsize=11, ha="center", fontweight="bold")
+ax.set_xlim(0, 9); ax.set_ylim(-1.2, 2.7)
+ax.axis("off")
+ax.set_title("Induction = a row of dominos\nbase case + inductive step → all fall")
+
+# (2) Visual verification of 1 + 2 + ... + n = n(n+1)/2.
+# Stack rows of squares to form a triangle of total area = sum.
+# Two such triangles fit together into an n × (n+1) rectangle.
+ax = axes[1]
+n = 6
+# Triangle of squares (the sum 1 + 2 + ... + n).
+for row in range(n):
+    for col in range(row + 1):
+        ax.add_patch(plt.Rectangle((col, row), 1, 1,
+                                   color="tab:blue", alpha=0.55,
+                                   edgecolor="navy"))
+# Mirror triangle (rotated 180°) to make a rectangle.
+for row in range(n):
+    for col in range(n - row):
+        ax.add_patch(plt.Rectangle((col + row + 1, row), 1, 1,
+                                   color="tab:orange", alpha=0.55,
+                                   edgecolor="darkorange"))
+total = n * (n + 1) // 2
+ax.text(n / 2 - 0.5, n + 1.2,
+        f"sum = 1 + 2 + … + {n} = {total}\n"
+        f"two copies form a {n} × {n+1} rectangle\n"
+        f"⇒  n(n+1)/2 = {n * (n + 1) // 2}",
+        ha="center", fontsize=10)
+ax.set_xlim(-0.5, n + 1.5); ax.set_ylim(-0.5, n + 3); ax.set_aspect("equal")
+ax.axis("off")
+ax.set_title(f"Geometric proof of $1 + 2 + \\cdots + n = n(n+1)/2$")
+
+plt.tight_layout()
+plt.show()
+
+# Numerically confirm the identity for many n.
+print(f"Sum 1 + 2 + … + n = n(n+1)/2  — verified up to n = 100:")
+for n in [1, 5, 10, 50, 100]:
+    direct  = sum(range(1, n + 1))
+    formula = n * (n + 1) // 2
+    print(f"  n = {n:>3}:  direct sum = {direct:>5}    formula = {formula:>5}    "
+          f"{'✓' if direct == formula else '✗'}")
+```
+
+**Three big proof patterns in one place:**
+
+- **Induction** = the domino chain. Used for *every* loop-invariant
+  proof in algorithms, Peano-axiom-style theorems, and any statement
+  with a natural-number parameter. **Strong induction** lets the
+  inductive step assume *all* smaller cases at once — useful for
+  recursion-tree analyses (mergesort, divide-and-conquer).
+- **Geometric proof** = "show by a picture". The right panel is a
+  classic: two staircase triangles fit into an $n \times (n+1)$
+  rectangle. Sometimes the picture *is* the proof — Bhāskara's
+  Pythagorean theorem, the area-of-a-circle dissection, every
+  visual-without-words you've seen on r/maths.
+- **Counterexamples** disprove. To kill "all primes are odd", produce
+  $2$ — done, no induction needed. **Fuzz-testing in software is the
+  industrial version**: generate random inputs to find a single case
+  where the program does the wrong thing.
+
 ## Connection to CS / Games / AI
 
 - **Loop invariants** — proving a loop works correctly is essentially induction (base case = before loop; inductive step = one iteration preserves the invariant)

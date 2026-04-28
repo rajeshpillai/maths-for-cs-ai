@@ -230,6 +230,87 @@ for r, c in counts.items():
         print(f"Remainder {r} appears {c} times — pigeonhole confirmed!")
 ```
 
+## Visualisation — Pascal's triangle and combinatorial growth
+
+Two of the most important pictures in combinatorics: **Pascal's
+triangle** (every binomial coefficient $\binom{n}{k}$ in one
+geometric arrangement), and a comparison of how *fast* permutations
+and combinations grow as $n$ increases — the foundation of the
+$O(n!)$, $O(2^n)$ complexity classes you meet in algorithms.
+
+```python
+# ── Visualising Pascal's triangle and combinatorial growth ──
+import numpy as np
+import matplotlib.pyplot as plt
+from math import comb, factorial
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5.5))
+
+# (1) Pascal's triangle as a colour-coded heatmap. Each entry is C(n, k);
+# the diagonals are 1's; the centre row holds the largest values.
+ax = axes[0]
+N = 12
+triangle = np.zeros((N, N))
+for n in range(N):
+    for k in range(n + 1):
+        triangle[n, k] = comb(n, k)
+# Plot on log scale to keep large values visible against small ones.
+ax.imshow(np.log10(triangle + 1), cmap="viridis", aspect="auto")
+for n in range(N):
+    for k in range(n + 1):
+        ax.text(k, n, f"{int(triangle[n, k])}", ha="center", va="center",
+                fontsize=8 if triangle[n, k] < 100 else 7,
+                color="white" if triangle[n, k] > 100 else "black")
+ax.set_xlabel("k (chosen)"); ax.set_ylabel("n (total)")
+ax.set_title("Pascal's triangle: C(n, k)\nrow sum = 2ⁿ (number of subsets of n elements)")
+ax.set_xticks(range(N))
+
+# (2) Growth comparison: n!, 2ⁿ, n², n.
+# Permutations grow faster than 2ⁿ which grows faster than polynomial.
+ax = axes[1]
+ns = np.arange(1, 21)
+ax.semilogy(ns, [factorial(n)         for n in ns], "o-", color="tab:red",
+            lw=2, label="n!  (permutations)")
+ax.semilogy(ns, 2.0 ** ns,                     "s-", color="tab:orange",
+            lw=2, label="2ⁿ  (subsets / Boolean strings)")
+ax.semilogy(ns, ns ** 2,                       "^-", color="tab:green",
+            lw=2, label="n²  (pairs)")
+ax.semilogy(ns, ns,                            "v-", color="tab:blue",
+            lw=2, label="n  (linear)")
+ax.set_xlabel("n"); ax.set_ylabel("count (log scale)")
+ax.set_title("Combinatorial blow-up:\nfactorial >> exponential >> polynomial")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print a comparison table.
+print("How quickly counts blow up:")
+print(f"{'n':>4}  {'n':>10}  {'n²':>12}  {'2ⁿ':>16}  {'n!':>22}")
+for n in [5, 10, 15, 20, 30]:
+    print(f"  {n:>2}  {n:>10,}  {n*n:>12,}  {2**n:>16,}  {factorial(n):>22,}")
+```
+
+**Three combinatorial ideas everyone in CS uses:**
+
+- **Pascal's triangle = $\binom{n}{k}$.** It encodes the binomial
+  expansion $(a + b)^n$, the number of $k$-element subsets of an
+  $n$-element set, and one row of the **binomial distribution**.
+  Every diagonal is a recognisable sequence (1's, naturals, triangular
+  numbers, tetrahedral numbers…). Adding adjacent entries gives the
+  next row — that's the recurrence $\binom{n+1}{k} = \binom{n}{k} +
+  \binom{n}{k-1}$.
+- **The growth rates matter for algorithms.** $n^2 \ll 2^n \ll n!$.
+  Brute-force searching all subsets is $2^n$ (intractable past
+  $n \approx 30$). Permutation searches are $n!$ (intractable past
+  $n \approx 12$). This is why TSP, SAT, and other NP-hard problems
+  need cleverer-than-brute-force methods.
+- **Counting = security.** Password strength is a combinatorial
+  argument: $95^8 \approx 6.6 \cdot 10^{15}$ passwords are *not* enough
+  in 2025 (a GPU can try them in days). $95^{16}$ is. Modern
+  cryptographic key spaces ($2^{128}$) put a brute-force search past
+  the heat death of the universe.
+
 ## Connection to CS / Games / AI
 
 - **Password strength** — $26^8$ (lowercase only) vs $95^8$ (all printable ASCII): combinatorics measures security

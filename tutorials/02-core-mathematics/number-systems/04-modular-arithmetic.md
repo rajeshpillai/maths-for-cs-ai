@@ -181,6 +181,104 @@ add = 5
 print(f"{hour} o'clock + {add} hours = {(hour + add) % 12} o'clock")
 ```
 
+## Visualisation — The clock face of modular arithmetic
+
+Modular arithmetic IS clock arithmetic. The plot draws the integers
+mod 12 around a 12-hour clock and visualises addition as "rotate
+forward". Then a parallel diagram does the same for $\mathbb{Z}/7$
+(prime modulus, where multiplicative inverses always exist).
+
+```python
+# ── Visualising modular arithmetic on a clock ───────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(13, 6))
+
+def draw_modular_clock(ax, m, title, additions=None, mults=None):
+    """Draw a clock face for Z/m, showing add or mult demos."""
+    # Place numbers 0..m-1 evenly around a circle.
+    angles = np.linspace(0, 2 * np.pi, m, endpoint=False) + np.pi / 2
+    for k in range(m):
+        x, y = np.cos(angles[k]), np.sin(angles[k])
+        ax.scatter(x, y, color="tab:blue", s=400, zorder=5)
+        ax.text(x, y, str(k), ha="center", va="center",
+                fontsize=12, fontweight="bold", color="white")
+    # Outer circle for context.
+    theta = np.linspace(0, 2 * np.pi, 200)
+    ax.plot(np.cos(theta), np.sin(theta), color="grey", lw=0.6, alpha=0.5)
+    # Addition arrows.
+    if additions:
+        for a, k, color in additions:
+            x0, y0 = np.cos(angles[a]), np.sin(angles[a])
+            x1, y1 = np.cos(angles[(a + k) % m]), np.sin(angles[(a + k) % m])
+            ax.annotate("", xy=(x1 * 0.85, y1 * 0.85),
+                        xytext=(x0 * 0.85, y0 * 0.85),
+                        arrowprops=dict(arrowstyle="->", color=color, lw=2))
+            ax.text((x0 + x1)/2 * 0.6, (y0 + y1)/2 * 0.6,
+                    f"{a} + {k} ≡ {(a + k) % m}", color=color, fontsize=9,
+                    ha="center")
+    ax.set_xlim(-1.6, 1.6); ax.set_ylim(-1.6, 1.6); ax.set_aspect("equal")
+    ax.axis("off")
+    ax.set_title(title)
+
+# Z/12 with two example additions.
+draw_modular_clock(axes[0], 12,
+                   "Z/12 — add 5 to several positions\n('clock arithmetic')",
+                   additions=[(10, 5, "tab:red"),
+                              ( 7, 8, "tab:green"),
+                              ( 0, 3, "tab:purple")])
+
+# Z/7 (a prime) — show how repeated +3 cycles through all elements.
+# This is what makes Z/p a *cyclic group of prime order*.
+hops = []
+cur = 0
+for _ in range(7):
+    nxt = (cur + 3) % 7
+    hops.append((cur, 3, plt.cm.viridis(cur / 6)))
+    cur = nxt
+draw_modular_clock(axes[1], 7,
+                   "Z/7 (prime) — repeated +3 hits every element\n"
+                   "(generator: 3 generates all of Z/7)",
+                   additions=hops)
+
+plt.tight_layout()
+plt.show()
+
+# Print a few useful facts numerically.
+print("Modular arithmetic essentials:")
+print(f"  17 mod 5  = {17 % 5}    (remainder when 17 divided by 5)")
+print(f"  (8 + 7) mod 5 = {(8 + 7) % 5}    (add then reduce)")
+print(f"  (8 * 7) mod 5 = {(8 * 7) % 5}    (multiply then reduce)")
+print()
+# Multiplicative inverse of 3 mod 7: by Fermat, 3^(p-2) mod p.
+print(f"  Multiplicative inverse of 3 mod 7  →  3 · ? ≡ 1 (mod 7)")
+print(f"     by Fermat's Little Theorem:     3^(7-2) mod 7 = {pow(3, 5, 7)}")
+print(f"     verify: 3 · 5 mod 7 = {(3 * 5) % 7}  ✓")
+print()
+# Powers of 2 mod 7 cycle with period 3 — exactly the order of 2 in Z/7*.
+powers_2 = [pow(2, k, 7) for k in range(8)]
+print(f"  Powers of 2 mod 7: {powers_2}  (cycles with period 3)")
+print(f"  Powers of 3 mod 7: {[pow(3, k, 7) for k in range(8)]}  "
+      f"(cycles with period 6 — 3 is a primitive root!)")
+```
+
+**The clock-face picture answers a lot of questions:**
+
+- **Modular arithmetic = arithmetic that wraps around.** $13 \bmod 12 =
+  1$ — same reason 13 o'clock is 1 PM. The clock face is the literal
+  picture: addition is rotation.
+- **Inverses exist iff $\gcd(a, m) = 1$.** When $m$ is prime, every
+  non-zero element has a multiplicative inverse — that's why
+  $\mathbb{Z}/p$ is a *field* and **RSA cryptography** can do its
+  exponentiation tricks. Fermat's Little Theorem gives the inverse
+  directly: $a^{-1} \equiv a^{p-2} \pmod p$.
+- **Periodic structure powers cryptography and hashing.** Hash tables
+  use `key % table_size` to find a bucket. Diffie-Hellman key
+  exchange relies on the difficulty of computing discrete logarithms
+  in $\mathbb{Z}/p^\times$. Pseudorandom generators (LCGs) iterate
+  modular-multiplications.
+
 ## Connection to CS / Games / AI
 
 - **Cryptography** — RSA encryption is entirely modular exponentiation with huge primes
