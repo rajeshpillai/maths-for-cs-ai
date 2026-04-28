@@ -6,27 +6,71 @@ import katex from "katex";
 
 hljs.registerLanguage("python", python);
 
-// Render LaTeX blocks: $$...$$ and inline $...$
-function renderLatex(md: string): string {
-  // Block math: $$...$$
+// LaTeX rendering happens in two phases so KaTeX's HTML output
+// (which contains '|', commas, and SVG path data) doesn't get re-parsed
+// as markdown — most notably, '|' inside <svg> would otherwise be treated
+// as a table cell separator and explode tables.
+//
+// Phase 1 (extractLatex): scan the raw markdown for $$...$$ and $...$,
+//   render each match with KaTeX, store the HTML in a list, and replace
+//   the source span with a placeholder element that marked will pass
+//   through unmodified (inline HTML is allowed in markdown).
+// Phase 2 (restoreLatex): after marked has produced HTML, swap each
+//   placeholder back for the real KaTeX HTML.
+
+interface LatexExtraction {
+  md: string;
+  rendered: string[];
+}
+
+function extractLatex(md: string): LatexExtraction {
+  const rendered: string[] = [];
+
+  function placeholder(html: string, block: boolean): string {
+    const id = rendered.length;
+    rendered.push(html);
+    return block
+      ? `<div data-katex-block="${id}"></div>`
+      : `<span data-katex-inline="${id}"></span>`;
+  }
+
+  // Block math: $$...$$ — render in display mode.
   md = md.replace(/\$\$([\s\S]+?)\$\$/g, (_, tex) => {
     try {
-      return katex.renderToString(tex.trim(), { displayMode: true });
+      return placeholder(
+        katex.renderToString(tex.trim(), { displayMode: true }),
+        true,
+      );
     } catch {
       return `<pre class="katex-error">${tex}</pre>`;
     }
   });
 
-  // Inline math: $...$ (but not $$)
-  md = md.replace(/(?<!\$)\$(?!\$)(.+?)(?<!\$)\$(?!\$)/g, (_, tex) => {
+  // Inline math: $...$ (but not $$, and not across newlines).
+  md = md.replace(/(?<!\$)\$(?!\$)([^\n$]+?)(?<!\$)\$(?!\$)/g, (_, tex) => {
     try {
-      return katex.renderToString(tex.trim(), { displayMode: false });
+      return placeholder(
+        katex.renderToString(tex.trim(), { displayMode: false }),
+        false,
+      );
     } catch {
       return `<code class="katex-error">${tex}</code>`;
     }
   });
 
-  return md;
+  return { md, rendered };
+}
+
+function restoreLatex(html: string, rendered: string[]): string {
+  return html
+    .replace(
+      /<div data-katex-block="(\d+)"><\/div>/g,
+      (_, id) => rendered[Number(id)] ?? "",
+    )
+    .replace(
+      /<span data-katex-inline="(\d+)"><\/span>/g,
+      (_, id) => rendered[Number(id)] ?? "",
+    );
 }
 
 const marked = new Marked(
@@ -81,6 +125,7 @@ function linkPrerequisites(md: string): string {
 
 export function renderMarkdown(raw: string): string {
   const withLinks = linkPrerequisites(raw);
-  const withLatex = renderLatex(withLinks);
-  return marked.parse(withLatex) as string;
+  const { md, rendered } = extractLatex(withLinks);
+  const html = marked.parse(md) as string;
+  return restoreLatex(html, rendered);
 }
