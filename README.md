@@ -22,7 +22,7 @@ maths-for-cs/
 ## Quick Start (Static — no backend needed)
 
 ```bash
-cd frontend>
+cd frontend
 npm install
 npm run build    # generates static JSON + builds app
 npm run preview  # preview at http://localhost:4173
@@ -58,8 +58,40 @@ npm run build    # outputs to dist/
 Deploy `dist/` to:
 - **Netlify**: drag-and-drop or connect repo (SPA redirects via `_redirects`)
 - **Vercel**: `npx vercel --prod`
-- **GitHub Pages**: push `dist/` to `gh-pages` branch
 - **Cloudflare Pages**: connect repo, build command `cd frontend && npm run build`
+- **GitHub Pages**: see below — there's a one-command helper that handles
+  the subpath base, SPA fallback, and `.nojekyll`.
+
+### GitHub Pages (one-command deploy)
+
+```bash
+cd frontend
+npm run deploy   # runs ../scripts/deploy-gh-pages.sh
+```
+
+Under the hood this:
+
+1. Runs `GITHUB_PAGES=true npm run build`, which switches Vite's `base` to
+   `/maths-for-cs-ai/` so every asset and every `/api/...` URL resolves
+   correctly under the GitHub Pages subpath.
+2. Copies `dist/index.html` → `dist/404.html` so client-side routing works
+   for direct visits to lesson URLs (GitHub Pages serves `404.html` for any
+   unmatched path, and the SPA then takes over).
+3. Adds `dist/.nojekyll` so GitHub doesn't run Jekyll on the output.
+4. Force-pushes `dist/` to the `gh-pages` branch of the configured remote.
+
+**First-time setup (once per repo):**
+
+1. Push your repo to GitHub. The script's remote is hard-coded to
+   `https://github.com/rajeshpillai/maths-for-cs-ai.git` — edit
+   [scripts/deploy-gh-pages.sh](scripts/deploy-gh-pages.sh) if your repo lives elsewhere.
+2. Run `npm run deploy` once to create the `gh-pages` branch.
+3. In GitHub: **Settings → Pages**, set **Source: Deploy from a branch →
+   `gh-pages` → `/ (root)`**.
+4. The site appears at `https://<user>.github.io/<repo>/` (live demo:
+   <https://rajeshpillai.github.io/maths-for-cs-ai/>).
+
+After the first deploy, every subsequent push is just `npm run deploy`.
 
 ## Tech Stack
 
