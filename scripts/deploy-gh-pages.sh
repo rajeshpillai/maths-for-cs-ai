@@ -1,11 +1,21 @@
 #!/bin/bash
 # Deploy to GitHub Pages
 # Usage: ./scripts/deploy-gh-pages.sh
+#
+# The push URL is inherited from the parent repo's `origin` remote so
+# whichever auth (SSH or HTTPS credential helper) you already have set
+# up for normal pushes is reused. Override by exporting DEPLOY_REPO.
 
 set -e
 
-REPO="https://github.com/rajeshpillai/maths-for-cs-ai.git"
+REPO="${DEPLOY_REPO:-$(git remote get-url origin)}"
 DIST_DIR="frontend/dist"
+
+if [ -z "$REPO" ]; then
+  echo "error: could not determine push URL — set DEPLOY_REPO or add an 'origin' remote." >&2
+  exit 1
+fi
+echo "Pushing to: $REPO"
 
 echo "=== Building static site for GitHub Pages ==="
 cd frontend
