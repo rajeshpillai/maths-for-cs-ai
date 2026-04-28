@@ -1,4 +1,4 @@
-import { createSignal, Show } from "solid-js";
+import { createSignal, For, Show } from "solid-js";
 import { runPython } from "../lib/pyodide";
 import CodeEditor from "./code-editor";
 
@@ -8,6 +8,7 @@ interface CodeRunnerProps {
 
 export default function CodeRunner(props: CodeRunnerProps) {
   const [output, setOutput] = createSignal<string | null>(null);
+  const [figures, setFigures] = createSignal<string[]>([]);
   const [hasError, setHasError] = createSignal(false);
   const [running, setRunning] = createSignal(false);
   const [loaded, setLoaded] = createSignal(false);
@@ -24,6 +25,7 @@ export default function CodeRunner(props: CodeRunnerProps) {
     setCurrentCode(props.code);
     setModified(false);
     setOutput(null);
+    setFigures([]);
     // Force re-mount of editor by changing key
     setEditorKey((k) => k + 1);
   }
@@ -31,15 +33,17 @@ export default function CodeRunner(props: CodeRunnerProps) {
   async function handleRun() {
     setRunning(true);
     setOutput(null);
+    setFigures([]);
     setHasError(false);
     try {
       if (!loaded()) {
-        setOutput("Loading Python runtime...");
+        setOutput("Loading Python runtime (and any imported packages on first run)...");
       }
       const result = await runPython(currentCode());
       setLoaded(true);
-      setHasError(result.includes("Error") || result.includes("Traceback"));
-      setOutput(result || "(no output)");
+      setHasError(result.hasError || result.stdout.includes("Traceback"));
+      setOutput(result.stdout || (result.figures.length === 0 ? "(no output)" : ""));
+      setFigures(result.figures);
     } catch (err: any) {
       setHasError(true);
       setOutput(`Error: ${err.message || err}`);
@@ -73,8 +77,17 @@ export default function CodeRunner(props: CodeRunnerProps) {
           />
         );
       })()}
-      <Show when={output() !== null}>
+      <Show when={output() !== null && output() !== ""}>
         <pre class={`code-output${hasError() ? " error-output" : ""}`}>{output()}</pre>
+      </Show>
+      <Show when={figures().length > 0}>
+        <div class="code-figures">
+          <For each={figures()}>
+            {(src, i) => (
+              <img class="code-figure" src={src} alt={`Figure ${i() + 1}`} />
+            )}
+          </For>
+        </div>
       </Show>
     </div>
   );

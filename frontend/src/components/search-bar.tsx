@@ -21,8 +21,15 @@ const TIER_LABELS: Record<string, string> = {
 
 async function fetchSearchIndex(): Promise<SearchEntry[]> {
   const base = import.meta.env.BASE_URL ?? "/";
-  const res = await fetch(`${base}api/search-index.json`);
-  if (!res.ok) return [];
+  const url = `${base}api/search-index.json`;
+  const res = await fetch(url);
+  if (!res.ok) {
+    console.error(`[search] failed to load index from ${url} — HTTP ${res.status}. ` +
+      `In dev, this usually means the Vite /api proxy can't reach the backend ` +
+      `(is the FastAPI server running on http://localhost:8000?). ` +
+      `In static deploy, ensure 'npm run build:api' has generated public/api/search-index.json.`);
+    return [];
+  }
   return res.json();
 }
 
