@@ -3,6 +3,7 @@ from pathlib import Path
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
 app = FastAPI(title="Maths for CS + AI/ML — API")
@@ -154,6 +155,7 @@ def _parse_meta(tier: str, slug: str, content: str) -> LessonMeta:
 
 
 @app.get("/api/tiers", response_model=list[TierInfo])
+@app.get("/api/tiers.json", response_model=list[TierInfo])
 def list_tiers():
     tiers: list[TierInfo] = []
     for tier_dir in _discover_tiers():
@@ -163,16 +165,25 @@ def list_tiers():
     return tiers
 
 
-@app.get("/api/tiers/{tier}/{slug}", response_model=LessonContent)
+@app.get("/api/tiers/{tier}/{slug}")
 def get_lesson(tier: str, slug: str):
+    is_meta = False
+    if slug.endswith(".json"):
+        slug = slug[:-5]
+    if slug.endswith(".meta"):
+        slug = slug[:-5]
+        is_meta = True
     tier_dir = _find_tier_dir(tier)
     if tier_dir is None:
         raise HTTPException(status_code=404, detail="Lesson not found")
     md_path = tier_dir / f"{slug}.md"
     if not md_path.is_file():
         raise HTTPException(status_code=404, detail="Lesson not found")
+    content = md_path.read_text()
+    if is_meta:
+        return _parse_meta(tier, slug, content)
     return LessonContent(tier=tier, slug=slug, filename=md_path.name,
-                         content=md_path.read_text())
+                         content=content)
 
 
 @app.get("/api/tiers/{tier}/{slug}/meta", response_model=LessonMeta)
@@ -184,6 +195,61 @@ def get_lesson_meta(tier: str, slug: str):
     if not md_path.is_file():
         raise HTTPException(status_code=404, detail="Lesson not found")
     return _parse_meta(tier, slug, md_path.read_text())
+
+
+_CURRICULUM_FILES = {
+    "learning-paths.json",
+    "ml-curriculum.json",
+    "jee-curriculum.json",
+}
+
+
+def _extract_search_text(content: str) -> str:
+    lines = content.split("\n")
+    result: list[str] = []
+    in_code = False
+    for line in lines:
+        if line.strip().startswith("```"):
+            in_code = not in_code
+            continue
+        if in_code:
+            continue
+        if line.strip().startswith("$$"):
+            continue
+        clean = re.sub(r"\$[^$]+\$", "", line)
+        clean = re.sub(r"[#*_`|>]", "", clean)
+        clean = clean.strip()
+        if clean:
+            result.append(clean)
+    return " ".join(result)
+
+
+@app.get("/api/search-index.json")
+def get_search_index():
+    index: list[dict] = []
+    for tier_dir in _discover_tiers():
+        for lesson_file in sorted(tier_dir.glob("*.md")):
+            slug = lesson_file.stem
+            content = lesson_file.read_text()
+            meta = _parse_meta(tier_dir.name, slug, content)
+            index.append({
+                "tier": tier_dir.name,
+                "slug": slug,
+                "title": meta.title,
+                "sections": meta.sections,
+                "text": _extract_search_text(content),
+            })
+    return index
+
+
+@app.get("/api/{filename}")
+def get_curriculum_file(filename: str):
+    if filename not in _CURRICULUM_FILES:
+        raise HTTPException(status_code=404, detail="Not found")
+    path = TUTORIALS_DIR / filename
+    if not path.is_file():
+        raise HTTPException(status_code=404, detail="Not found")
+    return FileResponse(path, media_type="application/json")
 
 
 if __name__ == "__main__":

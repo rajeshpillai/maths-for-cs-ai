@@ -22,7 +22,7 @@ maths-for-cs/
 ## Quick Start (Static — no backend needed)
 
 ```bash
-cd frontend
+cd frontend>
 npm install
 npm run build    # generates static JSON + builds app
 npm run preview  # preview at http://localhost:4173
@@ -36,11 +36,15 @@ cd backend
 uv sync
 uv run python main.py    # API at http://localhost:8000
 
-# Terminal 2: Frontend (connects to backend)
+# Terminal 2: Frontend (Vite dev server proxies /api → backend)
 cd frontend
 npm install
-VITE_API_URL=http://localhost:8000 npm run dev
+npm run dev
 ```
+
+The Vite dev server proxies any request matching `/api/*` to
+`http://localhost:8000` by default, so no env var is needed. To point at a
+different backend, set `VITE_API_URL=http://host:port` before `npm run dev`.
 
 ## Deploy as Static Site
 
