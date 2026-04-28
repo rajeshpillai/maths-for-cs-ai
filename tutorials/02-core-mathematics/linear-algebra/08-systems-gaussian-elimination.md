@@ -154,6 +154,101 @@ print(f"det = {np.linalg.det(A_par):.1f} (singular)")
 print("These lines are parallel: x + 2y = 3 and 2x + 4y = 7")
 ```
 
+## Visualisation — Three pictures of a 2-equation system
+
+A linear system $\mathbf{A}\mathbf{x} = \mathbf{b}$ in two variables is
+just **two straight lines on a plane**. Where they cross is the
+solution. There are exactly three things that can happen, and you can
+see them at a glance.
+
+```python
+# ── Visualising linear systems: unique, none, infinite ──────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Helper: plot the line  a*x + b*y = c  for x in [-2, 7].
+def plot_line(ax, a, b, c, color, label):
+    xs = np.linspace(-2, 7, 50)
+    if abs(b) > 1e-10:
+        ys = (c - a * xs) / b
+    else:                                       # vertical line
+        xs = np.full_like(xs, c / a)
+        ys = np.linspace(-3, 6, 50)
+    ax.plot(xs, ys, color=color, lw=2, label=label)
+
+cases = [
+    # (system A | b, title, draws_intersection_point_at)
+    ((np.array([[2, 1], [1, 3]]),    np.array([5, 8])),
+     "Unique solution\n(lines cross at one point)",
+     "tab:green"),
+    ((np.array([[1, 2], [2, 4]]),    np.array([3, 7])),
+     "No solution\n(parallel lines, never meet)",
+     "tab:red"),
+    ((np.array([[1, 2], [2, 4]]),    np.array([3, 6])),
+     "Infinite solutions\n(same line — every point works)",
+     "tab:orange"),
+]
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4.7))
+
+for ax, ((A, b), title, color) in zip(axes, cases):
+    # Equation 1: A[0,0]·x + A[0,1]·y = b[0]
+    plot_line(ax, A[0, 0], A[0, 1], b[0], "tab:blue",
+              f"{int(A[0,0])}x + {int(A[0,1])}y = {int(b[0])}")
+    plot_line(ax, A[1, 0], A[1, 1], b[1], "tab:orange",
+              f"{int(A[1,0])}x + {int(A[1,1])}y = {int(b[1])}")
+    det_A = np.linalg.det(A)
+    if abs(det_A) > 1e-10:
+        sol = np.linalg.solve(A, b)
+        ax.scatter(sol[0], sol[1], color=color, s=140, zorder=5,
+                   label=f"solution\n({sol[0]:.1f}, {sol[1]:.1f})")
+    ax.set_title(f"{title}\n(det A = {det_A:.0f})")
+    ax.set_xlim(-1, 7); ax.set_ylim(-3, 6)
+    ax.set_xlabel("x"); ax.set_ylabel("y")
+    ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+    ax.grid(True, alpha=0.3); ax.legend(fontsize=8, loc="lower right")
+
+plt.tight_layout()
+plt.show()
+
+# Print the three cases as a compact table.
+print(f"{'Case':<25}  det(A)   # of solutions")
+print("-" * 55)
+for (A, b), title, _ in cases:
+    d = np.linalg.det(A)
+    short = title.split("\n")[0]
+    if abs(d) > 1e-10:
+        n = "exactly 1"
+    else:
+        # Singular: check if b is in the column span of A.
+        aug = np.column_stack([A, b])
+        if np.linalg.matrix_rank(aug) > np.linalg.matrix_rank(A):
+            n = "0 (system inconsistent)"
+        else:
+            n = "infinite"
+    print(f"  {short:<25}  {d:>+5.1f}    {n}")
+```
+
+**The three regimes that exhaust every possibility:**
+
+- **Unique solution** (left). The two lines cross at one point. The
+  matrix $\mathbf{A}$ is **invertible** — equivalently $\det \mathbf{A}
+  \neq 0$, equivalently the rows are independent.
+- **No solution** (middle). Lines are parallel but distinct. The system
+  is **inconsistent** — the right-hand side $\mathbf{b}$ doesn't lie in
+  the column span of $\mathbf{A}$. Determinant is zero, *and* the
+  augmented matrix $[\mathbf{A} \mid \mathbf{b}]$ has higher rank than
+  $\mathbf{A}$ alone.
+- **Infinite solutions** (right). Both equations describe the *same*
+  line. Determinant is zero, *and* $\mathbf{b}$ happens to lie in the
+  column span. Every point on the line is a solution.
+
+Gaussian elimination is the systematic procedure that takes any number
+of variables and any size of system and reveals which of these three
+cases you are in. In rectangular matrices ($m \neq n$) the same trio
+becomes "no solution / unique / infinite-many" — the only difference is
+that the geometric picture is a hyperplane, not a line.
+
 ## Connection to CS / Games / AI
 
 - **Linear regression** — the normal equations $\mathbf{X}^T\mathbf{Xw} = \mathbf{X}^T\mathbf{y}$ are solved by elimination

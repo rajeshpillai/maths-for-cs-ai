@@ -151,6 +151,131 @@ print(f"3*col1 + 2*col2 = {col_combo}")
 print(f"Equal? {np.array_equal(A4 @ x4, col_combo)}")
 ```
 
+## Visualisation — The three views of matrix multiplication
+
+The same operation $\mathbf{C} = \mathbf{A}\mathbf{B}$ has *three*
+useful pictures, each useful in a different context. Seeing all three
+makes it impossible to forget the formula.
+
+```python
+# ── Three views of matrix multiplication ────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+A = np.array([[1, 2, 3],
+              [4, 5, 6]], dtype=float)        # 2×3
+B = np.array([[7,  8],
+              [9, 10],
+              [11, 12]], dtype=float)         # 3×2
+C = A @ B                                     # 2×2
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+
+# (1) Inner-product view: each entry C[i, j] is row i of A · column j of B.
+# Highlight one row and one column to make the dot product visible.
+ax = axes[0]
+ax.set_title("Inner-product view\nC[i,j] = (row i of A) · (col j of B)")
+ax.imshow(np.zeros((4, 5)), cmap="Greys", vmin=0, vmax=1)
+# Draw A on the left, B on top-right, C below B
+def draw_matrix(origin, mat, label, color="lightblue", highlight_row=None, highlight_col=None):
+    r, c = mat.shape
+    for i in range(r):
+        for j in range(c):
+            facecolor = color
+            if highlight_row is not None and i == highlight_row:
+                facecolor = "tab:orange"
+            if highlight_col is not None and j == highlight_col:
+                facecolor = "tab:green"
+            ax.add_patch(plt.Rectangle((origin[0] + j, origin[1] - i), 1, 1,
+                                       color=facecolor, alpha=0.5,
+                                       edgecolor="black", lw=0.8))
+            ax.text(origin[0] + j + 0.5, origin[1] - i + 0.5, f"{int(mat[i, j])}",
+                    ha="center", va="center", fontsize=11, fontweight="bold")
+    ax.text(origin[0] - 0.4, origin[1] + 0.6, label, fontsize=13, fontweight="bold")
+draw_matrix((0, 4), A, "A (2×3)", color="lightblue", highlight_row=0)
+draw_matrix((4, 4), B, "B (3×2)", color="lightcoral", highlight_col=0)
+draw_matrix((4, 1), C, "C = A·B", color="lightyellow")
+ax.add_patch(plt.Rectangle((4, 1), 1, 1, fill=False, edgecolor="red", lw=3))
+ax.text(8, 1, f"C[0,0] = (1,2,3)·(7,9,11) = {int(C[0,0])}",
+        fontsize=10, va="center")
+ax.set_xlim(-0.5, 13); ax.set_ylim(-1, 6); ax.set_aspect("equal"); ax.axis("off")
+
+# (2) Column view: each column of C is A times the corresponding column of B.
+# So matrix multiplication = "apply A to every column of B in turn".
+ax = axes[1]
+ax.set_title("Column view\ncol j of C = A · (col j of B)")
+draw_matrix((0, 4), A,           "A",                 color="lightblue")
+for j, color in [(0, "tab:green"), (1, "tab:purple")]:
+    bj = B[:, j]
+    cj = A @ bj
+    draw_matrix((4 + 3*j, 4), bj.reshape(-1, 1), f"col {j} of B", color=color)
+    draw_matrix((4 + 3*j, 1), cj.reshape(-1, 1), f"col {j} of C", color=color)
+    ax.annotate("", xy=(4 + 3*j + 0.5, 2.0), xytext=(4 + 3*j + 0.5, 4.5),
+                arrowprops=dict(arrowstyle="->", color=color, lw=1.5))
+ax.set_xlim(-0.5, 13); ax.set_ylim(-1, 6); ax.set_aspect("equal"); ax.axis("off")
+
+# (3) Linear-combination view: A · v is x · col1(A) + y · col2(A) + ...
+# Visualised on a 2×2 example so we can show the actual arrows.
+ax = axes[2]
+ax.set_title("Linear-combination view (2-D)\nA·v = $x_1$·col1(A) + $x_2$·col2(A)")
+A_small = np.array([[2.0, 1.0],
+                    [1.0, 1.5]])
+v = np.array([1.5, 1.0])
+col1 = A_small[:, 0]
+col2 = A_small[:, 1]
+result = A_small @ v
+# Draw col1 and col2.
+ax.quiver(0, 0, *col1, angles="xy", scale_units="xy", scale=1,
+          color="tab:blue", width=0.012, label="col 1 of A")
+ax.quiver(0, 0, *col2, angles="xy", scale_units="xy", scale=1,
+          color="tab:orange", width=0.012, label="col 2 of A")
+# Now the scaled versions, then their sum.
+ax.quiver(0, 0, *(v[0] * col1), angles="xy", scale_units="xy", scale=1,
+          color="tab:blue", alpha=0.4, width=0.012,
+          label=f"{v[0]}·col1")
+ax.quiver(*(v[0] * col1), *(v[1] * col2),
+          angles="xy", scale_units="xy", scale=1,
+          color="tab:orange", alpha=0.4, width=0.012,
+          label=f"{v[1]}·col2")
+ax.quiver(0, 0, *result, angles="xy", scale_units="xy", scale=1,
+          color="tab:green", width=0.012,
+          label=f"A·v = {tuple(result)}")
+ax.set_xlim(-0.5, 5); ax.set_ylim(-0.5, 4)
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_aspect("equal"); ax.grid(True, alpha=0.3); ax.legend(loc="upper left", fontsize=8)
+
+plt.tight_layout()
+plt.show()
+
+# Numerical confirmation that all three views give the same C.
+print(f"A shape: {A.shape},  B shape: {B.shape},  C shape: {C.shape}")
+print(f"C =\n{C.astype(int)}")
+print(f"\nColumn view check: A·B[:,0] = {(A @ B[:, 0]).astype(int)} (= col 0 of C)")
+print(f"Column view check: A·B[:,1] = {(A @ B[:, 1]).astype(int)} (= col 1 of C)")
+```
+
+**Why three views?**
+
+- **Inner-product view (left)** is the textbook formula —
+  $C_{ij} = \sum_k A_{ik} B_{kj}$. Useful when you actually compute by
+  hand or read the result entry-by-entry.
+- **Column view (middle)** says *"matrix multiplication applies $\mathbf{A}$
+  to every column of $\mathbf{B}$ in turn"*. This is what makes the
+  identities $(A B)\mathbf{v} = A(B\mathbf{v})$ obvious: applying $AB$
+  to $\mathbf{v}$ is the same as first applying $B$ to $\mathbf{v}$,
+  then applying $A$ to the result.
+- **Linear-combination view (right)** says *"$\mathbf{A}\mathbf{v}$
+  is a weighted sum of the columns of $\mathbf{A}$"*. This is the view
+  used when reasoning about the **column space** of $\mathbf{A}$ — the
+  set of all reachable outputs.
+
+Pick the view that matches the question. In neural networks the column
+view is most useful (each layer applies the same weight matrix to every
+column / token in a batch). In linear systems the linear-combination
+view is most useful (we ask "is $\mathbf{b}$ a combination of the
+columns of $\mathbf{A}$?"). The textbook entry-wise formula is for
+debugging.
+
 ## Connection to CS / Games / AI
 
 - **Neural network layers** — each layer is $\mathbf{y} = \mathbf{W}\mathbf{x} + \mathbf{b}$, a matrix-vector multiply

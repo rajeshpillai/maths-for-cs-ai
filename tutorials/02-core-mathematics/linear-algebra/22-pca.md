@@ -198,6 +198,131 @@ print(f"σ²/(n-1) = {np.round(sigma**2 / (len(X)-1), 4)} (should match eigenval
 print(f"V (from SVD):\n{np.round(VT.T, 4)}")
 ```
 
+## Visualisation — PCA finding the directions of greatest variance
+
+PCA is *the* go-to tool for "high-dim data → low-dim summary". The
+plot below makes it visible: a cloud of correlated 2-D points, the
+two principal-component axes (the eigenvectors of the covariance
+matrix), and the data projected onto only the dominant component.
+
+```python
+# ── Visualising PCA ─────────────────────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(0)
+
+# Generate a correlated 2-D dataset by taking a circular cloud and
+# stretching it along a tilted axis. The "true" principal direction is
+# along [1, 0.7] (roughly 35° from horizontal).
+N = 300
+raw = rng.standard_normal((N, 2))               # circular cloud
+stretch = np.diag([3.0, 0.7])                   # stretch x by 3, y by 0.7
+theta = np.radians(35)
+R = np.array([[np.cos(theta), -np.sin(theta)],
+              [np.sin(theta),  np.cos(theta)]])
+data = raw @ stretch @ R.T + np.array([2.0, 1.0])
+
+# Centre the data — PCA assumes zero mean.
+mean = data.mean(axis=0)
+X_c = data - mean
+
+# Covariance matrix and its eigendecomposition.
+cov = (X_c.T @ X_c) / (N - 1)
+eigvals, eigvecs = np.linalg.eigh(cov)
+order = np.argsort(-eigvals)
+eigvals = eigvals[order]; eigvecs = eigvecs[:, order]
+explained = eigvals / eigvals.sum()
+
+# Project onto PC1 and onto both PCs.
+proj_pc1 = X_c @ eigvecs[:, 0]               # 1-D scores along PC1
+proj_full = X_c @ eigvecs                    # 2-D scores in the PC basis
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 5.3))
+
+# (1) Original cloud + the two principal-component arrows centred at the mean.
+# Arrow length is √λᵢ — i.e. one standard deviation along that PC direction.
+ax = axes[0]
+ax.scatter(data[:, 0], data[:, 1], alpha=0.45, s=14, color="tab:blue", label="data")
+for i, color in [(0, "tab:red"), (1, "tab:orange")]:
+    direction = eigvecs[:, i]
+    length    = np.sqrt(eigvals[i])
+    ax.annotate("", xy=mean + direction * length * 2,
+                xytext=mean,
+                arrowprops=dict(arrowstyle="->", color=color, lw=2.5))
+    ax.text(*(mean + direction * length * 2.2),
+            f"PC{i+1}\nexplains {explained[i]*100:.1f}%",
+            color=color, fontsize=11, fontweight="bold")
+ax.scatter(*mean, color="black", s=80, zorder=5, label="data mean")
+ax.set_title("Original 2-D data with PC axes\n(arrows = √λ in each direction)")
+ax.set_xlabel("x"); ax.set_ylabel("y"); ax.set_aspect("equal")
+ax.grid(True, alpha=0.3); ax.legend(loc="upper left", fontsize=9)
+
+# (2) Reconstruction using ONLY PC1: every point gets snapped onto the
+# PC1 line. This is the "compress to 1-D, then expand back" trick.
+ax = axes[1]
+recon = mean + np.outer(proj_pc1, eigvecs[:, 0])
+ax.scatter(data[:, 0], data[:, 1], alpha=0.30, s=14, color="tab:blue", label="original")
+ax.scatter(recon[:, 0], recon[:, 1], alpha=0.7, s=14, color="tab:red", label="rank-1 PCA reconstruction")
+for orig, r in zip(data, recon):
+    ax.plot([orig[0], r[0]], [orig[1], r[1]], color="grey", lw=0.4, alpha=0.5)
+ax.set_title("Project to 1-D along PC1 and reconstruct\n(grey = projection error)")
+ax.set_xlabel("x"); ax.set_ylabel("y"); ax.set_aspect("equal")
+ax.grid(True, alpha=0.3); ax.legend(loc="upper left", fontsize=9)
+
+# (3) Scree plot: explained variance per PC. Most real datasets show
+# this characteristic L-shape: the first few PCs carry almost all the
+# variance, the rest are noise.
+ax = axes[2]
+ax.bar(range(1, 3), explained * 100, color=["tab:red", "tab:orange"],
+       edgecolor="black", alpha=0.85)
+for i, e in enumerate(explained):
+    ax.text(i + 1, e * 100 + 1, f"{e*100:.1f}%", ha="center", fontsize=11,
+            fontweight="bold")
+ax.set_xticks([1, 2]); ax.set_xticklabels(["PC1", "PC2"])
+ax.set_ylabel("variance explained (%)")
+ax.set_ylim(0, 100)
+ax.set_title("Scree plot: each PC's share of variance\n(real datasets concentrate it heavily in PC1–PC3)")
+ax.grid(True, alpha=0.3, axis="y")
+
+plt.tight_layout()
+plt.show()
+
+# Print the numbers behind the picture.
+print(f"Data shape: {data.shape}")
+print(f"Mean:                  {mean}")
+print(f"Eigenvalues (ranked):  {eigvals}")
+print(f"PC directions:")
+for i in range(2):
+    print(f"  PC{i+1}: {eigvecs[:, i]}   variance = {eigvals[i]:.4f}   "
+          f"({explained[i]*100:.2f}% of total)")
+print(f"\nRank-1 reconstruction error (per point): "
+      f"{np.linalg.norm(data - (mean + np.outer(proj_pc1, eigvecs[:, 0])), axis=1).mean():.4f}")
+```
+
+**Three PCA truths the picture pins down:**
+
+- **PCA finds the directions of largest variance.** PC1 is the long
+  arrow — the direction along which the data spreads out most. PC2 is
+  perpendicular to PC1 (always — eigenvectors of a symmetric matrix
+  are orthogonal) and captures whatever variance remains.
+- **You compress by keeping only the top PCs.** The middle plot
+  collapses the data onto PC1, throwing away PC2. The grey lines are
+  the reconstruction errors — they're shorter than they would be in any
+  *other* 1-D projection. That's the **optimality of PCA**: among all
+  rank-$k$ approximations, PCA minimises mean-squared reconstruction
+  error.
+- **The scree plot tells you how many PCs to keep.** When the first few
+  bars dwarf the rest (the canonical "elbow"), you can cut down to a
+  handful of dimensions and lose almost nothing. In a 1024-pixel
+  face image, the first ~50 PCs ("eigenfaces") carry essentially all
+  the identity information.
+
+PCA is what you reach for whenever you want to *see* a high-dimensional
+dataset, decorrelate features before regression, denoise, or build the
+"latent factors" view of a recommendation matrix. It is just SVD with
+a `mean = data.mean()` line in front.
+
 ## Connection to CS / Games / AI
 
 - **Dimensionality reduction** — reduce 1000 features to 50 while keeping 95% of information

@@ -175,6 +175,112 @@ print(f"\n=== Row reduction inverse ===")
 print(f"A^-1 = \n{np.linalg.inv(A2)}")  # Should be [[7,-2],[-3,1]]
 ```
 
+## Visualisation — Identity, inverse, transpose as transformations
+
+Each of the three operations has a clean geometric meaning when applied
+to the unit square:
+
+- **Identity** does nothing — the square stays put.
+- **Inverse** undoes a transformation — apply $\mathbf{A}$ then
+  $\mathbf{A}^{-1}$ and you're back where you started.
+- **Transpose** flips a matrix across its diagonal — for an
+  *orthogonal* matrix (like a rotation) the transpose IS the inverse.
+
+```python
+# ── Visualising identity, inverse, transpose ────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Polygon
+
+unit_sq = np.array([[0, 1, 1, 0], [0, 0, 1, 1]], dtype=float)   # 2 × 4
+
+fig, axes = plt.subplots(1, 4, figsize=(18, 4.7))
+
+# (1) Identity matrix: applying I leaves the square exactly as it was.
+ax = axes[0]
+I = np.eye(2)
+warped = I @ unit_sq
+ax.add_patch(Polygon(unit_sq.T, closed=True, facecolor="lightgrey",
+                     edgecolor="grey", linestyle="--", alpha=0.5,
+                     label="original"))
+ax.add_patch(Polygon(warped.T, closed=True, facecolor="tab:blue",
+                     edgecolor="navy", alpha=0.4, label="I · square"))
+ax.set_title("Identity I — does nothing\n(original = result)")
+ax.legend(loc="upper right", fontsize=9)
+
+# (2) A general invertible matrix A (here a rotation + scaling).
+# Its action on the unit square produces a tilted parallelogram.
+A = np.array([[1.5, 0.5],
+              [0.3, 1.2]])
+ax = axes[1]
+warped = A @ unit_sq
+ax.add_patch(Polygon(unit_sq.T, closed=True, facecolor="lightgrey",
+                     edgecolor="grey", linestyle="--", alpha=0.5,
+                     label="original"))
+ax.add_patch(Polygon(warped.T, closed=True, facecolor="tab:orange",
+                     edgecolor="darkorange", alpha=0.5, label="A · square"))
+ax.set_title("A applied to the square\n(some general transform)")
+ax.legend(loc="upper right", fontsize=9)
+
+# (3) A^-1 applied AFTER A returns the original — A^-1 A = I, so
+# A^-1 · (A · square) = square. The two shapes overlap exactly.
+ax = axes[2]
+A_inv = np.linalg.inv(A)
+restored = A_inv @ (A @ unit_sq)
+ax.add_patch(Polygon(unit_sq.T, closed=True, facecolor="lightgrey",
+                     edgecolor="grey", linestyle="--", alpha=0.5,
+                     label="original"))
+ax.add_patch(Polygon((A @ unit_sq).T, closed=True, facecolor="tab:orange",
+                     edgecolor="darkorange", alpha=0.3, label="A · square"))
+ax.add_patch(Polygon(restored.T, closed=True, facecolor="tab:green",
+                     edgecolor="darkgreen", alpha=0.5, label="A⁻¹ · A · square"))
+ax.set_title("A⁻¹ undoes A\n(green = original, exactly)")
+ax.legend(loc="upper right", fontsize=8)
+
+# (4) Transpose for an orthogonal matrix (a 30° rotation).
+# Rotating by +30° then by −30° (= the transpose) returns to start.
+# This is why R⁻¹ = Rᵀ for rotations — they are orthogonal.
+ax = axes[3]
+theta = np.radians(30)
+R = np.array([[np.cos(theta), -np.sin(theta)],
+              [np.sin(theta),  np.cos(theta)]])
+ax.add_patch(Polygon(unit_sq.T, closed=True, facecolor="lightgrey",
+                     edgecolor="grey", linestyle="--", alpha=0.5, label="original"))
+ax.add_patch(Polygon((R @ unit_sq).T, closed=True, facecolor="tab:purple",
+                     edgecolor="indigo", alpha=0.4, label="R · square (rotate +30°)"))
+restored = R.T @ (R @ unit_sq)
+ax.add_patch(Polygon(restored.T, closed=True, facecolor="tab:green",
+                     edgecolor="darkgreen", alpha=0.6, label="Rᵀ · R · square = original"))
+ax.set_title("For ROTATIONS, transpose = inverse\n($R^{-1} = R^T$)")
+ax.legend(loc="upper right", fontsize=8)
+
+# Common cosmetics.
+for ax in axes:
+    ax.set_xlim(-0.5, 2.5); ax.set_ylim(-0.5, 2.5)
+    ax.set_aspect("equal"); ax.grid(True, alpha=0.3)
+    ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+
+plt.tight_layout()
+plt.show()
+
+# Verify all the relationships numerically.
+print(f"I · A    = A?         {np.allclose(I @ A, A)}")
+print(f"A · A⁻¹ = I?           {np.allclose(A @ A_inv, np.eye(2))}")
+print(f"A⁻¹ · A = I?           {np.allclose(A_inv @ A, np.eye(2))}")
+print(f"For rotation R, Rᵀ R = I?   {np.allclose(R.T @ R, np.eye(2))}")
+print(f"For rotation R, Rᵀ = R⁻¹?    {np.allclose(R.T, np.linalg.inv(R))}")
+```
+
+**The big idea:** the inverse $\mathbf{A}^{-1}$ exists *exactly when the
+transformation is reversible*. If $\mathbf{A}$ flattens the square down
+to a line (determinant zero — see lesson 7), there's no way to recover
+the original square from the line, so $\mathbf{A}^{-1}$ does not exist.
+For *rotations* and other orthogonal transformations, the inverse is
+free: just transpose. That's why every modern graphics pipeline stores
+its rotations as 3×3 orthogonal matrices — inverting a 3×3 transpose is
+nine memory loads, while a general $4{\times}4$ inverse is dozens of
+operations.
+
 ## Connection to CS / Games / AI
 
 - **Solving systems** — $\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}$ solves simultaneous equations

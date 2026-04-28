@@ -153,6 +153,115 @@ for a_vals, b_vals, desc in pairs:
     print(f"  {a} · {b} = {d:5.2f}, angle = {angle:6.1f}° ({desc})")
 ```
 
+## Visualisation — The dot product as "how aligned"
+
+The dot product collapses two vectors into a single number that
+*tracks the angle between them*. The plot below sweeps a vector around
+a fixed reference and shows how $\mathbf{a} \cdot \mathbf{b}$ moves
+through positive (aligned), zero (perpendicular), and negative
+(opposing).
+
+```python
+# ── Visualising the dot product as alignment ────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Fixed reference vector (unit length so |a| = 1).
+a = np.array([1.0, 0.0])
+
+# Sweep b around the circle from 0° to 360°.
+angles_deg = np.linspace(0, 360, 361)
+angles_rad = np.radians(angles_deg)
+b_x, b_y   = np.cos(angles_rad), np.sin(angles_rad)
+dots       = a[0] * b_x + a[1] * b_y          # = cos(angle)
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+
+# (1) Geometry: a fixed, four representative b vectors at 0°, 60°, 90°, 150°.
+ax = axes[0]
+ax.quiver(0, 0, *a, angles="xy", scale_units="xy", scale=1,
+          color="tab:blue", width=0.012, label="a (fixed)")
+sample_angles = [0, 60, 90, 150, 180]
+colors = plt.cm.coolwarm(np.linspace(0, 1, len(sample_angles)))
+for ang_deg, c in zip(sample_angles, colors):
+    rad = np.radians(ang_deg)
+    bv = np.array([np.cos(rad), np.sin(rad)])
+    d = a @ bv
+    ax.quiver(0, 0, *bv, angles="xy", scale_units="xy", scale=1,
+              color=c, width=0.010,
+              label=f"θ={ang_deg}°,  a·b={d:+.2f}")
+# Light unit-circle background to anchor the figure.
+theta = np.linspace(0, 2 * np.pi, 200)
+ax.plot(np.cos(theta), np.sin(theta), color="grey", lw=0.5, linestyle="--")
+ax.set_xlim(-1.5, 1.5); ax.set_ylim(-1.5, 1.5); ax.set_aspect("equal")
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_title("Sweeping b around the unit circle\n(angle θ from a)")
+ax.legend(loc="lower left", fontsize=8); ax.grid(True, alpha=0.3)
+
+# (2) The dot-product curve as θ varies. It IS cos θ.
+ax = axes[1]
+ax.plot(angles_deg, dots, color="tab:purple", lw=2)
+ax.axhline(0, color="black", lw=0.6)
+for ang_deg in [0, 90, 180, 270]:
+    d = np.cos(np.radians(ang_deg))
+    ax.scatter([ang_deg], [d], color="red", zorder=5, s=70)
+    ax.text(ang_deg + 4, d + 0.05, f"θ={ang_deg}°,  cos θ = {d:.0f}",
+            fontsize=9)
+ax.set_title("As θ rotates, a · b traces out cos θ\n+1 = aligned, 0 = ⊥, −1 = opposite")
+ax.set_xlabel("angle θ between a and b (degrees)")
+ax.set_ylabel("a · b   (= cos θ when |a| = |b| = 1)")
+ax.set_xticks([0, 45, 90, 135, 180, 225, 270, 315, 360])
+ax.set_ylim(-1.2, 1.2); ax.grid(True, alpha=0.3)
+
+# (3) Cosine similarity heatmap on five concrete vectors.
+# This is exactly how recommendation systems compare items.
+ax = axes[2]
+labels = ["a = [1, 0]", "b = [1, 1]", "c = [0, 1]", "d = [-1, 1]", "e = [-1, 0]"]
+vecs = np.array([[1, 0], [1, 1], [0, 1], [-1, 1], [-1, 0]], dtype=float)
+def cossim(u, v):
+    return (u @ v) / (np.linalg.norm(u) * np.linalg.norm(v))
+M = np.array([[cossim(u, v) for v in vecs] for u in vecs])
+im = ax.imshow(M, cmap="RdBu", vmin=-1, vmax=1)
+for i in range(M.shape[0]):
+    for j in range(M.shape[1]):
+        ax.text(j, i, f"{M[i, j]:+.2f}", ha="center", va="center",
+                color="white" if abs(M[i, j]) > 0.5 else "black",
+                fontsize=10)
+ax.set_xticks(range(5)); ax.set_xticklabels(labels, rotation=45, fontsize=8, ha="right")
+ax.set_yticks(range(5)); ax.set_yticklabels(labels, fontsize=8)
+ax.set_title("Cosine similarity matrix — exactly the\noperation behind item-similarity in recsys")
+plt.colorbar(im, ax=ax, fraction=0.046)
+
+plt.tight_layout()
+plt.show()
+
+# Print the table that mirrors the right-hand heatmap.
+print("Cosine similarity (= a·b / |a||b|):")
+print(f"{'':>15}  {'a':>7}  {'b':>7}  {'c':>7}  {'d':>7}  {'e':>7}")
+for label, row in zip(["a", "b", "c", "d", "e"], M):
+    print(f"  {label:<13}  {row[0]:+.3f}  {row[1]:+.3f}  {row[2]:+.3f}  "
+          f"{row[3]:+.3f}  {row[4]:+.3f}")
+```
+
+**The single most important fact in linear algebra for ML:**
+
+$$\mathbf{a} \cdot \mathbf{b} = \|\mathbf{a}\|\,\|\mathbf{b}\| \cos\theta$$
+
+means the dot product is **directly proportional to alignment**:
+
+- **+1 / large positive** ⇒ vectors point the same way (aligned). In
+  embedding search, this is "very similar".
+- **0** ⇒ perpendicular (orthogonal). In ML, "uncorrelated features".
+- **−1 / large negative** ⇒ pointing opposite directions. In NLP,
+  antonyms appear as nearly-opposite embedding vectors.
+
+That single mapping — **dot product → cosine of angle → similarity
+score** — is the engine behind every embedding-based search system
+(Pinecone, FAISS, Weaviate), every recommendation engine that compares
+user/item vectors, every classifier head that scores classes against an
+embedding, and every attention head in a Transformer (where queries and
+keys are dot-producted to decide what to "look at").
+
 ## Connection to CS / Games / AI
 
 - **Cosine similarity** — the standard measure for comparing word embeddings, document vectors, and recommendation vectors

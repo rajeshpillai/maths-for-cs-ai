@@ -155,6 +155,124 @@ print(f"Eigenvalues: {np.round(evals, 4)}")
 print(f"Dot product of eigenvectors: {np.dot(evecs[:,0], evecs[:,1]):.10f} (≈0 = orthogonal)")
 ```
 
+## Visualisation — The directions a matrix doesn't rotate
+
+An eigenvector is a special direction: applying the matrix to it just
+*scales* it (by the eigenvalue) without rotating it. The plot below
+overlays the action of $\mathbf{A}$ on a circle of unit vectors and
+highlights the two eigenvectors that come back as scaled copies of
+themselves.
+
+```python
+# ── Visualising eigenvectors of a 2×2 matrix ────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# A symmetric matrix: easier to see; eigenvectors will be orthogonal.
+A = np.array([[2.0, 1.0],
+              [1.0, 2.0]])
+eigvals, eigvecs = np.linalg.eig(A)
+order = np.argsort(-eigvals)             # largest first
+eigvals = eigvals[order]
+eigvecs = eigvecs[:, order]
+
+fig, axes = plt.subplots(1, 2, figsize=(13, 6))
+
+# (1) Unit circle (input directions) and its image (an ellipse).
+# Most arrows ROTATE under A; the two black arrows (eigenvectors)
+# stay on their original line — they only get longer.
+ax = axes[0]
+theta = np.linspace(0, 2 * np.pi, 60)
+circle = np.array([np.cos(theta), np.sin(theta)])      # 2 × 60
+warped = A @ circle
+
+# Faint comparison arrows: pre-image (light) and image (dark).
+for k in range(0, 60, 5):
+    in_v  = circle[:, k]
+    out_v = warped[:, k]
+    ax.quiver(0, 0, *in_v,  angles="xy", scale_units="xy", scale=1,
+              color="lightblue", width=0.005)
+    ax.quiver(0, 0, *out_v, angles="xy", scale_units="xy", scale=1,
+              color="tab:blue", alpha=0.3, width=0.006)
+
+# The two eigenvectors before (light) and after (solid) — drawn black so they pop.
+for i in range(2):
+    v = eigvecs[:, i]
+    Av = A @ v
+    ax.quiver(0, 0, *v,  angles="xy", scale_units="xy", scale=1,
+              color="black", alpha=0.45, width=0.012)
+    ax.quiver(0, 0, *Av, angles="xy", scale_units="xy", scale=1,
+              color="red", width=0.012,
+              label=f"A·v = {eigvals[i]:.2f}·v   (λ{i+1} = {eigvals[i]:.2f})")
+ax.set_xlim(-3.5, 3.5); ax.set_ylim(-3.5, 3.5); ax.set_aspect("equal")
+ax.set_title("Eigenvectors are the\ndirections A doesn't rotate")
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.grid(True, alpha=0.3)
+ax.legend(loc="upper right", fontsize=10)
+
+# (2) Iterating A^k v for an arbitrary starting vector. After many
+# applications the vector aligns with the dominant eigenvector
+# — this is the basis of POWER ITERATION (used by PageRank).
+ax = axes[1]
+v = np.array([1.0, 0.1])
+v = v / np.linalg.norm(v)
+ax.quiver(0, 0, *v, angles="xy", scale_units="xy", scale=1,
+          color="tab:blue", width=0.012, label="initial v")
+for k in range(1, 8):
+    v = A @ v
+    v = v / np.linalg.norm(v)             # renormalise so direction is visible
+    color = plt.cm.viridis(k / 8)
+    ax.quiver(0, 0, *v, angles="xy", scale_units="xy", scale=1,
+              color=color, width=0.012,
+              label=f"after {k} applications" if k in (1, 3, 7) else None)
+# Mark the dominant eigenvector — the limit direction.
+v_dom = eigvecs[:, 0]
+ax.quiver(0, 0, *v_dom, angles="xy", scale_units="xy", scale=1,
+          color="red", width=0.012, alpha=0.6,
+          label=f"dominant eigenvector\n(λ₁ = {eigvals[0]:.2f})")
+ax.set_xlim(-1.3, 1.3); ax.set_ylim(-1.3, 1.3); ax.set_aspect("equal")
+ax.set_title("Repeated A·v aligns with the\ndominant eigenvector (power iteration)")
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.grid(True, alpha=0.3); ax.legend(loc="lower left", fontsize=8)
+
+plt.tight_layout()
+plt.show()
+
+# Print the eigen-decomposition results.
+print(f"A = {A.tolist()}")
+print(f"Eigenvalues: {eigvals}")
+print(f"Eigenvectors (columns):\n{eigvecs}")
+print()
+for i in range(2):
+    v = eigvecs[:, i]
+    Av = A @ v
+    print(f"  Check λ{i+1}: A·v = {Av}    λ·v = {eigvals[i] * v}    "
+          f"(equal? {np.allclose(Av, eigvals[i] * v)})")
+print(f"\nv1·v2 = {eigvecs[:, 0] @ eigvecs[:, 1]:.6f}    "
+      f"(symmetric A → eigenvectors are orthogonal)")
+```
+
+**The two pictures together:**
+
+- **Left.** Most of the light-blue arrows on the unit circle get
+  *rotated* to the darker blue ellipse — they don't stay parallel to
+  themselves. The black–red pair are the exception: the matrix $A$
+  multiplies them by their eigenvalue and that's all. They are the
+  *axes of the ellipse* the unit circle gets mapped to.
+- **Right.** Start with any vector and apply $A$ repeatedly,
+  renormalising. The vector swings toward the **dominant eigenvector**
+  (largest $|\lambda|$) within a handful of steps. **This is power
+  iteration** — exactly how Google's original PageRank algorithm finds
+  the dominant eigenvector of the web graph (matrix size: billions),
+  and how iterative SVD solvers find singular vectors.
+
+A single sentence captures it: *eigenvectors are the directions a matrix
+acts on by simple scaling, eigenvalues are how much it scales them by.*
+That's why eigendecomposition is the workhorse of dimensionality
+reduction (PCA), graph algorithms (PageRank, spectral clustering),
+quantum mechanics (energy eigenstates), and stability analysis (which
+modes decay vs blow up).
+
 ## Connection to CS / Games / AI
 
 - **PCA** — eigenvectors of the covariance matrix are the principal components

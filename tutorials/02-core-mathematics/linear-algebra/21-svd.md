@@ -181,6 +181,109 @@ print(f"Rank-{k} SVD: {k}×({m}+{n}+1) = {svd_storage} values")
 print(f"Compression: {original_storage/svd_storage:.1f}×")
 ```
 
+## Visualisation — SVD as low-rank image compression
+
+The cleanest way to *see* why SVD matters: take an image, decompose
+it, and rebuild it from only the largest few singular values. The
+big-$\sigma$ rank-$k$ approximation is shockingly close to the
+original — that's exactly what powers JPEG-style image compression
+and Netflix-style matrix factorisation.
+
+```python
+# ── Visualising SVD via low-rank approximation ──────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(0)
+
+# Build a synthetic "image" that is intentionally low-rank-ish — a
+# smooth pattern with a few sharp features, plus a tiny bit of noise.
+# (Using a real photo would be ideal but Pyodide doesn't ship sample
+# images by default.)
+N = 100
+x = np.linspace(-3, 3, N)
+y = np.linspace(-3, 3, N)
+X, Y = np.meshgrid(x, y)
+img = (np.exp(-((X + 1)**2 + Y**2) / 1.5)         # bright blob bottom-left
+       + 0.7 * np.exp(-((X - 1)**2 + (Y - 1)**2) / 0.6)   # blob top-right
+       + 0.3 * np.sin(2 * X) * np.cos(Y))         # wave background
+img += 0.02 * rng.standard_normal(img.shape)      # tiny noise
+
+# Compute the SVD: A = U Σ Vᵀ.
+U, S, Vt = np.linalg.svd(img, full_matrices=False)
+
+# Choose four rank-k truncations and reconstruct each.
+ranks = [1, 5, 20, len(S)]                        # last one = full rank (no loss)
+fig, axes = plt.subplots(1, len(ranks) + 1, figsize=(20, 4.5))
+
+# Original first, for reference.
+axes[0].imshow(img, cmap="viridis", aspect="equal")
+axes[0].set_title("Original (rank-100)\nfull image")
+axes[0].axis("off")
+
+for ax, k in zip(axes[1:], ranks):
+    # Rank-k approximation: keep the top k singular values, drop the rest.
+    Ak = U[:, :k] @ np.diag(S[:k]) @ Vt[:k, :]
+    ax.imshow(Ak, cmap="viridis", aspect="equal", vmin=img.min(), vmax=img.max())
+    err = np.linalg.norm(img - Ak, "fro") / np.linalg.norm(img, "fro")
+    storage = k * (img.shape[0] + img.shape[1] + 1)
+    full    = img.shape[0] * img.shape[1]
+    ratio   = full / storage if storage else 1
+    ax.set_title(f"Rank-{k}\n"
+                 f"relative err = {err:.3f}\n"
+                 f"storage saving = {ratio:.1f}×")
+    ax.axis("off")
+
+plt.tight_layout()
+plt.show()
+
+# Singular value spectrum: log scale so the rapid drop is visible.
+fig, ax = plt.subplots(1, 1, figsize=(8, 4.5))
+ax.plot(range(1, len(S) + 1), S, "o-", markersize=4, lw=1.2)
+ax.set_yscale("log")
+for k in ranks[:-1]:
+    ax.axvline(k, color="red", linestyle="--", alpha=0.4)
+    ax.text(k + 1, S[0], f"k = {k}", color="red", fontsize=9, va="top")
+ax.set_xlabel("singular-value index i")
+ax.set_ylabel("σᵢ (log scale)")
+ax.set_title("Singular-value spectrum — most of the energy lives in the first few σᵢ")
+ax.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.show()
+
+# Energy retained as we increase the rank.
+print(f"{'rank k':>7}  {'cum. energy':>12}  {'rel. error':>11}  storage")
+for k in [1, 5, 10, 20, 50, len(S)]:
+    energy = (S[:k]**2).sum() / (S**2).sum()
+    Ak = U[:, :k] @ np.diag(S[:k]) @ Vt[:k, :]
+    rel_err = np.linalg.norm(img - Ak, "fro") / np.linalg.norm(img, "fro")
+    storage = k * (img.shape[0] + img.shape[1] + 1)
+    print(f"  {k:>5}    {energy*100:>9.2f}%    {rel_err:>9.3f}     "
+          f"{storage:>5} ints (vs {img.shape[0]*img.shape[1]} full)")
+```
+
+**The single most important fact about SVD:**
+
+$$\mathbf{A} = \sum_{i=1}^{r} \sigma_i \,\mathbf{u}_i \mathbf{v}_i^{\top}$$
+
+is a sum of **rank-1 building blocks**, ordered by importance. Keep
+the top $k$ and you get the best possible rank-$k$ approximation of
+$\mathbf{A}$ (the **Eckart–Young theorem**). Three direct consequences,
+all visible in the plots:
+
+- **Compression.** A 100×100 image needs 10,000 numbers; rank-20
+  storage needs only $20 \times (100 + 100 + 1) = 4{,}020$ numbers — a
+  2.5× saving with hardly any visible loss. JPEG, MP3, and modern
+  weights-compression schemes all exploit the same drop in the
+  singular-value spectrum.
+- **Denoising.** Random noise shows up in *all* singular values
+  evenly; the *signal* concentrates in the largest ones. Truncating to
+  rank $k$ keeps signal and throws away noise.
+- **Latent factors.** In a recommendation matrix, the top few
+  singular vectors $\mathbf{u}_i$ and $\mathbf{v}_i$ are interpretable
+  *taste dimensions* — "indie versus mainstream", "action versus
+  drama". The Netflix prize was won this way.
+
 ## Connection to CS / Games / AI
 
 - **Image compression** — keep top-$k$ singular values, discard the rest

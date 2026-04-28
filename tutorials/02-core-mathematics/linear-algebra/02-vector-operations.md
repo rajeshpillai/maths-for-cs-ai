@@ -186,6 +186,119 @@ print(f"(a×b) · a = {np.dot(cross, a)}")  # 0
 print(f"(a×b) · b = {np.dot(cross, b)}")  # 0
 ```
 
+## Visualisation — Vector arithmetic in 2-D
+
+Every operation in this lesson — addition, scaling, projection, the
+dot product — has a one-picture interpretation. Seeing the arrows once
+is worth a thousand component-wise calculations.
+
+```python
+# ── Visualising vector operations ───────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Two reference vectors used in three of the four panels.
+a = np.array([3.0, 1.0])
+b = np.array([1.0, 2.0])
+
+fig, axes = plt.subplots(2, 2, figsize=(11, 10))
+
+# (1) Vector addition by the parallelogram (or tip-to-tail) rule.
+# Place b's tail at a's tip; the sum a + b is the diagonal arrow.
+ax = axes[0, 0]
+s = a + b
+ax.quiver(0, 0,    *a, angles="xy", scale_units="xy", scale=1, color="tab:blue",  width=0.012)
+ax.quiver(0, 0,    *b, angles="xy", scale_units="xy", scale=1, color="tab:orange", width=0.012)
+ax.quiver(*a,      *b, angles="xy", scale_units="xy", scale=1, color="tab:orange", alpha=0.4, width=0.012)
+ax.quiver(*b,      *a, angles="xy", scale_units="xy", scale=1, color="tab:blue",   alpha=0.4, width=0.012)
+ax.quiver(0, 0,    *s, angles="xy", scale_units="xy", scale=1, color="tab:green",  width=0.012)
+ax.text(*(a/2 + np.array([0.05, -0.25])), "a", fontsize=14, color="tab:blue")
+ax.text(*(b/2 + np.array([-0.3, 0.0])),   "b", fontsize=14, color="tab:orange")
+ax.text(*(s/2 + np.array([0.1, 0.15])),   "a + b", fontsize=14, color="tab:green")
+ax.set_title("Addition: tip-to-tail / parallelogram rule")
+
+# (2) Scalar multiplication: stretches or flips an arrow without
+# changing its line of action.
+ax = axes[0, 1]
+v = np.array([2.0, 1.0])
+ax.quiver(0, 0,  *v,        angles="xy", scale_units="xy", scale=1, color="tab:blue",   width=0.012, label="v")
+ax.quiver(0, 0,  *(2 * v),  angles="xy", scale_units="xy", scale=1, color="tab:orange", width=0.012, label="2v (twice as long)")
+ax.quiver(0, 0,  *(0.5*v),  angles="xy", scale_units="xy", scale=1, color="tab:green",  width=0.012, label="0.5v")
+ax.quiver(0, 0,  *(-1*v),   angles="xy", scale_units="xy", scale=1, color="tab:red",    width=0.012, label="-v (flipped)")
+ax.set_title("Scalar multiplication: stretch / shrink / flip")
+ax.legend(loc="lower right", fontsize=9)
+
+# (3) Dot product as a projection. The component of a along b̂ is
+# (a · b̂); we mark the foot of the perpendicular dropped from a.
+ax = axes[1, 0]
+b_hat = b / np.linalg.norm(b)
+proj_len = a @ b_hat
+proj_vec = proj_len * b_hat
+ax.quiver(0, 0, *a, angles="xy", scale_units="xy", scale=1,
+          color="tab:blue", width=0.012, label="a")
+ax.quiver(0, 0, *b, angles="xy", scale_units="xy", scale=1,
+          color="tab:orange", width=0.012, label="b (direction of projection)")
+ax.quiver(0, 0, *proj_vec, angles="xy", scale_units="xy", scale=1,
+          color="tab:green", width=0.012,
+          label=f"projection of a onto b\n|proj| = a·b̂ = {proj_len:.3f}")
+# Dashed perpendicular from a's tip to the projection.
+ax.plot([a[0], proj_vec[0]], [a[1], proj_vec[1]],
+        color="grey", linestyle="--", lw=1)
+ax.set_title("Dot product → projection length")
+ax.legend(loc="upper right", fontsize=9)
+
+# (4) Right-hand rule for the cross product (3-D, drawn from above).
+# a × b is a NEW vector perpendicular to both, pointing out of the
+# plane (here represented by a circle marker for "into the page").
+ax = axes[1, 1]
+a3 = np.array([2.0, 1.0])
+b3 = np.array([1.0, 2.0])
+ax.quiver(0, 0, *a3, angles="xy", scale_units="xy", scale=1,
+          color="tab:blue", width=0.012, label="a (in plane)")
+ax.quiver(0, 0, *b3, angles="xy", scale_units="xy", scale=1,
+          color="tab:orange", width=0.012, label="b (in plane)")
+ax.scatter([0], [0], color="tab:purple", s=200, marker="o",
+           zorder=5, label="a × b: out of page\n(right-hand rule)")
+ax.text(0.0, -0.4, "a × b ⊥ to both", color="tab:purple", fontsize=10)
+ax.set_title("Cross product = vector ⊥ to both")
+ax.legend(loc="upper right", fontsize=9)
+
+# Common cosmetics for all four axes.
+for ax in axes.flatten():
+    ax.set_xlim(-3, 5); ax.set_ylim(-2, 4)
+    ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+    ax.set_aspect("equal"); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the numerical answers so the picture is grounded.
+print(f"a + b      = {tuple(a + b)}                   (the green arrow)")
+print(f"2a         = {tuple(2 * a)}                   ('stretch by 2')")
+print(f"a · b      = {a @ b:.4f}                      ('how aligned' a and b are)")
+print(f"a · b / |b|  = {(a @ b) / np.linalg.norm(b):.4f}  (length of green proj arrow)")
+print(f"a × b (3-D) = {np.cross(np.array([3,1,0]), np.array([1,2,0]))}  "
+      f"(only z-component is non-zero)")
+```
+
+**Four take-aways for free:**
+
+- **Addition** is geometric — just slide one arrow's tail to the other's
+  tip; the resultant arrow is the sum. There is nothing "componentwise"
+  about it; the components only fall out from this picture.
+- **Scalar multiplication** doesn't change a vector's *direction* —
+  positive scalars stretch or shrink along the same line, negative
+  scalars flip and stretch.
+- **Dot product = projection length × magnitude.** The green arrow's
+  length is what most people *intuitively* think of as "how much of
+  $\mathbf{a}$ is in the direction of $\mathbf{b}$" — that's literally
+  $\mathbf{a} \cdot \hat{\mathbf{b}}$, and it falls right out of the
+  formula.
+- **Cross product** outputs a *new vector*, perpendicular to both
+  inputs (in 3-D only). This is why physics uses it for torque, angular
+  momentum, magnetic force — anything where rotation around an axis
+  matters.
+
 ## Connection to CS / Games / AI
 
 - **Dot product** — cosine similarity in recommendation engines and NLP embeddings

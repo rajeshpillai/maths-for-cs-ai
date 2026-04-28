@@ -170,6 +170,106 @@ print(f"4D tensor shape: {batch.shape} (batch, channels, height, width)")
 print(f"Rank (ndim): {batch.ndim}")
 ```
 
+## Visualisation — Climbing the rank ladder
+
+Each new mathematical object adds one more *index* you can use to
+address its entries. Pictures make this very visible.
+
+```python
+# ── Visualising scalars, vectors, matrices, tensors ─────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 4, figsize=(16, 4.5))
+
+# (1) SCALAR (rank 0): one number. Render as a single labelled box.
+# Use 0 indices to address it: there is nothing to choose.
+ax = axes[0]
+ax.add_patch(plt.Rectangle((0, 0), 1, 1, color="tab:blue", alpha=0.5,
+                           edgecolor="navy", lw=2))
+ax.text(0.5, 0.5, "7.0", ha="center", va="center", fontsize=22,
+        fontweight="bold")
+ax.set_title("Rank 0 — scalar\n(one number, zero indices)")
+ax.set_xlim(-0.5, 1.5); ax.set_ylim(-0.5, 1.5); ax.set_aspect("equal")
+ax.axis("off")
+
+# (2) VECTOR (rank 1): a row or column of numbers; one index v[i]
+# selects an entry. Drawn as 5 stacked cells with their values inside.
+ax = axes[1]
+v = np.array([3, 1, 4, 1, 5])
+for i, val in enumerate(v):
+    ax.add_patch(plt.Rectangle((0, len(v) - 1 - i), 1, 1,
+                               color="tab:orange", alpha=0.5,
+                               edgecolor="darkorange", lw=2))
+    ax.text(0.5, len(v) - 0.5 - i, str(val), ha="center", va="center",
+            fontsize=15, fontweight="bold")
+    ax.text(-0.4, len(v) - 0.5 - i, f"v[{i}]", ha="center",
+            va="center", fontsize=10, color="grey")
+ax.set_title("Rank 1 — vector\n(one index v[i] picks an entry)")
+ax.set_xlim(-1, 1.5); ax.set_ylim(-0.5, len(v) + 0.5); ax.set_aspect("equal")
+ax.axis("off")
+
+# (3) MATRIX (rank 2): rows and columns; two indices A[i, j].
+# Show a 4×4 matrix as a coloured heatmap with values overlaid.
+ax = axes[2]
+A = np.array([[2, 7, 1, 8],
+              [3, 1, 4, 1],
+              [5, 9, 2, 6],
+              [5, 3, 5, 8]])
+im = ax.imshow(A, cmap="Greens", aspect="equal")
+for i in range(A.shape[0]):
+    for j in range(A.shape[1]):
+        ax.text(j, i, str(A[i, j]), ha="center", va="center",
+                fontsize=12, fontweight="bold",
+                color="white" if A[i, j] > 5 else "black")
+ax.set_title("Rank 2 — matrix\n(two indices A[i, j])")
+ax.set_xticks(range(A.shape[1])); ax.set_yticks(range(A.shape[0]))
+
+# (4) TENSOR (rank 3): a stack of matrices. Drawn as three offset slabs
+# with light shading to suggest depth — three indices T[c, i, j].
+ax = axes[3]
+n = 4
+for slab in range(3):                    # 3 channels (e.g. R, G, B)
+    color = ["tab:red", "tab:green", "tab:blue"][slab]
+    offset = slab * 0.35
+    for i in range(n):
+        for j in range(n):
+            rect = plt.Rectangle((j + offset, n - 1 - i + offset), 1, 1,
+                                 color=color, alpha=0.20,
+                                 edgecolor=color, lw=1.2)
+            ax.add_patch(rect)
+ax.text(2.0, -0.7, "channels (depth)", ha="center", fontsize=10, color="grey")
+ax.set_title("Rank 3 — tensor\n(three indices T[c, i, j])")
+ax.set_xlim(-0.5, n + 1.5); ax.set_ylim(-1, n + 1.5); ax.set_aspect("equal")
+ax.axis("off")
+
+plt.tight_layout()
+plt.show()
+
+# Print the shape of each NumPy object so the picture matches the code.
+scalar = np.array(7.0)
+vector = np.array([3, 1, 4, 1, 5])
+matrix = A
+tensor = np.zeros((3, 4, 4))             # 3 colour channels, 4×4 image
+batch  = np.zeros((32, 3, 28, 28))       # 32 mini-batch of 3-channel 28×28
+
+print("Object  ndim  shape           example use")
+print("-" * 60)
+print(f"scalar    {scalar.ndim}     {str(scalar.shape):<14}  loss value, learning rate")
+print(f"vector    {vector.ndim}     {str(vector.shape):<14}  feature vector, RGB triple")
+print(f"matrix    {matrix.ndim}     {str(matrix.shape):<14}  weight matrix, image (greyscale)")
+print(f"tensor    {tensor.ndim}     {str(tensor.shape):<14}  RGB image, sequence of vectors")
+print(f"batch     {batch.ndim}     {str(batch.shape):<14}  mini-batch of RGB images")
+```
+
+**The ladder makes the pattern obvious:** each step up adds one more
+*axis* (one more index). A scalar has rank 0, a vector has rank 1, a
+matrix has rank 2, and so on. NumPy calls this `.ndim`; PyTorch and
+TensorFlow call it the same. A *4-D tensor* `(batch, channels, height,
+width)` is the canonical shape for a mini-batch of images going through
+a CNN — and from this picture you can already see why: it's a stack of
+3-D tensors (one per image in the batch).
+
 ## Connection to CS / Games / AI
 
 - **Vectors** — feature vectors in ML, pixel coordinates in games, RGB colour values
