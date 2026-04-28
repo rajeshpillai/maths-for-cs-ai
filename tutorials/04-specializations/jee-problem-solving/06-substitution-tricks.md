@@ -245,6 +245,61 @@ print(f"Problem 6: numerical = {result6:.6f}, exact = 0")
 - **Domain issues:** sin(t) only covers [-1, 1]. If you need x in [1, 2] for sqrt(x^2 - 1), use x = sec(t) not x = sin(t).
 - **Multiple substitutions needed:** Sometimes one substitution doesn't finish the job. Know when to chain substitutions vs. try a completely different approach.
 
+## Visualisation — Trig substitution maps an arc to a straight line
+
+A classic substitution: $\int \sqrt{a^2 - x^2}\,dx$ becomes trivial
+under $x = a \sin t$. The plot makes the geometry visible — the
+problematic curve $y = \sqrt{1 - x^2}$ (the upper half-circle) becomes
+just $y = \cos t$ (a stretched cosine curve) once we walk the
+substitution-parameter $t$.
+
+```python
+# ── Visualising a trig substitution ─────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(13, 5))
+
+# (1) Original integrand y = √(1 − x²) on [-1, 1]: the upper half of
+# the unit circle. Computing its area requires √(1 − x²) directly.
+ax = axes[0]
+xs = np.linspace(-1, 1, 200)
+ys = np.sqrt(1 - xs ** 2)
+ax.plot(xs, ys, color="tab:blue", lw=2, label="$y = \\sqrt{1 - x^2}$")
+ax.fill_between(xs, ys, color="tab:blue", alpha=0.30,
+                label=f"area = π/2 ≈ {np.pi/2:.4f}")
+ax.set_xlim(-1.2, 1.2); ax.set_ylim(-0.2, 1.2); ax.set_aspect("equal")
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_title("Original integral $\\int_{-1}^{1} \\sqrt{1-x^2}\\, dx$\n"
+             "looks hard — the integrand has a square root")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) Substitute x = sin t, dx = cos t · dt.  √(1 - sin²t) = cos t.
+# So the integrand becomes cos²t — a simple trigonometric integral.
+ax = axes[1]
+ts = np.linspace(-np.pi/2, np.pi/2, 200)
+new_integrand = np.cos(ts) ** 2
+ax.plot(ts, new_integrand, color="tab:orange", lw=2,
+        label="$y = \\cos^2 t$  (after $x = \\sin t$)")
+ax.fill_between(ts, new_integrand, color="tab:orange", alpha=0.30,
+                label=f"same area = ∫cos²t dt from -π/2 to π/2 = π/2")
+ax.set_xlabel("t"); ax.set_ylabel("integrand")
+ax.set_title("After substitution: a polynomial in cos t\n→ standard half-angle integral")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+print("Why this substitution is the right move:")
+print("  Original:  ∫_{-1}^{1} √(1 − x²) dx     — a radical, hard to attack directly.")
+print("  Sub x = sin t, dx = cos t dt:")
+print("    √(1 − sin²t) = cos t")
+print("    so √(1 − x²) dx = cos t · cos t dt = cos²t dt")
+print("  Half-angle: cos²t = (1 + cos 2t) / 2")
+print("    ∫ cos²t dt = t/2 + sin(2t)/4")
+print(f"  Evaluated from −π/2 to π/2 = π/2 ≈ {np.pi/2:.6f}  (= area of half-disc)")
+```
+
 ## Connection to CS / Games / AI / Business / Industry
 
 The skill here — *change variables until the problem becomes one you

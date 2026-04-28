@@ -141,6 +141,73 @@ for x in [0.5, 1.0, 2.0]:
     print(f"  arsinh({x}) = {arsinh:.4f}, ln formula = {formula:.4f}")
 ```
 
+## Visualisation — Hyperbolic vs trigonometric functions
+
+The hyperbolic functions sinh, cosh, tanh are the "exponential
+cousins" of sine, cosine, tangent. The plot puts both families side by
+side so the family resemblance and the differences are immediate.
+
+```python
+# ── Visualising hyperbolic functions ────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-3, 3, 400)
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 5))
+
+# (1) sinh, cosh, tanh.
+ax = axes[0]
+ax.plot(x, np.sinh(x), color="tab:blue",   lw=2, label="sinh(x) = (eˣ − e⁻ˣ)/2")
+ax.plot(x, np.cosh(x), color="tab:orange", lw=2, label="cosh(x) = (eˣ + e⁻ˣ)/2")
+ax.plot(x, np.tanh(x), color="tab:green",  lw=2, label="tanh(x) = sinh/cosh")
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.axhline( 1, color="grey", lw=0.5, linestyle=":")
+ax.axhline(-1, color="grey", lw=0.5, linestyle=":")
+ax.set_xlim(-3, 3); ax.set_ylim(-5, 6)
+ax.set_title("Hyperbolic functions\n(exponential-derived)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) Why "hyperbolic": the parametric curve (cosh t, sinh t) traces
+# the right branch of the unit hyperbola x² − y² = 1, much like
+# (cos t, sin t) traces the unit circle.
+ax = axes[1]
+t = np.linspace(-1.5, 1.5, 200)
+ax.plot(np.cosh(t),  np.sinh(t), color="tab:purple", lw=2,
+        label="(cosh t, sinh t): branch of x² − y² = 1")
+# For comparison, draw the unit circle.
+phi = np.linspace(0, 2 * np.pi, 200)
+ax.plot(np.cos(phi), np.sin(phi), color="tab:blue", lw=1.5, linestyle="--",
+        label="(cos t, sin t): x² + y² = 1")
+ax.set_aspect("equal"); ax.set_xlim(-3, 3); ax.set_ylim(-3, 3)
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_title("'Trig parametrises a circle,\nhyperbolic parametrises a hyperbola'")
+ax.legend(fontsize=9); ax.grid(True, alpha=0.3)
+
+# (3) Catenary: y = a · cosh(x/a) is the shape of a chain hanging
+# under gravity. Looks like a parabola but isn't — it's an exponential
+# combination.
+ax = axes[2]
+x_cat = np.linspace(-2, 2, 200)
+for a, color in [(0.5, "tab:red"), (1.0, "tab:blue"), (2.0, "tab:green")]:
+    ax.plot(x_cat, a * np.cosh(x_cat / a), color=color, lw=2,
+            label=f"y = {a}·cosh(x/{a})")
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.set_title("Catenary curves: hanging-chain shapes\n(arch in St. Louis Gateway is an inverted catenary)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the identity that mirrors the trig identity sin² + cos² = 1.
+print("Trig identity:        cos² + sin² = 1   (unit circle)")
+print("Hyperbolic identity:  cosh² − sinh² = 1   (unit hyperbola)")
+print()
+for x_val in [-1, 0, 1, 2]:
+    s = np.sinh(x_val); c = np.cosh(x_val)
+    print(f"  x = {x_val:+d}: sinh = {s:+.4f},  cosh = {c:+.4f},  cosh² − sinh² = {c*c - s*s:.4f}")
+```
+
 ## Connection to CS / Games / AI
 
 - **tanh activation** — zero-centred alternative to sigmoid; used in LSTM cells

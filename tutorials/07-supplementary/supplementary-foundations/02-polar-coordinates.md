@@ -144,6 +144,62 @@ for t_val in range(0, 13):
     print(f"  θ={t_val*30:3d}°: r={r:.2f} → ({x:+.2f}, {y:+.2f})")
 ```
 
+## Visualisation — Curves that are *easy* in polar coordinates
+
+Some curves have a horrible Cartesian formula but a clean polar one.
+Three classic examples: a **circle** off-centre, a **rose curve**
+(petal pattern), and a **spiral** — all defined by simple $r =
+f(\theta)$ relationships.
+
+```python
+# ── Visualising classic polar curves ────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 5), subplot_kw=dict(projection="polar"))
+
+# (1) Circle off-centre: r = 2 a cos θ traces a circle of radius a centred
+# at (a, 0).  Tricky in Cartesian, easy in polar.
+ax = axes[0]
+theta = np.linspace(-np.pi/2, np.pi/2, 200)
+a = 1.0
+r = 2 * a * np.cos(theta)
+ax.plot(theta, r, color="tab:blue", lw=2)
+ax.set_title(f"Circle of radius {a}, off-centre\n"
+             f"$r = 2a \\cos\\theta$  (only valid where r ≥ 0)", pad=20)
+
+# (2) Rose curve: r = cos(k θ) gives k petals if k is odd, 2k if k is even.
+ax = axes[1]
+theta = np.linspace(0, 2 * np.pi, 800)
+k = 4
+r = np.abs(np.cos(k * theta))
+ax.plot(theta, r, color="tab:orange", lw=2)
+ax.set_title(f"Rose curve  $r = |\\cos({k}\\theta)|$\n→ {2*k} petals", pad=20)
+
+# (3) Logarithmic spiral: r = a · e^(b θ).  Self-similar — appears in
+# nautilus shells, galaxy arms, hurricane structures.
+ax = axes[2]
+theta = np.linspace(0, 6 * np.pi, 400)
+a, b = 0.1, 0.15
+r = a * np.exp(b * theta)
+ax.plot(theta, r, color="tab:green", lw=2)
+ax.set_title(f"Logarithmic spiral  $r = {a} \\cdot e^{{{b}\\theta}}$\n"
+             "(galaxies, shells, hurricanes)", pad=20)
+
+plt.tight_layout()
+plt.show()
+
+# Print the polar/Cartesian conversion formulas.
+print("Polar ↔ Cartesian:")
+print("  Polar → Cartesian:   x = r cos θ,    y = r sin θ")
+print("  Cartesian → Polar:   r = √(x² + y²), θ = atan2(y, x)")
+print()
+print("Examples of curves that are SIMPLE in polar but UGLY in Cartesian:")
+print("  Circle of radius a around (a, 0):   r = 2a cos θ        vs  (x-a)² + y² = a²")
+print("  Cardioid:                            r = 1 + cos θ        vs  much longer")
+print("  Spiral of Archimedes:                r = θ                vs  no closed-form Cartesian")
+```
+
 ## Connection to CS / Games / AI
 
 - **Radar/sonar** — naturally polar: distance + angle from sensor

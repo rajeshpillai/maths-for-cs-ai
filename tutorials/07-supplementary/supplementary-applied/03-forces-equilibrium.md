@@ -143,6 +143,105 @@ check_y = T1*math.sin(math.radians(30)) + T2*math.sin(math.radians(60)) - 100
 print(f"  Check: ΣFx = {check_x:.6f}, ΣFy = {check_y:.6f}")
 ```
 
+## Visualisation — A free-body diagram in equilibrium
+
+The bedrock of statics: a body is in **equilibrium** when the vector
+sum of forces on it is zero. The plot draws the classic "weight hung
+from two ropes" problem and shows that the two tension arrows + the
+weight arrow form a *closed* triangle (their sum is zero).
+
+```python
+# ── Visualising forces in equilibrium ───────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Setup: a 100 N weight hangs from two ropes at 30° and 60° from vertical.
+# Solve the system: ΣFx = 0, ΣFy = 0.
+W   = 100.0
+ang_left  = np.radians(30)         # angle from vertical of left rope
+ang_right = np.radians(60)         # angle from vertical of right rope
+
+# T1 · sin(left)  -  T2 · sin(right)  = 0   (horizontal balance)
+# T1 · cos(left)  +  T2 · cos(right)  = W   (vertical balance)
+A_mat = np.array([[np.sin(ang_left), -np.sin(ang_right)],
+                  [np.cos(ang_left),  np.cos(ang_right)]])
+T = np.linalg.solve(A_mat, [0.0, W])
+T1, T2 = T
+
+# Force vectors at the knot.
+weight_vec = np.array([0.0, -W])                   # gravity acts downward
+T1_vec     = np.array([-np.sin(ang_left),  np.cos(ang_left)]) * T1
+T2_vec     = np.array([ np.sin(ang_right), np.cos(ang_right)]) * T2
+
+fig, axes = plt.subplots(1, 2, figsize=(13, 6))
+
+# (1) The free-body diagram: knot at origin, three force arrows.
+ax = axes[0]
+ax.scatter(0, 0, color="black", s=200, zorder=5)
+ax.text(0.05, -0.1, "knot", fontsize=10)
+ax.quiver(0, 0, T1_vec[0], T1_vec[1], angles="xy", scale_units="xy", scale=1,
+          color="tab:blue", width=0.012, label=f"$T_1$ = {T1:.1f} N")
+ax.quiver(0, 0, T2_vec[0], T2_vec[1], angles="xy", scale_units="xy", scale=1,
+          color="tab:green", width=0.012, label=f"$T_2$ = {T2:.1f} N")
+ax.quiver(0, 0, *weight_vec, angles="xy", scale_units="xy", scale=1,
+          color="tab:red", width=0.012, label=f"W = {W} N")
+ax.set_xlim(-90, 90); ax.set_ylim(-110, 90); ax.set_aspect("equal")
+ax.axhline(0, color="black", lw=0.4); ax.axvline(0, color="black", lw=0.4)
+ax.set_title("Free-body diagram at the knot")
+ax.legend(fontsize=10); ax.grid(True, alpha=0.3)
+
+# (2) The same three forces drawn tip-to-tail. They form a CLOSED
+# triangle — that's literally what "ΣF = 0" means geometrically.
+ax = axes[1]
+start = np.array([0.0, 0.0])
+ax.quiver(*start, *T1_vec, angles="xy", scale_units="xy", scale=1,
+          color="tab:blue", width=0.012)
+ax.text(*((start + T1_vec/2) + np.array([5, 5])), f"$T_1$ = {T1:.1f}",
+        color="tab:blue", fontsize=10)
+start = T1_vec
+ax.quiver(*start, *T2_vec, angles="xy", scale_units="xy", scale=1,
+          color="tab:green", width=0.012)
+ax.text(*((start + T2_vec/2) + np.array([5, 5])), f"$T_2$ = {T2:.1f}",
+        color="tab:green", fontsize=10)
+start = start + T2_vec
+ax.quiver(*start, *weight_vec, angles="xy", scale_units="xy", scale=1,
+          color="tab:red", width=0.012)
+ax.text(*((start + weight_vec/2) + np.array([3, -10])),
+        f"W = {W}", color="tab:red", fontsize=10)
+end = start + weight_vec
+ax.scatter(0, 0, color="black", s=80, zorder=5, label="closure: end = start")
+ax.scatter(*end, color="grey",  s=40, zorder=5)
+ax.set_xlim(-90, 50); ax.set_ylim(-30, 110); ax.set_aspect("equal")
+ax.set_title("Same three vectors tip-to-tail\n→ closed triangle = equilibrium")
+ax.axhline(0, color="black", lw=0.4); ax.axvline(0, color="black", lw=0.4)
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the equilibrium check.
+total = T1_vec + T2_vec + weight_vec
+print(f"Tension T1 = {T1:.4f} N")
+print(f"Tension T2 = {T2:.4f} N")
+print(f"\nResultant of all three forces (should be zero in equilibrium):")
+print(f"  ΣF = {total}    |ΣF| = {np.linalg.norm(total):.6e}")
+```
+
+**Why the "closed triangle" picture is the intuition:**
+
+- **$\sum \vec{F} = \vec{0}$ means the force vectors form a closed
+  polygon.** Adding tip-to-tail and getting back to the starting
+  point is the geometric statement of equilibrium.
+- This is *exactly* how engineers solve rope/cable/strut problems
+  (force triangles, polygon-of-forces method). For more complex
+  systems with more than three forces, the same idea extends to a
+  closed *polygon*.
+- **Linear algebra solves it instantly.** Two equations (horizontal
+  and vertical components) in two unknowns ($T_1$, $T_2$) — a 2×2
+  linear system. Civil engineering structural analysis scales this
+  up to millions of forces in 3-D meshes, solved by sparse linear
+  algebra (lesson 06 of advanced-ml).
+
 ## Connection to CS / Games / AI
 
 - **Physics engines** — Box2D, Bullet resolve forces each frame

@@ -257,6 +257,65 @@ print(f"  limit = e = {np.e:.6f}")
 - **All options pass small tests:** If you need n = 1, 2, 3, 4 to eliminate all wrong MCQ options but they all agree up to n = 3, you need to go further.
 - **Non-generic degenerate:** Sometimes the special case has extra symmetry that makes a wrong formula accidentally correct there.
 
+## Visualisation — Conjecturing a closed form from small cases
+
+Compute the first few values, plot them, and *see* the pattern. The
+plot shows partial sums of $\sum 1/(k(k+1))$, which form a clean
+$1 - 1/(n+1)$ curve — instantly suggesting the closed-form telescoping
+identity.
+
+```python
+# ── Visualising conjecture from small cases ─────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Compute partial sums for n = 1..15.
+ns = np.arange(1, 16)
+partial = np.cumsum(1.0 / (ns * (ns + 1)))
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+# (1) The first 5 partial sums tabulated — look for the pattern.
+ax = axes[0]
+ax.bar(ns[:7], partial[:7], color="tab:blue", alpha=0.7,
+       edgecolor="navy")
+for n, p in zip(ns[:7], partial[:7]):
+    # Each value equals 1 - 1/(n+1) = n/(n+1) — pattern you can see by eye.
+    ax.text(n, p + 0.02, f"{p:.4f}\n= {n}/{n+1}", ha="center", fontsize=9)
+ax.set_ylim(0, 1.1); ax.axhline(1.0, color="grey", linestyle=":")
+ax.set_xlabel("n"); ax.set_ylabel("partial sum")
+ax.set_title("Partial sums of $\\sum_{k=1}^n 1/(k(k+1))$\n"
+             "tabulate first 7 values → pattern emerges")
+ax.grid(True, alpha=0.3)
+
+# (2) Conjectured closed form 1 − 1/(n+1) overlaid with the data.
+ax = axes[1]
+ns_dense = np.linspace(1, 20, 200)
+closed_form = 1 - 1.0 / (ns_dense + 1)
+ax.plot(ns_dense, closed_form, color="tab:red", lw=2,
+        label="conjecture: $S_n = 1 - 1/(n+1)$")
+ax.scatter(ns, partial, color="tab:blue", s=80, zorder=5,
+           label="computed partial sums")
+ax.axhline(1.0, color="grey", lw=0.5, linestyle=":")
+ax.text(16, 1.02, "limit = 1", color="grey", fontsize=9)
+ax.set_xlabel("n"); ax.set_ylabel("$S_n$")
+ax.set_title("Plot the small-n data\n→ closed-form conjecture confirms (and converges to 1)")
+ax.set_ylim(0, 1.1); ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Verify the conjectured closed form analytically (telescoping).
+print("Conjecture from small cases:  Σ_{k=1}^n 1/(k(k+1)) = n/(n+1)")
+print()
+print("Proof by telescoping (split into partial fractions):")
+print("  1/(k(k+1)) = 1/k − 1/(k+1)")
+print("  Σ_{k=1}^n [1/k − 1/(k+1)] = (1 − 1/2) + (1/2 − 1/3) + …")
+print("                            = 1 − 1/(n+1)")
+print()
+print("Confirms the visual conjecture exactly.")
+```
+
 ## Connection to CS / Games / AI / Business / Industry
 
 "Try the smallest case first" and "stress the boundary" are not just exam

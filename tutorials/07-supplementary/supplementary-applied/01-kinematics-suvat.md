@@ -115,6 +115,93 @@ for frame in range(0, 200):
         break
 ```
 
+## Visualisation — Position, velocity, acceleration of a thrown ball
+
+Three pictures from one motion: a ball thrown upward with initial
+velocity 15 m/s. The plot shows the **position** vs time (the
+parabola), the **velocity** (a line crossing zero at the peak), and
+the **acceleration** (constant −g) — and how each is the *integral*
+of the next.
+
+```python
+# ── Visualising SUVAT for a vertical throw ──────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+u = 15.0           # initial velocity (m/s, upward)
+g = 9.8            # gravity (m/s², downward)
+T = 2 * u / g      # total flight time (returns to the launch height)
+
+t = np.linspace(0, T, 200)
+position     = u * t - 0.5 * g * t * t           # s = ut − ½gt²
+velocity     = u - g * t                          # v = u − gt
+acceleration = -g * np.ones_like(t)               # a = −g (constant)
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4.8))
+
+# (1) Position: a parabola peaking at t = u/g.
+ax = axes[0]
+ax.plot(t, position, color="tab:blue", lw=2)
+ax.fill_between(t, 0, position, color="tab:blue", alpha=0.20)
+peak_t = u / g; peak_h = u * u / (2 * g)
+ax.scatter([peak_t], [peak_h], color="tab:red", s=80, zorder=5)
+ax.annotate(f"peak: ({peak_t:.2f}s, {peak_h:.2f}m)\nfrom v=0 ⇒ t = u/g",
+            xy=(peak_t, peak_h), xytext=(peak_t - 0.2, peak_h * 0.7),
+            arrowprops=dict(arrowstyle="->", color="tab:red"))
+ax.axhline(0, color="black", lw=0.6); ax.set_xlabel("time t (s)")
+ax.set_ylabel("position s (m)")
+ax.set_title("Position s(t) = ut − ½gt²\nintegral of v(t)")
+ax.grid(True, alpha=0.3)
+
+# (2) Velocity: linear, crossing zero at the peak time.
+ax = axes[1]
+ax.plot(t, velocity, color="tab:green", lw=2)
+ax.fill_between(t, 0, velocity, color="tab:green", alpha=0.20)
+ax.axhline(0, color="black", lw=0.6)
+ax.scatter([peak_t], [0], color="tab:red", s=80, zorder=5)
+ax.annotate("v = 0 at the peak", xy=(peak_t, 0), xytext=(peak_t - 0.5, 5),
+            arrowprops=dict(arrowstyle="->", color="tab:red"))
+ax.set_xlabel("time t (s)"); ax.set_ylabel("velocity v (m/s)")
+ax.set_title("Velocity v(t) = u − gt\nintegral of a(t)")
+ax.grid(True, alpha=0.3)
+
+# (3) Acceleration: constant −g (free fall).
+ax = axes[2]
+ax.plot(t, acceleration, color="tab:red", lw=2)
+ax.axhline(0, color="black", lw=0.6)
+ax.set_xlabel("time t (s)"); ax.set_ylabel("acceleration a (m/s²)")
+ax.set_title("Acceleration a(t) = −g\n(constant during free fall)")
+ax.set_ylim(-12, 4); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the SUVAT predictions and verify against the numerical curves.
+print(f"Initial velocity u = {u} m/s,  g = {g} m/s²")
+print(f"Peak time  : t = u/g = {u/g:.4f} s")
+print(f"Peak height: h = u²/(2g) = {u*u/(2*g):.4f} m")
+print(f"Total time : T = 2u/g = {2*u/g:.4f} s")
+print()
+print("SUVAT equations all derived by integrating constant acceleration:")
+print("  v = u + at")
+print("  s = ut + ½at²")
+print("  v² = u² + 2as")
+```
+
+**The trio that explains all of constant-acceleration kinematics:**
+
+- **Acceleration is *constant*.** That single assumption (Newton's
+  second law applied to a uniform gravitational field) cascades into
+  *all* of SUVAT.
+- **Velocity is the integral of acceleration.** With $a = -g$ constant,
+  $v(t) = u - gt$ is linear in time.
+- **Position is the integral of velocity.** $s(t) = ut - \tfrac{1}{2}
+  g t^2$ is the famous parabolic trajectory. The peak is where $v =
+  0$, the symmetric return is where $s = 0$.
+- This pattern (integrate constant → linear → parabolic) is the
+  template for *every* mechanics problem with uniform acceleration —
+  cars braking, projectiles, free-falling lift carriages.
+
 ## Connection to CS / Games / AI
 
 - **Platformer physics** — jump height = $v_0^2 / (2g)$, jump time = $2v_0/g$

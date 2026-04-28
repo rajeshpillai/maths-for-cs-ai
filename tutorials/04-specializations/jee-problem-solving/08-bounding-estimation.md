@@ -313,6 +313,71 @@ print(f"e = {np.e:.6f}")
 - **Non-monotonic functions:** If f oscillates, bounding f(x) between f(a) and f(b) doesn't work. You need to find the actual max/min on the interval.
 - **The bound exists but is not tight:** Proving x >= 0 when the problem asks to prove x >= 5 — your bound is correct but useless.
 
+## Visualisation — Sandwiching a sum between two integrals
+
+Classic bounding move: a *sum* like $\sum_{k=1}^{n} 1/\sqrt k$ is
+hard to compute exactly, but it's *sandwiched* between two integrals
+$\int_1^n 1/\sqrt x \, dx$ and $\int_0^n 1/\sqrt x \, dx$ that we
+*can* compute. The picture makes this graphic.
+
+```python
+# ── Visualising integral bounds on a sum ────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+f = lambda x: 1.0 / np.sqrt(x)
+n = 10
+
+fig, ax = plt.subplots(1, 1, figsize=(11, 6))
+
+# The sum: bars of width 1 at integer positions 1..n.
+xs_int = np.arange(1, n + 1)
+heights = f(xs_int)
+ax.bar(xs_int, heights, width=1, align="edge", alpha=0.55, color="tab:blue",
+       edgecolor="navy", label=f"sum  Σ_{{k=1}}^{{{n}}} 1/√k")
+
+# Smooth curve y = 1/√x for visual comparison.
+xs = np.linspace(0.3, n + 1, 400)
+ax.plot(xs, f(xs), color="tab:red", lw=2, label="$y = 1/\\sqrt{x}$")
+
+# Lower bound: integral from 1 to n+1, drawn as a dashed-fill.
+ax.fill_between(np.linspace(1, n + 1, 200), f(np.linspace(1, n + 1, 200)),
+                color="tab:green", alpha=0.20, label="lower-bound integral $\\int_1^{n+1}$")
+
+# Upper bound: integral from 0+ to n.
+xs_up = np.linspace(0.5, n, 200)
+ax.plot(xs_up, f(xs_up), color="tab:orange", lw=2, linestyle="--",
+        label="upper-bound integral $\\int_0^{n}$ (improper but finite)")
+
+# Numerical values.
+trap = getattr(np, "trapezoid", None) or np.trapz
+exact_sum = float(np.sum(heights))
+lower = 2 * (np.sqrt(n + 1) - 1)            # ∫_1^(n+1) 1/√x dx = 2(√(n+1) - 1)
+upper = 2 * np.sqrt(n)                       # ∫_0^n 1/√x dx = 2√n
+ax.text(0.5, 1.5, f"Bounds for n = {n}:\n"
+                   f"  lower = $2(\\sqrt{{n+1}} - 1)$ = {lower:.4f}\n"
+                   f"  sum   = {exact_sum:.4f}\n"
+                   f"  upper = $2\\sqrt{{n}}$ = {upper:.4f}",
+        fontsize=10, va="top")
+ax.set_xlim(0, n + 1.5); ax.set_ylim(0, 2.0)
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.set_title("Bounding $\\sum_{k=1}^{n} 1/\\sqrt{k}$ by two integrals\n"
+             "(integral comparison test)")
+ax.legend(loc="upper right", fontsize=9); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+print("Numerical confirmation of the integral bounds:")
+print(f"  lower bound  = 2(√{n+1} - 1)        = {lower:.6f}")
+print(f"  sum 1/√1 + … + 1/√{n}                = {exact_sum:.6f}")
+print(f"  upper bound  = 2√{n}                  = {upper:.6f}")
+print(f"  lower < sum < upper?  {lower < exact_sum < upper}")
+print()
+print("This same trick gives Σ 1/k ~ ln n  (harmonic sum bounded by log)")
+print("and Σ k^p ~ n^(p+1)/(p+1)  (sum of powers).")
+```
+
 ## Connection to CS / Games / AI / Business / Industry
 
 "Estimate before you compute, bound before you solve" is one of the most

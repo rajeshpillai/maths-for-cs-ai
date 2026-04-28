@@ -113,6 +113,66 @@ for x_10 in range(-25, 26, 5):
     print(f"  x={x:+4.1f}: y={y:+5.2f} {bar}")
 ```
 
+## Visualisation — The three classic polynomial shapes
+
+Linear, quadratic, and cubic polynomials are the three function shapes
+beginners meet first. Each has a distinctive *signature shape*:
+straight line, U-shape, S-shape (or N-shape).
+
+```python
+# ── Visualising linear, quadratic, cubic polynomials ────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-3, 3, 400)
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4.5))
+
+# (1) Linear: y = mx + c.  The slope m and intercept c.
+ax = axes[0]
+for m, c, color in [(1.0, 0, "tab:blue"),
+                    (-2.0, 1, "tab:orange"),
+                    (0.5, -1, "tab:green")]:
+    ax.plot(x, m * x + c, lw=2, color=color, label=f"y = {m}x + {c}")
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_title("Linear: y = m x + c\n(slope m, y-intercept c)")
+ax.set_xlim(-3, 3); ax.set_ylim(-5, 5)
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) Quadratic: y = a x² + b x + c. U or ∩ depending on sign of a.
+ax = axes[1]
+for a, b, c, color in [(1.0, 0, 0, "tab:blue"),
+                       (-1.0, 0, 4, "tab:orange"),
+                       (0.5, -1, -1, "tab:green")]:
+    ax.plot(x, a * x*x + b * x + c, lw=2, color=color,
+            label=f"y = {a}x² + {b}x + {c}")
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_title("Quadratic: y = ax² + bx + c\n(parabola; a > 0 ⇒ ∪, a < 0 ⇒ ∩)")
+ax.set_xlim(-3, 3); ax.set_ylim(-6, 8)
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (3) Cubic: y = ax³ + … One bend (S-shape) or none (monotonic).
+ax = axes[2]
+for spec, color in [(("y = x³",         lambda x: x**3),                 "tab:blue"),
+                    (("y = x³ - 3x",    lambda x: x**3 - 3*x),           "tab:orange"),
+                    (("y = -x³ + 3x²",  lambda x: -x**3 + 3*x*x),        "tab:green")]:
+    label, f = spec
+    ax.plot(x, f(x), lw=2, color=color, label=label)
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_title("Cubic: y = ax³ + …\n(can have one bend or be monotonic)")
+ax.set_xlim(-3, 3); ax.set_ylim(-12, 12)
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print parametric rules of thumb.
+print("Polynomial shape cheat-sheet:")
+print(f"  Linear y = mx + c              : 1 parameter shapes the slope")
+print(f"  Quadratic y = ax² + bx + c     : sign of a flips ∪ ↔ ∩")
+print(f"  Cubic y = ax³ + bx² + cx + d   : sign of a determines end behaviour")
+```
+
 ## Connection to CS / Games / AI
 
 - **Linear** — linear regression, cost functions, straight-line motion

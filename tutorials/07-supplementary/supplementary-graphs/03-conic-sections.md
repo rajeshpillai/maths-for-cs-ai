@@ -103,6 +103,84 @@ for x in [2, 3, 5, 10]:
         print(f"  x={x}: y=±{y:.2f}")
 ```
 
+## Visualisation — The four conic sections
+
+Slice a cone with a plane at different angles and you get **circle**,
+**ellipse**, **parabola**, or **hyperbola**. The plot draws each in
+its standard form so the family resemblance is unmistakable.
+
+```python
+# ── Visualising conic sections ──────────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 4, figsize=(16, 4.8))
+theta = np.linspace(0, 2 * np.pi, 400)
+
+# (1) Circle: x² + y² = r².
+ax = axes[0]
+r = 2
+ax.plot(r * np.cos(theta), r * np.sin(theta), color="tab:blue", lw=2)
+ax.scatter([0], [0], color="tab:red", s=80, zorder=5, label="centre")
+ax.set_title(f"Circle: $x^2 + y^2 = {r**2}$\n(eccentricity e = 0)")
+ax.set_xlim(-3.5, 3.5); ax.set_ylim(-3.5, 3.5); ax.set_aspect("equal")
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.grid(True, alpha=0.3); ax.legend(fontsize=8)
+
+# (2) Ellipse: (x/a)² + (y/b)² = 1.
+ax = axes[1]
+a, b = 3, 2
+ax.plot(a * np.cos(theta), b * np.sin(theta), color="tab:orange", lw=2)
+c = np.sqrt(a*a - b*b)
+ax.scatter([-c, c], [0, 0], color="tab:red", s=80, zorder=5, label=f"foci (±{c:.2f}, 0)")
+ax.set_title(f"Ellipse: $x^2/{a**2} + y^2/{b**2} = 1$\n(0 < e < 1)")
+ax.set_xlim(-4, 4); ax.set_ylim(-3, 3); ax.set_aspect("equal")
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.grid(True, alpha=0.3); ax.legend(fontsize=8)
+
+# (3) Parabola: y² = 4px (or y = x²/4p).
+ax = axes[2]
+p = 1
+xs = np.linspace(0, 4, 200)
+ax.plot(xs,  np.sqrt(4 * p * xs), color="tab:green", lw=2)
+ax.plot(xs, -np.sqrt(4 * p * xs), color="tab:green", lw=2)
+ax.scatter([p], [0], color="tab:red", s=80, zorder=5, label=f"focus ({p}, 0)")
+ax.axvline(-p, color="tab:purple", lw=1.5, linestyle="--", label=f"directrix x = {-p}")
+ax.set_title(f"Parabola: $y^2 = 4·{p}·x$\n(eccentricity e = 1)")
+ax.set_xlim(-2, 5); ax.set_ylim(-4, 4); ax.set_aspect("equal")
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.grid(True, alpha=0.3); ax.legend(fontsize=8)
+
+# (4) Hyperbola: (x/a)² − (y/b)² = 1.
+ax = axes[3]
+a, b = 2, 3
+xs_pos = np.linspace(a, 6, 200); xs_neg = np.linspace(-6, -a, 200)
+ax.plot(xs_pos,  b * np.sqrt(xs_pos**2 / a**2 - 1), color="tab:purple", lw=2)
+ax.plot(xs_pos, -b * np.sqrt(xs_pos**2 / a**2 - 1), color="tab:purple", lw=2)
+ax.plot(xs_neg,  b * np.sqrt(xs_neg**2 / a**2 - 1), color="tab:purple", lw=2)
+ax.plot(xs_neg, -b * np.sqrt(xs_neg**2 / a**2 - 1), color="tab:purple", lw=2)
+# Asymptotes y = ±(b/a) x.
+asym_x = np.linspace(-6, 6, 100)
+ax.plot(asym_x,  (b / a) * asym_x, color="grey", lw=1, linestyle="--")
+ax.plot(asym_x, -(b / a) * asym_x, color="grey", lw=1, linestyle="--")
+c = np.sqrt(a * a + b * b)
+ax.scatter([-c, c], [0, 0], color="tab:red", s=80, zorder=5, label=f"foci")
+ax.set_title(f"Hyperbola: $x^2/{a**2} − y^2/{b**2} = 1$\n(e > 1, asymptotes ±b/a)")
+ax.set_xlim(-6, 6); ax.set_ylim(-6, 6); ax.set_aspect("equal")
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.grid(True, alpha=0.3); ax.legend(fontsize=8)
+
+plt.tight_layout()
+plt.show()
+
+# Eccentricity classification.
+print("All four conics are described by a single number — the eccentricity e:")
+print("  e = 0  →  circle")
+print("  0 < e < 1  →  ellipse  (planetary orbits, e_Earth ≈ 0.0167)")
+print("  e = 1  →  parabola  (projectile paths, satellite dishes)")
+print("  e > 1  →  hyperbola  (Kepler's escape trajectories)")
+```
+
 ## Connection to CS / Games / AI
 
 - **Parabola** — projectile paths, satellite dish shape (focuses signals), quadratic loss curves

@@ -146,6 +146,91 @@ beta1 = (XTX[0][0]*XTy[1] - XTX[1][0]*XTy[0]) / det
 print(f"β₀ (intercept) = {beta0:.2f}, β₁ (slope) = {beta1:.2f}")
 ```
 
+## Visualisation — Least squares fits a line by minimising squared errors
+
+The single most-used statistical procedure in the world: fit a straight
+line $y = \beta_0 + \beta_1 x$ to data by minimising the sum of squared
+vertical errors. The plot shows the fitted line, the residual segments,
+and the **R²** statistic that tells you how much variance the line
+explains.
+
+```python
+# ── Visualising linear regression and R² ────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(0)
+N = 30
+x = rng.uniform(0, 10, N)
+y_true = 1.5 + 0.7 * x
+y      = y_true + 1.2 * rng.standard_normal(N)              # add noise
+
+# Closed-form least-squares: β = (XᵀX)⁻¹ Xᵀy.
+X = np.column_stack([np.ones(N), x])
+beta = np.linalg.solve(X.T @ X, X.T @ y)
+beta0, beta1 = beta
+y_hat = X @ beta
+
+# R² = 1 - SS_residual / SS_total.
+ss_res = np.sum((y - y_hat) ** 2)
+ss_tot = np.sum((y - y.mean()) ** 2)
+r2 = 1 - ss_res / ss_tot
+
+fig, axes = plt.subplots(1, 2, figsize=(13, 5.5))
+
+# (1) Scatter + fitted line + residual segments.
+ax = axes[0]
+ax.scatter(x, y, color="tab:blue", s=50, label="data")
+xs = np.linspace(0, 10, 100)
+ax.plot(xs, beta0 + beta1 * xs, color="tab:red", lw=2,
+        label=f"fit: y = {beta0:.2f} + {beta1:.3f}x")
+# Residual segments (one per data point) so the picture *shows* what
+# least squares minimises.
+for xi, yi, yhi in zip(x, y, y_hat):
+    ax.plot([xi, xi], [yi, yhi], color="grey", lw=0.7, alpha=0.7)
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.set_title("Least-squares regression\n(grey segments = residuals minimised by the fit)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) R²: variance explained vs total.  Two bars: SS_total and SS_res.
+ax = axes[1]
+explained = ss_tot - ss_res
+ax.bar(["SS total\n(no model)", "SS residual\n(after fit)",
+        "SS explained"],
+       [ss_tot, ss_res, explained],
+       color=["tab:blue", "tab:red", "tab:green"], alpha=0.7,
+       edgecolor="black")
+for i, v in enumerate([ss_tot, ss_res, explained]):
+    ax.text(i, v + max([ss_tot, explained]) * 0.02, f"{v:.1f}",
+            ha="center", fontsize=11, fontweight="bold")
+ax.set_ylabel("sum of squared deviations")
+ax.set_title(f"R² = 1 − SS_res / SS_tot\n= 1 − {ss_res:.2f}/{ss_tot:.2f} = {r2:.4f}")
+ax.grid(True, alpha=0.3, axis="y")
+
+plt.tight_layout()
+plt.show()
+
+# Print the fitted parameters and Pearson correlation r (= √R² with sign of slope).
+r = np.corrcoef(x, y)[0, 1]
+print(f"Fitted line: y = {beta0:.4f} + {beta1:.4f} · x")
+print(f"True line:   y = 1.5000 + 0.7000 · x")
+print(f"\nR² = {r2:.4f}  (fraction of y-variance explained by the fit)")
+print(f"Pearson r = {r:+.4f}  (note: r² = R² for simple linear regression)")
+```
+
+**Three concepts that connect through this plot:**
+
+- **Least squares minimises the sum of *squared* residuals.** Squaring
+  punishes outliers more than absolute error would (an L2 vs L1 loss
+  trade-off — see lessons in linear-algebra and optimisation).
+- **R² = (variance explained) / (total variance).** R² = 0 → fit is
+  no better than the mean; R² = 1 → fit is perfect. *Beware* high R²
+  on noisy small data — overfitting and selection bias inflate it.
+- **Linear regression IS a tiny neural network.** A network with one
+  linear layer and MSE loss, trained to convergence, exactly
+  reproduces the closed-form least-squares fit. Logistic regression
+  is the same thing with a sigmoid output and cross-entropy loss.
+
 ## Connection to CS / Games / AI
 
 - **Linear regression** — the simplest ML model, baseline for everything

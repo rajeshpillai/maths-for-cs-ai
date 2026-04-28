@@ -290,6 +290,54 @@ for n in range(1, 8):
 - **Existence not guaranteed:** Working backwards assumes a solution exists. If the problem asks "does a solution exist?", backwards reasoning can mislead — you might derive conditions that are actually impossible.
 - **MCQ with close options:** If answer choices are very close numerically, backwards verification might not help (all look approximately correct).
 
+## Visualisation — Constructing a polynomial that fits given roots
+
+The classic backwards-construction move: rather than solve for the
+roots, *assume* the polynomial has them and write it down. The plot
+shows three polynomials built backwards from chosen roots.
+
+```python
+# ── Visualising polynomial construction from desired roots ──
+import numpy as np
+import matplotlib.pyplot as plt
+
+specs = [
+    ([-2, 0, 2],         "P(x) = (x+2)(x)(x-2) = x³ − 4x"),
+    ([1, 1, 3],          "double root at 1: P(x) = (x−1)²(x−3)"),
+    ([0, 0, 1, -1, 2],   "5th-degree: P(x) = x²(x−1)(x+1)(x−2)"),
+]
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 5))
+
+for ax, (roots, label) in zip(axes, specs):
+    coeffs = np.poly(roots)              # NumPy: build coeffs from roots
+    xs = np.linspace(min(roots) - 1, max(roots) + 1, 400)
+    ys = np.polyval(coeffs, xs)
+    ax.plot(xs, ys, color="tab:blue", lw=2)
+    ax.axhline(0, color="black", lw=0.5)
+    for r in set(roots):
+        mult = roots.count(r)
+        ax.scatter(r, 0, color="tab:red", s=140, zorder=5)
+        ax.text(r, max(ys) * 0.05, f"x = {r}  (×{mult})", color="tab:red",
+                ha="center", fontsize=9, fontweight="bold")
+    ax.set_title(label)
+    ax.set_xlabel("x"); ax.set_ylabel("P(x)")
+    ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the coefficients for one example, derived backwards from roots.
+roots_ex = [-2, 0, 2]
+coeffs_ex = np.poly(roots_ex)
+print(f"Roots → coefficients (backwards construction):")
+print(f"  roots {roots_ex} ⇒ P(x) = {' + '.join(f'{c:.0f}·x^{i}' for i, c in enumerate(coeffs_ex[::-1]))}")
+print(f"  i.e.  P(x) = x³ − 4x   (matches by direct multiplication)")
+print()
+print("This 'work backwards from the answer shape' move is the same trick")
+print("used by test-driven development, constraint solvers, and inverse problems.")
+```
+
 ## Connection to CS / Games / AI / Business / Industry
 
 Reasoning *from the answer back to the question* — assuming a solution

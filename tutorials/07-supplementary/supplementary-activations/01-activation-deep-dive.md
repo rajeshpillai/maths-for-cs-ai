@@ -202,6 +202,78 @@ for name, max_grad in [("Sigmoid", 0.25), ("Tanh", 1.0), ("ReLU", 1.0)]:
     print(f"  {name}: max_grad^10 = {max_grad}^10 = {grad:.6f}")
 ```
 
+## Visualisation — A complete activation-function gallery
+
+Modern deep-learning includes more than just sigmoid / tanh / ReLU.
+This plot draws **eight** activations together — including newer
+ones (Swish, Mish, GELU, ELU) that have become standard in
+state-of-the-art models.
+
+```python
+# ── Visualising the modern activation-function gallery ──────
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-5, 5, 400)
+
+def sigmoid(z):  return 1.0 / (1.0 + np.exp(-z))
+def tanh(z):     return np.tanh(z)
+def relu(z):     return np.maximum(0, z)
+def leaky(z):    return np.where(z > 0, z, 0.1 * z)
+def elu(z, a=1): return np.where(z > 0, z, a * (np.exp(z) - 1))
+def gelu(z):     return 0.5 * z * (1 + np.tanh(np.sqrt(2/np.pi) * (z + 0.044715*z**3)))
+def swish(z):    return z * sigmoid(z)
+def mish(z):     return z * np.tanh(np.log(1 + np.exp(z)))
+
+activations = [
+    ("Sigmoid",   sigmoid, "tab:blue"),
+    ("Tanh",      tanh,    "tab:orange"),
+    ("ReLU",      relu,    "tab:green"),
+    ("Leaky ReLU", leaky,  "tab:red"),
+    ("ELU",       elu,     "tab:purple"),
+    ("GELU",      gelu,    "tab:brown"),
+    ("Swish",     swish,   "tab:pink"),
+    ("Mish",      mish,    "tab:gray"),
+]
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5.5))
+
+# (1) The activations themselves.
+ax = axes[0]
+for name, f, color in activations:
+    ax.plot(x, f(x), lw=2, color=color, label=name)
+ax.axhline(0, color="black", lw=0.4); ax.axvline(0, color="black", lw=0.4)
+ax.set_xlim(-5, 5); ax.set_ylim(-1.5, 5.5)
+ax.set_title("Activation gallery\n(modern nets favour smooth ReLU variants)")
+ax.set_xlabel("z"); ax.set_ylabel("a(z)")
+ax.legend(fontsize=8, loc="upper left"); ax.grid(True, alpha=0.3)
+
+# (2) Their derivatives — what gets multiplied through backprop.
+ax = axes[1]
+def deriv(f, z, h=1e-4): return (f(z + h) - f(z - h)) / (2 * h)
+for name, f, color in activations:
+    ax.plot(x, deriv(f, x), lw=2, color=color, label=f"d/dz {name}")
+ax.axhline(0, color="black", lw=0.4)
+ax.axhline(1, color="grey", lw=0.5, linestyle=":")
+ax.set_xlim(-5, 5); ax.set_ylim(-0.3, 1.4)
+ax.set_title("Derivatives — what backprop multiplies\n(higher = better gradient flow)")
+ax.set_xlabel("z"); ax.set_ylabel("a'(z)")
+ax.legend(fontsize=8); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the choice-guide.
+print("Activation cheat-sheet for picking one:")
+print("  Hidden layers (default)        : ReLU or GELU")
+print("  Hidden layers (Transformers)   : GELU (used in BERT, GPT)")
+print("  Hidden layers (newer CNNs)     : Swish / Mish")
+print("  Binary classifier output       : Sigmoid")
+print("  Multi-class classifier output  : Softmax (a vector activation)")
+print("  LSTM / GRU gates               : Sigmoid (the gate values must lie in (0,1))")
+print("  Output of variational encoders : sometimes tanh (bounded latent codes)")
+```
+
 ## Connection to CS / Games / AI
 
 - **Model architecture decisions** — choosing activation = choosing gradient flow properties

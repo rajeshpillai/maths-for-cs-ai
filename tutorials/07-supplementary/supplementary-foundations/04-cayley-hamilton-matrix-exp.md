@@ -161,6 +161,85 @@ for t in [0, 0.5, 1.0, 1.57]:
     print(f"  t={t:.2f}: x=({x:.3f}, {y:.3f})")
 ```
 
+## Visualisation — The matrix exponential as a flow
+
+The matrix exponential $e^{At}$ is the solution to $\dot{x} = Ax$ —
+it tells you how an entire vector field flows under a linear ODE.
+The plot draws the trajectory of $e^{At} x_0$ for several starting
+points and three matrices $A$ (rotation, decay, growth).
+
+```python
+# ── Visualising the matrix exponential as a flow ────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+def expm(A, n_terms=30):
+    """Compute the matrix exponential by truncated Taylor series.
+    For visualisation purposes this is plenty accurate; numerical
+    libraries (scipy.linalg.expm) use scaling-and-squaring + Padé."""
+    n = A.shape[0]
+    result = np.eye(n)
+    term = np.eye(n)
+    for k in range(1, n_terms + 1):
+        term = term @ A / k
+        result = result + term
+    return result
+
+# Three 2×2 matrices and the qualitatively different flows they generate.
+matrices = [
+    ("Rotation A = [[0, -1], [1, 0]]\n→ orbits (e^At rotates)",
+     np.array([[0., -1.], [1., 0.]])),
+    ("Decay A = [[-0.3, 0], [0, -0.5]]\n→ all flows converge to origin",
+     np.array([[-0.3, 0.], [0., -0.5]])),
+    ("Saddle A = [[0.3, 0], [0, -0.3]]\n→ unstable: grows in x, shrinks in y",
+     np.array([[0.3, 0.], [0., -0.3]])),
+]
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 5.5))
+
+for ax, (title, A) in zip(axes, matrices):
+    # Draw vector field of dx/dt = Ax over a grid.
+    xs = np.linspace(-2, 2, 15); ys = np.linspace(-2, 2, 15)
+    X, Y = np.meshgrid(xs, ys)
+    U = A[0, 0] * X + A[0, 1] * Y
+    V = A[1, 0] * X + A[1, 1] * Y
+    ax.quiver(X, Y, U, V, color="grey", alpha=0.4, scale=30)
+
+    # Trace flow starting from several initial conditions.
+    inits = [(1.0, 0.5), (-1.0, 1.0), (0.5, -1.0), (-0.5, -0.5),
+             (1.5, 1.5), (-1.5, -1.5)]
+    for x0, y0 in inits:
+        ts = np.linspace(0, 4, 80)
+        traj = np.array([expm(A * t) @ np.array([x0, y0]) for t in ts])
+        ax.plot(traj[:, 0], traj[:, 1], lw=1.6)
+        ax.scatter([x0], [y0], color="black", s=30, zorder=5)
+    ax.set_xlim(-2.5, 2.5); ax.set_ylim(-2.5, 2.5); ax.set_aspect("equal")
+    ax.axhline(0, color="black", lw=0.4); ax.axvline(0, color="black", lw=0.4)
+    ax.set_title(title)
+    ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print one explicit matrix exponential: e^At for the rotation matrix
+# at t = π/2 should be a 90° rotation.
+A_rot = np.array([[0., -1.], [1., 0.]])
+e_At = expm(A_rot * np.pi / 2)
+print(f"e^(A · π/2) for A = [[0, -1], [1, 0]]:")
+print(np.round(e_At, 4))
+print()
+print("As expected — that is exactly the 90° rotation matrix:")
+print("  [[ 0, -1],")
+print("   [ 1,  0]]")
+print()
+print("The matrix exponential generalises e^(at) for scalar a, and tells you")
+print("exactly how a system dx/dt = Ax evolves over time. Eigenvalues of A")
+print("decide the long-run behaviour:")
+print("  Re(λ) < 0 → decay to origin (stable)")
+print("  Re(λ) = 0, Im(λ) ≠ 0 → orbits (rotation/oscillation)")
+print("  Re(λ) > 0 → grows (unstable)")
+```
+
 ## Connection to CS / Games / AI
 
 - **Neural ODEs** — continuous-depth networks solve $\dot{\mathbf{h}} = f(\mathbf{h}, t)$; matrix exponential for the linear case

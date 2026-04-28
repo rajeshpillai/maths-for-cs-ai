@@ -138,6 +138,104 @@ for step in range(630):
     x += v_shm * dt
 ```
 
+## Visualisation — Solving an ODE numerically vs analytically
+
+The plot compares the exact analytical solution of a first-order
+linear ODE with two numerical integrators (forward Euler — the
+simplest, and 4th-order Runge–Kutta — what scientific code actually
+uses). Step-size matters: too big and Euler diverges; RK4 stays
+accurate even at coarse resolution.
+
+```python
+# ── Visualising ODE integration accuracy ────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# ODE: dy/dt = -k·y    (exponential decay)
+# Exact solution:  y(t) = y0 · exp(-k·t)
+k, y0 = 1.5, 1.0
+t_end = 5.0
+exact = lambda t: y0 * np.exp(-k * t)
+
+def euler(f, y0, t_end, h):
+    ts = np.arange(0, t_end + h, h); ys = [y0]
+    for t in ts[:-1]:
+        ys.append(ys[-1] + h * f(ys[-1], t))
+    return ts, np.array(ys)
+
+def rk4(f, y0, t_end, h):
+    ts = np.arange(0, t_end + h, h); ys = [y0]
+    for t in ts[:-1]:
+        y = ys[-1]
+        k1 = f(y, t); k2 = f(y + h*k1/2, t + h/2)
+        k3 = f(y + h*k2/2, t + h/2); k4 = f(y + h*k3, t + h)
+        ys.append(y + h * (k1 + 2*k2 + 2*k3 + k4) / 6)
+    return ts, np.array(ys)
+
+f_decay = lambda y, t: -k * y
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+# (1) Solutions at a coarse step h = 0.5: Euler is wildly off; RK4 nails it.
+ax = axes[0]
+t_dense = np.linspace(0, t_end, 400)
+ax.plot(t_dense, exact(t_dense), color="black", lw=2, label="exact")
+ts_e, ys_e = euler(f_decay, y0, t_end, 0.5)
+ax.plot(ts_e, ys_e, "o-", color="tab:red", lw=1.5,
+        label="Euler, h = 0.5 (diverges-ish)")
+ts_r, ys_r = rk4(f_decay, y0, t_end, 0.5)
+ax.plot(ts_r, ys_r, "s-", color="tab:green", lw=1.5,
+        label="RK4, h = 0.5")
+ax.set_xlabel("t"); ax.set_ylabel("y(t)")
+ax.set_title("ODE solver accuracy at a coarse step\n(same h, vastly different errors)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) Error vs step size on log-log axes.  Slopes reveal the order
+# of accuracy: Euler is O(h), RK4 is O(h⁴).
+ax = axes[1]
+hs = np.array([2, 1, 0.5, 0.25, 0.1, 0.05, 0.02, 0.01])
+err_e, err_r = [], []
+for h in hs:
+    ts_e, ys_e = euler(f_decay, y0, t_end, h)
+    ts_r, ys_r = rk4(f_decay, y0, t_end, h)
+    err_e.append(abs(ys_e[-1] - exact(ts_e[-1])))
+    err_r.append(abs(ys_r[-1] - exact(ts_r[-1])))
+ax.loglog(hs, err_e, "o-", color="tab:red", lw=2, label="Euler error  (∝ h)")
+ax.loglog(hs, err_r, "s-", color="tab:green", lw=2, label="RK4 error    (∝ h⁴)")
+# Reference slopes.
+ax.loglog(hs, hs * 0.5,        color="tab:red",   lw=0.8, linestyle="--", alpha=0.5)
+ax.loglog(hs, (hs ** 4) * 0.05, color="tab:green", lw=0.8, linestyle="--", alpha=0.5)
+ax.set_xlabel("step size h (log)"); ax.set_ylabel("|error at t = 5| (log)")
+ax.set_title("Order of accuracy:\nEuler is O(h), RK4 is O(h⁴)")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the error table.
+print(f"{'h':>8}  {'Euler error':>14}  {'RK4 error':>14}")
+print("-" * 42)
+for h, e1, e2 in zip(hs, err_e, err_r):
+    print(f"  {h:>6.3f}  {e1:>14.6e}  {e2:>14.6e}")
+```
+
+**Why every physics engine uses RK4 (or better), not Euler:**
+
+- **Euler is $O(h)$.** Halve $h$, halve the error. To get 4 digits of
+  precision, you need $h \approx 10^{-4}$ — sometimes thousands of
+  tiny steps for a single second of simulation.
+- **RK4 is $O(h^4)$.** Halve $h$, error drops 16×. Same 4 digits of
+  precision come at $h \approx 0.1$ — orders of magnitude fewer
+  evaluations.
+- **The trade-off.** RK4 evaluates the derivative *four times per
+  step* — so the cost-per-step is 4× Euler's. But the convergence
+  speed-up wins overall, dramatically, for any non-trivial ODE.
+- **Symplectic integrators** (Verlet, leapfrog) are what game
+  physics engines actually use for Newtonian dynamics — they
+  preserve energy over long timescales, which neither Euler nor RK4
+  does cleanly. The same lesson applies though: the *order* of the
+  integrator matters more than the size of any single step.
+
 ## Connection to CS / Games / AI
 
 - **Neural ODEs** — model continuous-depth networks as DEs (Chen et al., 2018)

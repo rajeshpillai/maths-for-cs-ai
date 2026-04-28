@@ -153,6 +153,68 @@ for x in [-2, -1, 0, 1, 2]:
     print(f"  x={x:+d}: ReLU={relu:.1f}, Softplus={sp:.4f}")
 ```
 
+## Visualisation — The bell curve, sigmoid, and ReLU together
+
+Three of the most-recurring shapes in stats and ML side by side.
+Each one *looks like itself* — recognising them at a glance is a
+useful skill.
+
+```python
+# ── Visualising bell curve, sigmoid, ReLU ───────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-5, 5, 400)
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 4.8))
+
+# (1) Bell curve (Gaussian PDF), with highlighting at ±1σ, ±2σ.
+ax = axes[0]
+mu, sigma = 0, 1
+pdf = np.exp(-0.5 * ((x - mu) / sigma) ** 2) / (sigma * np.sqrt(2 * np.pi))
+ax.plot(x, pdf, color="tab:blue", lw=2, label="N(0, 1)")
+ax.fill_between(x, pdf, where=np.abs(x) <= 1, alpha=0.30, color="tab:blue",
+                label="±1σ ≈ 68%")
+ax.fill_between(x, pdf, where=np.abs(x) <= 2, alpha=0.15, color="tab:blue",
+                label="±2σ ≈ 95%")
+ax.set_title("Bell curve (Gaussian PDF)\nthe shape of noise, errors, polls")
+ax.set_xlabel("x"); ax.set_ylabel("density")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) Sigmoid: smooth S-shape from 0 to 1, slope = 0.25 at x = 0.
+ax = axes[1]
+sig = 1.0 / (1.0 + np.exp(-x))
+ax.plot(x, sig, color="tab:orange", lw=2, label="σ(x) = 1/(1+e⁻ˣ)")
+ax.plot(x, 0.25 * x + 0.5, color="tab:red", lw=1.2, linestyle="--",
+        label="tangent slope at 0 = 0.25")
+ax.axhline(0, color="black", lw=0.5)
+ax.axhline(1, color="grey", lw=0.5, linestyle=":")
+ax.set_title("Sigmoid: 0 → 1, smooth S-curve\n(default for binary-classification output)")
+ax.set_xlabel("x"); ax.set_ylabel("σ(x)")
+ax.set_ylim(-0.2, 1.2)
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (3) ReLU and softplus, the smooth approximation of ReLU.
+ax = axes[2]
+relu = np.maximum(0, x)
+softplus = np.log(1 + np.exp(x))
+ax.plot(x, relu,     color="tab:green",  lw=2, label="ReLU = max(0, x)")
+ax.plot(x, softplus, color="tab:purple", lw=1.8, linestyle="--",
+        label="Softplus ≈ smooth ReLU")
+ax.set_title("ReLU and softplus\n(workhorse activations for hidden layers)")
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+print("Each shape has a single dominant role in modern ML:")
+print("  Bell curve  → Gaussian noise, weight init, batch-norm output statistics")
+print("  Sigmoid     → squashes anything to (0, 1) — used as gates and binary outputs")
+print("  ReLU        → cheap, sparse, gradient-preserving — default hidden activation")
+print("  Softplus    → 'smooth' ReLU, useful where you need a differentiable everywhere")
+```
+
 ## Connection to CS / Games / AI
 
 - **Bell curve** — weight initialisation, batch norm, noise modelling, p-values

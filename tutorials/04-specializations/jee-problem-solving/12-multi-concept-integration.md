@@ -371,6 +371,74 @@ print(f"  Verification: 7^4 mod 100 = {pow(7, 4, 100)}, 2023 mod 4 = {2023 % 4}"
 - **Missing a prerequisite concept:** Multi-concept problems assume fluency in all component topics. If you're weak in one area, the entire solution chain breaks.
 - **Time pressure:** These problems take longer. In an exam, make sure the marks justify the time investment. Sometimes partial marks from an incomplete solution are strategic.
 
+## Visualisation — Roots of unity: complex + algebra + trig in one picture
+
+The 7th roots of unity — solutions of $z^7 = 1$ — are seven equally-
+spaced points on the unit circle. The classical JEE move
+$(1+\omega)(1+\omega^2)\cdots(1+\omega^6)$ is a multi-concept exercise
+in complex numbers, polynomial factorisation, and the unit circle.
+
+```python
+# ── Visualising 7th roots of unity ──────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# n-th roots of unity: ω_k = exp(2π i k / n) for k = 0 … n-1.
+n = 7
+ks = np.arange(n)
+roots = np.exp(2j * np.pi * ks / n)
+
+fig, axes = plt.subplots(1, 2, figsize=(13, 6))
+
+# (1) The roots arranged on the unit circle.
+ax = axes[0]
+theta = np.linspace(0, 2 * np.pi, 200)
+ax.plot(np.cos(theta), np.sin(theta), color="grey", lw=1)
+for k, w in zip(ks, roots):
+    ax.scatter(w.real, w.imag, color="tab:red", s=140, zorder=5)
+    ax.plot([0, w.real], [0, w.imag], color="tab:blue", lw=1, alpha=0.6)
+    ax.text(1.13 * w.real, 1.13 * w.imag, f"$\\omega^{k}$", ha="center",
+            fontsize=12, color="tab:red")
+ax.set_aspect("equal"); ax.set_xlim(-1.5, 1.5); ax.set_ylim(-1.5, 1.5)
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_title(f"{n}-th roots of unity\n($\\omega^k = e^{{2\\pi i k / {n}}}$)")
+ax.grid(True, alpha=0.3)
+
+# (2) Compute the product (1 + ω)(1 + ω²)...(1 + ω⁶).
+# JEE trick: factor z^7 - 1 = ∏_{k=0}^6 (z - ω^k).  Plug z = -1:
+#   (-1)^7 - 1 = -2 = ∏_{k=0}^6 (-1 - ω^k) = -1 · ∏_{k=0}^6 (1 + ω^k).
+# So ∏_{k=0}^6 (1 + ω^k) = 2.
+# But we want the product over k = 1..6 only (omit k=0, where ω⁰ = 1):
+#   ∏_{k=1}^6 (1 + ω^k) = 2 / (1 + 1) = 1.
+
+ax = axes[1]
+products = np.cumprod(1 + roots[1:])      # cumulative product over k = 1..6
+labels = [f"k=1..{i+1}" for i in range(len(products))]
+ax.bar(labels, np.abs(products), color="tab:green", alpha=0.7, edgecolor="black")
+for i, v in enumerate(products):
+    ax.text(i, abs(v) + 0.05, f"|·| = {abs(v):.2f}\nphase {np.degrees(np.angle(v)):+.0f}°",
+            ha="center", fontsize=8)
+ax.axhline(1.0, color="black", lw=0.5)
+ax.set_ylabel("|cumulative product|")
+ax.set_title(f"Cumulative product (1+ω)(1+ω²)…\n→ final magnitude {abs(products[-1]):.4f}, phase {np.degrees(np.angle(products[-1])):+.0f}°")
+ax.grid(True, alpha=0.3, axis="y")
+
+plt.tight_layout()
+plt.show()
+
+# Verify the JEE result numerically.
+final = np.prod(1 + roots[1:])
+print(f"Product (1+ω)(1+ω²)…(1+ω⁶) = {final}")
+print(f"  |product| = {abs(final):.6f}")
+print(f"  phase     = {np.degrees(np.angle(final)):.6f}°  (≈ 0 → real positive)")
+print()
+print("Algebraic derivation (combining 3 concepts):")
+print("  z⁷ − 1  =  ∏_{k=0}^6 (z − ω^k)            (polynomial roots → factorisation)")
+print("  Plug z = -1:  -2 = ∏ (−1 − ω^k) = −∏ (1 + ω^k)")
+print("  ⇒ ∏_{k=0}^6 (1 + ω^k) = 2.")
+print("  Divide out the k = 0 factor:  ∏_{k=1}^6 (1 + ω^k) = 2 / (1 + 1) = 1.  ✓")
+```
+
 ## Connection to CS / Games / AI / Business / Industry
 
 Real systems are *always* multi-concept. The JEE skill of weaving several

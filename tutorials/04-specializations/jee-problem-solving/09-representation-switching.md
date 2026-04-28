@@ -262,6 +262,72 @@ print(f"Problem 7: C = ({C.real:.4f}, {C.imag:.4f}), exact = (2, {2*np.sqrt(3):.
 - **Wrong representation for the question:** If the problem asks for a Cartesian equation, solving in polar is extra work (you must convert back).
 - **Over-abstraction:** Sometimes the algebraic approach is straightforward and switching representations adds unnecessary complexity.
 
+## Visualisation — A 90° rotation: matrix vs complex multiplication
+
+Rotating four points by 90° around the origin can be done in many
+ways — but two of them (matrix multiplication and complex-number
+multiplication) are *identical operations* under a clever
+representation switch. The plot draws the same square rotated by
+both methods.
+
+```python
+# ── Visualising the same rotation in 2 representations ──────
+import numpy as np
+import matplotlib.pyplot as plt
+
+square = np.array([[1, 1, -1, -1, 1],
+                   [1, -1, -1,  1, 1]], dtype=float)
+
+# Method 1: matrix rotation by 90°.
+theta = np.pi / 2
+R = np.array([[np.cos(theta), -np.sin(theta)],
+              [np.sin(theta),  np.cos(theta)]])
+rot_matrix = R @ square
+
+# Method 2: complex-number multiplication.
+# Each (x, y) ↔ z = x + iy.  Rotation by 90° = multiply by e^(iπ/2) = i.
+square_complex = square[0] + 1j * square[1]
+rot_complex_z = 1j * square_complex
+rot_complex = np.vstack([rot_complex_z.real, rot_complex_z.imag])
+
+fig, axes = plt.subplots(1, 2, figsize=(13, 6))
+
+# (1) Matrix-multiplication view.
+ax = axes[0]
+ax.plot(square[0], square[1], "o-", color="tab:blue", lw=2, label="original")
+ax.plot(rot_matrix[0], rot_matrix[1], "s-", color="tab:red", lw=2,
+        label="R · square (90° matrix)")
+ax.set_aspect("equal"); ax.set_xlim(-2, 2); ax.set_ylim(-2, 2)
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_title("Representation 1: matrix multiplication\n"
+             "R = [[0, -1], [1, 0]]")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) Complex-number view: same answer.
+ax = axes[1]
+ax.plot(square[0], square[1], "o-", color="tab:blue", lw=2, label="original")
+ax.plot(rot_complex[0], rot_complex[1], "s-", color="tab:green", lw=2,
+        label="i · z (complex multiplication)")
+ax.set_aspect("equal"); ax.set_xlim(-2, 2); ax.set_ylim(-2, 2)
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_title("Representation 2: complex multiplication\n"
+             "z → i · z is a 90° rotation in the complex plane")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Verify the two outputs are identical.
+print("Both methods produce the same rotated square:")
+print(f"  matrix output  = {rot_matrix.T.tolist()}")
+print(f"  complex output = {rot_complex.T.tolist()}")
+print(f"  match? {np.allclose(rot_matrix, rot_complex)}")
+print()
+print("Why use complex numbers? They package both magnitude and angle:")
+print("  Multiplying two complex numbers MULTIPLIES magnitudes and ADDS angles.")
+print("  This makes 2-D rotation + scaling a single operation.")
+```
+
 ## Connection to CS / Games / AI / Business / Industry
 
 Choosing the right representation is *the* meta-skill of applied

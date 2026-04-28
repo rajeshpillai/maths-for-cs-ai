@@ -138,6 +138,64 @@ for n_label, n in [("Annual", 1), ("Monthly", 12), ("Daily", 365), ("Continuous"
     print(f"  {n_label:12s}: £{A:.2f}")
 ```
 
+## Visualisation — Power laws are straight lines on log-log axes
+
+A power law $y = a x^k$ becomes a **straight line** of slope $k$ on a
+log-log plot — so power laws can be detected by eye. Two of the most
+famous examples: Zipf's law for word frequencies (~$1/\text{rank}$),
+and city populations.
+
+```python
+# ── Visualising power laws and log-log plots ────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 4.8))
+
+# (1) Same power law on linear vs log-log axes.
+ax = axes[0]
+x = np.linspace(1, 20, 200)
+for k, color in [(2, "tab:blue"), (1, "tab:orange"), (0.5, "tab:green")]:
+    ax.plot(x, x ** k, lw=2, color=color, label=f"y = x^{k}")
+ax.set_xlabel("x"); ax.set_ylabel("y (linear)")
+ax.set_title("Power laws on linear axes\nlooks like generic curves")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+ax = axes[1]
+for k, color in [(2, "tab:blue"), (1, "tab:orange"), (0.5, "tab:green")]:
+    ax.loglog(x, x ** k, lw=2, color=color, label=f"y = x^{k}, slope = {k}")
+ax.set_xlabel("x (log)"); ax.set_ylabel("y (log)")
+ax.set_title("Same curves on log-log axes\n→ STRAIGHT LINES, slope = exponent")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+# (2) Zipf's law in NLP: word i has frequency ~ 1/i.
+ax = axes[2]
+ranks = np.arange(1, 1001)
+zipf = 1.0 / ranks
+ax.loglog(ranks, zipf, color="tab:red", lw=2, label="Zipf: f ∝ 1/rank")
+# Add jittered observed-frequencies to mimic real corpus data.
+rng = np.random.default_rng(0)
+observed = zipf * rng.uniform(0.6, 1.4, len(ranks))
+ax.scatter(ranks[::10], observed[::10], color="tab:blue", s=10, alpha=0.5,
+           label="observed (noisy)")
+ax.set_xlabel("rank (log)")
+ax.set_ylabel("frequency (log)")
+ax.set_title("Zipf's law: word frequency ∝ 1/rank\n(any natural-language corpus, observed since 1935)")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print examples that follow power laws.
+print("Phenomena obeying power laws (and their typical exponents):")
+print("  Zipf's law in NLP            : f ∝ 1/rank        (k ≈ -1)")
+print("  City populations (rank-size) : pop ∝ 1/rank       (Zipf again)")
+print("  Earthquake magnitudes        : N(M) ∝ 10⁻ᵇᴹ      (Gutenberg-Richter)")
+print("  Pareto wealth distribution   : P(W > w) ∝ w⁻ᵅ    (α ≈ 1.16)")
+print("  Allometric scaling in biology: metabolism ∝ mass^(3/4)  (Kleiber's law)")
+print("  Neural network scaling laws  : loss ∝ (compute)^(-α)    (Kaplan/Hoffmann)")
+```
+
 ## Connection to CS / Games / AI
 
 - **Zipf's law** — word frequencies in NLP, long-tail distributions in recommendation systems

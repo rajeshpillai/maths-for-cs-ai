@@ -148,6 +148,93 @@ print(f"z = {z_ab:.2f}, p = {p_val:.4f}")
 print(f"Significant at α=0.05? {'Yes' if p_val < 0.05 else 'No'}")
 ```
 
+## Visualisation — p-value as a tail-area probability
+
+A **p-value** is the *probability of seeing data this extreme or more
+extreme, assuming the null hypothesis is true*. The plot makes that
+literal: shade the tail of the null distribution that's beyond the
+observed test statistic.
+
+```python
+# ── Visualising hypothesis testing and the p-value ──────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Standard normal PDF helper.
+def normal_pdf(z):
+    return np.exp(-0.5 * z * z) / np.sqrt(2 * np.pi)
+
+# Pretend we observed a z-statistic of 1.85 (one-sided test).
+# Rejection region for α = 0.05 (two-sided) is |z| > 1.96.
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+z = np.linspace(-4, 4, 600)
+pdf = normal_pdf(z)
+
+# (1) Two-sided test: shade both tails beyond ±1.96.
+ax = axes[0]
+ax.plot(z, pdf, color="tab:blue", lw=2, label="null distribution N(0,1)")
+ax.fill_between(z, pdf, where=z > 1.96,  alpha=0.4, color="tab:red",
+                label="α = 0.05 rejection (each tail = 2.5%)")
+ax.fill_between(z, pdf, where=z < -1.96, alpha=0.4, color="tab:red")
+ax.axvline( 1.96, color="tab:red", lw=1.5, linestyle="--")
+ax.axvline(-1.96, color="tab:red", lw=1.5, linestyle="--")
+ax.text( 2.05, 0.05, "z = +1.96", color="tab:red", fontsize=9, rotation=90)
+ax.text(-1.85, 0.05, "z = -1.96", color="tab:red", fontsize=9, rotation=90)
+ax.set_xlabel("z statistic"); ax.set_ylabel("density")
+ax.set_title("Two-sided test, α = 0.05\n(reject if |z| > 1.96)")
+ax.legend(loc="upper right", fontsize=9); ax.grid(True, alpha=0.3)
+
+# (2) Observed z = 1.85 → p-value = tail area beyond 1.85 (×2 for two-sided).
+ax = axes[1]
+z_obs = 1.85
+ax.plot(z, pdf, color="tab:blue", lw=2, label="null distribution")
+ax.fill_between(z, pdf, where=z > z_obs, alpha=0.4, color="tab:red",
+                label=f"upper-tail area beyond z = {z_obs}")
+ax.fill_between(z, pdf, where=z < -z_obs, alpha=0.4, color="tab:red",
+                label="(plus mirror — two-sided p)")
+ax.axvline(z_obs, color="black", lw=2, label=f"observed z = {z_obs}")
+
+# Compute p-value: 2 * P(Z > 1.85) for two-sided test.
+def Phi(z, n=200_000):
+    """Approximate Φ(z) by trapezoidal integration of the standard-normal PDF."""
+    if z >= 0:
+        zs = np.linspace(0, z, n); return 0.5 + np.trapezoid(normal_pdf(zs), zs)
+    else:
+        zs = np.linspace(z, 0, n); return 0.5 - np.trapezoid(normal_pdf(zs), zs)
+
+p_val = 2 * (1 - Phi(z_obs))
+ax.set_xlabel("z statistic"); ax.set_ylabel("density")
+ax.set_title(f"Observed z = {z_obs}, two-sided p ≈ {p_val:.3f}\n"
+             f"({'reject' if p_val < 0.05 else 'fail to reject'} H₀ at α = 0.05)")
+ax.legend(loc="upper right", fontsize=9); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the formal interpretation.
+print(f"Observed z = {z_obs}")
+print(f"Two-sided p-value = 2 · P(Z > {z_obs}) = {p_val:.4f}")
+print()
+print("Interpretation:")
+print(f"  IF the null hypothesis were true (no effect), the chance of seeing")
+print(f"  |z| ≥ {z_obs} purely by random sampling is about {p_val*100:.2f}%.")
+print(f"  At α = 0.05, that's {'unlikely enough to reject' if p_val < 0.05 else 'not low enough to reject'} H₀.")
+```
+
+**The two warnings every analyst should remember:**
+
+- **A p-value is *not* "the probability the null is true".** It's the
+  probability of seeing data at least this extreme *under the null*.
+  Confusing the two is the most common statistical error in journals
+  and headlines.
+- **Statistical significance ≠ practical significance.** With a huge
+  sample size, *any* tiny effect can become "statistically
+  significant". Always look at the **effect size** (the actual
+  difference), not just the p-value. This is why the ASA's 2016
+  statement urges replacing p-value-only reporting with **confidence
+  intervals on effect sizes**.
+
 ## Connection to CS / Games / AI
 
 - **A/B testing** — every tech company uses hypothesis tests to evaluate feature changes

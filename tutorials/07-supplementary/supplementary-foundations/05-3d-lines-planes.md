@@ -187,6 +187,76 @@ else:
     print("  Lines are parallel")
 ```
 
+## Visualisation — Lines and planes in 3-D
+
+A line in 3-D = point + direction. A plane = point + normal. Together
+they form the geometry of every 3-D engine, every CAD package, and
+every ray-traced renderer. The plot draws a line, a plane, and their
+intersection point.
+
+```python
+# ── Visualising a 3-D line and plane ────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
+
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(1, 1, 1, projection="3d")
+
+# A line: P(t) = a + t · d, with point a and direction d.
+a = np.array([0.5, 0.5, -1.0])
+d = np.array([1.0, 1.0, 2.0])
+ts = np.linspace(-1.0, 1.5, 100)
+line_points = a + np.outer(ts, d)
+ax.plot(line_points[:, 0], line_points[:, 1], line_points[:, 2],
+        color="tab:blue", lw=2, label="line  P(t) = a + t·d")
+ax.scatter([a[0]], [a[1]], [a[2]], color="tab:blue", s=60, label="point a on line")
+ax.quiver(a[0], a[1], a[2], d[0], d[1], d[2],
+          color="tab:blue", lw=1.5, arrow_length_ratio=0.1, alpha=0.6)
+
+# A plane: n · (x − p0) = 0, with normal n and point p0.
+n_normal = np.array([1.0, -1.0, 1.0]) / np.sqrt(3)
+p0 = np.array([0.5, 0.5, 0.5])
+xs = np.linspace(-1, 2, 10); ys = np.linspace(-1, 2, 10)
+X, Y = np.meshgrid(xs, ys)
+# Solve n · ((x, y, z) − p0) = 0 for z.
+Z = p0[2] + (n_normal[0] * (p0[0] - X) + n_normal[1] * (p0[1] - Y)) / n_normal[2]
+ax.plot_surface(X, Y, Z, alpha=0.30, color="tab:orange",
+                edgecolor="darkorange", lw=0.3)
+
+# Intersection: solve n · (a + t d − p0) = 0 for t.
+t_int = np.dot(n_normal, p0 - a) / np.dot(n_normal, d)
+intersection = a + t_int * d
+ax.scatter(*intersection, color="tab:red", s=200, marker="*", zorder=5,
+           label=f"intersection at t = {t_int:.3f}")
+
+# Normal vector at p0.
+ax.quiver(p0[0], p0[1], p0[2], n_normal[0], n_normal[1], n_normal[2],
+          color="tab:green", lw=1.5, arrow_length_ratio=0.2, label="plane normal n")
+
+ax.set_xlabel("x"); ax.set_ylabel("y"); ax.set_zlabel("z")
+ax.set_title("Line–plane intersection in 3-D\n"
+             f"point a = {a.tolist()},  direction d = {d.tolist()}\n"
+             f"plane through {p0.tolist()} with normal {n_normal.round(3).tolist()}")
+ax.legend(loc="upper left", fontsize=8)
+
+plt.tight_layout()
+plt.show()
+
+# Print the intersection arithmetic.
+print(f"Line:  P(t) = a + t · d")
+print(f"  a = {a.tolist()}")
+print(f"  d = {d.tolist()}")
+print(f"\nPlane: n · (x − p₀) = 0")
+print(f"  p₀ = {p0.tolist()}")
+print(f"  n  = {n_normal.round(3).tolist()}")
+print(f"\nSolve n · (a + t · d − p₀) = 0  ⇒  t = n · (p₀ − a) / (n · d)")
+print(f"  numerator   = n · (p₀ − a) = {np.dot(n_normal, p0 - a):+.4f}")
+print(f"  denominator = n · d        = {np.dot(n_normal, d):+.4f}")
+print(f"  t           = {t_int:+.4f}")
+print(f"  intersection point = {intersection.round(4).tolist()}")
+```
+
 ## Connection to CS / Games / AI
 
 - **Ray tracing** — ray = line, surfaces = planes/triangles; intersection is line-plane

@@ -142,6 +142,104 @@ print(f"  Speed: {speeds}")
 print(f"  Distance ≈ {dist} m (trapezium rule)")
 ```
 
+## Visualisation — Trapeziums approximating an integral
+
+The trapezium (trapezoidal) rule replaces the curve with a sequence of
+straight line-segments; each segment defines a trapezium whose area we
+*can* compute exactly. Adding them up gives an estimate of the
+integral, which converges as the number of trapeziums grows.
+
+```python
+# ── Visualising the trapezium rule ──────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Integrand: f(x) = x · sin(x) on [0, π].
+# Exact ∫₀^π x sin(x) dx = π (= 3.1416…).
+def f(x): return x * np.sin(x)
+exact = np.pi
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 5))
+
+# (1) A coarse 4-trapezium estimate, drawn as filled trapezia.
+ax = axes[0]
+xs = np.linspace(0, np.pi, 400)
+ax.plot(xs, f(xs), color="tab:blue", lw=2)
+n = 4
+edges = np.linspace(0, np.pi, n + 1)
+heights = f(edges)
+trap_area = 0.0
+for i in range(n):
+    x0, x1 = edges[i], edges[i + 1]
+    h0, h1 = heights[i], heights[i + 1]
+    ax.fill_between([x0, x1], [h0, h1], color="tab:orange", alpha=0.5,
+                    edgecolor="darkorange", lw=1.5)
+    trap_area += 0.5 * (x1 - x0) * (h0 + h1)
+ax.scatter(edges, heights, color="tab:red", zorder=5)
+ax.set_xlabel("x"); ax.set_ylabel("f(x) = x sin(x)")
+ax.set_title(f"Trapezium rule with n = {n}\narea ≈ {trap_area:.4f},  exact = π ≈ {exact:.4f}")
+ax.grid(True, alpha=0.3)
+
+# (2) Fine 16-trapezium estimate — error is much smaller.
+ax = axes[1]
+ax.plot(xs, f(xs), color="tab:blue", lw=2)
+n = 16
+edges = np.linspace(0, np.pi, n + 1)
+heights = f(edges)
+trap_area_fine = 0.0
+for i in range(n):
+    x0, x1 = edges[i], edges[i + 1]
+    h0, h1 = heights[i], heights[i + 1]
+    ax.fill_between([x0, x1], [h0, h1], color="tab:orange", alpha=0.5,
+                    edgecolor="darkorange", lw=0.8)
+    trap_area_fine += 0.5 * (x1 - x0) * (h0 + h1)
+ax.set_xlabel("x"); ax.set_ylabel("f(x)")
+ax.set_title(f"Trapezium rule with n = {n}\narea ≈ {trap_area_fine:.6f}")
+ax.grid(True, alpha=0.3)
+
+# (3) Convergence: trapezium error vs n on log-log axes. Slope is −2.
+ax = axes[2]
+ns = np.array([2, 4, 8, 16, 32, 64, 128, 256, 1024])
+errs = []
+for nn in ns:
+    e = np.linspace(0, np.pi, nn + 1)
+    h_arr = f(e)
+    val = 0.5 * (np.pi / nn) * (h_arr[0] + 2 * h_arr[1:-1].sum() + h_arr[-1])
+    errs.append(abs(val - exact))
+errs = np.array(errs)
+ax.loglog(ns, errs, "o-", color="tab:red", lw=2, label="trapezium error")
+ax.loglog(ns, errs[0] * (ns[0] / ns) ** 2, color="black", linestyle="--", lw=1,
+          label="$1/n^2$ reference")
+ax.set_xlabel("n (number of trapezia)"); ax.set_ylabel("|error| (log)")
+ax.set_title("Trapezium error decays as 1/n²\n(double n → quarter the error)")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the convergence table.
+print(f"True ∫₀^π x sin(x) dx = π = {exact:.10f}")
+print(f"\n{'n':>6}  {'trapezium estimate':>22}  {'error':>14}")
+for nn in [4, 16, 64, 256, 1024]:
+    e = np.linspace(0, np.pi, nn + 1)
+    h_arr = f(e)
+    val = 0.5 * (np.pi / nn) * (h_arr[0] + 2 * h_arr[1:-1].sum() + h_arr[-1])
+    print(f"  {nn:>4}  {val:>22.10f}  {abs(val - exact):>14.2e}")
+```
+
+**Two practical lessons:**
+
+- **Trapezium ≫ left-endpoint Riemann.** Approximating with line
+  segments instead of rectangles cuts the error from $O(1/n)$ to
+  $O(1/n^2)$. *Doubling* $n$ now *quarters* the error, instead of
+  halving it.
+- **Simpson's rule does even better.** Replacing line segments with
+  parabolas through three points gives $O(1/n^4)$ convergence. SciPy's
+  `quad` adaptive integrator uses Gaussian quadrature internally,
+  which is exact for polynomials up to a high degree — but the
+  trapezium rule is what you reach for when you only have *data*, not
+  a formula.
+
 ## Connection to CS / Games / AI
 
 - **Numerical integration** — SciPy `quad()`, NumPy `trapz()` use these methods

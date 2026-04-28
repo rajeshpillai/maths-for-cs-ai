@@ -157,6 +157,78 @@ check = (x_val+h)*y_new + y_new**2
 print(f"  Check: xy+y² at shifted point = {check:.6f} (should be ≈10)")
 ```
 
+## Visualisation — Parametric and implicit curves
+
+Parametric curves (e.g. an ellipse $x = a\cos t$, $y = b\sin t$) and
+implicit curves (e.g. $x^2 + y^2 = 1$) describe shapes that are hard
+to express as $y = f(x)$. Each has a clean visualisation strategy.
+
+```python
+# ── Visualising parametric and implicit curves ──────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 5))
+
+# (1) Parametric ellipse: (x, y) = (3 cos t, 2 sin t).
+ax = axes[0]
+t = np.linspace(0, 2 * np.pi, 200)
+x = 3 * np.cos(t); y = 2 * np.sin(t)
+ax.plot(x, y, color="tab:blue", lw=2)
+# Mark a few values of t to show the parameter direction.
+for tv, color in [(0, "tab:red"), (np.pi/2, "tab:green"),
+                  (np.pi, "tab:orange"), (3*np.pi/2, "tab:purple")]:
+    ax.scatter(3 * np.cos(tv), 2 * np.sin(tv), color=color, s=80, zorder=5,
+               label=f"t = {tv/np.pi:.2f}π")
+ax.set_aspect("equal"); ax.set_xlim(-4, 4); ax.set_ylim(-3, 3)
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_title("Parametric ellipse\n$(x, y) = (3 \\cos t,\\ 2 \\sin t)$")
+ax.legend(fontsize=8); ax.grid(True, alpha=0.3)
+
+# (2) Cycloid: a parametric curve traced by a point on a rolling circle.
+# x(t) = r(t − sin t),  y(t) = r(1 − cos t)
+ax = axes[1]
+r = 1.0
+t = np.linspace(0, 4 * np.pi, 400)
+x = r * (t - np.sin(t)); y = r * (1 - np.cos(t))
+ax.plot(x, y, color="tab:purple", lw=2)
+# Draw the rolling circle at one snapshot.
+t_snap = 2.5
+cx, cy = r * t_snap, r
+theta = np.linspace(0, 2 * np.pi, 100)
+ax.plot(cx + r * np.cos(theta), cy + r * np.sin(theta),
+        color="grey", lw=1)
+ax.scatter(cx + r * np.cos(t_snap - np.pi/2), cy + r * np.sin(t_snap - np.pi/2),
+           color="tab:red", s=80, zorder=5, label="tracking point")
+ax.axhline(0, color="black", lw=0.4)
+ax.set_aspect("equal"); ax.set_xlim(-1, 13); ax.set_ylim(-0.5, 3)
+ax.set_title("Cycloid (rolling-coin curve)\n$x = r(t - \\sin t),\\ y = r(1 - \\cos t)$")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (3) Implicit curve: a Cassini oval, defined by (x² + y²)² − 2c²(x² − y²) = a⁴ − c⁴.
+# Drawn by computing the LHS on a grid and plotting where it equals zero.
+ax = axes[2]
+xs = np.linspace(-3, 3, 400); ys = np.linspace(-2, 2, 400)
+X, Y = np.meshgrid(xs, ys)
+a, c = 1.5, 1.0
+Z = (X*X + Y*Y) ** 2 - 2 * c*c * (X*X - Y*Y) - (a**4 - c**4)
+ax.contour(X, Y, Z, levels=[0], colors="tab:green", linewidths=2)
+ax.set_aspect("equal"); ax.set_xlim(-3, 3); ax.set_ylim(-2, 2)
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_title("Implicit curve (Cassini oval)\n"
+             "$F(x, y) = 0$, drawn by sampling F on a grid and contouring at level 0")
+ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Implicit-differentiation example.
+print("Implicit differentiation: differentiate xy + y² = 10 w.r.t. x.")
+print("  d/dx[xy + y²] = y + x·y' + 2y·y'  =  d/dx[10] = 0")
+print("  ⇒ y'(y + 2y') = -y    actually:  y + (x + 2y)·y' = 0")
+print("  ⇒ y' = -y / (x + 2y)")
+```
+
 ## Connection to CS / Games / AI
 
 - **Bézier curves** — defined parametrically; used in fonts, paths, animation (Tier 8-08)

@@ -135,6 +135,91 @@ for step in range(500):
         print(f"  t={t:.2f}s: x={x:+.5f}m (envelope: {A*math.exp(-gamma*t):+.5f})")
 ```
 
+## Visualisation — Undamped, damped, and resonant SHM
+
+Three classic regimes of a spring-mass system: **pure SHM** (no
+damping), **damped SHM** (oscillation that decays), and **resonance**
+(driving at the natural frequency causes the amplitude to grow without
+bound — until something breaks).
+
+```python
+# ── Visualising SHM, damped SHM, and resonance ──────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 4.8))
+
+# (1) Pure SHM: x(t) = A cos(ωt + φ).
+ax = axes[0]
+A, omega, phi = 1.0, 2.0, 0.0
+t = np.linspace(0, 8, 400)
+x = A * np.cos(omega * t + phi)
+v = -A * omega * np.sin(omega * t + phi)
+ax.plot(t, x, color="tab:blue", lw=2, label="x(t)")
+ax.plot(t, v / omega, color="tab:orange", lw=1.5, alpha=0.8,
+        label="v(t)/ω (rescaled)")
+ax.axhline(0, color="black", lw=0.5)
+ax.set_title("Pure SHM\n$\\ddot x + \\omega^2 x = 0$")
+ax.set_xlabel("time t"); ax.set_ylabel("x")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) Damped SHM: oscillation under-damped, decays exponentially.
+ax = axes[1]
+gamma = 0.3
+omega_d = np.sqrt(omega ** 2 - gamma ** 2)
+x_damp = A * np.exp(-gamma * t) * np.cos(omega_d * t)
+ax.plot(t, x_damp, color="tab:blue", lw=2, label="x(t)")
+ax.plot(t,  A * np.exp(-gamma * t), color="tab:red", lw=1.5, linestyle="--",
+        label=f"envelope $\\pm Ae^{{-\\gamma t}}$, γ = {gamma}")
+ax.plot(t, -A * np.exp(-gamma * t), color="tab:red", lw=1.5, linestyle="--")
+ax.axhline(0, color="black", lw=0.5)
+ax.set_title("Damped SHM\n$\\ddot x + 2\\gamma \\dot x + \\omega^2 x = 0$")
+ax.set_xlabel("time t"); ax.set_ylabel("x")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (3) Resonance: driving at exactly omega, amplitude grows linearly with t.
+ax = axes[2]
+omega_drive = omega
+F0 = 0.3
+# Particular solution: x_p = (F0 / (2 ω)) · t · sin(ω t)
+x_res = (F0 / (2 * omega)) * t * np.sin(omega * t)
+ax.plot(t, x_res, color="tab:blue", lw=2)
+ax.plot(t,  (F0 / (2 * omega)) * t, color="tab:red", lw=1.5, linestyle="--",
+        label="envelope grows linearly with t")
+ax.plot(t, -(F0 / (2 * omega)) * t, color="tab:red", lw=1.5, linestyle="--")
+ax.axhline(0, color="black", lw=0.5)
+ax.set_title("Resonance: driving at the natural frequency\n→ amplitude grows without bound")
+ax.set_xlabel("time t"); ax.set_ylabel("x")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Period and frequency relations.
+print(f"For a spring-mass system with ω = √(k/m) = {omega} rad/s:")
+print(f"  Period T = 2π/ω      = {2 * np.pi / omega:.4f} s")
+print(f"  Frequency f = 1/T    = {omega / (2 * np.pi):.4f} Hz")
+print(f"\nDamped: each oscillation's amplitude is multiplied by e^(-γT) ≈ "
+      f"{np.exp(-gamma * 2 * np.pi / omega_d):.4f}")
+print("Resonance is destructive: Tacoma Narrows Bridge (1940) failed in")
+print("just over an hour because wind frequency matched a structural mode.")
+```
+
+**Three behaviours, three uses:**
+
+- **Pure SHM** — pendulums, mass-on-spring, LC circuits — gives the
+  pristine sinusoidal oscillation. This is also where atoms vibrate
+  at the bottom of any smooth potential well, which is why SHM is
+  *the* universal small-amplitude approximation in physics.
+- **Damped SHM** is what you get with friction or resistance: the
+  amplitude decays exponentially while the oscillation continues at
+  a slightly lower frequency. RLC circuits and shock absorbers behave
+  this way.
+- **Resonance** is what destroyed the Tacoma Narrows Bridge and what
+  makes a singer shatter a wine glass. The same maths underlies every
+  audio EQ, MRI scan (where you tune the RF pulse to the proton's
+  Larmor frequency), and the "Q factor" of every laser cavity.
+
 ## Connection to CS / Games / AI
 
 - **Spring physics** — camera follow, UI animations, cloth simulation
