@@ -152,6 +152,95 @@ peak_freq = peak_bin * sample_rate / N
 print(f"  Detected frequency: {peak_freq:.0f} Hz (expected: 440 Hz)")
 ```
 
+## Visualisation — Frequency-domain image compression
+
+The single most-used application of Fourier-style transforms in
+day-to-day computing: **image compression**. The principle is dead
+simple: a smooth image has very few large frequency coefficients, so
+keeping the top few and zeroing the rest gives back something visually
+close to the original at a fraction of the storage. The plot uses the
+**2-D FFT** (the DCT used in real JPEG is its real-valued cousin —
+same idea, slightly different basis).
+
+```python
+# ── Visualising JPEG-style compression via DCT ──────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Build a synthetic 64×64 "image" with a smooth pattern + noise.
+# Real photos are smooth at the patch level — the same logic applies.
+N = 64
+xx, yy = np.meshgrid(np.linspace(0, 1, N), np.linspace(0, 1, N))
+img = 0.5 + 0.3 * np.sin(2 * np.pi * 3 * xx) * np.cos(2 * np.pi * 2 * yy) \
+      + 0.2 * np.sin(2 * np.pi * 5 * yy)
+img += 0.05 * np.random.default_rng(0).standard_normal(img.shape)
+img = np.clip(img, 0, 1)
+
+# For a faithful demo we use the 2-D FFT instead of the DCT.
+# The compression argument is identical (sparsity in the spectrum); the
+# DCT's only advantage is that it produces real coefficients, which is
+# what JPEG actually exploits for its block-coded entropy stage.
+C = np.fft.fft2(img)
+
+# Keep only the top-K largest coefficients (by magnitude). This is
+# essentially what JPEG quantisation accomplishes (coarsely).
+def keep_top_k(coeffs, k):
+    """Zero out all but the top-k largest-magnitude coefficients."""
+    flat = coeffs.flatten()
+    idx = np.argsort(np.abs(flat))[::-1]
+    mask = np.zeros_like(flat, dtype=bool)
+    mask[idx[:k]] = True
+    return (flat * mask).reshape(coeffs.shape)
+
+ks = [10, 50, 200, N * N]                        # last = no compression
+fig, axes = plt.subplots(2, len(ks), figsize=(4 * len(ks), 8))
+
+for col, k in enumerate(ks):
+    C_kept = keep_top_k(C, k)
+    recon = np.real(np.fft.ifft2(C_kept))
+    err = np.linalg.norm(recon - img) / np.linalg.norm(img)
+
+    ax = axes[0, col]
+    ax.imshow(np.log10(np.abs(C_kept) + 1e-6), cmap="hot")
+    ax.set_title(f"FFT coefs kept: {k}\n(bright = kept)" if k < N*N
+                 else f"All {k} coefs (perfect)")
+    ax.axis("off")
+
+    ax = axes[1, col]
+    ax.imshow(recon, cmap="gray", vmin=0, vmax=1)
+    ax.set_title(f"Reconstruction\nrelative error = {err:.4f}")
+    ax.axis("off")
+
+plt.tight_layout()
+plt.show()
+
+# Print the compression ratio for each setting.
+print(f"Image size: {N}×{N} = {N*N} numbers.\n")
+print(f"{'coefs kept':>12}  {'ratio (orig:kept)':>20}  {'rel. error':>14}")
+for k in ks:
+    recon = np.real(np.fft.ifft2(keep_top_k(C, k)))
+    err = np.linalg.norm(recon - img) / np.linalg.norm(img)
+    print(f"  {k:>10}  {N*N // k:>14}×  {err:>14.4f}")
+```
+
+**Why this is THE killer application of Fourier-style transforms:**
+
+- **Natural images and audio are *sparse in frequency*.** Most DCT
+  coefficients of a typical image patch are nearly zero; a handful
+  carry almost all the visual information. Keep those, throw away the
+  rest, and you get JPEG-grade compression — 10× to 50× saving with
+  imperceptible quality loss.
+- **JPEG, MP3, AAC, H.264 / H.265, AV1 — all built on this idea.**
+  JPEG and MPEG use the DCT directly; modern audio codecs use the
+  *modified* DCT (MDCT) for overlap-add windowing. The mathematical
+  core is the same: transform → quantise → entropy-code.
+- **The same idea generalises.** Wavelet compression (JPEG2000)
+  replaces the DCT with wavelets to handle sharp edges better.
+  Modern *neural* compression (Ballé et al., the JPEG-XL family) is
+  conceptually identical — a learned transform that produces a sparse
+  representation, plus a learned quantiser. The architectural recipe
+  comes straight from Fourier theory.
+
 ## Connection to CS / Games / AI
 
 - **JPEG/PNG/WebP** — image compression formats use DCT/wavelet transforms

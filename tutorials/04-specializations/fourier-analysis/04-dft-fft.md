@@ -116,6 +116,96 @@ print(f"  Original:  {x_original}")
 print(f"  Recovered: {x_recovered}")
 ```
 
+## Visualisation — From a noisy signal to its frequency spectrum
+
+This is where the FFT really shines: take a real-looking time-domain
+signal (one or two pure tones plus noise), compute its FFT, and watch
+the *spikes* in the spectrum reveal the hidden frequencies.
+
+```python
+# ── Visualising DFT/FFT on a synthetic signal ───────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Build a 1 second-long signal sampled at 1000 Hz containing two
+# pure tones (50 Hz and 120 Hz), plus white noise.
+fs = 1000                                 # sample rate (Hz)
+T  = 1.0                                  # duration (s)
+N  = int(fs * T)
+t  = np.linspace(0, T, N, endpoint=False)
+clean = np.sin(2 * np.pi * 50 * t) + 0.5 * np.sin(2 * np.pi * 120 * t)
+rng = np.random.default_rng(42)
+noisy = clean + 1.5 * rng.standard_normal(N)
+
+# Compute FFT and frequencies. Only positive-frequency half is shown
+# (the spectrum of a real signal is symmetric).
+X = np.fft.fft(noisy)
+freqs = np.fft.fftfreq(N, d=1/fs)
+half = N // 2
+freqs_pos = freqs[:half]
+amplitude = (2 / N) * np.abs(X[:half])
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 4.8))
+
+# (1) Time domain — looks like noise.
+ax = axes[0]
+ax.plot(t, noisy, color="tab:blue", lw=0.6, alpha=0.75, label="noisy signal")
+ax.plot(t, clean, color="tab:orange", lw=1.2, alpha=0.7,
+        label="hidden clean signal")
+ax.set_xlim(0, 0.2)                       # show only first 200 ms
+ax.set_xlabel("time (s)"); ax.set_ylabel("amplitude")
+ax.set_title("Time domain — looks like noise.\nCan you spot the 50 Hz and 120 Hz tones?")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) Frequency domain — same data, but the FFT pulls the tones out.
+ax = axes[1]
+ax.plot(freqs_pos, amplitude, color="tab:red", lw=1.5)
+ax.axvline(50,  color="tab:green", linestyle="--", lw=1, label="50 Hz tone")
+ax.axvline(120, color="tab:purple", linestyle="--", lw=1, label="120 Hz tone")
+ax.set_xlim(0, 200); ax.set_xlabel("frequency (Hz)"); ax.set_ylabel("amplitude")
+ax.set_title("FFT spectrum — sharp spikes\nat 50 Hz and 120 Hz")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (3) FFT vs DFT speed scaling. Naive DFT is O(N²), FFT is O(N log N).
+# At N = 10⁶, DFT would take *minutes* and FFT takes *milliseconds*.
+ax = axes[2]
+Ns = np.array([16, 64, 256, 1024, 4096, 16384, 65536, 262144, 1048576])
+naive_ops = Ns * Ns
+fft_ops   = Ns * np.log2(Ns)
+ax.loglog(Ns, naive_ops, "o-", color="tab:red",  lw=2, label="naive DFT: $O(N^2)$")
+ax.loglog(Ns, fft_ops,   "s-", color="tab:green", lw=2, label="FFT:        $O(N \\log N)$")
+ax.set_xlabel("N (signal length)"); ax.set_ylabel("multiplications (log)")
+ax.set_title("Why every signal-processing library uses the FFT")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the speed-up at a few sizes.
+print(f"{'N':>10}  {'naive DFT (N²)':>20}  {'FFT (N log N)':>16}  {'speed-up':>10}")
+for n in [1024, 16384, 1_000_000]:
+    naive = n * n
+    fft   = n * np.log2(n)
+    print(f"  {n:>8}  {naive:>20,.0f}  {fft:>16,.0f}  {naive/fft:>10,.0f}×")
+```
+
+**Three plots, one big idea:**
+
+- **Time domain ↔ frequency domain are two views of the same signal.**
+  In time you see how amplitude wiggles instant-by-instant. In
+  frequency you see *which sines* it's made of. The FFT is the
+  procedure that switches view.
+- **Hidden periodicity becomes obvious in frequency.** Even when noise
+  swamps the time-domain plot, sharp spikes in the spectrum reveal the
+  underlying tones immediately. This is exactly what spectrum
+  analysers, pitch detectors, MP3 encoders, and JPEG compressors all
+  exploit.
+- **Why we say "FFT" not "DFT".** The naive DFT is $O(N^2)$; the
+  Cooley–Tukey FFT is $O(N \log N)$. At $N = 10^6$, that's a 50,000×
+  speed-up. The FFT is arguably the most important algorithm of the
+  20th century — it's what made radar, MRI, real-time audio, and
+  modern wireless possible.
+
 ## Connection to CS / Games / AI
 
 - **Audio processing** — spectrum analysis, pitch detection, noise removal

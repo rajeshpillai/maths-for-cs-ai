@@ -123,6 +123,101 @@ for N in [5, 20, 100, 500]:
     print(f"  {N:3d} terms at x≈0+: {val:.4f} (overshoot ≈ {val - 0:.1%})")
 ```
 
+## Visualisation — Fourier series and Gibbs's overshoot
+
+Fourier series build a periodic function out of sines and cosines.
+This plot shows a square wave assembled from progressively more
+harmonics, the *spectrum* of those harmonics' weights, and the famous
+**Gibbs phenomenon**: a stubborn ~9% overshoot at every discontinuity
+that *never goes away*, no matter how many terms you add.
+
+```python
+# ── Visualising Fourier series and Gibbs's overshoot ────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Square wave on [-π, π]: +1 on (0, π), -1 on (-π, 0).
+# Its Fourier series uses ONLY odd sine terms with amplitudes 4/(π·m).
+def square_fourier(x, N):
+    s = np.zeros_like(x)
+    for k in range(N):
+        m = 2 * k + 1
+        s += (4 / (np.pi * m)) * np.sin(m * x)
+    return s
+
+# True square wave for comparison.
+def square_true(x):
+    return np.sign(np.sin(x))
+
+x = np.linspace(-np.pi, np.pi, 2000)
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 5))
+
+# (1) Approximations of the square wave with 1, 5, 25, 100 harmonics.
+ax = axes[0]
+ax.plot(x, square_true(x), color="black", lw=1, alpha=0.4, label="true square wave")
+for N, color in zip([1, 5, 25, 100], ["tab:red", "tab:orange", "tab:green", "tab:blue"]):
+    ax.plot(x, square_fourier(x, N), lw=1.5, color=color, label=f"{N} harmonics")
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.set_title("Square wave approximated by\nodd-harmonic sines (Fourier series)")
+ax.legend(fontsize=8); ax.grid(True, alpha=0.3)
+
+# (2) Spectrum: amplitudes of the first 30 harmonics.
+# Only odd indices have non-zero amplitude; they decay like 1/m.
+ax = axes[1]
+ms = np.arange(1, 31)
+amps = np.where(ms % 2 == 1, 4.0 / (np.pi * ms), 0.0)
+ax.stem(ms, amps, basefmt=" ", linefmt="tab:orange", markerfmt="o")
+ax.set_xlabel("harmonic index m")
+ax.set_ylabel("|coefficient|")
+ax.set_title("Spectrum of the square wave\n(only odd m, decaying like 1/m)")
+ax.grid(True, alpha=0.3)
+
+# (3) Zoom near the discontinuity to show Gibbs's overshoot.
+# No matter how many harmonics you add, the overshoot stays at ~8.95%.
+ax = axes[2]
+xs_zoom = np.linspace(-0.1, 0.5, 600)
+for N, color in zip([5, 25, 100, 500], ["tab:red", "tab:orange", "tab:green", "tab:blue"]):
+    ax.plot(xs_zoom, square_fourier(xs_zoom, N), lw=1.4, color=color, label=f"N = {N}")
+ax.axhline(1.0,         color="black", lw=0.8, linestyle=":")
+ax.axhline(1.0 + 0.0895, color="red", lw=0.8, linestyle="--",
+           label="≈ 1.0895 (Gibbs overshoot)")
+ax.set_xlim(-0.05, 0.4); ax.set_ylim(0.85, 1.15)
+ax.set_xlabel("x (zoomed near the jump)"); ax.set_ylabel("y")
+ax.set_title("Gibbs phenomenon\n(~9% overshoot survives at every N)")
+ax.legend(fontsize=8); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print numbers that mirror the plot.
+print(f"Gibbs overshoot at the jump for N harmonics:")
+for N in [5, 20, 100, 500]:
+    val = square_fourier(np.array([0.001 * np.pi]), N)[0]
+    print(f"  {N:>3} harmonics: peak ≈ {val:.4f}  →  overshoot ≈ {val - 1:.4%}")
+print()
+print("The overshoot stays around 8.95% (approximately 2/π · ∫₀^π sinc) —")
+print("a permanent feature of any Fourier reconstruction of a discontinuous signal.")
+print("This is why JPEG produces visible 'ringing' near sharp edges and")
+print("why audio codecs use windowed transforms to soften discontinuities.")
+```
+
+**Three intertwined facts the plots reveal:**
+
+- **Fourier series build any periodic signal out of pure sines and
+  cosines.** Add enough harmonics and even a discontinuous square wave
+  becomes recognisable. *That's a genuinely amazing claim*: an entire
+  function reduced to a list of amplitudes.
+- **The spectrum decays like $1/m$ for jumps.** Smoother signals decay
+  *faster*: a $C^k$ function has Fourier coefficients dropping like
+  $1/m^{k+1}$. This is *why compression works* — for a smooth photo,
+  most coefficients are tiny, so you can throw them away (JPEG, MP3).
+- **The Gibbs overshoot is permanent.** No matter how many harmonics
+  you stack on, an ~9% overshoot survives right at the jump. This
+  appears as **ringing artefacts** near sharp edges in JPEGs and
+  pre-echo in audio compression. Modern codecs add windowing or
+  variable-block techniques to mitigate it.
+
 ## Connection to CS / Games / AI
 
 - **Audio compression** — MP3 uses a variant (MDCT) to keep important frequencies, discard others
