@@ -188,6 +188,32 @@ for n_in, n_out, name in [(1000000, 1, "Neural net"), (3, 1000, "Sensor sim"), (
     print(f"  {name}: {n_in} inputs, {n_out} outputs → {better} mode ({min(fwd_cost, rev_cost)} passes)")
 ```
 
+## Connection to CS / Games / AI / Business / Industry
+
+- **AI / ML.** **Every deep-learning framework — PyTorch, TensorFlow,
+  JAX, MLX, MindSpore — IS an autodiff system.** Without it, training a
+  Transformer would mean hand-writing thousands of lines of gradient
+  code per architecture. The "loss.backward()" call you've seen is
+  reverse-mode autodiff, exactly as derived above.
+- **Engineering / Science.** **Adjoint methods** — reverse-mode autodiff
+  applied to PDE solvers — are how SpaceX optimises rocket trajectories
+  and how climate scientists fit CO₂ sensitivity from satellite data.
+  Robotics motion planning (Boston Dynamics, drone swarms) gets its
+  gradients from autodiff through simulators.
+- **Business / Finance.** **Greeks** — sensitivities of derivative
+  prices to spot, volatility, and rates ($\Delta$, $\Gamma$, $\nu$) —
+  are computed by autodiff in modern quant systems at every major bank.
+  Algorithmic-trading strategies tune hyperparameters via gradient
+  ascent through backtests.
+- **Games / Graphics.** **Differentiable rendering** (NeRF, 3D Gaussian
+  Splatting, Mitsuba 3) lets you fit 3D scene geometry to 2D photos by
+  back-propagating pixel error through the renderer. The same machinery
+  powers real-time facial-rig optimisation in films and AAA cutscenes.
+- **CS / Software.** Autodiff is creeping into **probabilistic
+  programming languages** (Pyro, Turing.jl) and even **database query
+  optimisation** (where gradients of query-plan cost let learned
+  optimisers tune themselves).
+
 ## Check Your Understanding
 
 1. **Pen & paper:** Use forward mode (dual numbers) to compute $f'(3)$ for $f(x) = \sin(x^2)$.

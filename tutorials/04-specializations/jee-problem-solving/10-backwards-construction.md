@@ -290,6 +290,38 @@ for n in range(1, 8):
 - **Existence not guaranteed:** Working backwards assumes a solution exists. If the problem asks "does a solution exist?", backwards reasoning can mislead — you might derive conditions that are actually impossible.
 - **MCQ with close options:** If answer choices are very close numerically, backwards verification might not help (all look approximately correct).
 
+## Connection to CS / Games / AI / Business / Industry
+
+Reasoning *from the answer back to the question* — assuming a solution
+shape and constraining it — is one of the most common moves in applied
+work:
+
+- **CS / Software.** **Test-driven development**: write the test (the
+  desired output) first, then build code that satisfies it. **Constraint
+  solvers** (Z3, MiniSAT, OR-Tools) take a goal predicate and search
+  backwards through valid assignments. **Type-driven development**
+  (Haskell, Idris) sketches the type signature first and lets the types
+  guide the implementation.
+- **AI / ML.** **Inverse problems** — image deblurring, super-resolution,
+  MRI reconstruction — start from a degraded output and reason backwards
+  to the input. **Bayesian inference** is mathematical backwards
+  reasoning ($P(\text{cause} \mid \text{effect})$). **Diffusion models**
+  generate images by *iteratively reversing* a noising process.
+- **Engineering.** **Reverse engineering** of mechanical assemblies,
+  **fault-tree analysis** in safety engineering, **root-cause analysis**
+  in incident postmortems — all start from the failure and work back.
+  Control engineers design controllers by **specifying the desired
+  closed-loop response first** and solving for the controller.
+- **Business / Strategy.** **OKRs and goal-setting** (Andy Grove,
+  Doerr): start from the desired outcome, work back to the inputs.
+  **Backward planning** for project schedules (deadline-first), **scenario
+  planning** (what assumptions would make this future true?), and
+  **reverse-engineering competitor moves** are standard playbook items.
+- **Maths / Cryptography.** Constructing **counter-examples** is
+  backwards reasoning — assume the target property holds, derive a
+  contradiction by construction. **Zero-knowledge proofs** are designed
+  by working backwards from "what should the verifier believe?"
+
 ## Check Your Understanding
 
 1. Find all values of m for which both roots of x^2 - 2mx + m^2 - 1 = 0 lie between -2 and 4. [Work backwards from the four conditions: D >= 0, f(-2) > 0, f(4) > 0, -2 < vertex < 4.]

@@ -109,6 +109,33 @@ for N in [100, 10000, 1000000]:
 print("  To halve the error, need 4× the samples")
 ```
 
+## Connection to CS / Games / AI / Business / Industry
+
+- **AI / ML.** **Monte Carlo Tree Search** is the engine that beat the
+  world Go champion (AlphaGo). MCMC sampling is how Bayesian models
+  (Stan, PyMC, NumPyro) estimate posteriors. RL value functions are
+  estimated by *Monte Carlo returns* whenever the environment is too
+  complex for exact dynamic programming.
+- **Games / Graphics.** **Path tracing** — Pixar's RenderMan, Unreal
+  Engine 5's Lumen, every offline cinematic renderer — is Monte Carlo
+  integration over light paths. The "noise" you see in a low-sample
+  ray-traced preview is exactly the $1/\sqrt{N}$ MC error from this
+  lesson.
+- **Business / Finance.** **Option pricing** for path-dependent or
+  multi-asset derivatives has no closed form, so banks (Goldman, JPM)
+  run Monte Carlo over thousands of price paths. **Value-at-Risk**
+  reports — the daily risk numbers regulators require — are produced by
+  Monte Carlo across portfolio scenarios. Project-completion-time
+  estimates in PERT use the same maths.
+- **Engineering / Science.** Particle-physics detectors at CERN are
+  designed by Monte Carlo simulation of collisions. Drug-trial sample
+  sizes and **clinical-trial power calculations** rely on MC. Climate
+  models run thousands of perturbed-parameter ensembles to quantify
+  uncertainty.
+- **CS / Software.** Randomised algorithms (e.g. **Bloom filters**,
+  randomised primality tests like Miller-Rabin) are Monte Carlo in
+  spirit — trade a small failure probability for huge speedups.
+
 ## Check Your Understanding
 
 1. **Pen & paper:** Estimate $\int_0^2 x^3\,dx$ using Monte Carlo with 4 random samples: $x = 0.3, 1.2, 0.8, 1.7$.  Compare to the exact answer.

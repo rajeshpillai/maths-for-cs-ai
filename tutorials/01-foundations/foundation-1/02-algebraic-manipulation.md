@@ -139,6 +139,94 @@ x2 = (-b - math.sqrt(disc)) / (2*a)
 print(f"x² - 5x + 6 = 0: x = {x1:.0f} or x = {x2:.0f}")
 ```
 
+## Visualisation — Quadratics, roots, and completing the square
+
+Algebra on a quadratic is *always doing the same thing geometrically*:
+moving the parabola, finding where it crosses the x-axis, finding its
+lowest (or highest) point.
+
+```python
+# ── Visualising quadratics: roots, vertex, completing the square ──
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4.5))
+x = np.linspace(-7, 7, 400)
+
+# (1) Factorising = finding where the curve crosses the x-axis.
+# x² - 5x + 6 = (x-2)(x-3) → roots at x = 2 and x = 3.
+ax = axes[0]
+y = x**2 - 5*x + 6
+ax.plot(x, y, label="$y = x^2 - 5x + 6$")
+ax.axhline(0, color="black", lw=0.6)
+ax.scatter([2, 3], [0, 0], color="red", zorder=5, s=70)
+ax.annotate("root: x = 2", xy=(2, 0), xytext=(-2, 4),
+            arrowprops=dict(arrowstyle="->", color="red"))
+ax.annotate("root: x = 3", xy=(3, 0), xytext=(4, 4),
+            arrowprops=dict(arrowstyle="->", color="red"))
+ax.set_title("Factorising: roots are x-intercepts\n$(x-2)(x-3) = 0$")
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.set_xlim(-2, 6); ax.set_ylim(-3, 12)
+ax.grid(True, alpha=0.3); ax.legend()
+
+# (2) Completing the square = sliding the parabola so its vertex is
+# easy to read. x² + 6x + 2 = (x+3)² - 7.
+# The "+3" inside means shift left by 3; the "-7" means shift down by 7.
+ax = axes[1]
+y_general = x**2 + 6*x + 2          # general form
+y_basic   = x**2                    # the simplest parabola
+y_vertex  = (x + 3)**2 - 7          # same as y_general, just relabelled
+ax.plot(x, y_basic,   label="$y = x^2$ (basic)", linestyle="--", alpha=0.6)
+ax.plot(x, y_general, label="$y = x^2 + 6x + 2$ = $(x+3)^2 - 7$")
+ax.scatter([-3], [-7], color="red", zorder=5, s=70)
+ax.annotate("vertex (-3, -7)", xy=(-3, -7), xytext=(0, -10),
+            arrowprops=dict(arrowstyle="->", color="red"))
+ax.axhline(0, color="black", lw=0.6); ax.axvline(0, color="black", lw=0.6)
+ax.set_title("Completing the square = read the vertex\nfrom $(x - h)^2 + k$")
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.set_xlim(-7, 4); ax.set_ylim(-12, 12)
+ax.grid(True, alpha=0.3); ax.legend()
+
+# (3) The discriminant Δ = b² − 4ac decides how many real roots exist.
+# Three quadratics, all with a = 1, varying c so Δ takes 3 sign cases.
+ax = axes[2]
+specs = [(1, -2, -3, "two roots  (Δ > 0)"),
+         (1, -2,  1, "one repeated root  (Δ = 0)"),
+         (1, -2,  3, "no real roots  (Δ < 0)")]
+for a, b, c, label in specs:
+    y = a*x**2 + b*x + c
+    disc = b*b - 4*a*c
+    ax.plot(x, y, label=f"{label}, Δ = {disc}")
+ax.axhline(0, color="black", lw=0.6)
+ax.set_title("The discriminant $b^2 - 4ac$ counts the real roots")
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.set_xlim(-3, 5); ax.set_ylim(-6, 10)
+ax.grid(True, alpha=0.3); ax.legend()
+
+plt.tight_layout()
+plt.show()
+
+# Print the algebra alongside, so picture and numbers reinforce.
+print("Discriminant decides intersection count with the x-axis:")
+for a, b, c, label in specs:
+    disc = b*b - 4*a*c
+    print(f"  a={a}, b={b}, c={c}  →  Δ = {disc:>3}  →  {label}")
+```
+
+**What to take away:**
+
+- **Factorising = locating roots.** Where the parabola crosses the
+  x-axis is exactly where the factored form equals zero. The roots of
+  $(x-r_1)(x-r_2)$ are $r_1$ and $r_2$ — no calculation needed once
+  you've factored.
+- **Completing the square = locating the vertex.** Rewriting
+  $x^2 + 6x + 2$ as $(x+3)^2 - 7$ tells you the parabola's lowest point
+  is at $(-3, -7)$. This is the geometric content of the trick.
+- **The discriminant $b^2 - 4ac$ counts real roots.** Positive ⇒ the
+  parabola dips below the axis (two crossings); zero ⇒ it just
+  touches; negative ⇒ it stays above (no real roots, but two complex
+  ones).
+
 ## Connection to CS / Games / AI
 
 - **Quadratic formula** — solving ray-sphere intersections (Tier 8-09)

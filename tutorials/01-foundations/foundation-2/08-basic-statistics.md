@@ -190,6 +190,87 @@ print(f"Without outlier: mean={sum(normal)/5}, median={sorted(normal)[2]}")
 print(f"With outlier:    mean={sum(with_outlier)/5}, median={sorted(with_outlier)[2]}")
 ```
 
+## Visualisation — Seeing the data, not just the numbers
+
+A summary statistic is one number; a picture is the whole story. Three
+plots show what mean / median / quartiles really *look like*.
+
+```python
+# ── Visualising basic statistics ────────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(42)             # seeded so the picture is reproducible
+
+# A symmetric dataset (heights of adults, in cm) and a skewed one
+# (incomes — most modest, a few very high).
+heights = rng.normal(loc=170, scale=8, size=300)
+incomes = rng.lognormal(mean=10.5, sigma=0.6, size=300) / 1000   # in £k
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4.5))
+
+# (1) Histogram with mean and median marked.
+# For symmetric data the two are essentially equal — median ≈ mean.
+ax = axes[0]
+ax.hist(heights, bins=25, color="lightsteelblue", edgecolor="navy", alpha=0.85)
+mean_h = np.mean(heights); median_h = np.median(heights)
+ax.axvline(mean_h,   color="red",   lw=2, label=f"mean = {mean_h:.1f}")
+ax.axvline(median_h, color="green", lw=2, linestyle="--",
+           label=f"median = {median_h:.1f}")
+ax.set_title("Symmetric data (heights):\nmean ≈ median")
+ax.set_xlabel("height (cm)"); ax.set_ylabel("count")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) The same plot for skewed data — mean gets pulled right by outliers.
+# This is the canonical reason median is preferred for incomes.
+ax = axes[1]
+ax.hist(incomes, bins=25, color="navajowhite", edgecolor="darkorange", alpha=0.85)
+mean_i = np.mean(incomes); median_i = np.median(incomes)
+ax.axvline(mean_i,   color="red",   lw=2, label=f"mean = £{mean_i:.1f}k")
+ax.axvline(median_i, color="green", lw=2, linestyle="--",
+           label=f"median = £{median_i:.1f}k")
+ax.set_title("Skewed data (incomes):\nmean is pulled by the long tail")
+ax.set_xlabel("income (£k)"); ax.set_ylabel("count")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (3) Box plot — compact summary of the same two datasets.
+# Box = middle 50% (Q1 to Q3); centre line = median; whiskers ≈ 1.5×IQR;
+# circles outside whiskers = outliers.
+ax = axes[2]
+ax.boxplot([heights, incomes],
+           patch_artist=True,
+           boxprops=dict(facecolor="lightsteelblue"))
+ax.set_xticks([1, 2])
+ax.set_xticklabels(["heights\n(cm)", "incomes\n(£k)"])
+ax.set_title("Box plots: median, IQR, whiskers, outliers\nat a single glance")
+ax.set_ylabel("value")
+ax.grid(True, alpha=0.3, axis="y")
+
+plt.tight_layout()
+plt.show()
+
+# Print the summary numbers next to the plot so picture and table agree.
+for label, data in [("heights", heights), ("incomes", incomes)]:
+    q1, med, q3 = np.percentile(data, [25, 50, 75])
+    print(f"{label:<8} mean={np.mean(data):.2f}  median={med:.2f}"
+          f"  Q1={q1:.2f}  Q3={q3:.2f}  IQR={q3 - q1:.2f}"
+          f"  std={np.std(data):.2f}")
+```
+
+**What the three pictures teach:**
+
+- **Left (heights):** when data is roughly symmetric, mean and median
+  sit on top of each other. You can use either as the "centre".
+- **Middle (incomes):** the mean is dragged toward the long tail by the
+  few high earners. The **median** is the better "typical person"
+  number — exactly why government statistics quote median household
+  income, not mean.
+- **Right (box plots):** for any dataset the box plot shows you, in one
+  picture, the **median** (line), the **middle 50%** (the box, from $Q_1$
+  to $Q_3$), the **range** (whiskers), and any **outliers** (the dots
+  outside). Box plots are the standard "first look" at a new dataset in
+  data science.
+
 ## Connection to CS / Games / AI
 
 - **Data preprocessing** — normalisation uses mean and std dev: $z = (x - \mu)/\sigma$

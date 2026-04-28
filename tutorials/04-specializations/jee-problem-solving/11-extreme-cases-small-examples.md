@@ -257,6 +257,37 @@ print(f"  limit = e = {np.e:.6f}")
 - **All options pass small tests:** If you need n = 1, 2, 3, 4 to eliminate all wrong MCQ options but they all agree up to n = 3, you need to go further.
 - **Non-generic degenerate:** Sometimes the special case has extra symmetry that makes a wrong formula accidentally correct there.
 
+## Connection to CS / Games / AI / Business / Industry
+
+"Try the smallest case first" and "stress the boundary" are not just exam
+tricks — they are the most reliable debugging and validation strategies
+in industry:
+
+- **CS / Software.** **Boundary-value testing**, **fuzz testing**, and
+  **property-based testing** (QuickCheck, Hypothesis) automate this.
+  Most production bugs live at $n = 0$, $n = 1$, $n = \text{MAX}$, and
+  empty-input cases — exactly the extremes you'd check by hand on a JEE
+  problem. "Off-by-one" is the canonical extreme-case failure.
+- **AI / ML.** **"Overfit on a single batch"** is the standard debugging
+  technique for new training code: if you can't perfectly fit one batch,
+  your loss/optimiser is broken. **Few-shot evaluation** and **toy
+  datasets** (MNIST, CIFAR-10 subsets) catch architectural bugs an
+  expensive ImageNet run would only reveal after hours of training.
+- **Business / Product.** **Pilot studies**, **MVPs**, **beta
+  cohorts** — running on a small slice before rolling out company-wide
+  is the "small example" strategy. **Sensitivity analysis** in finance
+  ("what if rates double? what if revenue halves?") is testing the
+  extremes of every assumption.
+- **Engineering.** **Stress testing at extremes** — cold soak, heat
+  soak, max-load, vacuum chambers, accelerated-life testing — is how
+  cars, satellites, and drugs get certified. **Edge-of-envelope flight
+  testing** for aircraft is literally extreme-case verification.
+- **Cryptography / Security.** Researchers attack systems by examining
+  **degenerate inputs** (tiny keys, all-zero plaintexts, repeated
+  nonces). Many real-world breaks (e.g. PlayStation 3 ECDSA, Debian
+  OpenSSL 2008) came from extreme cases: a fixed nonce, a tiny entropy
+  pool.
+
 ## Check Your Understanding
 
 1. Find a formula for 1/(1*2) + 1/(2*3) + 1/(3*4) + ... + 1/(n*(n+1)) by computing the first 4 partial sums and conjecturing the pattern. Then prove it by telescoping.

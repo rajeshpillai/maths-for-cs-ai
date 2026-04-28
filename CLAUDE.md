@@ -337,11 +337,31 @@ import numpy as np
 print("Result:", result)
 ```
 
-### Connection to CS / Games / AI
-[Explicitly name where this appears:
- e.g. "dot products power cosine similarity in embedding search",
-      "eigenvalues appear in PCA and Google's PageRank",
-      "the chain rule IS backpropagation".]
+### Connection to CS / Games / AI / Business / Industry
+[Name **at least one** concrete application in each of several lenses
+ below. A beginner who can't see *where this gets used* will quit. Aim
+ for short, specific, named examples — never the vague "this is used in
+ many areas".
+
+ - **CS / Software**: e.g. "hash tables use modular arithmetic", "Git
+   diffs use longest-common-subsequence (DP)".
+ - **AI / ML**: e.g. "dot products power cosine similarity in embedding
+   search", "the chain rule IS backpropagation", "softmax + cross-entropy
+   come from MLE on a categorical model".
+ - **Games / Graphics**: e.g. "rotation matrices drive every 3D engine's
+   camera transform", "Bezier curves are how fonts and Photoshop's pen
+   tool draw smooth paths".
+ - **Business / Operations / Finance**: e.g. "exponentials model
+   compound interest and viral growth", "linear regression is the bread
+   and butter of A/B test analysis", "queueing theory schedules call
+   centres and food delivery dispatch".
+ - **Engineering / Science / Industry**: e.g. "Fourier transforms run
+   MRI machines and noise-cancelling headphones", "Markov chains route
+   warehouse robots", "PID controllers in cars/drones use derivatives".
+
+ You do not need every lens for every lesson — pick the 2-4 that are
+ genuinely relevant. The key is *named* applications, not generic
+ platitudes.]
 
 ### Check Your Understanding
 [2–3 questions or small coding exercises the student can try.]

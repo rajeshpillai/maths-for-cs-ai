@@ -115,6 +115,34 @@ for N, nnz in [(1000, 5000), (100000, 500000), (1000000, 10000000)]:
     print(f"  {N}×{N}, nnz={nnz:>10,}: dense={dense:>15,}, sparse={sparse:>11,}, savings={ratio:.0f}×")
 ```
 
+## Connection to CS / Games / AI / Business / Industry
+
+- **AI / ML.** Training large language models ($10^{11}+$ parameters)
+  uses **iterative solvers and Krylov methods** because exact methods
+  blow up at that scale. Recommendation systems (Netflix, Spotify,
+  YouTube) factorise enormous *sparse* user-item matrices — the
+  rating matrix is 99.99% empty.
+- **CS / Software.** **PageRank** computes the dominant eigenvector of
+  a sparse web-graph matrix with billions of nodes; only iterative
+  methods (power iteration, GMRES) make this tractable. Compilers solve
+  sparse data-flow systems for register allocation. SAT/ILP solvers in
+  query optimisers rely on sparse-matrix routines.
+- **Engineering / Science.** **Finite-element analysis** — every car
+  crash test, every airliner wing-flex sim, every bridge-load calc —
+  produces enormous sparse stiffness matrices solved by conjugate
+  gradient or multigrid. **Computational fluid dynamics** for weather
+  forecasts and Formula-1 aero is the same picture at a still larger
+  scale.
+- **Business / Industry.** **Power-grid load flow**: every utility
+  control room solves a sparse non-linear system every few seconds to
+  decide how to dispatch generation. Telecom routing tables, supply-chain
+  network optimisation, and MRI reconstruction (compressed sensing) all
+  hinge on sparse iterative solvers.
+- **Games / Graphics.** Real-time **soft-body / cloth simulation**
+  (Houdini, Unreal Chaos) and physically-based fluid solvers run sparse
+  linear systems every frame; without iterative methods you'd never hit
+  60 fps.
+
 ## Check Your Understanding
 
 1. **Pen & paper:** Do 3 Jacobi iterations on $\begin{pmatrix} 5 & 1 \\ 1 & 4 \end{pmatrix}\mathbf{x} = \begin{pmatrix} 6 \\ 5 \end{pmatrix}$ starting from $(0, 0)$.

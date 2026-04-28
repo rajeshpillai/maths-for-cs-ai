@@ -129,6 +129,84 @@ print(f"  Exact:         {exact:.8f}")
 print(f"  Error:         {abs(approx-exact):.2e}")
 ```
 
+## Visualisation — Arithmetic vs geometric, and what "convergence" looks like
+
+The two big sequence shapes — arithmetic (constant *step*) and geometric
+(constant *ratio*) — look completely different on a graph, and that
+shape is what makes "infinite sums" possible only for one of them.
+
+```python
+# ── Visualising sequences and their partial sums ────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+n = np.arange(1, 21)                                # term index 1..20
+
+# Two arithmetic sequences and two geometric sequences side by side.
+arith_a = 5 + 3 * (n - 1)                           # 5, 8, 11, 14, ...      (d = 3)
+arith_b = 20 - 2 * (n - 1)                          # 20, 18, 16, ...       (d = -2)
+geo_a   = 2 * (1.5 ** (n - 1))                      # 2, 3, 4.5, 6.75, ...  (r = 1.5)
+geo_b   = 100 * (0.8 ** (n - 1))                    # 100, 80, 64, ...      (r = 0.8)
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4.5))
+
+# (1) Arithmetic — terms lie on a STRAIGHT LINE because each new term
+# adds the same constant. Slope of the line = the common difference d.
+ax = axes[0]
+ax.plot(n, arith_a, "o-", label="$a_n = 5 + 3(n-1)$,  d = 3")
+ax.plot(n, arith_b, "s-", label="$a_n = 20 - 2(n-1)$, d = -2")
+ax.set_title("Arithmetic sequence: constant step\n→ terms fall on a straight line")
+ax.set_xlabel("n (term number)"); ax.set_ylabel("$a_n$")
+ax.grid(True, alpha=0.3); ax.legend()
+
+# (2) Geometric — for r > 1 the terms EXPLODE; for 0 < r < 1 they
+# DECAY toward zero. The shape is exactly $b^x$ from the indices
+# lesson, just sampled at integer x.
+ax = axes[1]
+ax.plot(n, geo_a, "o-", label="$a_n = 2 \\cdot 1.5^{n-1}$,  r = 1.5 (grow)")
+ax.plot(n, geo_b, "s-", label="$a_n = 100 \\cdot 0.8^{n-1}$, r = 0.8 (decay)")
+ax.set_yscale("log")  # log scale makes geometric sequences appear straight
+ax.set_title("Geometric sequence: constant ratio\n→ on a log scale, becomes a straight line")
+ax.set_xlabel("n (term number)"); ax.set_ylabel("$a_n$ (log scale)")
+ax.grid(True, which="both", alpha=0.3); ax.legend()
+
+# (3) Partial sums of the decaying geometric. The cumulative total
+# *flattens out* and approaches S∞ = a / (1 - r). That horizontal
+# limit is what "the infinite sum exists" means.
+ax = axes[2]
+S_partial = np.cumsum(geo_b)
+S_infinity = 100 / (1 - 0.8)                       # exact limit = 500
+ax.plot(n, S_partial, "o-", label="partial sum  $S_n$")
+ax.axhline(S_infinity, color="red", linestyle="--",
+           label=f"limit  $S_\\infty = a/(1-r) = {S_infinity:.0f}$")
+ax.set_title("Convergence: when |r| < 1, partial sums\nflatten out toward a finite limit")
+ax.set_xlabel("n (number of terms summed)"); ax.set_ylabel("partial sum $S_n$")
+ax.grid(True, alpha=0.3); ax.legend()
+
+plt.tight_layout()
+plt.show()
+
+# Print a small table that mirrors the right-hand plot.
+print("Partial sums of 100 * 0.8^(n-1) approach 500 from below:")
+for n_val in [1, 2, 5, 10, 20, 50, 100]:
+    S = 100 * (1 - 0.8 ** n_val) / (1 - 0.8)
+    print(f"  n = {n_val:>3}  →  S_n = {S:8.4f}   (gap from 500 = {500 - S:8.4f})")
+```
+
+**Three things to take away:**
+
+- **Arithmetic = linear.** Each step adds the same number, so terms fall
+  on a straight line. The common difference $d$ is the slope.
+- **Geometric = exponential.** Each step multiplies by the same ratio.
+  On a *log* y-axis, the terms become a straight line — the same trick
+  log scales play in the indices/logarithms lesson.
+- **Convergence requires $|r| < 1$.** The decaying series $100 + 80 + 64
+  + \ldots$ piles up to the *finite* total $\frac{a}{1-r} = 500$.
+  Geometric series with $|r| \ge 1$ run away to infinity. This is the
+  whole reason discount factors $\gamma < 1$ work in reinforcement
+  learning, and why a polite exponential decay schedule keeps a
+  training loop's learning-rate sum bounded.
+
 ## Connection to CS / Games / AI
 
 - **Algorithm analysis** — $\sum_{k=1}^{n} k = O(n^2)$ (nested loops)

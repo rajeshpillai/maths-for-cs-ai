@@ -245,6 +245,28 @@ print(f"Problem 6: numerical = {result6:.6f}, exact = 0")
 - **Domain issues:** sin(t) only covers [-1, 1]. If you need x in [1, 2] for sqrt(x^2 - 1), use x = sec(t) not x = sin(t).
 - **Multiple substitutions needed:** Sometimes one substitution doesn't finish the job. Know when to chain substitutions vs. try a completely different approach.
 
+## Connection to CS / Games / AI / Business / Industry
+
+The skill here — *change variables until the problem becomes one you
+already know how to solve* — shows up far beyond JEE:
+
+- **CS / Software.** **Compiler optimisation passes** are substitution
+  rules: loop-invariant code motion, strength reduction (`x*2` → `x<<1`),
+  inlining. Symbolic-algebra systems (SymPy, Mathematica, Wolfram Alpha)
+  automate exactly the substitute-and-simplify game we play here.
+- **AI / ML.** **Normalising flows** and **change-of-variables formulas**
+  in deep generative models (RealNVP, Glow, neural ODEs) are textbook
+  $u$-substitution applied to probability densities. The
+  **reparameterisation trick** in VAEs is a substitution chosen to make
+  gradients flow.
+- **Engineering / Physics.** Switching to **cylindrical or spherical
+  coordinates** to compute volumes and fields, **moving frames** in fluid
+  dynamics, **scaled time** in stiff ODE solvers — all substitution.
+- **Business / Operations.** **Linearising a non-linear program** by a
+  substitution (e.g. $y = \log x$ in revenue-elasticity models, or
+  $y = 1/x$ for hyperbolic costs) is how OR teams turn hard models into
+  ones their LP solver can handle.
+
 ## Check Your Understanding
 
 1. Evaluate integral from 0 to pi/2 of dx / (1 + tan(x))^(1/2). [Hint: try the substitution x → pi/2 - x to exploit symmetry, then combine.]

@@ -313,6 +313,34 @@ print(f"e = {np.e:.6f}")
 - **Non-monotonic functions:** If f oscillates, bounding f(x) between f(a) and f(b) doesn't work. You need to find the actual max/min on the interval.
 - **The bound exists but is not tight:** Proving x >= 0 when the problem asks to prove x >= 5 — your bound is correct but useless.
 
+## Connection to CS / Games / AI / Business / Industry
+
+"Estimate before you compute, bound before you solve" is one of the most
+transferable skills in this entire tier:
+
+- **CS / Software.** **Big-O analysis** is bounding: $T(n) \in O(n \log n)$
+  is exactly the upper-bound game we play here. **Probabilistic data
+  structures** (Bloom filters, count-min sketch, HyperLogLog) ship with
+  rigorous one- or two-sided error bounds — engineers pick them by
+  computing those bounds.
+- **AI / ML.** **Generalisation bounds** (PAC, VC dimension, PAC-Bayes,
+  Rademacher complexity) tell you how much training data a model needs
+  to behave on unseen data — these are the *theoretical* foundation of
+  ML, all bounding inequalities. Concentration inequalities (Hoeffding,
+  Chernoff) are how online learning algorithms decide when to commit.
+- **Engineering / Real-time systems.** **Worst-case execution-time
+  analysis** for avionics, automotive ECUs, and pacemakers requires
+  proving an *upper bound* on every code path. Control-theory **stability
+  margins** are bounds on how much a system can be perturbed before it
+  oscillates.
+- **Business / Finance.** **Value-at-Risk** is "with 99% probability the
+  loss is less than $X" — a probability bound. Confidence intervals on
+  A/B test results, **stress-test scenarios**, and rate-limit/SLA capacity
+  planning are all bounding exercises.
+- **Cryptography.** **Reductions** in modern crypto ("breaking this scheme
+  is at least as hard as factoring") are inequalities — the security
+  proof IS a bound on the adversary's success probability.
+
 ## Check Your Understanding
 
 1. Show that for n >= 1: 2*sqrt(n+1) - 2 < 1 + 1/sqrt(2) + 1/sqrt(3) + ... + 1/sqrt(n) < 2*sqrt(n) - 1. [Hint: integral comparison, f(x) = 1/sqrt(x) is decreasing.]

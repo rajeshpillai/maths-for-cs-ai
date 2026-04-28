@@ -118,6 +118,31 @@ for iteration in range(20):
 print(f"  Optimal: V(A)=10, V(B)=20 (always stay)")
 ```
 
+## Connection to CS / Games / AI / Business / Industry
+
+- **AI / ML.** Markov Decision Processes are the **mathematical foundation
+  of reinforcement learning** — the Bellman equation derived above is
+  exactly what AlphaGo, robot-arm controllers and DeepMind's data-centre
+  cooling agent optimise. Hidden Markov Models powered the first generation
+  of speech recognition (Dragon, early Siri) and still underlie modern
+  Bioconductor gene-finders.
+- **CS / Software.** **PageRank** — Google's original ranking algorithm —
+  is the stationary distribution of a Markov chain on the web graph plus a
+  damping term. The same maths runs Twitter's "who-to-follow" and every
+  citation-importance ranking.
+- **Games.** NPC behaviour trees, weather and crop cycles in farming sims,
+  and procedurally-generated dialogue all use small Markov chains. Random
+  battle-encounter rates in JRPGs are literally Markov transition
+  probabilities.
+- **Business / Finance.** **Credit-rating migration matrices** (Moody's,
+  S&P) are Markov chains: the probability of an A-rated bond becoming BBB
+  next year. Customer-state models (active → at-risk → churned → won-back)
+  drive retention strategy at every SaaS company.
+- **Engineering / Industry.** **Warehouse robots** (Amazon, Ocado) and
+  driverless taxis solve MDPs in real time. Elevator dispatch in tall
+  buildings, hospital bed allocation, and food-delivery rider routing all
+  reduce to Markov-chain or MDP solvers.
+
 ## Check Your Understanding
 
 1. **Pen & paper:** Compute $\mathbf{P}^2$ for the weather model. If it's rainy today, what is $P(\text{sunny in 2 days})$?

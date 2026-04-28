@@ -371,6 +371,42 @@ print(f"  Verification: 7^4 mod 100 = {pow(7, 4, 100)}, 2023 mod 4 = {2023 % 4}"
 - **Missing a prerequisite concept:** Multi-concept problems assume fluency in all component topics. If you're weak in one area, the entire solution chain breaks.
 - **Time pressure:** These problems take longer. In an exam, make sure the marks justify the time investment. Sometimes partial marks from an incomplete solution are strategic.
 
+## Connection to CS / Games / AI / Business / Industry
+
+Real systems are *always* multi-concept. The JEE skill of weaving several
+topics into a single solution is exactly what professional work demands:
+
+- **CS / Software.** A modern **recommendation system** combines:
+  collaborative filtering (linear algebra + statistics) + content
+  embeddings (NLP/CV) + multi-armed bandits (probability + optimisation)
+  + caching (data structures) + database indexing (algorithms) + serving
+  infrastructure. **Distributed databases** (Spanner, CockroachDB) blend
+  consensus (logic), networking (queueing theory), data structures (B+
+  trees, LSM), and crypto (Merkle trees) into one system.
+- **AI / ML.** **Multimodal models** (GPT-4V, Gemini, Claude) require
+  fluency across vision (CNNs/transformers), language (token embeddings,
+  attention), audio (Fourier, mel spectrograms), and probability
+  (sampling, calibration) simultaneously. **AlphaFold** stitches
+  attention + geometry + biology + statistics.
+- **Engineering.** **Aerospace** combines aerodynamics (PDEs) +
+  materials (mechanics) + control (ODEs, optimisation) +
+  thermodynamics + electronics. A SpaceX launch reduces nothing — every
+  flight integrates dozens of mathematical disciplines in real time.
+- **Business / Strategy.** Senior leadership is multi-concept by
+  definition: pricing decisions blend microeconomics + statistics
+  (elasticity estimation) + operations + competitive game theory +
+  finance (NPV impact). **Mergers & acquisitions** require valuation
+  (DCF, multiples), antitrust law, accounting, tax, and integration
+  planning all at once.
+- **Games.** A **physics engine** combines linear algebra (transforms),
+  calculus (integrators), numerical methods (constraint solvers),
+  geometry (collision detection), and concurrency. **Engine design** is
+  multi-concept integration as a 24-month project.
+
+The professionals who get paid the most are usually those who can hold
+several mathematical lenses at once. JEE-style multi-concept problems
+are the small-scale rehearsal for that habit.
+
 ## Check Your Understanding
 
 1. **(Complex + Trig + Algebra)** If w = cos(2pi/7) + i*sin(2pi/7), find the value of (1+w)(1+w^2)(1+w^3)(1+w^4)(1+w^5)(1+w^6). [Hint: w is a primitive 7th root of unity, so z^7 - 1 = (z-1)(z-w)...(z-w^6). Evaluate at z = -1.]

@@ -223,6 +223,88 @@ print(f"1/(1+√3) = (√3-1)/2 = {(math.sqrt(3)-1)/2:.6f} = {1/(1+math.sqrt(3))
 print(f"3/(2-√5) = -6-3√5 = {-6-3*math.sqrt(5):.6f} = {3/(2-math.sqrt(5)):.6f}")
 ```
 
+## Visualisation — Why exponents and logarithms matter
+
+Three pictures make the whole story visual.
+
+```python
+# ── Visualising indices, logarithms, and surds ──────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4.5))
+
+# (1) Exponential growth and decay.
+# y = b^x explodes for b > 1 and decays for 0 < b < 1.
+ax = axes[0]
+x = np.linspace(-2, 4, 200)
+ax.plot(x, 2.0**x, label="$y = 2^x$ (doubles per unit)")
+ax.plot(x, 3.0**x, label="$y = 3^x$ (triples per unit)")
+ax.plot(x, 0.5**x, label="$y = (1/2)^x$ (halves per unit)")
+ax.axhline(0, color="black", lw=0.5)
+ax.axvline(0, color="black", lw=0.5)
+ax.set_title("Exponentials grow (or decay) at a *constant ratio*")
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.legend(); ax.grid(True, alpha=0.3)
+ax.set_ylim(-0.5, 20)
+
+# (2) Logarithm: the inverse of an exponential.
+# log_b(x) answers "what power of b gives x?"; it grows very slowly.
+ax = axes[1]
+x = np.linspace(0.1, 16, 200)
+ax.plot(x, np.log2(x),  label=r"$y = \log_2 x$")
+ax.plot(x, np.log10(x), label=r"$y = \log_{10} x$")
+ax.plot(x, np.log(x),   label=r"$y = \ln x$")
+ax.axhline(0, color="black", lw=0.5)
+ax.axvline(1, color="grey", lw=0.5, linestyle="--")  # log(1) = 0 for any base
+ax.set_title("Logarithms compress huge numbers — log(1)=0 always")
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (3) y = 2^x  vs  y = log_2(x)  are mirror images across y = x.
+# This is exactly what "inverse function" means: swap input and output.
+ax = axes[2]
+x = np.linspace(-2, 4, 200)
+ax.plot(x, 2.0**x, label="$y = 2^x$ (exponential)")
+xp = np.linspace(0.1, 16, 200)
+ax.plot(xp, np.log2(xp), label=r"$y = \log_2 x$ (its inverse)")
+xx = np.linspace(-2, 16, 200)
+ax.plot(xx, xx, color="grey", linestyle="--", lw=1, label="$y = x$ (mirror line)")
+ax.axhline(0, color="black", lw=0.5)
+ax.axvline(0, color="black", lw=0.5)
+ax.set_title("Exponential and logarithm are reflections across $y = x$")
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.set_xlim(-2, 16); ax.set_ylim(-3, 16)
+ax.set_aspect("equal")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Surds appear naturally as diagonals of integer-sided right triangles.
+# Pythagoras: leg_a^2 + leg_b^2 = hyp^2  ⇒  hyp = √(a² + b²).
+print("Right-triangle diagonals are surds:")
+for a, b in [(1, 1), (1, 2), (2, 3), (3, 4)]:
+    h2 = a * a + b * b
+    h = h2 ** 0.5
+    print(f"  legs ({a}, {b})  →  hypotenuse = √{h2} ≈ {h:.4f}")
+```
+
+**What the three plots show:**
+
+- **Left:** the curves $y = b^x$ all pass through $(0, 1)$ (because
+  $b^0 = 1$). For $b > 1$ they shoot upward; for $0 < b < 1$ they decay
+  toward zero. The *shape* is what every "compounding" or
+  "exponential-growth" story has in common — money in a savings account,
+  bacteria in a culture, file sizes after repeated zip compression.
+- **Middle:** logarithms grow *very slowly*. $\log_{10}(10^9)$ is just
+  $9$ — that's why log scales let us put population, earthquake energy,
+  star brightness, and audio loudness on the same axis. All three curves
+  cross zero at $x = 1$ because $\log_b 1 = 0$ for every base.
+- **Right:** $y = 2^x$ and $y = \log_2 x$ are reflections across the line
+  $y = x$. That's the geometric meaning of "inverse function": swap the
+  roles of input and output, and the curve flips across the diagonal.
+
 ## Connection to CS / Games / AI
 
 - **Algorithm complexity** — $O(n^2)$, $O(2^n)$, $O(n \log n)$ all use index notation

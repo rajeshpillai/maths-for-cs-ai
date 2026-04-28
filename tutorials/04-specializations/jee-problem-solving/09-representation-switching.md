@@ -262,6 +262,35 @@ print(f"Problem 7: C = ({C.real:.4f}, {C.imag:.4f}), exact = (2, {2*np.sqrt(3):.
 - **Wrong representation for the question:** If the problem asks for a Cartesian equation, solving in polar is extra work (you must convert back).
 - **Over-abstraction:** Sometimes the algebraic approach is straightforward and switching representations adds unnecessary complexity.
 
+## Connection to CS / Games / AI / Business / Industry
+
+Choosing the right representation is *the* meta-skill of applied
+mathematics — the same problem in the wrong form can be 100× harder:
+
+- **CS / Software.** **Adjacency matrix vs adjacency list** for graphs;
+  **DP table vs recursion-with-memo**; **bitmap vs bitset vs run-length**
+  for storage. Every Leetcode problem is half "what's the right
+  representation?" The same content, three storage shapes — pick one
+  and your algorithm changes from $O(n^3)$ to $O(n)$.
+- **AI / ML.** **Embeddings** convert categorical / textual / graph data
+  into continuous vectors so gradient-based methods can attack them
+  (word2vec, BERT, node2vec). **Spectral graph methods** turn a graph
+  into its Laplacian's eigenvectors — the same network, viewed in
+  "frequency space", reveals communities instantly.
+- **Games / Graphics.** A 3D rotation has at least three useful
+  representations — **Euler angles** (intuitive, gimbal-locks),
+  **rotation matrix** (composes well, redundant), **quaternion** (4 floats,
+  no gimbal lock, hardest to read). Game engines convert between all
+  three depending on the operation.
+- **Engineering.** **Time domain ↔ frequency domain** (Fourier),
+  **state-space ↔ transfer-function** (control theory), **mesh ↔ point
+  cloud** (3D scanning). Each form is "the same object" but different ops
+  are easy in different forms.
+- **Business / Finance.** **Cash-flow tables ↔ NPV ↔ IRR** — three
+  representations of the same investment; a CFO's recommendation hinges
+  on which lens she uses. **OLAP cubes** are deliberate reshaping of flat
+  transactions for fast slicing.
+
 ## Check Your Understanding
 
 1. Points A, B, C, D form a square with centre at the origin and A = 1 + i (in complex plane). Find B, C, D. [Hint: successive 90-degree rotations.]
