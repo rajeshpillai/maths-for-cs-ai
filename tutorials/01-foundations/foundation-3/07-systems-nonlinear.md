@@ -175,7 +175,7 @@ print(f"  Discriminant = {discriminant} → tangent (one intersection)")
 print(f"  x=1, y=1: x²={1}, 2x-1={1} ✓")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Collision detection** — ray-circle and ray-sphere intersections are
   nonlinear systems solved by substitution, exactly as shown above

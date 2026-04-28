@@ -200,7 +200,7 @@ for d in range(n):
         print(f"  ({d:2d}) = {sorted(ideal)}, size = {len(ideal)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **AES encryption**: the S-box operates in $GF(2^8) = \mathbb{Z}_2[x]/(x^8 + x^4 + x^3 + x + 1)$, a quotient ring.
 - **Modular arithmetic** in all of computing is the quotient ring $\mathbb{Z}/n\mathbb{Z}$.

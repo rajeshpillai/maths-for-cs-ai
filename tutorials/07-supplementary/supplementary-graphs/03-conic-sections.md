@@ -181,7 +181,7 @@ print("  e = 1  →  parabola  (projectile paths, satellite dishes)")
 print("  e > 1  →  hyperbola  (Kepler's escape trajectories)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Parabola** — projectile paths, satellite dish shape (focuses signals), quadratic loss curves
 - **Ellipse** — planetary orbits (Kepler), collision shapes in games

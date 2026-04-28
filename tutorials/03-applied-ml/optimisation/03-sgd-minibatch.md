@@ -282,7 +282,7 @@ The noise in SGD turns out to be a *feature*, not a bug: it helps
 escape saddle points and shallow local minima — which is why pure SGD
 is sometimes preferred over Adam in practice.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Every modern neural network** uses mini-batch SGD (or a variant like Adam)
 - **Data loaders** — PyTorch `DataLoader(batch_size=32, shuffle=True)` implements exactly this

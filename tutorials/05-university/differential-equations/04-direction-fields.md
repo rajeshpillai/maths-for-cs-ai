@@ -174,7 +174,7 @@ for y in y_vals:
     print(f"  y = {y:5.2f}: dy/dt = {dydt:6.3f}  ({direction})")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Vector fields in games**: wind, water current, and magnetic fields are
   rendered as direction fields; particles follow the arrows just like solution

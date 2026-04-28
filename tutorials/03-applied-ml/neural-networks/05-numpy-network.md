@@ -284,7 +284,7 @@ print(f"  No frameworks used — just NumPy + the chain rule.")
   parallelism*, and *automatic differentiation* handling the chain
   rule for arbitrary architectures. The maths is identical.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Understanding frameworks** — PyTorch's `nn.Linear` does exactly this: $\mathbf{Wx} + \mathbf{b}$
 - **Debugging** — when shapes don't match or gradients explode, understanding the raw math helps

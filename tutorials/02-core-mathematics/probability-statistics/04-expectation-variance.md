@@ -220,7 +220,7 @@ print(f"Std dev σ ≈ {np.sqrt(var):.2f} means a typical roll lands within "
   why variance is sensitive to outliers — and why ML uses MSE loss when
   it wants outliers punished more than small errors.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Loss functions** — expected loss over the data distribution is what we minimise
 - **Batch normalisation** — normalises using running mean and variance

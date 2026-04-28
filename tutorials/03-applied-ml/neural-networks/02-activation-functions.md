@@ -290,7 +290,7 @@ print("ReLU:    derivative is exactly 1 on the active half — no shrinkage at a
   multiplies the input by the Gaussian CDF; smooth derivatives are
   friendlier to optimisers than ReLU's hard kink at zero.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Sigmoid** — binary classification output, logistic regression, gates in LSTMs
 - **Tanh** — LSTM/GRU internal activations, normalising to $[-1, 1]$

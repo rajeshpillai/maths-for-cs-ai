@@ -284,7 +284,7 @@ for W in [28, 32, 64, 224]:
   whole objects. *Hierarchical feature learning* is what makes CNNs
   the dominant tool for vision.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **CNNs** — convolutional layers learn kernels automatically via backpropagation
 - **Image processing** — blur, sharpen, edge detection are all convolutions

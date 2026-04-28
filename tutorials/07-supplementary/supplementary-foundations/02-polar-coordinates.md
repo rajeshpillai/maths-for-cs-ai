@@ -200,7 +200,7 @@ print("  Cardioid:                            r = 1 + cos θ        vs  much lon
 print("  Spiral of Archimedes:                r = θ                vs  no closed-form Cartesian")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Radar/sonar** — naturally polar: distance + angle from sensor
 - **Game mechanics** — circular motion, orbiting objects, radial menus

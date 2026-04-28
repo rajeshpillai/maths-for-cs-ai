@@ -242,7 +242,7 @@ print(f"PDF rule: integral of f over its support = {trap(pdf, xs_c):.4f}")
 A useful mantra: *PMF/PDF tells you "how concentrated is probability
 here?", CDF tells you "how much probability has accumulated by here?"*
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Neural network outputs** — softmax produces a PMF over classes
 - **Loss functions** — cross-entropy compares predicted PMF to true PMF

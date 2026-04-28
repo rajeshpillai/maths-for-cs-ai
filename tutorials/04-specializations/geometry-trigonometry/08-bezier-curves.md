@@ -228,7 +228,7 @@ for i, level in enumerate(levels):
   Bézier with two of the four control points fixed at $(0, 0)$ and
   $(1, 1)$, and the curve interpreted as time-vs-progress.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Vector graphics** — SVG paths, Adobe Illustrator, font outlines (TrueType)
 - **CSS animations** — `transition-timing-function: cubic-bezier(...)`

@@ -152,7 +152,7 @@ print(f"Result: <{ix}, {iy}, {iz}>")
 print(f"Expected: <1, 1, 1>")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Game physics**: object trajectories are vector-valued functions of time; the
   derivative gives velocity, the second derivative gives acceleration
 - **Animation curves**: Bezier and spline paths are vector-valued functions

@@ -230,7 +230,7 @@ print(f"λ1·y1² + λ2·y2² = {quad_rotated:.4f}")
 print(f"Match? {np.allclose(quad_original, quad_rotated)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **PCA** — the covariance matrix is symmetric; its eigenvectors (principal components) are guaranteed orthogonal by the Spectral Theorem
 - **Hessian analysis** — the Hessian of a loss function is symmetric; its eigenvalues tell you if a critical point is a minimum (all positive), maximum (all negative), or saddle point (mixed)

@@ -189,7 +189,7 @@ print(f"BA =\n{B @ A}")
 print(f"AB == BA? {np.allclose(A @ B, B @ A)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Modular arithmetic** ($\mathbb{Z}_n$) is the ring that powers hashing, checksums, and cryptography.
 - **Polynomial rings** describe error-correcting codes (CRC, Reed-Solomon).

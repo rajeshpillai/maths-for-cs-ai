@@ -160,7 +160,7 @@ print(f"\nS = {{n : n² > 50}} ∩ [1,99]: least element = {min(S)}")
 print(f"Check: {min(S)}² = {min(S)**2} > 50")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Recursion correctness**: every recursive algorithm's correctness proof is an induction on the recursion depth or input size.
 - **Loop invariants**: proving a loop invariant holds at every iteration is induction on the iteration count.

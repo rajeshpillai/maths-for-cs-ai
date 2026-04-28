@@ -158,7 +158,7 @@ print(f"  max temperature = {u.max():.6f}")
 print(f"  location of max = {x[np.argmax(u)]:.4f} (should be ~0.5)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Image processing** — Gaussian blur is the heat equation applied to pixel
   values. Running the heat equation for time $t$ is equivalent to convolving

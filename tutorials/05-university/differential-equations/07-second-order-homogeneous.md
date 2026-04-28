@@ -209,7 +209,7 @@ for i in range(len(t_test)):
     print(f"  t={t_test[i]}: y''+2y'+5y = {residual[i]:.8f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Spring physics** in games (cloth simulation, soft bodies, camera follow)
   are all second-order ODEs with damping.

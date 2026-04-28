@@ -299,7 +299,7 @@ print(f"a × b (3-D) = {np.cross(np.array([3,1,0]), np.array([1,2,0]))}  "
   momentum, magnetic force — anything where rotation around an axis
   matters.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Dot product** — cosine similarity in recommendation engines and NLP embeddings
 - **Orthogonality** — independent features in ML, orthonormal bases in signal processing

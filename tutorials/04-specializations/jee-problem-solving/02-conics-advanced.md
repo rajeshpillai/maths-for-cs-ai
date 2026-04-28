@@ -226,7 +226,7 @@ print(f"  => 4x/9 + 3y/4 = 1")
 print(f"  => 16x + 27y = 36")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Computer graphics:** Parametric curves are the backbone of rendering — Bezier curves
   and NURBS are parametric extensions of conics used in font rendering and CAD.

@@ -178,7 +178,7 @@ print(f"  Treatment effect: {beta[1]:.2f} (should be ~10)")
 print(f"  Severity effect: {beta[2]:.2f} (should be ~-30)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **A/B Testing:** Proper randomisation in A/B tests ensures causal
   interpretation. Without it, selection bias confounds results.

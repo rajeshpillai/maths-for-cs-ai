@@ -184,7 +184,7 @@ for n in [5, 10, 20]:
     print(f"  r={r}, n={n}: brute={brute:.6f}, formula={formula:.6f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Expected value** — $\mathbb{E}[X] = \sum_{i} x_i \cdot P(x_i)$, the
   foundation of probabilistic reasoning in ML (Tier 4)

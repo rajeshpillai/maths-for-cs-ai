@@ -217,7 +217,7 @@ for x in [-2, -1, 0.5, 1, 2]:
 print("  f(0) → undefined (ZeroDivisionError)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Functions in code are mathematical functions:** `def relu(x): return
   max(0, x)` is the ReLU activation function used in every modern neural

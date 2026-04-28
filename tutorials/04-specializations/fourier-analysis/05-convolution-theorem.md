@@ -229,7 +229,7 @@ for N_v, K_v in [(100, 10), (1000, 100), (10_000, 1_000), (1_000_000, 10_000)]:
   (Winograd convolution, FFT-Conv) uses spectral-domain tricks for
   certain layer shapes.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Image processing** — large-kernel blur/sharpen via FFT
 - **Audio effects** — reverb = convolution with impulse response (done via FFT)

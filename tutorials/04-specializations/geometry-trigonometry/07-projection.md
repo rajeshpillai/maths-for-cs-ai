@@ -200,7 +200,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Every 3D game** — uses perspective projection for the main camera
 - **Minimap/HUD** — uses orthographic projection

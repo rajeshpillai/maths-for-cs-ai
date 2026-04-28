@@ -250,7 +250,7 @@ print(f"  L∞ norm   = max(|3|, |-4|) = {np.linalg.norm(v, np.inf):.4f}")
   toward zero. Compressed sensing, sparse coding, and many modern
   *interpretable*-ML techniques rely on this single geometric fact.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Loss functions** — MSE uses L2, MAE uses L1; L2 penalises outliers more
 - **Regularisation** — L1 (Lasso) for sparse models, L2 (Ridge) for smooth models

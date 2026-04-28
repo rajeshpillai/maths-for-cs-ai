@@ -260,7 +260,7 @@ for k in [4, 8, 16, 32, 64]:
   for powers-of-2 units to disambiguate. If you see "GB" in a hard
   drive ad it's base-10; in OS memory readouts it's base-2.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Binary** — how every number is stored in memory; bitwise operations in C/Python
 - **Hex** — memory addresses, colour codes (#FF0000 = red), debugging output

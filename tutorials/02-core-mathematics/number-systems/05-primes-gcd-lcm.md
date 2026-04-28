@@ -348,7 +348,7 @@ print(f"  gcd = {a}")
   Diffie-Hellman uses *generators* in the multiplicative group of a
   prime field. **Without primes, modern internet security collapses**.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **RSA cryptography** — relies on the fact that factoring large numbers is hard, but GCD is fast
 - **Hash tables** — table sizes are often prime to reduce collision clustering

@@ -151,7 +151,7 @@ print(f"math.gcd(60,18) = {math.gcd(60, 18)}")
 print(f"math.lcm(60,18) = {math.lcm(60, 18)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Cryptography (RSA):** The difficulty of factorising large semiprimes
   (products of two primes) is the entire security basis of RSA.

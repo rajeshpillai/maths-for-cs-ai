@@ -325,7 +325,7 @@ print(f"Matrix product A@B   =\n{A_mat @ B_mat}")            # [[19,22],[43,50]]
 print(f"Hadamard   A⊙B      =\n{A_mat * B_mat}")             # [[5,12],[21,32]]
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Neural network layers** — a neuron computes a linear combination of inputs:
   $z = w_1 x_1 + w_2 x_2 + \cdots + w_n x_n + b$.  Learning is finding the

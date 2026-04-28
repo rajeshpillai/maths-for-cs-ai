@@ -239,7 +239,7 @@ print(f"C4-equivariant: {group_params} params, 4 orientations")
 print(f"Effective multiplier: 4x feature maps from same parameters")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Medical imaging**: tumors have no preferred orientation; rotation-equivariant CNNs improve detection with limited training data.
 - **Molecular property prediction**: molecules have 3D rotational symmetry; SE(3)-equivariant networks (like SchNet, EGNN) respect this.

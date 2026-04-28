@@ -221,7 +221,7 @@ t = (11 - 3*c) / 2
 print(f"  Pure Python check: coffee = £{c:.0f}, tea = £{t:.0f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Linear algebra at scale:** neural networks solve systems with millions
   of equations (weights).  The $\mathbf{Ax} = \mathbf{b}$ pattern from this

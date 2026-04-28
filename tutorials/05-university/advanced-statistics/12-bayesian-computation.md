@@ -199,7 +199,7 @@ print(f"\nMCMC 95% CI: [{mcmc_ci[0]:.3f}, {mcmc_ci[1]:.3f}]")
 print(f"Exact 95% CI: [{exact_ci[0]:.3f}, {exact_ci[1]:.3f}]")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Probabilistic Programming:** Languages like Stan, PyMC, and Pyro use
   MCMC (and variants like NUTS/HMC) to fit complex Bayesian models.

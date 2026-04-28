@@ -212,7 +212,7 @@ DC = a * b / (b + c)
 print(f"  BD = {BD:.4f}, DC = {DC:.4f}, BD/DC = {BD/DC:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Game dev:** Circumcircles are fundamental to Delaunay triangulation, used for terrain
   mesh generation and pathfinding. The incircle radius helps measure mesh quality.

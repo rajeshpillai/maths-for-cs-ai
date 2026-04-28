@@ -264,7 +264,7 @@ print("because the disease is rare (low prior) and the population is huge.")
   same likelihood ratio, dragging the belief from "probably wrong" to
   "almost certainly right" only after several confirmations.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Spam filters** — Naive Bayes: $P(\text{spam}|\text{words}) \propto P(\text{words}|\text{spam})P(\text{spam})$
 - **Medical AI** — diagnostic systems use Bayes' theorem with test results as evidence

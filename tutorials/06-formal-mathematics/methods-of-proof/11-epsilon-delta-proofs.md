@@ -177,7 +177,7 @@ max_error = np.max(np.abs(fx - 6))
 print(f"ε={epsilon}, wrong δ={wrong_delta}: max|f(x)-6|={max_error:.4f}, < ε? {max_error < epsilon}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Numerical analysis**: proving an algorithm converges requires epsilon-delta reasoning on error bounds.
 - **Gradient descent convergence**: proving GD reaches an $\varepsilon$-optimal point within $N$ steps is an epsilon-delta argument.

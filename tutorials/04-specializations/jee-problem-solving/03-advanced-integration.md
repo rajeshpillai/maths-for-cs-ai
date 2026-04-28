@@ -187,7 +187,7 @@ print(f"  integral x^4 from -2 to 2 = {I_even:.4f} (even function, = 2 * integra
 print(f"  integral x^3 from -2 to 2 = {I_odd:.10f} (odd function, = 0)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Machine learning:** The Beta function appears in Bayesian statistics (Beta distribution
   is the conjugate prior for Bernoulli). The Gamma function generalises factorials needed

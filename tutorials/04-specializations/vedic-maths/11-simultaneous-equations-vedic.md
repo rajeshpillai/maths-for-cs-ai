@@ -353,7 +353,7 @@ print(f"\n  Final: x = 14 - 2({y_val}) - 3({z_val}) = {x_val}")
 print(f"  Solution: x={x_val}, y={y_val}, z={z_val}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Cramer's Rule** is the foundation of the Vedic method, and is used in
   computer graphics for ray-triangle intersection (solving the parametric

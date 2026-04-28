@@ -231,7 +231,7 @@ print("positions, regardless of distance.")
   That's the architectural reason BERT, GPT, T5, and Llama replaced
   LSTMs everywhere.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Language modelling** — RNNs/LSTMs were the basis of early seq2seq models (Google Translate pre-2017)
 - **Speech recognition** — bidirectional LSTMs process audio frame sequences (DeepSpeech)

@@ -128,7 +128,7 @@ for step in range(10):
         print(f"Step {step}: loss={loss:.4f}, w={w:.4f}, b={b:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Gradient descent** — $\mathbf{w} \leftarrow \mathbf{w} - \alpha \nabla L$: the update rule for all neural network training
 - **Backpropagation** — computes $\nabla L$ efficiently using the chain rule

@@ -219,7 +219,7 @@ nullity = n - rank
 print(f"\nRank-Nullity: rank={rank} + nullity={nullity} = {rank+nullity} = n={n} ✓")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Solvability of linear systems:** $\mathbf{Ax} = \mathbf{b}$ has a solution
   if and only if $\mathbf{b} \in C(\mathbf{A})$.  This tells you whether a

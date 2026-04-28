@@ -207,7 +207,7 @@ print(f"Gap (numerical vs FTC): {abs(riemann - (F(b) - F(a))):.2e}")
   total.** Velocity ↔ position, current ↔ charge, marginal cost ↔
   total cost, PDF ↔ CDF — every one of those pairs is an FTC pair.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Probability** — The CDF is the integral of the PDF; the FTC connects them: $\frac{d}{dx}F(x) = f(x)$
 - **Physics engines** — position = integral of velocity, velocity = integral of acceleration

@@ -173,7 +173,7 @@ k = a*h**2 + b*h + c
 print(f"x² - 4x + 3: vertex = ({h}, {k})")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Projectile motion** — game physics uses $y = y_0 + v_0 t - \frac{1}{2}g t^2$ (a quadratic in $t$)
 - **Ray-sphere intersection** — substitute ray equation into sphere equation, get a quadratic; discriminant tells you hit/miss/tangent

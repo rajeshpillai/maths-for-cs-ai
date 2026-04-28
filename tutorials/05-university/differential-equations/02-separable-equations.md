@@ -181,7 +181,7 @@ print(f"  Check: y + y^3/3 = {y_val + y_val**3/3:.6f}")
 print(f"  Check: x^3/3 + C = {x_val**3/3 + C:.6f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Exponential decay** ($k < 0$) models the half-life of cached data, memory
   decay in recurrent networks, and learning rate schedules that decay

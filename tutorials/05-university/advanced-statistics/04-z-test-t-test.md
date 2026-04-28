@@ -171,7 +171,7 @@ t_sp, p_sp = stats.ttest_rel(before, after)
 print(f"scipy: t = {t_sp:.4f}, p = {p_sp:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **A/B Testing:** Two-sample t-tests compare metrics between control and
   treatment groups in product experiments.

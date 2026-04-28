@@ -324,7 +324,7 @@ Unity, Unreal, Godot, Blender, and pretty much every modern 3-D engine
 store all character/camera/bone rotations as quaternions internally,
 and convert to Euler only for human-readable display.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Unity/Unreal** — `Quaternion.Slerp()` for smooth camera and character rotation
 - **Skeletal animation** — bone rotations stored as quaternions, interpolated with SLERP

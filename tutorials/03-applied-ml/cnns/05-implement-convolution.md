@@ -305,7 +305,7 @@ for desc, F_, oH, oW, C_in, K_ in [
   still vastly fewer than what a fully-connected layer of the same
   shape would have.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Understanding frameworks** — `torch.nn.Conv2d(in_channels, out_channels, kernel_size)` does exactly what we coded
 - **Performance** — our nested loops are ~1000× slower than optimised C++/CUDA implementations

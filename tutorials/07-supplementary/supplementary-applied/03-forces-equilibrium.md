@@ -242,7 +242,7 @@ print(f"  ΣF = {total}    |ΣF| = {np.linalg.norm(total):.6e}")
   up to millions of forces in 3-D meshes, solved by sparse linear
   algebra (lesson 06 of advanced-ml).
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Physics engines** — Box2D, Bullet resolve forces each frame
 - **Character controllers** — slope detection, friction determines if player slides

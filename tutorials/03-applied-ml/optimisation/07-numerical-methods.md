@@ -303,7 +303,7 @@ for k in range(7):
   numerical solver in SciPy, MATLAB, NumPy, and the firmware in your
   pocket calculator's `√` key.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Newton's method** — basis for second-order optimisers (L-BFGS, used in classical ML)
 - **Root-finding** — solving $f(x) = 0$ appears in ray tracing, physics simulations, financial models

@@ -281,7 +281,7 @@ its rotations as 3×3 orthogonal matrices — inverting a 3×3 transpose is
 nine memory loads, while a general $4{\times}4$ inverse is dozens of
 operations.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Solving systems** — $\mathbf{x} = \mathbf{A}^{-1}\mathbf{b}$ solves simultaneous equations
 - **3D graphics** — inverse of the view matrix transforms from screen back to world space

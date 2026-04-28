@@ -384,7 +384,7 @@ print(f"e1 → {np.round(R45 @ e1, 4)}")
 print(f"e2 → {np.round(R45 @ e2, 4)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **3D graphics pipeline** — model → world → view → projection: each is a matrix transformation
 - **Neural network layers** — $\mathbf{Wx}$: the weight matrix transforms the input vector

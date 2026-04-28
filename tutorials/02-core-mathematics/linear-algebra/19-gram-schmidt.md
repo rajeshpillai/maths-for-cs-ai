@@ -213,7 +213,7 @@ print(f"NumPy R =\n{np.round(R_np, 6)}")
 # Note: signs of columns may differ (both are valid)
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **QR decomposition** is the standard numerical method for solving least-squares problems — more stable than forming $\mathbf{A}^T\mathbf{A}$ directly (which squares the condition number).
 - **QR iteration** (repeatedly doing QR decomposition) is how eigenvalue algorithms work inside NumPy and LAPACK.

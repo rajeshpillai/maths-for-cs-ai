@@ -241,7 +241,7 @@ print(f"          ↳ peak in plot is at μ = {mus[np.argmax(log_L_gauss)]:.4f}"
   the log-likelihood to zero" recipe — gradient descent does the same
   thing iteratively when no closed form exists.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Neural network training** — cross-entropy loss IS negative log-likelihood (MLE)
 - **Logistic regression** — MLE of Bernoulli model with log-odds = linear function

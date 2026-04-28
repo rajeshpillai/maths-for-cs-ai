@@ -192,7 +192,7 @@ middle = integrate.quad(lambda y: 0.5 * y * 4.5, 0, 2)[0]
 print(f"After middle (y) at x=0.5: {middle:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **3D rendering**: volumetric rendering (fog, clouds) integrates density along
   rays through a 3D scalar field — essentially many triple integrals
 - **Physics engines**: moments of inertia for 3D rigid bodies require

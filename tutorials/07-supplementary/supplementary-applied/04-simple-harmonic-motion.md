@@ -220,7 +220,7 @@ print("just over an hour because wind frequency matched a structural mode.")
   audio EQ, MRI scan (where you tune the RF pulse to the proton's
   Larmor frequency), and the "Q factor" of every laser cavity.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Spring physics** — camera follow, UI animations, cloth simulation
 - **Audio synthesis** — SHM produces pure tones (sine waves)

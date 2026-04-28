@@ -194,7 +194,7 @@ print(f"\nNumerical f_xy(1,2) = {f_xy_num:.6f}")
 print(f"Symbolic  f_xy(1,2) = {float(f_xy.subs(point)):.6f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Hessian matrix in ML**: the matrix of all second partials of the loss function.
   Clairaut's theorem guarantees it is symmetric, enabling efficient eigenvalue
   analysis for optimisation

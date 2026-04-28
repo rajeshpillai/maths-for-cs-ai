@@ -258,7 +258,7 @@ print("  - 1×1 convolution             →  pure channel-mixing, spatial size u
   1$. Memorise it. It is the single most-used calculation when
   designing a CNN.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Stride 2** — common way to downsample feature maps (instead of pooling)
 - **Same padding** — preserves spatial dimensions; used in most modern architectures (ResNet, U-Net)

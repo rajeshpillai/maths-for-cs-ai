@@ -170,7 +170,7 @@ t = 0.0
 print(f"Particular solution check: y(0) = {C * np.exp(3 * t)} (should be 5)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Physics engines** (Unity, Unreal) solve Newton's second law — a
   second-order ODE — every frame to update object positions.

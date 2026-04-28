@@ -334,7 +334,7 @@ print(f"  Digit products: {', '.join(f'{a}×{b}={a*b}' for a,b,p in products)}")
 print(f"  Max |intermediate product|: {max(abs(p) for _,_,p in products)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Signed-digit representation**: In computer arithmetic, redundant number
   systems with digits in {-1, 0, 1} (like carry-save adders) are the binary

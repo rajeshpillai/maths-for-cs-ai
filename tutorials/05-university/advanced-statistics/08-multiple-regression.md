@@ -158,7 +158,7 @@ beta_np, _, _, _ = np.linalg.lstsq(X, y, rcond=None)
 print(f"\nnumpy lstsq: {beta_np}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Feature Engineering:** Multiple regression is the foundation for
   understanding how multiple features contribute to predictions in ML.

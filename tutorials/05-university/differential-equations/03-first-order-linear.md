@@ -184,7 +184,7 @@ for C in [10, -5, 100]:
     print(f"  C={C:4d}: y = {np.array2string(y_val, precision=4)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Exponential moving averages** in optimisers (Adam, RMSProp) are discrete
   analogues of $dy/dt + \alpha y = \alpha \cdot \text{signal}$ — a first-order

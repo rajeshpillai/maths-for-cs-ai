@@ -271,7 +271,7 @@ for label, data in [("heights", heights), ("incomes", incomes)]:
   outside). Box plots are the standard "first look" at a new dataset in
   data science.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Data preprocessing** — normalisation uses mean and std dev: $z = (x - \mu)/\sigma$
 - **Batch normalisation** — computes running mean and variance of activations

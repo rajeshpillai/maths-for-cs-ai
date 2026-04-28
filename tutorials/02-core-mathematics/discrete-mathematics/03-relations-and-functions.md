@@ -310,7 +310,7 @@ for case in cases:
   weren't, ciphertext could not be recovered. **Lossless compression**
   is also bijective by construction.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Hash functions** — ideally injective (no collisions), but in practice collisions happen
 - **Encryption** — must be bijective (so you can decrypt); AES is a bijection on 128-bit blocks

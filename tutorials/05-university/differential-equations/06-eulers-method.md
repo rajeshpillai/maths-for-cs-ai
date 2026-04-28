@@ -188,7 +188,7 @@ for i, h in enumerate(h_values):
           + (f", ratio={ratio:.3f}" if i > 0 else ""))
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Game physics loops**: `position += velocity * dt` is literally Euler's
   method applied to $dx/dt = v$. Most games use the symplectic Euler or

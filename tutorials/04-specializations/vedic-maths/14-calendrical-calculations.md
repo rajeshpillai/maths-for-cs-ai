@@ -403,7 +403,7 @@ show_steps(14, 4, 2026)
 show_steps(29, 2, 2000)
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Modular arithmetic** is the foundation: this exercise builds deep intuition
   for mod operations that appear everywhere in CS (hash tables, circular

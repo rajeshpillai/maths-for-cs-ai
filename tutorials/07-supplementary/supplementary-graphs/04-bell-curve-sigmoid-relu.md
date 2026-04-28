@@ -215,7 +215,7 @@ print("  ReLU        → cheap, sparse, gradient-preserving — default hidden a
 print("  Softplus    → 'smooth' ReLU, useful where you need a differentiable everywhere")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Bell curve** — weight initialisation, batch norm, noise modelling, p-values
 - **Sigmoid** — logistic regression, binary classification, LSTM gates, probability output

@@ -484,7 +484,7 @@ for i in range(10):
         print(f"  {i+1}. {dividend} ÷ {divisor} = ? [Osculator check → divide] → {quotient}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Algorithm selection**: Just as we choose techniques based on problem
   structure, ML systems use meta-learning to select the best algorithm

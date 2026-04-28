@@ -191,7 +191,7 @@ for angle in [0.5, 1.0, 2.3, 5.7]:
     print(f"  theta = {angle}: cos² + sin² = {lhs:.10f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Rotation** — rotating a sprite by angle $\theta$ uses a 2D rotation matrix
   built from $\cos\theta$ and $\sin\theta$

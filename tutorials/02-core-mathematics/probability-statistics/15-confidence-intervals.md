@@ -314,7 +314,7 @@ When journalists report "the poll has a margin of error of ±3% with 95%
 confidence," they're describing exactly this — half-width $z^* \sigma /
 \sqrt n$ and a procedure that is right 95% of the time.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **A/B testing** — "is the conversion rate significantly different?" is answered by checking if CIs overlap (or better, by CI for the difference)
 - **Model evaluation** — report accuracy as $\hat{p} \pm$ margin, not just a single number

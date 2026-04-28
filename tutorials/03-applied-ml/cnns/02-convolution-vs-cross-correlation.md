@@ -263,7 +263,7 @@ print("\nFor a symmetric kernel (e.g. Gaussian blur), flip(K) == K, so the two\n
   uses the *associativity* and *commutativity* of true convolution.
   Cross-correlation is *not* commutative.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **All CNN frameworks** — compute cross-correlation, call it "convolution"
 - **Signal processing** — true convolution is needed for Fourier analysis (Tier 9)

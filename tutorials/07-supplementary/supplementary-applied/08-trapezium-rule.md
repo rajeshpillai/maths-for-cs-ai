@@ -240,7 +240,7 @@ for nn in [4, 16, 64, 256, 1024]:
   trapezium rule is what you reach for when you only have *data*, not
   a formula.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Numerical integration** — SciPy `quad()`, NumPy `trapz()` use these methods
 - **Probability** — compute CDFs when PDF has no closed-form integral

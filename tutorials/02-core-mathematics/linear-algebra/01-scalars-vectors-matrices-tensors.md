@@ -270,7 +270,7 @@ width)` is the canonical shape for a mini-batch of images going through
 a CNN — and from this picture you can already see why: it's a stack of
 3-D tensors (one per image in the batch).
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Vectors** — feature vectors in ML, pixel coordinates in games, RGB colour values
 - **Matrices** — weight matrices in neural networks, transformation matrices in 3D graphics, adjacency matrices in graphs

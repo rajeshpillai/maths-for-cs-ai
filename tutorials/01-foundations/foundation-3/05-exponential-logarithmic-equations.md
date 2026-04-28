@@ -174,7 +174,7 @@ print(f"  Monthly:    ${P * (1 + r/12)**(12*t):.2f}")
 print(f"  Continuous: ${P * math.exp(r * t):.2f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Learning rate decay** — exponential decay $\alpha_t = \alpha_0 e^{-\lambda t}$
   reduces step size during training

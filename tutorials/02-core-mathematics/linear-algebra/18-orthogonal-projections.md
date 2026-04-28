@@ -226,7 +226,7 @@ for i in range(A.shape[1]):
     print(f"resid . col_{i} = {dot:.1f}")       # 0.0
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Least-squares regression** solves $\mathbf{A}^T\mathbf{A}\hat{\mathbf{x}} = \mathbf{A}^T\mathbf{b}$ — exactly the normal equations we just derived. Fitting a line through data is a projection problem.
 - **PCA** projects high-dimensional data onto the subspace of the top eigenvectors of the covariance matrix.

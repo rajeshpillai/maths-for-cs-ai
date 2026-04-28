@@ -231,7 +231,7 @@ print(f"Quarter circle: {r_arc:.6f} = π/2 = {np.pi/2:.6f}")
 print(f"Different! Field is NOT conservative.")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Work and energy**: physics engines compute work done by forces along
   trajectories using line integrals; conservative forces allow energy shortcuts
 - **Gradient descent convergence**: the total "work" done by $-\nabla L$ along

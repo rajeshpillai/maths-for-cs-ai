@@ -257,7 +257,7 @@ print(f"  t           = {t_int:+.4f}")
 print(f"  intersection point = {intersection.round(4).tolist()}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Ray tracing** — ray = line, surfaces = planes/triangles; intersection is line-plane
 - **Collision detection** — distance from point to plane, line-plane intersection

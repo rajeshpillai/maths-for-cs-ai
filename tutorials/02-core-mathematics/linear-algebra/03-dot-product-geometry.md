@@ -262,7 +262,7 @@ user/item vectors, every classifier head that scores classes against an
 embedding, and every attention head in a Transformer (where queries and
 keys are dot-producted to decide what to "look at").
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Cosine similarity** — the standard measure for comparing word embeddings, document vectors, and recommendation vectors
 - **Lighting in 3D** — Lambert's cosine law: brightness = surface normal · light direction

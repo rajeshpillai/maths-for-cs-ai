@@ -202,7 +202,7 @@ area_shoelace = 0.5 * abs(sum(
 print(f"Shoelace area: {area_shoelace:.1f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Normalizing flows**: a neural network learns an invertible transformation
   $T$ of a simple distribution; the log-likelihood includes $\log|\det(J_T)|$,
   making Jacobians central to training

@@ -215,7 +215,7 @@ print(f"  3. f(a) = lim = {lim} ✓ (equal)")
 print(f"  Conclusion: continuous at x = {a}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Numerical root-finding** — the IVT justifies the bisection method, one of
   the simplest and most reliable root-finding algorithms in numerical computing

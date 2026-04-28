@@ -208,7 +208,7 @@ for n in [1, 2, 3, 5, 10]:
     print(f"  n={n:2d}: Σk³={sum_cubes:>5d}, (Σk)²={sum_sq:>5d}, match={sum_cubes == sum_sq}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Algorithm design** — breaking a problem into small cases is how you find
   the recurrence relation for dynamic programming

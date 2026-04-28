@@ -316,7 +316,7 @@ print(f"           Equal? {not_union == not_int_dem}  ✓")
   Polars, and the type-theory operations in TypeScript and Rust are
   all set algebra in disguise.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Python `set`** — built-in set type with `|`, `&`, `-`, `^` operators
 - **SQL** — `UNION`, `INTERSECT`, `EXCEPT` are set operations; `JOIN` is filtered Cartesian product

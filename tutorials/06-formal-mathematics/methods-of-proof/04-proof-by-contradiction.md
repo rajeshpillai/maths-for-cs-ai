@@ -174,7 +174,7 @@ for a, b in convergents:
     check_contradiction(a, b)
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Impossibility results** in CS (halting problem, no perfect compression) are proven by contradiction.
 - **Correctness proofs**: showing a protocol has no deadlock often assumes a deadlock exists and derives a contradiction.

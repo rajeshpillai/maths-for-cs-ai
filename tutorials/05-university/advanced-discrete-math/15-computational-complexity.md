@@ -209,7 +209,7 @@ for n in [10, 15, 20]:
     print(f"  n={n}: sort={sort_time:.6f}s, subset_sum={ss_time:.6f}s")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Cryptography:** RSA security relies on the assumption that factoring is
   not in P. If $P = NP$, all public-key crypto breaks.

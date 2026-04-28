@@ -212,7 +212,7 @@ for x in [-3, -2, 0, 2.9, 3]:
     print(f"  x={x:5.1f}  →  2x+3 = {val:5.1f}  in [-1, 9)? {ok}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Bounds checking:** every array access needs `0 <= index < length` — a
   compound inequality that prevents buffer overflows and crashes.

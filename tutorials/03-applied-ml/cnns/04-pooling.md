@@ -296,7 +296,7 @@ print("    and downsample with stride-2 convolutions instead.")
   by averaging across spatial dimensions — is now standard in place
   of large FC layers, slashing parameters and reducing overfitting.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **LeNet, AlexNet, VGG** — all use max pooling after conv layers
 - **ResNet** — uses stride-2 convolutions instead of pooling in later stages

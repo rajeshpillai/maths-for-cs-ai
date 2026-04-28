@@ -261,7 +261,7 @@ for i in range(10):
     current = next_val
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Type systems:** Subtyping in languages like Java/TypeScript forms a lattice.
   The compiler computes least upper bounds (join) for type inference.

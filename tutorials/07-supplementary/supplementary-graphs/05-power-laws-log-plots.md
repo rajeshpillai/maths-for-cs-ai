@@ -196,7 +196,7 @@ print("  Allometric scaling in biology: metabolism ∝ mass^(3/4)  (Kleiber's la
 print("  Neural network scaling laws  : loss ∝ (compute)^(-α)    (Kaplan/Hoffmann)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Zipf's law** — word frequencies in NLP, long-tail distributions in recommendation systems
 - **Log plots** — standard for visualising training loss, learning curves, model performance

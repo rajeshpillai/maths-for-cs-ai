@@ -202,7 +202,7 @@ print("  v² = u² + 2as")
   template for *every* mechanics problem with uniform acceleration —
   cars braking, projectiles, free-falling lift carriages.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Platformer physics** — jump height = $v_0^2 / (2g)$, jump time = $2v_0/g$
 - **Racing games** — braking distance, acceleration curves

@@ -368,7 +368,7 @@ for d in [7, 11, 13, 17, 19, 23]:
           f"(verify: 10 × {osc} = {10*osc} ≡ {10*osc % d} mod {d})")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Checksums**: Digital roots are the simplest form of checksum. ISBN,
   credit card numbers (Luhn algorithm), and network packet checksums all

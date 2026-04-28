@@ -179,7 +179,7 @@ print(f"Quotient: {q3}")
 print(f"Remainder: {r3}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Computer algebra systems** — SymPy and Mathematica implement polynomial
   long division as a core primitive for simplification

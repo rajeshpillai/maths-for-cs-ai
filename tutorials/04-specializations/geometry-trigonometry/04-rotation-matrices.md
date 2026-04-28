@@ -201,7 +201,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Sprite rotation** — 2D rotation matrix applied to each vertex
 - **3D cameras** — view matrix is a rotation + translation

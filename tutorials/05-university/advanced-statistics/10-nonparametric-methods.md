@@ -181,7 +181,7 @@ t_stat, t_pval = stats.ttest_ind(a, b)
 print(f"T-test p-value: {t_pval:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Robust Model Evaluation:** When accuracy distributions across folds
   are not normal, use Mann-Whitney or permutation tests to compare models.

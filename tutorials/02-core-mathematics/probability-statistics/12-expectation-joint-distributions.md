@@ -289,7 +289,7 @@ These three operations — joint, marginal, conditional — and the
 **tower law** $E[X] = E_Y [E[X \mid Y]]$ that the print-out verifies
 are the only tools you ever need to manipulate joint distributions.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Linearity of expectation** — simplifies expected running time analysis of randomised algorithms (e.g., quicksort)
 - **Product rule** — independence assumption in Naive Bayes makes computation tractable

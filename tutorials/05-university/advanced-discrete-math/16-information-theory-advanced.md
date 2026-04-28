@@ -225,7 +225,7 @@ for p in [0.01, 0.05, 0.1, 0.2]:
     # Hamming corrects 1 error; with 7 bits, P(2+ errors) ≈ C(7,2)*p^2
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Wi-Fi / 5G:** Modern wireless protocols use LDPC codes that approach
   Shannon capacity within fractions of a dB.

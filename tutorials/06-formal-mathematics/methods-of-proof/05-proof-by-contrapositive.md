@@ -165,7 +165,7 @@ for n in range(20):
         print(f"  n={n}: 3n+2={val} (odd), n is {'odd' if n%2==1 else 'EVEN!'}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Debugging**: "if the output is wrong, then the input was invalid" — contrapositive reasoning identifies root causes.
 - **Type safety**: "if a program type-checks, it does not crash" is equivalent to "if a program crashes, it did not type-check."

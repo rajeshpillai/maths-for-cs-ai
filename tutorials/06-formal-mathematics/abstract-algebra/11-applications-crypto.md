@@ -246,7 +246,7 @@ if R is not None:
     print(f"R on curve: {lhs} == {rhs}: {lhs == rhs}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **HTTPS/TLS**: uses elliptic curve Diffie-Hellman (ECDH) for key exchange in every secure web connection.
 - **Bitcoin**: uses the elliptic curve secp256k1 for digital signatures.

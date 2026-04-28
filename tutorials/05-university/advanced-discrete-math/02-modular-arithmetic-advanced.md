@@ -163,7 +163,7 @@ print(f"\nSolution: x ≡ {result2} (mod 105)")
 print(f"Check: {result2}%3={result2%3}, {result2}%5={result2%5}, {result2}%7={result2%7}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **RSA cryptography:** CRT speeds up decryption by a factor of ~4x by
   working modulo $p$ and $q$ separately, then combining.

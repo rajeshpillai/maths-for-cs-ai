@@ -162,7 +162,7 @@ print(f"log_5(20) = ln(20)/ln(5) = {math.log(20):.4f}/{math.log(5):.4f}"
 print(f"Verify: 5^{result:.4f} = {5**result:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Binary search** — halving $n$ items takes $\log_2 n$ steps
 - **Information theory** — entropy $H = -\sum p_i \log_2 p_i$ measures

@@ -151,7 +151,7 @@ print("\nNumerical eigenvalues (first 5):", eigenvalues[:5])
 print("Exact eigenvalues:             ", [(n**2) for n in range(1, 6)])
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Vibrating strings** — The eigenfunctions are the harmonic modes of guitar
   strings and drum membranes (audio synthesis, game physics).

@@ -369,7 +369,7 @@ print(f"Final accuracy (framework): {acc_fw * 100:.1f}%")
   the maths — and being able to *read* the math means you can debug
   any framework when the inevitable shape error or NaN-loss appears.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **PyTorch** — the most popular research framework; used for GPT, Stable Diffusion, AlphaFold
 - **TensorFlow/JAX** — same math, different API; JAX emphasises functional transforms

@@ -279,7 +279,7 @@ print(f"  Powers of 3 mod 7: {[pow(3, k, 7) for k in range(8)]}  "
   in $\mathbb{Z}/p^\times$. Pseudorandom generators (LCGs) iterate
   modular-multiplications.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Cryptography** — RSA encryption is entirely modular exponentiation with huge primes
 - **Hash functions** — `hash(key) % table_size` maps keys to array indices

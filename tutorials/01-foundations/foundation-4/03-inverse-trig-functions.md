@@ -176,7 +176,7 @@ for i, s in enumerate(solutions):
     print(f"  θ_{i+1} = {math.degrees(s):>7.1f}°  tan²θ = {math.tan(s)**2:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Angle between vectors** — $\theta = \arccos(\mathbf{a} \cdot \mathbf{b} / (|\mathbf{a}||\mathbf{b}|))$ is used in lighting, collision detection, and cosine similarity
 - **atan2 everywhere** — game engines use `atan2(dy, dx)` to compute heading angles, steering directions, and camera rotations

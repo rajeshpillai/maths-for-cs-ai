@@ -170,7 +170,7 @@ for n in range(21):
     print(f"  {n:2d} cents: {change[n]:3d} ways")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Algorithm analysis:** Generating functions give exact solutions to
   divide-and-conquer recurrences beyond the Master Theorem.

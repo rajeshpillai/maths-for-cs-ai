@@ -245,7 +245,7 @@ for q in [0.1, 0.3, 0.5, 0.9]:
   $\mathrm{KL}(q \| p)$ on purpose because that direction is
   "mode-seeking" rather than "mean-seeking".
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Cross-entropy loss** — THE standard classification loss function
 - **Softmax + cross-entropy** — combined for multi-class neural network training

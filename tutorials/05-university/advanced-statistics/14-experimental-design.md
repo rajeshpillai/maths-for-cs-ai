@@ -220,7 +220,7 @@ for a in [0, 1]:
         print(f"  {label_a}/{label_b}: mean = {Y[mask].mean():.2f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **A/B Testing in Tech:** Every major tech company (Google, Netflix,
   Amazon) runs thousands of A/B tests. Proper design prevents false

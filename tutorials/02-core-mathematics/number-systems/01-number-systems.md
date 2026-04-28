@@ -198,7 +198,7 @@ print(f"(2+3i) + (1-i) = {z1 + z2}")   # Should be 3+2i
 print(f"(2+3i) × (1-i) = {z1 * z2}")   # Should be 5+1i
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **ℕ** — array indices, loop counters, unsigned integers in C
 - **ℤ** — signed integers, two's complement representation

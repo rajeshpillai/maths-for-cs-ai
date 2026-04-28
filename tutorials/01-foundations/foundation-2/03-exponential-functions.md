@@ -150,7 +150,7 @@ for x in [-2, -1, 0, 1, 2]:
           f"2^(-x) = {reflected:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Algorithm complexity** — brute-force search is $O(2^n)$; exponential
   blowup is why we need clever algorithms

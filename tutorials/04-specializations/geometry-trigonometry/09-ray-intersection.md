@@ -289,7 +289,7 @@ print(f"  Ground plane y = 0: hit at t = {t}")
   systems use BVH acceleration structures, GPU SIMD, and learned
   denoisers — but the per-pixel logic is the picture above.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Ray tracing** — cast rays from camera through each pixel; find intersections for photorealistic rendering
 - **Mouse picking** — cast a ray from camera through mouse position to select 3D objects

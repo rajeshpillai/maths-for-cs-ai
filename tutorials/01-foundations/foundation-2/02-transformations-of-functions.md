@@ -188,7 +188,7 @@ print(f"  Vertex at x=1: h(1) = {h(1)}")
 print(f"  h(0) = {h(0)}, h(2) = {h(2)}, h(3) = {h(3)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Sprite transforms** — scaling, flipping, and repositioning sprites are
   exactly vertical/horizontal stretches, reflections, and shifts

@@ -193,7 +193,7 @@ print(f"\n=== Laplacian of {phi} ===")
 print(f"∇²φ = {laplacian}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Fluid simulation**: the Navier-Stokes equations use divergence (incompressibility:
   $\nabla \cdot \mathbf{v} = 0$) and curl (vorticity $\boldsymbol{\omega} = \nabla \times \mathbf{v}$)
 - **Normalizing flows**: the change in log-probability under a transformation involves

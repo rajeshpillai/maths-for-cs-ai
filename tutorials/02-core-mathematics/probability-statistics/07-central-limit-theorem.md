@@ -214,7 +214,7 @@ distribution of its sample means — and that's enough to compute
 confidence intervals (lesson 15), run A/B tests, and reason about
 mini-batch gradients in deep learning.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Mini-batch SGD** — the gradient estimate from a mini-batch is approximately normal (by CLT), enabling convergence analysis
 - **Confidence intervals** — "the true mean is within $\bar{x} \pm 1.96 \cdot \sigma/\sqrt{n}$" with 95% confidence

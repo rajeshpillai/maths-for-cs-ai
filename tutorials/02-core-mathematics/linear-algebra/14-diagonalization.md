@@ -327,7 +327,7 @@ print(f"C^5 (direct)=\n{C5_direct}")
 print(f"Match? {np.allclose(C5_diag, C5_direct)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Matrix powers / Fibonacci** — the Fibonacci recurrence can be written as a
   2×2 matrix power; diagonalization gives the closed-form Binet formula

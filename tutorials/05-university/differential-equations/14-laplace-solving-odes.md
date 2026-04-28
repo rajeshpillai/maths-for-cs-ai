@@ -157,7 +157,7 @@ sol = sp.dsolve(ode, y_func(t), ics={y_func(0): 1, y_func(t).diff(t).subs(t, 0):
 print("dsolve gives:", sol)
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Control systems** — Transfer functions $H(s) = Y(s)/X(s)$ describe the
   input–output behaviour of controllers; game-engine PID controllers live here.

@@ -181,7 +181,7 @@ for n in [10, 20, 30, 50, 100]:
     print(f"  {n:>3}  {n*n:>10,}  {2**n:>15,}  {2**n / (n*n):>12.2e}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Algorithm complexity** — $O(\log n)$: binary search; $O(n \log n)$: merge sort; $O(2^n)$: brute force
 - **Learning rate decay** — exponential: $\alpha_t = \alpha_0 \cdot \gamma^t$

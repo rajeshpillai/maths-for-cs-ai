@@ -225,7 +225,7 @@ for i in range(5):
     print(f"  i={i}: '{pumped[:10]}...' length={len(pumped)}, balanced={balanced}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Lexical analysis:** Compilers use DFAs to tokenise source code — each
   token type (identifier, number, keyword) is a regular language.

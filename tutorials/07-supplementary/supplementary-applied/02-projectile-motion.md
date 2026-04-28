@@ -182,7 +182,7 @@ print(f"  sin(2 · 30°) = sin(60°) = sin(120°) = sin(2 · 60°)")
   Olympic shot put, the *physics-best* angle is 45° but human
   biomechanics make ~37° optimal for the athlete's anatomy.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Every game with throwing** — grenades, arrows, basketballs, angry birds
 - **Aim assist** — predict where projectile lands given angle and speed

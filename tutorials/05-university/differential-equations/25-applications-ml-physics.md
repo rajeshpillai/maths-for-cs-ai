@@ -249,7 +249,7 @@ print(f"  Max drift: {max(H2_values) - min(H2_values):.2e}")
 print("  (Standard Euler gains energy; symplectic Euler oscillates but stays bounded)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Neural ODEs** — Used for continuous normalizing flows (generative models),
   irregular time series (medical data), and latent dynamics models. The

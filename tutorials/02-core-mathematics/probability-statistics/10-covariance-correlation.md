@@ -234,7 +234,7 @@ for rho, label, _ in specs:
   *cloud* with substantial scatter. Real-world relationships are
   almost always weaker than they sound when reported as a number.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **PCA** — eigendecomposition of the covariance matrix gives principal components
 - **Feature selection** — highly correlated features are redundant

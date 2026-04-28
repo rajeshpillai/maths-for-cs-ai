@@ -160,7 +160,7 @@ print(f"  B ∩ C = {sorted(BC)}")
 print(f"  A∩C ⊆ B∩C: {AC <= BC}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Database query optimisation**: rewriting SQL queries uses set algebra laws (De Morgan, distribution) to find efficient plans.
 - **Type systems**: union types and intersection types obey set-theoretic laws; type checking proves subset relationships.

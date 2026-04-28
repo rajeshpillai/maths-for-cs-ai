@@ -235,7 +235,7 @@ for k in range(5):
     print(f"  z_{k} = ({x:+.4f}, {y:+.4f})")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Fourier transforms** — the Discrete Fourier Transform (DFT) uses roots of unity: $W_N = e^{-i2\pi/N}$, and the Fast Fourier Transform (FFT) exploits their symmetry (Tier 9-04)
 - **Signal processing** — complex exponentials represent oscillations with amplitude and phase

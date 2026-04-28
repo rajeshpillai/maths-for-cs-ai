@@ -244,7 +244,7 @@ SGD's noise, second-order methods — exists because of the picture in
 the middle column above. The eigenvalues of the loss-Hessian determine
 *everything* about local optimisation behaviour.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Backpropagation** — computes the Jacobian-vector product efficiently (not the full Jacobian)
 - **Newton's method** — uses the Hessian for second-order optimisation: $\mathbf{x} \leftarrow \mathbf{x} - \mathbf{H}^{-1}\nabla f$

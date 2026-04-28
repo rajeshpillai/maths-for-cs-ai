@@ -332,7 +332,7 @@ for n in [2, 3, 4, 5, 10]:
           f"+ addition; Vedic = {vedic_steps} column steps")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Polynomial multiplication** / **convolution**: The Urdhva pattern is
   literally the definition of discrete convolution. This is the same operation

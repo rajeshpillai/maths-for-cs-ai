@@ -178,7 +178,7 @@ print(f"  sin(150°) = {math.sin(math.radians(150)):.6f}")
 print(f"  sin(30°)  = {math.sin(math.radians(30)):.6f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Rotation** — $\cos$ and $\sin$ are the building blocks of every 2D/3D
   rotation matrix; knowing exact values avoids unnecessary computation

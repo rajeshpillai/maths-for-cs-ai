@@ -212,7 +212,7 @@ for p in [True, False]:
     print(f"p={p}: p ∨ ¬p = {p or (not p)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **If statements** — every conditional is an implication
 - **Circuit design** — AND, OR, NOT gates build CPUs; Boolean algebra simplifies circuits

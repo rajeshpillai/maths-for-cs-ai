@@ -261,7 +261,7 @@ for h in [1, 0.1, 0.01, 0.001, 0.0001]:
   (red, $f' < 0$). This sign pattern *is* the qualitative behaviour of
   the function — turning a continuous calculation into a finite story.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Gradient descent** — the derivative tells the optimiser which direction to step
 - **Backpropagation** — computing derivatives layer by layer using the chain rule

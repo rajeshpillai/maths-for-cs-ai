@@ -197,7 +197,7 @@ mf2 = net2.max_flow('s', 't')
 print(f"Max flow = {mf2}")  # Should be 23
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Bandwidth allocation:** Internet routing maximises data flow between servers
   — a direct max-flow problem.

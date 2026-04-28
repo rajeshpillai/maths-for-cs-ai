@@ -171,7 +171,7 @@ for x in [-3, -1, 0, 2, 5]:
     print(f"  ReLU({x}) = {relu}, (x+|x|)/2 = {via_abs:.0f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **L1 norm** — $\|v\|_1 = |v_1| + |v_2| + \cdots + |v_n|$ measures vector magnitude (Manhattan distance)
 - **ReLU activation** — $\text{ReLU}(x) = \max(0, x) = \frac{x + |x|}{2}$, the most common neural network activation

@@ -197,7 +197,7 @@ for epoch in [0, 10, 50, 100]:
     print(f"  epoch {epoch}: lr = {lr0} × {decay}^{epoch} = {lr:.6f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **IEEE 754** — floating-point stores numbers as $m \times 2^e$, using negative exponents for fractions
 - **Big-O notation** — $O(2^n)$ exponential time, $O(n^{1/2})$ sublinear algorithms

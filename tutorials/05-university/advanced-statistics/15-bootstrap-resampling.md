@@ -201,7 +201,7 @@ print(f"Observed diff: {obs_diff:.3f}")
 print(f"Permutation p-value: {p_perm:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **ML Model Uncertainty:** Bootstrap aggregating (bagging) — including
   Random Forests — trains models on bootstrap samples to reduce variance.

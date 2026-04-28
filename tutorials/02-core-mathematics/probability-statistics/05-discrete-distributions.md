@@ -256,7 +256,7 @@ Poisson; bell-ish → binomial or high-λ Poisson**. The mean $E[X]$ is
 the red dashed line; for Poisson, the variance equals the mean — that's
 the distribution's signature.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Bernoulli** — dropout (each neuron is a Bernoulli trial), click-through rates
 - **Binomial** — "how many of $n$ users convert?" in A/B testing

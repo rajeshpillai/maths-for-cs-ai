@@ -278,7 +278,7 @@ for label, path, _ in paths:
   curve is *not* straight on a log scale, your learning rate is wrong
   or your loss is non-convex.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Neural network training** — all neural networks are trained with some variant of gradient descent
 - **Learning rate schedules** — cosine annealing, warm-up, step decay

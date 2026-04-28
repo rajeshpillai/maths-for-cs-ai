@@ -266,7 +266,7 @@ The stacked, non-linear forward pass is **what makes neural networks
 universal approximators** — given enough hidden units, a 2-layer
 network can fit *any* continuous function arbitrarily closely.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **GPU parallelism** — the forward pass is matrix multiplication, which GPUs do in parallel
 - **MNIST** — 784 inputs (28×28 pixels) → hidden → 10 outputs (digits 0-9)

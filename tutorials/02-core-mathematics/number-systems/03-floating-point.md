@@ -284,7 +284,7 @@ print("Adding the rounded 0.1 and 0.2 lands one ULP away from the rounded 0.3.")
   constantly when checking gradients; the sweet $\varepsilon \approx
   10^{-7}$ for relative comparisons in float32, $10^{-15}$ in float64.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Neural network weights** — stored as 32-bit or 16-bit floats; precision limits affect training stability
 - **Game physics** — accumulated floating-point errors cause objects to drift; games use fixed-point or double precision for positions far from the origin

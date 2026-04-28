@@ -158,7 +158,7 @@ print(f"True: mu={true_mu}, sigma^2={true_sigma**2}")
 print(f"MoM:  mu={mu_hat:.4f}, sigma^2={sigma2_hat:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Quick parameter estimation:** In streaming data systems, MoM provides
   fast parameter estimates without iterative optimisation (unlike MLE).

@@ -192,7 +192,7 @@ for y1, y2 in y_pairs:
           f"L*|y1-y2|={L*diff_y:.4f}, ratio={ratio:.4f} <= L={L}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Numerical stability**: if uniqueness fails, a numerical solver can jump
   between branches unpredictably — understanding existence/uniqueness prevents

@@ -175,7 +175,7 @@ plain = pow(cipher, d2, n2)
 print(f"  Encrypt 'A' (65): c={cipher}, Decrypt: m={plain}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **HTTPS/TLS:** Every secure web connection uses RSA (or similar) for key
   exchange. Your browser verifies server certificates using RSA signatures.

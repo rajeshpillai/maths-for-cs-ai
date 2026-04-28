@@ -231,7 +231,7 @@ for h_exp in range(-1, -17, -2):
   finite differences only for **gradient checking** of an autodiff
   implementation, never as the production gradient itself.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **PyTorch autograd** — reverse-mode AD; builds a computation graph and runs backward pass
 - **JAX** — uses forward and reverse mode AD, with JIT compilation

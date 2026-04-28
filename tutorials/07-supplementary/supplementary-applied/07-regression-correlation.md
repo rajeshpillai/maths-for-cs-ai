@@ -231,7 +231,7 @@ print(f"Pearson r = {r:+.4f}  (note: r² = R² for simple linear regression)")
   reproduces the closed-form least-squares fit. Logistic regression
   is the same thing with a sigmoid output and cross-entropy loss.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Linear regression** — the simplest ML model, baseline for everything
 - **Normal equations** — closed-form solution using linear algebra

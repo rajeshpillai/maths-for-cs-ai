@@ -215,7 +215,7 @@ disc_t = b_q**2 - 4*a_q*c_q
 print(f"Tangent discriminant = {disc_t:.6f} (should be 0)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Collision detection** — line-circle intersection = projectile vs circular hitbox
 - **Ray casting** — ray-sphere intersection in 3D is the same algebra (with an extra dimension)

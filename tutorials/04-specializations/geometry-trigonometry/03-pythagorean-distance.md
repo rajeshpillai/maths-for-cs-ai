@@ -179,7 +179,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Collision detection** — check if distance between objects < sum of radii
 - **k-NN** — classify by finding the k nearest points (Euclidean distance)

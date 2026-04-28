@@ -189,7 +189,7 @@ for x in [-2, -0.1, 0, 0.1, 2]:
     print(f"  H({x:>5.1f}) = {step(x)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **ReLU** — the default activation function in deep learning; its piecewise
   nature introduces non-linearity while being cheap to compute

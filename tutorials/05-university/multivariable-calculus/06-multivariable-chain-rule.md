@@ -209,7 +209,7 @@ print(f"Direct ∂z/∂s:     {sp.expand(dz_ds_direct)}")
 print(f"Match: {sp.expand(dz_ds_chain - dz_ds_direct) == 0}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Backpropagation**: the chain rule applied layer by layer through a neural
   network is exactly backprop — each layer's gradient is multiplied through the
   dependency tree

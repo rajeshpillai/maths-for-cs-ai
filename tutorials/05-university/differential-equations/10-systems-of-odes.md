@@ -199,7 +199,7 @@ print(f"  As t->inf: x1 -> {2*C1}, x2 -> {C1}")
 print(f"  Numerical at t=3: x1 = {sol.y[0][-1]:.6f}, x2 = {sol.y[1][-1]:.6f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Coupled physics**: two masses connected by a spring, or two pendulums on a
   shared rail, are systems of ODEs. Game engines solve these every frame.

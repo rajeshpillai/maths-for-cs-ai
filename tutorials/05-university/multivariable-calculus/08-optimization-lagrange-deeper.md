@@ -220,7 +220,7 @@ print(f"lambda = {sol[lam]} (sensitivity: if constraint becomes x+y=4+eps,")
 print(f" optimal value changes by ~{sol[lam]}*eps)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Loss surface analysis**: the Hessian eigenvalues reveal whether a critical
   point in a neural network's loss is a minimum or saddle — most critical points
   in high dimensions are saddle points

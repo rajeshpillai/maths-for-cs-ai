@@ -284,7 +284,7 @@ all visible in the plots:
   *taste dimensions* — "indie versus mainstream", "action versus
   drama". The Netflix prize was won this way.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Image compression** — keep top-$k$ singular values, discard the rest
 - **Recommendation systems** — Netflix prize: SVD on the user-movie rating matrix

@@ -208,7 +208,7 @@ for x_val in [-1, 0, 1, 2]:
     print(f"  x = {x_val:+d}: sinh = {s:+.4f},  cosh = {c:+.4f},  cosh² − sinh² = {c*c - s*s:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **tanh activation** — zero-centred alternative to sigmoid; used in LSTM cells
 - **Catenary** — hanging rope/chain simulation in physics engines

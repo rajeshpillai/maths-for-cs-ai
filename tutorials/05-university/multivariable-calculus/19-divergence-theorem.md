@@ -223,7 +223,7 @@ flux_incomp = integrate.tplquad(
 print(f"Flux through unit sphere: {flux_incomp:.10f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Fluid simulation**: the continuity equation $\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) = 0$
   is the divergence theorem in differential form — mass is conserved
 - **Normalizing flows**: the instantaneous change of log-density is

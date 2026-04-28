@@ -167,7 +167,7 @@ print(f"\n3^1000000 mod 7 = {mod_pow(3, 1000000, 7)}")
 print(f"3^4 mod 7 = {pow(3, 4, 7)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **RSA encryption:** Decryption correctness is proved directly from Euler's
   theorem: $m^{ed} \equiv m \pmod{n}$ because $ed \equiv 1 \pmod{\phi(n)}$.

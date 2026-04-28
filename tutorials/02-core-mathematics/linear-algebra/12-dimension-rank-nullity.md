@@ -357,7 +357,7 @@ print(f"det(D) = {det_D:.4f}")
 print(f"Invertible? {rank_D == D.shape[1]}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Data compression / PCA:** The rank of a data matrix tells you how many
   independent features the data truly has.  If a 100-column dataset has rank 5,

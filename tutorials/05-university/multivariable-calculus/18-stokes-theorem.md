@@ -228,7 +228,7 @@ line_circ, _ = integrate.quad(line_integral_circle, 0, 2*np.pi)
 print(f"Line integral:    {line_circ:.10f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Electromagnetic simulation**: Faraday's law ($\oint \mathbf{E} \cdot d\mathbf{r} = -\frac{d}{dt}\iint \mathbf{B} \cdot d\mathbf{S}$)
   is Stokes' theorem applied to the electric field
 - **Fluid vorticity**: the circulation of velocity around a loop equals the

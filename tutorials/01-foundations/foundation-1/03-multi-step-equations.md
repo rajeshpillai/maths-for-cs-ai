@@ -228,7 +228,7 @@ print(f"\nExample 5: width = {w}, length = {length}")
 print(f"  Perimeter = 2*({length} + {w}) = {2*(length + w)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Game balance:** designers solve equations to set enemy HP, damage, and
   scaling so that fights feel fair at every level.

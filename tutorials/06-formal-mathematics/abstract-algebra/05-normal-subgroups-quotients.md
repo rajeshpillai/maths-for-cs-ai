@@ -220,7 +220,7 @@ for g in S3:
 print(f"A_3 (index 2) normal in S_3: {normal_a3}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Modular arithmetic** IS a quotient group: $\mathbb{Z}/n\mathbb{Z} = \mathbb{Z}_n$, the foundation of cryptography and hashing.
 - **Equivalence classes** in compilers (e.g., treating all expressions that reduce to the same value as identical) are quotient constructions.

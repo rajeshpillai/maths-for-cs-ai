@@ -201,7 +201,7 @@ print(f"Error:         {abs(exact2 - approx2):.6f}")
 print("(Error grows as we move away from the tangent point)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Gradient descent**: each step treats the loss surface as a tangent plane and
   moves in the direction of steepest descent on that plane
 - **Newton's method in ML**: uses the tangent plane (first-order) plus curvature

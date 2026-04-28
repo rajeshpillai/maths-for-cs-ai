@@ -218,7 +218,7 @@ print("why audio codecs use windowed transforms to soften discontinuities.")
   pre-echo in audio compression. Modern codecs add windowing or
   variable-block techniques to mitigate it.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Audio compression** — MP3 uses a variant (MDCT) to keep important frequencies, discard others
 - **Image compression** — JPEG uses 2D DCT (discrete cosine transform, closely related)

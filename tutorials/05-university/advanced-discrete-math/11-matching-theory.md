@@ -212,7 +212,7 @@ except ImportError:
     print("\n(scipy not available for verification)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Object tracking:** In multi-object tracking (MOT), each frame's detections
   are matched to tracked objects via the Hungarian algorithm on distance costs.

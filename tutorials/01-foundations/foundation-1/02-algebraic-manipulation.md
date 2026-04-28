@@ -227,7 +227,7 @@ for a, b, c, label in specs:
   touches; negative ⇒ it stays above (no real roots, but two complex
   ones).
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Quadratic formula** — solving ray-sphere intersections (Tier 8-09)
 - **Completing the square** — finding minima of loss functions analytically

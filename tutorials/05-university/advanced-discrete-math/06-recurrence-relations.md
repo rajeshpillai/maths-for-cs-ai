@@ -170,7 +170,7 @@ for n in range(2, 15):
     print(f"  F_{n}/F_{n-1} = {ratio:.10f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Algorithm analysis:** Merge sort's $T(n) = 2T(n/2) + n$ is a recurrence.
   The Master Theorem solves such divide-and-conquer recurrences.

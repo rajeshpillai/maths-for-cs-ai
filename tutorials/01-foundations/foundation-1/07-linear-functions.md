@@ -229,7 +229,7 @@ print(f"\nPerpendicular line through (6,1): y = -1/3 x + 3")
 print(f"  At x=6: y = {-1/3 * 6 + 3:.1f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Linear regression:** the most fundamental ML model fits a straight line
   $y = mx + b$ to data.  Training means finding the best $m$ and $b$ — the

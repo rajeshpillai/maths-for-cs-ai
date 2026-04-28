@@ -221,7 +221,7 @@ for n_terms in [1, 2, 3, 4, 5, 6]:
   is close to the expansion point. Argument reduction (modular
   reduction by $\pi$, or domain folding) gets it close.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **How computers compute functions** — $\sin$, $\cos$, $e^x$, $\log$ are all computed via polynomial approximations
 - **Linearisation** — first-order Taylor expansion is the basis of gradient descent ($f(x + \Delta) \approx f(x) + f'(x)\Delta$)

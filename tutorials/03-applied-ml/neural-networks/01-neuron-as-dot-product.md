@@ -289,7 +289,7 @@ print("  This is exactly why we need MULTIPLE LAYERS (next lesson).")
   perceptron research in the 1970s — falls trivially to a 2-layer
   network.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Every neural network** is layers of neurons — this is the fundamental building block
 - **Linear classifiers** — a single neuron IS a linear classifier (logistic regression)

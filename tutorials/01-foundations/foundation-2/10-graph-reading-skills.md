@@ -228,7 +228,7 @@ for x in [-2, -1, -0.5, 0, 0.5, 1, 2]:
           f"concavity: {concavity}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Loss curves** — during ML training you watch a loss-vs-epoch graph;
   reading its slope and concavity tells you if learning is progressing

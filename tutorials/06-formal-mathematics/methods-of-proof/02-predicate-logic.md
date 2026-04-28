@@ -177,7 +177,7 @@ ce = find_counterexample(integers, lambda n: n > 0)
 print(f"Counterexample to '∀n, n>0': n = {ce}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **SQL queries**: `WHERE` is an existential filter; `HAVING COUNT(*) = n` is universal over groups.
 - **Type systems**: Generic types like `∀T. List<T> → Int` use universal quantification.

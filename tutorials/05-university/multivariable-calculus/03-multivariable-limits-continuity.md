@@ -199,7 +199,7 @@ for path_name, path_fn in [
     print(f"  Along {path_name:6s}: {vals[-1]:.6f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Texture sampling**: when a texture lookup hits a seam or singularity, the
   renderer must handle discontinuities — this is a limit problem in 2D
 - **Loss surfaces in ML**: the loss function $L(\theta_1, \theta_2, \ldots)$ must

@@ -168,7 +168,7 @@ for x in [-5, 0, 3.7, 10]:
     print(f"  x={x} → f(x)={y} → f⁻¹(y)={x_back}, roundtrip={'OK' if abs(x - x_back) < 1e-10 else 'FAIL'}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Hash functions**: ideally injective (no collisions); cryptographic hashes approximate injectivity.
 - **Encoding/decoding**: bijective mappings (e.g., UTF-8) allow lossless conversion.

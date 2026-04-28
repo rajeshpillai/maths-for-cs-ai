@@ -285,7 +285,7 @@ print(f"PDE residual: {sp.simplify(residual)}")
 print(f"Non-zero residual → PINN loss penalises this")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Game fluid simulation**: Navier-Stokes solvers (Eulerian grids, SPH particles)
   power water, smoke, and fire effects; projection methods enforce $\nabla \cdot \mathbf{v} = 0$
 - **Weather/climate models**: the atmosphere is governed by Navier-Stokes plus

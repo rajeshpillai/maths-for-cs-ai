@@ -174,7 +174,7 @@ Z = np.zeros((2, 3))
 print(f"Zero 2x3 =\n{Z.astype(int)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Images** — every digital image is a matrix (or stack of matrices for RGB);
   brightness, contrast, and filters are matrix operations

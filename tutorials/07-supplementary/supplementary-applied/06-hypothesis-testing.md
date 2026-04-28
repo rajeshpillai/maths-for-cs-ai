@@ -235,7 +235,7 @@ print(f"  At α = 0.05, that's {'unlikely enough to reject' if p_val < 0.05 else
   statement urges replacing p-value-only reporting with **confidence
   intervals on effect sizes**.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **A/B testing** — every tech company uses hypothesis tests to evaluate feature changes
 - **Model evaluation** — "is model B significantly better than model A?"

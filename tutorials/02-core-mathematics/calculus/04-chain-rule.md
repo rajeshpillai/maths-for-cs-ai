@@ -270,7 +270,7 @@ print(f"  Gap (smaller h → smaller gap)          = {abs(analytical - numerical
   connections were all invented to fight this single product-of-slopes
   effect.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Backpropagation IS the chain rule** — every neural network training step applies this
 - **Automatic differentiation** — PyTorch/JAX build computation graphs and apply the chain rule automatically

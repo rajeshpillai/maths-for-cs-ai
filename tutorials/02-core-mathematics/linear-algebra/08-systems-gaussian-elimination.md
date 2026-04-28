@@ -249,7 +249,7 @@ cases you are in. In rectangular matrices ($m \neq n$) the same trio
 becomes "no solution / unique / infinite-many" — the only difference is
 that the geometric picture is a hyperplane, not a line.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Linear regression** — the normal equations $\mathbf{X}^T\mathbf{Xw} = \mathbf{X}^T\mathbf{y}$ are solved by elimination
 - **Circuit analysis** — Kirchhoff's laws produce linear systems

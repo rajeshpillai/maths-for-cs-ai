@@ -216,7 +216,7 @@ print(f"[GF(256) : GF(2)] = {8}")
 print(f"[C : R] = 2")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **AES (Advanced Encryption Standard)**: all byte-level operations happen in $GF(2^8)$.
 - **Reed-Solomon codes**: work over $GF(2^8)$ or similar; used in QR codes, Blu-ray, deep space communication.

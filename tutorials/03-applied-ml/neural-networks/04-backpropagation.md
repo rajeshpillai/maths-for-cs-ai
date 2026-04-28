@@ -305,7 +305,7 @@ for inp, t, p in zip(X, y.flatten(), final.flatten()):
 Every `loss.backward()` call in PyTorch is an automated, vectorised,
 GPU-accelerated version of *exactly* the loop you just executed.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **PyTorch `.backward()`** — calls backpropagation automatically on the computation graph
 - **Gradient checking** — compare analytical backprop gradients to numerical gradients (debugging technique)

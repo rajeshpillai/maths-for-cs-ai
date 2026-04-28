@@ -189,7 +189,7 @@ for g in range(n):
           f"match={len(sg)==expected}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Cyclic redundancy check (CRC)**: uses cyclic groups over polynomial rings to detect transmission errors.
 - **Clock arithmetic**: scheduling, circular buffers, and hash functions use $\mathbb{Z}_n$.

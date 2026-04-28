@@ -239,7 +239,7 @@ print(f"  tan θ = opp/adj = {opp}/{adj} = {opp/adj:.4f}    "
   and 3D viewers convert mouse drags to camera rotations using
   `atan2` for exactly this reason.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Character rotation** — `atan2(target.y - pos.y, target.x - pos.x)` gives the aim angle
 - **Projectile motion** — launch angle determines trajectory via sin/cos decomposition

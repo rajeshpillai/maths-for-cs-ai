@@ -247,7 +247,7 @@ for cx in [0, 1, 2, 3, 4]:
   budgets, and how RL safety constraints are enforced in
   Lagrangian-relaxation form.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **SVMs** — the dual formulation of SVMs uses Lagrange multipliers (support vectors have $\lambda > 0$)
 - **Entropy maximisation** — "find the distribution with maximum entropy subject to known moments" uses Lagrange multipliers

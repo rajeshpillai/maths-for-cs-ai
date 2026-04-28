@@ -159,7 +159,7 @@ print(f"\nMSE of sample mean: {mse:.4f}")
 print(f"Var + Bias^2 = {variance:.4f} + {bias_sq:.6f} = {variance + bias_sq:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Machine Learning:** The bias-variance tradeoff governs model selection.
   A complex model has low bias but high variance (overfitting); a simple

@@ -213,7 +213,7 @@ print("Match:", np.allclose(M_pinv_manual, M_pinv_numpy))
 print("M @ M+ @ M == M?", np.allclose(M @ M_pinv_manual @ M, M))
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Hessian definiteness in optimisation:** a PD Hessian at a critical point
   guarantees a local minimum — gradient descent converges.  An indefinite

@@ -162,7 +162,7 @@ plt.tight_layout()
 plt.show()
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Audio processing** — spectrum analysers, equalizers, pitch detection
 - **Image processing** — frequency domain filtering (blur = low-pass, sharpen = high-pass)

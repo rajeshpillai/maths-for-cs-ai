@@ -167,7 +167,7 @@ F_scipy, p_scipy = stats.f_oneway(group_a, group_b, group_c)
 print(f"\nscipy: F = {F_scipy:.4f}, p = {p_scipy:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Hyperparameter Tuning:** Testing if different learning rates produce
   significantly different model performances.

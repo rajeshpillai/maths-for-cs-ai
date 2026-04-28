@@ -323,7 +323,7 @@ dataset, decorrelate features before regression, denoise, or build the
 "latent factors" view of a recommendation matrix. It is just SVD with
 a `mean = data.mean()` line in front.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Dimensionality reduction** — reduce 1000 features to 50 while keeping 95% of information
 - **Face recognition** — "eigenfaces" are the principal components of face images

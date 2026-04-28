@@ -211,7 +211,7 @@ print(f"curl = ∂(sin(y)+2xy)/∂x - ∂(e^x+y²)/∂y = 2y - 2y = 0")
 print(f"By Green's theorem, the line integral = 0")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Area computation**: the shoelace formula for polygon area is a discrete
   version of Green's theorem ($\text{Area} = \frac{1}{2}|\sum(x_i y_{i+1} - x_{i+1} y_i)|$)
 - **Fluid simulation**: circulation around a boundary (computed via Green's) tells

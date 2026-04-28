@@ -161,7 +161,7 @@ sol = sp.dsolve(airy_ode, y(x))
 print("\nSymPy's solution:", sol)
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Special functions** — Bessel, Legendre, Hermite, and Laguerre functions
   (used in physics engines and quantum ML) are all defined by series solutions.

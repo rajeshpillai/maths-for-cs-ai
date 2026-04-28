@@ -160,7 +160,7 @@ beta_np, _, _, _ = np.linalg.lstsq(X, y, rcond=None)
 print(f"numpy lstsq beta = {beta_np}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Machine Learning:** Linear regression is the starting point for
   understanding all supervised learning. Gradient descent generalises

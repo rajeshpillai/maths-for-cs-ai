@@ -269,7 +269,7 @@ Combining these three handles ~95% of the geometry queries in any 2-D
 game; the same shapes generalise to **3-D** (sphere, AABB, mesh) for
 3-D engines.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Physics engines** — Box2D (2D), Bullet/PhysX (3D) use these algorithms
 - **Spatial partitioning** — quadtrees, octrees, BVH (bounding volume hierarchies) for broad phase

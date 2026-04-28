@@ -236,7 +236,7 @@ for h, e1, e2 in zip(hs, err_e, err_r):
   does cleanly. The same lesson applies though: the *order* of the
   integrator matters more than the size of any single step.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Neural ODEs** — model continuous-depth networks as DEs (Chen et al., 2018)
 - **Physics simulation** — every physics engine solves DEs (Euler, RK4, Verlet)

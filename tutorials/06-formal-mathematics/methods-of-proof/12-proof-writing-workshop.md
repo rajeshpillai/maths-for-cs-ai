@@ -235,7 +235,7 @@ print("  So n(n+1) = 2k for some k.   [even factor in product]")
 print("  Therefore n² + n is even.  □")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Code review**: a well-structured proof mirrors well-structured code — clear inputs, logical flow, explicit outputs.
 - **Documentation**: explaining *why* an algorithm works (not just *that* it works) is proof writing for engineers.

@@ -238,7 +238,7 @@ print(f"  L{{f'}}  directly = {Fp_direct:.6f}")
 print(f"  Match: {abs(Fp_formula - Fp_direct) < 1e-10}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Control systems (PID)**: transfer functions $H(s) = Y(s)/X(s)$ are
   ratios of Laplace transforms. Engineers design controllers entirely in the

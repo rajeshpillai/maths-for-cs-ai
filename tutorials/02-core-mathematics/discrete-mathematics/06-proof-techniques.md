@@ -298,7 +298,7 @@ for n in [1, 5, 10, 50, 100]:
   industrial version**: generate random inputs to find a single case
   where the program does the wrong thing.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Loop invariants** — proving a loop works correctly is essentially induction (base case = before loop; inductive step = one iteration preserves the invariant)
 - **Algorithm correctness** — merge sort, binary search, Dijkstra's are all proved correct by induction

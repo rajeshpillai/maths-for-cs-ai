@@ -194,7 +194,7 @@ print(f"  This is *the* trick used to tune string instruments by ear.")
   whistles, and the basic idea behind how SSB modulation packs more
   signal into less bandwidth.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Audio** — every sound is a sum of sine waves (harmonics)
 - **Music synthesis** — additive synthesis builds sounds from individual harmonics

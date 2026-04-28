@@ -259,7 +259,7 @@ for n in [10, 100, 1000, 10000, 100000]:
   "what's the steady-state response of this control loop?" are real
   engineering versions of the same question.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Numerical analysis** — floating-point operations are limits in disguise (finite approximations to real arithmetic)
 - **Learning rate schedules** — many approach 0 as training progresses (a limit)

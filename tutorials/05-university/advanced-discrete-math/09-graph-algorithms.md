@@ -226,7 +226,7 @@ mst, cost = kruskal(['A','B','C','D'], edges)
 print(f"\nKruskal MST: {mst}, total cost: {cost}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **BFS:** Shortest path in unweighted graphs, web crawlers, social network
   "degrees of separation."

@@ -206,7 +206,7 @@ for n in [1024, 16384, 1_000_000]:
   20th century — it's what made radar, MRI, real-time audio, and
   modern wireless possible.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Audio processing** — spectrum analysis, pitch detection, noise removal
 - **Image processing** — FFT-based convolution is $O(N \log N)$ vs $O(N \cdot K)$

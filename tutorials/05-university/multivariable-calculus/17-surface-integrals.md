@@ -210,7 +210,7 @@ print(f"\n=== Symbolic: |r_θ × r_φ| ===")
 print(f"= {magnitude}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Rendering equation**: the total light leaving a surface point integrates
   incoming radiance over the hemisphere — a surface integral
 - **Computational fluid dynamics**: flux through control surfaces determines mass

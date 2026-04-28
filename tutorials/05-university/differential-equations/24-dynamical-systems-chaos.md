@@ -195,7 +195,7 @@ if mask.sum() > 10:
     print(f"(Positive => chaos; literature value ~0.9)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Weather forecasting** — Lorenz's discovery explains why weather prediction
   degrades after ~10 days; ensemble methods (running many perturbed simulations)

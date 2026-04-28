@@ -194,7 +194,7 @@ excluded_middle = lambda p: p or (not p)
 print("Excluded middle tautology:", is_tautology(excluded_middle, 1))
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **SAT solvers** require CNF input; they power formal verification of hardware and software.
 - **Logic synthesis** in chip design converts Boolean functions to minimal CNF/DNF (Karnaugh maps, Quine-McCluskey).

@@ -217,7 +217,7 @@ radians (not degrees):**
   circle. Memorising the picture once means you never need a trig
   table again.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Game engines** — all rotation APIs use radians internally (Unity, Unreal, Godot)
 - **CSS transforms** — `rotate(45deg)` vs `rotate(0.7854rad)`

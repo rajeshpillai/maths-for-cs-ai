@@ -442,7 +442,7 @@ q, r = np.polydiv(p, d)
 print(f"  NumPy verification: Q = {q}, R = {r}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Synthetic division** in computer algebra systems (CAS) uses exactly this
   transposition principle. When you evaluate a polynomial at a point using

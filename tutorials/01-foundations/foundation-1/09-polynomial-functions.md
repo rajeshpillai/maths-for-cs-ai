@@ -160,7 +160,7 @@ print(f"  Q(-2) = {Q(-2)} (simple root, crosses axis)")
 print(f"  Q(0.9) = {Q(0.9):.3f}, Q(1.1) = {Q(1.1):.3f} (same sign = bounce)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Bezier curves** — cubic polynomials define smooth paths in vector graphics and game animation
 - **Interpolation** — Lagrange and Newton polynomials fit a curve through known data points

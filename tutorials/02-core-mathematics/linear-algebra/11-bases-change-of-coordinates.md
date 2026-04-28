@@ -327,7 +327,7 @@ print(A[:2])   # first two rows
 print(f"Subspace dimension: {2}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Game engines** constantly convert between world, camera, and screen
   coordinates — each conversion is a change-of-basis matrix multiplication.

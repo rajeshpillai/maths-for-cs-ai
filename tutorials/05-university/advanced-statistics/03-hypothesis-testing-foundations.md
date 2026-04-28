@@ -163,7 +163,7 @@ for _ in range(n_sim):
 print(f"  Simulated power = {rejections / n_sim:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **A/B Testing:** Every tech company uses hypothesis testing to decide if
   a new feature improves user engagement, conversion, or revenue.

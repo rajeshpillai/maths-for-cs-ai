@@ -217,7 +217,7 @@ print(f"  Eigenvalues: {evals_lv}")
 print(f"  Pure imaginary => center (linearization inconclusive)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Reinforcement learning convergence**: the Bellman operator's fixed point
   is the optimal value function. Stability of the fixed point determines

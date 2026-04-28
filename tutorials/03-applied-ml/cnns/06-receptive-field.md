@@ -293,7 +293,7 @@ objects; for time-series forecasting it must reach back far enough to
 see relevant history. Underestimate it and your network is staring at
 a tiny window of the world.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Architecture design** — receptive field must be large enough to capture the relevant pattern (e.g., a face is ~100px, so RF must be ≥100)
 - **VGGNet** — stacks of 3×3 convs: efficient parameters, growing receptive field

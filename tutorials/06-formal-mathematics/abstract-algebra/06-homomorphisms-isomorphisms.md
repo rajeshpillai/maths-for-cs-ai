@@ -189,7 +189,7 @@ for a in range(2):
 print(f"Image = {sorted(images)}, bijection: {images == set(range(6))}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Type coercions** in programming (int to float) are like homomorphisms: they preserve structure (addition, multiplication).
 - **Hashing**: a hash function $h: \text{strings} \to \{0, \ldots, n-1\}$ is a homomorphism if the string operation is compatible with modular arithmetic.

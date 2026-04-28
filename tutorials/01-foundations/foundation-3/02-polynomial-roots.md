@@ -192,7 +192,7 @@ print(f"  x³-4x²+x+6 roots: {sorted(np.roots([1,-4,1,6]).real)}")
 print(f"  2x³+3x²-8x+3 roots: {sorted(np.roots([2,3,-8,3]).real)}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Algorithm design** — the Rational Root Theorem is a pruning strategy:
   reduce an infinite search space to a finite candidate list, then test each

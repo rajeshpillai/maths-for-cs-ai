@@ -276,7 +276,7 @@ view is most useful (we ask "is $\mathbf{b}$ a combination of the
 columns of $\mathbf{A}$?"). The textbook entry-wise formula is for
 debugging.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Neural network layers** — each layer is $\mathbf{y} = \mathbf{W}\mathbf{x} + \mathbf{b}$, a matrix-vector multiply
 - **3D graphics** — chaining transformations (rotate, then scale, then translate) is matrix multiplication

@@ -176,7 +176,7 @@ print(f"Expected: {expected_loot}")
 print(f"Chi-squared = {chi2_loot:.4f}, p = {p_loot:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **A/B Testing with Categories:** Testing if user preferences for UI
   layouts differ from a baseline distribution.

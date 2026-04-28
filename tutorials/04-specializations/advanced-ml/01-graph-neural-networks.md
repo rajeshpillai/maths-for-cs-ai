@@ -209,7 +209,7 @@ print("With each layer, every node's feature gets mixed with one more\n"
   graph fraud detection treats accounts and transactions as graph
   nodes and edges.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Drug discovery** — molecules are graphs (atoms = nodes, bonds = edges); GNNs predict drug properties
 - **Social networks** — node classification (detect bots), link prediction (friend recommendations)

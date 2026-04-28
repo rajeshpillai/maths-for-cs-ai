@@ -173,7 +173,7 @@ print(f"  Quadratic y = ax² + bx + c     : sign of a flips ∪ ↔ ∩")
 print(f"  Cubic y = ax³ + bx² + cx + d   : sign of a determines end behaviour")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Linear** — linear regression, cost functions, straight-line motion
 - **Quadratic** — projectile trajectories ($y = -\frac{1}{2}gt^2 + v_0 t + h_0$), MSE loss landscape for 1 parameter

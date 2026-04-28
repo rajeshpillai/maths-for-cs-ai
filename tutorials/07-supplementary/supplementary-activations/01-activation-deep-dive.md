@@ -274,7 +274,7 @@ print("  LSTM / GRU gates               : Sigmoid (the gate values must lie in (
 print("  Output of variational encoders : sometimes tanh (bounded latent codes)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Model architecture decisions** — choosing activation = choosing gradient flow properties
 - **Knowledge distillation** — softmax temperature controls "soft labels" for teaching smaller models

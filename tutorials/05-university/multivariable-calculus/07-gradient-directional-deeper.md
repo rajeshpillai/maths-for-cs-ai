@@ -192,7 +192,7 @@ print(f"grad . tangent = {np.dot(grad_f(1, 1), tangent)}")
 print("(Zero confirms perpendicularity)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Gradient descent**: the negative gradient $-\nabla L$ is the steepest
   descent direction for the loss function — this is why gradient descent works
 - **Surface normals in rendering**: for implicit surfaces $f(x,y,z) = 0$, the

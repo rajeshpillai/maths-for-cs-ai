@@ -350,7 +350,7 @@ print()
 cube_root_newton(1000000)  # Should converge to 100 exactly
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Root finding algorithms**: Newton's method for cube roots is a special
   case of the general Newton-Raphson method used throughout numerical

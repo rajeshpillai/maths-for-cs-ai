@@ -254,7 +254,7 @@ print(f"Without r factor: {wrong:.6f} (WRONG)")
 print(f"With r factor:    {result2:.6f} (CORRECT = π)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Radial basis functions**: RBFs like the Gaussian $e^{-r^2}$ are naturally
   integrated in polar; this appears in kernel methods and interpolation
 - **Point light falloff**: the total energy emitted by a point light in a disk

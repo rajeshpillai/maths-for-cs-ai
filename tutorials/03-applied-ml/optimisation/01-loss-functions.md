@@ -270,7 +270,7 @@ print(f"  MAE without outlier: {mae_n:.2f}    MAE with outlier: {mae_o:.2f}    "
   false-negatives more than false-positives; in robust regression
   you'd reach for Huber over MSE.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **MSE** — linear regression, autoencoders, image reconstruction
 - **Cross-entropy** — classification networks, language models, reinforcement learning policy gradient

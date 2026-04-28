@@ -229,7 +229,7 @@ print("  ⇒ y'(y + 2y') = -y    actually:  y + (x + 2y)·y' = 0")
 print("  ⇒ y' = -y / (x + 2y)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Bézier curves** — defined parametrically; used in fonts, paths, animation (Tier 8-08)
 - **Circular/elliptical motion** — orbiting cameras, planets, particle effects

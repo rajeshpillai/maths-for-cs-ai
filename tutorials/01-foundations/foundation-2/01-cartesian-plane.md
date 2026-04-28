@@ -143,7 +143,7 @@ print(f"Attack range: {attack_range}")
 print(f"In range? {dist <= attack_range}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Collision detection** — distance formula checks if two sprites overlap
 - **Screen coordinates** — every GUI framework uses a Cartesian-style system

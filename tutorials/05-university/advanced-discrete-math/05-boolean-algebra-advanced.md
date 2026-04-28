@@ -171,7 +171,7 @@ for a, b, c in product([0, 1], repeat=3):
     print(f"  A={a} B={b} C={c}: f={f_full}, simplified={f_simplified} [{match}]")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **SAT solvers:** CNF is the input format for SAT solvers, which are used in
   verification, AI planning, and constraint satisfaction.

@@ -159,7 +159,7 @@ def prove_even_sum(a, b):
 prove_even_sum(14, 22)
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Algorithm correctness**: proving a sorting algorithm produces sorted output uses direct proof from loop invariants.
 - **Type checking**: a type derivation in a compiler is a direct proof that an expression has a certain type.

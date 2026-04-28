@@ -330,7 +330,7 @@ for d in range(-20, 21):
 print(f"  Verified for d = -20 to 20: (50+d)² = 100(25+d) + d² ✓")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Hash functions**: Some hash functions use squaring operations; knowing
   squares of common numbers speeds up mental debugging.

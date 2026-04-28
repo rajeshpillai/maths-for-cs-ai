@@ -205,7 +205,7 @@ print(f"  {v} = {v[0]}*i + {v[1]}*j")
 print(f"  where i = (1,0) and j = (0,1)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Game physics** — position, velocity, and acceleration are all vectors;
   every frame computes `position += velocity * dt`

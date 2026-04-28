@@ -184,7 +184,7 @@ print("  If det > 0 and tr^2 - 4*det < 0: spiral (stable if tr<0)")
 print("  If det > 0 and tr = 0: center")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Reinforcement learning policies**: the trained policy creates a vector
   field in state space; stable fixed points are goal states the agent has

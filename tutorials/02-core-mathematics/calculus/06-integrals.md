@@ -224,7 +224,7 @@ for nn in [2, 8, 32, 128, 512, 4096]:
   *antidifferentiate* the integrand symbolically, you skip the
   rectangle limit entirely.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Probability** — $P(a \le X \le b) = \int_a^b f(x)\,dx$ for continuous distributions
 - **Expected value** — $E[X] = \int x \cdot f(x)\,dx$

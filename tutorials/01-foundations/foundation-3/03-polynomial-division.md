@@ -275,7 +275,7 @@ for r in [1, -1, 3, -3]:
         break
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Root-finding algorithms** — Newton-Raphson, bisection all need initial guesses;
   the Factor Theorem gives exact rational roots to start from

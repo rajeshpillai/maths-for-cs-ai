@@ -358,7 +358,7 @@ print(f"{'Student t(ν), ν > 2':<25}  {'0':>10}  {'ν/(ν−2)':>10}")
   small-sample t-tests use Student's t rather than the normal, and why
   fat-tailed return distributions wreck naïve risk models.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Uniform** — random number generation, initialising neural network weights
 - **Gaussian** — weight initialisation (Xavier, He), noise in GANs, Gaussian processes

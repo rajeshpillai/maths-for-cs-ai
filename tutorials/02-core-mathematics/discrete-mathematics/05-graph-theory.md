@@ -344,7 +344,7 @@ print(f"  walks of length 3 from 0 to 1: {(A_K5 @ A_K5 @ A_K5)[0, 1]}")
   (social networks, web graphs) are extremely sparse — that's why
   Facebook's graph store and PageRank both use sparse representations.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Social networks** — friend graphs, follower digraphs, community detection
 - **Shortest path** — Dijkstra's algorithm, Google Maps, network routing

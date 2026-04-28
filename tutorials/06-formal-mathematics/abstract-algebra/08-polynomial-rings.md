@@ -241,7 +241,7 @@ for coeffs, name in test_polys:
     print(f"  {name}: irreducible = {irr}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **CRC checksums**: use polynomial division over $\mathbb{Z}_2[x]$ to detect transmission errors.
 - **Reed-Solomon codes**: use polynomial evaluation and interpolation over finite fields for error correction (QR codes, CDs, DVDs).

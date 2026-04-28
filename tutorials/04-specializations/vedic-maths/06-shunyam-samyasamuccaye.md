@@ -290,7 +290,7 @@ print()
 solve_samuccaya(4, 6, 2, 8)
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Symmetry exploitation** in AI: many optimisation problems have symmetric
   structure. Recognising symmetry lets you eliminate variables or reduce

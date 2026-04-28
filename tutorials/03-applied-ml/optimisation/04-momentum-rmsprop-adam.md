@@ -307,7 +307,7 @@ for name, path in paths.items():
   every Transformer and most CNN-trainings use AdamW (Adam with
   decoupled weight decay) out of the box.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Adam** — the default optimiser for most deep learning (Transformers, CNNs, GANs)
 - **SGD + Momentum** — still preferred for vision tasks (ResNet, etc.) with proper tuning

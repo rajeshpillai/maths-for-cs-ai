@@ -250,7 +250,7 @@ a, b = simulate_ipd(always_defect, always_defect)
 print(f"  Always-Defect vs Always-Defect: A={a}, B={b}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Game AI:** Minimax with alpha-beta pruning is the standard for turn-based
   game AI (chess, checkers, Go). MCTS (Monte Carlo Tree Search) extends this.

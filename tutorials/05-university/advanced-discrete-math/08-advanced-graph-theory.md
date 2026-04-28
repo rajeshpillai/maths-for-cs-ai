@@ -186,7 +186,7 @@ for name, V, E in [("K4", 4, 6), ("K5", 5, 10), ("Petersen", 10, 15)]:
     print(f"{name}: E={E}, 3V-6={bound} => {planar}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Register allocation:** Compilers colour an "interference graph" to assign
   variables to CPU registers — graph colouring directly.

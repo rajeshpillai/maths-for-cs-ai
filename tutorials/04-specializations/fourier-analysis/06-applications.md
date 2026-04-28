@@ -241,7 +241,7 @@ for k in ks:
   representation, plus a learned quantiser. The architectural recipe
   comes straight from Fourier theory.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **JPEG/PNG/WebP** — image compression formats use DCT/wavelet transforms
 - **MP3/AAC/Opus** — audio compression uses MDCT

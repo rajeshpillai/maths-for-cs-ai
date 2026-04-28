@@ -195,7 +195,7 @@ for k in range(8):
     print(f"|A|={k}: |P(A)|={ps_size}, strictly greater: {ps_size > k}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Halting problem**: the proof that no program can decide halting uses a diagonal argument (Turing's version of Cantor).
 - **Kolmogorov complexity**: most strings are incompressible — proven by a counting/cardinality argument.

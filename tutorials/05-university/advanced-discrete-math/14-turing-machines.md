@@ -248,7 +248,7 @@ for n in range(5):
     print(f"  {'1'*n} ({n}) -> accepted in {steps} steps (result: {n+1} ones)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Computability theory:** The halting problem proves undecidability — some
   questions about programs have no algorithmic answer. This limits static

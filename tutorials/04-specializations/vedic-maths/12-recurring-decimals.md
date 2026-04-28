@@ -432,7 +432,7 @@ assert digits_ltr == digits_19
 print("  Matches right-to-left method ✓")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Cyclic codes**: The repeating decimal pattern of 1/p for prime p is a
   cyclic sequence — the same mathematical structure as cyclic error-correcting

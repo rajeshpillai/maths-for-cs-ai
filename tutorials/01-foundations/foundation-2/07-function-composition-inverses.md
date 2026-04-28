@@ -241,7 +241,7 @@ for x in [3, 4, 5, 6]:
     print(f"  g({x}) = {y},  g_inv({y}) = {x_back:.1f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Encryption/decryption** — encrypt is $f$, decrypt is $f^{-1}$; must be one-to-one
 - **Activation functions** — sigmoid's inverse (logit) is used in logistic regression

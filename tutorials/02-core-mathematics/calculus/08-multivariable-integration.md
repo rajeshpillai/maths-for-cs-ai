@@ -217,7 +217,7 @@ print(f"  Exact π·R²: {np.pi * R**2:.4f}")
   graphics this is what makes UV-mapped textures stretch correctly,
   and in ML it is the heart of normalising-flow generative models.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Probability** — marginal distributions: $p(x) = \int p(x, y)\,dy$
 - **Expected value** — $E[g(X,Y)] = \iint g(x,y) p(x,y)\,dx\,dy$

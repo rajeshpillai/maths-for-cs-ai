@@ -174,7 +174,7 @@ print(f"Posterior: N({mu_post:.3f}, {sigma_post:.3f}^2)")
 print(f"Post. 95% CI: [{mu_post - 1.96*sigma_post:.3f}, {mu_post + 1.96*sigma_post:.3f}]")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Spam Filters:** Naive Bayes classifiers are Bayesian models that update
   word probabilities given labelled emails.

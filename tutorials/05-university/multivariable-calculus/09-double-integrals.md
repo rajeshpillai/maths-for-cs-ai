@@ -201,7 +201,7 @@ outer = integrate.quad(lambda x: x + 1, 0, 2)[0]
 print(f"Outer integral: {outer:.4f} (should be 4)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Joint probability**: for continuous random variables $(X, Y)$,
   $P(a \leq X \leq b, c \leq Y \leq d) = \int_a^b \int_c^d f_{XY}(x,y)\,dy\,dx$
 - **Image processing**: operations like blur or convolution sum (integrate) a

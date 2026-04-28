@@ -163,7 +163,7 @@ for x in [0.1, 0.01, 0.001, 0.0001, 0.00001]:
 print("  Values keep oscillating — no single limit")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Derivatives** — the limit of the difference quotient is the derivative, the
   engine of gradient descent and backpropagation

@@ -339,7 +339,7 @@ print("  Then sum: 2500+300+9 (trivial)")
 print("  All sub-operations are single-digit × round number!")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Fast exponentiation**: The identity-based decomposition is the conceptual
   foundation of exponentiation by squaring ($a^{2k} = (a^k)^2$), which

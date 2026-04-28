@@ -156,7 +156,7 @@ for k in range(5):
     print(f"  k={k}, n={n}: amplitude = {amp:.6f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Audio synthesis** — Additive synthesizers build complex tones from sine
   harmonics; the response of a filter to each harmonic is exactly this calculation.

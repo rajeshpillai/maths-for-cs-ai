@@ -208,7 +208,7 @@ for h in [0.2, 0.1, 0.05, 0.025]:
 print("(Ratio should approach 16 = 2^4 for 4th-order method)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Game physics** — RK4 is the standard integrator for rigid body dynamics.
   Many engines (Bullet, PhysX) use RK4 or adaptive variants.

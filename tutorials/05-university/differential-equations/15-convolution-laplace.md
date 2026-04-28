@@ -147,7 +147,7 @@ y_check = sp.diff(y_conv_simplified, t, 2) + y_conv_simplified
 print("y'' + y =", sp.simplify(y_check))
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Signal processing** — The convolution theorem is the reason FFT-based
   filtering is fast: convolve in time by multiplying spectra (Tier 9).

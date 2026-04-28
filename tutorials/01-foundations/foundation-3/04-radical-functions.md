@@ -168,7 +168,7 @@ for n in [2, 3, 4, 5]:
     print(f"  32^(1/{n}) = {val:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Distance calculations** — Euclidean distance uses square roots:
   $d = \sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}$; game engines compute this constantly

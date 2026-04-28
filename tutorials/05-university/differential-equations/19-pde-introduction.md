@@ -180,7 +180,7 @@ print(f"  k*u_xx = {k_val * u_xx:.10f}")
 print(f"  Difference: {abs(u_t - k_val * u_xx):.2e} (should be ~0)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Physics engines** — Fluid dynamics (Navier-Stokes), cloth simulation, and
   heat transfer all require solving PDEs in real time.

@@ -178,7 +178,7 @@ print(f"  sin²(60°) = {lhs:.6f}")
 print(f"  (1-cos120°)/2 = {rhs:.6f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Signal processing** — product-to-sum converts AM modulation; R-formula finds amplitude/phase
 - **Integration** — half-angle identities essential for $\int \sin^2 x\,dx$ (appears in physics, probability)

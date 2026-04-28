@@ -273,7 +273,7 @@ reduction (PCA), graph algorithms (PageRank, spectral clustering),
 quantum mechanics (energy eigenstates), and stability analysis (which
 modes decay vs blow up).
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **PCA** — eigenvectors of the covariance matrix are the principal components
 - **PageRank** — Google's algorithm finds the dominant eigenvector of the web graph matrix

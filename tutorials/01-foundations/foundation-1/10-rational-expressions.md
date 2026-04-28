@@ -159,7 +159,7 @@ for x_val in [100, 1000, 10000]:
     print(f"  R({x_val}) = {y:.6f} → approaching 2")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Transfer functions** — control systems and signal filters are ratios of polynomials in $s$ or $z$
 - **Partial fractions** — decomposing rational expressions is essential for inverse Laplace/Z transforms

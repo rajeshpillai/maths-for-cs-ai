@@ -213,7 +213,7 @@ for zeta in [0.05, 0.1, 0.3, 0.7, 1.0]:
         print(f"  zeta={zeta:.2f}: no resonance peak (zeta >= 1/sqrt(2))")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Game camera systems**: a critically damped spring ($\zeta = 1$) following
   the player gives smooth, responsive camera motion without oscillation.

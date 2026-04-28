@@ -205,7 +205,7 @@ print(f"Integral of marginal f_X(x): {integral:.4f} (should be 1)")
 print(f"P(X <= 0.5) = {integral_half:.4f} (pen & paper: 0.50)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Multi-dimensional data** — every dataset with multiple features has a joint distribution
 - **Naive Bayes** — assumes feature independence: $p(\mathbf{x}|y) = \prod p(x_i|y)$

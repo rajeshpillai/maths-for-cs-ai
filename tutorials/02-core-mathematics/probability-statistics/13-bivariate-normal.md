@@ -288,7 +288,7 @@ for rho, label in specs:
   covariance and treats the longest-axis direction as the most
   informative dimension.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Gaussian Mixture Models (GMMs)** — each cluster is a multivariate normal; the bivariate case is the simplest non-trivial example
 - **Kalman filters** — state estimation uses multivariate normals; the bivariate case arises in 2D tracking (position/velocity)

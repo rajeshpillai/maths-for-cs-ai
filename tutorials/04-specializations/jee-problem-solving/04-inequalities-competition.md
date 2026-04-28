@@ -216,7 +216,7 @@ y_test = x_test + 1/x_test
 print(f"  Numerical minimum: {np.min(y_test):.6f} at x = {x_test[np.argmin(y_test)]:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Machine learning:** AM-GM and Jensen's inequality underpin key ML results: Jensen's
   proves that log-likelihood is concave (justifying MLE), and the KL divergence is

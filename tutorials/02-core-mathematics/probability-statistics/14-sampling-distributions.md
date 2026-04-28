@@ -301,7 +301,7 @@ for n in [5, 10, 30, 100, 1000]:
   its precision — and why ensembles need *exponentially* more models to
   produce noticeably tighter predictions.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **A/B testing** — "is the difference in means real?" requires knowing the sampling distribution of $\bar{X}_A - \bar{X}_B$
 - **Mini-batch SGD** — the gradient from a mini-batch is a sample mean; its SE determines training stability

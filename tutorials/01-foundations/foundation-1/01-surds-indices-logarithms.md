@@ -305,7 +305,7 @@ for a, b in [(1, 1), (1, 2), (2, 3), (3, 4)]:
   $y = x$. That's the geometric meaning of "inverse function": swap the
   roles of input and output, and the curve flips across the diagonal.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Algorithm complexity** — $O(n^2)$, $O(2^n)$, $O(n \log n)$ all use index notation
 - **Floating point** — the exponent field in IEEE 754 stores a power of 2

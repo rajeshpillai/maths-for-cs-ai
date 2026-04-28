@@ -245,7 +245,7 @@ print(f"Direct count    = {4/6:.4f}    (outcomes 2, 4, 5, 6 out of 6)")
   area 1), and disjoint regions add up. Everything else in this lesson
   is a consequence of those three rules.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Random number generation** — uniform distribution over a sample space
 - **A/B testing** — comparing event probabilities between control and treatment

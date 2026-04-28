@@ -207,7 +207,7 @@ for n_val in [1, 2, 5, 10, 20, 50, 100]:
   learning, and why a polite exponential decay schedule keeps a
   training loop's learning-rate sum bounded.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Algorithm analysis** — $\sum_{k=1}^{n} k = O(n^2)$ (nested loops)
 - **Geometric series** — discount factor in RL: $V = \sum \gamma^t r_t = r/(1-\gamma)$

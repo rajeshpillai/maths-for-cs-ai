@@ -190,7 +190,7 @@ print(f"Conservative (curl=0): {curl_i == 0 and curl_j == 0 and curl_k == 0}")
 print(f"Potential: phi = xyz (verify: grad(xyz) = (yz, xz, xy))")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Gradient descent**: the gradient $\nabla L$ of a loss function is a vector
   field over parameter space; SGD follows this field toward a minimum
 - **Particle systems**: games define vector fields to steer particles (wind,

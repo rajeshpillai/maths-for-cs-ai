@@ -327,7 +327,7 @@ print(f"  Evaluate at base 10: {sum(c * 10**i for i, c in enumerate(conv))}")
 print(f"  Direct: 1234² = {1234**2}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Autocorrelation**: The duplex is a discrete autocorrelation — the same
   operation used in signal processing to detect patterns (radar, sonar).

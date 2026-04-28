@@ -235,7 +235,7 @@ $$
   on the future. The self-attention block is the *only* layer where
   this masking matters.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **GPT/ChatGPT** — stacks of Transformer decoder blocks with causal (masked) attention
 - **BERT** — bidirectional Transformer encoder for NLP understanding

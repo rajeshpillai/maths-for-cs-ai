@@ -255,7 +255,7 @@ for w0 in [-3.5, 0.5, 3.5]:
   generalise well — not because the loss is convex, but because the
   basins are unusually flat and noise-resistant.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Linear regression** — MSE loss is convex → guaranteed global optimum
 - **Logistic regression** — cross-entropy loss is convex → guaranteed convergence

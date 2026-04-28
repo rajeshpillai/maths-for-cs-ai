@@ -289,7 +289,7 @@ for a, b in pairs:
     print(f"  {a} × {b} → {' → '.join(steps) if steps else 'no simplification'} = {expected}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Bit shifting**: In binary, multiplying/dividing by 2 is just a shift.
   The halving-and-doubling trick is what hardware does with shift-and-add

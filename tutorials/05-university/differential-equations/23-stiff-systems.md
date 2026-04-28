@@ -176,7 +176,7 @@ print(f"\nImplicit Euler (h=0.01, 10 steps): y(0.1) = {y:.10e}")
 print(f"Exact: y(0.1) = {exact_at_01:.10e}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Chemical kinetics** — Reaction networks in pharmaceutical and materials
   simulation are notoriously stiff; BDF solvers are the standard tool.

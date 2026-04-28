@@ -193,7 +193,7 @@ odd_count = sum(1 for p in S_n if parity(p) == 1)
 print(f"\nIn S_{n}: {even_count} even, {odd_count} odd (should be equal: {n}!/2 = {factorial(n)//2})")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Sorting algorithms**: every sort transforms an arbitrary permutation into the identity; the minimum number of swaps equals the number of cycles minus $n$.
 - **Rubik's Cube**: the group of legal moves is a subgroup of $S_{48}$ (48 coloured facets).

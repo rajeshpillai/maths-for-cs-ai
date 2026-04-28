@@ -248,7 +248,7 @@ assert result == 103 * 105
 print("  Correct!")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Two's complement** in binary is the same idea: to negate a number, flip
   all bits and add 1 — "all from 1, last from 2" in base 2.

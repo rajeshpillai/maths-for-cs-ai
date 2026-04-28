@@ -212,7 +212,7 @@ for a in range(n):
     print(f"  Row {a}: {row}, is permutation: {sorted(row) == list(range(n))}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Rubik's Cube**: the group of cube moves has $4.3 \times 10^{19}$ elements; group theory proves every position is solvable in $\leq 20$ moves.
 - **Cryptography**: Diffie-Hellman key exchange relies on the group $(\mathbb{Z}_p^*, \times)$.

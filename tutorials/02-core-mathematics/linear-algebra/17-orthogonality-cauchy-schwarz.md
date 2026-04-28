@@ -198,7 +198,7 @@ print(f"||x|| = {np.linalg.norm(x):.4f}")
 print(f"||Qx|| = {np.linalg.norm(Q @ x):.4f}")       # Same
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Cosine similarity** — Cauchy-Schwarz guarantees $\frac{\mathbf{u}\cdot\mathbf{v}}{\|\mathbf{u}\|\|\mathbf{v}\|} \in [-1, 1]$, making it a valid similarity metric for embeddings
 - **QR decomposition** — factors any matrix into orthogonal $\mathbf{Q}$ and upper-triangular $\mathbf{R}$; used in least-squares solvers

@@ -200,7 +200,7 @@ print(f"Union = {sorted(all_elements)} = Z_12: {all_elements == set(range(12))}"
 print(f"Pairwise disjoint: True")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Fermat's Little Theorem** powers modular exponentiation in RSA encryption.
 - **Hash table sizing**: choosing prime table sizes exploits the fact that $\mathbb{Z}_p^*$ is cyclic.

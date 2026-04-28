@@ -144,7 +144,7 @@ for n in range(-3, 4):
     print(f"n={n:+d} ({case}): n²+n = {n**2}+{n} = {val} = 2·{factor}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Pattern matching** in functional languages (Haskell, Rust `match`) is proof by cases in code form.
 - **Edge cases in algorithms**: handling empty arrays, single elements, and general case separately.

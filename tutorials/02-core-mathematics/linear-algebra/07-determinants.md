@@ -306,7 +306,7 @@ print(f"Original unit square area: 1")
 print(f"det(M) = {np.linalg.det(M):.0f} → transformed area = {abs(np.linalg.det(M)):.0f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Invertibility test** — $\det = 0$ means the system has no unique solution
 - **Volume scaling** — change of variables in integration (Jacobian determinant)

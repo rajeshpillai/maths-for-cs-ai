@@ -221,7 +221,7 @@ yp0 = (y_full(dt) - y_full(-dt)) / (2*dt)
 print(f"  y'(0) = {yp0:.6f} (should be 0)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Forced oscillations** in audio: a speaker driven by an AC signal is a
   nonhomogeneous second-order ODE. Resonance explains why certain frequencies

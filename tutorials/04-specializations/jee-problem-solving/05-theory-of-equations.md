@@ -229,7 +229,7 @@ print(f"  e3 (sum of triples) = {e3} = -(-50)/1 ✓")
 print(f"  e4 (product) = {e4} = 24/1 ✓")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Eigenvalues:** The characteristic polynomial of a matrix has eigenvalues as roots.
   Vieta's formulas give trace = sum of eigenvalues and determinant = product of eigenvalues

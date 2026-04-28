@@ -263,7 +263,7 @@ for expr in ['2+3*4', '(2+3)*4', '1+2+3', '2*3+4*5']:
     print(f"  {expr} = {result}  (Python eval: {expected})")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Compilers:** Every programming language is defined by a CFG. Parsers
   (LL, LR, recursive descent) turn source code into abstract syntax trees.

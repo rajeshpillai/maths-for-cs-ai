@@ -233,7 +233,7 @@ print(f"  Cartesian (divide by w=1): ({out[0]/out[2]:.4f}, {out[1]/out[2]:.4f})"
   matrix", and "projection matrix" you've ever heard of is a 4×4
   homogeneous transform.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Model matrix** — positions objects in the world (scale → rotate → translate)
 - **View matrix** — transforms world into camera space (inverse of camera's model matrix)

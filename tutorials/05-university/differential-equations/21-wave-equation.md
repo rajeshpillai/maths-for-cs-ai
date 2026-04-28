@@ -183,7 +183,7 @@ print(f"\nAfter {Nt} steps: max|u| = {np.max(np.abs(u_curr)):.6f}")
 print("Energy should be conserved (no damping).")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Audio simulation** — The 1D wave equation models vibrating strings;
   physical modeling synthesis (e.g., Karplus-Strong) is a discrete version.

@@ -207,7 +207,7 @@ d2 = math.sqrt((x_t + c)**2 + y_t**2)
 print(f"  Point ({x_t},{y_t:.3f}): |d1-d2| = {abs(d1-d2):.4f}, 2a = {2*a}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Orbital mechanics** — Kepler's first law: planets follow elliptical orbits;
   game simulations of space use the conic equations directly

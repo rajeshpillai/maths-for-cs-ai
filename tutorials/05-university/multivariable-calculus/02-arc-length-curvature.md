@@ -174,7 +174,7 @@ print(f"Expected:     {2*np.sqrt(5)/25:.6f}")
 print(f"Radius of curvature ρ = {1/kappa:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 - **Camera systems**: curvature determines how fast the camera must rotate to
   follow a character along a path — high curvature needs faster rotation
 - **Path planning**: robots and game NPCs need arc length to estimate travel

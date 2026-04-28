@@ -311,7 +311,7 @@ for n in [5, 10, 15, 20, 30]:
   cryptographic key spaces ($2^{128}$) put a brute-force search past
   the heat death of the universe.
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Password strength** — $26^8$ (lowercase only) vs $95^8$ (all printable ASCII): combinatorics measures security
 - **Algorithm complexity** — "how many comparisons does sorting need?" is a counting argument ($\log_2(n!)$)

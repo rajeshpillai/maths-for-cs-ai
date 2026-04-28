@@ -184,7 +184,7 @@ result = minimize(neg_log_lik, [0, 0], method="Nelder-Mead")
 print(f"\nscipy verify: intercept = {result.x[0]:.4f}, coef = {result.x[1]:.4f}")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Binary Classification:** Logistic regression is the simplest neural
   network — one neuron with a sigmoid activation. Understanding it is

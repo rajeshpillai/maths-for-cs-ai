@@ -240,7 +240,7 @@ print("  Re(λ) = 0, Im(λ) ≠ 0 → orbits (rotation/oscillation)")
 print("  Re(λ) > 0 → grows (unstable)")
 ```
 
-## Connection to CS / Games / AI
+## Connection to CS / Games / AI / Business / Industry
 
 - **Neural ODEs** — continuous-depth networks solve $\dot{\mathbf{h}} = f(\mathbf{h}, t)$; matrix exponential for the linear case
 - **Control theory** — state-space models: $\dot{\mathbf{x}} = \mathbf{Ax} + \mathbf{Bu}$, solved via $e^{\mathbf{A}t}$
