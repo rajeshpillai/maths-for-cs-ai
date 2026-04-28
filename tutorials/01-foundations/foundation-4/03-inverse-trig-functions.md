@@ -183,6 +183,10 @@ for i, s in enumerate(solutions):
 - **Inverse kinematics** — robot arms use $\arccos$ and $\arctan$ to compute joint angles from target positions
 - **Machine learning** — the sigmoid function $\sigma(x) = 1/(1 + e^{-x})$ is related to $\arctan$ (both are S-shaped); softmax normalisation involves similar reasoning
 - **Navigation** — GPS bearing calculations use $\text{atan2}$ on latitude/longitude differences
+- **Aircraft attitude indicators** — Garmin and Honeywell glass cockpits compute pitch and roll as $\arctan(\Delta h / d)$ from gyro/accelerometer data; FAA-certified IFR systems require this inverse-trig math at 50+ Hz.
+- **Solar tracker steering** — NEXTracker and Array Technologies invert solar-position formulas with $\arctan$ to drive panel motors; this directly affects MWh delivered per acre.
+- **Ballistic trajectory & artillery firing tables** — military fire-control software (Lockheed Martin, BAE Systems) uses $\arcsin(\frac{gR}{v^2})/2$ to compute launch angle for a target range; the same math drives golf rangefinders and ballistics calculators for hunting.
+- **Robotic surgical arms** — Intuitive Surgical's da Vinci robot uses $\arccos/\arctan$ inverse kinematics to map surgeon hand motions to instrument tip pose, enforcing safe joint-angle ranges.
 
 ## Check Your Understanding
 

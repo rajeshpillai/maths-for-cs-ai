@@ -195,6 +195,23 @@ for name, V, E in [("K4", 4, 6), ("K5", 5, 10), ("Petersen", 10, 15)]:
 - **Network routing:** Euler paths model routes that traverse every link
   (e.g., snowplough routes, circuit board testing).
 - **Game AI:** Hamiltonian paths arise in game level design (visit every room once).
+- **Industry — Cellular frequency planning at AT&T / Verizon / T-Mobile:**
+  Cell towers form a planar graph; carriers solve graph-colouring ILPs in
+  Gurobi to assign 5G frequency bands so that adjacent cells never reuse
+  the same band, mirroring the four-colour theorem.
+- **Operations — Postal & sanitation routing (Chinese Postman):** Royal
+  Mail in the UK and NYC Department of Sanitation compute Euler-tour
+  approximations to cover every street (edge) once; ESRI's Network
+  Analyst shipped an Euler-circuit module specifically for this.
+- **Engineering — PCB and IC layout at Cadence / Mentor Graphics:**
+  Planarity testing (Hopcroft-Tarjan algorithm) is run on netlists before
+  routing; non-planar nets force vias or extra metal layers, costing
+  silicon area and yield in TSMC fabrication.
+- **Finance — Exam & airline crew scheduling:** Standardised testing at
+  ETS (GRE/SAT) and pilot rostering at Delta / Lufthansa solve
+  graph-colouring problems where conflicting exams or duty-overlap pairs
+  must avoid colour clashes; commercial solvers (Carmen Crew, AIMMS)
+  encode this as integer programs.
 
 ## Check Your Understanding
 

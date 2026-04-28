@@ -330,6 +330,10 @@ a `mean = data.mean()` line in front.
 - **Noise removal** — low-rank reconstruction via PCA discards noisy dimensions
 - **Visualisation** — project high-dimensional data to 2D/3D for plotting
 - **Feature engineering** — PCA components as new features for ML models
+- **Finance — yield-curve PCA at central banks:** the Federal Reserve and ECB decompose the U.S. Treasury yield curve into level, slope, and curvature factors (top 3 PCs explaining ~99% of variance), used in interest-rate hedging across J.P. Morgan and Morgan Stanley fixed-income desks.
+- **Marketing — customer perceptual maps:** McKinsey and Nielsen run PCA on consumer-survey matrices to plot brands on 2-D "perceptual maps" (price vs prestige, etc.) used to position products like Coca-Cola vs. Pepsi.
+- **Engineering — process monitoring at chemical plants:** ExxonMobil and Dow refineries apply PCA to thousands of sensor streams; Hotelling's $T^2$ statistic on the principal components flags equipment faults before they cascade.
+- **Science — genome-wide association studies (GWAS):** the 1000 Genomes Project uses PCA on SNP matrices to reveal continental ancestry as the top two principal components, a control variable in every modern GWAS published by Nature Genetics.
 
 ## Check Your Understanding
 

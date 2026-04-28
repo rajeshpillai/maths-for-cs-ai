@@ -376,6 +376,10 @@ print(f"Final accuracy (framework): {acc_fw * 100:.1f}%")
 - **ONNX** — export trained models to a framework-independent format for deployment
 - **Model deployment** — inference is just the forward pass (no backward pass needed)
 - **Transfer learning** — load pre-trained weights, modify last layers, fine-tune
+- **Industry / Frameworks in production**: **OpenAI's Triton**, **Meta's PyTorch 2 + torch.compile**, and **Google JAX/XLA** are what train **GPT-4o**, **Llama-4**, and **Gemini Ultra**; the forward and backward passes you wrote by hand are what these compilers fuse into single optimised kernels.
+- **Engineering / Model deployment**: **NVIDIA TensorRT-LLM**, **vLLM**, and **AWS Neuron SDK** export trained PyTorch models to inference-only runtimes that can serve **ChatGPT**, **Claude.ai**, and **Perplexity** at >10,000 tokens/second on H100/Inferentia2 hardware.
+- **Business / MLOps**: **Hugging Face Hub** (>1M models, used by Apple, Bloomberg, Mayo Clinic) and **Databricks Mosaic AI** rely entirely on the PyTorch/JAX ecosystem; the "framework-agnostic" ONNX format you'd export to costs roughly $0/model but unlocks deployment on iPhones (CoreML), browsers (ONNX-Runtime-Web), and Edge TPUs.
+- **Engineering / Scientific computing**: **DeepMind AlphaFold 3** (JAX), **Boston Dynamics Spot navigation** (PyTorch), **NVIDIA Modulus PINNs** for fluid dynamics — same math the chapter derives, scaled by frameworks to hundreds of GPUs and used by Airbus, Siemens Energy, and Pfizer.
 
 ## Check Your Understanding
 

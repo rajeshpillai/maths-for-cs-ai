@@ -238,6 +238,10 @@ for h_exp in range(-1, -17, -2):
 - **Gradient checking** — use numerical differentiation to verify your analytical/AD gradients (common debugging technique)
 - **SymPy** — Python library for symbolic differentiation
 - **Finite elements** — numerical methods for PDEs use numerical differentiation
+- **Quantitative finance Greeks** — Goldman Sachs, Citadel, and Jane Street compute option Greeks (Δ, Γ, Vega) via Adjoint Algorithmic Differentiation (AAD), saving hours per portfolio reval vs naïve finite differences across multi-million-instrument books.
+- **Engineering CAD/CAE** — ANSYS, Abaqus, and Siemens NX use numerical differentiation for sensitivity analysis on Boeing 787 wing meshes; SolidWorks Simulation does the same for consumer-grade FEA.
+- **Climate & weather modelling** — ECMWF and NOAA's variational data assimilation (4D-Var) relies on the *adjoint* of numerical PDE solvers — large-scale reverse-mode AD applied to Earth-system models.
+- **Pharmaceutical pipeline** — Schrödinger Inc. uses AD-driven gradients of molecular energy functions to optimise drug-candidate geometries; Eli Lilly's PK/PD modelling uses symbolic differentiation in NONMEM.
 
 ## Check Your Understanding
 

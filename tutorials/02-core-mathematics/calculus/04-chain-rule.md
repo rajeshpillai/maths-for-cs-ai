@@ -276,6 +276,10 @@ print(f"  Gap (smaller h → smaller gap)          = {abs(analytical - numerical
 - **Automatic differentiation** — PyTorch/JAX build computation graphs and apply the chain rule automatically
 - **Vanishing gradients** — when many chain-rule factors are < 1, the product shrinks to ~0 (why deep networks are hard to train with sigmoid)
 - **Exploding gradients** — when factors are > 1, gradients blow up (why we use gradient clipping)
+- **Sensitivity analysis (Finance)** — investment banks (Morgan Stanley, Barclays) use the chain rule to propagate interest-rate shocks through portfolios; "DV01" risk reports stack derivatives via the chain rule across yield curves and FX rates.
+- **Adjoint methods in engineering (Industry)** — Boeing CFD wing-shape optimisation and SpaceX rocket-trajectory design use reverse-mode AD (the chain rule applied backward) to compute sensitivities cheaply over millions of design variables.
+- **Pharmacokinetic compartment models (Pharma)** — clearance rates of one organ feeding the next compose by the chain rule; FDA submissions at Pfizer/AstraZeneca rely on this to derive plasma-concentration sensitivities to dosing schedules.
+- **Climate model attribution (Science)** — IPCC and NCAR run adjoint chain-rule passes through GCM (global climate model) code to attribute warming to specific emission sources.
 
 ## Check Your Understanding
 

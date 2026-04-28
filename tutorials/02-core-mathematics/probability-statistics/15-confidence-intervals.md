@@ -322,6 +322,12 @@ confidence," they're describing exactly this — half-width $z^* \sigma /
 - **Reinforcement learning** — confidence bounds drive exploration (UCB algorithm: pick action with highest upper confidence bound)
 - **Monte Carlo estimates** — error bars on simulated quantities are confidence intervals
 - **Bayesian vs frequentist** — CIs are frequentist; the Bayesian analogue is the credible interval
+- **FDA drug approval (NEJM Phase III trials)** — every approved Pfizer, Moderna, Roche, and Merck drug ships with 95% confidence intervals on efficacy endpoints; the FDA's Guidance for Industry E9 explicitly mandates CIs alongside p-values in registration submissions.
+- **Polling margin-of-error reporting** — AAPOR (American Association for Public Opinion Research) standards require Gallup, Pew, and YouGov to report CIs as "margin of error $\pm$3% at 95% confidence"; Nate Silver's FiveThirtyEight election forecasts are built on stacked CI calculations.
+- **VaR (Value at Risk) under Basel III** — JPMorgan, Citi, and HSBC must compute and report 99% CIs on portfolio losses; backtesting by national regulators (OCC, ECB, FCA) uses CI coverage to assess model adequacy.
+- **A/B testing at scale** — Booking.com, Netflix, and Airbnb run thousands of concurrent A/B tests and use CIs (often via sequential testing or Bayesian credible intervals) to decide product launches; tools like Optimizely and Statsig sell this as a service.
+- **Manufacturing process capability** — Cpk indices used in automotive (Toyota, Ford) and semiconductor (Intel, TSMC) Six Sigma programs require CIs on $\mu$ and $\sigma$ to certify processes against AIAG SPC and IATF 16949 quality standards.
+- **Clinical lab reference ranges** — the CDC and CLSI EP28-A3c guideline use CIs on the 2.5th and 97.5th percentiles of healthy populations to set the reference intervals printed on every blood-test result.
 
 ## Check Your Understanding
 

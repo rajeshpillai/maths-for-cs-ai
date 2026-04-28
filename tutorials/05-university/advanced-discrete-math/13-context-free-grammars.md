@@ -273,6 +273,22 @@ for expr in ['2+3*4', '(2+3)*4', '1+2+3', '2*3+4*5']:
   rule systems for branching narratives.
 - **AI:** Large language models implicitly learn grammatical structure;
   constrained decoding uses CFGs to force valid output (e.g., valid JSON).
+- **Industry — GCC, LLVM/Clang, and rustc parsers:** The C, C++, and Rust
+  compilers used to build Linux, Windows, Chrome, and Firefox parse source
+  code via LR(1) (Bison/yacc) or hand-written recursive-descent parsers
+  derived directly from the language's published CFG.
+- **Engineering — Wireshark and Snort packet protocol decoders:** Network
+  protocols (HTTP/2, TLS handshake, DNS messages) are specified in ABNF
+  (RFC 5234, a CFG-like notation); Wireshark and IDS engines like Snort
+  parse multi-gigabit traffic against these grammars in real time.
+- **Finance — FpML, FIX, and ISO 20022 message parsing:** Derivatives
+  contracts (CFTC swap reporting), trade messages, and SWIFT ISO 20022
+  payments are XML schemas that are essentially CFGs; banks validate
+  every incoming message against the schema before booking.
+- **Operations — JSON Schema & OpenAPI validation at API gateways:**
+  Cloudflare API Shield, AWS API Gateway, and Kong validate incoming
+  JSON bodies against schemas (a restricted CFG); malformed payloads
+  are rejected at the edge before hitting application servers.
 
 ## Check Your Understanding
 

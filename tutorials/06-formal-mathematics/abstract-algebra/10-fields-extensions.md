@@ -223,6 +223,10 @@ print(f"[C : R] = 2")
 - **Elliptic curve cryptography**: curves over finite fields $GF(p)$ or $GF(2^n)$.
 - **Secret sharing** (Shamir's): polynomial interpolation over a finite field.
 - **Random number generation**: LFSRs (linear feedback shift registers) use $GF(2^n)$ arithmetic.
+- **3GPP 5G NR LDPC codes** — defined over $GF(2)$ with quasi-cyclic lifting; every 5G smartphone (iPhone, Galaxy, Pixel) decodes downlink in a Qualcomm/Mediatek baseband running $GF(2^n)$ arithmetic billions of times per second.
+- **Galois theory and Abel-Ruffini theorem** — proves general quintic equations have no radical solution; this is *why* engineers fall back to Newton-Raphson in MATLAB and Mathematica for degree-5+ root finding in control systems.
+- **Tate-Shafarevich computations in Bitcoin signature verification** — Bitcoin Core validates secp256k1 signatures in $GF(p)$ where $p = 2^{256} - 2^{32} - 977$; mining ASICs from Bitmain include hardwired field-arithmetic units pulling 30+ TWh/year of grid power.
+- **Reed-Solomon over $GF(2^8)$ in RAID-6 storage** — used by NetApp, Pure Storage, and AWS S3 erasure coding to survive simultaneous failure of any 2 disks per stripe; underlies the durability guarantees ("11 nines") in cloud SLAs.
 
 ## Check Your Understanding
 

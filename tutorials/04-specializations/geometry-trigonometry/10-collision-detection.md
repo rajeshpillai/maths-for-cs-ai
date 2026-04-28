@@ -276,6 +276,10 @@ game; the same shapes generalise to **3-D** (sphere, AABB, mesh) for
 - **GJK algorithm** — general convex shape collision (used in most 3D engines)
 - **Continuous collision** — sweep tests to prevent fast objects from tunnelling through thin walls
 - **Trigger volumes** — "enter this area to start cutscene" = point-inside-AABB test
+- **Aircraft collision avoidance (TCAS II, ACAS X)** — every commercial airliner runs a separation-bubble test (sphere-sphere) against nearby transponder returns; FAA-mandated alerts fire when projected traces enter the protection volume.
+- **Maritime AIS anti-collision (Furuno, Raytheon Anschutz radars)** — bridge officers on container ships watch CPA (closest point of approach) calculations that solve circle-circle intersection over time, preventing accidents in busy ports like Singapore and Rotterdam.
+- **Warehouse robot fleet management (Amazon Robotics, Locus Robotics)** — fulfillment centers use AABB grid occupancy as the broad phase for route planning, then GJK narrow-phase checks to prevent collisions between thousands of bots moving simultaneously.
+- **Insurance claims and risk modeling (Swiss Re, Munich Re catastrophe models)** — hurricane and wildfire footprints are tested via point-in-polygon against millions of property polygons to estimate exposure across a portfolio in minutes.
 
 ## Check Your Understanding
 

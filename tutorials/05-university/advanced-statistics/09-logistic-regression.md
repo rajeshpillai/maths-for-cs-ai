@@ -195,6 +195,25 @@ print(f"\nscipy verify: intercept = {result.x[0]:.4f}, coef = {result.x[1]:.4f}"
   word features.
 - **Game Matchmaking:** Predicting win probability from player ratings
   (Elo/Glicko systems are logistic models at their core).
+- **Credit-decision modeling at Capital One / Discover / Synchrony:**
+  FICO + alternative-data features feed logistic regression scorecards
+  approving credit lines for hundreds of millions of consumers; the
+  Equal Credit Opportunity Act (ECOA) requires interpretable models —
+  logistic regression's $\hat\beta$ are auditable by the CFPB.
+- **Fraud detection at Visa / Mastercard / Stripe Radar:** logistic
+  regression on transaction-velocity features is a baseline model
+  scored billions of times per day at sub-100ms latency; gradient
+  boosters layer on top but logistic provides interpretability for
+  chargeback disputes.
+- **Clinical-risk scores in medicine:** the Framingham Heart Study's
+  10-year cardiovascular-event predictor and the TIMI score for acute
+  coronary syndrome are both logistic regressions; results print on
+  ER triage screens at thousands of hospitals.
+- **Insurance underwriting at Progressive / Allstate:** auto-claim
+  probability is modeled with logistic regression on vehicle + driver
+  + telematics features; state insurance commissioners (e.g.
+  California Dept. of Insurance) require model-card filings showing
+  $\hat\beta$ stability across protected classes.
 
 ## Check Your Understanding
 

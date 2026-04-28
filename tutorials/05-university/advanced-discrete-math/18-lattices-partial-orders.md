@@ -274,6 +274,23 @@ for i in range(10):
   least fixed point of a monotone operator on the lattice of interpretations.
 - **Formal verification:** Model checking uses BDD lattices to represent state
   spaces.
+- **Industry — Facebook Infer & Google Error Prone:** These static
+  analyzers (deployed at Meta, Mozilla, Microsoft, Spotify) use abstract
+  interpretation on lattices of "reachable abstract states" to find null
+  dereferences and resource leaks across millions of lines of Java/C++,
+  catching billions of bug-instances over their lifetime.
+- **Engineering — Lattice-based post-quantum cryptography (Kyber, Dilithium):**
+  NIST standardised CRYSTALS-Kyber in 2024 as the first post-quantum KEM;
+  its security rests on the hardness of Shortest Vector Problem in integer
+  lattices, distinct from but related-in-spirit to order-theoretic lattices.
+- **Operations — Database query optimisers (PostgreSQL, Snowflake, BigQuery):**
+  Cost-based optimisers explore a lattice of join orders / index choices
+  using dynamic programming (System R / Selinger's algorithm); for a
+  10-table query the plan space is millions of nodes searched in milliseconds.
+- **Finance — Access-control & RBAC at AWS IAM, Azure AD:** Role hierarchies
+  form a lattice (more-permissive roles = upper elements); the join of two
+  roles is the union of their permissions, computed during every IAM policy
+  evaluation (~10 trillion/day on AWS) for SOC2 compliance.
 
 ## Check Your Understanding
 

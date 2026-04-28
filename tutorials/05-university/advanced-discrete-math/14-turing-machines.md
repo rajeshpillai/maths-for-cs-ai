@@ -259,6 +259,23 @@ for n in range(5):
   properties of arbitrary programs. Rice's theorem generalises this.
 - **Game design:** Minecraft and some cellular automata are Turing-complete —
   you can build a computer inside the game.
+- **Industry — Microsoft SAGE / Coverity / Veracode static analyzers:**
+  Commercial static-analysis tools necessarily approximate (not decide)
+  bug detection because Rice's theorem (a halting-problem corollary)
+  proves perfect detection is undecidable; vendors quote false-positive
+  rates because perfection is mathematically impossible.
+- **Engineering — Formal verification at NASA JPL & Airbus:** Mars-rover
+  flight software and Airbus A380 fly-by-wire code are verified using
+  bounded model checkers (CBMC, NASA's Java Pathfinder); engineers cap
+  exploration depth precisely because halting is undecidable.
+- **Operations — Antivirus / EDR vendors (CrowdStrike, SentinelOne):**
+  Malware detection is reduced to a halting-style problem by Cohen's
+  1987 theorem; modern EDRs sidestep undecidability via heuristics,
+  signatures, and ML-based behaviour models, never claiming completeness.
+- **Finance — Smart-contract auditing (Solidity, Move):** Tools like
+  CertiK, Trail of Bits' Slither, and Certora rely on bounded symbolic
+  execution because Ethereum's EVM is Turing-complete; the 2016 DAO hack
+  ($60M lost) showed why "we cannot decide all reachable states" matters.
 
 ## Check Your Understanding
 

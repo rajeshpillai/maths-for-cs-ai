@@ -380,6 +380,10 @@ print(f"Invertible? {rank_D == D.shape[1]}")
 - **Google PageRank:** The eigenvector that PageRank computes lives in the
   column space of the link matrix.  Understanding rank ensures the solution
   exists and is unique.
+- **Business — Netflix / Spotify recommender capacity:** Netflix's matrix-factorization model represents the user-movie rating matrix as $\mathbf{U}\mathbf{V}^T$ with rank ~50; the rank choice trades off model capacity against overfitting on 100M+ ratings.
+- **Operations — DOE design degeneracy:** Procter and Gamble's design-of-experiments software flags rank-deficient design matrices to prevent confounded factor effects in product-formulation A/B tests.
+- **Engineering — sensor placement on jet engines:** Rolls-Royce Trent engines rely on the rank of an observability matrix exceeding state dimension; if not, blade-tip clearance can't be inferred from the available temperature/pressure sensors.
+- **Science — gene-expression intrinsic dimensionality:** the Cancer Genome Atlas (TCGA) RNA-seq matrices have ~20,000 genes but effective rank ~50, the basis for tumor sub-typing in cBioPortal.
 
 ## Check Your Understanding
 

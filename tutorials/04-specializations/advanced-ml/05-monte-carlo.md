@@ -217,6 +217,10 @@ for n in [100, 1_000, 10_000, 100_000, N_max]:
 - **CS / Software.** Randomised algorithms (e.g. **Bloom filters**,
   randomised primality tests like Miller-Rabin) are Monte Carlo in
   spirit — trade a small failure probability for huge speedups.
+- **Reinsurance catastrophe modeling (RMS, AIR Worldwide, Verisk)** — Lloyd's of London and Munich Re run millions of synthetic hurricane and earthquake tracks through Monte Carlo loss simulators to set premiums and capital reserves.
+- **Nuclear reactor design (Los Alamos MCNP, Argonne SERPENT)** — neutron transport in fission cores is solved by Monte Carlo over particle histories; this is the same algorithm used to design every commercial reactor since the Manhattan Project.
+- **Pharmaceutical pipeline NPV (Merck, Pfizer)** — drug-development decisions use Monte Carlo over uncertain success probabilities at each clinical phase, valuing a single Phase-II asset across thousands of simulated outcomes.
+- **Pixar RenderMan and Disney Hyperion** — every Pixar film since "Monsters University" (2013) uses path-traced global illumination, with Monte Carlo bounces per pixel pushing render times of ~50 hours per frame on render farms.
 
 ## Check Your Understanding
 

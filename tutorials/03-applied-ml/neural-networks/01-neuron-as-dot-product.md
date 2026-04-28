@@ -296,6 +296,10 @@ print("  This is exactly why we need MULTIPLE LAYERS (next lesson).")
 - **Feature importance** — weight magnitudes indicate which inputs matter most
 - **Decision boundaries** — a single neuron creates a linear boundary; stacking layers creates complex non-linear boundaries
 - **Logic gates** — AND, OR, NOT can be implemented as single neurons; XOR needs two layers
+- **Business / Banking**: **FICO credit-score models** and many bank loan-decision systems use logistic regression — a single sigmoid neuron — because regulators (under the US Equal Credit Opportunity Act and the EU AI Act) require explainable per-feature weights showing which inputs drove the decision.
+- **Industry / Healthcare**: the **Framingham Heart Study risk calculator** and **TIMI risk score** for cardiac patients are essentially single-neuron logistic-regression models still used by clinicians worldwide because the linear decision boundary can be communicated as a paper score sheet at the bedside.
+- **Business / Marketing**: **Google Ads quality score** and **Facebook ad-bidding** start every prediction stack with a wide-and-deep model whose "wide" half is a single linear-plus-sigmoid layer over millions of categorical features — billions of clicks per day are scored by what is fundamentally a giant perceptron.
+- **Engineering / Sensor networks**: a single threshold neuron is the math behind every **smoke detector**, **PIR motion sensor**, and **MEMS accelerometer-triggered airbag** — sum the weighted readings, fire if above threshold.
 
 ## Check Your Understanding
 

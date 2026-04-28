@@ -157,6 +157,20 @@ print("y'' + y =", sp.simplify(y_check))
   room and convolve it with the dry signal to simulate acoustics.
 - **Control theory** — Transfer functions $H(s)$ encode convolution with the
   impulse response, central to robot and drone control loops.
+- **Concert hall acoustics at Arup / Nagata** — engineers convolve dry music
+  with measured impulse responses of Carnegie Hall, Royal Albert Hall, and
+  Suntory Hall to validate retrofit acoustic designs before construction.
+- **Echolocation in oil and gas seismic surveys** — Schlumberger and CGG run
+  Laplace/Fourier-based wavelet deconvolution on shot records to image
+  reservoirs in the North Sea and Permian Basin; the convolution model is
+  $\text{trace} = \text{wavelet} * \text{reflectivity}$.
+- **Drug-drug interaction PK at FDA** — when two drugs are co-administered,
+  total plasma concentration is the convolution of dosing-rate input with
+  each drug's impulse response; Pfizer's Paxlovid label uses convolution
+  models to recommend ritonavir co-dose.
+- **Earthquake convolution at PG&E** — utilities convolve a design ground
+  motion (impulse response) with structure transfer functions to certify
+  substations under California PUC GO 174 seismic standards.
 
 ## Check Your Understanding
 

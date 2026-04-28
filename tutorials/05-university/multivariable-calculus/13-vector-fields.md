@@ -202,6 +202,18 @@ print(f"Potential: phi = xyz (verify: grad(xyz) = (yz, xz, xy))")
   for efficiency
 - **Neural ODEs**: treat a neural network as defining a vector field; inference
   follows the flow of this field through state space
+- **Weather forecasting at NOAA and ECMWF**: numerical weather prediction
+  evolves a wind vector field $\mathbf{v}(x,y,z,t)$ — the GFS and IFS models
+  treat the atmosphere as a vector field on a sphere, run on Cray supercomputers
+- **Magnetic field mapping at CERN**: ATLAS and CMS detector calibration
+  measures the toroid magnetic field $\mathbf{B}(x,y,z)$ as a 3D vector field;
+  divergence-free property is enforced when reconstructing particle tracks
+- **Foreign-exchange flow networks**: SWIFT and CLS Bank visualise global
+  payment flows as vector fields between currency nodes — feeds liquidity-risk
+  dashboards at central banks (Federal Reserve, BoE, BIS)
+- **Ocean current modelling**: NOAA HYCOM and Mercator Ocean's GLORYS treat
+  ocean currents as 4D vector fields, used by Maersk to optimise container
+  routing and by NOAA to predict oil-spill drift after Deepwater Horizon
 
 ## Check Your Understanding
 1. Is $\mathbf{F}(x,y) = (e^x \sin y)\,\mathbf{i} + (e^x \cos y)\,\mathbf{j}$

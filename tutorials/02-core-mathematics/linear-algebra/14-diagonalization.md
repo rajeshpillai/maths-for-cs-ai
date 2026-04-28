@@ -341,6 +341,10 @@ print(f"Match? {np.allclose(C5_diag, C5_direct)}")
   the eigendecomposition of adjacency / Laplacian matrices
 - **Stability analysis** — if all $|\lambda_i| < 1$, then $\mathbf{A}^k \to \mathbf{0}$;
   eigenvalues reveal whether a system explodes, decays, or oscillates
+- **Finance — credit migration matrices:** Moody's and S&P diagonalize the one-year credit-rating transition matrix $\mathbf{M}$ to compute $\mathbf{M}^t$ for arbitrary horizons in CECL loss reserving at U.S. banks.
+- **Operations — call-center steady state:** Genesys and NICE workforce-management software diagonalizes Markov transition matrices over agent states (idle/busy/break) to compute long-run staffing requirements.
+- **Engineering — modal decomposition in aerospace:** Boeing flutter analysis on the 777 wing diagonalizes the structural matrix so each natural mode evolves independently, exposing aeroelastic instabilities before flight test.
+- **Industry — chemical reaction networks:** AstraZeneca uses eigendecomposition of rate-constant matrices in pharmacokinetic models to compute drug concentration vs time as a sum of exponentials $\sum_i c_i e^{\lambda_i t}$.
 
 ## Check Your Understanding
 

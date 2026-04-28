@@ -189,6 +189,10 @@ print(f"Remainder: {r3}")
   division to decompose into partial fractions for inverse transforms
 - **Cryptography** — polynomial division in $GF(2)$ underpins CRC checksums
 - **Curve fitting** — simplifying rational polynomial models for game physics
+- **CRC checksums in storage & networking** — Ethernet (802.3), ZIP files, and SSDs all rely on CRC-32 polynomial division to detect bit errors; Western Digital and Seagate firmware run this division on every read.
+- **Bond cash-flow stripping** — Treasury desks at JP Morgan use polynomial-division-style bootstrap to strip a coupon bond's cash flows into zero-coupon "STRIPS"; the algebra mirrors dividing a polynomial by $(x - r_i)$ for each coupon date.
+- **Control-system pole-zero cancellation** — control engineers at Honeywell and ABB perform polynomial division on transfer functions to cancel poles and zeros; MATLAB Control System Toolbox's `minreal()` runs this every simulation.
+- **GPS navigation message decoding** — GPS L1 C/A code uses polynomial-division-based BCH decoding to validate satellite ephemeris data; u-blox and Qualcomm receiver chips implement this in silicon.
 
 ## Check Your Understanding
 

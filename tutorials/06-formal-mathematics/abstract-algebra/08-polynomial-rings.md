@@ -248,6 +248,10 @@ for coeffs, name in test_polys:
 - **AES encryption**: operates in $GF(2^8) \cong \mathbb{Z}_2[x]/(x^8 + x^4 + x^3 + x + 1)$.
 - **Computer algebra**: Maple, Mathematica, and SymPy manipulate polynomials symbolically using these algorithms.
 - **FFT-based multiplication**: multiplying large numbers reduces to polynomial multiplication via FFT.
+- **Reed-Solomon in QR codes, DVDs, and Voyager-1** — encodes bits as polynomial evaluations over $GF(2^8)$ and recovers up to $t$ erasures via interpolation; QR codes survive ink smudges thanks to RS(255, 223).
+- **NIST Kyber and Dilithium post-quantum cryptography** (FIPS 203/204, standardized August 2024) — security based on hard problems in the polynomial ring $\mathbb{Z}_q[x] / (x^n+1)$; Cloudflare and Apple iMessage are rolling these out to defeat future quantum attackers.
+- **Black-Scholes implied-volatility surfaces** — banks like JPMorgan fit polynomial spline surfaces to option prices, then compute Greeks (delta, gamma) by polynomial differentiation in real time on Bloomberg/Refinitiv terminals.
+- **Polynomial chaos expansion in aerospace UQ** — Boeing and SpaceX propagate aerodynamic uncertainty through $\mathbb{R}[x_1,\ldots,x_d]$ using Hermite polynomial bases, replacing 10,000-shot Monte Carlo with 100-call surrogate models for wing-flutter certification.
 
 ## Check Your Understanding
 

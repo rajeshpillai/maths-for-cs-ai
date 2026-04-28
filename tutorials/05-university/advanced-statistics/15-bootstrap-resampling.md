@@ -212,6 +212,24 @@ print(f"Permutation p-value: {p_perm:.4f}")
   inflated and skewed).
 - **Game Analytics:** Estimating confidence intervals for median session
   length, percentile-based engagement scores, or any non-standard metric.
+- **Bridge / aviation fatigue testing at Boeing / Airbus:** bootstrap
+  estimates of failure CDFs and S-N (stress-cycles) curves are required
+  for ASTM E739 and ISO 12107 fatigue-life certification, since coupon
+  test counts are small and failure-time distributions unknown.
+- **Pension and actuarial reserves at Mercer / Willis Towers Watson:**
+  bootstrap CIs on mortality-improvement scales (the SOA's MP-2021
+  scale) feed pension liability estimates that satisfy ASOP 35
+  reasonableness tests.
+- **Hedge-fund risk management:** bootstrap and block-bootstrap CIs on
+  Sharpe ratio, max drawdown, and tail-VaR are the SEC- and CFTC-
+  acceptable approach when return distributions violate normality —
+  used at AQR, Citadel, and Two Sigma.
+- **Hydrology / FEMA flood maps:** bootstrap estimates the uncertainty
+  on the 100-year flood quantile from limited stream-gauge records,
+  driving zoning rules at the Army Corps of Engineers.
+- **Genomics at the Broad Institute:** bootstrap is the standard
+  branch-support measure on phylogenetic trees in RAxML and IQ-TREE,
+  reported in essentially every published evolutionary-tree figure.
 
 ## Check Your Understanding
 

@@ -242,6 +242,11 @@ for rho, label, _ in specs:
 - **Mahalanobis distance** — uses the inverse covariance matrix: $d = \sqrt{(\mathbf{x}-\boldsymbol{\mu})^T \mathbf{C}^{-1} (\mathbf{x}-\boldsymbol{\mu})}$
 - **Gaussian processes** — defined entirely by mean and covariance functions
 - **Batch normalisation** — sometimes uses whitening (decorrelation via covariance matrix)
+- **Modern Portfolio Theory in practice** — BlackRock's Aladdin platform (managing $\sim$\$21 trillion of assets) computes covariance matrices on thousands of securities to run Markowitz mean-variance optimisation; this drives diversification across pension funds and sovereign wealth funds.
+- **Credit Default Swap pricing & Gaussian copula** — David Li's 2000 Gaussian-copula model (correlations of default times) was used to price mortgage-backed CDOs at AIG and Lehman; *under-estimation* of correlation in housing defaults was a key technical cause of the 2008 financial crisis.
+- **Six Sigma DOE (Design of Experiments)** — General Motors and 3M use covariance and ANOVA to identify which factors (temperature, pressure, supplier) drive product variation; correlation matrices guide root-cause analysis on assembly lines.
+- **Climate science & teleconnections** — NOAA and the IPCC quantify climate phenomena like El Niño through correlation between sea-surface temperatures across the Pacific (the ENSO index is essentially a correlation-derived statistic).
+- **Genomics & GWAS** — 23andMe and the UK Biobank use correlation matrices over millions of SNPs (single-nucleotide polymorphisms) for linkage-disequilibrium adjustment in genome-wide association studies that identify disease risk genes.
 
 ## Check Your Understanding
 

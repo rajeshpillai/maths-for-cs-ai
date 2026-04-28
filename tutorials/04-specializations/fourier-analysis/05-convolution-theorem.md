@@ -236,6 +236,10 @@ for N_v, K_v in [(100, 10), (1000, 100), (10_000, 1_000), (1_000_000, 10_000)]:
 - **CNNs** — some implementations use FFT for large kernels (though Winograd is more common)
 - **Polynomial multiplication** — FFT multiplies two polynomials in $O(N \log N)$
 - **Cross-correlation** — template matching in images
+- **Convolution reverb plugins (Altiverb, Waves IR-1)** — every major recording studio (Abbey Road, Capitol) uses FFT-based convolution to apply impulse responses captured in real concert halls (Sydney Opera House, Vienna Musikverein) onto dry studio tracks.
+- **GPS signal acquisition (Garmin, Trimble, u-blox receivers)** — receivers cross-correlate incoming satellite C/A codes against stored replicas via FFT-based matched filtering; this is why your phone can lock GPS even with a -130 dBm signal.
+- **Synthetic-aperture radar imaging (Sentinel-1, Capella Space)** — Earth-observation satellites convert raw radar pulses into high-resolution images by performing FFT-based range-Doppler convolution, providing cloud-penetrating imagery for defense and agriculture.
+- **MRI gradient-echo reconstruction (Siemens, GE)** — non-Cartesian k-space sampling (spiral, radial) is reconstructed via gridding + FFT convolution, accelerating cardiac scans by capturing only the most informative frequencies.
 
 ## Check Your Understanding
 

@@ -221,6 +221,20 @@ print(f"Match: {sp.expand(dz_ds_chain - dz_ds_direct) == 0}")
   output changes when you tweak an input parameter deep in the pipeline
 - **Control systems**: the chain rule propagates error signals through feedback
   loops in PID controllers and robotic systems
+- **Climate model adjoint methods**: the UK Met Office Unified Model and ECMWF's
+  IFS use the chain rule (adjoint code) to back-propagate forecast sensitivity
+  through hours of atmospheric simulation — central to data assimilation
+- **Financial portfolio risk attribution**: BlackRock Aladdin and MSCI Barra
+  use the chain rule to decompose portfolio P&L sensitivity to underlying
+  factors (rates, FX, equity) — answers "how much did each factor move my
+  book today?"
+- **Process-control loops at refineries**: Honeywell Experion and Emerson
+  DeltaV propagate setpoint changes through chained subsystems (heater $\to$
+  reactor $\to$ separator) using chain-rule sensitivities — the math behind
+  ExxonMobil and Shell plant-wide model-predictive control
+- **Electric-grid contingency analysis**: PJM Interconnection and ERCOT use the
+  chain rule on the AC power-flow Jacobian to determine how a transmission-line
+  trip cascades through node voltages — informs N-1 reliability standards
 
 ## Check Your Understanding
 1. Let $w = \ln(x^2 + y^2)$, $x = e^t$, $y = e^{-t}$. Find $dw/dt$ using the

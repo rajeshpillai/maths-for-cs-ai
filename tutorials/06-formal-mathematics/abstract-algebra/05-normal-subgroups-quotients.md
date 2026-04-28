@@ -226,6 +226,10 @@ print(f"A_3 (index 2) normal in S_3: {normal_a3}")
 - **Equivalence classes** in compilers (e.g., treating all expressions that reduce to the same value as identical) are quotient constructions.
 - **Congruence relations** in abstract interpretation (static analysis) form quotient structures.
 - **Symmetry reduction** in game AI: if a game board has symmetries (normal subgroup of moves), quotient the state space to avoid redundant search.
+- **GF(2^8) S-box construction in AES (NIST FIPS 197)** — built as the quotient ring $\mathbb{Z}_2[x] / (x^8+x^4+x^3+x+1)$; protects classified U.S. government data and every TLS 1.3 session, including all Visa/Mastercard online transactions.
+- **Quotient automata in chip verification at Intel and AMD** — Cadence JasperGold and Synopsys VC Formal collapse equivalent register states using bisimulation quotients, making post-silicon validation tractable for billion-transistor SoCs.
+- **Modal-shape reduction in mechanical FEA** — ANSYS and Abaqus quotient out rigid-body motions (a 6-dimensional normal subgroup of $SE(3)$) before computing eigenmodes for vibration analysis of jet engines and bridges.
+- **Customer cohort analytics at Stripe and Shopify** — daily revenue-per-cohort is the quotient of total payments by user-equivalence classes (signup-week cosets); this quotient structure powers retention dashboards used by every SaaS company.
 
 ## Check Your Understanding
 

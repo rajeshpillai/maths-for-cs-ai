@@ -213,6 +213,10 @@ for n in [1024, 16384, 1_000_000]:
 - **Multiplication** — FFT-based polynomial/integer multiplication
 - **Signal compression** — keep large coefficients, discard small ones
 - **NumPy/SciPy** — `np.fft.fft()` uses the Cooley-Tukey FFT
+- **Software-defined radio (SDR) — RTL-SDR, Ettus USRP, Anduril Lattice** — military and commercial SDRs run real-time FFTs on GHz-bandwidth IQ streams to detect drone telemetry, GPS jamming, and rogue cell towers.
+- **Vibration analysis on jet engines (GE9X, Pratt & Whitney GTF)** — accelerometer FFT spectra reveal blade-pass and bearing-cage frequencies; airline maintenance crews at Delta and Lufthansa use these signatures to predict component failures days before they ground aircraft.
+- **High-frequency-trading FPGA market-data feeds** — firms like Jump and Citadel run custom-silicon FFTs on order-book microstructure to extract cyclical patterns at sub-microsecond latency.
+- **Square Kilometre Array radio telescope (SKA-Low, SKA-Mid)** — petabyte-per-second sky data is correlated via parallel FFT pipelines on FPGAs, allowing astronomers to image distant galaxies and search for fast radio bursts.
 
 ## Check Your Understanding
 

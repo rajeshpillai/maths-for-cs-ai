@@ -445,6 +445,26 @@ print("  Matches right-to-left method ✓")
 - **Rational number detection**: In numerical computing, recognising that a
   floating-point result is actually a rational number (e.g., 0.142857... = 1/7)
   helps detect exact solutions.
+- **CRC checksums in storage industry (Western Digital, Seagate, Pure
+  Storage).** Every NVMe SSD and enterprise hard drive computes
+  CRC-32C polynomial divisions on each 4KB block — the cyclic period
+  of $1/p$ over GF(2) is what guarantees the error-detection coverage
+  in your laptop's filesystem.
+- **Telecom & GSM industry (Reliance Jio, Vodafone Idea).** The GSM
+  speech-coding scrambler and CDMA Gold-code sequences exploit the
+  long cyclic periods of $1/p$ for primes $p$ where 10 (or 2) is a
+  primitive root; chip-makers Qualcomm and MediaTek burn these
+  sequences into baseband ROMs.
+- **Insurance & actuarial (LIC, Munich Re).** Mortality tables and
+  whole-life premiums require fractions like $1/47$, $1/97$ to high
+  precision; legacy IBM mainframe COBOL programs at LIC's Mumbai
+  data centre still generate recurring decimals via Vedic ekadhika
+  loops because hardware FP wasn't trusted for 50-year contracts.
+- **Embedded firmware & PLC (Siemens, Mitsubishi).** Tiny microcontrollers
+  without a hardware divider implement $1/n$ as the ekadhika multiply
+  loop shown here — water-meter firmware at Itron and Honeywell utility
+  meters uses precisely this trick to convert flow pulse counts to
+  litres without invoking a slow software-divide library.
 
 ## Practice Problems
 

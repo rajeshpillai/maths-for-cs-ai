@@ -301,6 +301,10 @@ a tiny window of the world.
 - **Dilated convolutions** — WaveNet (audio), DeepLab (segmentation) use dilation for large RF without more params
 - **Object detection** — feature pyramid networks provide multiple receptive field scales
 - **Transformers** — global receptive field from the start (every token attends to every other)
+- **Engineering / Audio**: **Google's WaveNet** (powering Google Assistant TTS and used in YouTube auto-dubbing) uses dilated convolutions to reach a receptive field of *thousands* of audio samples (~hundreds of milliseconds) without exploding parameter count — needed to model speech prosody.
+- **Industry / Medical imaging**: **DeepLabv3+** (deployed in **GE Healthcare** and **Siemens Healthineers** segmentation tools) uses Atrous Spatial Pyramid Pooling — multi-rate dilated convs — to give each output pixel a receptive field large enough to "see" entire organs while still working on full-resolution scans.
+- **Business / Time-series forecasting**: **Amazon Forecast** and **Uber's M4 forecasting** use Temporal Convolutional Networks (TCNs) where dilation rate doubles per layer, so a 10-layer TCN has a receptive field of ~1024 timesteps — enough to model weekly + yearly seasonality in retail demand.
+- **Engineering / Seismology**: the **CEED earthquake-detection network** at Caltech uses dilated 1-D convs to give each output sample a receptive field of >30 seconds of seismic waveform — enough to discriminate P-waves from noise and trigger early-warning alerts to Japan's J-Alert and California's ShakeAlert.
 
 ## Check Your Understanding
 

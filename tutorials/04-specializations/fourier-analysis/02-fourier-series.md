@@ -225,6 +225,10 @@ print("why audio codecs use windowed transforms to soften discontinuities.")
 - **Equalizers** — boost/cut specific frequency bands
 - **Signal filtering** — remove noise by zeroing high-frequency Fourier coefficients
 - **Spectrograms** — time-frequency plots used in speech recognition and music analysis
+- **Tidal prediction (NOAA, UK Hydrographic Office)** — coastal tide tables for shipping at Singapore, Rotterdam, and the Port of LA are computed by fitting Fourier series with 30-100 lunar/solar harmonic constituents to historical tide-gauge records.
+- **Synchrotron X-ray crystallography (ESRF, Diamond Light Source)** — protein structures at pharmaceutical companies like AstraZeneca and Merck are determined by inverse Fourier-summing diffraction intensities into electron-density maps.
+- **Square-wave inverters in solar/EV systems (Tesla Powerwall, Enphase microinverters)** — power electronics deliberately shape PWM waveforms whose Fourier spectra place harmonics outside grid-code limits (IEEE 1547, EN 50438) to avoid penalty fines.
+- **Fetal heart-rate monitoring (Philips Avalon CTG, GE Corometrics)** — labor-and-delivery monitors decompose Doppler ultrasound returns into baseline + variability harmonics to flag fetal distress in real time.
 
 ## Check Your Understanding
 

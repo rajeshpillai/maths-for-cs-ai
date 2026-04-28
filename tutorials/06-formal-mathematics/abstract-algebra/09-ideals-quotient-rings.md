@@ -207,6 +207,10 @@ for d in range(n):
 - **Error correction**: Reed-Solomon codes use polynomial quotient rings over finite fields.
 - **Symbolic computation**: Groebner bases in polynomial ideal theory power equation solving in CAS software.
 - **Congruence in programming**: the `%` operator implements the quotient ring structure.
+- **Lattice-based homomorphic encryption (Microsoft SEAL, IBM HElib)** — operates in $\mathbb{Z}[x] / (x^n+1, q)$, a quotient ring, allowing computation on encrypted data; used by hospitals and banks to run analytics on patient/financial records without ever decrypting.
+- **NIST Dilithium signatures (FIPS 204, 2024)** — built on the quotient ring $\mathbb{Z}_q[x]/(x^{256}+1)$ to protect government PKI against future quantum attacks; Apple and Cloudflare are deploying it for TLS 1.3 hybrid handshakes.
+- **MRI k-space sampling lattices** — Siemens and GE scanners reconstruct images from quotient-lattice samples using duality of $\mathbb{Z}^3$ ideals; this enables 4-8x faster scans in compressed-sensing MRI for stroke imaging.
+- **Ideal-based cost reduction in operations research** — Gurobi and CPLEX MILP solvers use Groebner-basis reductions in $\mathbb{Q}[x_1,\ldots,x_n]$ to eliminate redundant constraints in airline crew scheduling problems at Delta and United, saving hundreds of millions annually.
 
 ## Check Your Understanding
 

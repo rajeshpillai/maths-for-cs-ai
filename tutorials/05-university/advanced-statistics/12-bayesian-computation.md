@@ -209,6 +209,23 @@ print(f"Exact 95% CI: [{exact_ci[0]:.3f}, {exact_ci[1]:.3f}]")
   uncertainty over value functions and transition models.
 - **Procedural Generation:** MCMC can sample from complex distributions
   over game levels, textures, or music that satisfy constraints.
+- **Election forecasting at FiveThirtyEight / The Economist:** state-level
+  poll aggregation runs hierarchical Bayesian models in Stan with NUTS
+  sampling; the 2020 Economist model published >40,000 MCMC draws of
+  electoral-college outcomes nightly.
+- **Pharmacometrics at Pfizer / Novartis (NONMEM, Stan):** population PK/PD
+  models fitted with MCMC support FDA New Drug Application submissions —
+  posterior dose-response samples drive labeled dosing recommendations.
+- **Risk capital at Goldman Sachs / JPMorgan (Basel III):** Bayesian VaR
+  and operational-risk capital models use MCMC to integrate over parameter
+  uncertainty; results feed regulatory CCAR / DFAST stress tests.
+- **Cosmological parameter estimation at NASA / ESA:** the Planck satellite
+  released cosmological parameters ($H_0$, $\Omega_m$, etc.) as MCMC chains
+  fitted with CosmoMC — billions of likelihood evaluations across
+  Cambridge / JPL clusters.
+- **Phylogenetics at the Broad Institute (BEAST, MrBayes):** SARS-CoV-2
+  variant-emergence dating during COVID was published with MCMC on
+  molecular-clock tree models; outputs informed CDC variant nomenclature.
 
 ## Check Your Understanding
 

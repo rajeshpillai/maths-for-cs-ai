@@ -379,6 +379,25 @@ for d in [7, 11, 13, 17, 19, 23]:
   is the same operation needed in RSA key generation and modular exponentiation.
 - **Data validation**: In ML data pipelines, quick sanity checks on computed
   values (does this loss value make sense?) use the same reasoning.
+- **Audit & forensic accounting (Big Four — Deloitte, EY, PwC, KPMG).**
+  Auditors at Tata Sons, ICICI Bank, and HDFC Bank use Navashesh
+  ("casting-out-nines") to cross-foot ledgers — a Rs 2-crore typo
+  caught in 5 seconds beats spending an hour re-totalling. Benford's
+  Law fraud detection follows the same digit-sum invariant.
+- **Banking & payments (NPCI UPI, Visa, Mastercard).** Every UPI VPA,
+  Aadhaar number, PAN card, IFSC, and credit-card number ships with a
+  Verhoeff/Luhn checksum that is structurally identical to the digital-
+  root method here — billions of these checks per day on Indian payment
+  rails alone.
+- **Logistics & shipping (DHL, BlueDart, FedEx).** AWB (airway bill)
+  numbers and shipping container ISO 6346 codes embed mod-11 check
+  digits to catch handler typos at warehouse scanners; the osculator
+  trick is the manual fallback when handheld terminals misread a digit.
+- **Competitive coding & quant interviews (Google, Goldman, JP Morgan).**
+  The "is X divisible by 7" question, mental Luhn validation, and digit-
+  sum tricks appear in screens at every quant prop shop and tier-1 SWE
+  interview. Cracking the Coding Interview and Heard on the Street both
+  drill exactly these patterns.
 
 ## Practice Problems
 

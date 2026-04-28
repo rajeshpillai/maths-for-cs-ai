@@ -188,6 +188,10 @@ print(f"  sin(2 · 30°) = sin(60°) = sin(120°) = sin(2 · 60°)")
 - **Aim assist** — predict where projectile lands given angle and speed
 - **Physics engines** — decompose into horizontal/vertical, integrate each frame
 - **Artillery** — adjust angle for distance, account for wind (extended model)
+- **Insurance underwriting (Lloyd's of London)** — actuaries use projectile-motion-derived range tables to evaluate fireworks-display public-liability premiums, capping mortar shell ranges at AS 2187.4 / NFPA 1123 stand-off distances.
+- **NASA/JPL launch-window planning** — the rocket equation builds on projectile motion to compute trans-lunar injection burns; Apollo 11 and Artemis I missions used parabolic ballistic phases for trans-Earth coast.
+- **Sports analytics (Hawk-Eye, Statcast)** — MLB Statcast tracks pitch trajectories with a Magnus-augmented projectile model to compute "exit velocity" and "launch angle" — the latter directly drives home-run probabilities used in player contract valuation.
+- **Wildfire ember-cast modeling (CSIRO, NIFC)** — bushfire spread models simulate burning-ember trajectories to predict spotting distances ahead of a fire front, used by Australian Rural Fire Service for evacuation triggers.
 
 ## Check Your Understanding
 

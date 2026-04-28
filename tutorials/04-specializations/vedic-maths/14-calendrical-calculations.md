@@ -415,6 +415,27 @@ show_steps(29, 2, 2000)
 - **Time series in ML**: Feature engineering often includes day-of-week as
   a cyclical feature. Understanding the mathematical structure helps design
   better encodings (sin/cos encoding of cyclical time features).
+- **Banking value-date settlement (RBI, SWIFT, NPCI).** T+1, T+2 cutoffs
+  for NEFT/RTGS, FX spot, and US T-bond settlements all skip weekends
+  and country-specific holidays — back-office reconciliation systems at
+  HDFC, Citi, and BNP Paribas compute weekday arithmetic billions of
+  times daily using Zeller-equivalent code paths.
+- **Insurance & pension actuarial (LIC, Aviva, MetLife).** Premium grace
+  periods, claim notification windows, and pension annuity start-dates
+  all encode "Tuesday-after-the-15th" style rules; IRDAI policy wording
+  templates rely on these calendrical computations being deterministic
+  to the day.
+- **Airline & rail scheduling (IndiGo, Indian Railways).** GDS systems
+  (Amadeus, Sabre, IRCTC) generate timetables where "every Tuesday
+  and Saturday" must roll across leap years; flight crew rostering at
+  Air India honours rest-day modular constraints identical to the
+  weekday arithmetic shown here.
+- **Religious & cultural calendars (Tirumala TTD, Vatican, Israeli
+  Rabbinate).** Hindu Panchang, Hijri lunar months, and Hebrew
+  liturgical calendars each layer modular weekday arithmetic over a
+  base solar/lunar cycle; Vedic calendrical methods directly inspired
+  the modern Indian Saka calendar published by the Government of
+  India's National Calendar Reform Committee.
 
 ## Practice Problems
 

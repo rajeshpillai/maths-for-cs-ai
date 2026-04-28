@@ -281,6 +281,10 @@ print("  Output of variational encoders : sometimes tanh (bounded latent codes)"
 - **Attention** — softmax produces attention weights in Transformers
 - **GELU everywhere** — GPT-2/3/4, BERT, ViT, LLaMA all use GELU
 - **Mixture of Experts** — gating networks often use softmax or sigmoid gates
+- **NVIDIA H100 / TensorRT inference kernels** — fused GELU and SiLU kernels in cuDNN and CUTLASS are hand-tuned for Hopper SMs; these run at every Anthropic, OpenAI, and Microsoft Azure inference endpoint.
+- **Apple Neural Engine (A17/M3 ANE)** — on-device Core ML uses ReLU6 and hard-sigmoid (Howard et al. MobileNetV3) because they map to fixed-point INT8 hardware ops without floating-point exp, saving battery on iPhone Photos and Siri models.
+- **Fraud detection (Stripe Radar, PayPal, Visa Advanced Authorization)** — final-layer sigmoid outputs $P(\text{fraud})$; thresholds on the sigmoid value (typically 0.5–0.9 depending on chargeback cost) gate billions of \$ in transactions per day.
+- **Medical-device AI (FDA-cleared, Caption Health, Aidoc, Viz.ai)** — ICU stroke-detection and echocardiography models use sigmoid output probabilities calibrated to FDA 510(k) sensitivity/specificity thresholds for clinical deployment.
 
 ## Check Your Understanding
 

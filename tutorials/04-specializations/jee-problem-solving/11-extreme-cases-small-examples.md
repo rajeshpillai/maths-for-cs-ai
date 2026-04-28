@@ -346,6 +346,23 @@ in industry:
   nonces). Many real-world breaks (e.g. PlayStation 3 ECDSA, Debian
   OpenSSL 2008) came from extreme cases: a fixed nonce, a tiny entropy
   pool.
+- **Stress testing in banking (RBI, Federal Reserve, ECB).** Annual
+  CCAR/SCAP exercises in the US and RBI's Macro Stress Tests for Indian
+  banks plug in extreme scenarios (8% GDP contraction, 30% real-estate
+  crash) into capital-adequacy models — the regulator's version of the
+  "let n → infinity" check.
+- **Pharmaceutical bridge-of-evidence (US FDA, India CDSCO).** Drug
+  approvals require dose-extrapolation from N=1 (first-in-human Phase 1)
+  out to general population — sponsors compute small-cohort sensitivities
+  and conjecture closed-form PK curves before full Phase 3 enrolment.
+- **Civil & structural engineering (Larsen & Toubro, ARUP).** Eurocode
+  EN 1990 mandates extreme-event design: 1-in-475-year earthquake,
+  1-in-50-year wind, 1-in-10000-year tsunami — every Indian metro pillar
+  and Burj Khalifa storey is sized at the *boundary* case, not the mean.
+- **Insurance & catastrophe modelling (Munich Re, Swiss Re).** AIR
+  Worldwide and RMS catastrophe simulators specifically run "what if
+  the storm hit Mumbai instead of Chennai?" extreme-tail scenarios; tail
+  VaR / Expected Shortfall on these drives reinsurance premium pricing.
 
 ## Check Your Understanding
 

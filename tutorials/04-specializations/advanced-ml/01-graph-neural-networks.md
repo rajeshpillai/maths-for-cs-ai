@@ -217,6 +217,10 @@ print("With each layer, every node's feature gets mixed with one more\n"
 - **Game AI** — navigation meshes as graphs; GNNs for pathfinding and spatial reasoning
 - **Traffic prediction** — road networks as graphs; GNNs predict congestion (Google Maps)
 - **Code analysis** — abstract syntax trees and control flow graphs; GNNs for bug detection
+- **Power-grid stability monitoring (PJM Interconnection, ERCOT Texas)** — utility operators model the grid as a graph of buses and transmission lines; GNNs trained on PMU sensor data forecast cascading failures and reroute load before brownouts.
+- **Anti-money-laundering (AML) at JPMorgan and HSBC** — transaction graphs with millions of accounts and trillions of edges are scored by GNNs (Amazon Neptune, TigerGraph) to detect layering and structuring patterns hidden in multi-hop money flows.
+- **Materials discovery at DeepMind GNoME and Citrine Informatics** — GNNs operating on crystal-structure graphs predict formation energies, accelerating discovery of new battery cathodes and superconductors by orders of magnitude over DFT simulations.
+- **5G network slicing (Ericsson, Nokia)** — telecom operators represent base-station topologies as graphs and use GNNs to dynamically allocate radio resources, optimizing latency for autonomous-vehicle and industrial-IoT slices.
 
 ## Check Your Understanding
 

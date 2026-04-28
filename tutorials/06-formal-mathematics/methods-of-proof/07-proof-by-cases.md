@@ -150,6 +150,10 @@ for n in range(-3, 4):
 - **Edge cases in algorithms**: handling empty arrays, single elements, and general case separately.
 - **Game state machines**: proving correctness of state transitions often requires case-splitting on the current state.
 - **Piecewise functions** (ReLU, absolute value) require case analysis for derivatives and continuity proofs.
+- **Tax-bracket calculations at Intuit TurboTax and H&R Block** — every U.S. federal/state filing splits income into IRS-defined brackets and proves correct tax owed by exhaustive case analysis; bugs here trigger IRS audits and class-action lawsuits.
+- **Four-color theorem (Appel-Haken 1976, Robertson et al. 1996)** — proved by reducing to ~1,500 cases checked by computer; formally re-verified in Coq (2005) and now drives map-rendering and frequency-allocation algorithms in cellular networks.
+- **DO-178C avionics certification at Boeing/Airbus** — control-law correctness must be proven by exhaustive case analysis over flight regimes (takeoff/cruise/landing/stall); a missed case in MCAS contributed to two 737 MAX crashes and $20B+ in losses.
+- **Insurance underwriting at Lloyd's of London and Swiss Re** — payout determination splits into exhaustive cases over peril type, jurisdiction, and exclusion clauses; ambiguous coverage (e.g., post-9/11 "act of war") generated billion-dollar litigation by exposing missed cases.
 
 ## Check Your Understanding
 

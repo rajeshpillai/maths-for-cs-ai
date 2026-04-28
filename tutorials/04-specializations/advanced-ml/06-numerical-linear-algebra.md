@@ -255,6 +255,10 @@ for N_v, nnz_v in [(1_000, 5_000), (100_000, 500_000), (1_000_000, 10_000_000)]:
   (Houdini, Unreal Chaos) and physically-based fluid solvers run sparse
   linear systems every frame; without iterative methods you'd never hit
   60 fps.
+- **NASA reservoir/aerodynamics solvers (FUN3D, OVERFLOW)** — Boeing 787 wing-flutter analyses solve sparse 100M+ DOF stiffness matrices via preconditioned GMRES on Cray supercomputers, cutting design cycles from years to weeks.
+- **MRI image reconstruction (Siemens, GE, Philips scanners)** — compressed sensing reconstructs under-sampled k-space data by iteratively solving a sparse L1-regularized least-squares system (FISTA, ADMM), enabling 4× faster patient scans.
+- **Schlumberger Petrel and ECLIPSE oilfield simulators** — multi-billion-cell sparse Newton solves for pressure and saturation across reservoirs guide drilling decisions for ExxonMobil and Saudi Aramco worth tens of billions.
+- **Quant risk engines at BlackRock (Aladdin) and Bridgewater** — covariance matrices of 10,000+ assets are factorised by sparse Cholesky variants to compute portfolio VaR for $10T+ assets under management daily.
 
 ## Check Your Understanding
 

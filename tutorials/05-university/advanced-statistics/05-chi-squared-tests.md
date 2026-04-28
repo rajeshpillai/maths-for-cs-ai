@@ -185,6 +185,21 @@ print(f"Chi-squared = {chi2_loot:.4f}, p = {p_loot:.4f}")
   matching intended probability distributions.
 - **Feature Selection:** Chi-squared test of independence identifies
   categorical features that are correlated with the target variable.
+- **U.S. Census / Pew Research polling:** chi-squared independence tests
+  on cross-tabulated demographic data (race x voting intention,
+  income x healthcare access) drive published reports that influence
+  redistricting and policy.
+- **Casino regulation (Nevada Gaming Control Board):** chi-squared
+  goodness-of-fit tests audit slot-machine RNGs and roulette wheels for
+  bias; vendors like IGT and Scientific Games must pass GLI-19 RNG
+  certification using these tests.
+- **Genetics at 23andMe / Broad Institute:** chi-squared tests check
+  Hardy-Weinberg equilibrium at SNP loci as a QC step before any GWAS,
+  flagging genotyping errors before downstream analysis.
+- **Marketing-mix attribution at Procter & Gamble / Unilever:** chi-squared
+  of independence tests whether channel exposure (TV, Instagram, retail
+  display) is associated with brand-purchase categories in Nielsen
+  consumer panels.
 
 ## Check Your Understanding
 

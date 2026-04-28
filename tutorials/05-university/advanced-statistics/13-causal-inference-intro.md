@@ -188,6 +188,22 @@ print(f"  Severity effect: {beta[2]:.2f} (should be ~-30)")
   click, or would they have clicked anyway?
 - **Game Design:** Did a balance patch *cause* the win rate change, or
   did player behaviour shift simultaneously?
+- **Causal-inference platforms at Microsoft DoWhy / Uber CausalImpact /
+  Meta:** Pearl's do-calculus is now production code measuring real ad
+  lift, marketing-channel attribution, and product launches; Microsoft
+  open-sourced DoWhy specifically because regression coefficients
+  weren't interpretable as causal at scale.
+- **FDA real-world-evidence (RWE) submissions:** propensity-score
+  matching and instrumental variables are now accepted under the 21st
+  Century Cures Act for label expansions of drugs (Pfizer's Ibrance,
+  for example) using EHR data instead of full RCTs.
+- **Antitrust economics at the DOJ / FTC:** synthetic-control methods
+  (Abadie et al.) estimate "but-for" prices in merger-effect cases —
+  e.g. used to evaluate the AT&T/Time Warner and Aetna/Humana mergers.
+- **Epidemiology at the CDC / WHO:** causal DAGs separate confounders
+  from mediators in COVID-19 vaccine effectiveness studies and the
+  Bradford Hill criteria for smoking-cancer causation, which underlie
+  modern public-health policy.
 
 ## Check Your Understanding
 

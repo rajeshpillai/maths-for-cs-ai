@@ -221,6 +221,10 @@ mini-batch gradients in deep learning.
 - **A/B testing** — sample means are normal → we can use z-tests and t-tests
 - **Monte Carlo** — error decreases as $1/\sqrt{n}$, directly from CLT
 - **Why Gaussian noise** — many real-world noise sources are sums of many small effects → CLT → Gaussian
+- **Political polling** — Gallup, Pew Research, and FiveThirtyEight rely on the CLT to claim "margin of error ±3% at 95% confidence" with $n \approx 1000$; the $1/\sqrt n$ scaling is why national polls don't bother sampling 100,000 people.
+- **Six Sigma & control charts** — Shewhart $\bar{X}$ charts (used at Motorola, Toyota, and Boeing manufacturing lines) work *because* sample-mean distributions are normal by CLT, regardless of individual measurement distributions; control limits at $\mu \pm 3\sigma/\sqrt n$ flag process drift.
+- **Insurance pooling & Law of Large Numbers** — State Farm, Allianz, and Lloyd's syndicate underwriting depends on CLT: pooling many independent policy claims means aggregate losses are predictably normal, even though individual claim severities are heavy-tailed.
+- **Particle physics discovery thresholds** — CERN's "5-sigma" rule for declaring the Higgs boson (2012) and other discoveries treats summary test statistics as normal by CLT; $5\sigma$ corresponds to a $\sim 3 \times 10^{-7}$ false-discovery probability.
 
 ## Check Your Understanding
 

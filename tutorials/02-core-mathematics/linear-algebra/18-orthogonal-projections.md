@@ -232,6 +232,10 @@ for i in range(A.shape[1]):
 - **PCA** projects high-dimensional data onto the subspace of the top eigenvectors of the covariance matrix.
 - **Shadow rendering** in games is literally projecting 3-D geometry onto a 2-D surface.
 - **Gram-Schmidt** (next lesson) repeatedly subtracts projections to build orthogonal bases, which power QR decomposition and stable numerical solvers.
+- **Finance — hedging as a projection:** at Goldman Sachs equities desks, the optimal hedge ratio of a stock against the S&P 500 ETF is the projection of return onto the market factor; the residual is "alpha" the trader keeps.
+- **Operations — A/B test variance reduction (CUPED at Microsoft / Netflix):** experiment metrics are projected orthogonally to pre-experiment covariates, cutting variance and shrinking required sample sizes by up to 50%.
+- **Engineering — GPS receivers' iono/tropo correction:** Trimble and u-blox GNSS chips project pseudorange residuals onto known atmospheric basis functions to improve civilian fix accuracy from $\sim$10 m to $\sim$1 m.
+- **Science — fMRI motion regression:** SPM and FSL neuroimaging pipelines project BOLD signal orthogonal to head-motion parameter vectors so neuroscientists at the NIH can isolate true neural responses.
 
 ## Check Your Understanding
 

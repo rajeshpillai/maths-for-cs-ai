@@ -177,6 +177,21 @@ print(f"\nscipy: F = {F_scipy:.4f}, p = {p_scipy:.4f}")
   different win rates across multiple maps.
 - **Compiler Optimisation:** Comparing execution times across multiple
   compiler flags or backends.
+- **Agronomy at Monsanto / Corteva / Syngenta:** multi-factor ANOVA on
+  hundreds of farm plots compares seed varieties x fertilizer x irrigation;
+  R.A. Fisher invented ANOVA at Rothamsted Experimental Station for
+  exactly this problem in the 1920s.
+- **Clinical-trial endpoints at Roche / Novartis:** multi-arm Phase II
+  oncology trials use ANOVA followed by Dunnett's test to compare several
+  experimental dosages against standard-of-care, gating which arm advances
+  to Phase III.
+- **Six Sigma DOE at Ford / 3M:** factorial ANOVA underlies Taguchi
+  methods used to identify which manufacturing variables (temperature,
+  pressure, alloy) drive variation in PPM defect rates.
+- **Educational testing at ETS / College Board:** ANOVA detects whether
+  SAT/GRE score differences across testing centers exceed expected
+  random variation, triggering investigations of scoring drift or test
+  security breaches.
 
 ## Check Your Understanding
 

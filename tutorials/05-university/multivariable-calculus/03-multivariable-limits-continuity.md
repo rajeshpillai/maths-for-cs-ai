@@ -209,6 +209,20 @@ for path_name, path_fn in [
   surface normals — a limit that depends on approach direction
 - **Numerical stability**: division-by-zero guards in shaders and ML code are
   essentially checking whether a limit exists
+- **CFD shock capture**: ANSYS Fluent and Siemens Star-CCM+ rely on directional
+  limit checks (Riemann solvers) at supersonic shock fronts in jet-engine
+  simulations for GE Aviation and Rolls-Royce
+- **Black-Scholes singularity at expiry**: option pricing PDE limits as
+  $t \to T$ (expiry) and $S \to K$ (strike) are path-dependent; Goldman Sachs
+  and JP Morgan quant desks handle these as one-sided limits to avoid pricing
+  blow-ups at strike boundaries
+- **Semiconductor device modelling**: Synopsys TCAD computes carrier density
+  $n(x,y)$ near p-n junction corners, where directional approach changes the
+  electric field — engineers verify limits exist before trusting transistor
+  yield projections at TSMC and Intel
+- **Climate model coastline boundaries**: NOAA and the UK Met Office handle
+  discontinuities in surface temperature gradients at land-sea interfaces by
+  detecting where $\lim_{(x,y)\to\text{coast}} T(x,y)$ depends on path
 
 ## Check Your Understanding
 1. Determine whether $\lim_{(x,y) \to (0,0)} \frac{x^2 - y^2}{x^2 + y^2}$ exists.

@@ -300,6 +300,25 @@ for a, b in pairs:
   you scale learning rate by sqrt(k) — proportional reasoning.
 - **Dimensional analysis**: Checking units in physics simulations relies on
   the same proportional thinking.
+- **Pricing & promotions (Amazon, Flipkart, BigBasket).** "Buy 3 get 1 free"
+  unit-economics calculations done by category managers — they mentally
+  scale 27 units / Rs 1080 to "easy 30 units / Rs 1200" before negotiating
+  vendor MOPs (Margin on Price); proportional simplification is built
+  into every quarterly business review template.
+- **Ratio & proportion in chemical industry (Reliance, BASF, Asian Paints).**
+  Batch scaling at a paint or polymer plant is literally "if 1L pigment
+  serves 50L paint, how much for a 1500L batch?" — Anurupyena reasoning
+  at line speed; the formulator who can scale a recipe up 30x without a
+  calc sheet saves the shift.
+- **Currency arbitrage & forex desks (HSBC, Deutsche Bank treasury).**
+  Quoting USD/INR vs USD/JPY cross-rates uses ratio scaling: spot
+  traders divide and multiply 5-digit quotes mentally to spot a
+  triangular arbitrage in milliseconds, before the algos catch up.
+- **Construction & material estimation (UltraTech Cement, Ambuja).**
+  Site supervisors translating "1:2:4 cement-sand-aggregate" into
+  truckload requirements for a 2400 sqft slab use exactly this
+  proportional-scaling math; over-ordering by 10% on a 100-flat tower
+  costs lakhs in spoilage.
 
 ## Practice Problems
 

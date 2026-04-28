@@ -236,6 +236,22 @@ print(f"\nKruskal MST: {mst}, total cost: {cost}")
   pathfinding (A* is Dijkstra + heuristic).
 - **MST:** Network design (cheapest cable layout), clustering (remove expensive
   edges to form clusters), image segmentation.
+- **Industry — Google Maps & Waze turn-by-turn navigation:** Continent-scale
+  Dijkstra/A* runs on the OpenStreetMap graph; Mapbox Directions, HERE
+  Routing, and TomTom embed the same algorithm in Toyota / Ford / BMW
+  in-dash nav SDKs serving billions of routes per month.
+- **Operations — UPS ORION delivery routing:** UPS's ORION system saves
+  ~10M gallons of fuel/year by running shortest-path heuristics (with
+  right-turn bias) over road graphs for 55,000 daily delivery routes —
+  documented annual savings of ~$300M.
+- **Engineering — Internet routing protocols (OSPF, IS-IS):** Cisco and
+  Juniper routers run Dijkstra on link-state databases every time the
+  topology changes; tier-1 ISPs like Level 3 / Cogent rely on this for
+  sub-second convergence after a fibre cut.
+- **Finance — MST in market correlation networks:** Hedge funds (Bridgewater,
+  Renaissance) build MSTs over asset return correlations to identify
+  cluster structure; Mantegna's classic paper showed MSTs of S&P 500
+  stocks recover sector groupings used in factor investing.
 
 ## Check Your Understanding
 

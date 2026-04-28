@@ -205,6 +205,10 @@ print(f"(2+3i) × (1-i) = {z1 * z2}")   # Should be 5+1i
 - **ℚ** — rational arithmetic avoids floating-point errors (Python's `fractions` module)
 - **ℝ** — weights in neural networks, pixel intensities, physics simulations
 - **ℂ** — Fourier transforms (audio/image processing), quantum computing, signal analysis
+- **Currency & accounting integers (Finance)** — Stripe, PayPal, and core-banking systems (Temenos, FIS) store money as integer cents/satoshis (ℤ) — never floats — to eliminate rounding errors that would otherwise compound across billions of daily transactions.
+- **Decimal arithmetic in payroll & tax (Business)** — ADP, QuickBooks, and SAP use exact rational/decimal types (ℚ) for VAT/GST and payroll deductions; IRS Schedule calculations require exact arithmetic to pass audit.
+- **AC power & impedance (Engineering)** — power utilities (Siemens Energy, GE Vernova) and audio gear (Bose, Dolby) model AC circuits with complex impedance $Z = R + jX$; wireless engineers at Qualcomm/Ericsson use ℂ for IQ-modulation signal chains in 5G basestations.
+- **Quantum chemistry & MRI (Science)** — Schrödinger Inc and Gaussian DFT codes solve complex-valued wavefunctions; Siemens/GE MRI scanners reconstruct images from complex k-space data via inverse FFT.
 
 ## Check Your Understanding
 

@@ -312,6 +312,10 @@ for desc, F_, oH, oW, C_in, K_ in [
 - **im2col** — the trick that converts convolution into a single large matrix multiply (how cuDNN actually does it)
 - **Depthwise separable convolution** — MobileNet splits the channel and spatial dimensions for efficiency
 - **Custom kernels** — image processing apps use hand-crafted kernels; CNNs learn them
+- **Industry / Hardware**: **NVIDIA cuDNN** ships im2col + GEMM and Winograd-transform implementations of `Conv2d`; **Google TPU v4/v5p** has a dedicated 128×128 systolic-array MatMul unit that turns the convolution into matrix multiplications using exactly the im2col trick.
+- **Engineering / Embedded**: **ARM Ethos-U55** NPUs and **STMicroelectronics STM32 X-CUBE-AI** ship hand-optimised conv kernels in C — the same nested-loop algorithm shown above, but unrolled and quantised to int8 to run on a microcontroller in milliwatts.
+- **Business / Smartphones**: **Apple Neural Engine** in the A17/A18 chips executes the equivalent of 35 trillion conv multiply-adds per second — purpose-built silicon to make Face ID unlock in <100 ms and run on-device Siri.
+- **Engineering / Self-driving**: **Mobileye EyeQ6** and **Tesla FSD chip** dedicate >70% of die area to convolution acceleration; a single forward pass through the perception network uses tens of GFLOPs per camera frame — exactly the cost formula derived in this lesson.
 
 ## Check Your Understanding
 

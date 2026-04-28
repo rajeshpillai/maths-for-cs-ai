@@ -236,6 +236,20 @@ print(f"  => 16x + 27y = 36")
   engines use tangent/normal computations at intersection points.
 - **AI/Robotics:** Elliptical confidence regions in Gaussian distributions; the director
   circle concept extends to decision boundaries.
+- **Aerospace / ISRO & SpaceX:** Mission planners parameterize transfer orbits as ellipses
+  with $(a\cos E, b\sin E)$ in Kepler's equation; Chandrayaan-3's lunar approach burn was
+  scheduled by solving exactly this conic-tangent intersection problem.
+- **Architecture & infrastructure:** Cooling-tower designs at NTPC and EDF nuclear plants
+  are hyperboloids of revolution — the parametric $(a\sec\theta, b\tan\theta)$ form sets
+  the cross-section radii at each height; whispering-gallery domes (Gol Gumbaz, US Capitol)
+  exploit ellipse focus-to-focus reflection.
+- **Manufacturing & CAD industry:** Autodesk Fusion 360 and Dassault SolidWorks store
+  fillets, automotive body curves, and lens profiles as rational Bezier/NURBS — projective
+  conics under the hood; tangent-continuity checks at curve joins use the chord-of-contact
+  identities.
+- **Optical & medical equipment:** Zeiss and Essilor grind aspherical/parabolic lenses for
+  cameras and progressive eyewear; LASIK ablation profiles are parametric conics chosen so
+  the corneal director-circle locus matches the patient's astigmatism axis.
 
 ## Check Your Understanding
 

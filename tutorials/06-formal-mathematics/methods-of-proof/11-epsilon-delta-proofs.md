@@ -183,6 +183,10 @@ print(f"ε={epsilon}, wrong δ={wrong_delta}: max|f(x)-6|={max_error:.4f}, < ε?
 - **Gradient descent convergence**: proving GD reaches an $\varepsilon$-optimal point within $N$ steps is an epsilon-delta argument.
 - **Floating point**: machine epsilon ($\varepsilon_{\text{mach}}$) quantifies the maximum relative error, directly echoing the $\varepsilon$ in our proofs.
 - **Game physics**: ensuring smooth interpolation (no jumps) between frames requires continuity guarantees.
+- **Black-Scholes Greek convergence at Goldman Sachs and Citadel** — vega/gamma calibration uses $\varepsilon$-$\delta$ Lipschitz bounds to certify that finite-difference Greeks match analytic ones to within $10^{-6}$; mispriced Greeks on a $10B option book translate directly to P&L losses.
+- **CFD residual convergence in ANSYS Fluent and SU2** — aerodynamic simulations at Boeing, SpaceX, and Formula 1 teams (Mercedes-AMG, Red Bull) declare a solution "converged" when residuals drop below $\varepsilon = 10^{-6}$, an explicit $\varepsilon$-$\delta$ stopping criterion validated against wind-tunnel data.
+- **PID controller stability at Honeywell and Emerson process plants** — Lyapunov $\varepsilon$-$\delta$ proofs guarantee that pressure/temperature loops in oil refineries and pharmaceutical batches stay within tolerance; deviation triggers automated trip protecting $1B+ assets.
+- **VaR backtesting under Basel III at every G-SIB bank** — $\varepsilon$-$\delta$ reasoning on tail probabilities tests whether 99% Value-at-Risk forecasts agree with realized exceedances; failures force capital surcharges from regulators (Fed, ECB, BoE).
 
 ## Check Your Understanding
 

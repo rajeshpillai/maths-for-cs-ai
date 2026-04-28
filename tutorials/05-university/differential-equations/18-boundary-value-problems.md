@@ -161,6 +161,21 @@ print("Exact eigenvalues:             ", [(n**2) for n in range(1, 6)])
   20–21) produces exactly these BVP eigenvalue problems.
 - **Spectral methods in ML** — Graph Laplacian eigenvalues are the discrete
   analogue; they power spectral clustering and graph neural networks.
+- **Acoustic guitar tonewood selection at Taylor / Martin Guitars** — top-plate
+  modal analysis is a 2D BVP; luthiers use Chladni patterns and FEM to choose
+  bracing patterns that boost particular eigenmodes for tonal balance.
+- **Nuclear reactor neutron diffusion at Westinghouse / Framatome** — fuel
+  loading patterns at PWR plants (Vogtle, Hinkley Point C) are designed by
+  solving a $-\nabla \cdot D \nabla \phi + \Sigma_a \phi = \lambda \nu \Sigma_f \phi$
+  BVP whose smallest eigenvalue is $k_{eff}$; criticality safety hinges on it.
+- **MEMS resonator design at TI / STMicroelectronics** — the resonant
+  frequency of MEMS gyros and microphones is the lowest BVP eigenvalue of the
+  beam equation; this number is the part-number datasheet's headline spec
+  in iPhone IMU sensors.
+- **Civil-engineering buckling analysis** — Euler's column buckling load
+  $P_{cr} = \pi^2 EI / (KL)^2$ comes from a BVP eigenvalue; AISC steel-design
+  spec uses these values to size every column in skyscrapers (One World
+  Trade Center).
 
 ## Check Your Understanding
 

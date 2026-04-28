@@ -180,6 +180,23 @@ for n in range(2, 15):
   generation often follow recurrence patterns.
 - **AI/ML:** Recurrent neural networks (RNNs) compute $h_t = f(h_{t-1}, x_t)$
   — literally a recurrence relation on hidden states.
+- **Finance — Compound interest & annuity pricing:** Mortgage amortisation
+  schedules at Wells Fargo / Quicken Loans solve $B_n = (1+r) B_{n-1} - P$
+  in closed form to compute monthly principal and interest; the same
+  recurrence prices bonds and annuities at MetLife and Vanguard.
+- **Engineering — Digital filter design (IIR filters):** Infinite Impulse
+  Response filters in audio (iZotope RX, Dolby Atmos) and radar DSPs
+  obey $y_n = \sum a_i y_{n-i} + \sum b_j x_{n-j}$; stability analysis
+  reduces to checking that the characteristic equation's roots lie inside
+  the unit circle.
+- **Operations — Inventory replenishment at Amazon & Walmart:** Stock
+  levels follow $S_n = S_{n-1} - D_n + R_n$ with reorder points modelled
+  by a Markov recurrence; closed-form solutions feed JD-Edwards / SAP
+  ERP systems for billion-dollar supply chains.
+- **Industry — Population & epidemic modelling at the CDC / WHO:** SIR
+  and SEIR compartmental models discretise into recurrences solved during
+  COVID-19 forecasting; Fibonacci-style growth dominated early-phase
+  exponential expansion before saturation kicked in.
 
 ## Check Your Understanding
 

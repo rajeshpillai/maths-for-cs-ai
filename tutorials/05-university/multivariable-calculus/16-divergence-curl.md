@@ -204,6 +204,20 @@ print(f"∇²φ = {laplacian}")
   gradient field (curl-free), which constrains the network architecture
 - **Helmholtz decomposition**: any vector field = curl-free part + divergence-free part;
   this decomposition separates irrotational flow from vortices in simulation
+- **Pixar and Industrial Light & Magic fluid sims**: Houdini's FLIP solver and
+  Pixar's Presto enforce $\nabla \cdot \mathbf{v} = 0$ via pressure-projection
+  to produce believable water in *Finding Dory* and *Moana* — divergence is
+  literally the "leak detector" of CG fluids
+- **MRI gradient encoding**: Siemens MAGNETOM and GE SIGNA enforce $\nabla
+  \cdot \mathbf{B} = 0$ on shimmed magnetic fields; failure to maintain this
+  produces phase-encoding artefacts visible to radiologists at Mayo Clinic
+- **Wind-turbine wake vorticity**: Vestas, Siemens Gamesa, and GE Renewable
+  use vorticity ($\nabla \times \mathbf{v}$) to model tip-vortex roll-up
+  behind blades — wake recovery distance feeds offshore-farm power forecasts
+  for Ørsted's Hornsea and Dogger Bank arrays
+- **Power-system stability**: ABB and GE Vernova use divergence/curl analogues
+  on the AC power-flow vector field to detect voltage-collapse precursors —
+  feeds situational awareness at PJM and ERCOT control rooms
 
 ## Check Your Understanding
 1. Compute div and curl for $\mathbf{F} = (xz, yz, xy)$.

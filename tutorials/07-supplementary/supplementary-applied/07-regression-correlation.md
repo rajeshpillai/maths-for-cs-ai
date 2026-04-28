@@ -239,6 +239,10 @@ print(f"Pearson r = {r:+.4f}  (note: r² = R² for simple linear regression)")
 - **Feature importance** — partial R² shows contribution of each feature
 - **Polynomial regression** — use $x, x^2, x^3$ as features (still "linear" in parameters)
 - **Ridge/Lasso** — add regularisation to prevent overfitting (Tier 5-01)
+- **Zillow Zestimate / Redfin Estimate** — home valuation models combine hundreds of millions of regression coefficients on comparable sales; Zillow's 2021 iBuying loss of \$881M came partly from regression overconfidence in 2021's noisy market.
+- **Capital Asset Pricing Model (CAPM)** — every stock's "beta" reported on Bloomberg, Yahoo Finance, and S&P Capital IQ is the slope coefficient from regressing the stock's excess return on the market's; it underpins WACC calculations for corporate finance.
+- **GE Predix / Siemens MindSphere predictive maintenance** — regression of vibration spectra on remaining-useful-life (RUL) for jet engines and wind turbines; GE9X engines pump telemetry into models that drive overhaul scheduling at airlines.
+- **Epidemiology — UK Biobank, Framingham Heart Study** — Cox regression and logistic regression on cardiovascular risk factors produce the QRISK3 score used by the NHS to prescribe statins to ~6 million UK adults.
 
 ## Check Your Understanding
 

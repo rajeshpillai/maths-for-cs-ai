@@ -227,6 +227,20 @@ print(f"  Numerical minimum: {np.min(y_test):.6f} at x = {x_test[np.argmin(y_tes
   amortised analysis is bounded by the arithmetic mean.
 - **Game dev:** Bounding expressions without calculus is useful for real-time constraint
   satisfaction in physics engines.
+- **Portfolio optimization & finance:** Markowitz mean-variance theory uses Cauchy-Schwarz
+  to bound the Sharpe ratio; BlackRock's Aladdin and Goldman Sachs' SecDB enforce risk
+  budgets via AM-GM-style diversification penalties (geometric-mean returns beat arithmetic
+  in long-horizon rebalancing — the "volatility drag" identity).
+- **Operations research / supply chain:** Amazon and Flipkart fulfilment use Jensen's
+  inequality to prove that batching pickups (concave cost) beats single-trip delivery in
+  expectation; Indian Railways uses Titu/Engel-form bounds for fair freight rate splits
+  across multi-leg routes.
+- **Power & energy industry:** Tata Power and EDF dispatch economically using AM-HM
+  bounds — the harmonic mean of generator efficiencies sets the absolute floor on grid
+  losses; ISO load-balancing constraints in CAISO/PJM markets are Cauchy-Schwarz duals.
+- **Telecom & communications engineering:** Shannon's channel-capacity bound uses Jensen's
+  inequality on the log function; 5G NR scheduler designs at Qualcomm and Nokia bell-labs
+  apply power-mean inequalities to balance throughput vs fairness across users.
 
 ## Check Your Understanding
 

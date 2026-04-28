@@ -198,6 +198,21 @@ print("  If det > 0 and tr = 0: center")
 - **Population dynamics** (Lotka-Volterra predator-prey) produce centers or
   spirals depending on parameters — understanding these prevents ecological
   simulations from blowing up.
+- **NOAA fisheries quota setting** — Atlantic cod and Pacific salmon stock
+  models draw phase portraits of biomass-vs-fishing-effort to identify
+  stable harvest equilibria; quotas set under the Magnuson-Stevens Act use
+  these portraits to avoid the "saddle" that triggers stock collapse.
+- **Macroeconomic IS-LM analysis at the IMF** — central-bank policy briefings
+  draw phase portraits of output vs interest rate to argue stable-spiral
+  recovery vs unstable-saddle paths after a shock; standard tool in IMF
+  Article IV consultations.
+- **CFD vortex shedding for offshore wind turbines** — Siemens Gamesa and
+  Orsted use phase-portrait classification of flow around monopiles to set
+  fatigue cycle counts under DNV-ST-0437 standards.
+- **Lithium-ion thermal-runaway diagnosis** — battery engineers at Panasonic
+  and CATL plot temperature vs reaction-rate phase portraits to locate the
+  unstable spiral that triggers catastrophic venting; UL 1973 cell testing
+  references this methodology.
 
 ## Check Your Understanding
 

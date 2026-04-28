@@ -291,6 +291,10 @@ all visible in the plots:
 - **PCA** — derived from SVD of the data matrix (next lesson)
 - **Latent Semantic Analysis** — NLP technique using SVD on term-document matrices
 - **Pseudoinverse** — $\mathbf{A}^+ = \mathbf{V}\mathbf{\Sigma}^+\mathbf{U}^T$ (used in least squares)
+- **Business — Netflix Prize (2009):** the winning BellKor's Pragmatic Chaos team used SVD-based collaborative filtering on a 480k user x 17k movie rating matrix to win the $1M prize and reshape the recommender industry.
+- **Finance — principal portfolios at Renaissance Technologies:** SVD of stock-return matrices isolates the market mode (largest singular value) and statistical-arbitrage modes used in Medallion Fund strategies.
+- **Engineering — modal analysis via SVD on flutter data:** Boeing's flight-test engineers apply SVD to wing strain time-series to extract dominant aeroelastic modes during 787 certification.
+- **Science — cryo-EM particle classification:** Thermo Fisher Krios microscopes and RELION software use SVD on millions of 2-D particle projections to reconstruct 3-D protein structures, behind several Nobel-winning discoveries.
 
 ## Check Your Understanding
 

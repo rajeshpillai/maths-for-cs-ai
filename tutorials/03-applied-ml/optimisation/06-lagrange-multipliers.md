@@ -254,6 +254,10 @@ for cx in [0, 1, 2, 3, 4]:
 - **Constrained optimisation in RL** — safety constraints ("never crash") formulated as Lagrangian relaxation
 - **Regularisation** — L2 regularisation is equivalent to constrained optimisation with $\|\mathbf{w}\|^2 \le C$
 - **Game theory** — Nash equilibria can be found using KKT conditions
+- **Business / Finance**: **Markowitz portfolio optimisation** as implemented in **BlackRock Aladdin** and **MSCI Barra** uses Lagrange multipliers — the multiplier on "expected return ≥ R" is literally the *price of risk* used to set institutional benchmark performance.
+- **Engineering / Aerospace**: **NASA JPL trajectory optimisation** for Mars sample-return and **SpaceX Falcon 9 landing** burns use Pontryagin's Maximum Principle (a Lagrangian formulation) — the multipliers are the costate variables that determine when to throttle for a fuel-optimal landing.
+- **Industry / RLHF for LLMs**: **OpenAI's PPO with KL constraint** and **Anthropic's Constitutional AI** train chat models with a Lagrangian-relaxed constraint that the policy stays within a KL ball of the reference model — the multiplier (often called $\beta$) directly trades reward vs faithfulness to the base model.
+- **Engineering / Operations research**: **UPS ORION** and **FedEx route-planning** as well as **American Airlines crew scheduling** use dual-variable (Lagrange multiplier) decompositions to scale shortest-path / set-covering problems across 100k+ daily routes.
 
 ## Check Your Understanding
 

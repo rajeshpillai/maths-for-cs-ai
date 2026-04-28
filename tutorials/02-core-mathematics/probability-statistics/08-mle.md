@@ -248,6 +248,10 @@ print(f"          ↳ peak in plot is at μ = {mus[np.argmax(log_L_gauss)]:.4f}"
 - **Language models** — trained by maximising likelihood of the training text
 - **Gaussian mixture models** — MLE via the EM algorithm
 - **Bayesian ML** — MLE is the "MAP estimate with a flat prior"
+- **Insurance ratemaking** — actuaries at Geico and Progressive use MLE to fit Poisson/Gamma claim-frequency-severity GLMs (Generalized Linear Models) under the Casualty Actuarial Society's standards; state insurance commissioners require MLE-fitted models for premium approval.
+- **Pharmaceutical survival analysis** — the Cox proportional-hazards model (used in every Phase III oncology trial reported in NEJM and Lancet) is fit by partial-likelihood MLE to estimate drug efficacy on time-to-event data.
+- **Econometrics & central banks** — the Federal Reserve and ECB fit DSGE (Dynamic Stochastic General Equilibrium) macroeconomic models by MLE on GDP/inflation time series; these models inform interest-rate policy at FOMC meetings.
+- **Petroleum reservoir characterisation** — ExxonMobil and Schlumberger fit subsurface permeability models by MLE on seismic data, driving multi-billion-dollar drilling decisions in the Gulf of Mexico and Permian Basin.
 
 ## Check Your Understanding
 

@@ -236,6 +236,10 @@ print(f"  π · P = {(stationary @ P).round(4)}  (should equal π)")
   driverless taxis solve MDPs in real time. Elevator dispatch in tall
   buildings, hospital bed allocation, and food-delivery rider routing all
   reduce to Markov-chain or MDP solvers.
+- **Insurance lifetime-value pricing (MetLife, Prudential)** — actuaries model policy-holder transitions (active → lapsed → reinstated → claimed) as multi-state Markov chains feeding billion-dollar reserve calculations under Solvency II.
+- **DeepMind data-center cooling at Google** — the MDP-trained controller saved Google 40% on cooling energy across worldwide hyperscale facilities by selecting valve and fan setpoints from continuous-state observations.
+- **Drug treatment policy in oncology (NIH SMART trials)** — clinicians use partially-observable MDPs to sequence chemotherapy regimens, balancing tumor response against toxicity over multi-year horizons.
+- **Tesla and Waymo behavior planning** — every self-driving stack solves an MDP at 10 Hz over discretized intent states (lane-change, yield, merge), with reward shaped by safety, comfort, and progress.
 
 ## Check Your Understanding
 

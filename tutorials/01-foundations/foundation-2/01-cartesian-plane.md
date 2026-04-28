@@ -151,6 +151,10 @@ print(f"In range? {dist <= attack_range}")
 - **k-nearest neighbours** — the ML algorithm literally finds the $k$ closest
   points using distance
 - **Pathfinding** — A* uses distance heuristics (Euclidean or Manhattan)
+- **Geocoding & ride-share dispatch** — Uber, Lyft, and DoorDash convert lat/long to a Cartesian (Mercator) projection so distance formulas can match drivers to riders in milliseconds; PostGIS in PostgreSQL is the standard backend.
+- **GIS & cadastral mapping** — county recorders and Esri's ArcGIS represent every parcel boundary as $(x, y)$ coordinates in state-plane systems; midpoint and distance formulas drive title surveys.
+- **CNC machining setup** — Haas and DMG Mori CNC machines reference work coordinates as $(x, y, z)$ origins; G-code instructions like `G54 X10.0 Y5.0` are pure Cartesian moves measured to a thousandth of an inch.
+- **Warehouse robotics** — Amazon's Kiva and Symbotic systems treat the floor as a Cartesian grid; routing algorithms compute distances on this grid to schedule thousands of mobile robots simultaneously.
 
 ## Check Your Understanding
 

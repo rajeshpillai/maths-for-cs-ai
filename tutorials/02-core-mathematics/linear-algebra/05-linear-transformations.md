@@ -391,6 +391,10 @@ print(f"e2 → {np.round(R45 @ e2, 4)}")
 - **Image processing** — rotation, scaling, warping are all matrix transformations on pixel coordinates
 - **Data whitening** — decorrelating features before ML is a linear transformation
 - **Dimensionality reduction** — PCA projects data onto principal axes (a linear transformation)
+- **Finance — currency conversion matrices** — Reuters and Bloomberg FX rate tables are linear transformations from one currency basis to another; arbitrage detection scans whether the product of three FX matrices equals the identity.
+- **Operations — Pixar and DreamWorks rigging** — every bone in a character's skeleton is a 4x4 affine transform; the entire rig of Woody in Toy Story 4 is a tree of linear transformations animators tweak per frame.
+- **Engineering — robot kinematics (ABB, FANUC)** — the end-effector pose of a 6-axis welding robot is the product of six Denavit-Hartenberg transformation matrices, recomputed at 1 kHz on the controller.
+- **Science — crystallography at synchrotrons** — the Diamond Light Source and APS use 3x3 reciprocal-lattice transformation matrices to index X-ray diffraction patterns and solve protein structures.
 
 ## Check Your Understanding
 

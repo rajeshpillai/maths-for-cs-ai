@@ -344,6 +344,25 @@ for n in [2, 3, 4, 5, 10]:
   coefficient sequences, which is how FIR filters work.
 - **Hardware multipliers**: many ALU designs use exactly this crosswise
   pattern in their combinational logic.
+- **Algorithmic-trading interviews (Jane Street, Optiver, IMC).** Live
+  mental-math drills test exactly this crosswise multiplication style —
+  a 3x3 product in under 8 seconds is a standard prop-shop screen, the
+  Urdhva pattern is the most efficient mental algorithm for it.
+- **Retail & FMCG operations (HUL, Reliance Retail, DMart).** Cashier
+  training and front-line sales reps practice 2-digit x 2-digit Urdhva
+  multiplications for quick GST + MRP cross-checks; Marico and Dabur
+  field-force apps still embed Vedic shortcuts in their mobile
+  calculators.
+- **VLSI / chip-design industry (Intel, AMD, Qualcomm).** Booth-encoded
+  array multipliers and Wallace trees in CPU/GPU floating-point units
+  reorganise partial products in exactly the Urdhva diagonal pattern;
+  iterative-multiplier fabric in NVIDIA H100 tensor cores follows the
+  same column-sum convolution shape.
+- **Industrial automation & PLC programming (Siemens, Rockwell, ABB).**
+  Field PLCs without a hardware multiplier (legacy Siemens S7-200,
+  Allen-Bradley MicroLogix) implement integer multiplication via
+  schoolbook+carry routines that mirror Urdhva column-sum order — the
+  same diagonal sweep, embedded in ladder logic.
 
 ## Practice Problems
 

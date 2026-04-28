@@ -186,6 +186,10 @@ print(f"  Continuous: ${P * math.exp(r * t):.2f}")
 - **Game balance** — XP curves often use exponential growth:
   level $n$ requires $c \cdot a^n$ experience points
 - **Radioactive decay in simulations** — half-life models for particle effects
+- **Loan payoff timelines** — solving $P(1+r)^t = \text{target}$ for $t$ tells homeowners when their mortgage hits a payoff balance; Quicken Loans and Rocket Mortgage display these dates by inverting the exponential.
+- **Time-to-double for investments** — the Rule of 72 is just $t \approx 72/r$, derived from $\ln 2 / \ln(1+r)$; Vanguard, Schwab, and most retirement-planning apps surface this exponential equation as a teaching aid.
+- **Carbon-14 dating** — labs at Lawrence Livermore solve $N(t) = N_0(1/2)^{t/5730}$ for $t$ to date archaeological samples; the same logarithmic inversion underlies tritium dating of groundwater for the EPA.
+- **Cooling-time engineering** — HVAC engineers at Carrier and Trane invert Newton's cooling law $T(t) = T_\infty + (T_0 - T_\infty)e^{-kt}$ to predict when a server room will hit thermal limits during outage; this drives data-center generator response specs.
 
 ## Check Your Understanding
 

@@ -203,6 +203,18 @@ print(f"After middle (y) at x=0.5: {middle:.4f}")
   integrals of the posterior density
 - **Spherical harmonics**: used in environment lighting (games) and quantum
   chemistry, are defined via integrals in spherical coordinates
+- **Petroleum reservoir simulation**: Schlumberger ECLIPSE and CMG STARS solve
+  $\iiint_E \phi(x,y,z)\, dV$ over porous-rock domains for ExxonMobil and Saudi
+  Aramco — calculates oil-in-place volumes used to value billion-dollar assets
+- **Wind-farm wake modelling**: NREL's FLORIS and Vestas use volumetric integrals
+  over rotor sweep zones to compute power loss from turbine wakes — drives
+  turbine spacing decisions at offshore farms like Hornsea
+- **Building HVAC load calculations**: ASHRAE 90.1 compliance uses triple
+  integrals of heat-source density over room volumes; Trane and Carrier
+  size chillers for skyscrapers like One World Trade and Burj Khalifa
+- **Pharmaceutical compartmental models**: Pfizer and Roche compute drug mass
+  in tissue compartments via $\iiint c(x,y,z,t)\, dV$ over organ volumes,
+  feeding FDA bioavailability submissions
 
 ## Check Your Understanding
 1. Evaluate $\iiint_B (x^2 + y^2 + z^2)\, dV$ where $B = [0,1]^3$.

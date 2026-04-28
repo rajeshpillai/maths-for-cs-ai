@@ -249,6 +249,10 @@ print(f"  ΣF = {total}    |ΣF| = {np.linalg.norm(total):.6e}")
 - **Rope/chain simulation** — tension propagation through connected bodies
 - **Robotics** — force analysis for joint torques
 - **Structural analysis** — bridge design, architectural loading
+- **Civil engineering codes (Eurocode 3, AISC 360, IS 800)** — every steel-frame building's connection plate is sized via static-equilibrium force balance; failures like the 1981 Hyatt Regency walkway collapse trace back to mis-applied $\sum F = 0$.
+- **Crane lift planning (Liebherr, Manitowoc LiftPlanner)** — riggers solve the two-rope tension problem before every heavy lift; OSHA 1926.1417 mandates documented load-chart calculations using force resolution.
+- **SpaceX Falcon 9 stage separation** — pyro-bolt force vectors and pneumatic-pusher reactions must sum to a clean equilibrium-breaking impulse so the upper stage clears the booster without contact.
+- **Insurance loss modeling (Munich Re, Swiss Re)** — wind-load and snow-load reinsurance models for commercial roofs apply ASCE 7 force-balance equations to estimate maximum-probable-loss for catastrophe bonds.
 
 ## Check Your Understanding
 

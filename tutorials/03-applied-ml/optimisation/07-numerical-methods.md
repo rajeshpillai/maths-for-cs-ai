@@ -311,6 +311,10 @@ for k in range(7):
 - **Inverse kinematics** — game characters reaching for objects use Newton-like methods
 - **Implicit methods** — ODE solvers for stiff systems use Newton's method at each step
 - **Quasi-Newton methods** — approximate the Hessian (L-BFGS) for large-scale optimisation
+- **Business / Finance**: **Black-Scholes implied-volatility solvers** at every options exchange (CBOE, ICE, Eurex) use Newton-Raphson to invert the option-price formula in microseconds — billions of times per day. Bisection is the fallback when Newton diverges near the money.
+- **Engineering / CAD & Graphics**: **Autodesk Maya/Blender inverse kinematics** and **Unreal Engine 5 Control Rig** use Newton's method (or Levenberg-Marquardt) to solve where a character's joints must rotate so the hand reaches a target — converging in 2–3 iterations per frame at 60 fps.
+- **Industry / Scientific simulation**: **ANSYS Fluent** (CFD), **Abaqus** (FEA), and **COMSOL Multiphysics** solve nonlinear PDE systems with Newton-Krylov iterations at every implicit timestep — the Boeing 787, the Tesla Model Y, and SpaceX Raptor engines are all designed by software calling Newton's method millions of times.
+- **Engineering / Embedded math**: every scientific calculator and pocket smartphone computes `sqrt`, `log`, `exp` via a small number of Newton-Raphson refinements after a hardware-table lookup — the firmware in **Texas Instruments TI-84**, **Casio fx-991**, and **iOS Calculator** does exactly the iteration shown above.
 
 ## Check Your Understanding
 

@@ -185,6 +185,20 @@ print(f"Radius of curvature ρ = {1/kappa:.4f}")
   and banking angles
 - **Cloth simulation**: curvature of a surface drives bending energy in
   physics-based cloth
+- **Highway and railway design**: AASHTO and FRA standards require curvature
+  $\kappa$ and its rate-of-change (clothoid/Euler spiral transitions) to set
+  superelevation and maximum safe speed; California High-Speed Rail and German
+  Autobahn alignments are designed against these curvature constraints
+- **Pipeline and oil-well design**: Schlumberger's directional drilling software
+  computes curvature ("dogleg severity") along the well-bore trajectory — too
+  high and the drill string fatigues or the casing buckles
+- **Medical stent and catheter design**: Boston Scientific and Medtronic
+  evaluate maximum curvature along coronary stents to ensure they navigate
+  vessel bifurcations without kinking; arc length determines deployable stent
+  inventory
+- **Roller-coaster engineering**: Bolliger & Mabillard and Intamin compute
+  curvature along the track at every point so that lateral $g$-forces stay
+  within ride-comfort and safety envelopes set by ASTM F2291
 
 ## Check Your Understanding
 1. Compute the arc length of $\mathbf{r}(t) = \langle 2t, \; t^2, \; \frac{1}{3}t^3 \rangle$

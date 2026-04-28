@@ -325,6 +325,10 @@ print(f"           Equal? {not_union == not_int_dem}  ✓")
 - **Power sets** — enumerate all possible subsets (used in search, game AI, combinatorial optimisation)
 - **Bloom filters** — probabilistic set membership testing
 - **Game dev** — collision groups, entity component systems use set operations
+- **Customer segmentation (Marketing/Business)** — Salesforce, HubSpot, and Adobe Experience Cloud express audience cohorts as set unions/intersections (`{purchased_X} ∩ {visited_Y in 30d}`); A/B-test holdout groups are computed as set differences.
+- **Inventory & SKU management (Operations)** — SAP S/4HANA and Oracle ERP use set operations to compute reorder points, intersect supplier catalogs, and reconcile inventory across warehouses (Walmart, Costco).
+- **Genomics & set enrichment (Science)** — bioinformatics tools (DESeq2, GSEA, MSigDB) intersect gene sets to find pathways enriched in disease vs control groups; broadly used at the Broad Institute and Genentech for drug-target discovery.
+- **Compliance & access control (Industry)** — AWS IAM and Microsoft Active Directory evaluate role-based access as set operations on permission sets; healthcare HIPAA audits at Epic/Cerner verify (`patient_records ∩ unauthorized_users) = ∅`.
 
 ### Set-Builder Notation
 

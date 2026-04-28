@@ -237,6 +237,10 @@ print(f"  Perimeter = 2*({length} + {w}) = {2*(length + w)}")
 - **Machine learning:** training a linear model means solving for weights $w$
   in $\hat{y} = wx + b$ — the same algebra, scaled up to millions of data
   points.
+- **Loan amortisation** — banks rearrange the annuity equation $P = \frac{r M}{1 - (1+r)^{-n}}$ to isolate the monthly payment $M$; spreadsheets like Excel's `PMT()` and the Bankrate mortgage calculator implement exactly this rearrangement.
+- **Unit economics & SaaS pricing** — solving $\text{LTV} = \text{ARPU} \times \text{gross margin} / \text{churn}$ for any one variable lets growth teams at Stripe or HubSpot back-solve the churn rate they can tolerate.
+- **Chemical reaction stoichiometry** — chemists at Dow and BASF solve multi-step linear equations to balance reactant moles before scaling a reactor; software like Aspen HYSYS automates the manipulation.
+- **Ohm's law in PCB design** — electrical engineers rearrange $V = IR$, $P = I^2 R$ to size traces and resistors; Altium and KiCad rule-checkers run these calculations on every net.
 
 ## Check Your Understanding
 

@@ -205,6 +205,10 @@ print(f"||Qx|| = {np.linalg.norm(Q @ x):.4f}")       # Same
 - **3D rotations** — every rotation matrix is orthogonal; game engines rely on this to transform vertices without distortion
 - **PCA** — eigenvectors of the covariance matrix form an orthogonal basis; projecting onto them decorrelates features
 - **Orthogonal initialisation** — initialising NN weights with orthogonal matrices preserves gradient magnitudes during training
+- **Finance — orthogonal factor returns at MSCI BARRA:** equity risk model factors are orthogonalized via Gram-Schmidt so a portfolio manager at Fidelity can attribute P&L to value, momentum, quality independently.
+- **Operations — orthogonal arrays in DOE (Genichi Taguchi):** Toyota and Sony designed reliability tests using orthogonal arrays $L_8, L_{16}$ so that effects of factors like temperature, voltage, and humidity could be estimated without confounding.
+- **Engineering — Householder reflectors in CFD solvers:** ANSYS Fluent and OpenFOAM use orthogonal Householder transforms inside QR/Hessenberg reductions for stable Krylov solvers on car-aerodynamics simulations.
+- **Science — Hadamard NMR spectroscopy:** Bruker NMR machines use orthogonal Hadamard pulse sequences to multiplex measurements, dramatically speeding up protein structure determination at biotech labs.
 
 ## Check Your Understanding
 

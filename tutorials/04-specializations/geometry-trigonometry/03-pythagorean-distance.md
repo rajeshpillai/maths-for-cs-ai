@@ -186,6 +186,10 @@ plt.show()
 - **K-means clustering** — assign points to nearest centroid (squared distance)
 - **Physics engines** — force calculations use distance between objects
 - **Spatial indexing** — quadtrees, k-d trees optimise distance queries
+- **Uber and DoorDash dispatch** — driver-to-rider/restaurant matching uses haversine + Euclidean distance on geo-coordinates to minimize total trip time across millions of dispatches per day.
+- **Amazon warehouse robot routing (Kiva/Amazon Robotics)** — fulfillment centers use squared L2 distance between bot and pod locations to plan pick paths; over 750,000 robots make distance comparisons billions of times daily.
+- **Real-estate "comps" pricing (Zillow Zestimate, Redfin Estimate)** — comparable-property selection ranks recent sales by Euclidean distance in feature space (sqft, beds, location), the basis of every automated home valuation in the US.
+- **LIDAR autonomous-vehicle perception (Waymo, Velodyne)** — point clouds from spinning LIDAR sensors are clustered by Euclidean distance to segment cars, pedestrians, and cyclists in real time at 10-20 Hz.
 
 ## Check Your Understanding
 

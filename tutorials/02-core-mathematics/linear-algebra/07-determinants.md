@@ -313,6 +313,10 @@ print(f"det(M) = {np.linalg.det(M):.0f} → transformed area = {abs(np.linalg.de
 - **Orientation** — game physics: detecting if a triangle is front-facing or back-facing
 - **Cramer's rule** — solving small linear systems using determinants
 - **Eigenvalue computation** — eigenvalues satisfy $\det(\mathbf{A} - \lambda\mathbf{I}) = 0$
+- **Business — multicollinearity diagnostics in regression** — econometricians at the Federal Reserve flag $\det(\mathbf{X}^T\mathbf{X}) \approx 0$ as a sign of multicollinearity, invalidating OLS estimates of inflation and unemployment models.
+- **Operations / Logistics — Cramer's rule for small dispatch problems** — DoorDash and Uber Eats route assignment for tiny rider pools uses Cramer-style determinants to solve 2x2 / 3x3 cost-minimization subproblems on the fly.
+- **Engineering — Jacobian determinant in CFD** — ANSYS Fluent and OpenFOAM check $\det(\mathbf{J}) > 0$ on every mesh cell during airflow simulations on F1 cars; a negative determinant means an inverted cell that crashes the solver.
+- **Industry — DNA microarray normalization** — Affymetrix and Illumina pipelines use determinants of small design matrices to detect singular experimental designs before running differential gene expression tests.
 
 ### NxN Determinants: Laplace Expansion (Cofactor Expansion)
 

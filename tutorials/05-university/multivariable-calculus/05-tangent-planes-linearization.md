@@ -212,6 +212,19 @@ print("(Error grows as we move away from the tangent point)")
   plane approximations for contact normals
 - **Error propagation**: the differential $df = f_x\,dx + f_y\,dy$ propagates
   measurement uncertainties through computations
+- **Black-Scholes Delta hedging**: brokers like Charles Schwab and Interactive
+  Brokers use the option's tangent plane $V \approx V_0 + \Delta(S - S_0) +
+  \rho(r - r_0)$ to estimate price moves over a short interval, rebalancing
+  Delta-neutral books in real time
+- **GPS positioning**: NovAtel and Trimble GNSS receivers linearise the nonlinear
+  pseudorange equations around an initial guess (tangent plane in $\mathbb{R}^4$)
+  and iterate via least squares — this is how your phone gets a fix
+- **Drug-dose response (Pfizer, Novartis)**: clinical pharmacologists linearise
+  nonlinear PK/PD models around therapeutic doses to estimate marginal
+  effect of dose adjustments, supporting FDA dose-titration labels
+- **Wind-tunnel surrogate models**: Boeing and SpaceX fit linear approximations
+  to expensive CFD simulations near design points so Reaction Engines and
+  Lockheed can run rapid trade studies without rerunning Fluent
 
 ## Check Your Understanding
 1. Find the tangent plane to $f(x, y) = \sqrt{x^2 + y^2}$ at the point $(3, 4)$.

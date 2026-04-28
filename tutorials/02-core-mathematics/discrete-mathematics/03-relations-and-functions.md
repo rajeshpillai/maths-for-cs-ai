@@ -318,6 +318,10 @@ for case in cases:
 - **Type conversions** — `int` → `float` is injective; `float` → `int` is surjective (many-to-one via truncation)
 - **Equivalence relations** — "same hash bucket", "same connected component", "same equivalence class in union-find"
 - **Game dev** — mapping between world coordinates and screen coordinates is a function (projection)
+- **Customer-to-account mapping (Business/CRM)** — Salesforce and HubSpot enforce many-to-one functions from contacts to accounts; many-to-many relations (campaigns × leads) are stored as junction tables — relational schema design *is* applied function/relation theory.
+- **Lookup tables in industry (Engineering)** — automotive ECUs (Bosch, Continental) implement injective fuel/ignition maps; tax-bracket lookups in TurboTax/H&R Block are piecewise functions encoded as ordered relations.
+- **Bijective database migrations (Operations)** — when banks (Wells Fargo, HDFC) migrate accounts between systems, every old account ID must map bijectively to a new one — auditors verify injectivity (no duplicates) and surjectivity (no orphans).
+- **Genome-protein mappings (Biology/Pharma)** — the genetic code (DNA codon → amino acid) is a surjective non-injective function; pharma R&D at Roche/Moderna uses inverse mappings (protein → mRNA) to design vaccines and antibody drugs.
 
 ## Check Your Understanding
 

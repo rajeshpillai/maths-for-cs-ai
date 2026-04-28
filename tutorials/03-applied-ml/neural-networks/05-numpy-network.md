@@ -290,6 +290,10 @@ print(f"  No frameworks used — just NumPy + the chain rule.")
 - **Debugging** — when shapes don't match or gradients explode, understanding the raw math helps
 - **Custom layers** — building novel architectures requires knowing the forward/backward math
 - **Embedded ML** — on microcontrollers, you may implement inference in raw C (same math)
+- **Industry / Edge devices**: **TensorFlow Lite Micro** and **Edge Impulse** generate hand-rolled C inference code (the same matmul + activation loop you wrote) for wake-word detection on **Amazon Alexa devices** and predictive-maintenance sensors on **Bosch industrial machinery**, running in <100 KB of RAM on Cortex-M4 microcontrollers.
+- **Engineering / Aerospace**: **NASA's Mars Perseverance rover** and **JPL Ingenuity helicopter** ran neural networks for autonomous terrain classification using rad-hardened processors where every matrix multiply was hand-implemented in C — there is no PyTorch on Mars.
+- **Business / FinTech**: **Goldman Sachs SecDB** and **JPMorgan Athena** ship in-house tensor libraries (no PyTorch in the production-trading hot path) so risk-model inference can clear the regulator-required latency budget for intraday VaR calculations.
+- **Engineering / Auto / Aerospace certification**: **DO-178C** (avionics) and **ISO 26262** (automotive functional safety) effectively require deployed inference code to be auditable line-by-line — production code at **Airbus**, **Bosch**, and **Continental** ADAS often re-implements the forward pass in certified C/Ada rather than shipping PyTorch.
 
 ## Check Your Understanding
 

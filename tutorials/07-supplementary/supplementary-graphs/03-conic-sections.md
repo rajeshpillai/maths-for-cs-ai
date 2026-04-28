@@ -187,6 +187,10 @@ print("  e > 1  →  hyperbola  (Kepler's escape trajectories)")
 - **Ellipse** — planetary orbits (Kepler), collision shapes in games
 - **Hyperbola** — GPS triangulation, hyperbolic geometry in ML embeddings (Poincaré embeddings)
 - **Conic detection** — computer vision: detecting ellipses in images (e.g., eyes, wheels)
+- **Hubble Space Telescope / James Webb (NIRCam)** — primary mirrors are paraboloidal/hyperboloidal Cassegrain conic surfaces; Hubble's famous 1990 spherical-aberration defect was a 2.2 µm conic-constant manufacturing error costing \$1.5B to fix.
+- **Concentrated solar power (Ivanpah, NOOR Ouarzazate)** — parabolic-trough thermal plants in California and Morocco focus sunlight on tube receivers using parabolic reflectors; capacity factors depend on conic-figure precision.
+- **LORAN-C and modern eLoran maritime navigation** — hyperbolic time-difference-of-arrival positioning was used by U.S. Coast Guard until 2010 and is now being revived (UrsaNav, NELS) as a GPS backup against jamming/spoofing.
+- **Whispering-gallery domes (St. Paul's Cathedral, U.S. Capitol)** — elliptical cross-sections focus sound from one focus to the other; modern echo-cancellation in concert halls (Sydney Opera House refurb) leverages this acoustic property.
 
 ## Check Your Understanding
 

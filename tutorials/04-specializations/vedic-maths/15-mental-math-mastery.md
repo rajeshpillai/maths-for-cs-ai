@@ -499,6 +499,30 @@ for i in range(10):
   finance, consulting, and competitive programming interviews.
 - **Estimation in ML**: Quick mental estimates of model sizes, parameter
   counts, and computational costs use these same techniques.
+- **Quant prop trading (Jane Street, Optiver, IMC, Tower).** Live mental-
+  math drills are part of every desk's daily warm-up; candidates are
+  filtered on 30-question speed rounds covering exactly the Vedic
+  toolbox — Nikhilam, diff-of-squares, ending-in-5 squares — with
+  $250k+ starting offers riding on the result.
+- **Vedic Maths coaching industry (Aloha, UCMAS, SIP Academy, Vedic
+  Maths Forum India).** A ₹3000+ Cr Indian after-school market plus
+  exports to Singapore/UAE/UK build entire franchise networks around
+  these 16 sutras; each branch licenses curriculum and trains "abacus
+  + Vedic" instructors at scale.
+- **Memory & cognitive sports (Magnus Carlsen, World Memory
+  Championships).** International Mental Calculation World Cup
+  competitors (Yusnier Viera, Daniel Timms) drill these exact Vedic
+  techniques as core strategy — squaring 5-digit numbers under 30
+  seconds is a podium-level skill.
+- **K-12 EdTech & competitive entrance prep (BYJU'S, Unacademy,
+  Allen, FIITJEE).** JEE/NEET/CAT classroom dashboards explicitly
+  embed Vedic shortcuts in their adaptive question engine; aspirants
+  who internalize them gain measurably higher per-section scores.
+- **Recreation & cognitive ageing (Nielsen, AARP, NIH).** Mental-math
+  practice is one of the few interventions clinically associated with
+  delayed cognitive decline in older adults; geriatric programs at
+  AIIMS Delhi and Mayo Clinic prescribe Vedic-style mental drills as
+  cheap, drug-free brain training.
 
 ## Practice Problems
 

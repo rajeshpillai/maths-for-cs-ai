@@ -253,6 +253,10 @@ print(f"Direct count    = {4/6:.4f}    (outcomes 2, 4, 5, 6 out of 6)")
 - **Game AI** — probability of drawing a card, rolling a value, enemy spawn rates
 - **Cryptography** — security relies on events being computationally indistinguishable from random
 - **Naive Bayes classifier** — built directly on probability axioms and independence
+- **Insurance underwriting** — actuarial tables (mortality, accident frequency) at Allianz, AIG, and Swiss Re apply Kolmogorov axioms over decades of claims data to set premiums and reserve capital under Solvency II rules.
+- **Casino house edge** — Las Vegas casinos like MGM and Caesars price every blackjack/roulette/craps bet using classical probability (favourable outcomes / total outcomes); the law of large numbers guarantees long-run profitability per Nevada Gaming Control Board reporting.
+- **Reliability engineering** — NASA mission risk assessments and FAA aircraft certification use the inclusion-exclusion principle on fault trees (e.g., Boeing 787 redundant systems) to compute failure probabilities for critical components.
+- **Pharmaceutical lottery** — Merck and Pfizer apply probability axioms to portfolio decisions: roughly 1-in-10 Phase I drugs reach FDA approval, so independence assumptions on parallel trials drive R&D budgeting.
 
 ## Check Your Understanding
 

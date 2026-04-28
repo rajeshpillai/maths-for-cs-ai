@@ -265,6 +265,10 @@ print(f"  intersection point = {intersection.round(4).tolist()}")
 - **3D modelling** — plane of symmetry, cutting planes, cross sections
 - **Robotics** — workspace boundaries as planes, motion paths as 3D lines
 - **Computer vision** — 3D reconstruction from multiple views uses line-plane geometry
+- **Velodyne / Ouster LiDAR for self-driving (Waymo, Cruise)** — point clouds are segmented by RANSAC plane-fitting to detect ground, building facades, and vehicle bodies in real time at 10–20 Hz.
+- **Architectural BIM (Autodesk Revit, Bentley OpenBuildings)** — every floor slab, wall, and roof in a digital twin is stored as a parametric plane equation; clash-detection algorithms in Navisworks intersect these planes to flag conflicts before construction.
+- **3D printing slicer software (Cura, PrusaSlicer)** — layer-by-layer slicing intersects horizontal planes with the STL mesh of an object; this is how every FDM and SLA printer (MakerBot, Formlabs) generates G-code toolpaths.
+- **Surveying & mining (Trimble GNSS, Leica Total Stations)** — open-pit mine wall stability is monitored by fitting planes to point-cloud scans; structural geologists compute discontinuity planes (joints, faults) at sites like Bingham Canyon to prevent slope failure.
 
 ## Check Your Understanding
 

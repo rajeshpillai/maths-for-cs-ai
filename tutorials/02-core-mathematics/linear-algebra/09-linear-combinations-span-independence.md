@@ -339,6 +339,10 @@ print(f"Hadamard   A⊙B      =\n{A_mat * B_mat}")             # [[5,12],[21,32]
 - **Hadamard product in gating** — LSTMs and Transformers use element-wise
   multiplication to gate information flow: $\mathbf{f}_t \odot \mathbf{c}_{t-1}$
   decides which memory cells to keep.
+- **Finance — replicating portfolios** — at Jane Street and Citadel, hedging an exotic option means writing it as a linear combination of liquid instruments (vanilla calls/puts); if those don't span the payoff, the market is incomplete.
+- **Marketing — media-mix modelling** — Nielsen's MMM expresses sales as a linear combination of TV, digital, and OOH spend vectors; collinearity between channels (linear dependence) breaks the attribution and is fixed via ridge regression.
+- **Engineering — modal analysis at automakers** — Ford and Toyota NVH teams decompose vibration of a body-in-white as a linear combination of vibration modes; if modes aren't independent the FEA solver returns nonsense.
+- **Science — mass spectrometry mixture deconvolution** — Thermo Fisher Orbitrap analysers express an observed spectrum as a linear combination of pure-compound spectra; non-negative least squares finds independent components in proteomics.
 
 ## Check Your Understanding
 

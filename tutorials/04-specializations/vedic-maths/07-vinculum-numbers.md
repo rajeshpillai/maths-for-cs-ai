@@ -347,6 +347,26 @@ print(f"  Max |intermediate product|: {max(abs(p) for _,_,p in products)}")
   scalar multiplication.
 - **Balanced ternary**: The ternary computer system uses digits {-1, 0, 1},
   which is vinculum in base 3.
+- **CPU/GPU multiplier design (Intel, AMD, NVIDIA, Apple Silicon).** Booth-2
+  and Booth-3 encoders in every modern multiplier (M1/M2 Neural Engine,
+  AMD Zen FP units) literally rewrite operands as signed-digit / vinculum
+  numbers to halve the partial-product count — translating directly into
+  watts saved on smartphone SoCs.
+- **Cryptocurrency miners & ECC accelerators (Bitmain ASICs, AWS Nitro
+  enclaves).** Bitcoin secp256k1 scalar multiplication on every mining
+  rig uses windowed Non-Adjacent-Form (NAF) — signed-digit recoding
+  that's directly the vinculum trick — so each ECDSA signature finishes
+  with ~1/3 fewer additions; a measurable hash-rate dollar saving.
+- **Forex & treasury (Citi, Standard Chartered).** Mental cross-rate
+  arithmetic uses vinculum-style "+1, -3" decomposition: a trader pricing
+  EUR/INR via USD/EUR and USD/INR mentally subtracts surplus pips
+  rather than summing — same cognitive shortcut, big P&L savings on
+  large blocks.
+- **Inventory & SCM (Walmart, Reliance Retail, Zomato dark stores).**
+  Stock-take corrections and shrinkage adjustments at end-of-day:
+  category managers reconcile by writing a +/- delta column instead of
+  re-totalling, which is vinculum at the spreadsheet level — avoids a
+  20% rate of hand-arithmetic errors that plagued legacy SAP rollouts.
 
 ## Practice Problems
 

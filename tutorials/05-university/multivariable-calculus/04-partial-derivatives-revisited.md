@@ -204,6 +204,18 @@ print(f"Symbolic  f_xy(1,2) = {float(f_xy.subs(point)):.6f}")
   and blobs in images
 - **Physics simulation**: the wave equation, heat equation, and many PDEs are
   written in terms of second partial derivatives
+- **Black-Scholes Greeks**: Gamma $\Gamma = \partial^2 V / \partial S^2$ is a
+  pure second partial; options market-makers at Citadel, Susquehanna, and
+  Optiver hedge Gamma exposure continuously to manage convexity risk
+- **Structural FEA**: ANSYS Mechanical and Abaqus compute the Hessian of strain
+  energy density $\partial^2 U / \partial \epsilon_{ij} \partial \epsilon_{kl}$
+  to derive material stiffness tensors used by Boeing and Airbus stress teams
+- **MRI gradient encoding**: Siemens MAGNETOM and GE SIGNA scanners use mixed
+  partials of the magnetic field $\partial^2 B_z / \partial x \partial y$ to
+  model gradient nonlinearity and correct image distortion
+- **Demand modelling at Walmart and Amazon**: cross-elasticity of demand
+  $\partial^2 \text{revenue} / \partial p_1 \partial p_2$ between substitute
+  goods is a mixed second partial — drives bundled pricing experiments
 
 ## Check Your Understanding
 1. For $f(x, y) = e^{xy} + x^3 y^2$, compute $f_x$, $f_y$, $f_{xx}$, $f_{yy}$,

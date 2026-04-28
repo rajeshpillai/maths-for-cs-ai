@@ -242,6 +242,10 @@ print("  Therefore n² + n is even.  □")
 - **Formal verification** (Coq, Lean, Agda): computer-checked proofs are the ultimate "proof writing discipline."
 - **Technical interviews**: communicating a correct solution clearly is as important as finding it.
 - **Research papers**: ML papers increasingly require correctness proofs for theoretical contributions.
+- **Lean 4 mathlib and Liquid Tensor Experiment (Scholze, 2022)** — formalized modern mathematics in machine-checked proofs; same toolchain underpins Hales' Flyspeck verification of the Kepler conjecture, accepted by FAA-funded packing analyses.
+- **Audit trails at Big Four firms (Deloitte, PwC, EY, KPMG)** — SOX 404 and ISO 27001 compliance demand auditable proof-style evidence that financial controls work; well-structured audit memos mirror clean proof writing and survive litigation discovery.
+- **Patent claims at the USPTO and EPO** — patent prosecution requires proof-style justification ("the prior art does not anticipate because..."); poor writing (vague claims, missing steps) leads to billion-dollar invalidations like Apple v. Samsung.
+- **NRC nuclear safety case for AP1000 (Westinghouse) reactors** — defense-in-depth arguments are written as multi-page formal proofs; reviewers at the NRC, IAEA, and ONR (UK) require every assumption stated and every inference justified before granting operating licenses.
 
 ## Check Your Understanding
 

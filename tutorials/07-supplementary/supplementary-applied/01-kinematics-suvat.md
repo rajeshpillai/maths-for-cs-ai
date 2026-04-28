@@ -209,6 +209,10 @@ print("  v² = u² + 2as")
 - **Ballistics** — bullet drop, projectile prediction
 - **Animation** — ease-in/ease-out using constant acceleration
 - **Euler integration** — games update position each frame: $x += v \cdot dt$, $v += a \cdot dt$
+- **Highway design (AASHTO Green Book)** — stopping sight distance is computed using $v^2 = u^2 + 2as$ with $a \approx 3.4$ m/s² braking deceleration; this dictates U.S. interstate curve geometry and speed-limit signage.
+- **Elevator dispatch (Otis, KONE, Schindler)** — controllers solve SUVAT to plan jerk-limited acceleration profiles so passengers don't feel discomfort, capping $a$ at ~1.0 m/s² for commercial buildings.
+- **Tesla Autopilot / Mobileye ADAS** — forward-collision warning uses $v^2 = u^2 + 2as$ on radar-measured closing velocity to issue brake alerts within ~150 ms.
+- **Logistics ETA (UPS ORION, FedEx)** — package-delivery routing factors constant-acceleration models for truck stop-start cycles to estimate fuel cost per mile.
 
 ## Check Your Understanding
 

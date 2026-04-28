@@ -291,6 +291,10 @@ for W in [28, 32, 64, 224]:
 - **Photoshop filters** — emboss, find edges, Gaussian blur = specific kernels
 - **Audio processing** — 1D convolution on waveforms (echo, reverb)
 - **Feature maps** — each learned kernel produces a "feature map" highlighting one pattern
+- **Industry / Medical**: **Aidoc** and **Zebra Medical Vision** — FDA-cleared CNN products that triage CT/X-ray scans for stroke, pulmonary embolism, and intracranial haemorrhage in hospitals worldwide; the first conv layer is doing exactly the Sobel-like edge detection shown above.
+- **Industry / Manufacturing**: **Cognex VisionPro** and **Keyence CV-X** — industrial vision systems on factory lines (BMW, Foxconn, Coca-Cola bottling) use convolutional kernels to inspect every part for surface defects at >100 fps.
+- **Business / Retail**: **Amazon Go** stores use convolutions on overhead-camera feeds to detect "item picked from shelf" events in real time, replacing checkout staff.
+- **Engineering / Geosciences**: **Planet Labs** and **Maxar** apply CNNs to daily satellite imagery to count cars in retail parking lots (used by hedge funds for pre-earnings revenue estimates) and to detect deforestation, oil-tanker fill levels, and crop yield.
 
 ## Check Your Understanding
 

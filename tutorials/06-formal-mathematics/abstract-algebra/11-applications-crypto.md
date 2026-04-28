@@ -253,6 +253,10 @@ if R is not None:
 - **Secure messaging** (Signal protocol): uses Curve25519 (an elliptic curve over a large prime field).
 - **Post-quantum cryptography**: lattice-based schemes use algebraic structures (module lattices over polynomial rings).
 - **Zero-knowledge proofs** (ZK-SNARKs): use pairings on elliptic curves over finite fields.
+- **Visa/Mastercard EMV chip-and-PIN** — every contactless tap-to-pay terminal worldwide runs ECDSA over secp256r1 (NIST P-256) in the chip; about $10 trillion/year in card volume rides on this curve's group law.
+- **NIST PQC standardization (FIPS 203/204/205, August 2024)** — Kyber, Dilithium, SPHINCS+ replace ECC for sectors where data must remain secret beyond a quantum computer's eventual arrival; the U.S. NSA's CNSA 2.0 mandate forces migration by 2035 for classified systems.
+- **Apple iMessage and WhatsApp E2E encryption** — uses Curve25519 (Bernstein, 2005) for key agreement; about 5 billion devices send hundreds of billions of messages per day protected by this single elliptic curve group.
+- **HSM and TPM hardware modules** — Thales Luna, Yubico YubiKey, and Microsoft Pluton chips implement these field/group operations in tamper-resistant silicon; financial regulators (PCI-HSM, FIPS 140-3) certify them for key custody at JPMorgan, Coinbase, and SWIFT.
 
 ## Check Your Understanding
 

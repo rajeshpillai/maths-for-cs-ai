@@ -175,6 +175,10 @@ for x in [-5, 0, 3.7, 10]:
 - **Database keys**: primary keys enforce injectivity — no two rows map to the same key.
 - **Activation functions**: ReLU is not injective (all negative inputs map to 0), which causes information loss.
 - **Bijections in combinatorics**: counting problems often reduce to finding bijections between sets.
+- **SHA-256 collision resistance underpins Bitcoin** — Bitcoin mining uses SHA-256's near-injectivity (no two blocks hash to the same digest); a true collision would invalidate the entire $1T+ chain, hence NIST and CRYPTREC ongoing scrutiny.
+- **Bijective UPC-A and EAN-13 barcodes in retail** — every product worldwide gets a bijective code GS1 assigns; Walmart and Amazon supply chains depend on this injectivity to track 10B+ SKU-shipments per year without confusion.
+- **Bijective maps in 3D printing slicer software (Cura, PrusaSlicer)** — STL mesh repair relies on injective vertex maps to ensure manifold topology; non-bijective meshes cause print failures costing operators hours of material at Stratasys and HP MultiJet farms.
+- **One-to-one customer matching at Equifax and TransUnion** — credit-bureau merges across data sources require bijective record-linkage; collisions misattribute defaults and have triggered class-action suits worth billions when SSN-based linkage fails.
 
 ## Check Your Understanding
 

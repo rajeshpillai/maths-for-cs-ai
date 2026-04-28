@@ -295,6 +295,11 @@ for rho, label in specs:
 - **PCA** — principal components are eigenvectors of the covariance matrix, which for bivariate normal data gives the ellipse axes
 - **Variational autoencoders (VAEs)** — the latent space is often modelled as multivariate normal
 - **Gaussian processes** — defined by mean and covariance; the bivariate case is the building block
+- **Pairs trading & statistical arbitrage** — Renaissance Technologies and DE Shaw use bivariate-normal cointegration models on stock pairs (e.g., Coke vs Pepsi); when the spread deviates from its conditional mean by $>2\sigma$, automated trades bet on mean-reversion.
+- **Insurance bivariate severity** — Swiss Re prices catastrophe bonds by modelling joint hurricane wind speed and storm-surge depth as bivariate normal (after copula transforms); FEMA flood-rate maps use similar joint distributions.
+- **Twin studies & quantitative genetics** — heritability estimates ($h^2$) at the Wellcome Sanger Institute and 23andMe come directly from bivariate-normal correlation between identical-twin trait pairs; this is how "IQ is ~50% heritable" is computed.
+- **Process control with two correlated metrics** — Intel and TSMC fab lines use Hotelling's $T^2$ chart (a bivariate-normal generalisation of Shewhart) to flag deviations in correlated wafer parameters (line width AND etch depth) in real time during chip production.
+- **Real-estate AVMs (Automated Valuation Models)** — Zillow's Zestimate and Redfin's pricing engine condition price predictions on (square footage, lot size) using bivariate-normal regressions over comparable sales.
 
 ## Check Your Understanding
 

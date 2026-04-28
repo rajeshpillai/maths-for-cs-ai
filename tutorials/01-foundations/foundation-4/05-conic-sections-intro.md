@@ -219,6 +219,10 @@ print(f"  Point ({x_t},{y_t:.3f}): |d1-d2| = {abs(d1-d2):.4f}, 2a = {2*a}")
   positions; the intersection of multiple hyperbolas gives your location
 - **Quadric surfaces** — 3D extensions of conics (ellipsoids, paraboloids)
   appear in physics simulations and 3D modelling
+- **Whispering galleries & concert hall acoustics** — architects at Arup design ellipsoidal ceilings (Grand Central, the U.S. Capitol rotunda) so that sound from one focus reflects to the other; the ellipse equation is the literal design constraint.
+- **Bridge arches & aqueducts** — Roman aqueducts and modern arch bridges (the Gateway Arch in St Louis is a *catenary*, but parabolic arches are common in highway overpasses) use parabolic load-distribution properties; AASHTO bridge tables tabulate parabolic-arch stresses.
+- **Lithotripsy in medicine** — Siemens and Philips kidney-stone lithotripters use ellipsoidal reflectors so that shock waves originating at one focus converge on the stone at the other focus.
+- **Solar concentrators (CSP)** — BrightSource and Abengoa parabolic-trough plants focus sunlight onto a linear receiver pipe; the parabola's reflective focal property determines plant efficiency and is in every techno-economic spreadsheet for utility-scale CSP.
 
 ## Check Your Understanding
 

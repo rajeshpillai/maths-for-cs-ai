@@ -201,6 +201,20 @@ for i, h in enumerate(h_values):
   from its velocity field.
 - **Robotics**: motor controllers use discrete time steps; the update equation
   is Euler's method on the dynamics ODE.
+- **Monte Carlo VaR engines** at banks (Goldman Sachs, Barclays) discretize
+  GBM SDEs $dS = \mu S\,dt + \sigma S\,dW$ via Euler-Maruyama for end-of-day
+  Basel III capital calculations on million-path runs.
+- **NASA orbital mechanics** — JPL's GMAT (General Mission Analysis Tool) uses
+  fixed-step Euler/RK variants for fast trajectory previews of CubeSat
+  missions before switching to higher-order propagators for final-design DV
+  budgets.
+- **SPICE circuit simulation** — Cadence Spectre and ngspice's transient
+  analysis is forward Euler under the hood for first-pass timing on every
+  TSMC/Samsung chip tape-out; engineers tune step size against numeric
+  ringing the same way games tune `dt`.
+- **Inventory replenishment in SAP S/4HANA** — supply-chain modules step
+  Wilson EOQ + lead-time ODEs forward each day to set reorder points at
+  retailers like Walmart, with Euler-style updates triggering POs.
 
 ## Check Your Understanding
 

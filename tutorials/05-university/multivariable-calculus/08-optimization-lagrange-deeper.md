@@ -232,6 +232,24 @@ print(f" optimal value changes by ~{sol[lam]}*eps)")
   Lagrange multipliers to enforce constraints
 - **Resource allocation**: maximise utility subject to budget constraints — a
   classic Lagrange problem in game economy design
+- **Markowitz portfolio optimisation**: BlackRock, Vanguard, and Fidelity solve
+  $\min \mathbf{w}^T \Sigma \mathbf{w}$ subject to expected return $\mu^T
+  \mathbf{w} = R$ via Lagrange multipliers — the multiplier $\lambda$ is the
+  shadow price of return, the foundation of modern portfolio theory
+- **Aircraft trim and control allocation**: Lockheed F-35 and Airbus A380 flight
+  control laws solve constrained optimisation (minimum control deflection
+  subject to required moments) using KKT conditions — Lagrange multipliers
+  give the trade-off between rudder, aileron, and thrust effort
+- **Power grid economic dispatch**: PJM, ERCOT, and California ISO solve
+  $\min \sum c_i(P_i)$ subject to $\sum P_i = D$ (demand match) using Lagrange
+  multipliers — the multiplier becomes the locational marginal price (LMP)
+  paid to generators
+- **Pharmaceutical clinical-trial design**: Pfizer and Roche maximise statistical
+  power subject to patient-count and cost ceilings — Lagrange multipliers
+  reveal the marginal value of each additional patient enrolled
+- **Refinery operations at Shell and BP**: Aspen PIMS solves constrained
+  profit-maximisation across crude blending, distillation, and product mix —
+  Lagrange multipliers price each refinery bottleneck (hydrogen, FCC capacity)
 
 ## Check Your Understanding
 1. Find and classify all critical points of $f(x,y) = 4x^2 - 4xy + y^2 + 2x$. (Hint: one critical point.)

@@ -267,6 +267,10 @@ for k in [4, 8, 16, 32, 64]:
 - **Octal** — Unix file permissions (chmod 755)
 - **Powers of 2** — buffer sizes, hash table capacities, texture dimensions (must be power of 2 in older GPUs)
 - **Nibbles (4 bits)** — each hex digit; this is why a byte is displayed as two hex chars
+- **MAC addresses & IPv6 (Networking/Industry)** — Cisco, Juniper, and Arista routers print interface IDs in hex (e.g. `fe80::1c2d:7aff:fe1f:b29a`); every Wi-Fi/Ethernet device on Earth has a 48-bit MAC printed in hex on the chassis label.
+- **Bar-code & inventory IDs (Operations)** — UPC/EAN barcodes encode digits in binary stripes; Walmart RFID tags (EPC Gen2 by Impinj/NXP) store SKU IDs in hex, scanned billions of times daily across the supply chain.
+- **DNA storage & sequencing (Science/Industry)** — Twist Bioscience and Microsoft DNA Storage encode binary data in base-4 (A,C,G,T); Illumina sequencers output FASTQ files with quality scores in ASCII offsets — base conversion runs on every genome decoded.
+- **Pricing tags & barcode error correction (Business)** — Code128 and QR (used by Square, Apple Wallet, India's UPI) embed checksums computed in mod-103 base arithmetic so misreads at the POS terminal are caught before charging the customer.
 
 ## Check Your Understanding
 

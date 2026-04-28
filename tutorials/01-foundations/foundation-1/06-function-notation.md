@@ -228,6 +228,10 @@ print("  f(0) → undefined (ZeroDivisionError)")
 - **Inverse functions power encryption:** RSA encryption applies a function to
   your message; decryption applies its inverse. Without the inverse, the
   message stays secret.
+- **Excel & spreadsheet modelling** — every CFO's cash-flow model is built from named functions like `=NPV(rate, range)` or `=IRR(range)`; the entire FP&A workflow at Goldman Sachs and Deloitte revolves around composing these functions cell-by-cell.
+- **Insurance pricing functions** — actuaries at AIG and Allianz define $\text{Premium}(\text{age}, \text{risk}) = f(\text{age}) \cdot g(\text{risk})$ as composed functions; software like Milliman MG-ALFA literally wires these compositions into rating engines.
+- **Control-loop transfer functions** — mechanical engineers at Honeywell and Siemens model thermostats and motor drives as input-output functions $H(s)$; MATLAB Simulink composes block-diagram functions to simulate jet-engine controllers.
+- **Drug-dose response curves** — pharmacologists at Pfizer fit Hill-equation functions $E(D) = E_{\max}\,D^n/(K^n + D^n)$ to map dose to effect; FDA dossiers report domain (safe range) and the inverse function (the dose for a target effect).
 
 ## Check Your Understanding
 

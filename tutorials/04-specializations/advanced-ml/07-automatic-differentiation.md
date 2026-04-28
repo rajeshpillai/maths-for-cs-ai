@@ -294,6 +294,10 @@ for case, n_in, n_out in [
   programming languages** (Pyro, Turing.jl) and even **database query
   optimisation** (where gradients of query-plan cost let learned
   optimisers tune themselves).
+- **Aerodynamic shape optimization at Airbus and Rolls-Royce** — adjoint-mode autodiff through CFD solvers (SU2, ADflow) computes pressure-coefficient gradients with respect to thousands of wing-shape parameters, cutting fuel burn on the A350 by measurable percentages.
+- **Pricing exotic derivatives at Goldman Sachs and Morgan Stanley** — Greeks for path-dependent options (Asian, barrier, autocallables) are computed via reverse-mode autodiff through Monte Carlo pricers, a 100×+ speedup over bumping each parameter by hand.
+- **Tesla autopilot training infrastructure (Dojo)** — every neural-network weight gradient on the multi-exaflop Dojo supercomputer is reverse-mode autodiff applied to the per-batch loss across the FSD vision stack.
+- **Climate model sensitivity studies (NOAA MOM6, MITgcm adjoint)** — oceanographers use TAF-generated adjoint code to attribute sea-level rise predictions back to specific atmospheric forcings, informing IPCC reports.
 
 ## Check Your Understanding
 

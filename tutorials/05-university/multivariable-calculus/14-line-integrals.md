@@ -243,6 +243,19 @@ print(f"Different! Field is NOT conservative.")
   field; circuit simulators compute this constantly
 - **Stochastic calculus**: Ito integrals are line integrals along random paths,
   foundational to financial ML and diffusion models
+- **Pipeline pumping costs at Shell and BP**: total pumping work along an oil
+  pipeline is a line integral of pressure-gradient force along the pipe's
+  centreline — Aspen HYSYS computes this to size pumps for the Trans-Alaska
+  pipeline and Druzhba network
+- **Highway toll-road revenue**: line integrals of traffic-flow density along
+  toll-road segments compute total daily revenue for operators like Cintra
+  (407 ETR Toronto) and Transurban (Sydney Westlink M7)
+- **Power-line transmission losses**: ABB and Siemens compute $I^2 R$ losses
+  along high-voltage transmission lines as line integrals, feeding loss
+  factors used by ISO-NE and CAISO in market settlement
+- **Surveying and cadastral area**: Trimble's land-survey software uses line
+  integrals (Green's theorem variants) along property boundaries to compute
+  parcel acreage from GPS traverses — drives property-tax assessments
 
 ## Check Your Understanding
 1. Compute $\int_C (x^2 + y^2)\, ds$ where $C$ is the circle $x = 2\cos t$,

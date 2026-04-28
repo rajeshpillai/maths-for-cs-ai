@@ -193,6 +193,18 @@ print(f"  Check: x^3/3 + C = {x_val**3/3 + C:.6f}")
 - **Cooling models** (Newton's law of cooling, $dT/dt = -k(T - T_{\text{env}})$)
   are separable and appear in thermal simulation for hardware design.
 - **Compound interest** in game economies: $dM/dt = rM$ gives $M = M_0 e^{rt}$.
+- **Carbon-14 dating at archaeological labs** — Oxford Radiocarbon Accelerator
+  Unit and Beta Analytic use the separable ODE $dN/dt = -\lambda N$ (with
+  $\lambda = \ln 2 / 5730$ yr) to date organic samples for museum acquisitions.
+- **Insurance reserve growth** — Solvency II regulation requires EU insurers
+  (AXA, Allianz) to project technical-provision reserves with $dR/dt = rR$
+  under a EIOPA-published risk-free curve.
+- **Newton's law of cooling in food safety** — FDA Food Code uses $dT/dt =
+  -k(T - T_{env})$ to set the "two-hour rule" for restaurant cold-chain
+  compliance and to size walk-in coolers at chains like Chipotle.
+- **Tracer-dilution cardiac output** — clinicians at Mayo Clinic apply the
+  separable washout equation $dC/dt = -kC$ to indocyanine-green concentration
+  curves to measure heart output during surgery.
 
 ## Check Your Understanding
 

@@ -276,6 +276,10 @@ a CNN — and from this picture you can already see why: it's a stack of
 - **Matrices** — weight matrices in neural networks, transformation matrices in 3D graphics, adjacency matrices in graphs
 - **Tensors** — image batches in CNNs, word embeddings in NLP, physics simulations
 - **NumPy/PyTorch shapes** — understanding shapes prevents 90% of ML debugging headaches
+- **Business / Finance — Excel and Bloomberg Terminal** — every spreadsheet at firms like Goldman Sachs and JPMorgan is a matrix; Bloomberg's BQL queries return time-series tensors of shape `(tickers, dates, fields)` for portfolio analytics.
+- **Operations / Retail — Walmart inventory tensors** — stock levels are stored as 4-D tensors `(stores, SKUs, weeks, channels)` to drive demand forecasting and replenishment in their Retail Link system.
+- **Engineering — MATLAB and Simulink** — Mathworks' tools used at Boeing and NASA represent every signal, control system, and simulation state as matrices and tensors; the name MATLAB literally stands for "MATrix LABoratory".
+- **Science — climate modelling at NOAA / ECMWF** — global weather forecasts store atmospheric state as 4-D tensors `(variable, latitude, longitude, pressure-level)` updated every six hours on supercomputers.
 
 ## Check Your Understanding
 

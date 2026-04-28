@@ -351,6 +351,26 @@ print("  All sub-operations are single-digit × round number!")
   algebraic identities helps simplify gradient derivations.
 - **Physics engines**: Collision detection uses distance-squared comparisons:
   $(x_2-x_1)^2 + (y_2-y_1)^2 < r^2$, avoiding costly square roots.
+- **High-frequency trading (Citadel Securities, Jump, Tower).** Implied
+  variance and skew calculations on options chains use the
+  $(a+b)^2-(a-b)^2 = 4ab$ identity to convert four-multiplications-per-
+  strike into one squaring + one subtraction, shaving microseconds per
+  quote on a 5000-strike SPX board.
+- **Banking compound-growth quotes (HDFC, Bajaj Finance).** Sales staff
+  pitching "12% CAGR over 5 years" mentally use $(1+r)^n$ via the
+  cubing identity for n=3 — letting them quote returns at customer
+  meetings without opening Excel; this is taught at NIIT and Bajaj
+  Finserv induction programs.
+- **Civil engineering & soil mechanics (L&T, AECOM).** Pile-load
+  capacity and settlement formulas like $Q = c \cdot d^2 \cdot h$
+  require fast d-squared and d-cubed estimates on site; supervisors
+  rounding to nearest 100mm and using $(a+b)^2$ identities save 30 min
+  per pile-foundation report.
+- **Indian railway logistics (Indian Railways, CONCOR).** Wagon-load
+  calculations: a freight officer estimating cubic capacity of 80 BOXN
+  wagons (volume = $L \times B \times H$) uses cube-near-100 shortcuts
+  routinely; over-loading penalties in IR's FOIS system make the
+  mental check financially material.
 
 ## Practice Problems
 

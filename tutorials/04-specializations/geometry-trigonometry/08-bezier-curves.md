@@ -235,6 +235,10 @@ for i, level in enumerate(levels):
 - **Game paths** — camera rails, NPC movement paths, road geometry
 - **Animation curves** — Unity/Unreal animation editors use Bézier curves for easing
 - **CAD/CAM** — B-splines and NURBS (extensions of Bézier) for industrial design
+- **Automotive body design (BMW, Mercedes-Benz CATIA)** — every modern car's "class-A" surfaces (hood curves, fender lines) are NURBS surfaces — direct generalizations of Béziers — and the manufacturing stamping dies are CNC-cut from this same math.
+- **Aircraft wing design (Boeing 787, Airbus A350)** — wing camber, twist, and trailing-edge profiles are stored as B-spline patches in CATIA, allowing engineers to optimize lift-to-drag while keeping curvature continuous to 4th order.
+- **Adobe Illustrator and Figma vector tools** — the pen tool generates cubic Bézier segments stored as PDF/SVG paths; design agencies producing logos for Coca-Cola or Apple ship final artwork as Bézier curves to ensure infinite zoom fidelity.
+- **Robot trajectory smoothing (ABB IRC5, FANUC R-30iB controllers)** — industrial robot motion planners use B-splines to interpolate between via-points, eliminating jerk that would otherwise wear out gearboxes on million-cycle production lines.
 
 ## Check Your Understanding
 

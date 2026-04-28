@@ -237,6 +237,10 @@ print(f"Match? {np.allclose(quad_original, quad_rotated)}")
 - **Spectral clustering** — uses eigenvectors of the symmetric graph Laplacian to embed nodes before clustering
 - **Physics engines** — inertia tensors are symmetric; eigenvectors give the principal axes of rotation
 - **Quadratic forms in optimisation** — $\mathbf{x}^T\mathbf{A}\mathbf{x}$ with positive eigenvalues means a convex bowl — gradient descent will converge
+- **Finance — covariance shrinkage at AQR and Bridgewater:** Ledoit-Wolf shrinkage applies the spectral theorem to the symmetric asset-return covariance to stabilize portfolio optimization across $\sim$3000 stocks in the Russell 3000.
+- **Operations — strain gauges in airline maintenance:** the symmetric stress tensor on a Boeing 787 wing is diagonalized via spectral decomposition to find principal stresses, used in fatigue-life predictions at Lufthansa Technik.
+- **Engineering — building inertia tensors:** the symmetric mass-moment tensor of a SpaceX Starship is spectrally decomposed during flight to compute principal axes of inertia for attitude control.
+- **Science — DTI brain imaging:** Siemens MRI diffusion-tensor imaging at hospitals decomposes a symmetric 3x3 diffusion tensor at every voxel to reveal axon fiber directions, used clinically for stroke and Alzheimer's diagnosis.
 
 ## Check Your Understanding
 

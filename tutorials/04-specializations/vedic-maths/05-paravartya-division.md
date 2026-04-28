@@ -452,6 +452,26 @@ print(f"  NumPy verification: Q = {q}, R = {r}")
 - **Error-correcting codes**: Reed-Solomon decoding involves polynomial division,
   implemented via synthetic division (Paravartya).
 - **Digital filter design**: IIR filters divide polynomials in the z-domain.
+- **Bond pricing & yield analytics (Bloomberg, Refinitiv).** Yield-to-maturity
+  solvers and duration calculations evaluate bond-cashflow polynomials at
+  candidate yields via Horner-style synthetic division — the same flag
+  multiply-and-add Paravartya describes. RBI's primary dealer screens use
+  exactly this loop.
+- **Public-key cryptography (RSA, NIST, Aadhaar e-KYC).** Polynomial
+  modular reductions in finite-field arithmetic (used in elliptic-curve
+  signing for UPI, IRCTC OTPs, Aadhaar biometric matching) reduce by
+  prime polynomials via this synthetic-division pipeline — implemented
+  in OpenSSL's BN_mod_word.
+- **Telecom error correction (Reliance Jio, Airtel 5G, ISRO satcom).**
+  Reed-Solomon and BCH decoders in every QR code, CD/DVD, and
+  satellite downlink (NavIC, Mangalyaan telemetry) compute syndrome
+  polynomials by synthetic division — Paravartya is the digital-radio
+  workhorse, billions of times per day.
+- **Banking back-office reconciliation (HDFC, SBI core banking).** Mod-9
+  and mod-11 check-digit computations on cheque MICR codes, bank account
+  numbers, and IFSC validation use polynomial-divide-by-(x-1) tricks
+  identical to the Paravartya flag method — every NEFT/RTGS routing
+  decision touches this code path.
 
 ## Practice Problems
 

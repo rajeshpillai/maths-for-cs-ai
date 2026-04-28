@@ -177,6 +177,21 @@ print(f"3^4 mod 7 = {pow(3, 4, 7)}")
   $a^k \bmod n$ in $O(\log k)$ multiplications — essential for crypto.
 - **Diffie-Hellman key exchange:** Security relies on the discrete logarithm
   problem in $\mathbb{Z}_p^*$, whose structure is governed by $\phi(p)$.
+- **Industry — Apple Secure Enclave & YubiKey:** Hardware security modules
+  derive RSA decryption keys $d \equiv e^{-1} \pmod{\phi(n)}$ inside a
+  tamper-resistant chip; iPhone Touch ID / Face ID and U2F login depend
+  on this for ~2 billion daily authentications.
+- **Finance — Stripe & PayPal HTTPS handshakes:** Every checkout opens a TLS
+  session whose RSA signature verification calls $a^{e} \bmod n$ via
+  square-and-multiply; correctness of the protocol is Euler's theorem.
+- **Engineering — Random number generators in Mersenne Twister:** The
+  MT19937 PRNG used in NumPy, MATLAB, and Excel has period
+  $2^{19937}-1$, a Mersenne prime; Fermat-style primality tests verified
+  this period before the algorithm shipped.
+- **Operations — Lottery & casino RNG audits at GLI (Gaming Labs):**
+  Regulators certify slot machines and online casinos by running Miller-Rabin
+  (a strengthened Fermat test) on the modulus of cryptographic RNG seeds
+  to ensure unbiased outcomes.
 
 ## Check Your Understanding
 

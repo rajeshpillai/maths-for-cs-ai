@@ -220,6 +220,20 @@ for i in range(len(t_test)):
 - **Animation easing functions**: critically damped motion gives the "smooth
   snap" feel used in UI transitions.
 - **Audio synthesis**: underdamped oscillations produce decaying tones.
+- **Skyscraper tuned mass dampers** — the 730-ton TMD pendulum in Taipei 101
+  is engineered as a critically-damped second-order system; the same
+  characteristic-equation root analysis appears in Citigroup Center's TMD
+  retrofit (Arup engineering reports).
+- **Automotive suspension tuning** — Bilstein and KW Suspensions specify
+  damper coefficients to put a car's quarter-car model just slightly
+  underdamped (zeta ~ 0.7) for ride comfort; this is the headline spec on
+  every BMW/Porsche launch sheet.
+- **Seismometer design at USGS** — broadband seismometers (Streckeisen STS-2)
+  use mechanical-electrical feedback to give the sensor a critically damped
+  characteristic response, flattening the frequency-domain transfer function.
+- **MRI gradient coil design at Siemens/GE Healthcare** — overdamped second-
+  order responses prevent gradient ringing that would cause image ghosting;
+  scanner manufacturers tune RLC drive electronics around root placement.
 
 ## Check Your Understanding
 

@@ -227,6 +227,10 @@ print("M @ M+ @ M == M?", np.allclose(M @ M_pinv_manual @ M, M))
   $\mathbf{A}^T\mathbf{A}$ is singular.  `np.linalg.lstsq` uses it internally.
 - **Kernel methods in ML:** the kernel matrix (Gram matrix) must be PSD for
   the kernel to correspond to a valid inner product in feature space.
+- **Finance — Markowitz portfolio optimization:** mean-variance optimization at BlackRock and Vanguard solves $\min \mathbf{w}^T \mathbf{\Sigma} \mathbf{w}$ subject to return constraints, where $\mathbf{\Sigma}$ is the PD asset-return covariance — the founding equation of Modern Portfolio Theory.
+- **Operations — semidefinite programming for SDP-based scheduling:** Gurobi and MOSEK solve PSD-constrained relaxations of NP-hard problems such as MAX-CUT for VLSI placement at Synopsys and Cadence.
+- **Engineering — LMI control synthesis:** $\mathrm{H}_\infty$ controller design at Airbus and ABB casts robust-control problems as Linear Matrix Inequalities involving PD Lyapunov matrices, used in flight-control laws of the A380.
+- **Science — earthquake stress tensors:** USGS uses the principal-stress tensor (a quadratic form) to classify fault regimes (normal/strike-slip/thrust) along the San Andreas fault, with definiteness signs encoding tectonic stress state.
 
 ## Check Your Understanding
 

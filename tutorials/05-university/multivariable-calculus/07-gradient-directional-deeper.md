@@ -203,6 +203,19 @@ print("(Zero confirms perpendicularity)")
   gradient of an attraction/repulsion potential guides NPCs
 - **Feature importance**: in ML interpretability, the gradient of the output
   with respect to input features indicates which features matter most
+- **Geological surveys**: USGS and Schlumberger map subsurface gradients of
+  gravitational and magnetic potentials to locate ore bodies and oil reservoirs
+  — the gradient direction points toward density anomalies
+- **Aerodynamic shape optimisation**: Boeing and Airbus use adjoint-based
+  gradient methods $\nabla_\text{shape} C_D$ to deform wing surfaces toward
+  lower drag in SU2 and Stanford's adjoint solvers; saved millions in fuel
+  on the 787 and A350 fleets
+- **Marketing-mix optimisation at P&G and Unilever**: gradient of revenue with
+  respect to ad-spend allocation drives reallocation between TV, digital, and
+  in-store promotions — Nielsen and Kantar feed the partial derivatives
+- **Topographic flood modelling**: USGS and the UK Environment Agency compute
+  $-\nabla h$ over LIDAR DEMs to predict where storm-water will pool — feeds
+  insurance flood-zone maps used by FEMA and Munich Re
 
 ## Check Your Understanding
 1. For $f(x, y, z) = x^2 + y^2 + z^2$, find the directional derivative at

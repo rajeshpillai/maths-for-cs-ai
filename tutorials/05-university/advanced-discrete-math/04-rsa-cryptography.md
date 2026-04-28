@@ -185,6 +185,22 @@ print(f"  Encrypt 'A' (65): c={cipher}, Decrypt: m={plain}")
   (typically elliptic curve, but RSA illustrates the same principle).
 - **AI model distribution:** Signed model weights ensure integrity — RSA
   signatures prevent tampering with deployed neural networks.
+- **Banking — SWIFT, FedWire, and ACH:** Inter-bank wire transfers between
+  JPMorgan, Citi, and HSBC are signed with RSA-2048 / RSA-4096; a single
+  forged signature on a $100M wire would be catastrophic, so every message
+  carries an RSA-PSS signature verified at the receiving bank's HSM.
+- **Industry — DocuSign & Adobe Sign legally binding e-signatures:** The
+  EU eIDAS regulation and US ESIGN Act recognise RSA-signed PDFs as
+  legally equivalent to wet ink; DocuSign processes ~1B signed documents
+  per year, every signature an RSA verification.
+- **Engineering — Code signing on Microsoft Windows & Apple iOS:** Drivers,
+  apps, and OS updates carry RSA-3072 or RSA-4096 Authenticode/notarisation
+  signatures; the kernel refuses to load any binary whose signature fails
+  the public-key verification check.
+- **Operations — DNSSEC at Cloudflare and Verisign:** Root and TLD DNS
+  zones publish RSA-signed RRSIG records; a misconfigured signature once
+  took out a fraction of `.gov` resolution in 2010, showing how central
+  RSA is to internet routing operations.
 
 ## Check Your Understanding
 

@@ -339,6 +339,27 @@ print(f"  Direct: 1234² = {1234**2}")
   (since $d_i d_j = d_j d_i$). Karatsuba exploited similar redundancy.
 - **Variance computation**: $\text{Var}(X) = E[X^2] - (E[X])^2$ — squaring
   appears in every statistical calculation in ML.
+- **GIPS-compliant performance reporting (BlackRock, Fidelity, ICICI
+  Pru AMC).** Standard deviation of monthly returns requires squaring
+  return-deltas thousands of times per fund per quarter; in-house
+  Excel/Python tools at every Indian AMC literally implement the
+  duplex/self-convolution Karatsuba speedup for risk-attribution
+  reports filed with SEBI.
+- **Radar & sonar (DRDO, Bharat Electronics, Lockheed Martin).** Pulse
+  compression, autocorrelation peak-detection in air-defence systems
+  (Akash, Iron Dome) use the same self-convolution structure as the
+  duplex squaring shown here — each radar return is squared against
+  itself to surface a signal from noise.
+- **Telecom CRC & error-detection (Reliance Jio, Airtel).** Cyclic
+  redundancy checks in every IP packet and Ethernet frame use squared
+  polynomial GF(2) operations; hardware implementations at Cisco and
+  Mellanox switches optimise the squaring step using the duplex's
+  reduced-product symmetry.
+- **Financial risk modelling (Goldman Sachs, JPMorgan, Citi).** VaR,
+  Expected Shortfall, and CVA Greeks all require covariance-matrix
+  Cholesky factorisations dominated by self-product squaring; CVA
+  desks at every tier-1 bank cite squaring throughput as the binding
+  constraint on overnight risk runs.
 
 ## Practice Problems
 

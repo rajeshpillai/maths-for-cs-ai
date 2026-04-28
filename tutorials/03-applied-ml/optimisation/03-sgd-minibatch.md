@@ -289,6 +289,10 @@ is sometimes preferred over Adam in practice.
 - **Distributed training** — split mini-batches across GPUs; aggregate gradients
 - **Noise as regularisation** — SGD noise helps find flatter minima that generalise better
 - **Learning rate warm-up** — start with small $\alpha$ when gradients are noisy, then increase
+- **Industry / Distributed training**: **Meta's Llama-3** training used a global batch of ~16M tokens spread across 16k GPUs via FSDP; **NVIDIA Megatron-LM** and **DeepSpeed ZeRO** are the libraries that orchestrate the gradient all-reduce step at this scale.
+- **Engineering / Federated learning**: **Google's Gboard next-word prediction** trains via **Federated SGD** — each Android phone computes a mini-batch gradient from the user's typing, sends only the gradient (not the data) to the server, and the server aggregates millions of mini-batch gradients per round.
+- **Business / Recommender retrains**: **TikTok's "For You" recommender** and **Spotify's Discover Weekly** retrain on streaming clickstream with mini-batch SGD on the order of 64–8192 samples — the noise is part of why TikTok's feed feels so adaptable to fresh content.
+- **Engineering / Drug discovery**: **Insilico Medicine** and **Recursion Pharmaceuticals** train molecular-property GNNs with mini-batch SGD on ChEMBL/PubChem-scale data; mini-batches over molecule "scaffolds" (rather than random molecules) are a common trick to improve generalisation to new chemical series.
 
 ## Check Your Understanding
 

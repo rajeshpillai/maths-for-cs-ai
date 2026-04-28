@@ -171,6 +171,10 @@ for n in range(20):
 - **Type safety**: "if a program type-checks, it does not crash" is equivalent to "if a program crashes, it did not type-check."
 - **Security proofs**: "if the scheme is broken, then the underlying hard problem is easy" — contrapositive of hardness assumption.
 - **Testing**: "if we observe a failure, the code has a bug" — the contrapositive of "if the code is correct, no test fails."
+- **Reductions in cryptography (RSA, lattice schemes)** — security proofs are contrapositives: "if our scheme is broken, then factoring (resp. SVP) is easy"; the contrapositive justifies why $43T in crypto and PKI assumes RSA-2048 / Kyber are unbroken.
+- **Root-cause analysis at Toyota and ASML** — Andon-cord and FMEA quality processes use contrapositive logic ("if no defect propagated, the upstream gate did its job"); essential to producing defect-free chips in EUV lithography.
+- **Risk-based capital under Basel III at central banks** — "if a bank passes the stress test, it survives a 1-in-1000 shock" is the contrapositive that the Federal Reserve and ECB exploit to set capital ratios for HSBC, JPMorgan, and Deutsche Bank.
+- **MISRA C automotive coding standard** — diagnostic rules are contrapositives ("if undefined behaviour was triggered, the rule was violated"); compliance is mandated by ISO 26262 for every Tier-1 supplier shipping ECUs into Toyota, Ford, and BMW vehicles.
 
 ## Check Your Understanding
 

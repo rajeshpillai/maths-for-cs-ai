@@ -215,6 +215,10 @@ for x_val in [-1, 0, 1, 2]:
 - **Rapidity** — special relativity uses hyperbolic functions ($v = c\tanh\phi$)
 - **Hyperbolic geometry** — Poincaré embeddings for hierarchical data (word embeddings with tree structure)
 - **Integration** — hyperbolic substitution simplifies certain integrals ($\sqrt{x^2 + 1}$)
+- **Gateway Arch in St. Louis** — the iconic Eero Saarinen catenoid uses an inverted weighted catenary $y = A \cosh(x/A) - A$; its shape was specified to NPS within millimetres using hyperbolic functions.
+- **Power-line sag (NESC, IEC 60826)** — every overhead transmission line (Tennessee Valley Authority, National Grid UK) has its sag-tension calculated via $y = T_0/w \cdot \cosh(wx/T_0)$ to ensure ground-clearance code compliance even on hot, low-tension days.
+- **Subsea cable laying (SubCom, Alcatel Submarine Networks)** — underwater fiber-optic cables (MAREA, 2Africa) use catenary hyperbolic-cosine profiles for touch-down geometry to avoid bending-radius violations at \$50k+/km repair cost.
+- **Facebook/Meta Poincaré embeddings (NeurIPS 2017)** — hyperbolic-space embeddings of taxonomies (WordNet, knowledge graphs) outperform Euclidean embeddings in low dimensions, used in recommender-system A/B tests at scale.
 
 ## Check Your Understanding
 

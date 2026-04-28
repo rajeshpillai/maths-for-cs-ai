@@ -207,6 +207,22 @@ print(f"Max flow = {mf2}")  # Should be 23
   background — used in computer vision and medical imaging.
 - **Game AI:** Resource distribution in strategy games (supply lines to units)
   is a flow problem.
+- **Operations — FedEx and UPS hub-and-spoke routing:** Min-cost flow LPs
+  in Gurobi / CPLEX route packages across continental hubs (Memphis,
+  Louisville, Cologne); a single-percent flow improvement saves tens of
+  millions in fuel and aircraft hours per year.
+- **Industry — AT&T / Lumen backbone capacity planning:** ISPs run max-flow
+  to provision OC-768 / 400G optical lambdas across long-haul fibres so
+  that no link exceeds 70% utilisation under failure scenarios; vendors
+  like Cisco WAE and Juniper NorthStar productise this.
+- **Engineering — Image segmentation in medical MRI / CT:** GrabCut in
+  Adobe Photoshop and tumour-outlining in Siemens Healthineers' syngo.via
+  cast pixel segmentation as min-cut on a graph of pixels; Boykov-Kolmogorov
+  is the standard solver in OpenCV.
+- **Finance — Airline crew & aircraft assignment:** Delta, American, and
+  Lufthansa solve "fleet assignment" as min-cost flow on time-expanded
+  graphs (nodes = airport-time pairs, edges = flights / connections),
+  saving billions in operating cost annually.
 
 ## Check Your Understanding
 

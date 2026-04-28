@@ -278,6 +278,10 @@ print(f"  MAE without outlier: {mae_n:.2f}    MAE with outlier: {mae_o:.2f}    "
 - **Hinge loss** — SVMs: $\max(0, 1 - y \cdot \hat{y})$
 - **Contrastive loss** — Siamese networks, embedding learning
 - **Custom losses** — game AI reward shaping, style transfer perceptual loss
+- **Business / Insurance**: **GEICO**, **Progressive** and **Allstate** train pricing models with **quantile loss** (asymmetric MAE) so the model is more conservative on under-prediction than over-prediction — the cost of under-pricing a policy is greater than over-pricing.
+- **Engineering / Self-driving**: **Waymo** and **Cruise** perception stacks use **focal loss** (Lin et al., 2017) to handle the extreme class imbalance between "pixels that are pedestrians" (rare) and "pixels that are road" (common); without focal loss the network would just predict "road" everywhere.
+- **Industry / Medical AI**: **Tversky loss** and **Dice loss** are standard in the **MONAI** medical-imaging framework and **NVIDIA Clara** because in tumour segmentation a false negative (missing cancer) is far more costly than a false positive — MSE/BCE would weigh them equally.
+- **Business / Energy trading**: **National Grid** and **EDF** forecast electricity demand with **pinball loss** (a quantile-regression cousin) because under-forecasting causes blackouts (catastrophic) while over-forecasting only wastes spinning reserve (expensive but recoverable).
 
 ## Check Your Understanding
 

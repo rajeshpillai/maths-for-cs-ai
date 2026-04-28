@@ -353,6 +353,10 @@ print(f"  walks of length 3 from 0 to 1: {(A_K5 @ A_K5 @ A_K5)[0, 1]}")
 - **Game AI** — state space search (BFS/DFS), minimax on game trees
 - **Neural networks** — computation graphs; backpropagation traverses the graph in reverse
 - **Knowledge graphs** — entities as vertices, relationships as edges (used in NLP)
+- **Supply chain & logistics (Operations)** — UPS ORION, FedEx, and Amazon Last-Mile solve traveling-salesman variants on package-delivery graphs; Maersk and DHL use shortest-path algorithms to route container ships through ports worldwide.
+- **Fraud detection (Finance)** — Visa, Mastercard, and PayPal model transaction networks as graphs; cycle and community-detection algorithms (Louvain, label propagation) flag money-laundering rings — production tools include TigerGraph and Neo4j Bloom.
+- **Power-grid analysis (Engineering)** — utilities like National Grid and ERCOT model electricity networks as weighted graphs; minimum spanning trees and max-flow algorithms plan transmission upgrades and prevent cascading blackouts.
+- **Drug-target & protein interaction networks (Pharma/Bio)** — STRING-DB and Genentech model protein-protein interactions as graphs; centrality measures identify essential drug targets in cancer and infectious disease.
 
 ## Check Your Understanding
 

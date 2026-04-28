@@ -246,6 +246,10 @@ print(f"  tan θ = opp/adj = {opp}/{adj} = {opp/adj:.4f}    "
 - **Oscillation** — `sin(time * frequency)` creates bobbing, pulsing, breathing effects
 - **Dot product & angle** — $\cos\theta = \frac{\mathbf{a} \cdot \mathbf{b}}{|\mathbf{a}||\mathbf{b}|}$ (Tier 2)
 - **Fourier analysis** — all signals decompose into sines and cosines (Tier 9)
+- **Surveying & construction (Topcon, Trimble total stations)** — every land survey resolves slope distance into horizontal/vertical components via $\sin\theta$ and $\cos\theta$; the same math sets the grade on every highway and railway built today.
+- **Solar panel tilt optimization (SunPower, First Solar)** — utility-scale solar farms compute optimal panel angle as $\theta = \arctan(\tan(\text{latitude}) \cdot \cos(\text{declination}))$, gaining 10-25% extra annual yield versus flat-mount.
+- **Recommendation engines at Spotify and Netflix** — cosine similarity ($\cos\theta$ between user/item embedding vectors) drives "Discover Weekly" and "Because you watched..." rows for hundreds of millions of subscribers.
+- **Aircraft pitch attitude indicators (Garmin G1000, Honeywell EFIS)** — every glass-cockpit display computes pitch and bank angles from accelerometer vectors using `atan2`, ensuring the artificial horizon stays correct in all four quadrants of attitude.
 
 ## Check Your Understanding
 

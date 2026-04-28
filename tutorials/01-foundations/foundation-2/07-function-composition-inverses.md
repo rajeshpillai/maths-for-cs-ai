@@ -249,6 +249,10 @@ for x in [3, 4, 5, 6]:
 - **Normalisation** — z-score transform and its inverse (de-normalisation)
 - **Domain restriction in practice** — `sqrt()` only accepts non-negative input because it is the inverse of $x^2$ restricted to $x \geq 0$
 - **Undo systems** — every invertible operation in an editor must be one-to-one to be undoable
+- **Yield-to-maturity inversion** — bond traders at Goldman Sachs invert the price function $P(y)$ numerically (Newton's method) to extract YTM from a quoted price; Bloomberg's `<YA>` screen and Excel's `YIELD()` do exactly this.
+- **ETL pipelines & data lineage** — Snowflake, Databricks, and dbt compose stages $\text{ingest} \circ \text{clean} \circ \text{transform} \circ \text{aggregate}$; reversibility (replaying or rolling back) requires each step to be inverse-recoverable from logs.
+- **Camera lens distortion correction** — Adobe Lightroom and DxO Optics inverts the radial-distortion function $r' = f(r)$ to undistort raw images; the lens profile is literally $f^{-1}$ tabulated by Canon, Nikon, and Sigma.
+- **Manufacturing process chain** — semiconductor fabs at TSMC compose deposition, lithography, etch, and CMP steps; SPC engineers track each step's inverse-yield function to root-cause defects backward through the pipeline.
 
 ## Check Your Understanding
 

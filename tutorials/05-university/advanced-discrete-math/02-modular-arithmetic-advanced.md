@@ -173,6 +173,20 @@ print(f"Check: {result2}%3={result2%3}, {result2}%5={result2%5}, {result2}%7={re
   interpolation over modular fields, which relies on CRT-like reconstruction.
 - **Big integer arithmetic:** Libraries multiply large numbers by splitting
   work across coprime moduli (residue number systems).
+- **Finance — Bloomberg & SWIFT IBAN check digits:** International bank
+  account numbers carry a mod-97 checksum (ISO 13616); transferring funds
+  via SWIFT rejects mistyped IBANs before they hit the wire, preventing
+  billions in misrouted payments yearly.
+- **Industry — DSP / GPS chips at Qualcomm & Broadcom:** Residue Number
+  Systems based on CRT let modems multiply 64-bit numbers in parallel
+  across small coprime moduli, cutting LTE/5G baseband latency.
+- **Operations — UPC and ISBN-13 barcodes:** Every barcode at Walmart and
+  every printed book uses a mod-10 (UPC) or mod-10 weighted-sum (ISBN-13)
+  check digit; scanners reject single-digit typos in real time.
+- **Engineering — Acoustic camera microphone arrays:** Coprime sensor
+  spacings (e.g. Brüel & Kjær arrays) use CRT-style aliasing cancellation
+  to localise sound sources beyond the Nyquist limit, deployed in
+  automotive NVH (noise/vibration/harshness) testing for BMW and Tesla.
 
 ## Check Your Understanding
 

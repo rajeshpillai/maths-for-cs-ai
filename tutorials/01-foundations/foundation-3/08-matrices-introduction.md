@@ -187,6 +187,10 @@ print(f"Zero 2x3 =\n{Z.astype(int)}")
 - **Spreadsheets and databases** — a table of data is literally a matrix;
   pandas DataFrames are matrices with labels
 - **GPU computing** — GPUs are optimised for massive parallel matrix operations
+- **Input-output economic models** — the BEA publishes Leontief matrices $I - A$ describing how every U.S. industry consumes others' outputs; multiplying by $\mathbf{x}$ propagates an oil-price shock through the economy.
+- **Variance-covariance matrices in risk** — BlackRock Aladdin and Goldman SecDB store $\Sigma$ for tens of thousands of assets; portfolio VaR is $\sqrt{\mathbf{w}^T \Sigma \mathbf{w}}$, a single matrix calculation feeding regulatory FRTB capital reports.
+- **Finite-element stiffness matrices** — civil engineers at SOM and Arup assemble huge sparse stiffness matrices $\mathbf{K}\mathbf{u} = \mathbf{F}$ to analyse skyscrapers; ANSYS, Abaqus, and SAP2000 solve million-row systems each design iteration.
+- **Routing & origin-destination matrices** — Google Maps Distance Matrix API and FedEx routing engines store $n \times n$ travel-time matrices; truck dispatch decisions reduce to row/column scans of these matrices.
 
 ## Check Your Understanding
 

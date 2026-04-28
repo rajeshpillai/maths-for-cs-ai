@@ -258,6 +258,24 @@ print("  Correct!")
   approximate products of numbers near powers of 10.
 - **Modular arithmetic**: the deficiency is simply $-n \pmod{B}$, connecting
   directly to clock arithmetic and cryptographic computations.
+- **Mental arithmetic on trading floors** — Vedic complement-style shortcuts
+  are still trained at NSE/BSE prop desks (e.g. Tower Research, Edelweiss
+  proprietary trading) so traders can sanity-check 5-digit price quotes
+  before firing an order; an order at 9997 vs 9970 is a 270-bp error you
+  catch in your head with Nikhilam.
+- **Retail audit & FMCG (Big Four — Deloitte, PwC, KPMG, EY).** Inventory
+  shrinkage audits at HUL and ITC use round-number-deficit tricks to
+  cross-check cycle-counts: a stack of "100 cartons less 3" beats a long
+  multiplication when an auditor walks the warehouse aisle.
+- **Indian competitive exam coaching industry (FIITJEE, Allen, Bansal).**
+  CAT/IBPS PO/SSC CGL aspirants are trained in Nikhilam-style
+  complement arithmetic — a Rs 5000+ Cr coaching market built on
+  shaving 5-10 seconds per quant question under time pressure.
+- **Embedded systems & DSP design (Texas Instruments, ARM, ST Micro).**
+  Two's-complement subtraction in every microcontroller ALU is literally
+  this sutra in base 2; firmware engineers verifying carry/borrow logic
+  in MCU testbenches use the same "all from 9, last from 10" mental check
+  on hex-display dumps.
 
 ## Practice Problems
 

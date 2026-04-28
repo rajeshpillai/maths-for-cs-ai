@@ -228,6 +228,10 @@ for n_terms in [1, 2, 3, 4, 5, 6]:
 - **Second-order methods** — Newton's method uses the quadratic Taylor approximation
 - **Activation function approximations** — GELU is defined via the Gaussian CDF, approximated with polynomials
 - **Numerical stability** — knowing the Taylor series of $\log(1+x)$ near 0 prevents precision loss
+- **Bond convexity (Finance)** — fixed-income desks at PIMCO and Vanguard use a 2nd-order Taylor expansion of bond price around yield ($\Delta P \approx -D\Delta y + \tfrac{1}{2}C(\Delta y)^2$) where $D$ is duration and $C$ is convexity — directly priced into every Treasury and corporate bond.
+- **Risk approximations under stress (Quant)** — banks like JPMorgan and Citi run "Greek-based P&L" using 1st/2nd-order Taylor expansions to estimate portfolio losses under regulatory stress scenarios (CCAR, FRTB) without rerunning full Monte Carlo.
+- **CORDIC algorithm in hardware (Engineering)** — Texas Instruments DSPs, Intel FPUs, and STM32 microcontrollers implement Taylor + CORDIC routines for $\sin$, $\cos$, $\arctan$ — every smartphone GPS chip uses these.
+- **Linearization in control systems (Industry)** — Boeing autopilots and Tesla Autopilot linearize nonlinear dynamics around an operating point via 1st-order Taylor (Jacobian) — the foundation of Linear Quadratic Regulator (LQR) and Extended Kalman Filter design.
 
 ## Check Your Understanding
 

@@ -184,6 +184,10 @@ print(f"Counterexample to '∀n, n>0': n = {ce}")
 - **Game AI**: "For all enemy positions, there exists a safe path" is a nested quantifier statement solved by pathfinding.
 - **Formal verification**: Proving program correctness requires negating quantified specifications to find bugs.
 - **First-order logic** in AI knowledge bases (Prolog, theorem provers) extends predicate logic.
+- **TLA+ specifications at Amazon AWS** — Lamport's predicate-logic language is used to verify S3, DynamoDB, and EBS protocols; bugs found in spec-level proofs have prevented multi-day outages costing tens of millions in SLA penalties.
+- **Stripe Radar fraud rules** — written as predicate-logic clauses ($\forall \text{transaction}, \exists \text{matching pattern}$); evaluated against billions of payments per day, contributing to Stripe's sub-0.1% chargeback rate.
+- **Boeing 787 fly-by-wire and Airbus A380 avionics** — DO-178C certification requires formal predicate-logic specifications of control laws; SCADE Suite (Ansys) compiles these to certified C code running on triple-redundant flight computers.
+- **ICD-10 medical coding rules at Epic and Cerner EHRs** — billing eligibility is encoded as quantified predicates over patient diagnoses; a single quantifier mistake can trigger $100M+ in clawbacks during CMS audits.
 
 ## Check Your Understanding
 

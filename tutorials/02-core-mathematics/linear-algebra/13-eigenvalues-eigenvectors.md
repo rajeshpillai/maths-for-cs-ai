@@ -281,6 +281,10 @@ modes decay vs blow up).
 - **Markov chains** — steady-state distribution is the eigenvector for $\lambda = 1$
 - **Spectral clustering** — uses eigenvectors of the graph Laplacian to cluster data
 - **Neural network convergence** — eigenvalues of the Hessian affect training speed
+- **Finance — eigenportfolios at Renaissance Technologies and Two Sigma:** the leading eigenvector of the asset return covariance matrix is the "market mode"; subsequent eigenvectors define statistical arbitrage strategies (e.g., Avellaneda's eigenportfolios).
+- **Business — Leslie matrix population models:** insurance actuaries at Munich Re and Swiss Re use the dominant eigenvalue of an age-structured population matrix to forecast life-insurance liabilities decades ahead.
+- **Engineering — Tacoma Narrows and modern bridge design:** Arup checks that no eigenfrequency of a bridge deck (the Millennium Footbridge in London) coincides with pedestrian step rate (~2 Hz) to prevent resonance collapse.
+- **Science — quantum chemistry HOMO/LUMO orbitals:** Gaussian and VASP solve $\mathbf{H}\mathbf{\psi} = E\mathbf{\psi}$ — eigenvalues are molecular orbital energies, dictating drug-target binding studied at Pfizer and AstraZeneca.
 
 ## Check Your Understanding
 

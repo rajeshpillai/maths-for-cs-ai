@@ -170,6 +170,20 @@ print(f"  location of max = {x[np.argmax(u)]:.4f} (should be ~0.5)")
   spreading in water are all governed by the diffusion equation.
 - **Graph diffusion** — Replacing $u_{xx}$ with the graph Laplacian gives
   diffusion on graphs, used in GNNs and recommendation systems.
+- **Building HVAC envelope sizing** — Carrier HAP and Trane TRACE 3D solve
+  the heat equation through wall assemblies (with R-values from ASHRAE 90.1)
+  to size chillers for commercial buildings; LEED energy credits depend on
+  the simulation results.
+- **Quenching and tempering at steel mills** — ArcelorMittal and Nucor model
+  $T(x,t)$ during ingot cooling to choose alloy composition that hits ASTM
+  hardness specs; mis-quenching is a multi-million-dollar yield loss.
+- **CPU/GPU thermal design at Intel/AMD/NVIDIA** — package thermal
+  resistance is computed by solving the 3D heat equation in tools like
+  Ansys Icepak; cooling solution sizing on H100 GPUs and Ryzen CPUs starts
+  here.
+- **Cryogenic vaccine logistics** — Pfizer's BNT162b2 cold chain (-70 C)
+  was designed using 1D heat-equation models of dry-ice shipper boxes to
+  ensure FDA Vaccine Storage Guideline compliance during last-mile delivery.
 
 ## Check Your Understanding
 

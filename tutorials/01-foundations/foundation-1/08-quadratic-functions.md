@@ -179,6 +179,10 @@ print(f"x² - 4x + 3: vertex = ({h}, {k})")
 - **Ray-sphere intersection** — substitute ray equation into sphere equation, get a quadratic; discriminant tells you hit/miss/tangent
 - **Loss functions** — mean squared error is quadratic in weights for linear models; the minimum is found analytically via the vertex
 - **Big-O** — $O(n^2)$ algorithms have quadratic growth; comparing $n^2$ vs $n \log n$ is a daily CS task
+- **Revenue-maximising prices** — economists model $R(p) = p \cdot (a - bp)$, a downward parabola; the vertex $p^* = a/(2b)$ is the price that maximises revenue, used by Uber surge pricing and airline fare-bucket optimisation
+- **Black-Scholes implied volatility** — option pricing involves a quadratic approximation in volatility; Bloomberg terminals and CBOE pricing engines invert this quadratic to extract the implied vol traders quote
+- **Parabolic dish & headlight design** — engineers at SpaceX (deep-space antennas) and automotive lighting (Hella, Marelli) use $y = x^2/(4f)$ so all incoming rays focus at the focal point $f$; the algebra of the vertex form *is* the design spec
+- **Suspension-bridge cables** — main cables of the Golden Gate and Akashi-Kaikyō bridges follow a near-parabolic shape under uniform load; structural engineers solve $y = wx^2/(2H)$ to compute tower height and anchor stresses
 
 ## Check Your Understanding
 

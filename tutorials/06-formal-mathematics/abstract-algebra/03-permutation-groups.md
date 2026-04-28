@@ -200,6 +200,10 @@ print(f"\nIn S_{n}: {even_count} even, {odd_count} odd (should be equal: {n}!/2 
 - **Determinants**: $\det(A) = \sum_{\sigma \in S_n} \text{sgn}(\sigma) \prod_{i} a_{i,\sigma(i)}$ — permutations define the determinant.
 - **Shuffling**: Fisher-Yates shuffle generates a uniformly random element of $S_n$.
 - **Cryptography**: permutation ciphers rearrange plaintext characters.
+- **A/B test randomization at Netflix and Booking.com** — uniform random permutations from $S_n$ (via Fisher-Yates) split user populations into experiment buckets; bias here directly distorts revenue-impact estimates worth tens of millions per year.
+- **AES ShiftRows step** — applies a fixed permutation in $S_{16}$ (a cyclic shift of bytes per row) on every 128-bit block; baked into Intel AES-NI and ARM Cryptography Extensions hardware.
+- **ANSYS Mechanical assembly meshing** — Cuthill-McKee reordering finds a permutation in $S_n$ that minimises bandwidth of the stiffness matrix, accelerating sparse Cholesky solves in finite-element simulations of car crashes by 10-100x.
+- **Genome rearrangement in computational biology** — sorting permutations by reversals (a problem in $S_n$) measures evolutionary distance between species; used in Broad Institute pipelines to compare cancer genomes.
 
 ## Check Your Understanding
 

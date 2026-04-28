@@ -191,6 +191,23 @@ print(f"T-test p-value: {t_pval:.4f}")
   demographic groups when the metric distribution is unknown.
 - **Game Analytics:** Comparing player behaviour metrics that are typically
   heavily skewed (session length, spending).
+- **Permutation tests at Netflix / Spotify experimentation:** session-length
+  and watch-time distributions are heavy-tailed, so Netflix's XP platform
+  publishes results from rank-based and permutation tests (documented in
+  their "Quasi-Experimentation at Netflix" tech blog) rather than
+  t-tests.
+- **Environmental compliance at the EPA:** the Mann-Whitney U test is
+  the prescribed method in EPA QA/G-9 guidance for comparing pollutant
+  concentrations between Superfund sites and reference sites — chosen
+  precisely because contaminant data is non-normal and censored.
+- **Sensory testing at Coca-Cola / Nestlé / Unilever:** Wilcoxon
+  signed-rank tests evaluate paired taste-test scores from consumer
+  panels; rank tests are the food-industry standard because hedonic
+  9-point scores are ordinal, not interval.
+- **Manufacturing reliability at Cummins / Caterpillar:** Kruskal-Wallis
+  tests compare engine wear across multiple lubricant formulations on
+  small fleet samples where Weibull lifetimes violate ANOVA's normality
+  assumption.
 
 ## Check Your Understanding
 

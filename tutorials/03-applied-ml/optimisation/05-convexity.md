@@ -263,6 +263,10 @@ for w0 in [-3.5, 0.5, 3.5]:
 - **Convex optimisation** — a rich field with polynomial-time algorithms (LP, SDP, QP)
 - **Support Vector Machines** — formulated as a convex optimisation problem
 - **Regularisation** — L2 keeps the loss more convex; helps convergence
+- **Business / Portfolio optimisation**: **Markowitz mean-variance portfolios**, used by **BlackRock Aladdin** (>$21T AUM platform) and **Bridgewater**, are convex quadratic programmes — convexity is what allows Aladdin to re-balance pension-fund portfolios in seconds with provably optimal weights.
+- **Engineering / Power grids**: **CAISO** (California's grid operator) and **PJM** (largest US grid) clear electricity markets every 5 minutes by solving convex linear/quadratic programmes (DC Optimal Power Flow) — convexity is required to give all generators provably-optimal dispatch, audited by FERC.
+- **Industry / Logistics**: **UPS ORION** routing, **FedEx Roadrunner**, and **Amazon's last-mile dispatch** rely on convex relaxations of integer routing problems (the LP relaxation of TSP) to plan tens of millions of stops daily; convexity is what makes the bound on the optimal tour computable in polynomial time.
+- **Engineering / Wireless / 5G**: **Qualcomm** and **Ericsson** beam-forming algorithms solve convex semidefinite programmes (SDPs) to allocate antenna power across users; convexity guarantees the chosen beam pattern is globally optimal under interference constraints.
 
 ## Check Your Understanding
 

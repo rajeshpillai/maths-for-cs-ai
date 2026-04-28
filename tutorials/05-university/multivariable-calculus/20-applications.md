@@ -301,6 +301,24 @@ print(f"Non-zero residual → PINN loss penalises this")
 - **Electromagnetic simulation**: FDTD (finite-difference time-domain) solvers
   discretise Maxwell's equations on a grid — used in antenna design, chip layout,
   and wireless channel modelling
+- **Aerospace CFD at Boeing, Airbus, and SpaceX**: ANSYS Fluent and Siemens
+  Star-CCM+ solve Navier-Stokes over the 787, A350, and Starship Raptor
+  engine — surface pressure integrals give lift/drag/thrust used to certify
+  aircraft against FAA Part 25 and EASA CS-25 regulations
+- **Pharmaceutical bioreactor design**: Merck and Genentech use Navier-Stokes
+  CFD in COMSOL Multiphysics to optimise impeller mixing in 2000 L vaccine
+  bioreactors — affects yield of monoclonal antibodies (Keytruda, Avastin)
+- **Power-grid heat transfer**: Hitachi Energy and Siemens Energy use the
+  heat equation to size transformer cooling for 765 kV substations on PJM
+  and ERCOT — failure modes (thermal runaway) cost utilities $100M+ per event
+- **Black-Scholes-Merton PDE**: every options desk at Goldman Sachs, Morgan
+  Stanley, and Citadel solves $\partial V/\partial t + \frac{1}{2}\sigma^2
+  S^2 \partial^2 V/\partial S^2 + rS\partial V/\partial S - rV = 0$ — a
+  multivariable PDE; the Greeks are exactly its partial derivatives
+- **Semiconductor TCAD at TSMC and Intel**: Synopsys Sentaurus solves the
+  Poisson-drift-diffusion system $\nabla\cdot(\epsilon \nabla\phi) = -\rho$
+  over transistor geometries to predict 3 nm and 2 nm node yield — every
+  modern CPU/GPU passes through this multivariable-calculus pipeline
 
 ## Check Your Understanding
 1. Write down the incompressibility condition $\nabla \cdot \mathbf{v} = 0$ and

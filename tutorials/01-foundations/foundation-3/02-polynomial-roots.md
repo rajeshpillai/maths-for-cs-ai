@@ -204,6 +204,10 @@ print(f"  2x³+3x²-8x+3 roots: {sorted(np.roots([2,3,-8,3]).real)}")
   solving polynomial equations
 - **Signal processing** — zeros of a transfer function's polynomial determine
   filter behaviour
+- **Internal Rate of Return (IRR)** — corporate-finance teams at McKinsey and PE shops solve $\sum_{t=0}^{n} CF_t/(1+r)^t = 0$ — a polynomial in $(1+r)$ — to find a project's IRR; Excel's `IRR()` and HP-12C calculators implement this root finder.
+- **Aerospace flutter analysis** — Boeing and Airbus solve characteristic polynomials of aeroelastic systems to ensure all roots have negative real part (stable) at every flight envelope point; instability means catastrophic wing flutter.
+- **PID controller tuning** — process engineers at Honeywell place poles (polynomial roots) of a closed-loop system to hit damping and settling-time specs; this is the core of Ziegler-Nichols tuning used in chemical plants worldwide.
+- **Bond duration & convexity** — fixed-income analysts at PIMCO compute YTM by finding the real root of a polynomial in the discount factor; convexity is the second derivative evaluated at that root.
 
 ## Check Your Understanding
 

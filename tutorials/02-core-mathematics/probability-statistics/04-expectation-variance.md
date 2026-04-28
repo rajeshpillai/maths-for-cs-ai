@@ -228,6 +228,10 @@ print(f"Std dev σ ≈ {np.sqrt(var):.2f} means a typical roll lands within "
 - **Risk assessment** — expected value of losses, variance = risk
 - **Game design** — expected reward per action, variance affects player experience
 - **Random variable arithmetic** — propagating uncertainty through computations
+- **Modern Portfolio Theory** — Harry Markowitz's Nobel-winning framework (used by BlackRock, Vanguard, Fidelity) defines portfolio risk as variance of returns and optimal portfolios as those minimising variance for a target expected return.
+- **Six Sigma manufacturing** — Motorola's quality program (later adopted by GE, Toyota, Honeywell) targets ≤3.4 defects per million by working in units of standard deviation; "six sigma" literally means $6\sigma$ from mean to spec limit.
+- **Expected Monetary Value (EMV) in project planning** — PMI's PMBOK guide uses $E[\text{cost}] = \sum p_i \cdot c_i$ for risk registers; oil majors like Shell and BP apply EMV to multi-billion-dollar exploration decisions.
+- **Reliability engineering MTBF** — Mean Time Between Failures (the expectation of an exponential RV) is the standard reliability metric in NASA mission assurance and Rolls-Royce jet-engine maintenance contracts (TotalCare service plans).
 
 ## Moments
 

@@ -161,6 +161,10 @@ for x in [-2, -1, 0, 1, 2]:
 - **Radioactive decay / half-life** — models with $(1/2)^{t/\tau}$
 - **Binary splitting** — repeatedly halving a search space gives $O(\log n)$,
   the inverse of exponential growth
+- **Compound interest & retirement planning** — Vanguard and Fidelity 401(k) projections use $A = P(1+r/n)^{nt}$; the SEC requires investment prospectuses to disclose returns in this exponential form.
+- **Viral / network growth (the K-factor)** — growth teams at Slack, Zoom, and TikTok track $\text{users}(t) = u_0 \cdot K^t$; when $K > 1$ adoption is exponential, when $K < 1$ it decays. Mixpanel and Amplitude dashboards plot this curve directly.
+- **Epidemic modelling** — the CDC and WHO fit $I(t) = I_0 e^{rt}$ in early outbreak phases; the 2020 COVID dashboards run by Johns Hopkins were exponential fits to reported case counts.
+- **RC circuit charging & battery models** — EE designers at Texas Instruments use $V(t) = V_0(1 - e^{-t/RC})$ to size capacitors for power-on-reset chips; the same exponential underlies Tesla's battery state-of-charge models.
 
 ## Check Your Understanding
 

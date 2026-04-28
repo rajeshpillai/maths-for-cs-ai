@@ -189,6 +189,10 @@ for n in [10, 20, 30, 50, 100]:
 - **Cross-entropy loss** — uses $\log$: $-\sum y_i \log \hat{p}_i$
 - **Information** — $-\log_2 p$ bits to encode an event with probability $p$
 - **Decibels** — $\text{dB} = 10 \log_{10}(P/P_0)$
+- **Compound interest (FDIC, Fed APR rules)** — $A = P(1 + r/n)^{nt}$ underlies every credit-card minimum-payment disclosure mandated by the U.S. CARD Act of 2009; APR-vs-APY differences trace directly to this formula.
+- **Moore's Law / TSMC node roadmap** — transistor density on Intel and TSMC chips doubled every ~2 years from 1971 (4004) to ~2018, then slowed; this exponential drove the entire compute-cost trajectory of cloud providers like AWS EC2.
+- **Carbon dating (Libby, 1949)** — $^{14}$C decay $N(t) = N_0 e^{-\lambda t}$ with $t_{1/2} = 5730$ y is used by Oxford Radiocarbon Accelerator Unit and AMS labs to date archaeological samples like Otzi and the Shroud of Turin.
+- **Earthquake magnitudes (USGS Richter / moment-magnitude)** — $M_w = \frac{2}{3} \log_{10}(M_0) - 10.7$; the 2011 Tohoku $M_w$ 9.1 quake released $\sim$32× more energy than the 2010 Haiti $M_w$ 7.0 — direct consequence of the log scale.
 
 ## Check Your Understanding
 

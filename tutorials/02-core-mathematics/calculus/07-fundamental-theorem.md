@@ -213,6 +213,10 @@ print(f"Gap (numerical vs FTC): {abs(riemann - (F(b) - F(a))):.2e}")
 - **Physics engines** — position = integral of velocity, velocity = integral of acceleration
 - **Expected value** — computed via integration; the FTC lets us evaluate it analytically for known distributions
 - **Backpropagation** — conceptually related: the chain rule version of FTC mirrors how gradients flow backward
+- **Inventory accumulation (Operations)** — Walmart and Amazon FBA forecast stock levels as $I(t) = I_0 + \int_0^t (\text{inflow} - \text{outflow})\,d\tau$; the FTC lets ERP systems (SAP, Oracle NetSuite) recover instantaneous demand rates from cumulative shipment logs.
+- **Black-Scholes & Greeks (Quant Finance)** — option price is an integral over future payoffs; trading desks at Citadel and Jane Street differentiate this using the FTC to compute Delta and Gamma in real time.
+- **Odometer & flow-meter calibration (Industry)** — Bosch ABS and Schlumberger oilfield flow meters integrate velocity/flow rate over time to report distance/volume; the FTC guarantees the differentiated rate matches the sensor reading.
+- **Epidemiology dose-response (Public Health)** — cumulative infection counts in CDC and WHO models are integrals of incidence rates; the FTC lets epidemiologists recover R0 and effective contact rates from cumulative case curves.
 
 ## Check Your Understanding
 

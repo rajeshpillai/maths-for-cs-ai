@@ -218,6 +218,21 @@ print("(Ratio should approach 16 = 2^4 for 4th-order method)")
   in the forward pass; adjoint methods handle the backward pass.
 - **Climate/weather models** — Large-scale ODE systems from discretised PDEs
   use higher-order Runge-Kutta or multistep methods.
+- **NASA JPL trajectory propagation** — DSN deep-space probes (Voyager, Juno,
+  Europa Clipper) use Adams-Bashforth-Moulton multistep + Dormand-Prince
+  embedded RK methods inside MONTE / GMAT for cm-precision orbit
+  determination over 10-year missions.
+- **Algorithmic-trading backtesting** — quant funds (Renaissance, Citadel)
+  step SDEs with stochastic-Runge-Kutta integrators for nightly Monte Carlo
+  PnL distributions; CFTC stress-test submissions for clearing members lean
+  on these results.
+- **Vehicle crash simulation at LSTC LS-DYNA** — explicit central-difference
+  (RK-like) integrators run finite-element crash models for FMVSS 208 and
+  Euro NCAP star-rating tests at every Toyota / Ford / Stellantis design
+  iteration.
+- **Pharmaceutical PBPK modeling** — Certara Simcyp and OpenCOR solve
+  multi-compartment ODEs with adaptive RK45 to predict drug exposure across
+  pediatric and pregnant populations; outputs ship in FDA NDA submissions.
 
 ## Check Your Understanding
 

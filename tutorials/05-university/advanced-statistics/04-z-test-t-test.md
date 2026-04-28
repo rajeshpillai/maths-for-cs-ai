@@ -181,6 +181,21 @@ print(f"scipy: t = {t_sp:.4f}, p = {p_sp:.4f}")
   models is statistically significant (paired t-test on cross-validation folds).
 - **Game Analytics:** Testing if player retention differs between matchmaking
   algorithms.
+- **Booking.com / Airbnb experimentation platforms:** two-sample
+  Welch's t-tests on booking-conversion rates run on 1000+ concurrent
+  experiments; Booking famously runs >25,000 A/B tests per year, all
+  gated by t-test p-values.
+- **Pharmaceutical bioequivalence (FDA / EMA):** generic-drug approval
+  requires two one-sided t-tests (TOST) showing AUC and Cmax fall within
+  80-125% of the reference drug — Teva and Mylan submit these for every
+  generic.
+- **Quality control at Intel fabs:** paired t-tests compare wafer
+  parametric measurements (gate-oxide thickness, threshold voltage)
+  before and after a process tweak in 14 nm / 7 nm lines.
+- **Agricultural research at USDA / John Deere R&D:** Student's original
+  t-test (developed at Guinness Brewery in 1908!) is still used to
+  compare crop yields between fertilizer treatments on small experimental
+  plots.
 
 ## Check Your Understanding
 

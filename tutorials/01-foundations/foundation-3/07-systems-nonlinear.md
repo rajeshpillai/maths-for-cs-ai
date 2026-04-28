@@ -187,6 +187,10 @@ print(f"  x=1, y=1: x²={1}, 2x-1={1} ✓")
   every pixel, requiring nonlinear system solving at massive scale
 - **Robotics** — inverse kinematics solves nonlinear systems to find joint
   angles that place the end effector at a target position
+- **Market equilibrium** — economists at the Fed solve nonlinear supply-demand systems $Q_s(p) = Q_d(p)$ where curves are nonlinear; the IMF's policy-simulation models DSGE the same way at country scale.
+- **Chemical equilibrium constants** — process engineers at Dow solve nonlinear systems $K_{eq} = \prod [\text{products}]^{\nu_i} / \prod [\text{reactants}]^{\nu_j}$ to size reactors; Aspen Plus and HYSYS are built on these solvers.
+- **Power-flow equations** — utilities like Duke Energy solve nonlinear AC power-flow systems $P_i = \sum V_i V_j (G_{ij}\cos\theta_{ij} + B_{ij}\sin\theta_{ij})$ every few minutes; PSS/E and PowerWorld are the standard tools.
+- **Implied volatility surfaces** — option desks at Citadel and Susquehanna invert Black-Scholes (a nonlinear equation in $\sigma$) for every strike/expiry, then fit nonlinear systems to build a smooth IV surface for risk hedging.
 
 ## Check Your Understanding
 

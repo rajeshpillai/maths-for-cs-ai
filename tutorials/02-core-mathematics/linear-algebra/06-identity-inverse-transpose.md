@@ -288,6 +288,10 @@ operations.
 - **Neural networks** — understanding when weight matrices are invertible relates to information preservation
 - **Covariance matrices** — always symmetric, their inverse appears in the Mahalanobis distance
 - **Pseudoinverse** — when $\mathbf{A}^{-1}$ doesn't exist, the Moore-Penrose pseudoinverse gives the "best" solution (used in linear regression)
+- **Finance — option Greeks via inverse Hessian** — Goldman Sachs and Citadel risk desks invert a Hessian matrix to derive delta-gamma hedge ratios for their options books.
+- **Operations — supply-chain network inversion** — UPS ORION routes parcels by inverting a transit-time matrix between hubs to compute fastest source-to-destination paths.
+- **Engineering — Kalman filter gain at SpaceX** — the Falcon 9 navigation computer evaluates $\mathbf{K} = \mathbf{P}\mathbf{H}^T(\mathbf{H}\mathbf{P}\mathbf{H}^T + \mathbf{R})^{-1}$ at 50 Hz to fuse IMU and GPS data during boost.
+- **Science — CT scan reconstruction at Siemens / GE** — medical CT machines invert (or pseudoinvert) the Radon transform matrix to turn millions of X-ray projections into a 3-D image of a patient's lungs.
 
 ## Check Your Understanding
 

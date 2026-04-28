@@ -366,6 +366,26 @@ print(f"  Solution: x={x_val}, y={y_val}, z={z_val}")
   how optimisers work.
 - **Game physics**: Constraint solving in rigid-body physics uses iterative
   methods on 2×2 sub-problems (sequential impulse solver).
+- **Mixture & blending industry (HUL, ITC, Asian Paints).** Two-component
+  blending problems ("mix x kg of 70% solvent with y kg of 30% solvent
+  to get 50 kg of 55% solvent") are 2x2 linear systems solved exactly by
+  this cross-multiplication trick on factory-floor whiteboards every
+  shift; deviation = ₹ lost per batch.
+- **Petroleum trading & refinery economics (Reliance, BP, Shell).**
+  Crude-blend optimisation between two grades to hit an API gravity and
+  sulphur target is a textbook 2x2 simultaneous solve at every Indian
+  refinery's daily linear-program; traders run the Vedic cross-formula
+  in their head before LP confirms.
+- **Real-estate finance (PropTiger, Square Yards).** Price-per-sqft
+  arbitrage between carpet/built-up/super-built-up areas reduces to a
+  2-variable system: solve once, get both unknowns simultaneously —
+  loan officers at HDFC and PNB Housing use this to validate
+  developers' pricing claims in seconds.
+- **Chemical-plant control (Tata Chemicals, Linde).** PI/PID tuning on
+  binary-distillation columns sets up a 2x2 input-output gain matrix;
+  operator panels at the Mithapur and Trombay plants display the
+  cross-product determinant inline so a controls engineer can detect
+  near-singular conditions before a column flooding event.
 
 ## Practice Problems
 

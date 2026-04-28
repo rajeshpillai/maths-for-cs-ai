@@ -221,6 +221,18 @@ print(f"  BD = {BD:.4f}, DC = {DC:.4f}, BD/DC = {BD/DC:.4f}")
 - **AI / Computational geometry:** Spatial search structures (k-d trees, R-trees) rely on
   triangle bounding properties. Heights and distances problems map to sensor placement
   optimisation in robotics.
+- **Surveying & civil engineering:** Total stations from Leica and Trimble compute building
+  heights and inaccessible distances using the same sine-rule triangulation taught in JEE
+  heights-and-distances; Indian Railways' track alignment uses cosine-rule triangle solutions.
+- **GPS & telecom industry:** Cellular tower triangulation (used by Jio, Airtel for E911-style
+  emergency location) solves the exact circumradius problem — three towers, one unknown
+  receiver, intersected via sine-rule geometry.
+- **Construction & real estate:** Land parcel area calculations on Indian municipal records
+  (Bhulekh, Dharani portals) use Heron's formula directly; revenue officials cross-check
+  surveyor reports with $\sqrt{s(s-a)(s-b)(s-c)}$ on irregular plots.
+- **Insurance & risk pricing:** Marine cargo insurers (Lloyd's, ICICI Lombard) compute
+  great-circle triangle approximations to estimate piracy-risk transit zones across shipping
+  lanes — same spherical-triangle math, monetized.
 
 ## Check Your Understanding
 

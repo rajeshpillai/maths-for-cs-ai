@@ -181,6 +181,22 @@ for a, b, c in product([0, 1], repeat=3):
   encode Boolean functions. NAND universality means any circuit can be built.
 - **Neural network pruning:** Boolean simplification techniques inspire methods
   for reducing redundant neurons in binary neural networks.
+- **Industry — Intel & TSMC chip synthesis:** Synopsys Design Compiler and
+  Cadence Genus minimize standard-cell netlists by running Espresso /
+  Quine-McCluskey (the algorithmic K-map) on every gate cluster; this
+  shaves transistor count for chips like Apple M-series and AMD Ryzen.
+- **Engineering — Boeing 787 fly-by-wire fault-tree analysis:** Safety
+  engineers translate failure conditions into Boolean expressions then
+  use BDDs (binary decision diagrams) to compute mean-time-between-failure
+  for FAA certification (DO-178C / ARP 4761).
+- **Operations — Microsoft Z3 SMT solver in production:** Visual Studio
+  IntelliCode, Azure compliance audits, and Amazon's "Zelkova" S3 bucket
+  policy checker all encode rules as CNF and call Z3 to detect public-data
+  exposure before deployment.
+- **Finance — Algorithmic trading rule compilation:** Citadel and Two
+  Sigma compile complex eligibility predicates ("is this options chain
+  liquid AND not on the SEC short-restricted list") into minimised
+  Boolean circuits to evaluate them in single-digit nanoseconds per tick.
 
 ## Check Your Understanding
 

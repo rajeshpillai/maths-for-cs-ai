@@ -206,6 +206,10 @@ plt.show()
 - **Minimap/HUD** — uses orthographic projection
 - **Shadow mapping** — directional lights use orthographic, point lights use perspective
 - **Depth buffer** — z-values from projection matrix enable depth testing
+- **Architectural visualization (Autodesk Revit, SketchUp)** — orthographic floor plans and elevation views are exactly the matrices above; every blueprint a contractor reads at a Skanska or Bechtel construction site is an orthographic projection.
+- **Lithography stepper alignment (ASML EUV machines)** — semiconductor fabs at TSMC and Intel use orthographic-projection optics so that nanometer-scale features print at uniform size across an entire 300mm wafer with no foreshortening.
+- **Aerial photogrammetry (Pix4D, DJI Terra)** — drone surveying companies recover 3D terrain by inverting the perspective-projection equations, generating cm-accurate digital surface models for mining and agriculture.
+- **VR/AR headset rendering (Apple Vision Pro, Meta Quest 3)** — each eye gets a separate off-axis perspective frustum (asymmetric near-plane); the projection-matrix math is what produces stereoscopic depth without nausea.
 
 ## Check Your Understanding
 

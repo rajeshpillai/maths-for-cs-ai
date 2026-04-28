@@ -240,6 +240,20 @@ print(f"  e4 (product) = {e4} = 24/1 ✓")
   symmetric functions determine filter stability and frequency response.
 - **AI:** The characteristic polynomial of the Hessian matrix determines the nature of
   critical points in optimisation landscapes.
+- **Cryptography & blockchain industry:** Shamir's Secret Sharing (used by HashiCorp Vault,
+  AWS KMS, Coinbase custody) splits a secret as the constant term of a polynomial — recovering
+  it from $k$ shares is exactly Vieta-style reconstruction. Polynomial commitments (KZG) in
+  Ethereum's Danksharding rely on the same root/coefficient duality.
+- **Quantitative trading & finance:** Bond yield-to-maturity solvers at Bloomberg and
+  Refinitiv root-find on the cashflow polynomial; Vieta's formulas give analytic checks on
+  duration (sum of weighted maturities) without iterating Newton-Raphson on the full curve.
+- **Industrial control & robotics:** Pole placement in state-space controllers (used by ABB
+  PLCs and DJI drone autopilots) chooses characteristic polynomial coefficients to set
+  closed-loop eigenvalues — Vieta's gives the design equations directly from desired
+  damping/natural-frequency specs.
+- **Chemical engineering:** Reliance and Indian Oil refinery flash-distillation calculations
+  solve cubic equations of state (Peng-Robinson, SRK) for compressibility roots; Descartes'
+  rule of signs flags spurious thermodynamic phases before the solver wastes cycles.
 
 ## Check Your Understanding
 

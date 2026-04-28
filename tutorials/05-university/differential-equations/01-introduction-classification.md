@@ -183,6 +183,17 @@ print(f"Particular solution check: y(0) = {C * np.exp(3 * t)} (should be 5)")
   with damping and forcing.
 - **Reinforcement learning** value functions satisfy the Bellman equation,
   which in continuous time becomes a differential equation (Hamilton-Jacobi).
+- **Compound interest & continuous-time finance** — $dV/dt = rV$ underpins
+  daily NAV calculations at Vanguard and BlackRock; the same exponential ODE
+  defines the risk-free rate leg in every Bloomberg Terminal yield curve.
+- **Pharmacokinetics at the FDA** — one-compartment IV bolus models
+  ($dC/dt = -kC$) are the regulatory baseline for dose labelling on every
+  generic drug filing reviewed under 21 CFR 320 bioequivalence rules.
+- **Boeing & Airbus flight dynamics** — six-degree-of-freedom rigid-body ODEs
+  inside MATLAB/Simulink (used by both manufacturers) certify autopilot logic
+  against FAA Part 25 stability requirements.
+- **Tesla battery management** — the BMS firmware integrates first-order RC
+  ODEs to estimate state-of-charge in real time on every Model 3/Y pack.
 
 ## Check Your Understanding
 

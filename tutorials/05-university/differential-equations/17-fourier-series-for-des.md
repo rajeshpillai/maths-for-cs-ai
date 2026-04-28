@@ -166,6 +166,21 @@ for k in range(5):
   frequency, amplitude explodes. Games model this for destructible structures.
 - **Spectral methods for PDEs** — Expand both the solution and the forcing in
   Fourier series to solve heat/wave equations (Lessons 20–21 build on this).
+- **Power-quality monitoring under IEEE 519** — utilities measure harmonic
+  distortion (THD) of grid voltage at industrial customers; Schneider
+  PowerLogic and Fluke 1773 instruments compute Fourier coefficients of
+  current waveforms to bill harmonic offenders.
+- **Vibroseis seismic exploration at PGS / TGS** — onshore oil-and-gas surveys
+  use truck-mounted vibrators that emit chirps; Fourier-series response of
+  the subsurface (a forced ODE/PDE system) is back-correlated to image
+  reservoirs.
+- **Cardiac arrhythmia detection at Apple Watch / iRhythm** — ECG signals
+  are decomposed into Fourier harmonics; AFib detection (FDA-cleared algo)
+  flags loss of P-wave harmonics in the spectrum.
+- **HVAC duct noise compliance** — ASHRAE handbook calculations decompose
+  fan-blade-pass tones (fundamental $\times$ blade count) and compute room
+  response via forced-ODE Fourier mode summation; design target NC-30 in
+  hospital wards.
 
 ## Check Your Understanding
 

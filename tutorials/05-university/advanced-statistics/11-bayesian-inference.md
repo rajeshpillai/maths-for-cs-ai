@@ -184,6 +184,23 @@ print(f"Post. 95% CI: [{mu_post - 1.96*sigma_post:.3f}, {mu_post + 1.96*sigma_po
   distributions to balance exploration and exploitation.
 - **Game AI:** Bayesian updating models how an NPC should update beliefs
   about player location given noisy sensor data.
+- **Cohort LTV at Stitch Fix / Etsy / Wayfair:** Beta-Binomial conjugate
+  models on per-cohort retention curves give credible intervals on
+  customer lifetime value; Stitch Fix has published in NeurIPS papers
+  on Bayesian forecasting that drives marketing-spend allocation.
+- **Bayesian Phase II oncology trials at MD Anderson:** continual
+  reassessment method (CRM) and Bayesian adaptive randomization (e.g.
+  the I-SPY 2 breast-cancer trial) update treatment-arm allocation as
+  patients enroll; FDA's complex-innovative-design guidance explicitly
+  endorses these.
+- **Search-and-rescue at the U.S. Coast Guard:** SAROPS software places
+  Bayesian priors over likely vessel locations and updates with each
+  search sweep — famously located Air France 447's black box in 2011
+  after deterministic searches failed.
+- **Insurance credibility theory (Bühlmann):** State Farm and other
+  P&C insurers blend group-level priors with individual claim history
+  to set premiums — a textbook empirical-Bayes shrinkage estimator
+  required by NAIC actuarial standards.
 
 ## Check Your Understanding
 

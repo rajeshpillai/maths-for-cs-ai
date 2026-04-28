@@ -178,6 +178,10 @@ for n in [2, 3, 4, 5]:
 - **Fractional dimensions** — fractal dimension involves logarithms of nth roots
 - **Numerical stability** — computing $x^{2/3}$ vs $(\sqrt[3]{x})^2$ can differ
   in floating-point precision
+- **Volatility scaling** — quants at AQR and Two Sigma scale daily volatility to annual via $\sigma_{\text{annual}} = \sigma_{\text{daily}}\sqrt{252}$; the square-root-of-time rule is baked into Risk Metrics and Bloomberg PORT.
+- **Beam deflection & fatigue life** — civil/mechanical engineers at Caterpillar use $N_f \propto \sigma^{-m}$ with fractional $m$ (Basquin's law) to predict fatigue cycles; ANSYS nCode reports remaining life with these radical-function formulas.
+- **Square-root staffing rule** — call-center workforce planners at Genesys and Five9 use $\text{servers} \approx \rho + c\sqrt{\rho}$ to size agent pools; the square-root term comes from queueing-theory variance scaling.
+- **Boat hull-speed limit** — naval architects compute hull speed as $v = 1.34\sqrt{L_{wf}}$ ft/s where $L_{wf}$ is waterline length; this radical function dictates whether tankers from MAERSK and CMA CGM are displacement or planing vessels.
 
 ## Check Your Understanding
 

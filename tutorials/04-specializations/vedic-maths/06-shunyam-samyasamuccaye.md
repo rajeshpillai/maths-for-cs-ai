@@ -301,6 +301,24 @@ solve_samuccaya(4, 6, 2, 8)
   often the first check in numerical root-finding algorithms.
 - **Constraint satisfaction**: in CSP solvers, detecting that constraints
   share a common "samuccaya" structure enables pruning.
+- **Energy trading & power markets (Tata Power, ENGIE).** Bid/ask matching
+  in IEX (Indian Energy Exchange) day-ahead auctions zeros out symmetric
+  surplus/shortage at clearing — the regulator's price-discovery algorithm
+  is a samuccaya-style sum-equals-sum equation, solved hundreds of times
+  per market block.
+- **Tax & accounting (Big Four — Deloitte, EY, PwC, KPMG).** GST input
+  credit reconciliation: when input-side tax sums to output-side tax,
+  the net liability collapses to zero — exactly the "samuccaya = 0"
+  pattern; auditors visually scan reconciliation sheets for this
+  symmetric cancellation before signing off.
+- **Insurance pricing (LIC, ICICI Lombard, Bajaj Allianz).** Symmetric
+  premium-vs-claim equations in pure-endowment policies use
+  factor-theorem-style "P(1) = 0" checks for actuarial balance; IRDAI
+  Form L-2 schedules cite the same identity for solvency margin.
+- **Survey research / polling (Nielsen, IPSOS, CSDS).** Adjusting weights
+  so that demographic stratum totals match (sum of LHS = sum of RHS) is
+  raked-weighting; the underlying linear system is solved by exactly the
+  samuccaya cancellation of equal sums.
 
 ## Practice Problems
 

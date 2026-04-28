@@ -264,6 +264,19 @@ print("  (Standard Euler gains energy; symplectic Euler oscillates but stays bou
 - **Scientific ML** — The intersection of differential equations and machine
   learning is one of the fastest-growing research areas, with applications
   in climate modeling, drug discovery, and autonomous systems.
+- **Neural ODEs at IBM Research** (Chen et al., NeurIPS 2018) — productionized
+  for irregular medical time-series in clinical-trial dropout prediction;
+  cited in FDA AI/ML SaMD Action Plan as a candidate continuous-time model.
+- **NVIDIA Modulus PINN platform** — used by Siemens Energy and General
+  Atomics on industrial heat-exchanger and tokamak design; replaces nights-
+  long ANSYS Fluent runs with seconds-long PINN inferences during early
+  design exploration.
+- **Climate-emulator startups (Atmo AI, Salient Predictions)** — train neural-
+  surrogate ODEs on ECMWF ERA5 reanalysis to sell sub-seasonal forecasts
+  to utilities (Duke Energy) and crop insurers (Climate Corp).
+- **Drug discovery at Schrodinger / Recursion Pharma** — Hamiltonian/equivariant
+  NNs (NequIP, MACE) replace expensive DFT for molecular dynamics in
+  protein-ligand screening; cuts compute cost on Vertex's CFTR pipeline.
 
 ## Check Your Understanding
 

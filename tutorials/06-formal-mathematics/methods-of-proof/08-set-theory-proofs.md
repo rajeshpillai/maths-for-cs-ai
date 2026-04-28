@@ -166,6 +166,10 @@ print(f"  A∩C ⊆ B∩C: {AC <= BC}")
 - **Type systems**: union types and intersection types obey set-theoretic laws; type checking proves subset relationships.
 - **Access control**: permissions are sets; proving a user has access is a subset proof.
 - **Formal verification**: model checking explores state sets; set operations verify properties hold across all reachable states.
+- **AWS IAM policy verification with Zelkova** — Amazon proves S3 bucket policies do not leak data to "public" using set-inclusion proofs over principal/action/resource sets; protects exabytes of customer data including healthcare and government workloads.
+- **Customer cohort analysis at Stripe and HubSpot** — retention dashboards compute $|\text{active}_t \cap \text{active}_{t-30}|$ etc. via set-algebra identities; De Morgan's law lets revenue teams reformulate "churned-and-not-recovered" cohorts in milliseconds over 100M+ customer records.
+- **GDPR/CCPA right-to-be-forgotten at Google and Meta** — proving a deletion request is correctly applied across systems is a set-equality argument: data sets across all caches/replicas must equal the original minus the user; failures incur fines up to 4% of global revenue.
+- **Lattice-based access control in defense (Bell-LaPadula model)** — clearance levels form a partial order with set-inclusion proofs that classified data flows only "up"; certified for U.S. DoD systems handling SECRET and TOP SECRET workloads.
 
 ## Check Your Understanding
 

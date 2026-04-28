@@ -239,6 +239,10 @@ print(f"  At x=6: y = {-1/3 * 6 + 3:.1f}")
 - **Gradient descent:** the slope of a loss function tells the optimiser which
   direction to move.  "Gradient" literally means slope generalised to many
   dimensions.
+- **Cost-volume-profit models** — CFOs project profit as $P(q) = (p - v)q - F$, a linear function with slope = contribution margin; tools like Adaptive Insights and Anaplan use it to find break-even units.
+- **Real-estate appraisal** — Zillow's Zestimate and county assessors fit $\text{Price} = m \cdot \text{sqft} + b$ as a baseline before layering features; the slope $m$ is the "$/ft^2$" headline number realtors quote.
+- **Calibration curves in lab science** — chemists and metrologists at Thermo Fisher fit $\text{signal} = m \cdot \text{concentration} + b$ on HPLC and mass-spec instruments; ISO 17025 accreditation requires reporting both slope and intercept.
+- **Highway design grades** — civil engineers express road slopes as percent grade $m = \Delta y / \Delta x$; AASHTO guidelines cap interstate grades at 6%, encoded as a constraint on the slope of the linear vertical alignment.
 
 ## Check Your Understanding
 

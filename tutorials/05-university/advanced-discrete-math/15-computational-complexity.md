@@ -219,6 +219,23 @@ for n in [10, 15, 20]:
   approximations (minimax + pruning) are used instead.
 - **SAT solvers:** Despite NP-completeness, modern SAT solvers handle millions
   of variables in practice — used in hardware verification and AI.
+- **Industry — Intel & AMD chip verification with Z3 / CBMC:** Pre-silicon
+  verification of CPU designs encodes correctness as SAT/SMT instances;
+  Intel famously discovered the FDIV bug in 1994 (cost $475M to recall)
+  and now spends >$1B/year on formal-verification compute clusters.
+- **Operations — Gurobi & CPLEX integer programming at scale:** Vehicle
+  routing (UPS, FedEx), nurse scheduling at Mayo Clinic, and airline
+  crew rostering at Delta solve NP-hard problems daily; commercial MIP
+  solvers handle millions of variables via branch-and-bound + cutting planes.
+- **Finance — Portfolio optimisation with cardinality constraints:**
+  "Pick at most 30 of 5,000 stocks to hedge a benchmark" is NP-hard
+  (subset-sum-like); BlackRock Aladdin and MSCI BarraOne solve relaxations
+  to manage trillions in AUM.
+- **Engineering — Protein folding & AlphaFold's predecessor problem:**
+  Determining lowest-energy folded structure was conjectured NP-hard by
+  Berger-Leighton; this is why brute-force molecular dynamics scales
+  poorly and why DeepMind's AlphaFold (using learned heuristics) was a
+  scientific breakthrough rewarded with the 2024 Nobel in Chemistry.
 
 ## Check Your Understanding
 

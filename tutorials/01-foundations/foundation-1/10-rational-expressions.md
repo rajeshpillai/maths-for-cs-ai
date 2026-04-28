@@ -166,6 +166,10 @@ for x_val in [100, 1000, 10000]:
 - **Asymptotic analysis** — comparing $\frac{n^2}{n+1}$ to understand algorithm scaling
 - **Probability** — generating functions are often rational; poles reveal distribution behaviour
 - **Numerical stability** — dividing by near-zero values causes floating-point overflow (vertical asymptote in disguise)
+- **Price-to-Earnings (P/E) ratios** — equity analysts at Morningstar and Bloomberg compare $\text{P/E} = \text{Price}/\text{EPS}$, a rational expression whose vertical asymptote (EPS approaching zero) is exactly why analysts switch to EV/EBITDA for unprofitable firms.
+- **Capital-rationing & ROI** — corporate-finance teams rank projects by $\text{ROI} = \text{NPV}/\text{Investment}$; managing this ratio under capital constraints is the textbook "knapsack with rational scores" problem.
+- **Aerodynamic lift-to-drag** — Boeing and Airbus engineers maximise $L/D$ (a rational function of angle of attack); CFD packages like ANSYS Fluent report this ratio at every iteration of wing design.
+- **Reaction-rate kinetics** — chemical engineers at BASF use the Michaelis-Menten rate $v = \frac{V_{\max}[S]}{K_M + [S]}$ to size bioreactors; the horizontal asymptote $v \to V_{\max}$ tells them maximum throughput.
 
 ## Check Your Understanding
 

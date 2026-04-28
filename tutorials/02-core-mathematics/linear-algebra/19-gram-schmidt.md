@@ -220,6 +220,10 @@ print(f"NumPy R =\n{np.round(R_np, 6)}")
 - **Orthonormal bases** simplify everything: projection becomes a single dot product, coordinates decouple, and numerical errors do not cascade.
 - In **3-D game engines**, orthonormalising a camera's local axes (forward, right, up) prevents the axes from drifting out of alignment due to accumulated floating-point errors.
 - **Signal processing**: orthogonal basis functions (sines, cosines, wavelets) let you decompose a signal into independent components — Gram-Schmidt generalises this idea.
+- **Finance — QR-based regression at hedge funds:** Two Sigma's risk attribution code uses QR (Gram-Schmidt under the hood) to regress fund returns on hundreds of risk factors without amplifying multicollinearity.
+- **Operations — beam-formed cellular networks (5G NR):** Ericsson and Nokia base stations apply Gram-Schmidt to channel estimate matrices to form orthogonal MU-MIMO beams to multiple subscribers simultaneously.
+- **Engineering — orbital element orthogonalization at NASA JPL:** Mars rover trajectory codes orthonormalize basis vectors of the rotating reference frame each step to prevent drift in long Monte Carlo descent simulations.
+- **Science — electronic structure (Hartree-Fock):** Gaussian, ORCA, and PySCF packages reorthonormalize molecular orbitals after each SCF iteration via Lowdin / Gram-Schmidt to keep the wavefunction antisymmetric.
 
 ## Check Your Understanding
 

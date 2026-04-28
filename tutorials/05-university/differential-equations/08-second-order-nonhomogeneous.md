@@ -236,6 +236,21 @@ print(f"  y'(0) = {yp0:.6f} (should be 0)")
   $g(t)$ that modify a spring-mass system's free behaviour.
 - **Resonance** must be detected and avoided in structural simulations
   (bridges, buildings in games) — it causes unbounded growth.
+- **Tacoma Narrows-style flutter checks** — bridge designers (HNTB, COWI)
+  compute forced-response transfer functions before submitting to AASHTO
+  LRFD wind-load review; the $1940$ collapse is now a textbook resonance
+  case study every PE structural exam revisits.
+- **Power-grid harmonic distortion** — IEEE 519-2014 limits utility harmonic
+  injection; National Instruments PXI analyzers solve forced second-order
+  ODE models of transformers to certify customer compliance at the meter.
+- **Pacemaker capture-threshold tuning** — Medtronic and Boston Scientific
+  device firmware models heart-tissue response as a forced second-order
+  system; pacing pulse width/amplitude are tuned to resonate with capture
+  threshold but stay below safety margin (FDA 510(k) submission data).
+- **Earthquake response spectra at FEMA** — building codes (ASCE 7-22) tabulate
+  steady-state amplification of forced second-order oscillators across
+  natural periods; structural engineers use these for every Bay Area / LA
+  high-rise foundation.
 
 ## Check Your Understanding
 

@@ -186,6 +186,20 @@ print(f"Exact: y(0.1) = {exact_at_01:.10e}")
   implicit integration; explicit methods produce jittering or instability.
 - **Neural ODEs** — Stiff dynamics in latent neural ODEs require adaptive
   implicit solvers; `torchdiffeq` offers both explicit and implicit options.
+- **Atmospheric chemistry at NASA GISS / NCAR CESM** — global climate models
+  integrate a stiff $\sim 100$-species chemistry network (e.g. KPP solver
+  with Rosenbrock-2) for ozone and aerosol forecasts that feed IPCC
+  Assessment Reports.
+- **Combustion CFD at Convergent Science / ANSYS Forte** — diesel engine
+  development at Cummins and Caterpillar uses Sundials CVODE for stiff
+  chemistry coupled to flow; certifies engines under EPA Tier 4 NOx limits.
+- **Battery aging at Tesla / LG Chem** — lithium-ion electrochemistry models
+  (P2D Doyle-Fuller-Newman) are extremely stiff; companies use COMSOL with
+  BDF solvers to project capacity-fade warranties for EV packs.
+- **Pharmaceutical fermentation control at Genentech / Amgen** — bioreactor
+  ODEs for cell metabolism are stiff (μ-second enzyme kinetics + hour-long
+  cell-culture timescales); SimaPro and SuperPro Designer use implicit BDF
+  to design GMP-compliant batch schedules.
 
 ## Check Your Understanding
 

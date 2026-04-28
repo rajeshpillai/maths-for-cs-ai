@@ -162,6 +162,19 @@ print(f"Expected: <1, 1, 1>")
   modifying $\mathbf{r}''(t)$
 - **ML embeddings**: a training trajectory through parameter space is a
   vector-valued function of training step
+- **Aerospace trajectory design**: NASA's JPL uses vector-valued functions
+  $\mathbf{r}(t)$ to describe spacecraft trajectories — Cassini, New Horizons,
+  and the Mars Perseverance EDL profile are all defined as parameterised
+  position curves with velocity/acceleration derivatives feeding GNC algorithms
+- **Formula 1 telemetry**: McLaren and Mercedes-AMG record car position as a
+  vector-valued function of lap time; the derivative gives velocity vectors used
+  by aerodynamics teams to optimise corner approach
+- **Bloomberg Terminal asset paths**: multi-asset portfolio price trajectories
+  are vector-valued $\mathbf{r}(t)$ in $\mathbb{R}^N$; risk desks compute
+  derivatives (returns, drift) for VaR and Greeks
+- **Surgical robotics**: Intuitive Surgical's da Vinci Xi system represents
+  end-effector tool tip motion as a vector-valued function $\mathbf{r}(t)$;
+  derivatives feed inverse kinematics for instrument articulation
 
 ## Check Your Understanding
 1. Given $\mathbf{r}(t) = \langle t^3, \; 2t, \; t^2 - 1 \rangle$, find $\mathbf{r}'(t)$

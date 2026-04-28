@@ -356,6 +356,10 @@ print(f"  gcd = {a}")
 - **Reducing fractions** — GCD simplifies rationals (Python's `fractions` module uses this)
 - **LCM in scheduling** — "when do two periodic events next coincide?" = LCM of their periods
 - **Random number quality** — LCG parameters need $\gcd(a, m) = 1$ for full-period generators
+- **HTTPS & TLS in production (Industry)** — RSA and Diffie-Hellman key exchange in OpenSSL, BoringSSL, and AWS-LC use 2048/4096-bit primes; every Cloudflare, Fastly, and Akamai TLS handshake — billions per second worldwide — depends on the hardness of factoring large primes.
+- **Bitcoin & blockchain (Finance/Crypto)** — Bitcoin and Ethereum signatures use ECDSA over the secp256k1 curve, defined by a specific 256-bit prime; Ledger and Trezor hardware wallets generate primality-tested keys to secure trillions in crypto holdings.
+- **Industrial maintenance scheduling (Operations)** — factories (Toyota, Siemens) and aircraft maintenance teams (Lufthansa Technik, Pratt & Whitney) compute LCM of inspection intervals (e.g. 30, 90, 180 days) to align A/B/C/D check cycles efficiently.
+- **Digital signal processing (Engineering)** — coprime sampling for sub-Nyquist DSP (used in Keysight oscilloscopes and FlexNet radio gear) requires GCD-based array design; FFT mixed-radix algorithms (e.g. FFTW, Intel MKL) split N into coprime factors.
 
 ## Check Your Understanding
 

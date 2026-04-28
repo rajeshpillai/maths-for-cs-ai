@@ -321,6 +321,24 @@ already know how to solve* — shows up far beyond JEE:
   substitution (e.g. $y = \log x$ in revenue-elasticity models, or
   $y = 1/x$ for hyperbolic costs) is how OR teams turn hard models into
   ones their LP solver can handle.
+- **Quant trading desks (Citadel, Two Sigma, Optiver).** Implied-volatility
+  surfaces are inverted by a Cornish-Fisher / log-moneyness substitution
+  $k = \log(K/F)$ that turns a non-linear root find into an almost-linear
+  fit. Interview questions still hand candidates JEE-style integrals to
+  test substitution fluency under time pressure.
+- **Civil & mechanical engineering (L&T, Tata Steel).** Stress integrals
+  in beam-bending use $x = a\sec t$ to evaluate $\int dx/\sqrt{x^2 - a^2}$
+  for cross-sectional moments of inertia; the same Euler substitution
+  appears when integrating drag along a non-circular pipe in CFD.
+- **Pharma / biotech (Pfizer, Biocon).** Pharmacokinetic AUC calculations
+  use the $t = e^{-kt}$ substitution to exactly integrate exponential
+  decay terms in compartment models — the reciprocal-substitution trick
+  is how regulatory submission docs (FDA NDA, EMA EPAR) close-form the
+  bioavailability integral.
+- **Energy & utilities (NTPC, BP).** Reservoir-engineering decline-curve
+  forecasts substitute $u = 1/q$ to linearise hyperbolic Arps decline,
+  letting Excel-based well economics tools at every E&P firm fit
+  log-linear regressions instead of iterating non-linear solvers.
 
 ## Check Your Understanding
 

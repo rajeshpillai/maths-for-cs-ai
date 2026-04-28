@@ -208,6 +208,10 @@ print("  Spiral of Archimedes:                r = θ                vs  no close
 - **Fourier analysis** — frequency and phase are polar coordinates in the spectral domain
 - **Spirals in nature** — galaxies, shells, hurricanes follow logarithmic spirals
 - **Compass/heading** — navigation uses polar coordinates (bearing + distance)
+- **NEXRAD weather radar (NOAA)** — every National Weather Service Doppler radar ships data on a polar (range, azimuth, elevation) grid; reflectivity products like Hurricane Ian's eye-wall radar imagery are inherently polar.
+- **FAA / Eurocontrol air traffic control** — primary surveillance radar at every major airport (Heathrow LACC, NY TRACON) reports targets in (range, bearing) polar coordinates before fusion with secondary ADS-B.
+- **Antenna gain patterns (Cisco, Ubiquiti, Starlink)** — wireless coverage and satellite-dish beam patterns are catalogued as polar plots (E-plane and H-plane) in FCC Part 15 and ITU-R filings.
+- **Wind-rose climate analysis (DNV, Vestas, Siemens Gamesa)** — wind-farm site assessment plots wind speed and direction frequencies on polar wind roses to optimize turbine yaw orientation and power output.
 
 ## Check Your Understanding
 

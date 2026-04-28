@@ -247,6 +247,10 @@ print("  Re(λ) > 0 → grows (unstable)")
 - **Quantum computing** — unitary gates are matrix exponentials: $U = e^{-iHt}$
 - **Graph theory** — $e^{\mathbf{A}}$ (where $\mathbf{A}$ is adjacency) counts walks in graphs
 - **Efficient computation** — Cayley-Hamilton reduces matrix powers to linear combinations
+- **MATLAB `expm` in industry (Mathworks Simulink)** — the de-facto tool used by Lockheed Martin, Boeing, and Honeywell for spacecraft attitude propagation and aerospace controller discretization (`c2d` in Control System Toolbox).
+- **IBM Qiskit / Google Cirq quantum simulators** — Trotter-Suzuki product formulas approximate $e^{-iHt}$ to simulate molecular Hamiltonians; the VQE algorithm runs daily on IBM Q System One and Google Sycamore.
+- **Markov-chain credit-rating transition matrices (Moody's, S&P)** — bond rating migration over $t$ years is modelled as $e^{Qt}$ where $Q$ is the generator matrix; banks use this for Basel III IRB capital calculations.
+- **Population-pharmacokinetics (NONMEM, Pumas-AI)** — multi-compartment drug models solve $\dot{C} = AC$ analytically via $e^{At}$ to fit clinical-trial data efficiently for dosing-regimen optimization.
 
 ## Check Your Understanding
 

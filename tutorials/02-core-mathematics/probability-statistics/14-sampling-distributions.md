@@ -308,6 +308,11 @@ for n in [5, 10, 30, 100, 1000]:
 - **Ensemble methods** — averaging $n$ models reduces variance by $1/n$ (same $1/\sqrt{n}$ principle)
 - **Monte Carlo estimation** — error bars on Monte Carlo estimates use the standard error
 - **Bootstrap** — resampling to empirically estimate the sampling distribution of any statistic
+- **Political polling & election forecasting** — Gallup, Pew, and FiveThirtyEight use the sampling distribution of $\hat p$ to translate "1,000 registered voters surveyed" into "$\pm 3$% margin of error"; same logic underpins exit-poll networks at NBC, ABC, CNN.
+- **Pharmaceutical Phase III trials** — the FDA requires sponsors (Pfizer, Moderna, Roche) to power studies for the sampling distribution of the treatment-effect estimator; FDA Guidance E9 mandates pre-registered sample-size calculations using $\sigma/\sqrt n$.
+- **Quality-control acceptance sampling** — ANSI/ASQ Z1.4 and MIL-STD-105E (used by Apple supplier audits, Boeing 787 assembly, and Department of Defense procurement) define lot-acceptance rules from the sampling distribution of defect counts.
+- **Bootstrap in finance & risk** — JPMorgan and Goldman Sachs risk teams use bootstrap resampling on historical P&L to estimate sampling distributions of VaR (Value at Risk) and CVaR; Basel III backtesting relies on these.
+- **A/B testing platforms** — Optimizely, Google Optimize, and Booking.com (running >1000 concurrent experiments) compute confidence intervals from the sampling distribution of conversion-rate differences; "minimum detectable effect" charts are direct $\sigma/\sqrt n$ calculations.
 
 ## Check Your Understanding
 

@@ -167,6 +167,10 @@ print(f"  Q(0.9) = {Q(0.9):.3f}, Q(1.1) = {Q(1.1):.3f} (same sign = bounce)")
 - **Taylor polynomials** — approximate $\sin$, $\cos$, $e^x$ for fast computation in shaders
 - **Characteristic polynomials** — eigenvalues of a matrix are roots of $\det(A - \lambda I) = 0$
 - **Error-correcting codes** — Reed-Solomon codes use polynomial evaluation over finite fields
+- **Bond yield curves** — fixed-income desks at JP Morgan fit cubic-spline polynomials to Treasury yields across maturities; the U.S. Treasury's published par-yield curve is a piecewise cubic
+- **Cost & demand modelling** — Tesla and Toyota use cubic cost functions $C(q) = aq^3 + bq^2 + cq + d$ to model U-shaped marginal costs; finding the minimum-average-cost output reduces to a polynomial root problem
+- **CAM tool-path generation** — CNC milling at Boeing and Mazak uses NURBS (rational polynomial) tool paths; G-code interpreters evaluate cubic and quintic polynomials to drive servo motors smoothly
+- **Pharmacology dose-response** — sigmoid-Emax models in PK/PD software (NONMEM, Phoenix WinNonlin) reduce to polynomial root finding to predict the dose achieving a target concentration
 
 ## Check Your Understanding
 

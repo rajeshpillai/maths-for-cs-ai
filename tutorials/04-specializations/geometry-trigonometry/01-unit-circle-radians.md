@@ -225,6 +225,10 @@ radians (not degrees):**
 - **Angular velocity** — measured in rad/s; multiply by dt for rotation per frame
 - **Signal processing** — frequency is measured in radians per second ($\omega = 2\pi f$)
 - **Euler's formula** — $e^{i\theta}$ represents rotation in the complex plane (used in Fourier analysis)
+- **Wind turbine pitch control (Vestas, Siemens Gamesa)** — blade angle is commanded in radians; the pitch controller uses $s = r\theta$ to translate desired tip-speed-ratio targets into actuator setpoints.
+- **Industrial robot arms (KUKA, FANUC, ABB)** — joint angles in every robot controller are stored and transmitted in radians, and angular velocity in rad/s is the unit of every servo-drive command on factory floors.
+- **Stock-options "delta hedging" via Black-Scholes** — the formula uses $e^{i\theta}$-style cyclic compounding ($e^{rT}$); brokerages like Goldman Sachs and Citadel run continuous-rate models where $\omega = 2\pi f$ governs interest accrual on intraday positions.
+- **CT scanner gantry rotation (GE Revolution, Siemens SOMATOM)** — projection angles for the Radon transform are stored in radians; reconstruction software at every hospital depends on radians being the natural unit of arc length.
 
 ## Check Your Understanding
 

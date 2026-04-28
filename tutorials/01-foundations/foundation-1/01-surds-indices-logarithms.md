@@ -312,6 +312,10 @@ for a, b in [(1, 1), (1, 2), (2, 3), (3, 4)]:
 - **Computer graphics** — inverse square root ($1/\sqrt{r^2}$) appears in lighting calculations; the famous Quake fast inverse square root hack exploits index representation
 - **Cryptography** — RSA encryption relies on modular exponentiation ($a^e \mod n$)
 - **Numerical stability** — keeping surds exact avoids accumulated rounding errors in symbolic computation
+- **Compound interest & CAGR** — banks, Vanguard, and Fidelity compute portfolio growth via $A = P(1+r)^t$; the CAGR metric reported in S&P 500 fact sheets is literally an $n$-th root: $(V_{\text{end}}/V_{\text{start}})^{1/n} - 1$
+- **Moore's Law & semiconductor roadmaps** — Intel and TSMC plan node shrinks against $2^{t/2}$ transistor density; capacity planning at AWS uses the same exponential to forecast rack power draw
+- **Earthquake & sound engineering** — the Richter scale and decibel scale are base-10 logarithms; USGS sensors and Dolby audio mixing boards both report measurements as $\log_{10}$ ratios so a billion-fold dynamic range fits on one dial
+- **Pharmacokinetics** — drug half-life models like $C(t) = C_0 \cdot 2^{-t/T_{1/2}}$ drive dosing schedules at Pfizer and Moderna; FDA-approved package inserts quote $T_{1/2}$ for every molecule
 
 ## Check Your Understanding
 

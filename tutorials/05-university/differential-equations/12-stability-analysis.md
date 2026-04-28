@@ -231,6 +231,22 @@ print(f"  Pure imaginary => center (linearization inconclusive)")
   stabilizing the saddle point $(\pi, 0)$ using feedback control.
 - **Ecology / epidemiology models**: endemic equilibria in SIR models are
   analysed for stability to predict disease outcomes.
+- **Power-grid small-signal stability at NERC** — utilities run eigenvalue
+  studies on linearized swing equations using PowerWorld and Siemens PSS/E
+  to satisfy NERC TPL-001 reliability standards; loss of damping triggered
+  the 2003 Northeast blackout investigation.
+- **Bank stress testing under Dodd-Frank CCAR** — Federal Reserve scenario
+  models linearize macro-financial ODE systems and check stability margins;
+  banks with eigenvalues near the imaginary axis fail the qualitative
+  evaluation portion of the test.
+- **Process control loop tuning at refineries** — Honeywell APC and Aspen
+  DMC3 run online stability analysis on the Jacobian of distillation tower
+  ODEs at every steady-state move; instability flags propagate to alarm
+  systems before excursions go off-spec.
+- **Aerospace flutter clearance at Lockheed Martin** — F-35 wing/control-
+  surface coupling models are linearized at every flight condition and
+  eigenvalues plotted vs Mach number; certifiers require all eigenvalues
+  to have negative real parts within the flight envelope.
 
 ## Check Your Understanding
 

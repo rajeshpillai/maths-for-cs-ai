@@ -221,6 +221,22 @@ print(f"= {magnitude}")
   normals and areas — the building blocks of surface integrals
 - **Gauss's law**: the electric flux through a closed surface equals the enclosed
   charge — the basis for electrostatic solvers in physics engines
+- **Boeing 787 wing surface design**: surface integrals of pressure $\iint_S
+  p\, \mathbf{n}\, dS$ over the wing skin compute total lift and drag in
+  ANSYS Fluent CFD; saved Boeing $\sim$$300M$/year in fuel modelling for the
+  787 fleet relative to the 767
+- **Solar panel installation tilt analysis**: NREL's PVWatts and Tesla Solar
+  use surface integrals over panel arrays to compute irradiance at varying
+  azimuth/tilt — informs sales quotes for residential and utility-scale
+  installations like Crescent Dunes
+- **Heat exchanger design at Alfa Laval**: total heat transfer is
+  $Q = \iint_S h(T_\text{wall} - T_\text{fluid})\, dS$ over plate or tube
+  surfaces — sizes condensers for nuclear plants like Vogtle Units 3 and 4
+  and refrigeration in Carrier and Daikin systems
+- **Building envelope energy audit**: ASHRAE 90.1 and BREEAM use surface
+  integrals of $U \cdot \Delta T$ over wall, roof, and window areas to
+  certify net-zero designs — drives green-building incentives across LEED
+  Platinum projects
 
 ## Check Your Understanding
 1. Compute the surface area of the paraboloid $z = x^2 + y^2$ for $z \leq 4$.

@@ -249,6 +249,10 @@ for k in ks:
 - **Noise cancellation** — AirPods analyse and cancel frequencies in real-time
 - **MRI imaging** — raw data is in k-space (frequency domain); reconstructed via inverse FFT
 - **Speech recognition** — mel spectrograms (frequency analysis) are input to neural networks
+- **Bose, Sony WH-1000XM5, AirPods Pro 2 active noise cancellation** — DSP chips run real-time STFT/iSTFT pipelines to detect ambient noise spectra and inject 180°-phase cancellation, achieving >30 dB attenuation on commuter trains and aircraft.
+- **Shazam (Apple) and Google Sound Search** — spectrogram peak fingerprinting indexes 30M+ tracks; a 4-second clip is hashed and matched in under a second, monetizing through Apple Music and Spotify referral revenue.
+- **Earthquake early-warning (USGS ShakeAlert, Japan JMA)** — seismometers run FFTs on real-time ground motion to discriminate P-waves from noise, sending alerts to smartphones in California, Oregon, and Mexico City seconds before destructive S-waves arrive.
+- **Industrial CT scanning for parts inspection (GE Phoenix v|tome|x, Nikon XT H)** — aerospace manufacturers like Boeing and Rolls-Royce reconstruct 3D X-ray volumes via filtered back-projection (Fourier slice theorem) to detect porosity in turbine blades before installation.
 
 ## Check Your Understanding
 

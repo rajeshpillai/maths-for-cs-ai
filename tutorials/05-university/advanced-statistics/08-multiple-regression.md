@@ -169,6 +169,23 @@ print(f"\nnumpy lstsq: {beta_np}")
 - **Regularisation:** When multicollinearity is severe, Ridge regression
   ($L_2$) and Lasso ($L_1$) add penalty terms — these are the foundations
   of modern ML regularisation.
+- **Hedonic pricing at the Bureau of Labor Statistics:** the U.S. CPI
+  uses multiple regression to adjust prices for quality changes
+  (laptop CPU + RAM + SSD) so that a faster laptop at the same price
+  registers as a price *decrease* in inflation statistics.
+- **Wage-discrimination litigation:** EEOC and DOL Office of Federal
+  Contract Compliance use multiple regression of wage on
+  experience + education + tenure + protected-class indicator; the
+  $\hat\beta$ on the indicator is admissible court evidence (e.g. the
+  Goldman Sachs class-action settlement).
+- **Pharmacokinetics at Pfizer / Merck:** drug clearance is regressed on
+  age + weight + creatinine + CYP450 genotype; resulting $\hat\beta$
+  determine FDA-labeled dosing adjustments printed on every prescription
+  insert.
+- **Environmental-impact regression at the EPA:** Clean Air Act
+  attainment uses multiple regression on PM2.5 ~ traffic + industrial
+  emissions + meteorology to attribute pollution sources; same approach
+  underlies the IPCC's "fingerprinting" of anthropogenic warming.
 
 ## Check Your Understanding
 

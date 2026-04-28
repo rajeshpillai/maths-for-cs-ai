@@ -165,6 +165,10 @@ prove_even_sum(14, 22)
 - **Type checking**: a type derivation in a compiler is a direct proof that an expression has a certain type.
 - **Cryptography**: proving that encryption followed by decryption recovers the plaintext is a direct proof.
 - **Game logic**: proving that a game state transition is valid (legal move) is a direct proof from the rules.
+- **CompCert formally verified C compiler at Airbus** — every optimization pass is a direct proof in Coq; CompCert is used for safety-critical avionics code in the A350, eliminating compiler-induced bugs that ordinary GCC/Clang testing cannot.
+- **Black-Scholes derivation at investment banks** — direct proof from Itô's lemma + no-arbitrage assumption gives the option-pricing PDE; quants at Goldman Sachs and Morgan Stanley re-derive it daily to calibrate exotic-derivative books worth trillions.
+- **Finite-element convergence proofs (Cea's lemma)** — direct proofs underpin ANSYS/COMSOL guarantees that mesh-refined stress predictions converge to the exact PDE solution, certifying skyscraper structural designs in NYC and Dubai.
+- **Insurance reserve calculations under IFRS 17** — direct proofs from actuarial axioms justify the discount-curve transforms used by AIG, Allianz, and MetLife; auditor sign-off on $30T+ of global insurance liabilities depends on these chains being airtight.
 
 ## Check Your Understanding
 

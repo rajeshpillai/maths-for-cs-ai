@@ -242,6 +242,10 @@ $$
 - **Vision Transformers (ViT)** — split image into patches, treat as tokens
 - **AlphaFold** — protein structure prediction using attention on amino acid sequences
 - **Stable Diffusion** — cross-attention between text embeddings and image features
+- **Bloomberg GPT and JPMorgan IndexGPT** — finance-specific transformers digest earnings calls, SEC filings, and Reuters news to flag market-moving events for trading desks; LLM-based research assistants are now standard at every major investment bank.
+- **AlphaFold 2 at DeepMind** — Evoformer attention blocks decoded the 3D structure of every known protein (200M+ entries in the AlphaFold DB), accelerating drug discovery at companies like Isomorphic Labs and Moderna.
+- **Tesla FSD v12 end-to-end driving** — multi-head attention over BEV (bird's-eye-view) tokens fuses 8 cameras into trajectory predictions, removing hundreds of thousands of lines of hand-coded C++ planning logic.
+- **Genomic sequence modeling (NVIDIA BioNeMo, Nucleotide Transformer)** — transformer attention over DNA/RNA tokens predicts variant pathogenicity for clinical genomics labs at Illumina and Genentech.
 
 ## Check Your Understanding
 

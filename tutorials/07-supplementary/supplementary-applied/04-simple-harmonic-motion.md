@@ -227,6 +227,10 @@ print("just over an hour because wind frequency matched a structural mode.")
 - **Vibration analysis** — resonance detection in structures, engines
 - **Suspension systems** — damped SHM in racing game physics
 - **Signal processing** — oscillations decompose into SHM components (Fourier)
+- **Tacoma Narrows / Millennium Bridge retrofits** — civil-engineering tuned mass dampers (TMDs) on Taipei 101 and the Citicorp Center are sized using SHM resonance analysis to bleed wind-induced sway energy.
+- **MEMS gyroscopes (STMicro, Bosch, InvenSense)** — every iPhone and quadcopter flight controller measures rotation via resonating SHM proof masses; the Coriolis force shifts the SHM phase to read angular rate.
+- **Quartz oscillators in finance trading clocks** — NYSE and CME use OCXO crystal SHM at 10 MHz as the timing reference for timestamping orders to NIST-traceable accuracy required by SEC 613 / MiFID II RTS 25.
+- **Pendulum clocks & atomic-fountain clocks (NIST-F2)** — caesium-fountain clocks use a Ramsey-fringe SHM-based interrogation to define the SI second to 1 part in $10^{16}$.
 
 ## Check Your Understanding
 

@@ -169,6 +169,10 @@ plt.show()
 - **MRI** — raw data is in frequency domain; inverse FT reconstructs the image
 - **Convolution theorem** — convolution in time = multiplication in frequency (fast!)
 - **Wavelets** — extension of Fourier for time-frequency localisation
+- **MRI scanners (Siemens Magnetom, GE SIGNA, Philips Ingenia)** — every clinical MRI machine reconstructs images by computing 2D/3D inverse Fourier transforms over raw k-space data captured by gradient coils; without the FT, the entire $7B/year MRI industry doesn't exist.
+- **Air-traffic control radar (Raytheon ASR-9, Lockheed Martin TPS-77)** — every major airport uses pulse-Doppler radar that computes FFTs on echo phase to extract aircraft velocity and filter ground clutter.
+- **Equity volatility surfaces (Goldman Sachs SecDB, JPM Athena)** — characteristic-function methods (Carr-Madan, Lewis) price options by computing the Fourier transform of the log-return density, replacing slow Monte Carlo with millisecond pricing.
+- **Seismic exploration (Schlumberger Omega, CGG GeoDepth)** — oil-and-gas geophysicists migrate seismic shot records via 2D/3D FT to image salt domes and faults thousands of meters underground.
 
 ## Check Your Understanding
 

@@ -213,6 +213,20 @@ print(f"  Numerical at t=3: x1 = {sol.y[0][-1]:.6f}, x2 = {sol.y[1][-1]:.6f}")
 - **Graph dynamics**: signal propagation on a graph is governed by
   $\mathbf{x}' = -L\mathbf{x}$ where $L$ is the graph Laplacian. Eigenvalues
   of $L$ determine how fast information diffuses.
+- **CDC SIR/SEIR models for COVID-19** — coupled ODE systems for
+  Susceptible/Exposed/Infected/Recovered compartments drove school-closure
+  decisions; IHME and Imperial College London both fit these systems daily
+  during 2020-21 to set Rt and ICU-bed projections for HHS.
+- **Federal Reserve DSGE forecasting** — the FRB/US model is a system of
+  hundreds of stochastic ODEs (linearized) whose eigenvalues determine
+  whether GDP returns to steady state after a rate shock; FOMC briefings
+  cite outputs every meeting.
+- **Spacecraft attitude control at Boeing/Lockheed** — Euler's rigid-body ODEs
+  $I\dot\omega + \omega\times(I\omega)=\tau$ form a coupled 3D system solved
+  on every reaction-wheel commanded slew of GPS III and Starlink buses.
+- **Process plant control loops at BASF/Dow** — distillation column trays are
+  modelled as cascaded mass-balance ODEs; Honeywell Experion DCS solves
+  these systems for advanced process control to hit ASTM purity specs.
 
 ## Check Your Understanding
 

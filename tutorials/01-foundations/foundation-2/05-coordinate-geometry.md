@@ -222,6 +222,10 @@ print(f"Tangent discriminant = {disc_t:.6f} (should be 0)")
 - **Bounding circles** — fast overlap test: distance between centres < sum of radii
 - **Regression** — fitting a circle to data points (least squares with circle equation)
 - **Signal processing** — the unit circle in the complex plane underlies the z-transform
+- **Geofencing in retail & logistics** — Starbucks order-ahead and Amazon Flex use circle equations $(x - x_0)^2 + (y - y_0)^2 \le r^2$ to detect when a customer/driver enters a store radius; this triggers in-app notifications.
+- **Surveying & cadastral lines** — civil surveyors at Trimble/Leica use point-line distance formulas to verify that a fence is on the parcel boundary; legal descriptions in deeds use bearings + distances that translate directly into coordinate-geometry equations.
+- **Cellular tower coverage** — Verizon and AT&T RF engineers model coverage as overlapping circles on coordinate maps; site-acquisition tools (Atoll, Mentum Planet) compute intersection regions to plan handoffs.
+- **Roundabout & intersection design** — AASHTO's geometric design manual uses circle equations to lay out roundabout islands and curve radii; Civil 3D and OpenRoads software solve coordinate-geometry constraints to draft road centerlines.
 
 ## Check Your Understanding
 

@@ -170,6 +170,20 @@ print(f"Var + Bias^2 = {variance:.4f} + {bias_sq:.6f} = {variance + bias_sq:.4f}
   to ensure convergence of TD-learning algorithms.
 - **Game AI:** Estimating opponent behaviour from limited observations is
   a point estimation problem.
+- **Insurance pricing at Allstate / Geico / Lloyd's of London:** actuaries
+  rely on UMVUE (Uniformly Minimum Variance Unbiased Estimators) for
+  claim-frequency $\lambda$ in Poisson loss models; the Cramer-Rao bound
+  defines minimum capital reserves under Solvency II regulation.
+- **Quantitative finance at Renaissance / Two Sigma:** estimator efficiency
+  drives Sharpe-ratio confidence; biased volatility estimators (sample std
+  vs. EWMA vs. GARCH) flow into VaR computations the SEC requires for
+  bank stress tests.
+- **Semiconductor yield at TSMC / Intel:** wafer defect rate is estimated
+  with consistent estimators; Cramer-Rao informs how many test dies per
+  wafer are needed to certify ppm targets in automotive-grade chips.
+- **Pharmaceutical dose estimation:** Phase I dose-finding studies (e.g.
+  CRM at Eli Lilly) use MLE-based MTD estimators whose efficiency directly
+  determines required patient cohort size for FDA submission.
 
 ## Check Your Understanding
 

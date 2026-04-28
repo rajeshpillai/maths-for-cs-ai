@@ -202,6 +202,10 @@ for angle in [0.5, 1.0, 2.3, 5.7]:
 - **Game physics** — projectile trajectories, pendulums, and wave simulations
   all use trig functions
 - **Dot product and angles** — $\mathbf{a} \cdot \mathbf{b} = \|\mathbf{a}\|\|\mathbf{b}\|\cos\theta$
+- **Surveying & total stations** — Leica and Topcon total stations measure horizontal and vertical angles; coordinates are computed by $\Delta x = d\cos\theta$, $\Delta y = d\sin\theta$ — pure SOH-CAH-TOA — for every property survey.
+- **Solar-panel tilt optimisation** — installers at SunPower and Tesla Energy compute optimal tilt $= \text{latitude}$ (using zenith angles); annual yield is a sum involving $\cos$(angle of incidence). Software like PVsyst runs these trig calculations hourly.
+- **Forex chart pattern recognition** — Bloomberg and TradingView technical-analysis tools use trig-based slope angles ("trendline angle") to flag breakouts; some hedge funds even use Fibonacci angle fans as algorithmic signals.
+- **GPS triangulation & radar** — every smartphone GPS uses $\cos$(satellite-angle) for trilateration; FAA air-traffic radar at Lockheed Martin computes target range and bearing from $r\cos\theta, r\sin\theta$.
 
 ## Check Your Understanding
 

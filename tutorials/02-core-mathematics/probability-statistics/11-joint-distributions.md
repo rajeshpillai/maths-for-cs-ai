@@ -212,6 +212,10 @@ print(f"P(X <= 0.5) = {integral_half:.4f} (pen & paper: 0.50)")
 - **Image pixels** — neighbouring pixels have a joint distribution (not independent)
 - **Multi-task learning** — outputs have a joint distribution; modelling dependencies improves predictions
 - **Bayesian networks** — factorise joint distributions using conditional independence
+- **Insurance multi-line underwriting** — Travelers and Liberty Mutual model joint distributions of auto, home, and umbrella claims per customer; conditional dependence (a hurricane causes both home *and* auto claims) drives capital reserves under NAIC's RBC (Risk-Based Capital) framework.
+- **Credit-risk concentration** — Basel III's IRB (Internal Ratings-Based) approach requires banks like HSBC and Santander to model joint default distributions across loan portfolios; conditional independence assumptions failed catastrophically in the 2008 mortgage crisis.
+- **Epidemiology contact-tracing models** — Johns Hopkins and the WHO use joint distributions of (age, contacts, infection status) to model COVID-19 spread; conditional probabilities of transmission given contact drive vaccination prioritisation policy.
+- **Sensor fusion in autonomous vehicles** — Waymo and Cruise fuse joint distributions over LIDAR, camera, and radar measurements to localise the vehicle and detect pedestrians; correctly modelling cross-sensor dependence is critical for ISO 26262 functional safety certification.
 
 ## Check Your Understanding
 

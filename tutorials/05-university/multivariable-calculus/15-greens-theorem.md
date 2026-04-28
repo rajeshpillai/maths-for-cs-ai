@@ -222,6 +222,20 @@ print(f"By Green's theorem, the line integral = 0")
   theorem, which generalises to surfaces in 3D (lesson 18)
 - **Finite element methods**: Green's theorem converts volume integrals to
   boundary integrals, reducing computational cost in PDE solvers
+- **Planimeter and digitiser tablets**: Wacom/Tamaya planimeters compute the
+  area of irregular regions (used in surveying, cartography, medical imaging
+  to measure tumour cross-sections in DICOM viewers like OsiriX) by mechanically
+  applying $\frac{1}{2}\oint(x\,dy - y\,dx)$
+- **GIS parcel area at ESRI ArcGIS and QGIS**: county tax assessors and FEMA
+  flood-zone mapping compute polygon acreage from boundary coordinates via
+  the shoelace formula — the discrete Green's theorem
+- **Aerodynamic lift via Kutta-Joukowski**: Boeing and Airbus aerodynamicists
+  compute total lift per unit span as $L = \rho V_\infty \Gamma$ where the
+  circulation $\Gamma = \oint \mathbf{v} \cdot d\mathbf{r}$ around an airfoil
+  is converted via Green's theorem to vorticity area-integrals
+- **Watershed and basin hydrology**: USGS StreamStats and the UK Environment
+  Agency compute basin discharge as boundary line integrals of stream-flux
+  and equate to area integrals of net runoff over the catchment
 
 ## Check Your Understanding
 1. Use Green's theorem to evaluate $\oint_C (3y)\,dx + (2x)\,dy$ where $C$

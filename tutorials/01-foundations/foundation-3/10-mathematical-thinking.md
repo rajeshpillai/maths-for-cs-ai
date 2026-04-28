@@ -222,6 +222,10 @@ for n in [1, 2, 3, 5, 10]:
   complete graphs ($K_n$ has $\binom{n}{2}$ edges), essential in network design
 - **Triangular numbers** — appear in nested loop analysis: two nested loops
   over $n$ elements with $j > i$ execute $T_{n-1}$ times
+- **Fermi estimation in consulting** — McKinsey, BCG, and Bain interviews are built around back-of-envelope problems ("how many piano tuners in Chicago?"); the same first-principles thinking drives product-market sizing in their client deliverables.
+- **Root-cause analysis in operations** — Toyota's "5 Whys" and the DMAIC cycle in Six Sigma at GE codify the same backward-from-symptom reasoning Strategy 4 teaches.
+- **Failure-Mode Effects Analysis (FMEA)** — automotive and aerospace engineers at Ford, Boeing, and Lockheed enumerate small-case failure scenarios systematically — the same case-decomposition strategy applied to safety-critical systems with thousands of components.
+- **Pre-mortem & risk register** — PMI/PMBOK project-management practice asks teams to imagine a project failing then work backwards; this Strategy-4 thinking is mandated on federal acquisitions and banking model-risk reviews (SR 11-7).
 
 ## Check Your Understanding
 

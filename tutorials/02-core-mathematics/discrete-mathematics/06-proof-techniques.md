@@ -306,6 +306,10 @@ for n in [1, 5, 10, 50, 100]:
 - **Type systems** — type safety proofs use structural induction over syntax trees
 - **Cryptographic security** — "breaking this cipher implies solving a known-hard problem" is contradiction
 - **Testing vs proving** — tests check examples; proofs (and formal verification) check all inputs
+- **Formal verification in regulated industry (Engineering)** — Airbus avionics, NASA flight software, and the seL4 microkernel are proven correct in Coq, Isabelle/HOL, or Lean before certification; aerospace standards (DO-178C Level A) mandate proof-based assurance.
+- **Smart-contract audits (Finance/Crypto)** — firms like Trail of Bits, ChainSecurity, and Certora use SMT-solver-backed inductive proofs to verify Ethereum/Solana DeFi contracts handling billions in TVL; Aave and Compound run formal verification before mainnet deploys.
+- **Pharma & medical-device reliability (Industry)** — FDA Class III device approvals (pacemakers, insulin pumps from Medtronic, Abbott) require induction-style safety arguments showing each firmware loop preserves life-critical invariants.
+- **Cryptographic protocol proofs (Security)** — TLS 1.3, Signal Protocol, and AWS s2n are accompanied by machine-checked proofs (Cryptol, EasyCrypt, ProVerif) that no adversary strategy violates secrecy/authenticity — the same techniques underpin DARPA HACMS-style high-assurance systems.
 
 ## Check Your Understanding
 

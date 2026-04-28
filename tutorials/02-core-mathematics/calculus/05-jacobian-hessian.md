@@ -251,6 +251,10 @@ the middle column above. The eigenvalues of the loss-Hessian determine
 - **Saddle points** — a major challenge in deep learning; most critical points in high dimensions are saddle points, not minima
 - **Change of variables** — Jacobian determinant appears when transforming probability distributions (normalising flows)
 - **Curvature** — Hessian eigenvalues determine how "steep" vs "flat" the loss landscape is along each direction
+- **Risk Hessians in finance (Quant)** — JPMorgan and Goldman Sachs compute portfolio Hessians (Gamma matrices) to estimate convexity risk on options books worth hundreds of billions; the Hessian of P&L w.r.t. risk factors drives capital-reserve calculations under Basel III.
+- **Robotics & inverse kinematics (Engineering)** — Boston Dynamics Spot, ABB factory arms, and DaVinci surgical robots use Jacobian pseudoinverses to map desired end-effector velocities to joint velocities in real time.
+- **Geological inversion (Industry)** — Schlumberger seismic processing and ExxonMobil reservoir simulators invert Jacobians to map measured borehole data back to subsurface rock-property maps.
+- **Bundle adjustment in photogrammetry (Industry/Science)** — Google Maps Street View, Apple Vision Pro SLAM, and the JWST telescope's pose estimator solve massive Hessian systems (Levenberg-Marquardt) to fuse millions of camera observations.
 
 ## Matrix Calculus: Vector and Matrix Gradients
 

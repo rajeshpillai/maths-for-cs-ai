@@ -288,6 +288,10 @@ for r in [1, -1, 3, -3]:
 - **Control theory** — characteristic polynomial roots = system poles (stability)
 - **Partial fractions** — needed for integration and z-transforms; requires
   factorisation first
+- **Annuity valuation closed forms** — actuaries at MetLife factor $(1 - r^n)/(1 - r)$ to derive present-value-of-annuity formulas; the same factorisation is wired into every financial calculator and HP-12C `PV` button.
+- **Hashing & polynomial-rolling fingerprints** — Rabin-Karp string search and Git's content-addressable storage use polynomial hashes whose collision properties depend on factorisation properties of the modulus polynomial.
+- **VLSI circuit simplification** — chip designers at NVIDIA use polynomial factorisation over GF(2) (Boolean polynomials) to simplify combinational logic before synthesis; tools like Synopsys Design Compiler run this internally.
+- **Filter-design pole placement** — DSP engineers at Texas Instruments factor characteristic polynomials of digital filters (Butterworth, Chebyshev) to allocate poles inside the unit circle; MATLAB's `butter()` returns these factored forms directly.
 
 ## Check Your Understanding
 

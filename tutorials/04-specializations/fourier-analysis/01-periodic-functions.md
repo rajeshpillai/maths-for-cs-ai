@@ -201,6 +201,10 @@ print(f"  This is *the* trick used to tune string instruments by ear.")
 - **Signal processing** — radio, WiFi, Bluetooth all transmit sine waves
 - **Animation** — `sin(time)` for bobbing, pulsing, breathing effects
 - **AC circuits** — alternating current is a sine wave
+- **Power grid frequency stability (NERC, ENTSO-E)** — North American grids run at exactly 60 Hz and European grids at 50 Hz; even 0.5 Hz deviation triggers automatic load-shedding to prevent cascading blackouts like the 2003 Northeast event.
+- **5G/6G OFDM modulation (Qualcomm Snapdragon, Ericsson radios)** — every 5G smartphone packs data onto thousands of orthogonal sinusoidal subcarriers; superposition lets all devices transmit simultaneously without interference, achieving multi-Gbps speeds.
+- **Mechanical resonance failure modes (Tacoma Narrows Bridge collapse, Boeing 737 MAX MCAS)** — civil and aerospace engineers compute natural-frequency Bode plots to ensure structures don't superpose with driving forces (wind, engine vibration) at resonant peaks.
+- **Heart rate variability monitoring (Apple Watch, Whoop, Oura Ring)** — wearables decompose pulse waveforms into respiratory and cardiac frequency bands to estimate stress, recovery, and arrhythmia risk.
 
 ## Check Your Understanding
 

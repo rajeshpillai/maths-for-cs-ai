@@ -243,6 +243,10 @@ print(f"  At α = 0.05, that's {'unlikely enough to reject' if p_val < 0.05 else
 - **Quality assurance** — manufacturing defect rates, server error rates
 - **Scientific computing** — p-values in bioinformatics, drug trials
 - **Bayesian alternative** — Bayesian A/B tests compute $P(B > A | \text{data})$ directly (Tier 4-02)
+- **FDA Phase III drug approval** — every NDA submission (Keytruda, Ozempic, Paxlovid) is gated on a pre-registered superiority hypothesis test, with $\alpha = 0.025$ one-sided per FDA Guidance for Industry E9.
+- **Six Sigma in manufacturing (GE, Motorola, Toyota)** — process-capability hypothesis tests on $C_{pk}$ thresholds drive QA acceptance/rejection; shifting from $3\sigma$ to $6\sigma$ targets cuts defects from 66,800 to 3.4 per million.
+- **CERN Higgs-boson discovery (2012)** — required $5\sigma$ ($p < 3 \times 10^{-7}$) excess in ATLAS/CMS data before announcement; this exact threshold is the high-energy physics convention dating to 1998.
+- **Marketing campaign uplift (Booking.com, Netflix)** — Booking runs >25,000 simultaneous A/B tests yearly on its booking funnel; statistically-significant lifts of even 0.5 % translate to nine-figure annual revenue.
 
 ## Check Your Understanding
 

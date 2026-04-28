@@ -256,6 +256,10 @@ that the geometric picture is a hyperplane, not a line.
 - **Physics engines** — constraint solving in rigid body simulations
 - **Computer graphics** — finding ray-surface intersections
 - **Numerical stability** — real implementations use partial pivoting (LU decomposition) to avoid division by near-zero
+- **Business — linear programming at airlines (Delta, United)** — crew scheduling and gate assignment LPs at hub airports start by Gaussian elimination on equality constraints, then run simplex; this is American Airlines' SABRE legacy.
+- **Operations — power grid load flow (Siemens PSS/E)** — ISOs like PJM and ERCOT solve a sparse linear system every five minutes via LU decomposition to balance generation across thousands of buses.
+- **Engineering — structural analysis at SOM and Arup** — the Burj Khalifa and One World Trade Center designs solved $\mathbf{K}\mathbf{u} = \mathbf{f}$ for displacements under wind/seismic loads using sparse Gaussian elimination on millions of unknowns.
+- **Science — chemical reaction balancing** — balancing $\mathrm{C_8H_{18} + O_2 \to CO_2 + H_2O}$ reduces to Gaussian elimination on stoichiometric coefficients; refineries at ExxonMobil run this on every catalytic cracking model.
 
 ## Check Your Understanding
 

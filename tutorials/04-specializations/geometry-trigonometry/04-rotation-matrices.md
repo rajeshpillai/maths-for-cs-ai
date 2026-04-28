@@ -208,6 +208,10 @@ plt.show()
 - **Character controllers** — rotate facing direction by player input angle
 - **Data augmentation** — random rotation of training images
 - **Robotics** — joint angles produce rotation matrices for each link
+- **CNC machining (Haas, DMG MORI 5-axis mills)** — every G-code rotation command (G68, A/B/C axes) is internally translated into a 3×3 rotation matrix that orients the cutting tool relative to the workpiece for parts like jet-engine turbine blades.
+- **Wind farm yaw alignment (GE Haliade-X, Vestas V164)** — turbine nacelles use $R_z(\theta)$ to rotate into wind direction sensed by anemometers; misalignment of even 5° drops power output by ~1%.
+- **MRI gradient steering (GE SIGNA, Philips Ingenia)** — slice-selection planes are oriented via rotation matrices applied to the gradient coil currents, letting radiologists capture oblique-angle images of the heart and spine.
+- **Earthquake seismograph rotation (USGS, IRIS network)** — raw N/E/Z ground-motion records are rotated into radial/transverse components via $R_z$ to isolate P-waves vs S-waves for seismic tomography.
 
 ## Check Your Understanding
 

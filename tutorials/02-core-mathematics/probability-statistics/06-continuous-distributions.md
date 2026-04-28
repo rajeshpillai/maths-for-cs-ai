@@ -367,6 +367,11 @@ print(f"{'Student t(ν), ν > 2':<25}  {'0':>10}  {'ν/(ν−2)':>10}")
 - **Chi-square** — goodness-of-fit tests, feature selection in NLP
 - **Student's t** — confidence intervals with small samples, robust loss functions (t-distribution loss)
 - **Loss functions** — MSE loss assumes Gaussian errors; heavy-tailed losses use t-distributions
+- **Black-Scholes option pricing** — the Nobel-winning Black-Scholes-Merton model (used by every options desk at Goldman Sachs, JPMorgan, and the CBOE) assumes log-returns are Gaussian; implied volatility surfaces hedge trillion-dollar derivative books daily.
+- **Reliability engineering & Weibull** — Rolls-Royce, GE Aerospace, and Pratt & Whitney use Weibull and exponential distributions to model jet-engine time-to-failure; this drives FAA-mandated maintenance schedules and Rolls-Royce's TotalCare "power-by-the-hour" contracts.
+- **Pharmaceutical bioequivalence** — FDA generic-drug approvals require 90% confidence intervals (using Student's t with small sample sizes) on the area-under-the-curve ratio falling within 80%-125% of the reference drug.
+- **Telecom queueing & 5G** — Erlang's exponential inter-arrival model underpins capacity planning at Ericsson, Nokia, and AT&T; LTE/5G base-station dimensioning still uses M/M/c queues with exponential service times.
+- **Climate risk modelling** — Munich Re and Swiss Re use Gamma and generalised-Pareto distributions for flood/hurricane loss tails; the IPCC AR6 report uses these for extreme-event return-period calculations.
 
 ## Check Your Understanding
 

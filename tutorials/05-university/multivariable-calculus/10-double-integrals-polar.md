@@ -265,6 +265,18 @@ print(f"With r factor:    {result2:.6f} (CORRECT = π)")
   comes from the polar Gaussian integral we derived
 - **Antenna patterns**: signal strength patterns are polar functions; total power
   is their polar integral
+- **5G beamforming at Ericsson and Nokia**: polar integrals of antenna array
+  power patterns $|F(\theta, \phi)|^2$ over hemispheres compute total radiated
+  power and EIRP — used to certify devices against FCC and ETSI emission limits
+- **Radar cross-section measurement**: Lockheed Martin and Raytheon compute
+  RCS via polar integration over scattering angles for B-21 and F-35 stealth
+  validation in anechoic chambers
+- **Centrifuge separation**: Beckman Coulter and Eppendorf design rotor cells
+  using polar integrals of centrifugal force $\rho \omega^2 r$ over annular
+  sample volumes — used in COVID vaccine manufacturing at Moderna and Pfizer
+- **Disk-drive head positioning**: Western Digital and Seagate compute servo
+  track-density and head-flying force using polar integrals over annular disk
+  surfaces — yields the GB/in² figure on every HDD spec sheet
 
 ## Check Your Understanding
 1. Evaluate $\iint_D \sqrt{x^2 + y^2}\, dA$ where $D$ is the disk $x^2 + y^2 \leq 9$.

@@ -179,6 +179,10 @@ print(f"  Cubic y = ax³ + bx² + cx + d   : sign of a determines end behaviour"
 - **Quadratic** — projectile trajectories ($y = -\frac{1}{2}gt^2 + v_0 t + h_0$), MSE loss landscape for 1 parameter
 - **Cubic** — easing functions in animation, spline interpolation
 - **Discriminant** — determines if a ray intersects a sphere (Tier 8-09)
+- **Cost-volume-profit (CVP) analysis** — every MBA finance class uses linear $\text{Profit} = (P - V)Q - F$ to compute break-even units; SaaS companies like Salesforce and Adobe report break-even ARR using the same model.
+- **CSS cubic-bezier easing curves** — every modern UI animation in iOS, Android Material 3, and CSS3 transitions uses a cubic Bezier $(P_0, P_1, P_2, P_3)$; defaults `ease-in-out` ship in Chrome, Safari, and Firefox.
+- **Highway curve design (AASHTO Green Book)** — vertical sag and crest curves on every U.S. interstate are designed as parabolas $y = ax^2 + bx + c$ using stopping-sight-distance criteria.
+- **ASIC chip yield modeling (TSMC, Samsung Foundry)** — die yield per wafer follows the Murphy quadratic-defect-density formula; $5 nm process node yield curves are quadratic-fit to defect maps for capacity planning.
 
 ## Check Your Understanding
 

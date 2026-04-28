@@ -232,6 +232,10 @@ for a, b, c, label in specs:
 - **Quadratic formula** — solving ray-sphere intersections (Tier 8-09)
 - **Completing the square** — finding minima of loss functions analytically
 - **Factorising** — simplifying expressions in symbolic differentiation
+- **Break-even analysis** — startups and CFOs solve linear equations like $\text{Revenue}(q) = \text{Cost}(q)$ to find the unit volume where profit turns positive; tools like QuickBooks and Salesforce CPQ surface this as the "break-even quantity"
+- **Pricing & elasticity models** — econometrics teams at Amazon and Uber expand $(p - c)(\alpha - \beta p)$ to find profit-maximising prices; the algebraic expansion produces the closed-form optimum
+- **Civil engineering load equations** — bending-moment formulas $M = \frac{wL^2}{8}$ for a simply supported beam come straight from algebraic manipulation in standards like AISC 360 (steel) and ACI 318 (concrete)
+- **SQL query optimisation** — Postgres and Snowflake planners algebraically rewrite predicates ($A \land (B \lor C) \to (A \land B) \lor (A \land C)$) using identical distributive/factoring rules to push filters down past joins
 
 ## Check Your Understanding
 

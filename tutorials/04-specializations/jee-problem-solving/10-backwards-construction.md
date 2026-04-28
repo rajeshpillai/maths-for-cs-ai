@@ -369,6 +369,25 @@ work:
   backwards reasoning — assume the target property holds, derive a
   contradiction by construction. **Zero-knowledge proofs** are designed
   by working backwards from "what should the verifier believe?"
+- **VC / private equity term-sheet design (Sequoia, Kotak PE).** Deal
+  teams start from the desired IRR (e.g. 25%) and the assumed exit
+  multiple, then back-solve the valuation, dilution, and liquidation
+  preference that make the model work — pure backwards-construction.
+- **Aerospace mission planning (ISRO, NASA JPL).** Trajectory designers
+  fix the arrival conditions at Mars/Jupiter (encounter velocity,
+  approach angle) and back-propagate through patched-conic equations
+  to determine the launch C3 and departure window. The Mangalyaan and
+  Cassini mission profiles were both built this way.
+- **Pharmaceutical formulation (Sun Pharma, Dr. Reddy's).** Tablet
+  dissolution targets ("80% release in 30 minutes") are fixed first;
+  formulators then back-solve excipient ratios and compression force
+  using DOE (Design of Experiments) — the FDA QbD framework
+  ("Quality by Design") is institutionalised backwards construction.
+- **Civil & construction (L&T, AECOM).** Earthquake-resistant building
+  design uses **performance-based design**: fix allowable inter-storey
+  drift first, then back-solve column sizes and damper placement.
+  IS 1893 and ASCE 41 codes formalise this reverse-engineering of
+  structural members from response targets.
 
 ## Check Your Understanding
 

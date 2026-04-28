@@ -242,6 +242,10 @@ for k in range(5):
 - **Quantum computing** — quantum states are complex vectors; gates are unitary matrices
 - **Control theory** — stability analysis uses complex eigenvalues (poles and zeros)
 - **2D rotation** — multiplying by $e^{i\theta}$ rotates a point by $\theta$
+- **AC circuit phasors** — electrical engineers at GE and Siemens model voltages and currents as complex phasors $V = V_p e^{j\phi}$; circuit-analysis software like SPICE solves $\mathbf{Z}\mathbf{I} = \mathbf{V}$ over $\mathbb{C}$ at every frequency.
+- **MRI image reconstruction** — Siemens Healthineers and GE Healthcare scanners record k-space data as complex numbers; the inverse 2D FFT to produce images is performed entirely in the complex plane.
+- **Insurance & cat-bond pricing transforms** — actuarial software at Swiss Re and Munich Re uses characteristic functions $\phi_X(t) = \mathbb{E}[e^{itX}]$ (complex-valued) to price catastrophe bonds and compute heavy-tailed loss distributions.
+- **Beamforming in 5G** — Ericsson and Nokia base stations apply complex-weighted antenna arrays $\sum w_n e^{j\theta_n}$ to steer radio beams toward specific users; the IEEE 802.11ax standard specifies these complex weights directly.
 
 ## Check Your Understanding
 

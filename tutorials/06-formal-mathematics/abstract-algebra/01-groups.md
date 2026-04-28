@@ -219,6 +219,10 @@ for a in range(n):
 - **Error-correcting codes**: cyclic codes use properties of cyclic groups.
 - **Graphics**: rotation and reflection groups describe symmetries of 3D models.
 - **Physics simulations**: conservation laws correspond to symmetry groups (Noether's theorem).
+- **ANSYS Mechanical and Abaqus FEA solvers** — exploit dihedral symmetry groups ($D_n$) of turbine blades, gears, and pressure vessels to cut degrees-of-freedom by an order of magnitude in stress analysis at GE Aviation and Rolls-Royce.
+- **CRC-32 checksum group** in Ethernet, ZIP, and PNG files — the 32-bit polynomial residues form an abelian group $(\mathbb{Z}_2^{32}, \oplus)$; every modern NIC computes this in hardware to detect packet corruption.
+- **Standard Model in particle physics** — the gauge group $SU(3) \times SU(2) \times U(1)$ classifies all known elementary particles; CERN's LHC experiments are validations of this group-theoretic structure.
+- **Portfolio rebalancing under group symmetries** — Markowitz mean-variance optimisation on assets with permutation symmetry (e.g., S&P 500 sector ETFs) reduces covariance estimation cost by exploiting the symmetric group $S_n$.
 
 ## Check Your Understanding
 

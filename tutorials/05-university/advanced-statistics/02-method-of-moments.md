@@ -168,6 +168,20 @@ print(f"MoM:  mu={mu_hat:.4f}, sigma^2={sigma2_hat:.4f}")
   drops to verify they match design intentions.
 - **Bayesian priors:** MoM can provide initial hyperparameter estimates
   for prior distributions in Bayesian models.
+- **Reinsurance at Munich Re / Swiss Re:** MoM-fit Gamma and Pareto
+  distributions on historical claim severities feed catastrophe-bond
+  pricing; closed-form MoM is preferred when MLE doesn't converge on
+  heavy-tailed Lloyd's data.
+- **Operations research at UPS / FedEx:** MoM estimates Erlang-k service
+  times in package-sorting hubs, plugging directly into M/M/c queue
+  staffing calculations for peak-season planning.
+- **Hydrology at the U.S. Geological Survey:** annual peak streamflow is
+  fitted with Log-Pearson III via MoM (Bulletin 17C standard) for FEMA
+  100-year flood maps and dam-spillway design at the Army Corps of
+  Engineers.
+- **Reliability engineering at Boeing / Rolls-Royce:** Weibull shape and
+  scale parameters for jet-engine blade fatigue are estimated by MoM in
+  early design when only a handful of test specimens are available.
 
 ## Check Your Understanding
 

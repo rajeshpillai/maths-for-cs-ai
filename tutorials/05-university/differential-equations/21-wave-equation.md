@@ -193,6 +193,21 @@ print("Energy should be conserved (no damping).")
   all derive from wave equations.
 - **Electromagnetic waves** — Maxwell's equations reduce to wave equations;
   radio propagation in wireless networking follows these PDEs.
+- **Medical ultrasound at GE Healthcare / Philips** — diagnostic ultrasound
+  scanners solve the wave equation in tissue to form B-mode images and
+  elastography maps; FDA 510(k) clearance for cardiac probes references the
+  numerical wave-propagation model.
+- **Sonar/torpedo guidance at Lockheed Martin / Raytheon** — Navy AN/SQS-53
+  and torpedo seekers run real-time wave-equation backpropagation on hull-
+  mounted arrays; the wave model directly affects target classification
+  performance.
+- **Bridge/pipeline ultrasonic NDT** — ASME B31.3 and AWS D1.5 weld inspection
+  uses wave-equation-based phased-array UT (Olympus OmniScan); detected
+  defect sizes feed remaining-life calculations for nuclear plant piping.
+- **5G mmWave channel modeling at Qualcomm / Ericsson** — propagation
+  simulators (Wireless InSite, Remcom) ray-trace the wave equation through
+  urban canyons to size base stations and certify against 3GPP Release 17
+  channel-model assumptions.
 
 ## Check Your Understanding
 

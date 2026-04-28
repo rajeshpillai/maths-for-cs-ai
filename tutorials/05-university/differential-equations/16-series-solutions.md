@@ -171,6 +171,21 @@ print("\nSymPy's solution:", sol)
   solve equations that resist closed-form methods.
 - **Generating functions** — In combinatorics and algorithm analysis, generating
   functions are power series whose coefficients count objects.
+- **Quantum chemistry at Gaussian Inc. / Q-Chem** — molecular orbital codes
+  expand wavefunctions in Hermite/Laguerre polynomial bases (series solutions
+  of the Schrodinger ODE) for every DFT calculation in pharmaceutical drug-
+  discovery pipelines at Vertex and Schrodinger Inc.
+- **Antenna radiation patterns at Qualcomm** — Legendre series solutions of
+  the spherical Helmholtz PDE define the multipole expansion used in 5G
+  beamforming antenna arrays; these series govern FCC OET-65 RF-exposure
+  certifications.
+- **Bond yield curve construction at the U.S. Treasury** — TIPS and Treasury
+  bond pricing models expand the discount factor $P(t) = \sum a_n t^n$ as a
+  power series fitted to auction data; published daily in the Treasury's
+  H.15 release.
+- **Optical lens design at Zeiss / Nikon** — Seidel/Zernike polynomial series
+  (solutions to the wave PDE in pupil coordinates) describe aberrations on
+  every camera, microscope, and EUV lithography lens at ASML.
 
 ## Check Your Understanding
 

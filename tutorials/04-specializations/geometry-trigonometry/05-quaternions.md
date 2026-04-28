@@ -331,6 +331,10 @@ and convert to Euler only for human-readable display.
 - **Robotics** — orientation of end effectors represented as quaternions
 - **Spacecraft** — attitude control uses quaternions (no gimbal lock!)
 - **3D physics** — angular velocity integrated using quaternion multiplication
+- **SpaceX Falcon 9 booster landing** — the flight computer represents booster attitude as a unit quaternion, integrated at 1 kHz from IMU rate-gyro data to drive grid-fin and gimbal commands during the flip-and-burn maneuver.
+- **Hubble & James Webb Space Telescope pointing** — reaction-wheel control loops use quaternion error feedback to point at distant galaxies with arc-second precision, with no risk of gimbal lock during slews.
+- **DJI Mavic and Skydio drones** — onboard IMU sensor fusion (Madgwick/Mahony filters) outputs orientation as a quaternion that the flight controller uses to keep the camera horizon level during aggressive maneuvers.
+- **Apple Vision Pro and Meta Quest 3 head tracking** — the headset's IMU+camera SLAM stack reports head orientation as a quaternion 90+ times per second, fed directly to the GPU's view matrix to render stereoscopic frames without VR motion-sickness.
 
 ## Check Your Understanding
 

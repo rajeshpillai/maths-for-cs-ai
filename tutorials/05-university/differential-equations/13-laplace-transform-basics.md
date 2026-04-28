@@ -252,6 +252,19 @@ print(f"  Match: {abs(Fp_formula - Fp_direct) < 1e-10}")
   the Laplace domain tells you which frequencies are amplified or attenuated.
 - **Stability of numerical methods**: the $Z$-transform (discrete Laplace)
   determines whether a numerical ODE solver is stable for a given step size.
+- **MATLAB/Simulink Control System Toolbox** — the `tf` and `bode` functions
+  used by Boeing, Lockheed Martin, and Honeywell autopilot teams operate
+  natively in the Laplace domain; FAA DO-178C-certified controllers ship
+  as $H(s)$ rational expressions.
+- **Op-amp filter design at Texas Instruments / Analog Devices** — datasheet
+  filter recipes (Sallen-Key, MFB) are presented as $H(s)$ poles and zeros;
+  every audio DAC and analog front-end on a smartphone is specified this way.
+- **Drug elimination half-life on FDA labels** — pharmacokinetic teams at
+  Pfizer/Merck use Laplace transforms of compartment ODEs to derive AUC and
+  $C_{max}$ formulas printed on every NDA Phase III dossier.
+- **Earthquake response spectra at USGS** — building shake-table data is
+  Laplace-transformed to identify resonant poles; ASCE 7 design spectra are
+  built from these transfer functions for code-mandated seismic design.
 
 ## Check Your Understanding
 

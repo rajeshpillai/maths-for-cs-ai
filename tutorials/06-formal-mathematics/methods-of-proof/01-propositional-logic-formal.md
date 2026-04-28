@@ -200,6 +200,10 @@ print("Excluded middle tautology:", is_tautology(excluded_middle, 1))
 - **Logic synthesis** in chip design converts Boolean functions to minimal CNF/DNF (Karnaugh maps, Quine-McCluskey).
 - **Knowledge representation** in AI uses propositional logic as the simplest formal reasoning system.
 - **Constraint propagation** in game AI (Sudoku solvers, pathfinding constraints) reduces to Boolean satisfiability.
+- **Coq/Lean for chip verification at Intel and Arm** — propositional and first-order logic proofs ensure floating-point units behave correctly after the 1994 Pentium FDIV bug cost Intel $475M in recalls.
+- **Z3 SMT solver at Microsoft and AWS** — reduces software verification to CNF-SAT; AWS uses it to prove S3 access policies are leak-free, protecting trillions of stored objects from misconfiguration.
+- **Karnaugh maps and Quine-McCluskey in ASIC synthesis** — Cadence Genus and Synopsys Design Compiler minimize Boolean DNF/CNF representations to reduce gate count, directly cutting power and silicon area for every modern CPU and GPU.
+- **CNF-based fraud-rule engines at Visa and PayPal** — risk policies are compiled to CNF and evaluated in microseconds per transaction, blocking billions of dollars of fraud annually while keeping false-positive rates below 0.1%.
 
 ## Check Your Understanding
 

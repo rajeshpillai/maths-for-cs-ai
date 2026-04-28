@@ -197,6 +197,10 @@ print(f"  h(0) = {h(0)}, h(2) = {h(2)}, h(3) = {h(3)}")
   (e.g. leaky ReLU is a stretched negative half)
 - **Data normalisation** — shifting by the mean and scaling by the standard
   deviation is a function transformation
+- **Seasonality adjustment in forecasting** — econometricians at the BLS and Federal Reserve apply $X_{\text{adjusted}}(t) = X(t) - s(t)$ (a vertical shift) to seasonally adjust unemployment and CPI series; SAS and X-13ARIMA-SEATS implement these transformations.
+- **Currency-rebased indices** — fund factsheets at MSCI and FTSE rebase prices to 100 on a chosen date — a vertical shift plus scale; Bloomberg and Refinitiv Eikon expose this as a one-click "rebase" button.
+- **Mechanical transfer functions** — control engineers at Bosch and ABB shift and scale step-response curves to match a plant's gain and time delay; MATLAB's Control System Toolbox uses `D(s) e^{-Ts}` shifts and gain scalings.
+- **Image-sensor calibration** — Sony and Canon camera firmware applies per-pixel offset (dark current shift) and gain (white-balance scale) — exactly horizontal/vertical transformations — before delivering RAW data to Lightroom or DxO PhotoLab.
 
 ## Check Your Understanding
 

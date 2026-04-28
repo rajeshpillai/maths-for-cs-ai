@@ -224,6 +224,10 @@ print(f"  Exact π·R²: {np.pi * R**2:.4f}")
 - **Rendering** — path tracing integrates light over hemisphere of directions
 - **Physics** — centre of mass, moments of inertia require double/triple integrals
 - **Normalising flows** — use the Jacobian determinant for change-of-variables in probability distributions
+- **Insurance reserves (Finance)** — Lloyd's of London and Swiss Re compute expected losses as double integrals over (severity × frequency) joint distributions to set catastrophe-bond premiums and Solvency II capital reserves.
+- **Computational fluid dynamics (Engineering)** — ANSYS Fluent and Siemens StarCCM+ integrate momentum and energy equations over 3D control volumes to design jet engines (Rolls-Royce Trent), chemical reactors, and HVAC for skyscrapers.
+- **Geophysical reserves estimation (Industry)** — ExxonMobil and Saudi Aramco evaluate triple integrals over oil-reservoir grids to estimate "in-place hydrocarbons" — directly driving billion-dollar capex decisions.
+- **Radiation therapy dose planning (Medical)** — Varian and Elekta linac treatment planners (Eclipse, Monaco) compute triple integrals of radiation dose over tumor volumes to maximize tumor exposure while sparing organs at risk.
 
 ## Check Your Understanding
 

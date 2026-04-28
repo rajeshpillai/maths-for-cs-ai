@@ -258,6 +258,10 @@ print(f"  L∞ norm   = max(|3|, |-4|) = {np.linalg.norm(v, np.inf):.4f}")
 - **Word embeddings** — cosine similarity uses L2-normalised vectors
 - **Adversarial attacks** — perturbations measured in L∞ ("no pixel changes by more than ε")
 - **Game dev** — L2 distance for physics, L∞ for checking if something is "within a box"
+- **Finance — Value-at-Risk:** banks like JPMorgan compute 99% VaR as a weighted L2 norm of a portfolio against the covariance matrix; Basel III capital rules are written directly in terms of this norm.
+- **Operations — Six Sigma quality control:** Toyota and GE use L2 norms (RMSE) and L∞ norms (max defect) on production-line measurements to keep tolerances within $6\sigma$ of nominal.
+- **Engineering — antenna sidelobe minimization:** Lockheed Martin's radar designers minimize the L∞ norm of beam-pattern error (Chebyshev design) on AEGIS phased arrays to suppress jamming sidelobes.
+- **Science — compressed sensing in MRI:** GE and Siemens MRI scanners use L1-norm minimization (Candes-Romberg-Tao) to reconstruct images from $\sim$25% of the k-space data, cutting scan times for cardiac MRI.
 
 ## Check Your Understanding
 

@@ -269,6 +269,10 @@ print("\nFor a symmetric kernel (e.g. Gaussian blur), flip(K) == K, so the two\n
 - **Signal processing** — true convolution is needed for Fourier analysis (Tier 9)
 - **Convolution theorem** — multiply in frequency domain = convolve in spatial domain (only for true convolution)
 - **Reversibility** — true convolution's commutativity matters for deconvolution (image restoration)
+- **Engineering / Audio**: **Dolby Atmos** room-correction and **Sonos Trueplay** apply true convolution (with the convolution theorem via FFT) to multiply room impulse responses with audio in real time — cross-correlation would not preserve the necessary algebraic identities.
+- **Industry / Astronomy**: the **Hubble Space Telescope deconvolution** that fixed the original 1990 mirror flaw used true convolution's commutativity to invert the point-spread function; same trick now used in **JWST** image processing.
+- **Business / Photography**: **Adobe Photoshop's "Shake Reduction" filter** and **Topaz Sharpen AI** perform deconvolution-based deblurring — only mathematically valid because true convolution (not cross-correlation) is commutative.
+- **Engineering / Telecoms**: **5G base-station signal processing** uses cross-correlation for matched-filter detection of pilot symbols — the kernel is intentionally not flipped because alignment, not algebraic identity, is what matters.
 
 ## Check Your Understanding
 

@@ -240,6 +240,10 @@ for x in [-2, -1, -0.5, 0, 0.5, 1, 2]:
   finish); concave-down gives "ease out"
 - **Big-O intuition** — comparing growth rates of algorithms is exactly
   comparing how steeply their graphs rise
+- **Candlestick & technical chart reading** — every Bloomberg, TradingView, or thinkorswim trader reads support/resistance, slope, and concavity on price charts; algorithmic CTA strategies at AQR and Man Group encode these visual patterns as features.
+- **KPI dashboards** — Tableau, Power BI, and Looker dashboards drive boardroom decisions on revenue, churn, and CAC trajectories — concavity flags whether a metric's growth is accelerating or saturating.
+- **Engineering load curves** — power utilities (PJM, ERCOT) read daily demand graphs to schedule generation; identifying the morning ramp slope and afternoon peak guides $50B+ in dispatch decisions per year.
+- **Vital-signs monitoring** — ICU monitors at GE Healthcare and Philips display ECG and SpO₂ curves; clinicians read concavity (e.g., a falling-but-slowing trend) to decide whether to escalate care.
 
 ## Check Your Understanding
 

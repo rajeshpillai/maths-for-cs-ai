@@ -263,6 +263,10 @@ the distribution's signature.
 - **Poisson** — server request rates, rare event modelling, network packet arrivals
 - **Geometric** — retry loops (expected retries until success), hash table probe counts, coupon collector analysis, expected time to find a free slot
 - **Loss functions** — cross-entropy loss assumes Bernoulli-distributed outcomes
+- **Call-centre staffing** — the Erlang C formula (used by AT&T, Verizon, and most contact-centre WFM software like NICE and Genesys) models incoming call volume as Poisson to determine agent headcount for target service-level agreements.
+- **Insurance claim counts** — Allstate, Geico, and reinsurers model the number of auto-accident claims per policy-year as Poisson; binomial models govern policy-renewal probabilities for retention forecasting.
+- **Quality-control sampling (MIL-STD-105E / ISO 2859)** — defence contractors and Apple supply-chain audits use binomial acceptance sampling: "reject lot if >$k$ defects in $n$ inspected units" with Operating Characteristic curves derived from $\binom{n}{k}p^k(1-p)^{n-k}$.
+- **Geiger counter & nuclear safety** — the IAEA models radioactive decay events per second as Poisson; this is what drives alarm thresholds at Fukushima cleanup sites and CT-scanner photon-counting detectors at GE Healthcare.
 
 ## Check Your Understanding
 

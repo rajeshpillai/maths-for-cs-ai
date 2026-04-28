@@ -219,6 +219,10 @@ print(f"  where i = (1,0) and j = (0,1)")
 - **Tier 2 bridge** — everything here extends directly: dot products, cross
   products, matrix-vector multiplication, and linear transformations all build
   on these basics
+- **Embedding vectors in product search** — Pinecone, Weaviate, and Algolia store every product/query as a vector; cosine similarity (a dot product on unit vectors) ranks results in Shopify, Amazon, and eBay search APIs.
+- **Wind & current vectors in shipping** — Maersk and Norwegian Cruise Lines apply vector addition (ship velocity + current + wind) for fuel-optimised routing; software like StormGeo Bon Voyage computes these on every voyage.
+- **Force vector resolution in cranes** — Liebherr and Manitowoc engineers decompose load forces into vector components on jib arms; OSHA's lift-plan calculator uses these to enforce capacity charts during heavy lifts.
+- **Flight-plan wind correction** — pilots and ForeFlight EFB software compute heading + wind = ground track using vector addition; ATC routing at FAA centers depends on these vector triangles for traffic separation.
 
 ## Check Your Understanding
 

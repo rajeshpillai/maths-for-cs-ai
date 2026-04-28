@@ -272,6 +272,10 @@ print("because the disease is rare (low prior) and the population is huge.")
 - **Bayesian neural networks** — place probability distributions over weights
 - **A/B testing** — Bayesian A/B tests compute $P(\text{B better}|\text{data})$
 - **Game AI** — update probability of enemy position given observed clues
+- **Credit scoring** — FICO and Experian use Bayesian models to update default risk: $P(\text{default} \mid \text{payment history})$ drives loan approvals at JPMorgan Chase and Wells Fargo.
+- **Insurance fraud detection** — Lemonade's claims-handling AI uses Bayes' theorem on suspicious-claim signals; major carriers (State Farm, Progressive) report saving billions annually by updating fraud probabilities on red-flag features.
+- **Mammography & cancer screening** — the USPSTF (US Preventive Services Task Force) explicitly uses Bayesian base-rate analysis to recommend screening ages, since false-positive rates dominate at low prevalence (e.g., breast cancer screening before age 40).
+- **Search & rescue operations** — the US Coast Guard's SAROPS system uses Bayesian search theory (originally developed for the 1968 USS Scorpion search) to update probability maps of a missing vessel's location given currents and elapsed time.
 
 ## Check Your Understanding
 

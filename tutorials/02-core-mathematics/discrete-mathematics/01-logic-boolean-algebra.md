@@ -220,6 +220,10 @@ for p in [True, False]:
 - **Bitwise operations** — `&`, `|`, `^`, `~` apply Boolean ops to every bit simultaneously
 - **SAT solvers** — "can this Boolean formula be satisfied?" is the foundational NP-complete problem
 - **Neural networks** — a single perceptron can learn AND, OR, NOT (but not XOR without a hidden layer!)
+- **Business rules engines (Operations)** — Drools, IBM ODM, and Salesforce Flow encode insurance underwriting and loan approval as Boolean logic trees; State Farm and Allianz quote policies in milliseconds via compiled rule-set evaluations.
+- **Tax & regulation compliance (Finance/Legal)** — TurboTax, Avalara, and ADP payroll systems encode tax-code clauses as nested implications (`if income > X AND filing_status = Y then ...`) — every IRS Schedule is essentially a propositional formula.
+- **Hardware verification (Engineering)** — Intel, AMD, and NVIDIA verify CPU/GPU designs using SAT-based formal tools (Cadence JasperGold, Synopsys VC Formal); the Pentium FDIV bug taught the industry to formally check Boolean equivalence before tape-out.
+- **Medical decision support (Healthcare)** — Epic and Cerner EHRs run Boolean alert rules ("if creatinine > X AND age > 65 AND drug = Y then warn") to prevent prescribing errors in hospitals worldwide.
 
 ### Implications and Biconditionals
 

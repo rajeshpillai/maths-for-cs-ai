@@ -221,6 +221,10 @@ for x in [-3, -2, 0, 2.9, 3]:
 - **Optimisation:** machine learning loss functions are minimised subject to
   constraints (inequalities).  Linear programming is built entirely on
   systems of linear inequalities.
+- **Credit risk & FICO cutoffs** — lenders express underwriting policies as inequalities ($\text{DTI} \le 0.43$, $\text{FICO} \ge 680$); the CFPB's qualified-mortgage rule is literally a system of linear inequalities banks must satisfy.
+- **Service-Level Agreements (SLAs)** — AWS and Cloudflare contracts state $\text{availability} \ge 99.99\%$ and $\text{latency}_{p99} \le 200\text{ms}$; monitoring tools like Datadog raise alerts the moment these inequalities flip.
+- **Mechanical safety factors** — ASME and Eurocode design rules require $\sigma_{\text{applied}} \le \sigma_{\text{yield}}/n$ where $n$ is the safety factor; FEA software (ANSYS, Abaqus) flags every element that violates the inequality.
+- **Inventory reorder points** — supply-chain teams at Walmart and Zara trigger replenishment when on-hand stock falls below $\text{ROP} = d \cdot L + z\sigma\sqrt{L}$; SAP and Oracle ERP enforce this inequality automatically.
 
 ## Check Your Understanding
 

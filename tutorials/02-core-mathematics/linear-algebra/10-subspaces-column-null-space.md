@@ -235,6 +235,10 @@ print(f"\nRank-Nullity: rank={rank} + nullity={nullity} = {rank+nullity} = n={n}
 - **Rank = information capacity:** The rank of a weight matrix is the effective
   number of independent features it can learn — low-rank approximations
   (LoRA) exploit this for efficient fine-tuning.
+- **Finance — arbitrage-free pricing:** A market admits an arbitrage iff a payoff vector lies outside the column space of the asset return matrix; the Arbitrage Pricing Theory of Stephen Ross is built directly on this subspace test.
+- **Operations — feasibility in linear programming:** Gurobi and CPLEX, used by FedEx for route planning and by Walmart for shelf allocation, declare an LP infeasible when the right-hand-side vector falls outside the column space of the constraint matrix.
+- **Engineering — controllability of aircraft:** Lockheed Martin verifies the F-35's control augmentation system is controllable iff the columns of $[\mathbf{B}, \mathbf{AB}, \mathbf{A}^2\mathbf{B}, \ldots]$ span $\mathbb{R}^n$ (Kalman's controllability subspace).
+- **Science — null-space imaging in MRI:** GE compressed-sensing MRI fills in the null space of an under-sampled k-space matrix using L1 priors, cutting scan times at hospitals from 20 minutes to under 5.
 
 ## Check Your Understanding
 

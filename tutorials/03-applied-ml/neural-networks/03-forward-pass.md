@@ -273,6 +273,10 @@ network can fit *any* continuous function arbitrarily closely.
 - **Shape debugging** — "RuntimeError: mat1 and mat2 shapes cannot be multiplied" is the #1 PyTorch error
 - **Model size** — GPT-3 has 175 billion parameters; knowing how to count them matters
 - **Inference speed** — forward pass speed = matrix multiply speed; this drives hardware design
+- **Industry / Hardware economics**: **NVIDIA H100** sells for ~$30,000 because its Tensor Cores execute the FP8/BF16 matrix multiplies of the forward pass at ~2 PFLOP/s — every doubling of MatMul throughput directly halves serving cost for **OpenAI**, **Anthropic**, and **xAI** clusters.
+- **Business / Inference cost**: each **GPT-4o** API call runs ~10¹² parameter MatMuls in the forward pass; OpenAI charges ~$2.50/M input tokens largely to cover those FLOPs on rented H100/H200 hardware. Model size × tokens × batch is the cost equation behind every LLM pricing page.
+- **Engineering / Edge AI**: **Apple A18 Neural Engine** (35 TOPS) and **Qualcomm Hexagon NPU** in Snapdragon 8 Gen 3 phones execute the forward pass for on-device LLMs (Gemini Nano, Apple Intelligence) with ~3B parameters — knowing exact MatMul shapes is mandatory for fitting the model under the 8 GB unified-memory budget.
+- **Engineering / Robotics**: **Boston Dynamics Atlas** and **Tesla Optimus** humanoids run policy networks (forward-pass-only at inference) at 50–100 Hz on onboard GPUs — a missed shape-check or slow MatMul means the robot falls over.
 
 ## Check Your Understanding
 

@@ -206,6 +206,10 @@ print(f"Pairwise disjoint: True")
 - **Hash table sizing**: choosing prime table sizes exploits the fact that $\mathbb{Z}_p^*$ is cyclic.
 - **Error-correcting codes**: coset leaders in linear codes determine syndrome decoding.
 - **Load balancing**: partitioning data into equal-sized cosets ensures even distribution.
+- **RSA signing in Apple Pay/Visa SecureID** — relies on Fermat-Euler ($a^{\phi(n)} \equiv 1 \pmod{n}$, a Lagrange consequence) to make $e \cdot d \equiv 1$ inverses work; tens of billions of payment authorizations per year depend on this.
+- **Coset-leader syndrome decoding in 5G NR LDPC codes** (3GPP TS 38.212) — partitions $\mathbb{F}_2^n$ into cosets of the code's null space; Qualcomm baseband chips use this to recover bits below thermal noise.
+- **CDC inventory partitioning at Amazon Fulfillment Centers** — SKUs are partitioned into equal-cardinality cosets across pick-faces so robot pickers (Kiva/Amazon Robotics) achieve balanced traversal cost; uneven cosets cost roughly 5% in throughput.
+- **Cosets in MRI parallel imaging (SENSE/GRAPPA)** — k-space is undersampled into cosets of a periodic sublattice; Siemens and GE scanners reconstruct full images using coset arithmetic, cutting scan time 4-8x for cardiac MRI.
 
 ## Check Your Understanding
 

@@ -167,6 +167,21 @@ print("dsolve gives:", sol)
   $s$-domain algebra, solving exactly the kind of equations above.
 - **Physics engines** — Damped spring equations ($y'' + by' + ky = f(t)$)
   are the bread and butter of Laplace methods.
+- **HVAC chiller startup at Carrier/Trane** — startup transient analysis
+  (compressor surge, cooling-tower fill) is solved in the $s$-domain so
+  control engineers can place poles to meet ASHRAE Guideline 36 ramp-rate
+  limits in commercial buildings.
+- **Pharmacokinetics dossiers** — Pfizer and Novartis submit Laplace-domain
+  compartment-model derivations to the FDA showing $C_{max}$, $T_{max}$, and
+  AUC formulas; reviewers cross-check these per FDA Industry Guidance on
+  Population PK.
+- **Antilock brake (ABS) tuning at Bosch** — the wheel-slip ODE is solved with
+  Laplace transforms to set the ECU bang-bang frequency that keeps slip near
+  $\mu_{max}$; signed-off against ECE R13 brake-system regulation.
+- **NASA Apollo guidance heritage** — the LM ascent-engine throttling controller
+  was originally designed via Laplace-transform pole placement at MIT
+  Instrumentation Lab; same workflow now used at SpaceX for Raptor throttle
+  loops.
 
 ## Check Your Understanding
 

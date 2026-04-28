@@ -244,6 +244,10 @@ for h, e1, e2 in zip(hs, err_e, err_r):
 - **RC circuits** — $\tau dV/dt + V = V_0$ → exponential charging
 - **Heat equation** — PDE for heat diffusion in games/simulations
 - **Control systems** — PID controllers are described by DEs
+- **Black-Scholes option pricing (1973)** — the BSM PDE $\partial V/\partial t + \tfrac{1}{2}\sigma^2 S^2 \partial^2 V/\partial S^2 + rS \partial V/\partial S - rV = 0$ is solved daily by every CBOE market-maker; mis-modeling it cost LTCM \$4.6B in 1998.
+- **Pharmacokinetics (FDA NDA filings)** — drug absorption/clearance follows compartmental ODE models; Pfizer, Merck, Novartis use them to set Phase III dosing for every approved drug.
+- **Boeing 787 / Airbus A350 fly-by-wire** — flight control laws are coded as systems of ODEs (Dryden turbulence model, structural-mode filters); DO-178C certification audits the numerical-integration step size.
+- **Climate models (NOAA GFDL, NASA GISS, IPCC AR6)** — coupled atmosphere-ocean PDEs (Navier-Stokes + heat equation) are integrated on supercomputers like Frontera and Fugaku to project warming scenarios used in Paris Agreement targets.
 
 ## Check Your Understanding
 

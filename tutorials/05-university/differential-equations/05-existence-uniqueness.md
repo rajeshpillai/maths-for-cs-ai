@@ -207,6 +207,21 @@ for y1, y2 in y_pairs:
   trajectory exists and is unique means the controller is well-posed.
 - **Game physics**: if two rigid bodies reach the same state from different
   paths, uniqueness ensures deterministic replay.
+- **FAA-certified flight simulators** — Level D simulator qualification
+  (CAE, FlightSafety) requires the underlying ODE model to be proven
+  well-posed; Lipschitz bounds on aerodynamic coefficients are documented
+  in the simulator's QTG before pilot-training credit is granted.
+- **Black-Scholes blow-up checks** — quants at JPMorgan verify that local
+  volatility models satisfy linear growth + Lipschitz before pricing exotic
+  options, since non-uniqueness causes desk PnL to "explode" (Andersen-Piterbarg
+  textbook discusses this for Volterra/rough-vol models).
+- **Nuclear reactor kinetics at NRC licensing** — point-kinetics ODEs
+  $dN/dt = (\rho-\beta)/\Lambda \cdot N + \ldots$ must be shown to have
+  unique bounded solutions before NRC issues an operating license; finite-time
+  divergence corresponds to prompt criticality.
+- **CFD turbulence solvers (ANSYS Fluent)** flag ill-posed boundary conditions
+  by detecting Lipschitz-failure regions; engineers at GE Aviation use these
+  diagnostics during turbine-blade design reviews.
 
 ## Check Your Understanding
 

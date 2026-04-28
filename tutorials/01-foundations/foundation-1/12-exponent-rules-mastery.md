@@ -205,6 +205,10 @@ for epoch in [0, 10, 50, 100]:
 - **Binary representation** — each bit position is a power of 2: $1011_2 = 2^3 + 2^1 + 2^0 = 11$
 - **Hash tables** — doubling strategy gives amortised $O(1)$ — powers of 2 in action
 - **Game balance** — XP curves and damage scaling often use exponential formulas
+- **Continuous compounding** — banks and Treasury desks use $A = Pe^{rt}$ to price zero-coupon bonds; the calculation underlies every yield-curve bootstrap on Bloomberg
+- **Inflation-adjusted real returns** — $r_{\text{real}} = (1+r_{\text{nominal}})/(1+\pi) - 1$ uses fractional-exponent identities; the BLS publishes CPI-adjusted income series this way
+- **Radioactive decay & carbon-14 dating** — labs at Oak Ridge and the Smithsonian use $N(t) = N_0 \cdot 2^{-t/T_{1/2}}$ (negative fractional exponents) to date artefacts; nuclear reactor shielding calculations use the same exponent rules
+- **Antenna gain in dB** — RF engineers at Qualcomm convert $G = 10 \log_{10}(P_{\text{out}}/P_{\text{in}})$, so $P_{\text{out}} = P_{\text{in}} \cdot 10^{G/10}$ — fractional-exponent arithmetic done thousands of times per design at every cellular base-station vendor
 
 ## Check Your Understanding
 

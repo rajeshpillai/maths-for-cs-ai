@@ -190,6 +190,10 @@ print(f"  sin(30°)  = {math.sin(math.radians(30)):.6f}")
   use $\sin$ and $\cos$ in their equations of motion
 - **CAST rule** — essential for resolving ambiguity when computing angles from
   dot products or inverse trig functions
+- **AC power & 3-phase grid** — Siemens and Schneider Electric design grid equipment around $V(t) = V_p \sin(\omega t + \phi)$ with three phases offset by $120°$; utility billing meters compute RMS via trig integration.
+- **Cyclic seasonality models** — retail demand forecasters at Walmart fit Fourier-style trig regressions $\sum a_k \cos(2\pi k t/T) + b_k \sin(...)$ to capture weekly and yearly cycles in SKU sales.
+- **Solar position algorithms** — NREL's SPA algorithm uses sums of trig functions of all six families to compute sun azimuth/elevation; SunPower and Tesla's Solar Roof use it to schedule tracking arrays for maximum yield.
+- **Tide prediction** — NOAA uses 37 trig harmonic constituents (M2, S2, K1, etc.) to predict tides in U.S. ports; commercial shipping routes are scheduled around these tidal sums to maximise draft clearance.
 
 ## Check Your Understanding
 

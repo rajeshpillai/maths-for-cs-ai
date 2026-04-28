@@ -287,6 +287,10 @@ print(f"  Powers of 3 mod 7: {[pow(3, k, 7) for k in range(8)]}  "
 - **Checksums** — ISBN, credit card (Luhn algorithm), CRC all use modular arithmetic
 - **Random number generators** — linear congruential generators: $x_{n+1} = (ax_n + c) \mod m$
 - **Game dev** — wrapping coordinates (Pac-Man exits right, enters left)
+- **Credit-card & IBAN validation (Finance)** — every Visa, Mastercard, and Amex card number is checked in real time with the Luhn algorithm (mod-10); IBANs (used by SWIFT and SEPA across European banks) validate via mod-97 — built into Stripe, Adyen, and core-banking systems.
+- **Time-zone arithmetic & shift scheduling (Operations)** — UPS hub schedules, hospital nursing rosters (Kronos, UKG), and airline crew rostering at Delta/Lufthansa all rely on mod-24 (hours), mod-7 (days), and mod-12 (months) calendar arithmetic.
+- **CRC error checking in industry (Engineering)** — every Ethernet frame, Wi-Fi packet, USB transaction, and CAN bus message in your Tesla/BMW/John Deere tractor uses CRC-32 (a polynomial mod operation); ZIP, PNG, and HDD/SSD sectors all carry CRC checksums.
+- **Astronomical & GPS time (Science/Industry)** — GPS week numbers wrap mod $2^{10}$ (causing the 1999 and 2019 GPS rollover events); JPL ephemerides and stock-market trading clocks use modular arithmetic on TAI-UTC offsets to align satellite, exchange, and atomic-clock timestamps.
 
 ## Check Your Understanding
 

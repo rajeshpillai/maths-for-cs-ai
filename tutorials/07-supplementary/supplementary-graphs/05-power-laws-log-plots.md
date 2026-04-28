@@ -204,6 +204,10 @@ print("  Neural network scaling laws  : loss ∝ (compute)^(-α)    (Kaplan/Hoff
 - **Learning rate decay** — exponential, step, cosine schedules
 - **Power-law networks** — scale-free graphs (internet, social networks)
 - **Compound growth** — Moore's law (exponential growth of transistor count)
+- **Pareto principle in business (80/20 rule)** — Salesforce dashboards, Amazon vendor reviews, and Spotify listener stats consistently show 80% of revenue/streams driven by ~20% of items, formalized as Pareto power-law $P(X > x) \propto x^{-\alpha}$.
+- **Earthquake Gutenberg-Richter law** — USGS reports $\log_{10} N = a - bM$ for earthquake frequency vs magnitude with $b \approx 1$; this drives California's CEA (CA Earthquake Authority) insurance-premium tables.
+- **Allometric scaling in animal biology (Kleiber's law)** — metabolic rate scales as mass$^{3/4}$ across mammals from mice to elephants; pharma firms use it to extrapolate drug doses from rat trials to human Phase I dosing.
+- **AI scaling laws (Kaplan 2020 / Chinchilla 2022)** — DeepMind's Chinchilla paper showed loss $L \propto N^{-\alpha} D^{-\beta}$ for model parameters $N$ and tokens $D$; this directly drove training-budget allocation for GPT-4, Llama 3, and Gemini.
 
 ## Check Your Understanding
 

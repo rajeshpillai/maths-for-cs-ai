@@ -239,6 +239,10 @@ print(f"  Cartesian (divide by w=1): ({out[0]/out[2]:.4f}, {out[1]/out[2]:.4f})"
 - **View matrix** — transforms world into camera space (inverse of camera's model matrix)
 - **Projection matrix** — 3D to 2D (perspective or orthographic, next lessons)
 - **GPU pipeline** — vertex shader multiplies each vertex by MVP = Model × View × Projection
+- **AutoCAD and SolidWorks CAD kernels** — every part's pose in an assembly is stored as a 4×4 homogeneous transform; engineering firms designing Boeing 787 sub-assemblies depend on this to compose thousands of parts into one coordinate frame.
+- **Autonomous-vehicle sensor fusion (Tesla Autopilot, Mobileye EyeQ)** — LIDAR, radar, and camera frames are stitched together via 4×4 extrinsic-calibration matrices that transform each sensor's points into a single ego-vehicle frame for object tracking.
+- **Industrial robot forward kinematics (KUKA KR Cybertech, Universal Robots UR10)** — Denavit-Hartenberg parameters compose 4×4 transforms per joint; the end-effector pose in welding cells and pick-and-place lines is the product of all link matrices.
+- **Surgical robotics (Intuitive Surgical da Vinci Xi)** — instrument tip positions in laparoscopic surgery are computed by chaining homogeneous transforms from the patient cart through every articulating joint, enabling sub-millimeter motion scaling.
 
 ## Check Your Understanding
 

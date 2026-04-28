@@ -475,6 +475,31 @@ The professionals who get paid the most are usually those who can hold
 several mathematical lenses at once. JEE-style multi-concept problems
 are the small-scale rehearsal for that habit.
 
+- **Quant trading (Citadel, Jane Street, Optiver).** A single trade idea
+  layers stochastic calculus (option Greeks) + linear algebra (factor
+  exposure) + statistics (cointegration tests) + optimisation
+  (Markowitz/Kelly sizing) + microstructure (order-book queueing). The
+  quant interview process explicitly throws JEE-style multi-concept
+  puzzles at candidates to test exactly this orchestration ability.
+- **Civil & infrastructure megaprojects (Bechtel, L&T, Tata Projects).**
+  A metro tunnel design fuses soil mechanics (PDEs) + structural FEA
+  (linear algebra) + risk analysis (probability) + cashflow modelling
+  (calculus of NPV) + scheduling (graph theory CPM/PERT). Indian metro
+  bids cited under PPP (Mumbai, Bengaluru) all carry IFC/PE-grade
+  models that span all five disciplines.
+- **Pharma R&D pipeline (Roche, Pfizer, Sun Pharma).** Drug approval
+  combines molecular dynamics (calculus + PDE) + Bayesian dose-response
+  (probability) + survival statistics (analysis) + supply-chain cost
+  modelling (operations research) + regulatory game theory (signalling
+  models for FDA negotiation) — single decision, half a dozen
+  mathematical disciplines.
+- **Climate-risk underwriting (Munich Re, Swiss Re, CRISIL).** Pricing
+  parametric weather derivatives weaves Fourier-domain spectral
+  decomposition of historical rainfall + extreme-value statistics +
+  stochastic differential equations + portfolio Markowitz allocation.
+  COP-aligned green-bond issuance at IFC and ADB literally requires
+  multi-disciplinary models on every dollar lent.
+
 ## Check Your Understanding
 
 1. **(Complex + Trig + Algebra)** If w = cos(2pi/7) + i*sin(2pi/7), find the value of (1+w)(1+w^2)(1+w^3)(1+w^4)(1+w^5)(1+w^6). [Hint: w is a primitive 7th root of unity, so z^7 - 1 = (z-1)(z-w)...(z-w^6). Evaluate at z = -1.]

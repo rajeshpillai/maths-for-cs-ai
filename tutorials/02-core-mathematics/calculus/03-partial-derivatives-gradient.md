@@ -135,6 +135,10 @@ for step in range(10):
 - **Terrain rendering** — the gradient of a heightmap gives the slope direction for water flow
 - **Physics** — force = negative gradient of potential energy
 - **Optimisation** — every modern optimiser (Adam, RMSProp) is built on gradients
+- **Portfolio optimisation (Finance)** — BlackRock's Aladdin and Bridgewater's risk engines use gradients of expected return w.r.t. asset weights to rebalance trillion-dollar portfolios under Markowitz mean-variance theory.
+- **Topology-aware logistics (Operations)** — UPS ORION and Amazon route-planners follow negative gradients of fuel-cost surfaces; FedEx hub design uses partial derivatives of throughput w.r.t. each sort line.
+- **Computational fluid dynamics (Engineering)** — ANSYS Fluent and OpenFOAM solve gradients of pressure and velocity fields to design Boeing wings, Formula 1 aero packages, and HVAC systems for skyscrapers.
+- **Geophysics & oil exploration (Industry)** — Schlumberger and Halliburton use gradient-based seismic inversion (Full Waveform Inversion) to reconstruct subsurface rock layers from echo data.
 
 ### Directional Derivatives
 

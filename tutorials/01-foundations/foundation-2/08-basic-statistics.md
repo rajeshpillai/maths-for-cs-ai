@@ -279,6 +279,10 @@ for label, data in [("heights", heights), ("incomes", incomes)]:
 - **Anomaly detection** — outliers detected via IQR or z-score
 - **Game analytics** — player session length, score distributions, matchmaking
 - **A/B testing** — compare means between groups (leads to hypothesis testing)
+- **NPS & CSAT in customer success** — Salesforce and Zendesk dashboards report mean Net Promoter Score and median response time; SaaS quarterly business reviews live or die on these summary statistics.
+- **Median household income & policy** — the U.S. Census Bureau publishes median (not mean) income because medians resist billionaire-skewed outliers; HUD uses these medians to set Section-8 housing eligibility cutoffs.
+- **Six Sigma capability indices** — Toyota and GE compute $C_p, C_{pk}$ from process mean and standard deviation on every production line; Minitab dashboards drive decisions to halt or release lots.
+- **Clinical trial reporting** — FDA-required Table 1 in every NEJM clinical trial paper lists mean ± SD for continuous variables and median (IQR) for skewed ones; SAS PROC MEANS computes these by protocol mandate.
 
 ## Check Your Understanding
 

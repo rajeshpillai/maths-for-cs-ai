@@ -212,6 +212,18 @@ print(f"Outer integral: {outer:.4f} (should be 4)")
   throughout Bayesian ML
 - **Rendering**: computing the irradiance at a surface point integrates incoming
   light over a hemisphere — a double integral in spherical coordinates
+- **Insurance loss modelling**: Munich Re and Swiss Re compute aggregate
+  catastrophe losses as $\iint L(x,y)\, dA$ over geographic regions weighted
+  by exposure — drives reinsurance pricing for hurricane-prone zones
+- **Solar panel yield estimation**: NREL and First Solar integrate irradiance
+  $I(x, y)$ over panel array footprints to predict daily energy output for
+  utility-scale projects (e.g., Topaz Solar Farm in California)
+- **Semiconductor wafer yield maps**: TSMC and Samsung integrate defect-density
+  $D(x,y)$ over 300 mm wafers to project per-die yield — critical to gross
+  margin forecasting at fabs
+- **Crop yield from satellite NDVI**: USDA NASS and John Deere's Operations
+  Center compute $\iint \text{NDVI}(x,y)\, dA$ over field polygons to
+  predict harvest tonnage and price futures
 
 ## Check Your Understanding
 1. Evaluate $\iint_R x^2 y\, dA$ where $R = [0, 3] \times [1, 2]$.

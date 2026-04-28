@@ -341,6 +341,24 @@ print(f"  Verified for d = -20 to 20: (50+d)² = 100(25+d) + d² ✓")
 - **Compiler optimisation**: Strength reduction replaces x^2 with x*x, but
   the algebraic identity $(a+b)^2 = a^2 + 2ab + b^2$ underlies many
   numerical optimisations.
+- **Live commentary in cricket / sports analytics (ESPNcricinfo, Star
+  Sports).** Strike rates and run-rates need squaring/dividing on the
+  fly — production teams hire stats analysts who square Net Run Rate
+  components mentally between overs; the "ending-in-5" trick is in
+  every commentator's toolkit.
+- **Banking & wealth management (HDFC, ICICI, Axis private banking).**
+  Compound interest at 5%/yr means a relationship manager mentally squares
+  factors like $(1.05)^n$; doubling time and rule-of-72 desk maths
+  routinely reduce to "square 25", "square 35" calculations done in
+  seconds during client meetings.
+- **Civil-engineering site work (DLF, Godrej Properties).** Slab
+  estimators square plot dimensions (e.g. 35x35 ft, 45x45 ft) for
+  square-footage and tile-count quotes — Vedic ending-in-5 squaring
+  beats reaching for a calculator at the construction site.
+- **Real-estate appraisal (JLL, Knight Frank).** Cap-rate inversions and
+  square-foot multipliers in Mumbai/Bengaluru property reports: an
+  appraiser who can square 75 → 5625 instantly cross-checks a vendor's
+  per-sqft quote against carpet area in real time.
 
 ## Practice Problems
 

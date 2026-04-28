@@ -240,6 +240,10 @@ print("positions, regardless of distance.")
 - **Music generation** — LSTMs generate note sequences one step at a time
 - **Handwriting recognition** — CTC (Connectionist Temporal Classification) loss + LSTM for variable-length sequences
 - **Replaced by Transformers** — for most NLP tasks, attention (Tier 10-02) now dominates because it avoids the sequential bottleneck and vanishing gradients entirely
+- **Algorithmic trading at Renaissance Technologies and Two Sigma** — LSTMs and GRUs ingest tick-by-tick price/volume sequences to forecast short-horizon mean-reversion; quant funds reportedly run thousands of LSTM ensembles per trading day.
+- **Demand forecasting at Walmart and Amazon** — multi-step LSTM forecasters predict weekly SKU demand across millions of products and store-locations, driving replenishment orders worth billions of dollars.
+- **Wearable ECG arrhythmia detection (Apple Watch ECG, AliveCor KardiaMobile)** — bidirectional LSTMs/GRUs run on-device to classify atrial fibrillation from time-series PPG/ECG signals, FDA-cleared for millions of consumers.
+- **Industrial predictive maintenance (GE Predix, Siemens MindSphere)** — LSTM models trained on multivariate sensor streams from jet engines, gas turbines, and wind generators flag bearing failures days before they occur, saving millions per asset.
 
 ## Check Your Understanding
 

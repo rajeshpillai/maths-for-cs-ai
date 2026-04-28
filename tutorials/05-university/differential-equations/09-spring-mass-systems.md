@@ -225,6 +225,21 @@ for zeta in [0.05, 0.1, 0.3, 0.7, 1.0]:
   connecting it to the chassis.
 - **Resonance detection**: in structural engineering simulations, engineers
   must ensure buildings do not resonate at earthquake frequencies.
+- **Apple AirPods Pro ANC** — the active-noise-cancelling controller solves a
+  spring-mass-damper acoustic model of the ear-canal cavity in real time;
+  Sony WF-1000XM5 uses a similar second-order plant model in firmware.
+- **Tesla Model S air suspension** — the chassis controller adjusts damping
+  in milliseconds based on a quarter-car ODE so the body damping ratio
+  stays near $\zeta \approx 0.7$ at every speed (see Tesla's adaptive-damping
+  patent US10940731).
+- **Wind-turbine tower oscillation at GE Vernova / Vestas** — operators detune
+  rotor speed when the tower's natural frequency matches blade pass
+  frequency, the same resonance avoidance principle (called "exclusion zones"
+  in IEC 61400-1 design code).
+- **Watch escapement design at Rolex/Patek Philippe** — the balance wheel +
+  hairspring is a low-loss underdamped oscillator tuned to 28,800 vibrations/
+  hour; spring-mass equations set the regulator's beat error tolerance for
+  COSC chronometer certification.
 
 ## Check Your Understanding
 

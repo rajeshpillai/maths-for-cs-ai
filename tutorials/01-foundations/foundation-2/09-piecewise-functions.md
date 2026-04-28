@@ -199,6 +199,10 @@ for x in [-2, -0.1, 0, 0.1, 2]:
   critical hits
 - **Gradient flow** — ReLU's flat region (zero gradient for $x < 0$) causes
   the "dying ReLU" problem; leaky ReLU fixes this
+- **Tiered SaaS pricing** — Stripe Billing, AWS S3, and Twilio expose stepped pricing schedules where unit cost depends on usage band; the cost-vs-volume curve is exactly a piecewise linear function with kinks at thresholds.
+- **Insurance deductible & copay** — a U.S. health-insurance plan's out-of-pocket cost is piecewise: $f(x) = x$ until deductible, then $f(x) = D + 0.2(x-D)$ until OOP max; UnitedHealth and Aetna claim engines hard-code these segments.
+- **Utility rate schedules** — PG&E and Con Edison apply tiered electricity rates ($/kWh changes by usage band); the monthly-bill function is piecewise linear and CSPP regulators audit the breakpoints.
+- **Mechanical stress-strain curves** — material engineers at SpaceX and Boeing model metals as elastic + plastic regions: $\sigma = E\varepsilon$ below yield, then a hardening curve above. ANSYS uses these piecewise constitutive laws in finite-element analysis.
 
 ## Check Your Understanding
 

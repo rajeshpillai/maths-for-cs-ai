@@ -265,6 +265,10 @@ print("  - 1×1 convolution             →  pure channel-mixing, spatial size u
 - **1×1 convolutions** — change channel count without affecting spatial dimensions (used in Inception, bottleneck layers)
 - **Dilated convolutions** — "holes" in the kernel increase receptive field without more parameters
 - **Transposed convolutions** — upsampling in autoencoders, GANs, semantic segmentation
+- **Industry / Autonomous vehicles**: **Tesla Autopilot HW3/HW4** — the in-car neural net runs stride-2 convolutions to downsample 1280×960 camera frames into the feature pyramid that feeds the planner, processing 8 cameras at >2,000 frames per second in aggregate.
+- **Engineering / Medical imaging**: **U-Net** (the dominant architecture in **NVIDIA Clara** and **MONAI** medical platforms) relies on "same" padding throughout so the output segmentation mask aligns pixel-for-pixel with the input MRI/CT slice — any shrinkage would misalign tumour boundaries.
+- **Business / Mobile photography**: **Google Pixel HDR+** and **Apple's Deep Fusion** run depth-wise separable convolutions with carefully tuned strides to fit the model on the phone's NPU (Apple Neural Engine, Google Tensor) within a ~30 ms shutter budget.
+- **Engineering / Earth observation**: **Sentinel-2 cloud-masking** at ESA uses fully-convolutional networks with same-padding so the 10-metre-per-pixel cloud mask aligns perfectly with the input multispectral tiles distributed via Copernicus.
 
 ## Check Your Understanding
 

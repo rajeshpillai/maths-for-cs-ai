@@ -215,6 +215,22 @@ print(f"Shoelace area: {area_shoelace:.1f}")
   change-of-variables formula for densities, used throughout Bayesian ML
 - **Volume rendering**: converting integrals to spherical coords for radiance
   computations requires the $\rho^2 \sin\phi$ Jacobian
+- **Stable Diffusion and Glow normalizing flows**: OpenAI Glow and the Stable
+  Diffusion family (Stability AI) train invertible networks where each layer's
+  $\log|\det J|$ enters the loss — without the Jacobian, density estimation is
+  meaningless; this is core to image-generation likelihoods
+- **Map projections (Mercator, UTM)**: the USGS, OpenStreetMap, and Google Maps
+  use Jacobian determinants to convert between geodetic $(\phi, \lambda)$ and
+  projected $(x, y)$ coordinates — preserves area in equal-area projections
+  used by census and election analysis
+- **Finite element solvers**: ANSYS Mechanical, Abaqus, and COMSOL map each
+  curved element to a reference element via an isoparametric transformation;
+  the Jacobian determines element stiffness matrices — central to crash-test
+  simulation at Volkswagen and Toyota
+- **Stress testing at central banks**: the Federal Reserve's CCAR and ECB SSM
+  scenarios apply nonlinear shocks to risk factors and use the Jacobian to
+  propagate the change in joint distributions of GDP, unemployment, and asset
+  prices through bank balance sheets
 
 ## Check Your Understanding
 1. Compute the Jacobian determinant for the transformation $x = u^2 - v^2$,

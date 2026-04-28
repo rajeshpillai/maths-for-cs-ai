@@ -247,6 +247,10 @@ print(f"Effective multiplier: 4x feature maps from same parameters")
 - **Game AI**: board games with symmetry (chess: reflection; Go: rotation) benefit from equivariant architectures.
 - **Point cloud processing** (LiDAR, 3D scanning): PointNet uses permutation invariance; tensor field networks add rotation equivariance.
 - **AlphaFold**: protein structure prediction uses SE(3)-equivariant attention.
+- **Drug discovery at Isomorphic Labs (Alphabet) and Recursion Pharmaceuticals** — SE(3)-equivariant graph networks (e.g., Equiformer, MACE) screen molecules in days instead of years, slashing the typical $1B+ price tag of bringing one drug to market.
+- **Crystal structure prediction at DeepMind GNoME (2023)** — discovered 2.2M novel stable inorganic crystals using equivariant networks; battery and superconductor candidates flow directly to Materials Project at Lawrence Berkeley National Lab.
+- **DeepMind GraphCast weather forecasting (2023)** — uses spherical-symmetry (SO(3))-equivariant graph nets on icosahedral grids; outperforms ECMWF's HRES at fraction of the compute, now operational at the U.K. Met Office.
+- **Geometric deep learning at TerraFuse and Tesla Autopilot** — point-cloud LiDAR perception uses SE(3)-equivariance to recognize pedestrians regardless of approach angle, directly impacting safety metrics regulated by NHTSA and EU Type Approval.
 
 ## Check Your Understanding
 

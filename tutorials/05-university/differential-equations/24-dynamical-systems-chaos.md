@@ -207,6 +207,22 @@ if mask.sum() > 10:
 - **Reinforcement learning** — Chaotic environments (turbulent fluid control,
   complex robotics) challenge RL agents because small actions lead to
   unpredictable outcomes.
+- **ECMWF / NOAA ensemble forecasting** — 51-member perturbed-IC ensembles
+  run daily on supercomputers because the atmosphere has positive Lyapunov
+  exponents; ensemble spread directly drives FAA Significant Meteorological
+  Information (SIGMET) advisories used by airlines.
+- **Cardiac arrhythmia and ventricular fibrillation** — Mayo Clinic and
+  Boston Scientific use nonlinear-dynamics models of cardiac action
+  potential to understand why fibrillation onset is a chaotic regime; this
+  feeds defibrillator (ICD) tuning algorithms.
+- **Algorithmic trading regime detection at hedge funds** — quants compute
+  Lyapunov exponents and correlation dimensions on price-return time series
+  to flag chaotic vs random-walk regimes; AHL (Man Group) has published on
+  this technique.
+- **Mixing and combustion in jet engines at GE Aviation / Rolls-Royce** —
+  turbulent combustion is fundamentally chaotic; Large-Eddy Simulation tools
+  (CONVERGE, AVBP) leverage chaos statistics to certify low-NOx combustors
+  for FAA Stage 5 / ICAO CAEP/8 emissions standards.
 
 ## Check Your Understanding
 

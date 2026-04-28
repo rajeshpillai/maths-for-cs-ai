@@ -268,6 +268,10 @@ for h in [1, 0.1, 0.01, 0.001, 0.0001]:
 - **Physics engines** — velocity = derivative of position, acceleration = derivative of velocity
 - **Loss functions** — MSE derivative is $2(\hat{y} - y)$, cross-entropy derivative leads to softmax
 - **Animation curves** — Bézier curve tangents are derivatives, used for easing functions
+- **Marginal cost & marginal revenue (Economics/Finance)** — derivatives of cost and revenue curves; airlines (Delta, United) and SaaS pricing teams (Salesforce, HubSpot) use them to decide whether one more flight, customer, or feature is profitable.
+- **Option Greeks (Quant Finance)** — Delta, Gamma, Theta, and Vega are first/second-order derivatives of option price; trading desks at Goldman Sachs, Citadel, and Jane Street recompute them every tick to hedge billion-dollar portfolios.
+- **PID controllers (Industrial Engineering)** — the "D" term is a derivative; used in Tesla autopilot steering, drone flight controllers (DJI, ArduPilot), and Bosch ABS brake systems to react to rate-of-change of error.
+- **Drug dose-response curves (Pharma)** — pharmacologists at Roche/Novartis differentiate Hill equations to find the EC50 inflection point that determines therapeutic dosing.
 
 ## Check Your Understanding
 

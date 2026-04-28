@@ -188,6 +188,19 @@ for y in y_vals:
 - **Qualitative analysis** saves computation: before running a costly
   simulation, sketch the direction field to predict whether solutions converge,
   diverge, or oscillate.
+- **NOAA hurricane track forecasting** — the National Hurricane Center
+  visualizes ensemble wind-vector fields ("spaghetti plots") that are
+  literally direction fields of the atmospheric ODE/PDE system; landfall
+  evacuation orders rely on them.
+- **Algorithmic-trading regime maps** — quantitative funds (Two Sigma, AQR)
+  draw phase-space direction fields of price/volatility ODE proxies to
+  classify mean-reverting vs trending regimes for stat-arb books.
+- **Tokamak plasma confinement at ITER** — magnetic field lines visualised
+  via direction-field plots steer Bohm/neoclassical transport ODEs that
+  forecast disruption events.
+- **Drone wind-corridor planning at FAA UTM** — UAS traffic-management trials
+  compute wind direction fields from HRRR weather data so corridor algorithms
+  pick paths where solution curves stay inside geofence.
 
 ## Check Your Understanding
 

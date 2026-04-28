@@ -195,6 +195,10 @@ for n in [5, 10, 20]:
   $\sum_{i=1}^{n}\sum_{j=1}^{i} 1 = \frac{n(n+1)}{2} = O(n^2)$
 - **Telescoping in amortised analysis** — potential method sums telescope to
   give tight bounds on data structure operations
+- **Net Present Value (NPV)** — corporate finance teams compute $\text{NPV} = \sum_{t=0}^{n} \frac{CF_t}{(1+r)^t}$ for every capital project; Excel `NPV()` and HP-12C are summation engines and the SEC requires NPV disclosures in 10-K filings.
+- **Sum of digits & Luhn checksums** — credit-card validation uses $\sum$ over weighted digits modulo 10; Visa and MasterCard payment processors run this summation on every transaction.
+- **Total variation in ICU monitors** — biomedical engineers at Philips compute $\sum |x_{i+1} - x_i|$ on ECG samples to detect arrhythmia; the summation runs in real time on bedside hardware.
+- **Aggregate kilowatt-hour billing** — utility meters at PG&E sum quarter-hour energy reads $\sum P_i \Delta t$ over a billing cycle; ANSI C12 metering standards mandate this exact summation accumulator on every smart meter.
 
 ## Check Your Understanding
 

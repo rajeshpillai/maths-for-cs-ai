@@ -234,6 +234,22 @@ for i in range(5):
 - **Network protocols:** TCP state machines are DFAs that track connection state.
 - **Game AI:** NPC behaviour is often modelled as finite state machines (idle,
   patrol, chase, attack).
+- **Industry — Intel & ARM CPU control logic:** Hardware control units in
+  every Core i9 and Cortex-A CPU are Mealy/Moore DFAs synthesised from
+  Verilog/VHDL; cache-coherence MESI protocols and memory-controller
+  state machines are explicit DFAs verified pre-silicon.
+- **Engineering — Bosch / Continental engine ECUs and ABS controllers:**
+  Automotive ECUs run safety-critical state machines (gear shift, ABS,
+  airbag deploy) certified to ISO 26262 ASIL-D; Stateflow in MATLAB and
+  IBM Rhapsody are the standard authoring tools.
+- **Operations — Stripe & Visa fraud-rule engines:** Transaction
+  authorisation systems compile rule sets ("3 high-value charges in 60s
+  from foreign country") into DFA-style streaming matchers handling
+  ~150,000 transactions per second with sub-millisecond latency.
+- **Finance — FIX-protocol trading session state machines:** Every order
+  routed by Goldman Sachs or Citadel through the FIX 5.0 protocol traces
+  through a DFA (Logon, Resend, Heartbeat, Logoff); the FIX standard
+  literally specifies the state diagram exchanges must implement.
 
 ## Check Your Understanding
 

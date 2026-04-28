@@ -173,6 +173,21 @@ print(f"  Simulated power = {rejections / n_sim:.4f}")
   transactions by testing if observations deviate from the null model.
 - **Game Balance:** Testing whether a new weapon, map, or character has
   a statistically significant effect on win rates.
+- **FDA drug approval (Phase III):** the FDA mandates pre-registered
+  hypothesis tests with $\alpha = 0.025$ one-sided; Pfizer's BNT162b2
+  COVID vaccine efficacy was reported as a hypothesis test rejecting
+  $H_0$: efficacy $\le 30\%$ with overwhelming significance.
+- **Six Sigma at GE / Toyota / Motorola:** DMAIC's "Analyze" phase uses
+  hypothesis tests to distinguish process drift from random PPM-defect
+  noise; reaching 3.4 defects per million requires $\alpha$ tuned to avoid
+  costly false alarms on assembly lines.
+- **CERN particle physics:** the Higgs boson discovery in 2012 required
+  the famous "5 sigma" threshold ($\alpha \approx 3 \times 10^{-7}$) — a
+  direct application of Type-I error control to a single, irreversible
+  scientific claim.
+- **SEC market-manipulation surveillance:** FINRA's CAT system uses
+  hypothesis tests on order-book volume vs. baseline distributions to
+  flag spoofing and layering by HFT firms.
 
 ## Check Your Understanding
 

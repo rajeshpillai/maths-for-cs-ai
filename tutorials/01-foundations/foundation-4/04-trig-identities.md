@@ -185,6 +185,10 @@ print(f"  (1-cos120°)/2 = {rhs:.6f}")
 - **Rotation** — addition formulae derive the 2D rotation matrix (Tier 8-04)
 - **Fourier analysis** — product-to-sum decomposes products of sines into sums
 - **Phase shift** — R-formula finds the amplitude and phase of combined oscillations
+- **AM/FM radio modulation** — Qualcomm and Broadcom RF chips use product-to-sum identities $\sin A \cos B$ to encode/decode amplitude- and frequency-modulated carrier signals on every cellular handset.
+- **Power-factor correction** — Schneider Electric and Eaton use the R-formula to combine real and reactive power into apparent power $S = \sqrt{P^2 + Q^2}$; utility tariffs penalise low power factor based on these trig identities.
+- **Heterodyne mixers in test gear** — Keysight and Tektronix spectrum analysers use $\cos\omega_1 t \cdot \cos\omega_2 t = \frac{1}{2}[\cos(\omega_1-\omega_2) + \cos(\omega_1+\omega_2)]$ to down-convert microwave signals into measurable IF.
+- **Acoustic beat frequencies** — piano tuners and Steinway technicians listen for beat frequencies $f_1 - f_2$ — a direct application of the sum-to-product identity — to tune octaves to within $\pm 0.5$ cent.
 
 ## Check Your Understanding
 

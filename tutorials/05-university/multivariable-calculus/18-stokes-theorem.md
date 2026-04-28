@@ -239,6 +239,21 @@ print(f"Line integral:    {line_circ:.10f}")
   which underlies persistent homology used in TDA for ML
 - **Gauge theories in physics**: modern physics formulations rely heavily on
   Stokes' theorem for relating local field equations to global conservation laws
+- **Stokes-based fluid sims at Pixar and DreamWorks**: Houdini's vortex-particle
+  solvers and Pixar's Presto engine use Stokes circulation to evolve smoke and
+  fire (e.g., dragon breath in *How to Train Your Dragon*) — circulation is
+  shed into vorticity sheets at obstacle boundaries
+- **Aerodynamic lift and Kutta-Joukowski**: Boeing, Airbus, and Lockheed use
+  $\Gamma = \oint \mathbf{v}\cdot d\mathbf{r}$ around an airfoil cross-section
+  to compute lift via $L = \rho V_\infty \Gamma$; the integral is converted to
+  vorticity-area integrals via Stokes for vortex-lattice methods
+- **MRI gradient coil design**: Siemens and GE use Stokes' theorem on the
+  electromagnetic vector potential to compute induced eddy currents in scanner
+  cryostats — central to artefact-free imaging on MAGNETOM Terra 7T
+- **Power-grid loop-flow analysis**: PJM, MISO, and ERCOT use Stokes' theorem
+  on the AC voltage-angle field around transmission loops to identify
+  unscheduled "loop flows" that bypass scheduled paths — drives FERC
+  inter-RTO settlement disputes
 
 ## Check Your Understanding
 1. Use Stokes' theorem to evaluate $\oint_C (2z)\,dx + (x)\,dy + (3y)\,dz$

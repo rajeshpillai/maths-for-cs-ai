@@ -195,6 +195,10 @@ print(f"Image = {sorted(images)}, bijection: {images == set(range(6))}")
 - **Hashing**: a hash function $h: \text{strings} \to \{0, \ldots, n-1\}$ is a homomorphism if the string operation is compatible with modular arithmetic.
 - **Dimensionality reduction**: PCA, autoencoders, and embeddings are "approximate homomorphisms" — they try to preserve structure while reducing size.
 - **Neural network layers**: a linear layer $x \mapsto Wx$ is a group homomorphism from $(\mathbb{R}^n, +)$ to $(\mathbb{R}^m, +)$.
+- **log-returns in quantitative finance** — the map $\text{price ratio} \mapsto \log(\text{ratio})$ is a homomorphism from $(\mathbb{R}^+, \times)$ to $(\mathbb{R}, +)$; this is why Bloomberg terminals and Goldman Sachs risk models compute portfolio P&L by *summing* log-returns instead of multiplying.
+- **dB scale in audio/RF engineering** — $\log_{10}$ is the homomorphism turning multiplicative gain into additive dB; cellular link-budget calculations at Ericsson and Nokia, and noise-floor measurements on Keysight spectrum analysers, all rely on this.
+- **SE(3)-equivariance in AlphaFold 2 (DeepMind, 2021)** — protein structure prediction layers are homomorphisms preserving 3D rigid-motion group structure; this ML breakthrough now drives drug discovery at Isomorphic Labs and Pfizer.
+- **Currency conversion isomorphism** — exchange-rate pairs $(\mathbb{R}^+, \times)$ form an isomorphism between USD-denominated and EUR-denominated portfolios; arbitrage-free pricing at Citadel and JPMorgan exploits this isomorphism to detect mispricing in microseconds.
 
 ## Check Your Understanding
 

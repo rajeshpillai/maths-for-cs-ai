@@ -405,6 +405,26 @@ transferable skills in this entire tier:
 - **Cryptography.** **Reductions** in modern crypto ("breaking this scheme
   is at least as hard as factoring") are inequalities — the security
   proof IS a bound on the adversary's success probability.
+- **Quant trading & market making (Jane Street, Optiver, IMC).** Interview
+  rounds explicitly test back-of-envelope estimation ("how many
+  golf balls fit in a Boeing 747?") — the same Fermi-style bounding
+  taught for JEE. Live market-making relies on bid/ask sandwich bounds
+  that are computed under sub-millisecond latency budgets.
+- **Project finance & infrastructure (HDFC, IFC, ADB).** Loan covenants
+  for Indian metro and highway projects use DSCR (Debt Service Coverage
+  Ratio) bounds that must stay above 1.2 in every quarter — feasibility
+  reports literally bound revenue projections from below using the
+  growth-rate hierarchy in this lesson.
+- **Aerospace & safety-critical (ISRO, Airbus, GE Aviation).** RTCA
+  DO-178C avionics certification demands proven WCET upper bounds on
+  every flight-control task; the Static Worst-Case Execution Time (WCET)
+  tools at AbsInt are essentially automated MVT-style proofs over
+  control-flow graphs.
+- **Clinical statistics & public health (ICMR, WHO).** Sample-size
+  calculations for vaccine trials use Hoeffding/Chernoff bounds to size
+  Phase-III enrolment; epidemiologists at IHME (Seattle) and ICMR bound
+  R0 from wastewater data using exactly the integral-vs-sum comparison
+  shown above.
 
 ## Check Your Understanding
 

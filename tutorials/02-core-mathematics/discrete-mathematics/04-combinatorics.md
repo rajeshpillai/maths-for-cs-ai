@@ -319,6 +319,10 @@ for n in [5, 10, 15, 20, 30]:
 - **Machine learning** — $\binom{n}{k}$ appears in the binomial distribution (Tier 4)
 - **Hash collisions** — birthday problem: with $n$ items and $m$ slots, collision probability grows fast
 - **Compiler optimisation** — counting instruction orderings for pipeline scheduling
+- **A/B test design & power analysis (Business)** — companies like Netflix, Booking.com, and Google compute the number of variant combinations $\binom{n}{k}$ when running multivariate experiments; sample-size formulas and lift detection rest on combinatorial counting.
+- **Insurance & actuarial science (Finance)** — Aon and Munich Re use combinatorial enumeration to count possible claim outcomes in mortality and catastrophe models; lottery game design (Powerball, EuroMillions) prices payouts using exact $\binom{49}{6}$ counts.
+- **Manufacturing tolerance stack-up (Engineering)** — Toyota and Boeing use combinatorial enumeration of part-tolerance combinations to compute worst-case assembly fits and Six Sigma defect rates.
+- **Drug combination trials (Pharma)** — Pfizer and Merck oncology programs evaluate $\binom{n}{k}$ regimens for combination therapy; FDA-IDE submissions for medical-device feature pairs rely on combinatorial design-of-experiments tables.
 
 ## Check Your Understanding
 

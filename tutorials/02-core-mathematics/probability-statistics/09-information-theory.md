@@ -253,6 +253,11 @@ for q in [0.1, 0.3, 0.5, 0.9]:
 - **Data compression** — entropy = theoretical minimum bits per symbol
 - **KL divergence** — used in VAEs (variational autoencoders), policy gradient methods, knowledge distillation
 - **Mutual information** — $I(X;Y) = H(X) - H(X|Y)$: how much knowing $Y$ tells you about $X$
+- **Data compression standards** — Huffman coding (in JPEG, PNG, ZIP, MP3) and arithmetic coding (in H.264, H.265, AV1 video) approach the entropy lower bound; Shannon's source-coding theorem caps every codec ever shipped by Apple, Netflix, and YouTube.
+- **Telecom & 5G channel capacity** — Shannon-Hartley $C = B \log_2(1 + \text{SNR})$ is the theoretical bit-rate ceiling that drives Qualcomm's modem design and the 3GPP 5G NR standard's link adaptation tables.
+- **Decision-tree & XGBoost feature splits** — credit-scoring vendors (FICO, Experian) and Kaggle-grade models use information gain (entropy reduction) to choose splits, directly applying $I(X;Y)$ to billion-row business datasets.
+- **Cryptography & password strength** — NIST SP 800-63B uses entropy in bits to specify password and key-length requirements; this is also how 1Password and Bitwarden score password quality for end users.
+- **Financial regulation & market efficiency** — entropy-based diversification metrics (used by BlackRock and AQR) measure portfolio concentration; the SEC's HHI (Herfindahl-Hirschman Index) for market concentration is conceptually a Rényi entropy.
 
 ## Check Your Understanding
 

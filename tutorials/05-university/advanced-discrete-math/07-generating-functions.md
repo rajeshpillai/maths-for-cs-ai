@@ -180,6 +180,22 @@ for n in range(21):
   making convolution (sum of random variables) into multiplication.
 - **Game dev:** Counting configurations in procedural generation (e.g., how
   many ways to tile a region) is a generating function problem.
+- **Finance — Actuarial life-tables at MetLife and Munich Re:** Probability
+  generating functions for compound Poisson claim distributions price
+  catastrophe reinsurance and pension liabilities; the Panjer recursion
+  (a GF identity) is standard in the Solvency II regulatory framework.
+- **Industry — Coin / change-making at retail POS systems:** Square,
+  Toast, and Stripe Terminal use the partition GF $\prod 1/(1-x^{c_i})$
+  to enumerate change combinations; the same algorithm powers vending
+  machines from Coca-Cola Freestyle to Tokyo train ticket dispensers.
+- **Engineering — Z-transforms in control theory:** The discrete-time
+  analogue of the Laplace transform IS a generating function; Mathworks'
+  Simulink and dSPACE HIL rigs at Bosch / Continental use Z-transforms
+  to design ABS and stability-control firmware for cars.
+- **Operations — Queueing theory at call centres:** Erlang-C / Erlang-B
+  formulas (used by Avaya, Genesys, and Amazon Connect to staff customer
+  service) come directly from probability GFs of Markov birth-death
+  chains, sizing how many agents a bank or airline needs at peak hour.
 
 ## Check Your Understanding
 

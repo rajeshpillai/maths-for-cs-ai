@@ -303,6 +303,10 @@ print("    and downsample with stride-2 convolutions instead.")
 - **Global average pooling** — replaces the large FC layer at the end, reducing overfitting (Network in Network, 2014)
 - **Feature pyramid networks** — use pooling at multiple scales for object detection
 - **Image classification** — pooling makes the network robust to small translations of objects
+- **Industry / Mobile**: **MobileNet v2/v3** (the model that runs Google Lens, Pixel's "Now Playing" song detection, and on-device translation in Google Translate) uses global average pooling at the end to keep the parameter count under 5 M for phone deployment.
+- **Engineering / Medical**: **CheXNet** (Stanford's pneumonia detector trained on the NIH ChestX-ray14 dataset) ends in global average pooling, giving it a class-activation map that radiologists can overlay on the X-ray to see *where* the model "looked".
+- **Business / E-commerce**: **Pinterest Lens** and **Google Reverse Image Search** use max-pooled CNN feature maps as image fingerprints; max-pool's translation invariance means a cropped or shifted product photo still matches the original listing.
+- **Engineering / Quality control**: **NVIDIA Metropolis** smart-city/factory pipelines pool feature maps to keep object-detection FPS above the 30 Hz cameras feed, even on edge GPUs like the Jetson Orin in retail loss-prevention systems.
 
 ## Check Your Understanding
 

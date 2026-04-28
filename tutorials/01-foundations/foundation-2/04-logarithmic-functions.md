@@ -172,6 +172,10 @@ print(f"Verify: 5^{result:.4f} = {5**result:.4f}")
 - **Numerical stability** — multiplying many small probabilities causes
   underflow; adding their logs avoids this (log-sum-exp trick)
 - **Decibels in audio** — $\text{dB} = 10 \log_{10}(P/P_0)$
+- **Log-returns in finance** — quants at Renaissance Technologies and Two Sigma model stock returns as $r_t = \ln(P_t / P_{t-1})$ because log-returns are additive across time and approximately normal; Black-Scholes and GARCH volatility models live in log-return space.
+- **Pareto/Power-law plots** — VC firms like Andreessen Horowitz plot startup outcomes on log-log axes to spot the power-law nature of returns; the slope on a log-log chart reveals the Pareto exponent.
+- **pH in chemistry & biotech** — pharmaceutical labs at Pfizer measure pH = $-\log_{10}[\text{H}^+]$ to control fermentation in mAb production; bioreactor controllers (Sartorius, Eppendorf) use log-scale setpoints.
+- **Earthquake & magnitude scales** — the USGS reports moment magnitude $M_w = \frac{2}{3}\log_{10}(M_0) - 6.07$; structural codes (ASCE 7) translate this log-magnitude into spectral acceleration design loads for buildings.
 
 ## Check Your Understanding
 

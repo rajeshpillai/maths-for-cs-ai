@@ -291,6 +291,10 @@ print("Adding the rounded 0.1 and 0.2 lands one ULP away from the rounded 0.3.")
 - **Colour values** — HDR rendering uses 16-bit floats (half-precision) per channel
 - **Money** — never use floats for currency! Use integers (cents) or `Decimal`
 - **GPU computation** — NVIDIA Tensor Cores use FP16, BF16, TF32 for faster matrix multiply in AI training
+- **HFT precision-vs-speed trade-offs (Finance)** — high-frequency trading firms (Citadel Securities, Jane Street, Jump) use fixed-point or 64-bit doubles for prices but mandate exact decimal libraries for clearing/settlement; FIX-protocol decimal fields prevent the floating-point bugs that cost Knight Capital $440M in 2012.
+- **Currency rounding & banker's rounding (Business)** — Java `BigDecimal`, .NET `decimal`, and Python `Decimal` are mandatory in QuickBooks, SAP, and Oracle Financials so that 0.005 cents do not vanish across millions of postings; tax authorities (IRS, HMRC) require ROUND_HALF_EVEN for compliance.
+- **Aerospace & nuclear-grade numerics (Engineering)** — ARIANE 5 disintegrated in 1996 due to a 64-bit→16-bit float overflow; today, NASA JPL, Airbus, and Westinghouse SCRAM systems use IEEE 754 with rigorous interval arithmetic (INTLAB, MPFR) and certified compilers (CompCert) to bound rounding error.
+- **Climate models & scientific computing (Science)** — NOAA GFS, ECMWF IFS, and DOE E3SM weather/climate codes balance FP32 vs FP64 to fit petabyte simulations on Frontier/Fugaku supercomputers; mixed precision is now standard for cost vs accuracy.
 
 ## Check Your Understanding
 

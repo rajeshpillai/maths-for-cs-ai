@@ -180,6 +180,10 @@ for a, b in convergents:
 - **Correctness proofs**: showing a protocol has no deadlock often assumes a deadlock exists and derives a contradiction.
 - **Adversarial reasoning** in game theory: "if my opponent had a winning strategy, then..." leads to contradiction.
 - **Complexity theory**: many lower bounds ($P \neq NP$ attempts) follow the contradiction template.
+- **No-arbitrage pricing in finance** — the Fundamental Theorem of Asset Pricing is a contradiction proof: if no risk-neutral measure existed, an arbitrage portfolio would, contradicting market efficiency; this is the bedrock of all derivatives desks at Goldman Sachs and Two Sigma.
+- **CAP theorem in distributed systems (Brewer, Gilbert-Lynch 2002)** — contradiction proof showing no system can simultaneously offer Consistency, Availability, and Partition tolerance; shapes architectural choices at Cassandra, MongoDB, and DynamoDB across all of cloud computing.
+- **Shannon's source coding theorem lower bound** — proof by contradiction shows no code beats entropy $H(X)$ on average; defines the theoretical floor for ZIP, gzip, JPEG, MP3, and Netflix H.265 encoders.
+- **Boeing/Airbus collision-avoidance verification** — TCAS II and ACAS X protocols are validated using contradiction proofs ("assume aircraft collide while protocol is followed... derive impossibility"); FAA/EASA certification depends on these arguments holding under all encounter geometries.
 
 ## Check Your Understanding
 

@@ -166,6 +166,10 @@ print(f"Check: {min(S)}² = {min(S)**2} > 50")
 - **Loop invariants**: proving a loop invariant holds at every iteration is induction on the iteration count.
 - **Structural induction**: proving properties of trees, linked lists, and ASTs uses induction on structure.
 - **Dynamic programming**: the correctness of DP relies on strong induction — each subproblem depends on smaller solved subproblems.
+- **Mathematical induction in CompCert (Airbus avionics)** — loop-invariant correctness in safety-critical C is verified by induction in Coq, certified for DO-178C Level A; this is what makes formally verified compilers acceptable for fly-by-wire software.
+- **Compound-interest pricing at every retail bank** — the formula $A = P(1+r)^n$ is proved by induction on $n$; mortgage amortization tables at Wells Fargo, Bank of America, and HSBC are direct applications evaluated billions of times per month.
+- **Ladder-Logic safety interlocks in industrial PLCs (Siemens S7, Allen-Bradley)** — operator-procedure correctness is proved by induction on the cycle count; certified by IEC 61508 SIL-3 for nuclear plants and chemical refineries where a single bug can cause fatalities.
+- **Stress-test induction in supply-chain planning at Walmart and Amazon** — proving that buffer stock survives $n$ consecutive demand shocks relies on inductive arguments; these models drove the COVID-era inventory sizing that maintained shelf availability above 95%.
 
 ## Check Your Understanding
 

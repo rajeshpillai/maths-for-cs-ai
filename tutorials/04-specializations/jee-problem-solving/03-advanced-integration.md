@@ -198,6 +198,20 @@ print(f"  integral x^3 from -2 to 2 = {I_odd:.10f} (odd function, = 0)")
   variational methods for physics simulation.
 - **Neural networks:** Reduction formulas and definite integral properties simplify
   the computation of normalisation constants in activation functions (e.g., GELU).
+- **Quantitative finance:** Black-Scholes option pricing reduces to a Gaussian integral
+  evaluated using King's-rule symmetry; Renaissance Technologies, D.E. Shaw, and Goldman's
+  strats desk regularly differentiate under the integral sign (Feynman trick) to derive
+  Greeks (Delta, Vega) without re-pricing the whole grid.
+- **Actuarial / insurance industry:** LIC and SBI Life compute premium reserves using the
+  incomplete-Gamma function — the same $\Gamma(n) = \int x^{n-1}e^{-x}dx$ — to discount
+  expected mortality cashflows; IRDAI solvency reports require these closed forms.
+- **Aerospace & MEP engineering:** Boeing and ISRO drag-coefficient integrals over wing
+  cross-sections use Beta-function reductions; HVAC duct heat-loss calculations
+  ($\int_0^L T(x)dx$ with $T$ exponentially decaying) at L&T and Voltas use the same
+  Leibniz differentiation under the integral sign for sensitivity to insulation thickness.
+- **Pharmaceutical & clinical trials:** Pfizer and Novartis fit Gamma/Beta priors to
+  dose-response curves; FDA-mandated PK/PD AUC (area-under-curve) calculations rely on the
+  same Wallis-style numerical integration verified against analytic reductions.
 
 ## Check Your Understanding
 

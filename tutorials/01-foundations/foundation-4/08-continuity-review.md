@@ -228,6 +228,10 @@ print(f"  Conclusion: continuous at x = {a}")
   physics engines detect and handle this to avoid tunnelling through walls
 - **Loss landscapes** — gradient descent assumes the loss function is continuous
   (and usually differentiable); discontinuities cause training instabilities
+- **Bond price-yield curve** — fixed-income desks rely on the IVT-style continuity of $P(y)$ to bisect for YTM on every quoted bond; Bloomberg's `<YA>` screen would not converge if the price function had jumps.
+- **Tax-bracket cliffs** — policy economists at the CBO flag discontinuities in marginal tax (e.g., losing a benefit at exactly $\$30{,}000$ income) because they create bunching/disincentives — this is exactly a non-continuous function and a legislative red flag.
+- **Manufacturing tolerance & continuity of fit** — mechanical engineers at Boeing and Airbus require continuous airfoil and fuselage surfaces (C¹ or C² continuity) so airflow doesn't separate; CAD systems like CATIA enforce these continuity classes at every surface boundary.
+- **Power-grid frequency stability** — NERC mandates that grid frequency stays continuous within $\pm 0.05$ Hz of 60 Hz; PMU sensors at 30 Hz detect any near-discontinuity (a "frequency event") and trip protections at PJM and ERCOT.
 
 ## Check Your Understanding
 

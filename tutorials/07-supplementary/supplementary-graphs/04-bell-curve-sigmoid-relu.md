@@ -223,6 +223,10 @@ print("  Softplus    → 'smooth' ReLU, useful where you need a differentiable e
 - **Step function** — perceptron (historical), thresholding in image processing
 - **ReLU** — default activation in CNNs and MLPs since 2012
 - **Softplus** — theoretically nicer but ReLU is faster and works just as well in practice
+- **Bell curve in IQ testing & psychometrics** — WAIS-IV, Stanford-Binet, U.S. military ASVAB, and SAT/GRE percentile scoring are all calibrated to a Gaussian with $\mu = 100, \sigma = 15$; Educational Testing Service (ETS) uses the bell-curve assumption for percentile-rank reporting.
+- **Sigmoid in epidemiology — WHO/CDC COVID-19 modeling** — the Gompertz/logistic curves drove daily decision briefings at WHO HQ Geneva and CDC Atlanta in 2020-2021; IHME forecasts and JHU dashboards relied on these S-curve fits.
+- **ReLU/GELU in foundation models** — power Tesla FSD HW3/HW4, GPT-4, Claude, Llama 3, Gemini Ultra, every flagship model trained at OpenAI, Anthropic, Google DeepMind, Meta AI on H100/TPU clusters.
+- **Six Sigma quality control (Toyota TPS, Motorola)** — bell-curve tail probabilities define $C_{pk}$ thresholds; achieving "six sigma" means defect rate $\le 3.4$ per million opportunities, the standard in semiconductor fabs and automotive Tier-1 suppliers.
 
 ## Check Your Understanding
 

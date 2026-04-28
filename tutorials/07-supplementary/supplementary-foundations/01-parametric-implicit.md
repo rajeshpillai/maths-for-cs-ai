@@ -236,6 +236,10 @@ print("  ⇒ y' = -y / (x + 2y)")
 - **Implicit surfaces** — $f(x,y,z) = 0$ defines 3D surfaces; ray marching evaluates them
 - **Level sets** — contour lines of loss functions are implicit curves
 - **Robotics** — joint trajectories are parametric paths
+- **CAD/CAM (SolidWorks, AutoCAD, Fusion 360)** — every NURBS surface is a parametric tensor-product spline; aerospace-grade airfoil profiles for Boeing 777 wings are stored as parametric IGES/STEP curves.
+- **Adobe Illustrator / Sketch / Figma** — vector graphics ship cubic-Bézier parametric paths; PostScript and SVG file formats are essentially serialized parametric curve specifications.
+- **GPS satellite orbits (GPS III, Galileo, GLONASS)** — broadcast ephemerides give Keplerian parametric orbital elements that receivers integrate forward to compute satellite position at signal-emission time.
+- **Medical imaging (Siemens MRI, GE CT)** — DICOM contour data for radiotherapy treatment planning (Eclipse, Varian) stores tumor outlines as parametric splines used to aim proton-beam therapy.
 
 ## Check Your Understanding
 

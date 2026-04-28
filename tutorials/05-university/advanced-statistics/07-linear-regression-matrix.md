@@ -172,6 +172,22 @@ print(f"numpy lstsq beta = {beta_np}")
 - **Projection Connection:** The hat matrix $\mathbf{H} = \mathbf{X}(\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T$
   projects $\mathbf{y}$ onto the column space of $\mathbf{X}$ — the same
   projection from linear algebra (Tier 2).
+- **Quant equity research at AQR / BlackRock:** Fama-French 3- and 5-factor
+  models are linear regressions of stock returns on market, size, value,
+  profitability, and investment factors; OLS $\hat\beta$ values are
+  reported in every CFA exam and SEC fund prospectus.
+- **Real-estate AVMs at Zillow / Redfin / CoreLogic:** Zillow's Zestimate
+  began as a hedonic OLS on square-footage, beds, baths, and ZIP-code
+  fixed effects; the normal equations literally compute house values for
+  ~100M U.S. homes.
+- **Calibration in metrology (NIST):** instrument calibration curves
+  (e.g. mass spectrometers, gas chromatographs) are fitted with weighted
+  least squares; ISO 17025 lab-accreditation requires reporting OLS
+  uncertainty intervals on $\hat\beta$.
+- **Climate science at NOAA / NASA GISS:** global temperature trends
+  ($\hat\beta$ on time) come from OLS on station data; the IPCC's
+  reported "1.1 degC since pre-industrial" is a regression slope with
+  Newey-West heteroskedasticity-robust standard errors.
 
 ## Check Your Understanding
 

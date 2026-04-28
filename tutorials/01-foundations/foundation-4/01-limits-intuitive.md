@@ -173,6 +173,10 @@ print("  Values keep oscillating — no single limit")
   $h$ and compute $(f(x+h) - f(x))/h$; understanding limits tells you how small
   $h$ should be (too small causes floating-point errors)
 - **Animation curves** — the slope of a Bezier curve at a point is a limit
+- **Marginal cost & marginal revenue** — economists at every Fortune 500 CFO's office define $MC = \lim_{\Delta q \to 0} \Delta C / \Delta q$ — the limit *is* the price-of-one-more-unit; SAP and Oracle ERP systems compute discrete approximations to this limit on every BOM costing run.
+- **Continuous compounding** — the constant $e$ falls out of $\lim_{n\to\infty} (1 + r/n)^n$; banks like JP Morgan use continuous compounding to price zero-coupon bonds and forwards on Bloomberg.
+- **Aerospace stagnation analysis** — fluid dynamicists at NASA use limits as Mach $\to 0$ (incompressible flow) and Mach $\to 1$ (transonic) to validate CFD codes like STAR-CCM+ and Fluent across regimes.
+- **Crash-test instantaneous deceleration** — automotive safety engineers at IIHS measure peak g-loads as limits of $\Delta v/\Delta t$ on millisecond windows; the FMVSS 208 standard is written in this limit-of-rate language.
 
 ## Check Your Understanding
 

@@ -230,6 +230,10 @@ print(f"  Pure Python check: coffee = £{c:.0f}, tea = £{t:.0f}")
   parametric equations simultaneously.
 - **Computer graphics:** ray–plane intersection solves a system of equations
   to determine if and where a ray hits a surface.
+- **Portfolio allocation** — Markowitz mean-variance optimisation solves $\mathbf{\Sigma w} = \mathbf{\mu}$ for asset weights; BlackRock's Aladdin and Bloomberg PORT both run this system on hundreds of equities.
+- **Truss & frame analysis** — civil engineers write force-balance equations at every joint of a bridge ($\sum F_x = 0$, $\sum F_y = 0$) and solve the resulting system; SAP2000, ANSYS, and STAAD.Pro automate this for highway bridges and skyscrapers.
+- **Power-grid load flow** — utilities solve simultaneous nonlinear equations for bus voltages and angles; PSS/E and PowerWorld run this every few seconds across the U.S. Eastern Interconnection.
+- **Supply-chain blending problems** — refineries at Shell and Aramco solve simultaneous mass-balance equations to decide how to mix crude streams to hit octane, sulfur, and yield specs at lowest cost.
 
 ## Check Your Understanding
 

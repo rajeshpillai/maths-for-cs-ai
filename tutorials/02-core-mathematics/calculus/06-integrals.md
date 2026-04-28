@@ -231,6 +231,10 @@ for nn in [2, 8, 32, 128, 512, 4096]:
 - **Cross-entropy loss** — derived from integrating the log-likelihood
 - **Rendering** — path tracing integrates light over all directions (Monte Carlo integration)
 - **Signal processing** — the Fourier transform is an integral
+- **Discounted cash flow & bond pricing (Finance)** — present value of a continuous coupon stream is $\int_0^T C(t)e^{-rt}\,dt$; pricing desks at BlackRock and PIMCO integrate yield curves daily to mark trillion-dollar bond portfolios.
+- **Total-energy billing & smart meters (Operations)** — utilities (Pacific Gas & Electric, National Grid) integrate instantaneous power $P(t)$ over a billing period to compute kWh consumption; same math runs in Tesla Powerwall analytics.
+- **Drug AUC (Area Under Curve) in pharmacokinetics** — the FDA bioequivalence standard requires $\int_0^\infty C(t)\,dt$ from blood-concentration curves; trapezoidal-rule integration is built into WinNonlin and Phoenix used by every major pharma trial.
+- **Aerodynamic lift & drag (Engineering)** — Airbus and Boeing compute lift by integrating pressure over wing surfaces; Formula 1 teams (Mercedes, Red Bull) integrate CFD pressure fields to score downforce per design iteration.
 
 ## Check Your Understanding
 

@@ -222,6 +222,22 @@ except ImportError:
   problem between variables and registers.
 - **Game AI:** Assigning units to targets in strategy games uses matching to
   minimise total travel distance.
+- **Operations — Uber, Lyft, DoorDash dispatch:** Every ~5 seconds, dispatch
+  servers solve a Hungarian / minimum-weight bipartite matching between
+  open trip requests and idle drivers; a 1% match-quality gain compounds
+  into millions of fewer-driven miles per day across global fleets.
+- **Industry — National Resident Matching Program (NRMP):** ~50,000 US
+  medical-school graduates are paired to residency hospitals every March
+  using the Gale-Shapley stable-matching algorithm; the same algorithm
+  earned Roth and Shapley the 2012 Nobel Prize in Economics.
+- **Engineering — Multi-object tracking in autonomous vehicles:** Tesla
+  Autopilot, Waymo, and Zoox associate radar/lidar detections to existing
+  object tracks frame-by-frame via Hungarian on Mahalanobis-distance
+  cost matrices (the algorithm is in OpenCV's MOT module and SORT/DeepSORT).
+- **Finance — Trade-allocation across funds at BlackRock & Vanguard:**
+  When a portfolio manager places a block order, allocation engines run
+  Hungarian-style matching to fairly distribute fills across client
+  accounts under SEC Rule 17a-7 fairness constraints.
 
 ## Check Your Understanding
 

@@ -283,6 +283,10 @@ debugging.
 - **GPU acceleration** — GPUs are optimised for massively parallel matrix multiplication
 - **Attention in Transformers** — $\text{softmax}(\mathbf{QK}^T / \sqrt{d_k})\mathbf{V}$ is all matrix multiplication
 - **Graph algorithms** — $\mathbf{A}^k$ (adjacency matrix raised to power $k$) counts paths of length $k$
+- **Business — Leontief input-output economics** — every nation's GDP forecast at the BEA and OECD solves $\mathbf{x} = (\mathbf{I} - \mathbf{A})^{-1}\mathbf{d}$, a matrix product describing how output in steel, energy and services flow between sectors (Wassily Leontief, Nobel 1973).
+- **Operations — Google AdWords auction matrix** — bid-ranking computes a matrix product of advertiser bid vectors with quality-score matrices billions of times per day to choose ad slots.
+- **Engineering — finite element analysis (ANSYS, Abaqus)** — stress analysis on Boeing 787 wings or Tesla chassis assembles a global stiffness matrix $\mathbf{K}$ and solves $\mathbf{K}\mathbf{u} = \mathbf{f}$ with billions of MAC operations.
+- **Industry — TPU and NVIDIA H100 systolic arrays** — Google's TPU v5 and NVIDIA Tensor Cores are silicon designed to do nothing but $\mathbf{C} \mathrel{+}= \mathbf{A}\mathbf{B}$ at hundreds of teraFLOPS, the engine behind ChatGPT inference.
 
 ## Check Your Understanding
 

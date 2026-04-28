@@ -284,6 +284,10 @@ for label, path, _ in paths:
 - **Learning rate schedules** — cosine annealing, warm-up, step decay
 - **Feature scaling** — gradient descent converges faster when features are on similar scales
 - **Landscape visualisation** — loss landscapes of deep networks are complex, non-convex surfaces
+- **Business / Finance**: **Goldman Sachs** and **Two Sigma** quantitative-trading models calibrate parameters via gradient descent on historical PnL; **Bridgewater's Pure Alpha** strategy uses gradient-based optimisation to maintain its risk-parity weights across asset classes.
+- **Industry / Predictive maintenance**: **Siemens MindSphere** and **GE Predix** train turbine-failure forecasts on factory sensor data using SGD; a single days-early failure prediction can save **Lufthansa Technik** ~$1M per avoided unscheduled engine removal.
+- **Engineering / Robotics control**: **Boston Dynamics' Atlas** and **ANYbotics ANYmal** use trajectory optimisation (gradient descent on a control cost) at 500 Hz to rebalance after a slip — the learning-rate-too-large failure mode in this lesson is exactly what a robot falling looks like.
+- **Business / Pricing**: **Uber surge pricing** and **Airbnb's Smart Pricing** retrain demand-elasticity models nightly with gradient descent; the parameters that emerge directly set the prices millions of users see the next morning.
 
 ## Check Your Understanding
 

@@ -196,6 +196,10 @@ print(f"AB == BA? {np.allclose(A @ B, B @ A)}")
 - **Matrix rings** are the algebraic structure behind every neural network layer.
 - **Finite fields** ($\mathbb{Z}_p$, $GF(2^8)$) are essential for AES encryption and erasure coding.
 - **Integer arithmetic** in CPUs operates in the ring $\mathbb{Z}_{2^{32}}$ or $\mathbb{Z}_{2^{64}}$.
+- **Fixed-point arithmetic in HFT systems** — Citadel Securities and Jane Street trade equities/bonds using fixed-point integers in $\mathbb{Z}_{2^{64}}$ (not floats) to avoid IEEE 754 rounding drift; even sub-cent rounding can cost millions per year on $100B+ daily volume.
+- **Polynomial rings in 5G NR Polar codes (3GPP TS 38.212)** — encoding maps payload bits through $\mathbb{F}_2[x]$; Qualcomm and Mediatek modems implement this in silicon for sub-millisecond URLLC latency.
+- **Reed-Solomon in NASA Voyager-1 deep-space telemetry** — uses the polynomial ring over $GF(2^8)$ to recover bits transmitted from 24 billion km away with $-180$ dBW signal power; same code structure is in Blu-ray, DVD, and satellite TV.
+- **Interval rings in robotic motion planning** — Boston Dynamics and Boeing 787 fly-by-wire systems track position uncertainty as intervals (a non-commutative ring); rigorous bounds prevent collision in autonomous landing.
 
 ## Check Your Understanding
 

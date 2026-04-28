@@ -268,6 +268,10 @@ keys are dot-producted to decide what to "look at").
 - **Lighting in 3D** — Lambert's cosine law: brightness = surface normal · light direction
 - **Orthogonality in ML** — independent features, decorrelated representations, PCA
 - **Attention mechanism** — scaled dot-product attention in Transformers computes $\mathbf{Q} \cdot \mathbf{K}^T$
+- **Marketing / Business — customer segmentation at Spotify and Sephora** — cosine similarity between customer feature vectors clusters users for the "Discover Weekly" playlist and Sephora's Beauty Insider personalisation.
+- **Finance — beta and tracking error** — a fund's beta to the S&P 500 is literally the projection of the fund's return vector onto the index return vector, the foundation of CAPM at firms like Vanguard and BlackRock.
+- **Engineering — solar panel orientation** — Tesla and SunPower trackers maximize $\cos(\theta) = \mathbf{n} \cdot \mathbf{s}$ between the panel normal and Sun direction to extract up to 25% more energy.
+- **Industry — semiconductor lithography alignment** — ASML's EUV scanners compute dot products between measured and reference grating patterns to align wafers within 1 nm at TSMC and Intel fabs.
 
 ## Check Your Understanding
 

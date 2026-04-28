@@ -338,6 +338,10 @@ print(f"Subspace dimension: {2}")
   learning representations where the data is easier to classify.
 - **Robot kinematics** use chains of change-of-basis matrices to convert
   between joint-local frames and the world frame.
+- **Finance — risk factor rotation at MSCI BARRA:** equity risk models rotate the natural sector basis into a basis of orthogonal style factors (size, value, momentum, volatility) so that pension funds at CalPERS can attribute portfolio risk cleanly.
+- **Industry — color management (ICC profiles):** every Adobe Photoshop and printer driver applies change-of-basis matrices between sRGB, AdobeRGB, ProPhoto, and CMYK so that a magazine cover printed at HP Indigo matches the photographer's monitor.
+- **Engineering — modal coordinates in earthquake design:** Arup and SOM convert seismic accelerations on the One World Trade Center from physical floors into modal coordinates (basis of mode shapes) where the equations of motion decouple.
+- **Science — character tables in chemistry:** Gaussian and ORCA quantum-chemistry packages change basis from atomic orbitals to symmetry-adapted linear combinations to block-diagonalize the Hamiltonian for benzene-style molecules.
 
 ## Check Your Understanding
 

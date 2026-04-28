@@ -314,6 +314,10 @@ for name, path in paths.items():
 - **AdamW** — Adam with decoupled weight decay (fixes L2 regularisation interaction)
 - **Learning rate schedulers** — combine with cosine annealing, warm-up for best results
 - **Per-parameter rates** — Adam automatically gives rare features larger updates (great for sparse data like NLP)
+- **Industry / LLMs**: **GPT-4**, **Claude**, **Gemini**, and **Llama-3** are all trained with **AdamW** — the bias-corrected, decoupled-weight-decay variant. The compute budget for a single Adam state (m and v) is 2× the model's parameter count, which is why training a 70B model needs ~280 GB of optimiser state alone, often sharded via **DeepSpeed ZeRO-2/3**.
+- **Engineering / Drug discovery**: **DeepMind AlphaFold 2/3** was trained with Adam — the per-parameter learning-rate adaptation matters for protein-structure networks where some weights see millions of MSA columns and others see just a handful.
+- **Business / Recommendations**: **Google's Wide & Deep** and **Meta's DLRM** ad/recommendation systems use **Adagrad**/**Adam** specifically because the embedding tables for rare items would otherwise barely move under SGD — Adam's per-coordinate rescaling effectively gives long-tail items a learnable representation in tractable wall-clock time.
+- **Engineering / Robotics**: **OpenAI's Dactyl** robotic-hand and **NVIDIA Isaac Sim** PPO policies use Adam because reinforcement-learning gradient noise (single-trajectory estimates) is even worse than supervised-learning batch noise — the variance-rescaling property of Adam is what keeps training from diverging.
 
 ## Check Your Understanding
 

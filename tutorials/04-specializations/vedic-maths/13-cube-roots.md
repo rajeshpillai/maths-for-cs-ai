@@ -362,6 +362,26 @@ cube_root_newton(1000000)  # Should converge to 100 exactly
   step in many factoring algorithms used in cryptanalysis.
 - **Level-of-detail in games**: Cube root of volume gives a linear dimension
   — useful for spatial partitioning and LOD calculations.
+- **Civil engineering volume estimation (L&T, Tata Projects, AECOM).**
+  Concrete pours specified by cubic-meter volume require back-converting
+  to box dimensions; site engineers cube-root mentally to size formwork
+  and rebar count — every Indian metro pier and hi-rise foundation is
+  spec'd this way.
+- **Hydrocarbon engineering (Reliance, ONGC).** Reservoir volume scales
+  as $r^3$ for spherical pressure waves; petrophysicists at offshore
+  platforms (Mumbai High, KG-D6) use mental cube-root extraction to
+  estimate formation pressure changes from microseismic waveforms in
+  real time.
+- **Manufacturing & packaging (Amul, ITC, Britannia).** Cubic carton
+  capacity vs surface-area trade-offs ($V = s^3$ vs $A = 6s^2$): a
+  packaging planner cube-roots a target volume to find the side
+  length, then squares to estimate cardboard cost — done daily on
+  every FMCG SKU launch.
+- **Pharmaceutical & chemical scale-up (Cipla, Dr. Reddy's, Pfizer).**
+  Reactor scale-up rules say mixing time scales as $V^{1/3}$ for
+  geometrically similar vessels; process chemists at every API plant
+  cube-root reactor volumes to estimate batch times before pilot
+  trials, the "1000-litre scale-up rule" embedded in cGMP SOPs.
 
 ## Practice Problems
 

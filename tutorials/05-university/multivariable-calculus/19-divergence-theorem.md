@@ -236,6 +236,21 @@ print(f"Flux through unit sphere: {flux_incomp:.10f}")
 - **Heat equation**: $\frac{\partial T}{\partial t} = k\nabla^2 T$ combines
   the divergence theorem with Fourier's law of heat conduction; physics-informed
   neural networks solve this
+- **Maxwell's equations in MRI**: Siemens 3T MAGNETOM and GE SIGNA scanners use
+  Gauss's law $\oiint \mathbf{E}\cdot d\mathbf{S} = Q/\epsilon_0$ — a divergence
+  theorem statement — to reconstruct gradient-encoded signals at Mayo Clinic
+  and Cleveland Clinic
+- **Petroleum reservoir mass balance**: Schlumberger ECLIPSE and CMG STARS
+  enforce conservation $\iiint \nabla\cdot(\rho\mathbf{v})\, dV = \oiint \rho
+  \mathbf{v}\cdot d\mathbf{S}$ on rock control volumes for ExxonMobil and
+  Saudi Aramco — drives daily production allocation worth millions
+- **Climate flux tracking**: NOAA's GFDL and NASA GISS climate models use the
+  divergence theorem to track ocean heat flux across basin boundaries —
+  feeds IPCC AR6 reports informing global climate policy
+- **Carbon-credit verification**: the EU ETS and Verra registries audit
+  reforestation projects by integrating CO$_2$ flux $\oiint \mathbf{F}_{CO_2}
+  \cdot d\mathbf{S}$ over canopy boundaries via Eddy-covariance towers — a
+  divergence-theorem application that monetises sequestration
 
 ## Check Your Understanding
 1. Use the divergence theorem to compute the flux of $\mathbf{F} = (x^2, y^2, z^2)$

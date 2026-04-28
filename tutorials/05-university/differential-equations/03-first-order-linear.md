@@ -197,6 +197,18 @@ for C in [10, -5, 100]:
   linear response toward the setpoint.
 - **Leaky integrator neurons** in computational neuroscience follow
   $\tau\,dV/dt + V = R\,I(t)$.
+- **Mixing-tank ODEs in petrochemical plants** — Aspen HYSYS and DWSIM solve
+  first-order linear mass-balance ODEs for crude-oil blending at refineries
+  like ExxonMobil Baytown; tank concentration governs gasoline RVP compliance.
+- **Bond accumulation accounts** — actuaries at Munich Re use first-order
+  linear ODEs of the form $dV/dt = rV + P(t)$ (savings plus continuous
+  premium) for IFRS 17 liability projections.
+- **Wastewater BOD decay at municipal plants** — EPA's QUAL2K river-quality
+  model uses $dC/dt + kC = L(t)$ (Streeter-Phelps) to size aeration in
+  treatment plants, e.g. DC Water's Blue Plains facility.
+- **Cruise-control PI loops in cars** — Toyota and Bosch ECU firmware track
+  setpoint speed with a first-order linear ODE; integrating-factor analysis
+  sets the gain that meets ISO 26262 functional-safety bounds.
 
 ## Check Your Understanding
 

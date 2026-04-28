@@ -236,6 +236,22 @@ for p in [0.01, 0.05, 0.1, 0.2]:
   preserving information about the output.
 - **Data compression:** Shannon entropy sets the theoretical limit on lossless
   compression (ZIP, PNG, FLAC).
+- **Industry — Reed-Solomon in QR codes, CDs, Voyager-1:** Standard QR
+  codes use RS(255,k) over $GF(2^8)$ to recover up to 30% damaged area;
+  Voyager-1 (45+ light-hours away) still phones home using concatenated
+  Reed-Solomon + convolutional codes designed by NASA JPL in the 1970s.
+- **Operations — AWS S3, Azure Blob, Google Cloud erasure coding:** S3
+  Standard stores data as 6+3 Reed-Solomon shards across availability
+  zones, achieving 11-nines durability while using 1.5x storage instead
+  of 3x replication; Backblaze B2 uses 17+3 RS for similar economics.
+- **Engineering — 5G NR LDPC and Polar codes:** 3GPP Release 15 selected
+  LDPC for data channels and Arıkan's Polar codes (the first
+  capacity-achieving construction) for control channels in 5G; Qualcomm
+  X65 modems and Apple C1 modem implement these in silicon.
+- **Finance — Disk arrays under Sarbanes-Oxley retention:** Banks must
+  retain trade records for 7+ years under SOX/MiFID II; NetApp and
+  Pure Storage RAID-6 / RAID-DP arrays use Reed-Solomon-style P+Q parity
+  to survive double-disk failures without data loss during the audit window.
 
 ## Check Your Understanding
 

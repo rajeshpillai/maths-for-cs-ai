@@ -296,6 +296,11 @@ are the only tools you ever need to manipulate joint distributions.
 - **Conditional expectation** — the basis of reinforcement learning value functions: $V(s) = E[R \mid S=s]$
 - **Tower property** — used in deriving the Bellman equation: $V(s) = E_a[E_{s'}[R + \gamma V(s') \mid s, a]]$
 - **Variance of sums** — explains why diversification reduces portfolio risk, and why ensemble models outperform individuals
+- **Markowitz portfolio variance** — the formula $\text{Var}(\sum w_i R_i) = \sum w_i w_j \text{Cov}(R_i, R_j)$ is the workhorse equation at every quant fund (Renaissance, Two Sigma, AQR); it operationalises diversification at trillion-dollar scale.
+- **Insurance pooling economics** — Lloyd's of London syndicates and reinsurers like Munich Re use linearity of expectation across thousands of independent policies to make aggregate losses predictable, even though individual claims are highly uncertain.
+- **Ad attribution & lifetime value** — Meta's and Google Ads' LTV (Lifetime Value) models use $E[\text{revenue}] = E[E[\text{revenue} \mid \text{cohort}]]$ tower-law decompositions to value advertisers and set bid prices in real-time auctions.
+- **Reliability of redundant systems** — NASA's safety analysis on Crew Dragon and Boeing's 787 redundancy budgets use $\text{Var}(\sum X_i)$ over component failure indicators; aerospace MIL-HDBK-217 reliability-prediction methods are direct applications.
+- **Project cost estimation (Monte Carlo schedule risk)** — Bechtel and Fluor use linearity of expectation on activity durations and Crystal Ball/@RISK simulations to bid major construction contracts (LNG terminals, dams) to within 5% accuracy.
 
 ## Check Your Understanding
 

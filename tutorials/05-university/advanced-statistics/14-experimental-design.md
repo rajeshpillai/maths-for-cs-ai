@@ -231,6 +231,26 @@ for a in [0, 1]:
   health, map layout) with factorial designs.
 - **Simulation Experiments:** When evaluating RL agents, proper experimental
   design (blocking by seed, sufficient runs) ensures reliable conclusions.
+- **Booking.com / Microsoft ExP / LinkedIn Xnet:** Booking has documented
+  running 25,000+ A/B tests/year with pre-registered power analyses;
+  Microsoft's ExP platform applies CUPED variance-reduction to cut
+  required sample size by ~50%, a method now standard at LinkedIn and
+  Netflix.
+- **Pfizer COVID-19 vaccine Phase III:** the BNT162b2 trial pre-registered
+  ~150 events (not patients) as the stopping rule with O'Brien-Fleming
+  group-sequential boundaries — a textbook example of FDA-mandated
+  fixed-alpha sequential design.
+- **Six Sigma DOE at GE / 3M / DuPont:** Plackett-Burman and
+  fractional-factorial $2^{k-p}$ designs screen 8-15 process factors in
+  fewer than 32 runs, slashing prototyping cost in chemical and
+  semiconductor process development.
+- **Agricultural field trials at the USDA / Rothamsted:** randomized
+  complete block designs (RCBD) and Latin squares — invented by Fisher
+  in the 1920s — still gate every USDA-approved seed and pesticide
+  variety release.
+- **Crossover trials at the FDA:** bioequivalence studies use 2x2
+  crossover designs with Williams squares to control for period and
+  carryover effects in generic-drug approval.
 
 ## Check Your Understanding
 

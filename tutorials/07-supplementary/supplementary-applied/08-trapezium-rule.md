@@ -248,6 +248,10 @@ for nn in [4, 16, 64, 256, 1024]:
 - **Finance** — numerical pricing of options (Black-Scholes variations)
 - **Sensor data** — estimate total from discrete measurements (GPS distance, energy usage)
 - **Adaptive methods** — real implementations adjust $n$ based on local error estimates
+- **Utility billing (PG&E, ConEd smart meters)** — kWh consumption is computed as the trapezoidal integral of 15-minute interval power readings; ANSI C12.20 mandates the integration accuracy class for revenue meters.
+- **Drug exposure AUC (FDA bioequivalence)** — generic-drug approval requires the area under the plasma-concentration curve (AUC$_{0\text{-}\infty}$) computed by trapezoidal rule on sparse blood-draw timepoints to lie within 80–125% of the reference drug.
+- **CME Group VWAP execution** — institutional algo orders compute volume-weighted average price as a trapezoidal integral of price × volume; broker compliance with VWAP benchmark is reported daily.
+- **EV battery state-of-charge (Tesla, BYD BMS firmware)** — coulomb counting integrates current-vs-time via the trapezium rule on every CAN-bus tick to track pack SoC with <1% drift between calibration cycles.
 
 ## Check Your Understanding
 

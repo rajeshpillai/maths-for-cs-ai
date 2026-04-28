@@ -190,6 +190,21 @@ print(f"  Difference: {abs(u_t - k_val * u_xx):.2e} (should be ~0)")
   PDEs by embedding the equation into the loss function (Lesson 25).
 - **Game terrain** — Laplace's equation is solved to generate smooth height
   maps and potential fields for AI pathfinding.
+- **Black-Scholes derivative pricing** — the parabolic PDE $\partial V/\partial t
+  + \tfrac12 \sigma^2 S^2 \partial^2 V/\partial S^2 + rS \partial V/\partial S
+  - rV = 0$ underlies the $\sim$\$640T notional global derivatives book; CME
+  Group, ICE, and DTCC clearing all rest on it.
+- **Reservoir simulation in oil and gas** — Schlumberger ECLIPSE and CMG
+  STARS solve coupled Darcy + transport PDEs to plan ExxonMobil and Saudi
+  Aramco field development, optimizing trillions of dollars in recoverable
+  reserves.
+- **Numerical weather prediction at ECMWF / NOAA GFS** — primitive-equation
+  PDEs (a hyperbolic-elliptic mix) are integrated globally on supercomputers
+  daily; the 12Z run feeds airline routing at United and Delta operations
+  centers.
+- **Semiconductor process simulation at TSMC / Synopsys** — TCAD tools solve
+  the drift-diffusion PDE system to predict transistor I-V curves for every
+  3 nm node before tape-out, saving billions in re-spin costs.
 
 ## Check Your Understanding
 

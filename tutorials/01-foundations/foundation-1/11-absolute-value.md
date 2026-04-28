@@ -178,6 +178,10 @@ for x in [-3, -1, 0, 2, 5]:
 - **Mean Absolute Error** — a loss function: $\text{MAE} = \frac{1}{n}\sum|y_i - \hat{y}_i|$
 - **Collision detection** — distance between objects uses absolute differences in coordinates
 - **Error tolerance** — checking $|a - b| < \epsilon$ is the standard floating-point equality test
+- **Tracking error & VaR backtesting** — fund managers at Vanguard report $|R_{\text{fund}} - R_{\text{benchmark}}|$ and brokers use absolute deviation in Value-at-Risk backtests; SEC Rule 17a-7 audits rely on these absolute differences.
+- **Six Sigma quality control** — Toyota and GE measure part-to-spec deviation $|x_i - \mu|$ on production lines; SPC charts in Minitab flag when $|x_i - \mu| > 3\sigma$ to halt the line.
+- **GPS positional accuracy** — Garmin and Trimble surveying receivers report $|x_{\text{est}} - x_{\text{true}}|$ as Circular Error Probable (CEP); the FAA's WAAS standard mandates $|\text{horizontal error}| \le 7.6$ m for aviation approach.
+- **Median forecasting & MAE** — Netflix's recommendation team and Walmart's demand forecasters minimise $\sum |y - \hat y|$ rather than squared error because the L1 loss is robust to holiday-spike outliers.
 
 ## Check Your Understanding
 

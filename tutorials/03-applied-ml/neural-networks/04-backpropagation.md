@@ -312,6 +312,10 @@ GPU-accelerated version of *exactly* the loop you just executed.
 - **Vanishing/exploding gradients** — backprop multiplies many derivatives; if each < 1 (sigmoid) gradients vanish; if > 1 they explode
 - **Residual connections** — skip connections in ResNets provide a "gradient highway" that mitigates vanishing gradients
 - **Gradient accumulation** — accumulate gradients over multiple mini-batches before updating (simulates larger batch size)
+- **Industry / LLM training**: **Meta's Llama-3-405B** training run used backpropagation across ~16,000 H100 GPUs for ~54 days — every one of the ~3.8 × 10²⁵ training FLOPs was the chain rule applied to a tensor. The cost was estimated at $400-700M.
+- **Engineering / Scientific ML**: **DeepMind AlphaFold 2/3** trained backpropagation through an Evoformer + structure-module network on PDB protein data; the resulting model has now predicted structures for >200M proteins, used by **Pfizer**, **Insilico Medicine**, and >2M researchers.
+- **Business / Ad-tech**: **Meta's DLRM (Deep Learning Recommendation Model)** is retrained every few hours on petabytes of clickstream — hardware failures during the backward pass are a recognised SLA risk in the data-centre and trigger automatic checkpoint rollback.
+- **Engineering / Climate**: **NVIDIA Earth-2 / FourCastNet** and **Google GraphCast** use backprop to train weather-forecasting networks now used operationally by **ECMWF** and **DeepMind WeatherBench** to produce 10-day forecasts at ~25 km resolution in seconds rather than the ~hours required by traditional physics-based supercomputer simulations.
 
 ## Check Your Understanding
 

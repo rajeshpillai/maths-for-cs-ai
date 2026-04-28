@@ -159,6 +159,22 @@ print(f"math.lcm(60,18) = {math.lcm(60, 18)}")
   in hash tables.
 - **Error-correcting codes:** GCD/LCM computations appear in cyclic code design.
 - **Game dev:** Prime-sized grids avoid resonance artefacts in procedural generation.
+- **Banking / Finance — Visa & Mastercard EMV chips:** Every chip-and-PIN
+  payment terminal authenticates cards using RSA-2048 signatures whose
+  security rests on the FTA's hardness in reverse (factoring semiprimes).
+  Visa processes ~700M EMV transactions/day on this guarantee.
+- **Engineering — GPS satellite ranging:** GPS signals encode pseudorandom
+  codes whose cross-correlation properties depend on Mersenne-prime sequence
+  lengths; coprime sub-codes (CRT-style design) let receivers untangle
+  overlapping satellite broadcasts.
+- **Industry — Backblaze B2 / Reed-Solomon storage:** Cloud storage providers
+  shard files using polynomial codes over $GF(2^8)$; the field's order is
+  prime-power and only "works" because of unique factorisation in
+  polynomial rings (the polynomial analogue of FTA).
+- **Operations — Gear ratios at Shimano / SRAM:** Bicycle drivetrains use
+  coprime tooth counts (e.g. 53/39 chainrings, 11-speed cassettes with
+  prime-spaced cogs) so that any chain link contacts every tooth equally
+  often, distributing wear — a direct application of $\gcd = 1$.
 
 ## Check Your Understanding
 

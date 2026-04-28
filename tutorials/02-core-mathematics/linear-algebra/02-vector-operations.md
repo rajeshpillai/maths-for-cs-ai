@@ -306,6 +306,10 @@ print(f"a × b (3-D) = {np.cross(np.array([3,1,0]), np.array([1,2,0]))}  "
 - **Projection** — shadow rendering, camera projection in 3D graphics
 - **Cross product** — surface normals for lighting in 3D rendering, torque in physics engines
 - **The neuron** — a neuron computes $\sigma(\mathbf{w} \cdot \mathbf{x} + b)$: the dot product is its core operation
+- **Finance — factor models at AQR and Two Sigma** — expected return on a stock is the dot product $\mathbf{f} \cdot \mathbf{\beta}$ of factor exposures (value, momentum, quality) with their premia, the basis of Fama-French and BARRA risk models.
+- **Operations — Amazon "customers who bought" recommender** — item-item cosine similarity (a normalized dot product) over purchase vectors powers Amazon's "Frequently bought together" widget, generating an estimated 35% of Amazon's revenue.
+- **Engineering / Robotics — torque on robotic arms** — the cross product $\mathbf{\tau} = \mathbf{r} \times \mathbf{F}$ is computed every control cycle on Boston Dynamics' Atlas and KUKA industrial arms to balance loads.
+- **Physics — Lorentz force in particle accelerators** — CERN's LHC steers protons using $\mathbf{F} = q\mathbf{v} \times \mathbf{B}$, a cross product evaluated by superconducting magnet control systems thousands of times per second.
 
 ## Check Your Understanding
 

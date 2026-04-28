@@ -249,6 +249,10 @@ here?", CDF tells you "how much probability has accumulated by here?"*
 - **Loot tables** — game drop rates are PMFs
 - **Sensor readings** — modelled as continuous random variables with noise
 - **Sampling** — generating random data for Monte Carlo, data augmentation, dropout
+- **Insurance claim modelling** — Lloyd's of London and Munich Re model claim severity as continuous RVs (lognormal, Pareto) and claim count as discrete RVs (Poisson) to price reinsurance treaties.
+- **Demand forecasting** — Walmart and Amazon model daily SKU demand as a random variable (often negative-binomial) to drive inventory replenishment in their warehouse management systems.
+- **Sensor calibration in industry** — automotive LIDAR (Velodyne, Luminar) and MRI machines (Siemens Healthineers) characterise measurement noise as continuous RVs with known PDFs to specify accuracy in datasheets and ISO 9001 audits.
+- **Energy load forecasting** — ERCOT (Texas grid operator) and the UK's National Grid model hourly electricity demand as continuous RVs with seasonal and weather-driven distributions to dispatch generation and price day-ahead markets.
 
 ## Transformations of Random Variables
 

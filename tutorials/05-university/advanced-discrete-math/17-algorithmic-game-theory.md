@@ -260,6 +260,22 @@ print(f"  Always-Defect vs Always-Defect: A={a}, B={b}")
   (self-play in AlphaGo) discovers Nash equilibria through training.
 - **Mechanism design:** Designing protocols where rational agents produce
   desired outcomes (fair division, voting systems).
+- **Finance — Google AdWords & Meta Ads VCG / GSP auctions:** Search-ad
+  positions are sold via Generalised Second-Price auctions (a Nash-equilibrium
+  approximation of VCG); this is a literally-billion-dollar-per-day game-theory
+  application that funds Alphabet (~$200B ad revenue/year).
+- **Operations — FCC spectrum auctions (incentive auctions):** The 2017
+  US broadcast incentive auction reallocated 84 MHz from TV to wireless
+  carriers using a Milgrom-designed two-sided mechanism (he won the 2020
+  Nobel for this); raised ~$19.8B for the US Treasury.
+- **Industry — Cybersecurity defender-attacker games:** Stackelberg-game
+  models deployed at LAX airport security (ARMOR / IRIS systems) and US
+  Coast Guard patrol scheduling randomise defensive resources optimally
+  to deter adversaries who know the schedule distribution.
+- **Engineering — Network congestion control (TCP & BBR):** Congestion
+  algorithms behave as a repeated game between flows on a shared link;
+  Google's BBR (deployed on YouTube and GCP) was specifically tuned to
+  avoid the prisoner's-dilemma trap of TCP-Reno-style buffer bloat.
 
 ## Check Your Understanding
 

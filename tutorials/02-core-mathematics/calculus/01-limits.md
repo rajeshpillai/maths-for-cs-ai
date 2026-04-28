@@ -266,6 +266,10 @@ for n in [10, 100, 1000, 10000, 100000]:
 - **Convergence** — gradient descent converges if the loss "limits" to a minimum
 - **Series approximation** — Taylor series (Tier 3-09) requires limits to define convergence
 - **Probability** — the law of large numbers is a limit theorem
+- **Compound interest & continuous compounding (Finance)** — banks like HSBC and Citi price savings/loans using $\lim_{n\to\infty}(1+r/n)^n = e^r$; the same limit underlies Black-Scholes option pricing on every Bloomberg terminal.
+- **Steady-state analysis (Operations Research)** — call-centre staffing at AT&T and warehouse throughput at Amazon FBA are computed as the *long-run limit* of queueing-theory formulas (Little's Law: $L = \lambda W$ in steady state).
+- **Sensor calibration (Engineering)** — Tesla LIDAR and MRI scanners (Siemens, GE Healthcare) use limits-of-sequences in Kalman filters to converge noisy readings toward the true signal.
+- **Half-life and pharmacokinetics (Pharma/Industry)** — drug clearance curves at Pfizer/Moderna are exponential decays; dosing schedules use $\lim_{t\to\infty}$ blood-concentration to ensure steady-state therapeutic levels.
 
 ## Check Your Understanding
 

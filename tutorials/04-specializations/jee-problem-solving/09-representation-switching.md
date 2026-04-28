@@ -356,6 +356,26 @@ mathematics — the same problem in the wrong form can be 100× harder:
   representations of the same investment; a CFO's recommendation hinges
   on which lens she uses. **OLAP cubes** are deliberate reshaping of flat
   transactions for fast slicing.
+- **Logistics & supply chain (Maersk, FedEx).** Same shipment is modelled
+  as a node in a graph (routing), as a row in a tariff table (pricing),
+  and as a 3D box in a bin-packing solver (loading) — switching between
+  these shaves real money: SAP TM and Manhattan Active routinely use all
+  three on the same SKU during a single planning cycle.
+- **MRI / medical imaging (GE Healthcare, Siemens Healthineers).** Raw
+  scanner output is a complex-valued k-space (frequency) signal;
+  radiologists view the image-space (spatial) version. The 2D-FFT
+  switch between the two is identical to the algebraic ↔ geometric
+  representation move taught here, and is the heart of every clinical
+  scanner reconstruction pipeline.
+- **Telecom (Reliance Jio, Bharti Airtel).** LTE/5G signals exist as
+  complex baseband I/Q samples in the radio frontend, OFDM subcarriers
+  in the digital domain, and bytes in the IP packet — base-station
+  software hops between representations every microsecond.
+- **Manufacturing CAD (PTC Creo, Siemens NX).** A car body panel is
+  stored as parametric splines for editing, as a polygon mesh for
+  rendering, and as STL triangle soup for 3D printing — same artifact,
+  three formats, choosing wrong costs hours of build time at Tata
+  Motors and Mahindra Vehicle Manufacturing.
 
 ## Check Your Understanding
 

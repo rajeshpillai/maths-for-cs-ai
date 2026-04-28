@@ -202,6 +202,10 @@ for k in range(8):
 - **Floating point**: reals are uncountable but floats are finite; this mismatch causes rounding errors.
 - **Data compression**: pigeonhole + cardinality shows no lossless compression works on all inputs.
 - **Machine learning**: the set of all possible functions $\mathbb{R}^n \to \mathbb{R}$ is uncountable; a neural network parameterises a countable subset.
+- **IEEE 754 floating-point at every CPU/GPU vendor** — the uncountable real line $\mathbb{R}$ is approximated by only $\sim 2^{64}$ doubles, leading to issues like $0.1 + 0.2 \neq 0.3$; banks at JPMorgan and Citadel use decimal128 or fixed-point integers to avoid this in P&L accounting.
+- **Cardinality bounds in HyperLogLog at Google BigQuery, Redis, Meta** — count-distinct queries on billions of users use HLL sketches that estimate cardinality with $O(\log \log n)$ memory; cuts ad-platform analytics infrastructure costs by 100-1000x vs exact deduplication.
+- **Lossless compression limits (Shannon)** — pigeonhole + cardinality proves no algorithm losslessly compresses every input; Dropbox, Google Drive, and Backblaze use this to size storage budgets and forecast cloud-cost growth.
+- **Liquidity discreteness in market microstructure** — order-book prices live on a countable tick grid (e.g., $\$0.01 increments on NYSE); HFT firms like Jane Street and Citadel Securities exploit this discreteness to detect arbitrage in microseconds.
 
 ## Check Your Understanding
 

@@ -215,6 +215,10 @@ for n_val in [1, 2, 5, 10, 20, 50, 100]:
 - **Taylor/Maclaurin series** — infinite polynomial approximations (Tier 3-09)
 - **Binary search** — halving each step = geometric sequence with $r = 1/2$, converges in $\log_2 n$ steps
 - **Binomial distribution** — uses binomial coefficients from binomial expansion
+- **Annuity & perpetuity formulas** — financial planners value pensions as $PV = C/r$ (geometric perpetuity) and ordinary annuities as $PV = C \cdot \frac{1 - (1+r)^{-n}}{r}$; these formulas drive every life-insurance and retirement quote at MetLife and Prudential.
+- **Mortgage amortisation schedules** — a 30-year fixed mortgage's monthly principal balances form a geometric-series sum; banks must publish these schedules under Truth-in-Lending (Reg Z), and Excel's `PPMT()` computes each entry.
+- **Reservoir engineering decline curves** — petroleum engineers at ExxonMobil use Arps' decline equations (geometric/harmonic/hyperbolic series) to forecast oil-well production; SEC reserve filings (10-Ks) require these summed reserves.
+- **Image pyramids in computer vision** — multi-resolution image pyramids (used by JPEG2000 and MIP-mapping in NVIDIA GPUs) downsample by factor 2 each level; total memory is the geometric-series sum $4/3 \times$ original size.
 
 ## Check Your Understanding
 
