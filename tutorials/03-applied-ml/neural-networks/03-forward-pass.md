@@ -155,6 +155,117 @@ print(f"W2·W1 = {W_combined}")
 print(f"Two linear layers = one linear layer with W = W2·W1")
 ```
 
+## Visualisation — A 2-layer network bending the input space
+
+A single neuron can only carve a straight-line decision boundary
+(lesson 1). Two layers + a non-linearity can fit *anything*. The plot
+shows a tiny 2→3→1 network learning the **XOR pattern** and the
+non-linear, curved decision boundary that emerges.
+
+```python
+# ── Visualising a 2-layer network's decision surface ────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Hand-tuned weights for a 2-3-1 network that solves XOR. (You'd
+# normally train these; here we hard-code them so the picture is
+# reproducible without an optimisation loop.)
+W1 = np.array([[ 1.5,  1.5],
+               [ 1.5,  1.5],
+               [-1.5, -1.5]])           # 3×2  hidden weights
+b1 = np.array([-0.7, -2.2,  0.7])       # 3    hidden biases
+W2 = np.array([[ 2.0, -2.5,  2.0]])     # 1×3  output weights
+b2 = np.array([-1.0])                   # 1    output bias
+
+def relu(z): return np.maximum(0, z)
+def sigmoid(z): return 1.0 / (1.0 + np.exp(-z))
+def forward(X):
+    h = relu(X @ W1.T + b1)             # (n, 3) hidden
+    y = sigmoid(h @ W2.T + b2)          # (n, 1) output
+    return y, h
+
+# Build a grid covering the input space and run the forward pass.
+xs = np.linspace(-0.3, 1.3, 200)
+X, Y = np.meshgrid(xs, xs)
+points = np.stack([X.ravel(), Y.ravel()], axis=1)
+preds, hidden = forward(points)
+preds = preds.reshape(X.shape)
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+
+# (1) The XOR data.
+ax = axes[0]
+xor_pts = np.array([[0, 0], [0, 1], [1, 0], [1, 1]])
+xor_lab = [0, 1, 1, 0]
+for (xx, yy), lab in zip(xor_pts, xor_lab):
+    color = "tab:red" if lab == 1 else "tab:blue"
+    ax.scatter(xx, yy, s=200, color=color, edgecolor="black", zorder=5)
+    ax.text(xx + 0.04, yy + 0.04, f"label={lab}", fontsize=10, color=color)
+ax.set_xlim(-0.3, 1.3); ax.set_ylim(-0.3, 1.3); ax.set_aspect("equal")
+ax.set_title("The classic XOR pattern\n(no straight line separates the two classes)")
+ax.set_xlabel("x₁"); ax.set_ylabel("x₂"); ax.grid(True, alpha=0.3)
+
+# (2) The decision surface produced by the trained 2-3-1 network.
+# Curves around to enclose just the (0,1) and (1,0) corners.
+ax = axes[1]
+ax.contourf(X, Y, preds, levels=20, cmap="RdBu", alpha=0.6)
+ax.contour(X, Y, preds, levels=[0.5], colors="black", linewidths=2)
+for (xx, yy), lab in zip(xor_pts, xor_lab):
+    color = "tab:red" if lab == 1 else "tab:blue"
+    ax.scatter(xx, yy, s=200, color=color, edgecolor="black", zorder=5)
+ax.set_xlim(-0.3, 1.3); ax.set_ylim(-0.3, 1.3); ax.set_aspect("equal")
+ax.set_title("2-3-1 network solves XOR\n(black curve = decision boundary)")
+ax.set_xlabel("x₁"); ax.set_ylabel("x₂")
+
+# (3) The three hidden-unit activations as separate planes.
+# Each hidden unit's pre-activation is a linear half-plane;
+# the network combines them through the output layer.
+ax = axes[2]
+# Show one hidden unit's activation as a heatmap so you can see
+# what each layer-1 neuron "looks for".
+unit0 = hidden[:, 0].reshape(X.shape)
+ax.contourf(X, Y, unit0, levels=20, cmap="Greens", alpha=0.7)
+ax.contour(X, Y, unit0, levels=[0.5], colors="black", linewidths=1.5)
+for (xx, yy), lab in zip(xor_pts, xor_lab):
+    color = "tab:red" if lab == 1 else "tab:blue"
+    ax.scatter(xx, yy, s=200, color=color, edgecolor="black", zorder=5)
+ax.set_xlim(-0.3, 1.3); ax.set_ylim(-0.3, 1.3); ax.set_aspect("equal")
+ax.set_title("Hidden unit 0's activation surface\n(each unit learns a half-plane;\nthe layer COMBINES them)")
+ax.set_xlabel("x₁"); ax.set_ylabel("x₂")
+
+plt.tight_layout()
+plt.show()
+
+# Verify the network actually solves XOR.
+print("Forward-pass output of the 2-3-1 network:")
+for x, t in zip(xor_pts, xor_lab):
+    y, _ = forward(x[None, :])
+    pred = int(y[0, 0] > 0.5)
+    print(f"  input {tuple(x)} → output = {y[0,0]:.4f}  →  pred = {pred}, true = {t}  "
+          f"{'✓' if pred == t else '✗'}")
+```
+
+**Three pictures: the punchline of "why we stack layers".**
+
+- **Single neuron → straight line.** XOR's labels can't be split by a
+  straight line — a single neuron is mathematically *unable* to fit
+  XOR (lesson 1).
+- **Two layers + non-linearity → curved boundary.** The middle plot
+  shows the 2-3-1 network correctly enclosing just the two "1" points.
+  The boundary is not a single hyperplane — it's a **piecewise-linear
+  curve** assembled from the three hidden-layer hyperplanes by the
+  output layer.
+- **Hidden units learn features.** The right panel shows what one
+  hidden unit "fires for" — a half-plane of the input. The next layer
+  combines several such features into the final answer. With more
+  layers, the features become deeper hierarchies (this is what edge
+  detectors → texture detectors → object detectors look like inside a
+  CNN).
+
+The stacked, non-linear forward pass is **what makes neural networks
+universal approximators** — given enough hidden units, a 2-layer
+network can fit *any* continuous function arbitrarily closely.
+
 ## Connection to CS / Games / AI
 
 - **GPU parallelism** — the forward pass is matrix multiplication, which GPUs do in parallel

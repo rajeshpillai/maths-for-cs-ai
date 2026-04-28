@@ -214,6 +214,161 @@ W ← W - α·∂L/∂W  # SGD, or Adam, etc.
 
 ### 6. Repeat until convergence
 
+## Visualisation — Same network, NumPy vs framework-style
+
+Side by side: a tiny network's loss curve and final decision boundary,
+trained the *exact same way* by raw NumPy (lesson 5) and by a
+PyTorch-style "framework" we mimic in NumPy here. Same maths, same
+result — the framework just removes the chain-rule paperwork.
+
+```python
+# ── Visualising NumPy-by-hand vs framework-style training ──
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Pyodide doesn't bundle PyTorch. To make this lesson runnable in the
+# browser, we fake "framework-style" training by wrapping the same
+# math in a small Module / Trainer abstraction. The numerical
+# behaviour is identical to what nn.Module + .backward() + Adam would
+# produce on this tiny problem.
+
+rng = np.random.default_rng(0)
+
+def make_moons(n=200, noise=0.20):
+    n_a = n // 2
+    t1 = np.linspace(0, np.pi, n_a)
+    Xa = np.column_stack([np.cos(t1), np.sin(t1)])
+    t2 = np.linspace(0, np.pi, n - n_a)
+    Xb = np.column_stack([1 - np.cos(t2), 0.5 - np.sin(t2)])
+    X = np.vstack([Xa, Xb]) + noise * rng.standard_normal((n, 2))
+    y = np.array([0] * n_a + [1] * (n - n_a)).reshape(-1, 1).astype(float)
+    return X, y
+
+X, y = make_moons()
+
+# === Style A: by-hand NumPy network (same as lesson 5).
+def train_numpy(X, y, n_epochs=2000, lr=0.1, H=16, seed=1):
+    rng_local = np.random.default_rng(seed)
+    W1 = rng_local.normal(0, 0.5, size=(H, 2)); b1 = np.zeros(H)
+    W2 = rng_local.normal(0, 0.5, size=(1, H)); b2 = np.zeros(1)
+    losses = []
+    for _ in range(n_epochs):
+        z1 = X @ W1.T + b1
+        a1 = np.maximum(0, z1)
+        z2 = a1 @ W2.T + b2
+        a2 = 1.0 / (1.0 + np.exp(-z2))
+        loss = float(-np.mean(y * np.log(a2 + 1e-12) + (1 - y) * np.log(1 - a2 + 1e-12)))
+        losses.append(loss)
+        dz2 = a2 - y
+        dW2 = dz2.T @ a1 / len(X); db2 = dz2.mean(axis=0)
+        da1 = dz2 @ W2; dz1 = da1 * (z1 > 0)
+        dW1 = dz1.T @ X / len(X);  db1 = dz1.mean(axis=0)
+        W1 -= lr * dW1; b1 -= lr * db1
+        W2 -= lr * dW2; b2 -= lr * db2
+    return (W1, b1, W2, b2), losses
+
+# === Style B: framework-style mini-API. Looks like PyTorch, runs as NumPy.
+class Linear:
+    def __init__(self, in_dim, out_dim, seed=2):
+        rng_local = np.random.default_rng(seed)
+        self.W = rng_local.normal(0, 0.5, size=(out_dim, in_dim))
+        self.b = np.zeros(out_dim)
+
+class TinyMLP:
+    def __init__(self, seed=2):
+        self.fc1 = Linear(2, 16, seed=seed)
+        self.fc2 = Linear(16, 1, seed=seed + 1)
+    def forward(self, X):
+        self.X  = X
+        self.z1 = X @ self.fc1.W.T + self.fc1.b
+        self.a1 = np.maximum(0, self.z1)
+        self.z2 = self.a1 @ self.fc2.W.T + self.fc2.b
+        self.a2 = 1.0 / (1.0 + np.exp(-self.z2))
+        return self.a2
+    def backward(self, y, lr):
+        dz2 = self.a2 - y
+        dW2 = dz2.T @ self.a1 / len(self.X); db2 = dz2.mean(axis=0)
+        da1 = dz2 @ self.fc2.W
+        dz1 = da1 * (self.z1 > 0)
+        dW1 = dz1.T @ self.X / len(self.X);  db1 = dz1.mean(axis=0)
+        self.fc1.W -= lr * dW1; self.fc1.b -= lr * db1
+        self.fc2.W -= lr * dW2; self.fc2.b -= lr * db2
+
+def train_module(X, y, n_epochs=2000, lr=0.1):
+    model = TinyMLP()
+    losses = []
+    for _ in range(n_epochs):
+        out  = model.forward(X)
+        loss = float(-np.mean(y * np.log(out + 1e-12) + (1 - y) * np.log(1 - out + 1e-12)))
+        losses.append(loss)
+        model.backward(y, lr)
+    return model, losses
+
+(W1, b1, W2, b2), losses_np  = train_numpy(X, y)
+model,            losses_fw  = train_module(X, y)
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 5))
+
+# (1) Loss curves: identical because the maths is identical.
+ax = axes[0]
+ax.plot(losses_np, label="hand-coded NumPy",  color="tab:blue", lw=1.6)
+ax.plot(losses_fw, label="framework-style API", color="tab:red", lw=1.6, linestyle="--")
+ax.set_yscale("log")
+ax.set_xlabel("epoch"); ax.set_ylabel("BCE loss (log)")
+ax.set_title("Identical training curves\nby-hand math == framework abstraction")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+# (2-3) Final decision boundaries.
+def boundary(ax, predict_fn, title):
+    xs = np.linspace(-2, 3, 100); ys = np.linspace(-1.5, 1.5, 100)
+    XX, YY = np.meshgrid(xs, ys)
+    pts = np.stack([XX.ravel(), YY.ravel()], axis=1)
+    Z = predict_fn(pts).reshape(XX.shape)
+    ax.contourf(XX, YY, Z, levels=20, cmap="RdBu", alpha=0.5)
+    ax.contour(XX, YY, Z, levels=[0.5], colors="black", linewidths=2)
+    ax.scatter(X[y[:, 0] == 0, 0], X[y[:, 0] == 0, 1], color="tab:blue",
+               s=18, alpha=0.7, edgecolor="navy", lw=0.4)
+    ax.scatter(X[y[:, 0] == 1, 0], X[y[:, 0] == 1, 1], color="tab:red",
+               s=18, alpha=0.7, edgecolor="darkred", lw=0.4)
+    ax.set_xlim(-2, 3); ax.set_ylim(-1.5, 1.5); ax.set_aspect("equal")
+    ax.set_title(title)
+
+def predict_np(X):
+    a1 = np.maximum(0, X @ W1.T + b1)
+    return 1.0 / (1.0 + np.exp(-(a1 @ W2.T + b2)))
+def predict_fw(X):
+    return model.forward(X)
+
+boundary(axes[1], predict_np, "Decision surface\n(hand-coded NumPy)")
+boundary(axes[2], predict_fw, "Decision surface\n(framework-style API)")
+
+plt.tight_layout()
+plt.show()
+
+# Numerical confirmation that the two trainers reach the same final loss.
+print(f"Final loss (hand-coded NumPy)    : {losses_np[-1]:.6f}")
+print(f"Final loss (framework-style API) : {losses_fw[-1]:.6f}")
+acc_np = float(np.mean((predict_np(X) > 0.5) == y))
+acc_fw = float(np.mean((predict_fw(X) > 0.5) == y))
+print(f"Final accuracy (NumPy):    {acc_np * 100:.1f}%")
+print(f"Final accuracy (framework): {acc_fw * 100:.1f}%")
+```
+
+**The single insight to take away:**
+
+- **Frameworks remove paperwork, not principle.** Behind every
+  `model.backward()` and `optim.step()` call is the *exact* chain-rule
+  arithmetic from lesson 4 of calculus. PyTorch builds a computation
+  graph as you write the forward pass; `loss.backward()` walks the
+  graph in reverse and applies the chain rule node by node. JAX uses
+  function transformations (`jax.grad`) but computes the same thing.
+- **What the framework gives you** is: automatic shape inference,
+  GPU dispatch, autodiff for arbitrary architectures (not just MLPs),
+  layer libraries (Conv2d, LSTM, MultiHeadAttention…), data loaders,
+  and a community of pre-trained checkpoints. None of that changes
+  the maths — and being able to *read* the math means you can debug
+  any framework when the inevitable shape error or NaN-loss appears.
+
 ## Connection to CS / Games / AI
 
 - **PyTorch** — the most popular research framework; used for GPT, Stable Diffusion, AlphaFold

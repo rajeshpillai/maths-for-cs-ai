@@ -189,6 +189,122 @@ for idx, (i, j) in enumerate([(0,0), (0,1)]):
     print(f"  w₃{j+1}: analytical={dW2[j]:.6f}, numerical={num_grad:.6f}")
 ```
 
+## Visualisation — Watching the loss go down (training a tiny net)
+
+The proof that backpropagation *works* is to actually train a network
+with it and watch the loss decrease. Here we train a 2-3-1 network on
+the XOR problem from scratch (no PyTorch / no autograd) using only the
+chain-rule equations from the lesson, and plot what happens during
+training.
+
+```python
+# ── Visualising backprop training a network from scratch ────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(42)
+
+# XOR data: 4 input points, 4 binary targets.
+X = np.array([[0, 0], [0, 1], [1, 0], [1, 1]], dtype=float)
+y = np.array([[0],    [1],    [1],    [0]],    dtype=float)
+
+# 2-3-1 network — initialised randomly.
+H_DIM = 3
+W1 = rng.normal(0, 1, size=(H_DIM, 2))
+b1 = np.zeros(H_DIM)
+W2 = rng.normal(0, 1, size=(1, H_DIM))
+b2 = np.zeros(1)
+
+def sigmoid(z): return 1.0 / (1.0 + np.exp(-z))
+
+losses = []
+boundary_snapshots = []                  # to visualise the boundary every 1000 steps
+LR = 0.5
+N_EPOCHS = 5000
+for epoch in range(N_EPOCHS):
+    # Forward pass.
+    z1 = X @ W1.T + b1
+    a1 = sigmoid(z1)
+    z2 = a1 @ W2.T + b2
+    a2 = sigmoid(z2)
+    # MSE loss.
+    loss = float(np.mean((a2 - y) ** 2))
+    losses.append(loss)
+
+    # Backward pass — the chain rule, by hand.
+    dz2 = (a2 - y) * a2 * (1 - a2)               # ∂L/∂z₂
+    dW2 = dz2.T @ a1                             # (1, H_DIM)
+    db2 = dz2.sum(axis=0)                        # (1,)
+    da1 = dz2 @ W2                               # propagate back
+    dz1 = da1 * a1 * (1 - a1)                    # σ'(z) for sigmoid
+    dW1 = dz1.T @ X                              # (H_DIM, 2)
+    db1 = dz1.sum(axis=0)                        # (H_DIM,)
+
+    # Gradient-descent update.
+    W1 -= LR * dW1; b1 -= LR * db1
+    W2 -= LR * dW2; b2 -= LR * db2
+
+    # Every 1000 steps, snapshot the decision surface for plotting.
+    if epoch % 1000 == 0 or epoch == N_EPOCHS - 1:
+        xs = np.linspace(-0.4, 1.4, 100)
+        XX, YY = np.meshgrid(xs, xs)
+        pts = np.stack([XX.ravel(), YY.ravel()], axis=1)
+        h = sigmoid(pts @ W1.T + b1)
+        out = sigmoid(h @ W2.T + b2).reshape(XX.shape)
+        boundary_snapshots.append((epoch, out))
+
+fig, axes = plt.subplots(1, 4, figsize=(18, 4.5))
+
+# (1) Loss curve over training. Should drop fast at first, then taper.
+ax = axes[0]
+ax.plot(losses, color="tab:blue", lw=1.5)
+ax.set_xlabel("epoch"); ax.set_ylabel("MSE loss")
+ax.set_title(f"Loss decreases monotonically\n(final loss ≈ {losses[-1]:.4f})")
+ax.set_yscale("log")
+ax.grid(True, which="both", alpha=0.3)
+
+# (2-4) Decision boundary at three checkpoints, visualising
+# how backprop gradually shapes the network into solving XOR.
+for ax, (epoch, surf) in zip(axes[1:], boundary_snapshots[::max(1, len(boundary_snapshots)//3)][:3]):
+    xs = np.linspace(-0.4, 1.4, 100)
+    XX, YY = np.meshgrid(xs, xs)
+    ax.contourf(XX, YY, surf, levels=20, cmap="RdBu", alpha=0.6)
+    ax.contour(XX, YY, surf, levels=[0.5], colors="black", linewidths=2)
+    for (xx, yy), lab in zip(X, y.flatten()):
+        color = "tab:red" if lab == 1 else "tab:blue"
+        ax.scatter(xx, yy, s=200, color=color, edgecolor="black", zorder=5)
+    ax.set_xlim(-0.4, 1.4); ax.set_ylim(-0.4, 1.4); ax.set_aspect("equal")
+    ax.set_title(f"Epoch {epoch}\nloss = {losses[epoch]:.4f}")
+
+plt.tight_layout()
+plt.show()
+
+# Final classification check — should be perfect.
+z1 = X @ W1.T + b1; a1 = sigmoid(z1)
+final = sigmoid(a1 @ W2.T + b2)
+print("Final predictions after training:")
+for inp, t, p in zip(X, y.flatten(), final.flatten()):
+    pred = int(p > 0.5)
+    print(f"  input {tuple(int(v) for v in inp)} → output {p:.4f}  "
+          f"(predict {pred}, true {int(t)})  {'✓' if pred == int(t) else '✗'}")
+```
+
+**The two essentials of backpropagation made visible:**
+
+- **The loss curve goes down.** Each step, gradients computed by the
+  chain rule (lesson 4 of calculus) tell every weight which way to
+  move. After a few thousand steps the network solves XOR — a problem a
+  *single* neuron cannot solve at all.
+- **The decision boundary morphs.** The early-epoch panel shows a
+  network that hasn't figured anything out yet — predictions are near
+  0.5 everywhere. By the final panel, the boundary has curved exactly
+  around the two "1" points. Backprop computed all of this with
+  nothing more than: forward pass → derivative of loss w.r.t. output →
+  apply chain rule layer by layer → step against the gradient.
+
+Every `loss.backward()` call in PyTorch is an automated, vectorised,
+GPU-accelerated version of *exactly* the loop you just executed.
+
 ## Connection to CS / Games / AI
 
 - **PyTorch `.backward()`** — calls backpropagation automatically on the computation graph

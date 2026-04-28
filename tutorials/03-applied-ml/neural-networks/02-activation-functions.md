@@ -197,6 +197,99 @@ for layer in range(10):
 print(f"  After 10 ReLU layers: gradient = {grad:.2e} — preserved!")
 ```
 
+## Visualisation — Activation functions and their derivatives
+
+Activation functions and their derivatives, side by side. The
+*derivative* matters enormously: it's what gets multiplied through the
+chain rule during backpropagation, and tiny derivatives cause the
+vanishing-gradient problem that blocked deep networks for decades.
+
+```python
+# ── Visualising activation functions ────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-5, 5, 400)
+
+def sigmoid(z): return 1.0 / (1.0 + np.exp(-z))
+def tanh(z):    return np.tanh(z)
+def relu(z):    return np.maximum(0, z)
+def leaky(z):   return np.where(z > 0, z, 0.1 * z)
+def gelu(z):    return 0.5 * z * (1 + np.tanh(np.sqrt(2 / np.pi) * (z + 0.044715 * z ** 3)))
+
+# Numeric derivative for plotting (works for all of them).
+def deriv(f, z, h=1e-4):
+    return (f(z + h) - f(z - h)) / (2 * h)
+
+fns = [
+    ("Sigmoid",    sigmoid, "tab:blue"),
+    ("Tanh",       tanh,    "tab:orange"),
+    ("ReLU",       relu,    "tab:green"),
+    ("Leaky ReLU", leaky,   "tab:red"),
+    ("GELU",       gelu,    "tab:purple"),
+]
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+# (1) The activations themselves.
+ax = axes[0]
+for name, f, color in fns:
+    ax.plot(x, f(x), color=color, lw=2, label=name)
+ax.axhline(0, color="black", lw=0.5)
+ax.axvline(0, color="black", lw=0.5)
+ax.set_xlim(-5, 5); ax.set_ylim(-1.3, 5.3)
+ax.set_xlabel("input z"); ax.set_ylabel("activation a(z)")
+ax.set_title("Activation functions\n(non-linearity is what makes\nneural nets more than linear)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) The DERIVATIVES. Sigmoid's max derivative is 0.25 at z=0,
+# falling to ~0 outside [-5, 5] — the cause of vanishing gradients.
+# ReLU's derivative is exactly 1 for z > 0 (and 0 for z ≤ 0), so
+# multiplying many of them through a deep chain doesn't shrink the
+# gradient.
+ax = axes[1]
+for name, f, color in fns:
+    ax.plot(x, deriv(f, x), color=color, lw=2, label=f"d/dz {name}")
+ax.axhline(0, color="black", lw=0.5)
+ax.axhline(0.25, color="grey", lw=0.5, linestyle=":")
+ax.text(4.6, 0.27, "0.25  ← max σ'(z)", fontsize=9, color="grey")
+ax.set_xlim(-5, 5); ax.set_ylim(-0.2, 1.3)
+ax.set_xlabel("input z"); ax.set_ylabel("derivative")
+ax.set_title("Derivatives — the values multiplied\nthrough the chain rule (backprop)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Concrete numerical demonstration of vanishing gradients.
+print(f"{'depth':>6}  {'product of sigmoid' + chr(39) + 's at z=0':>30}  {'product of ReLU' + chr(39) + 's':>22}")
+print(f"       {'(starting from 1)':>30}  {'derivatives':>22}")
+print("-" * 65)
+for d in range(0, 31, 5):
+    sig_grad  = 0.25 ** d
+    relu_grad = 1.0  ** d
+    print(f"  {d:>5}  {sig_grad:>30.4e}  {relu_grad:>22.0f}")
+print("\nSigmoid: even with the *max* derivative 0.25 every step, by depth 30")
+print("         the multiplied gradient is ~10⁻¹⁸ — below float32's noise floor.")
+print("ReLU:    derivative is exactly 1 on the active half — no shrinkage at all.")
+```
+
+**Why ReLU revolutionised deep learning:**
+
+- **Sigmoid and tanh saturate.** When $|z|$ is large their derivatives
+  are essentially zero — gradients flowing back through them die. With
+  20+ layers of sigmoid, the gradient at the first layer is so tiny
+  (the famous $0.25^{20} \approx 10^{-12}$) that the network can't
+  learn.
+- **ReLU's derivative is 1 on the active half.** That single change —
+  no shrinkage of the gradient through depth — made it possible to
+  train networks with hundreds of layers. AlexNet (2012) was the
+  watershed; every major CNN and most MLPs since then use ReLU or one
+  of its variants (Leaky ReLU, GELU, Swish).
+- **GELU is what GPTs use.** It's a smooth ReLU-like curve that
+  multiplies the input by the Gaussian CDF; smooth derivatives are
+  friendlier to optimisers than ReLU's hard kink at zero.
+
 ## Connection to CS / Games / AI
 
 - **Sigmoid** — binary classification output, logistic regression, gates in LSTMs
