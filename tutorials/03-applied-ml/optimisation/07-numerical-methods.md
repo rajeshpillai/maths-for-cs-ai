@@ -184,6 +184,125 @@ for step in range(6):
     print(f"  Newton step {step}:   error = {abs(x - exact):.2e}")
 ```
 
+## Visualisation — Bisection vs Newton, side by side
+
+Two different ways to find a root of $f(x) = 0$. **Bisection** is slow
+but indestructible; **Newton's method** is breathtakingly fast (when it
+works) — but it can also throw you across the room if you start in the
+wrong place.
+
+```python
+# ── Visualising bisection vs Newton's method ────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Find the positive root of f(x) = x² − 2 = 0  (i.e. √2 ≈ 1.41421356…).
+def f(x):  return x ** 2 - 2.0
+def fp(x): return 2.0 * x
+true_root = np.sqrt(2.0)
+
+# (1) Bisection: bracket the root in [a, b], halve the interval each step.
+a, b = 1.0, 2.0
+bisection_history = []
+for _ in range(8):
+    mid = (a + b) / 2
+    bisection_history.append((a, b, mid))
+    if f(a) * f(mid) < 0:
+        b = mid
+    else:
+        a = mid
+
+# (2) Newton: x ← x − f(x)/f'(x).  Converges quadratically when it works.
+x = 1.0
+newton_history = [x]
+for _ in range(6):
+    x = x - f(x) / fp(x)
+    newton_history.append(x)
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 4.8))
+
+# (1) Bisection picture: shrinking interval over the curve.
+ax = axes[0]
+xs = np.linspace(0.5, 2.5, 200)
+ax.plot(xs, f(xs), color="tab:blue", lw=2, label="f(x) = x² − 2")
+ax.axhline(0, color="black", lw=0.6)
+for k, (lo, hi, mid) in enumerate(bisection_history[:5]):
+    ax.plot([lo, hi], [-0.5 * k - 1, -0.5 * k - 1], "-",
+            color=plt.cm.viridis(k / 5), lw=4, alpha=0.85)
+    ax.scatter([mid], [-0.5 * k - 1], color=plt.cm.viridis(k / 5), s=60)
+    ax.text(hi + 0.05, -0.5 * k - 1, f"step {k+1}: midpoint {mid:.4f}",
+            fontsize=8, va="center")
+ax.axvline(true_root, color="red", linestyle="--", lw=1, alpha=0.7,
+           label=f"true root = √2 ≈ {true_root:.4f}")
+ax.set_xlim(0.5, 3.4); ax.set_ylim(-4, 3)
+ax.set_title("Bisection: bracket the root,\nhalve the interval each step")
+ax.set_xlabel("x"); ax.set_ylabel("f(x)")
+ax.legend(loc="upper left", fontsize=9); ax.grid(True, alpha=0.3)
+
+# (2) Newton picture: tangent lines slide x toward the root.
+ax = axes[1]
+ax.plot(xs, f(xs), color="tab:blue", lw=2, label="f(x) = x² − 2")
+ax.axhline(0, color="black", lw=0.6)
+for k, x in enumerate(newton_history[:4]):
+    color = plt.cm.viridis(k / 4)
+    # Tangent line at this iterate.
+    tangent_x = np.linspace(x - 0.3, x + 0.6, 30)
+    tangent_y = f(x) + fp(x) * (tangent_x - x)
+    ax.plot(tangent_x, tangent_y, "--", color=color, lw=1.2, alpha=0.7)
+    ax.scatter([x], [f(x)], color=color, s=80, zorder=5)
+    ax.text(x + 0.05, f(x) + 0.2, f"step {k}: x={x:.4f}", fontsize=8, color=color)
+ax.axvline(true_root, color="red", linestyle="--", lw=1, alpha=0.7)
+ax.set_xlim(0.5, 2.5); ax.set_ylim(-3, 3)
+ax.set_title("Newton: tangent line at each x\npoints to the next x")
+ax.set_xlabel("x"); ax.set_ylabel("f(x)")
+ax.legend(loc="upper left", fontsize=9); ax.grid(True, alpha=0.3)
+
+# (3) Convergence rate. Bisection halves the error every step
+# (linear). Newton roughly *squares* the number of correct digits
+# every step (quadratic) — devastatingly fast.
+ax = axes[2]
+bisection_errors = [abs((a + b) / 2 - true_root) for a, b, _ in bisection_history]
+newton_errors    = [abs(x - true_root) for x in newton_history]
+ax.semilogy(range(len(bisection_errors)), bisection_errors,
+            "o-", color="tab:red", lw=2, label="bisection (linear, halving)")
+ax.semilogy(range(len(newton_errors)),    newton_errors,
+            "s-", color="tab:green", lw=2, label="Newton (quadratic, doubling digits)")
+ax.set_xlabel("step"); ax.set_ylabel("|error| (log)")
+ax.set_title("Convergence rates:\nNewton's quadratic decay is blistering")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the per-step errors so the third panel has anchors.
+print("Step-by-step errors compared to √2 ≈ 1.41421356237…")
+print(f"\n{'step':>5}  {'bisection error':>20}  {'Newton error':>20}")
+for k in range(7):
+    be = abs((bisection_history[k][0] + bisection_history[k][1]) / 2 - true_root) \
+         if k < len(bisection_history) else None
+    ne = abs(newton_history[k] - true_root) if k < len(newton_history) else None
+    bs = f"{be:.2e}" if be is not None else "—"
+    ns = f"{ne:.2e}" if ne is not None else "—"
+    print(f"   {k:>3}     {bs:>17}     {ns:>17}")
+```
+
+**The two methods on one plot:**
+
+- **Bisection** is the steady tortoise. Each step *guarantees* a halving
+  of the bracket, so after $n$ steps the error is at most $\tfrac{b -
+  a}{2^n}$. Slow but unkillable: as long as you can bracket a root with
+  opposite signs of $f$, it must converge.
+- **Newton's method** is the rocket. Where it works, it doubles the
+  number of correct digits per step. Going from 1 digit to 16 digits of
+  precision (full float64) takes only ~5 iterations. But: it requires
+  $f'$, and starting near a saddle ($f'(x) \approx 0$) sends it
+  flying.
+- **In practice** modern solvers (Brent's method, `scipy.optimize.brentq`)
+  combine both — Newton or secant when convergence looks fast, bisection
+  as a fallback when it stalls. *That hybrid* is what's behind every
+  numerical solver in SciPy, MATLAB, NumPy, and the firmware in your
+  pocket calculator's `√` key.
+
 ## Connection to CS / Games / AI
 
 - **Newton's method** — basis for second-order optimisers (L-BFGS, used in classical ML)

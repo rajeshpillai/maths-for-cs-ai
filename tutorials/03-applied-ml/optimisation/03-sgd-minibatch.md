@@ -155,6 +155,133 @@ for B in [1, 2, 4, 10]:
     print(f"Batch size {B:2d}: grad variance = {variance:.4f}")
 ```
 
+## Visualisation — Smooth GD vs noisy SGD vs mini-batch
+
+Three optimisers, same data, very different paths. Full-batch GD takes
+clean smooth steps but processes the entire dataset every step. SGD
+takes one noisy step per sample (cheap but jagged). Mini-batch is the
+practical compromise: few-sample averaging tames the noise while
+keeping per-step cost low.
+
+```python
+# ── Visualising SGD vs mini-batch SGD vs batch GD ───────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(0)
+
+# Synthetic linear-regression data: y = 2x + 1 + noise, n = 200 points.
+N = 200
+X = rng.uniform(-1, 1, N)
+Y = 2.0 * X + 1.0 + 0.3 * rng.standard_normal(N)
+
+# Loss surface in (w, b) space:  L(w, b) = mean((w·x + b − y)²)
+def loss_surface(w, b):
+    return np.mean((w * X[:, None, None] + b - Y[:, None, None]) ** 2, axis=0)
+def grad_full(w, b):
+    err = w * X + b - Y
+    return np.array([np.mean(2 * err * X), np.mean(2 * err)])
+def grad_sample(w, b, idx):
+    err = w * X[idx] + b - Y[idx]
+    return np.array([2 * err * X[idx], 2 * err])
+def grad_minibatch(w, b, idxs):
+    err = w * X[idxs] + b - Y[idxs]
+    return np.array([np.mean(2 * err * X[idxs]), np.mean(2 * err)])
+
+# Run each optimiser for the same NUMBER OF SAMPLES SEEN (= one epoch).
+# That makes the comparison fair: each optimiser gets the same compute budget.
+def run_batch(lr=0.1, n_steps=200, w0=0.0, b0=0.0):
+    p = np.array([w0, b0]); path = [p.copy()]
+    for _ in range(n_steps):
+        p -= lr * grad_full(*p); path.append(p.copy())
+    return np.array(path)
+
+def run_sgd(lr=0.05, n_samples=200, w0=0.0, b0=0.0):
+    p = np.array([w0, b0]); path = [p.copy()]
+    order = rng.permutation(N)
+    for i in order[:n_samples]:
+        p -= lr * grad_sample(*p, i); path.append(p.copy())
+    return np.array(path)
+
+def run_minibatch(lr=0.1, batch_size=20, n_steps=10, w0=0.0, b0=0.0):
+    p = np.array([w0, b0]); path = [p.copy()]
+    for _ in range(n_steps):
+        idxs = rng.choice(N, size=batch_size, replace=False)
+        p -= lr * grad_minibatch(*p, idxs); path.append(p.copy())
+    return np.array(path)
+
+path_batch = run_batch(lr=0.1, n_steps=80)
+path_sgd   = run_sgd(lr=0.05, n_samples=200)
+path_mini  = run_minibatch(lr=0.1, batch_size=20, n_steps=20)
+
+# Loss surface for the contour plot.
+ws = np.linspace(0, 3, 80); bs = np.linspace(-0.5, 2, 80)
+W, B = np.meshgrid(ws, bs)
+L = np.array([[np.mean((w * X + b - Y) ** 2) for w in ws] for b in bs])
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5.5))
+
+# (1) Trajectories on the (w, b) loss landscape.
+ax = axes[0]
+ax.contour(W, B, L, levels=20, cmap="viridis", alpha=0.7)
+ax.plot(path_batch[:, 0], path_batch[:, 1], "o-", color="tab:blue",
+        markersize=3, lw=1.4, label="full-batch GD (smooth)")
+ax.plot(path_sgd[:, 0], path_sgd[:, 1], "o-", color="tab:red",
+        markersize=2, lw=0.7, alpha=0.6, label="SGD (one sample at a time, noisy)")
+ax.plot(path_mini[:, 0], path_mini[:, 1], "s-", color="tab:green",
+        markersize=4, lw=1.6, label="mini-batch (B = 20)")
+ax.scatter([2.0], [1.0], color="black", marker="*", s=200, zorder=5,
+           label="true (w*, b*)")
+ax.set_xlabel("w"); ax.set_ylabel("b")
+ax.set_xlim(0, 3); ax.set_ylim(-0.5, 2)
+ax.set_title("Same compute budget, three trajectories")
+ax.legend(loc="upper left", fontsize=9); ax.grid(True, alpha=0.3)
+
+# (2) Loss-vs-step curves (per-step). SGD is noisy, mini-batch
+# smoothes it out, full-batch is the cleanest but most expensive
+# per step.
+ax = axes[1]
+def loss_path(path): return np.array([np.mean((p[0] * X + p[1] - Y)**2) for p in path])
+ax.plot(loss_path(path_batch), "o-", color="tab:blue", markersize=3, lw=1.6, label="full-batch GD")
+ax.plot(loss_path(path_sgd),   "o-", color="tab:red",  markersize=2, lw=0.5, alpha=0.6, label="SGD")
+ax.plot(loss_path(path_mini),  "s-", color="tab:green",markersize=4, lw=1.6, label="mini-batch")
+ax.set_yscale("log")
+ax.set_xlabel("step"); ax.set_ylabel("loss (log scale)")
+ax.set_title("Loss curves: SGD is noisy, mini-batch is the\npractical compromise")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print final losses to make the trade-off concrete.
+for name, path in [("full-batch GD", path_batch),
+                   ("SGD",            path_sgd),
+                   ("mini-batch (B=20)", path_mini)]:
+    final_loss = np.mean((path[-1, 0] * X + path[-1, 1] - Y) ** 2)
+    print(f"  {name:<22}  ended at  w = {path[-1, 0]:.3f}, b = {path[-1, 1]:.3f},  "
+          f"loss = {final_loss:.4f}")
+```
+
+**Three observations the picture makes obvious:**
+
+- **Full-batch GD is smooth, but each step is expensive.** Cost per
+  step is the entire dataset. Beautiful trajectory; awful when $N$ is
+  millions.
+- **SGD is cheap per step but noisy.** Each step uses one sample, so
+  the gradient is a noisy estimate of the true gradient. The path
+  rattles around — but with a small enough learning rate it still
+  converges, just stochastically.
+- **Mini-batch is the practical default.** Average the gradient over
+  $B$ samples (typically 32–512 in deep learning). Variance shrinks as
+  $1/B$ (CLT, lesson 7 of probability), so the path is much smoother
+  than SGD. Cost per step is $B$ samples — small enough for GPUs,
+  large enough to dampen the noise. Every modern training script uses
+  some flavour of mini-batch.
+
+The noise in SGD turns out to be a *feature*, not a bug: it helps
+escape saddle points and shallow local minima — which is why pure SGD
+is sometimes preferred over Adam in practice.
+
 ## Connection to CS / Games / AI
 
 - **Every modern neural network** uses mini-batch SGD (or a variant like Adam)

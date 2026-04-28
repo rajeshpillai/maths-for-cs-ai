@@ -163,6 +163,113 @@ print(f"With outlier:    MSE={mse_outlier:.1f}, MAE={mae_outlier:.1f}")
 print(f"MSE increase: {mse_outlier/max(mse_normal,0.001):.0f}x, MAE increase: {mae_outlier/max(mae_normal,0.001):.0f}x")
 ```
 
+## Visualisation — Loss-function shapes side by side
+
+Each loss function is a *shape*. Comparing the shapes side by side
+shows why MSE punishes outliers harder than MAE, why cross-entropy
+explodes for confident-and-wrong predictions, and why Huber loss is
+the practical compromise.
+
+```python
+# ── Visualising loss functions ──────────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4.8))
+
+# (1) Regression losses as a function of the residual r = ŷ - y.
+# MSE = r² grows quadratically (steep for big errors).
+# MAE = |r| grows linearly (robust to outliers).
+# Huber  = quadratic close to 0, linear far from 0  (best of both).
+ax = axes[0]
+r = np.linspace(-3, 3, 400)
+mse   = r ** 2
+mae   = np.abs(r)
+delta = 1.0
+huber = np.where(np.abs(r) <= delta, 0.5 * r ** 2,
+                 delta * (np.abs(r) - 0.5 * delta))
+ax.plot(r, mse,   label="MSE  = r²",                    color="tab:red",    lw=2)
+ax.plot(r, mae,   label="MAE  = |r|",                   color="tab:blue",   lw=2)
+ax.plot(r, huber, label=f"Huber (δ = {delta})",         color="tab:green",  lw=2)
+ax.set_xlabel("residual r = $\\hat y - y$"); ax.set_ylabel("loss")
+ax.set_title("Regression losses\nMSE punishes big errors quadratically,\n"
+             "MAE linearly, Huber compromises")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) Binary cross-entropy as a function of the predicted probability,
+# for the two cases y = 1 (true) and y = 0. The loss is *zero* when
+# the prediction matches the truth, and *blows up to infinity* when
+# the prediction is the opposite of the truth — the famous 'confident
+# and wrong' penalty.
+ax = axes[1]
+p = np.linspace(0.005, 0.995, 400)
+ce_y1 = -np.log(p)                            # loss when y = 1
+ce_y0 = -np.log(1 - p)                        # loss when y = 0
+ax.plot(p, ce_y1, color="tab:blue",   lw=2, label="y = 1: loss = −log(p)")
+ax.plot(p, ce_y0, color="tab:orange", lw=2, label="y = 0: loss = −log(1 − p)")
+ax.scatter([1.0, 0.0], [0, 0], color="black", s=60, zorder=5)
+ax.text(0.95, 0.3, "y=1: loss → 0\nas p → 1", fontsize=8, ha="right")
+ax.text(0.05, 0.3, "y=0: loss → 0\nas p → 0", fontsize=8)
+ax.set_ylim(0, 6)
+ax.set_xlabel("predicted probability p")
+ax.set_ylabel("binary cross-entropy")
+ax.set_title("Binary cross-entropy\n→ confident-and-wrong is exponentially expensive")
+ax.legend(loc="upper center", fontsize=9); ax.grid(True, alpha=0.3)
+
+# (3) The outlier-robustness story as a bar chart.
+# Same five errors, but one is an outlier (10 instead of 1).
+ax = axes[2]
+y_normal       = [3, 4, 5, 6, 7]
+pred_normal    = [3, 4, 5, 6, 7]              # perfect fit
+pred_outlier_y = [3, 4, 5, 6, 17]             # one observation is way off
+
+mse_n  = np.mean([(p - y)**2 for p, y in zip(pred_normal, y_normal)])
+mse_o  = np.mean([(p - y)**2 for p, y in zip(pred_normal, pred_outlier_y)])
+mae_n  = np.mean([abs(p - y) for p, y in zip(pred_normal, y_normal)])
+mae_o  = np.mean([abs(p - y) for p, y in zip(pred_normal, pred_outlier_y)])
+labels = ["MSE\n(no outlier)", "MSE\n(1 outlier)",
+          "MAE\n(no outlier)", "MAE\n(1 outlier)"]
+values = [mse_n, mse_o, mae_n, mae_o]
+colors = ["tab:red", "tab:red", "tab:blue", "tab:blue"]
+bars = ax.bar(labels, values, color=colors, alpha=0.75)
+for bar, v in zip(bars, values):
+    ax.text(bar.get_x() + bar.get_width()/2, v + max(values) * 0.02,
+            f"{v:.1f}", ha="center", fontsize=11, fontweight="bold")
+ax.set_ylabel("average loss")
+ax.set_title("One outlier in 5 points: MSE explodes 20×,\nMAE grows linearly (more robust)")
+ax.grid(True, alpha=0.3, axis="y")
+
+plt.tight_layout()
+plt.show()
+
+# Print the numerical comparison.
+print(f"5 points, 1 outlier:")
+print(f"  MSE without outlier: {mse_n:.2f}    MSE with outlier: {mse_o:.2f}    "
+      f"({mse_o / max(mse_n, 0.01):.0f}× worse)")
+print(f"  MAE without outlier: {mae_n:.2f}    MAE with outlier: {mae_o:.2f}    "
+      f"({mae_o / max(mae_n, 0.01):.0f}× worse)")
+```
+
+**Three pictures, three engineering decisions:**
+
+- **Squared error vs absolute error.** MSE's parabolic shape means a
+  doubling of the residual *quadruples* the loss; one bad outlier
+  dominates the gradient. MAE's V-shape means an outlier contributes
+  *linearly* — much more robust. Huber loss combines both: quadratic
+  near zero (so the gradient is well-behaved) and linear far from zero
+  (so outliers can't hijack the fit).
+- **Cross-entropy is asymmetric and unbounded.** When your true
+  label is 1, predicting 0.99 costs $\approx 0.01$, but predicting
+  0.01 costs $\approx 4.6$. Predicting *exactly* 0 with truth = 1
+  produces $-\log 0 = \infty$. This is what punishes overconfident
+  classifiers — the central reason cross-entropy beats MSE for
+  classification.
+- **The choice of loss = the choice of which mistakes you forgive.**
+  This is a model-design decision, not just a "default best practice".
+  In medical imaging you might use Tversky loss to penalise
+  false-negatives more than false-positives; in robust regression
+  you'd reach for Huber over MSE.
+
 ## Connection to CS / Games / AI
 
 - **MSE** — linear regression, autoencoders, image reconstruction

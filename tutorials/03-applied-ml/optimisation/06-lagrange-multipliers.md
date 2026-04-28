@@ -143,6 +143,110 @@ for step in range(500):
 print(f"  Final: ({x:.4f}, {y:.4f}), x²+y² = {x**2+y**2:.4f}")
 ```
 
+## Visualisation — Tangency between objective and constraint
+
+Lagrange's geometric insight: at a constrained optimum, the gradient
+of the objective is *parallel* to the gradient of the constraint. The
+plot below shows this exactly — the contour of $f$ that just touches
+the constraint curve is tangent to it, and at that touch point the
+two gradient vectors line up.
+
+```python
+# ── Visualising Lagrange multipliers ────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Problem:  minimise  f(x, y) = x² + y²    (distance² from origin)
+#       subject to    g(x, y) = x + y − 4 = 0   (a straight line)
+# By Lagrange: at the optimum, ∇f = λ ∇g, where λ is the multiplier.
+
+xs = np.linspace(-1, 5, 200); ys = np.linspace(-1, 5, 200)
+X, Y = np.meshgrid(xs, ys)
+f = X**2 + Y**2
+
+fig, ax = plt.subplots(1, 1, figsize=(8, 7))
+
+# Contours of the objective f(x, y) = x² + y² (concentric circles).
+cs = ax.contour(X, Y, f, levels=[0.5, 2, 4, 8, 12, 18, 25, 35],
+                cmap="viridis", alpha=0.7)
+ax.clabel(cs, inline=True, fontsize=8)
+
+# Constraint line: x + y = 4.
+ax.plot(xs, 4 - xs, color="tab:red", lw=2.5, label="constraint  x + y = 4")
+
+# Constrained optimum: by symmetry it's at (2, 2), value 8.
+opt = np.array([2.0, 2.0])
+opt_value = opt @ opt
+ax.scatter(*opt, color="black", s=200, zorder=5,
+           label=f"optimum (2, 2), $f = {opt_value:.0f}$")
+
+# Gradient of f at the optimum: ∇f = 2(x, y) = (4, 4).
+gf = 2 * opt
+# Gradient of g everywhere: ∇g = (1, 1).
+gg = np.array([1.0, 1.0])
+
+# Draw the two gradient arrows from the optimum — visibly parallel.
+ax.quiver(*opt, *gf, angles="xy", scale_units="xy", scale=1, color="tab:blue",
+          width=0.012, label=f"∇f at optimum = ({gf[0]:.0f}, {gf[1]:.0f})")
+ax.quiver(*opt, *(gg * 4), angles="xy", scale_units="xy", scale=1, color="tab:orange",
+          width=0.012, label="∇g (scaled ×4 for visibility) = (1, 1)")
+
+# Annotate λ — the proportionality constant.
+lam = gf[0] / gg[0]
+ax.annotate(f"At the optimum:\n∇f = λ ∇g\nwith λ = {lam:.0f}",
+            xy=(2.5, 3.5), fontsize=10,
+            bbox=dict(boxstyle="round", fc="lightyellow", ec="black"))
+
+# Several non-optimal candidate points on the constraint, to show f is
+# higher there (highlighting WHY the tangency picks (2,2)).
+for cand_x in [0.5, 1.0, 3.0, 3.5]:
+    cy = 4 - cand_x
+    ax.scatter(cand_x, cy, color="tab:red", s=60, alpha=0.6)
+    ax.text(cand_x + 0.05, cy - 0.05,
+            f"f={cand_x**2 + cy**2:.1f}", fontsize=8, color="tab:red")
+
+ax.set_xlim(-1, 5); ax.set_ylim(-1, 5); ax.set_aspect("equal")
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_xlabel("x"); ax.set_ylabel("y")
+ax.set_title("Constrained optimisation by Lagrange multipliers\n"
+             "min $x^2 + y^2$  subject to  $x + y = 4$ → tangency at (2, 2)")
+ax.legend(loc="upper right", fontsize=9)
+ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Numerical verification: the contour of f passing through the optimum
+# is tangent to the constraint line.
+print(f"At constrained optimum (2, 2):")
+print(f"  f       = 2² + 2² = {2**2 + 2**2}")
+print(f"  ∇f      = ({2*2}, {2*2})")
+print(f"  ∇g      = (1, 1)")
+print(f"  ratio   = ∇f / ∇g = {2*2 / 1} = λ  →  ∇f = λ ∇g  ✓")
+print()
+print("Compare values along the constraint x + y = 4:")
+for cx in [0, 1, 2, 3, 4]:
+    cy = 4 - cx
+    print(f"  ({cx}, {cy}):  f = {cx**2 + cy**2}    (optimum is the minimum at (2, 2))")
+```
+
+**The single key insight:**
+
+- At a constrained extremum, **you can't decrease $f$ further without
+  leaving the constraint**. Geometrically, the constraint curve is
+  *tangent* to the contour of $f$ that you're sitting on — any nudge
+  along the constraint takes you to a *higher* contour.
+- Tangency means the two gradients are parallel: $\nabla f = \lambda
+  \nabla g$. The proportionality constant $\lambda$ is the Lagrange
+  multiplier — it's the **shadow price of the constraint**: how much
+  the optimum value of $f$ would change if the constraint right-hand
+  side moved by 1.
+- This same tangency picture **is** how SVMs find their margin
+  (constraint = "stay on the correct side of the hyperplane"), how
+  portfolio optimisation balances expected return against risk
+  budgets, and how RL safety constraints are enforced in
+  Lagrangian-relaxation form.
+
 ## Connection to CS / Games / AI
 
 - **SVMs** — the dual formulation of SVMs uses Lagrange multipliers (support vectors have $\lambda > 0$)

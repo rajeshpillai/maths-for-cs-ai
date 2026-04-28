@@ -201,6 +201,112 @@ for name, use_momentum, use_adaptive in [("SGD", False, False), ("Momentum", Tru
     print(f"  {name:8s}: ({x:.6f}, {y:.6f}), f={x**2 + 100*y**2:.6f}")
 ```
 
+## Visualisation — Why Adam usually beats vanilla SGD
+
+The classic test problem for adaptive optimisers is an **ill-conditioned
+quadratic** — a long narrow valley. Plain GD zig-zags. Momentum smooths
+the zig-zag. RMSProp normalises by recent gradient magnitudes per
+coordinate. Adam combines both. The plot shows all four trajectories
+side by side.
+
+```python
+# ── Visualising vanilla GD vs momentum vs RMSProp vs Adam ───
+import numpy as np
+import matplotlib.pyplot as plt
+
+# An "ill-conditioned" loss: stretched 100x in the y direction.
+def f(x, y):    return x**2 + 100.0 * y**2
+def grad(x, y): return np.array([2 * x, 200.0 * y])
+
+START = np.array([8.0, 0.4])
+N_STEPS = 80
+
+def run_optimiser(name, lr=0.005):
+    p = START.copy(); path = [p.copy()]
+    m = np.zeros(2); v = np.zeros(2)
+    beta1, beta2, eps = 0.9, 0.999, 1e-8
+
+    for t in range(1, N_STEPS + 1):
+        g = grad(*p)
+        if name == "SGD":
+            p = p - lr * g
+        elif name == "Momentum":
+            m = beta1 * m + g
+            p = p - lr * m
+        elif name == "RMSProp":
+            v = beta2 * v + (1 - beta2) * (g * g)
+            p = p - lr * g / (np.sqrt(v) + eps)
+        elif name == "Adam":
+            m = beta1 * m + (1 - beta1) * g
+            v = beta2 * v + (1 - beta2) * (g * g)
+            m_hat = m / (1 - beta1 ** t)
+            v_hat = v / (1 - beta2 ** t)
+            p = p - lr * m_hat / (np.sqrt(v_hat) + eps)
+        path.append(p.copy())
+    return np.array(path)
+
+paths = {name: run_optimiser(name, lr=0.05 if name == "Adam" else 0.005)
+         for name in ["SGD", "Momentum", "RMSProp", "Adam"]}
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5.5))
+
+# (1) Trajectories on the elongated bowl. Plain GD zig-zags
+# violently in the steep y direction; Adam slides smoothly.
+ax = axes[0]
+xs = np.linspace(-2, 9, 200); ys = np.linspace(-0.6, 0.6, 200)
+X, Y = np.meshgrid(xs, ys)
+Z = f(X, Y)
+ax.contour(X, Y, Z, levels=np.logspace(-2, 2.5, 12), cmap="viridis", alpha=0.6)
+colors = {"SGD": "tab:red", "Momentum": "tab:blue",
+          "RMSProp": "tab:orange", "Adam": "tab:green"}
+for name, path in paths.items():
+    ax.plot(path[:, 0], path[:, 1], "o-", color=colors[name],
+            markersize=3, lw=1.5, label=name)
+ax.scatter([0], [0], color="black", marker="*", s=180, zorder=5, label="optimum")
+ax.set_xlim(-2, 9); ax.set_ylim(-0.6, 0.6)
+ax.set_xlabel("w₁ (long axis of bowl)"); ax.set_ylabel("w₂ (steep axis)")
+ax.set_title("Trajectories on an ill-conditioned loss\n($f(x, y) = x² + 100\\,y²$)")
+ax.legend(loc="upper right"); ax.grid(True, alpha=0.3)
+
+# (2) Loss-vs-step on log scale. Adam's curve is straightest;
+# vanilla SGD takes much longer to stabilise.
+ax = axes[1]
+for name, path in paths.items():
+    losses = [f(*p) for p in path]
+    ax.plot(losses, "-", color=colors[name], lw=2, label=name)
+ax.set_yscale("log")
+ax.set_xlabel("step"); ax.set_ylabel("loss (log)")
+ax.set_title("Loss vs step:\nAdam typically beats SGD on bad-conditioned losses")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+print(f"{'optimiser':<12}  {'final loss':>12}  {'final position':>30}")
+for name, path in paths.items():
+    final = path[-1]
+    print(f"  {name:<10}  {f(*final):>12.6f}    ({final[0]:+.4f}, {final[1]:+.4f})")
+```
+
+**Why each adaptation matters:**
+
+- **Momentum** treats parameters like a heavy ball rolling on the
+  surface — it accumulates velocity in directions where the gradient
+  is consistent. The zig-zag in steep directions partly cancels out
+  (consecutive opposite gradients), while the smooth slow direction
+  builds up speed.
+- **RMSProp** divides each coordinate's update by a recent root-mean-
+  square of *its own* gradient magnitudes. Coordinates with
+  consistently large gradients are damped; coordinates with small
+  gradients get bigger steps. This automatic *per-coordinate
+  rescaling* is exactly what fixes the ill-conditioned bowl.
+- **Adam = momentum + RMSProp.** It runs a momentum-style first-moment
+  estimator $m_t$ AND a per-coordinate variance estimator $v_t$,
+  divides one by the other, and applies a bias-correction at the start.
+  In practice it works astonishingly well as a default — that's why
+  every Transformer and most CNN-trainings use AdamW (Adam with
+  decoupled weight decay) out of the box.
+
 ## Connection to CS / Games / AI
 
 - **Adam** — the default optimiser for most deep learning (Transformers, CNNs, GANs)
