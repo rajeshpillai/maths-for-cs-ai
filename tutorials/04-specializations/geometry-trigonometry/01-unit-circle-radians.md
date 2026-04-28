@@ -131,6 +131,92 @@ for deg in [45, 90, 180, 360]:
     print(f"  r={r}, θ={deg}°: arc={arc:.2f}, sector area={area:.2f}")
 ```
 
+## Visualisation — The unit circle and why radians are natural
+
+The unit circle is the *single most useful diagram* in trigonometry.
+The plot shows the standard angles, the meaning of radians (arc length
+on the unit circle), and the canonical $(x, y) = (\cos\theta,
+\sin\theta)$ identification.
+
+```python
+# ── Visualising the unit circle and radians ─────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+
+# (1) Unit circle with key angles labelled in BOTH degrees and radians.
+ax = axes[0]
+theta = np.linspace(0, 2 * np.pi, 200)
+ax.plot(np.cos(theta), np.sin(theta), color="tab:blue", lw=2)
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+key_angles = [(0,        "0°", "0"),
+              (np.pi/6,  "30°", "π/6"),
+              (np.pi/4,  "45°", "π/4"),
+              (np.pi/3,  "60°", "π/3"),
+              (np.pi/2,  "90°", "π/2"),
+              (np.pi,    "180°", "π"),
+              (3*np.pi/2,"270°", "3π/2")]
+for rad, deg_lab, rad_lab in key_angles:
+    x, y = np.cos(rad), np.sin(rad)
+    ax.scatter(x, y, color="tab:red", s=50, zorder=5)
+    # Arrow from origin.
+    ax.plot([0, x], [0, y], color="tab:red", lw=1, alpha=0.6)
+    # Coordinate annotation.
+    label = f"{deg_lab} = {rad_lab}\n(cos, sin) = ({x:+.2f}, {y:+.2f})"
+    ax.text(1.1 * x, 1.1 * y, label, fontsize=8, ha="center")
+ax.set_xlim(-1.7, 1.7); ax.set_ylim(-1.7, 1.7); ax.set_aspect("equal")
+ax.set_title("The unit circle\n(x, y) = (cos θ, sin θ) at every angle")
+ax.grid(True, alpha=0.3)
+
+# (2) Why radians are natural: the arc length on a unit circle
+# subtended by angle θ is *exactly* θ. So 1 radian = arc of length 1.
+ax = axes[1]
+ax.plot(np.cos(theta), np.sin(theta), color="grey", lw=0.8, alpha=0.5)
+# Highlight the arc from 0 to 1 radian (~ 57.3°).
+arc_t = np.linspace(0, 1.0, 50)
+ax.plot(np.cos(arc_t), np.sin(arc_t), color="tab:red", lw=4, label="arc length = 1")
+ax.scatter([1], [0], color="tab:red", s=80, zorder=5)
+ax.scatter([np.cos(1)], [np.sin(1)], color="tab:red", s=80, zorder=5)
+ax.plot([0, 1], [0, 0], color="tab:blue", lw=2)
+ax.plot([0, np.cos(1)], [0, np.sin(1)], color="tab:blue", lw=2)
+ax.text(0.5, 0.05, "θ = 1 radian", color="tab:blue", fontsize=11)
+# Compare with the SAME 1-unit-arc on a circle of radius 2 (to drive home
+# that "1 radian" is a *ratio*, not a length per se).
+arc_t2 = np.linspace(0, 0.5, 50)             # 0.5 radian on circle of r=2 → arc = 1
+ax.plot(2 * np.cos(arc_t2), 2 * np.sin(arc_t2), color="tab:green", lw=3,
+        linestyle="--", label="arc length = 1 on r = 2 → θ = 0.5 rad")
+ax.set_xlim(-2.5, 2.5); ax.set_ylim(-2.5, 2.5); ax.set_aspect("equal")
+ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+ax.set_title("Radian = ARC LENGTH / RADIUS\n(1 radian ≈ 57.30°)")
+ax.legend(loc="lower right", fontsize=9); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print a table of key angles in both unit systems.
+print(f"{'degrees':>10}  {'radians':>15}  {'(cos, sin)':>20}")
+for deg in [0, 30, 45, 60, 90, 120, 180, 270, 360]:
+    rad = np.radians(deg)
+    print(f"  {deg:>5}°    {rad:>11.4f}    ({np.cos(rad):+.4f}, {np.sin(rad):+.4f})")
+```
+
+**Why every game engine, physics simulator, and ML library uses
+radians (not degrees):**
+
+- **A radian is a pure ratio.** $1\,\text{rad} = \text{arc length} /
+  \text{radius}$. No arbitrary "360" appears anywhere — it follows
+  directly from the geometry.
+- **Calculus formulas only work in radians.** $\frac{d}{d\theta}
+  \sin\theta = \cos\theta$ requires $\theta$ in radians; in degrees
+  you'd carry an annoying $\pi/180$ factor through *every* derivative.
+  This is why all numerical libraries (`np.sin`, `math.sin`) take
+  radians by default.
+- **The unit circle is the master reference.** Every value of $\sin$,
+  $\cos$, and $\tan$ for any angle reduces to a point on the unit
+  circle. Memorising the picture once means you never need a trig
+  table again.
+
 ## Connection to CS / Games / AI
 
 - **Game engines** — all rotation APIs use radians internally (Unity, Unreal, Godot)

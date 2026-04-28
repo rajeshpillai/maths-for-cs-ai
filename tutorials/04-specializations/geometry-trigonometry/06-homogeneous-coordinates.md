@@ -141,6 +141,98 @@ original = mat4_vec(T_inv, result)
 print(f"Undo: ({original[0]:.0f}, {original[1]:.0f}, {original[2]:.0f})")
 ```
 
+## Visualisation — Translation as a single 3×3 matrix multiply
+
+Plain 2×2 matrices can rotate, scale, shear — but **not translate**
+(translation isn't linear; it doesn't preserve the origin). The trick:
+embed 2-D points into 3-D as $(x, y, 1)$, and translation becomes a
+plain matrix multiply. The plot composes scale → rotate → translate
+as a single 3×3 matrix and applies it to a shape.
+
+```python
+# ── Visualising homogeneous coordinates ─────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Polygon
+
+# 3×3 builders for 2-D transformations in homogeneous coordinates.
+def translation(tx, ty):
+    return np.array([[1, 0, tx],
+                     [0, 1, ty],
+                     [0, 0, 1.0]])
+def rotation(theta):
+    c, s = np.cos(theta), np.sin(theta)
+    return np.array([[c, -s, 0],
+                     [s,  c, 0],
+                     [0,  0, 1.0]])
+def scale(sx, sy):
+    return np.array([[sx, 0, 0],
+                     [0, sy, 0],
+                     [0,  0, 1.0]])
+
+# A shape (a small house) given as 2-D points; convert to homogeneous form.
+house = np.array([
+    [-1, -1], [1, -1], [1, 1], [0, 2], [-1, 1], [-1, -1]
+], dtype=float)
+house_homo = np.column_stack([house, np.ones(len(house))])
+
+# Three transformations, applied in order: S, then R, then T.
+S = scale(0.5, 0.5)
+R = rotation(np.radians(30))
+T = translation(3.0, 1.5)
+
+# The composed transformation: apply S first, then R, then T.
+# Order matters: M = T · R · S means "scale, then rotate, then translate".
+M = T @ R @ S
+
+steps = [(np.eye(3),     "1. Original"),
+         (S,             "2. After Scale (0.5×)"),
+         (R @ S,         "3. After Rotate (30°)"),
+         (T @ R @ S,     "4. After Translate (3, 1.5)")]
+
+fig, axes = plt.subplots(1, len(steps), figsize=(18, 4.5))
+
+for ax, (matrix, label) in zip(axes, steps):
+    transformed = (matrix @ house_homo.T).T            # (n, 3)
+    pts = transformed[:, :2]
+    ax.add_patch(Polygon(house, closed=True, fill=False,
+                         edgecolor="grey", linestyle="--", lw=1, alpha=0.5))
+    ax.add_patch(Polygon(pts, closed=True, facecolor="tab:blue",
+                         edgecolor="navy", alpha=0.5))
+    ax.set_xlim(-3, 5); ax.set_ylim(-2, 4); ax.set_aspect("equal")
+    ax.axhline(0, color="black", lw=0.5); ax.axvline(0, color="black", lw=0.5)
+    ax.grid(True, alpha=0.3)
+    ax.set_title(label)
+
+plt.tight_layout()
+plt.show()
+
+# Print the combined matrix and verify on a corner point.
+print("Composed transformation matrix M = T · R · S:")
+print(M)
+print()
+print("Apply M to corner (1, -1, 1):")
+v = np.array([1, -1, 1])
+out = M @ v
+print(f"  homogeneous result: {out}")
+print(f"  Cartesian (divide by w=1): ({out[0]/out[2]:.4f}, {out[1]/out[2]:.4f})")
+```
+
+**The single big idea:**
+
+- A 2-D point $(x, y)$ becomes the 3-D vector $(x, y, 1)$ in
+  homogeneous coordinates.
+- Translation, which is *affine* and impossible in pure 2×2 matrix
+  algebra, becomes a single 3×3 matrix multiply with the offset stored
+  in the third column.
+- **All transforms compose by matrix multiplication.** Want
+  `scale → rotate → translate`? Multiply $T \cdot R \cdot S$ once;
+  apply that single 3×3 matrix to every vertex. For 3-D you use
+  4×4 matrices the same way — *the entire OpenGL/DirectX/Vulkan
+  pipeline is built on this trick*. Every "model matrix", "view
+  matrix", and "projection matrix" you've ever heard of is a 4×4
+  homogeneous transform.
+
 ## Connection to CS / Games / AI
 
 - **Model matrix** — positions objects in the world (scale → rotate → translate)

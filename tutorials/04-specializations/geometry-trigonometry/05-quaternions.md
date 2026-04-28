@@ -175,6 +175,155 @@ for t in [0.0, 0.25, 0.5, 0.75, 1.0]:
     print(f"  t={t}: angle ≈ {angle:.1f}°")
 ```
 
+## Visualisation — Gimbal lock and why quaternions fix it
+
+Euler-angle (yaw / pitch / roll) rotations look natural, but they hit
+**gimbal lock**: when pitch = 90° two of the three rotation axes
+collapse, you lose a degree of freedom, and small movements produce
+huge sudden flips. Quaternions don't suffer this — they slide
+smoothly through any orientation. Two pictures show both the problem
+and the fix.
+
+```python
+# ── Visualising gimbal lock and quaternion SLERP ────────────
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401
+
+def euler_xyz_to_matrix(roll, pitch, yaw):
+    """Compose Rx(roll) · Ry(pitch) · Rz(yaw)."""
+    cR, sR = np.cos(roll),  np.sin(roll)
+    cP, sP = np.cos(pitch), np.sin(pitch)
+    cY, sY = np.cos(yaw),   np.sin(yaw)
+    Rx = np.array([[1, 0, 0], [0, cR, -sR], [0, sR, cR]])
+    Ry = np.array([[cP, 0, sP], [0, 1, 0], [-sP, 0, cP]])
+    Rz = np.array([[cY, -sY, 0], [sY, cY, 0], [0, 0, 1]])
+    return Rx @ Ry @ Rz
+
+# Quaternion utilities (scalar-first convention: [w, x, y, z]).
+def quat_mul(a, b):
+    aw, ax, ay, az = a; bw, bx, by, bz = b
+    return np.array([
+        aw*bw - ax*bx - ay*by - az*bz,
+        aw*bx + ax*bw + ay*bz - az*by,
+        aw*by - ax*bz + ay*bw + az*bx,
+        aw*bz + ax*by - ay*bx + az*bw,
+    ])
+
+def axis_angle_quat(axis, angle):
+    axis = np.asarray(axis, dtype=float); axis = axis / np.linalg.norm(axis)
+    return np.array([np.cos(angle / 2),
+                     *(axis * np.sin(angle / 2))])
+
+def rotate_vec_quat(q, v):
+    qv = np.array([0.0, *v])
+    qc = np.array([q[0], -q[1], -q[2], -q[3]])
+    return quat_mul(quat_mul(q, qv), qc)[1:]
+
+def slerp(q0, q1, t):
+    dot = float(np.dot(q0, q1))
+    if dot < 0:                       # take the shorter arc
+        q1 = -q1; dot = -dot
+    if dot > 0.9995:                  # nearly identical → linear interp
+        out = (1 - t) * q0 + t * q1
+        return out / np.linalg.norm(out)
+    omega = np.arccos(dot)
+    return (np.sin((1 - t) * omega) / np.sin(omega)) * q0 \
+         + (np.sin(t * omega)       / np.sin(omega)) * q1
+
+fig = plt.figure(figsize=(15, 6))
+
+# (1) Euler-angle interpolation passing through gimbal lock.
+# Going from (roll=0, pitch=0, yaw=0) to (roll=180°, pitch=180°, yaw=0)
+# straight in Euler angles, the orientation does *not* take the natural
+# shortest path. Plot the path traced by an initial unit-x arrow.
+ax1 = fig.add_subplot(1, 2, 1, projection="3d")
+arrow_init = np.array([1.0, 0.0, 0.0])
+ts = np.linspace(0, 1, 30)
+
+# Linear Euler interp.
+euler_path = np.array([
+    euler_xyz_to_matrix(t * np.pi, t * np.pi, 0) @ arrow_init
+    for t in ts])
+ax1.plot(euler_path[:, 0], euler_path[:, 1], euler_path[:, 2],
+         "o-", color="tab:red", lw=2, label="Euler-angle linear interp")
+
+# Quaternion SLERP between the same start/end orientations.
+q_start = axis_angle_quat([1, 0, 0], 0)
+q_end_e = euler_xyz_to_matrix(np.pi, np.pi, 0)
+# Convert the Euler end matrix to a quaternion (general 3×3 → quat).
+def matrix_to_quat(R):
+    tr = R[0, 0] + R[1, 1] + R[2, 2]
+    if tr > 0:
+        S = 2 * np.sqrt(tr + 1)
+        return np.array([0.25 * S,
+                         (R[2, 1] - R[1, 2]) / S,
+                         (R[0, 2] - R[2, 0]) / S,
+                         (R[1, 0] - R[0, 1]) / S])
+    # Fallback for negative trace (rare here).
+    return np.array([0, 1, 0, 0])
+
+q_end = matrix_to_quat(q_end_e)
+quat_path = np.array([rotate_vec_quat(slerp(q_start, q_end, t), arrow_init)
+                      for t in ts])
+ax1.plot(quat_path[:, 0], quat_path[:, 1], quat_path[:, 2],
+         "s-", color="tab:green", lw=2, label="Quaternion SLERP")
+
+# Reference frame.
+for axis, name, color in [([1,0,0], "X", "red"), ([0,1,0], "Y", "green"),
+                          ([0,0,1], "Z", "blue")]:
+    ax1.plot([0, axis[0]], [0, axis[1]], [0, axis[2]], color=color, lw=1)
+    ax1.text(axis[0]*1.1, axis[1]*1.1, axis[2]*1.1, name, color=color, fontsize=10)
+
+ax1.set_xlim(-1.5, 1.5); ax1.set_ylim(-1.5, 1.5); ax1.set_zlim(-1.5, 1.5)
+ax1.set_title("Linear Euler interp wobbles around;\nquaternion SLERP is the smooth great-circle arc")
+ax1.legend(loc="upper left", fontsize=9)
+
+# (2) Same comparison in 2-D from above (so the wobble is visually clear).
+ax2 = fig.add_subplot(1, 2, 2)
+ax2.plot(euler_path[:, 0], euler_path[:, 1], "o-", color="tab:red",
+         lw=1.5, label="Euler interp (curvy, may overshoot)")
+ax2.plot(quat_path[:, 0], quat_path[:, 1], "s-", color="tab:green",
+         lw=1.5, label="SLERP (smooth great-circle)")
+ax2.scatter(*arrow_init[:2], color="tab:blue", s=120, zorder=5, label="start")
+ax2.scatter(*((q_end_e @ arrow_init)[:2]), color="black", s=120, zorder=5, label="end")
+ax2.axhline(0, color="black", lw=0.5); ax2.axvline(0, color="black", lw=0.5)
+ax2.set_aspect("equal"); ax2.set_xlim(-1.5, 1.5); ax2.set_ylim(-1.5, 1.5)
+ax2.set_title("Top-down view of the rotation paths")
+ax2.legend(loc="lower right", fontsize=9); ax2.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the angles touched by each interpolation, so the picture has anchors.
+print("Comparing rotation paths from identity to a 180° rotation:")
+print(f"{'t':>5}  {'Euler arrow tip':>30}  {'SLERP arrow tip':>30}")
+for t in [0, 0.25, 0.5, 0.75, 1.0]:
+    e = euler_xyz_to_matrix(t * np.pi, t * np.pi, 0) @ arrow_init
+    s = rotate_vec_quat(slerp(q_start, q_end, t), arrow_init)
+    print(f"  {t:.2f}    ({e[0]:+.3f}, {e[1]:+.3f}, {e[2]:+.3f})    "
+          f"({s[0]:+.3f}, {s[1]:+.3f}, {s[2]:+.3f})")
+```
+
+**Why every game engine uses quaternions for rotations:**
+
+- **Euler angles are a leaky abstraction.** Composing Euler rotations
+  is order-dependent (XYZ ≠ ZYX), and at certain orientations two of
+  the three axes "collapse" (gimbal lock). Linear interpolation
+  between Euler triples produces *wobbly* paths, not the
+  shortest-arc rotation.
+- **Quaternions are 4 numbers with no singularities.** Any 3-D
+  rotation is a unit quaternion $q = (\cos(\theta/2), \sin(\theta/2)\,
+  \hat{n})$. Composing rotations is one quaternion multiply.
+- **SLERP gives the geometrically correct interpolation.** Sliding
+  along a great-circle on the 4-D unit sphere is a constant-speed,
+  shortest-path rotation — the *only* method that animates rotations
+  smoothly under all conditions.
+
+Unity, Unreal, Godot, Blender, and pretty much every modern 3-D engine
+store all character/camera/bone rotations as quaternions internally,
+and convert to Euler only for human-readable display.
+
 ## Connection to CS / Games / AI
 
 - **Unity/Unreal** — `Quaternion.Slerp()` for smooth camera and character rotation

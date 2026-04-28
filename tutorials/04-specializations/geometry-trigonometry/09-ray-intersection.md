@@ -174,6 +174,121 @@ for s in spheres:
 print(f"  Nearest: {nearest_name} at t={nearest_t:.2f}")
 ```
 
+## Visualisation — A simple ray tracer in 30 lines
+
+Ray–sphere and ray–plane intersections together are enough to render
+a 3-D scene in 2-D. The plot fires one ray per pixel from a camera
+through a small scene of two spheres + a ground plane, and shows the
+resulting image. This is the *kernel* of every ray tracer ever
+written.
+
+```python
+# ── A minimalist ray tracer ─────────────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+def normalise(v): return v / np.linalg.norm(v)
+
+# Scene: two spheres above a checker-pattern ground plane (y = 0).
+spheres = [
+    {"centre": np.array([ 0.0, 1.0, 4.0]), "radius": 1.0, "colour": np.array([0.7, 0.2, 0.2])},
+    {"centre": np.array([-2.0, 0.7, 5.0]), "radius": 0.7, "colour": np.array([0.2, 0.5, 0.7])},
+]
+plane_y = 0.0
+camera  = np.array([0.0, 1.0, 0.0])
+light   = normalise(np.array([1.0, 2.0, -1.0]))
+
+def ray_sphere(o, d, c, r):
+    """Returns smallest positive t where ray o + t·d hits sphere, or None."""
+    m = o - c
+    b = 2 * np.dot(m, d)
+    cc = np.dot(m, m) - r * r
+    disc = b * b - 4 * cc                  # a = 1 since |d| = 1
+    if disc < 0: return None
+    sq = np.sqrt(disc)
+    t1, t2 = (-b - sq) / 2, (-b + sq) / 2
+    return t1 if t1 > 1e-3 else (t2 if t2 > 1e-3 else None)
+
+def ray_plane(o, d, y):
+    if abs(d[1]) < 1e-6: return None
+    t = (y - o[1]) / d[1]
+    return t if t > 1e-3 else None
+
+def trace(origin, direction):
+    nearest_t = float("inf")
+    nearest_normal = None; nearest_colour = None
+    # Test all spheres.
+    for s in spheres:
+        t = ray_sphere(origin, direction, s["centre"], s["radius"])
+        if t is not None and t < nearest_t:
+            nearest_t = t
+            hit = origin + t * direction
+            nearest_normal = normalise(hit - s["centre"])
+            nearest_colour = s["colour"]
+    # Test ground plane.
+    t = ray_plane(origin, direction, plane_y)
+    if t is not None and t < nearest_t:
+        nearest_t = t
+        hit = origin + t * direction
+        # Checker pattern.
+        cx, cz = int(np.floor(hit[0])), int(np.floor(hit[2]))
+        nearest_colour = np.array([0.8, 0.8, 0.8]) if (cx + cz) % 2 == 0 \
+                          else np.array([0.2, 0.2, 0.2])
+        nearest_normal = np.array([0.0, 1.0, 0.0])
+
+    if nearest_normal is None:
+        return np.array([0.5, 0.7, 0.95])     # sky background
+    # Lambertian shading: brightness = max(0, n · L)
+    brightness = max(0.1, float(np.dot(nearest_normal, light)))
+    return brightness * nearest_colour
+
+# Render a tiny image (small so Pyodide doesn't take ages).
+W, H = 80, 60
+aspect = W / H
+img = np.zeros((H, W, 3))
+for j in range(H):
+    for i in range(W):
+        # Map pixel (i, j) to a direction in the world. y is flipped so
+        # row 0 is the top of the image.
+        x = (2 * (i + 0.5) / W - 1) * aspect * 0.7
+        y = (1 - 2 * (j + 0.5) / H) * 0.7
+        direction = normalise(np.array([x, y, 1.0]))
+        img[j, i] = np.clip(trace(camera, direction), 0, 1)
+
+fig, ax = plt.subplots(1, 1, figsize=(8, 6))
+ax.imshow(img)
+ax.set_title(f"Rendered {W}×{H} image\nray-traced through 2 spheres + checkered ground")
+ax.axis("off")
+plt.tight_layout()
+plt.show()
+
+# Sanity-check single-pixel intersections so the lesson math is verified numerically.
+print("Sanity: cast central ray and see what it hits.")
+direction = normalise(np.array([0.0, 0.0, 1.0]))
+for s in spheres:
+    t = ray_sphere(camera, direction, s["centre"], s["radius"])
+    print(f"  Sphere at {s['centre']}, r={s['radius']}: ray hit at t = {t}")
+t = ray_plane(camera, direction, plane_y)
+print(f"  Ground plane y = 0: hit at t = {t}")
+```
+
+**The 30-line ray tracer encapsulates all of computer graphics:**
+
+- **Each pixel = one ray.** From the camera, shoot a ray through the
+  pixel's direction. Find the *closest* intersection with any object
+  in the scene.
+- **Surface normal + light direction = shading.** Lambertian
+  ("diffuse") shading is just $\max(0, \mathbf{n} \cdot \mathbf{L})$
+  — exactly the dot product from lesson 3 of linear algebra.
+- **Recursion gives reflections / refractions.** Spawn a new ray from
+  the hit point and repeat the trace. A few bounces produce
+  glossy mirrors (Pixar's RenderMan, Unreal Engine's Lumen). Many
+  bounces with random directions = path tracing (full Monte Carlo
+  global illumination).
+- **Every modern renderer is built on these primitives.** Real
+  systems use BVH acceleration structures, GPU SIMD, and learned
+  denoisers — but the per-pixel logic is the picture above.
+
 ## Connection to CS / Games / AI
 
 - **Ray tracing** — cast rays from camera through each pixel; find intersections for photorealistic rendering

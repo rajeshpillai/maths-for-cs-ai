@@ -147,6 +147,128 @@ for frame in range(8):
     player_pos[1] += velocity[1]
 ```
 
+## Visualisation — Three collision tests at a glance
+
+Three of the most-used collision tests in 2-D games and physics
+engines: circle–circle (cheapest), AABB (axis-aligned bounding box,
+fast and pixel-perfect for many cases), and point-in-polygon (used
+for clicking on irregular shapes). The plot draws each test with hit
+and miss cases side by side.
+
+```python
+# ── Visualising 2-D collision detection ─────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Rectangle, Polygon
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 5.5))
+
+# (1) Circle-vs-circle: collide iff distance between centres ≤ sum of radii.
+ax = axes[0]
+pairs = [
+    ((1, 1), 0.7, (3.0, 1), 0.7, "MISS"),       # gap of 0.6
+    ((6, 1), 0.7, (7.2, 1), 0.7, "HIT"),         # overlap 0.2
+    ((1, 3), 0.7, (2.4, 3), 0.7, "TOUCH"),       # exact contact
+]
+for (c1, r1, c2, r2, label) in pairs:
+    d = np.linalg.norm(np.array(c1) - np.array(c2))
+    color = "tab:red" if d < r1 + r2 else "tab:green" if d > r1 + r2 + 0.05 else "tab:orange"
+    ax.add_patch(Circle(c1, r1, fill=False, edgecolor=color, lw=2))
+    ax.add_patch(Circle(c2, r2, fill=False, edgecolor=color, lw=2))
+    midpt = ((c1[0] + c2[0]) / 2, (c1[1] + c2[1]) / 2)
+    ax.text(midpt[0], midpt[1] + 1.2, f"{label}\nd = {d:.2f},  r1+r2 = {r1+r2:.2f}",
+            ha="center", fontsize=9, color=color, fontweight="bold")
+ax.set_xlim(-1, 9); ax.set_ylim(-1, 5); ax.set_aspect("equal")
+ax.set_title("Circle vs Circle: collide if d ≤ r₁ + r₂")
+ax.grid(True, alpha=0.3)
+
+# (2) AABB vs AABB: collide iff they overlap on BOTH x and y axes.
+ax = axes[1]
+boxes = [
+    ((0, 0), 2, 1.5, "A"),
+    ((1.5, 0.5), 2, 1.5, "B (overlaps A)"),
+    ((4, 0), 1.5, 1, "C (no overlap with A or B)"),
+]
+colors = ["tab:blue", "tab:red", "tab:green"]
+for (xy, w, h, label), color in zip(boxes, colors):
+    ax.add_patch(Rectangle(xy, w, h, fill=False, edgecolor=color, lw=2))
+    ax.text(xy[0] + w/2, xy[1] + h/2, label, color=color, fontsize=10,
+            ha="center", va="center", fontweight="bold")
+# AABB overlap test for A vs B and A vs C.
+def aabb_overlap(a, b):
+    (ax_, ay_), aw, ah, _ = a
+    (bx_, by_), bw, bh, _ = b
+    return ax_ < bx_ + bw and bx_ < ax_ + aw and ay_ < by_ + bh and by_ < ay_ + ah
+ax.text(0.5, 3.2, f"A ↔ B: {'HIT' if aabb_overlap(boxes[0], boxes[1]) else 'MISS'}",
+        fontsize=10, fontweight="bold", color="tab:red" if aabb_overlap(boxes[0], boxes[1]) else "tab:green")
+ax.text(0.5, 2.8, f"A ↔ C: {'HIT' if aabb_overlap(boxes[0], boxes[2]) else 'MISS'}",
+        fontsize=10, fontweight="bold", color="tab:red" if aabb_overlap(boxes[0], boxes[2]) else "tab:green")
+ax.set_xlim(-1, 7); ax.set_ylim(-1, 4); ax.set_aspect("equal")
+ax.set_title("AABB: overlap on BOTH axes\n(else miss)")
+ax.grid(True, alpha=0.3)
+
+# (3) Point-in-polygon by ray-casting.
+ax = axes[2]
+poly = np.array([[1, 1], [4, 1], [5, 3], [3, 4.5], [0.5, 3]])
+ax.add_patch(Polygon(poly, closed=True, fill=False, edgecolor="black", lw=2))
+def point_in_polygon(p, poly):
+    """Cast a ray to the right; count edges crossed (odd = inside)."""
+    x, y = p
+    inside = False
+    j = len(poly) - 1
+    for i in range(len(poly)):
+        xi, yi = poly[i]; xj, yj = poly[j]
+        if ((yi > y) != (yj > y)) and \
+           (x < (xj - xi) * (y - yi) / (yj - yi + 1e-12) + xi):
+            inside = not inside
+        j = i
+    return inside
+
+test_points = [(2.5, 2), (5, 4), (3, 0.5), (0, 3), (3.5, 3)]
+for p in test_points:
+    inside = point_in_polygon(p, poly)
+    color = "tab:red" if inside else "tab:green"
+    ax.scatter(*p, color=color, s=100, zorder=5)
+    ax.annotate(f"{p}: {'IN' if inside else 'OUT'}", xy=p,
+                xytext=(p[0] + 0.2, p[1] + 0.2), fontsize=9, color=color)
+ax.set_xlim(-1, 7); ax.set_ylim(-1, 6); ax.set_aspect("equal")
+ax.set_title("Point in polygon (ray-cast test)\nodd # crossings = inside")
+ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the test results to corroborate.
+print("Circle-vs-circle results:")
+for (c1, r1, c2, r2, label) in pairs:
+    d = np.linalg.norm(np.array(c1) - np.array(c2))
+    print(f"  centres {c1}, {c2}: d = {d:.3f}, r1+r2 = {r1+r2:.3f}  →  {label}")
+print()
+print("Point-in-polygon results:")
+for p in test_points:
+    print(f"  {p}: {'inside' if point_in_polygon(p, poly) else 'outside'}")
+```
+
+**Three workhorses of every physics / game engine:**
+
+- **Circle vs circle**: one square root (or just compare squared
+  distances, no `sqrt` needed — that's the trick every engine
+  uses for performance). $d^2 \le (r_1 + r_2)^2$ is a single
+  multiplication-and-compare.
+- **AABB vs AABB** ("axis-aligned bounding box"): overlap on **both**
+  axes ⇒ hit. Used as the *broad phase* of collision detection — a
+  fast first pass that throws away most pairs before doing the
+  expensive precise tests.
+- **Point in polygon by ray-casting**: cast a ray from the test point
+  and count how many polygon edges it crosses. Odd ⇒ inside, even ⇒
+  outside. This is exactly what *clicking on a country in an
+  interactive map* does, and how irregular collision shapes work in
+  Box2D and Bullet.
+
+Combining these three handles ~95% of the geometry queries in any 2-D
+game; the same shapes generalise to **3-D** (sphere, AABB, mesh) for
+3-D engines.
+
 ## Connection to CS / Games / AI
 
 - **Physics engines** — Box2D (2D), Bullet/PhysX (3D) use these algorithms

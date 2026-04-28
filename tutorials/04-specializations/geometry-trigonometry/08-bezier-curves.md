@@ -108,6 +108,126 @@ while len(level) > 1:
 print(f"  Result: ({level[0][0]:.3f}, {level[0][1]:.3f})")
 ```
 
+## Visualisation — Bézier curves and de Casteljau's algorithm
+
+A Bézier curve is defined by a set of **control points**; the curve
+*starts at the first*, *ends at the last*, and is gently pulled
+toward the others. The plot draws several curves of different
+degrees, then visualises **de Casteljau's algorithm** — repeated
+linear interpolation that traces out the curve point by point.
+
+```python
+# ── Visualising Bézier curves and de Casteljau ──────────────
+import numpy as np
+import matplotlib.pyplot as plt
+from math import comb
+
+def bezier(points, t):
+    """Direct Bernstein-polynomial evaluation."""
+    n = len(points) - 1
+    pts = np.asarray(points, dtype=float)
+    out = np.zeros(2)
+    for i in range(n + 1):
+        out += comb(n, i) * (1 - t) ** (n - i) * t ** i * pts[i]
+    return out
+
+def de_casteljau_levels(points, t):
+    """Return the list of intermediate point arrays (the 'pyramid')."""
+    levels = [np.asarray(points, dtype=float)]
+    while len(levels[-1]) > 1:
+        prev = levels[-1]
+        nxt = (1 - t) * prev[:-1] + t * prev[1:]
+        levels.append(nxt)
+    return levels
+
+fig, axes = plt.subplots(1, 3, figsize=(16, 5.2))
+
+# (1) Linear, quadratic, cubic Béziers from the same start and end points.
+ax = axes[0]
+linear   = [(0, 0), (3, 2)]
+quadratic = [(0, 0), (1, 3), (3, 2)]
+cubic    = [(0, 0), (1, 3), (2, -1), (3, 2)]
+ts = np.linspace(0, 1, 100)
+for pts, label, color in [(linear,    "linear (n=1)",    "tab:red"),
+                          (quadratic, "quadratic (n=2)", "tab:orange"),
+                          (cubic,     "cubic (n=3)",     "tab:green")]:
+    curve = np.array([bezier(pts, t) for t in ts])
+    ax.plot(curve[:, 0], curve[:, 1], lw=2, color=color, label=label)
+    pts_arr = np.array(pts)
+    ax.plot(pts_arr[:, 0], pts_arr[:, 1], "o--", color=color, alpha=0.4,
+            markersize=6, lw=1)
+ax.set_title("Bézier curves of degrees 1, 2, 3\n(dashed = control polygon)")
+ax.set_xlim(-0.5, 4); ax.set_ylim(-2, 4); ax.set_aspect("equal")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) De Casteljau's algorithm at t = 0.5 — repeatedly take midpoints.
+ax = axes[1]
+control = [(0, 0), (1, 3), (3, 3), (4, 0)]
+control_arr = np.array(control)
+ax.plot(control_arr[:, 0], control_arr[:, 1], "o--", color="tab:blue",
+        markersize=10, lw=1, label="control points")
+# Full curve.
+ts_full = np.linspace(0, 1, 200)
+curve = np.array([bezier(control, t) for t in ts_full])
+ax.plot(curve[:, 0], curve[:, 1], color="tab:blue", lw=2)
+# Highlight de Casteljau pyramid at t = 0.5.
+levels = de_casteljau_levels(control, 0.5)
+colors = ["tab:red", "tab:orange", "tab:green", "tab:purple"]
+for i, level in enumerate(levels[1:], start=1):                # skip the original points
+    pts = np.array(level)
+    if len(pts) > 1:
+        ax.plot(pts[:, 0], pts[:, 1], "o-", color=colors[i],
+                markersize=8, lw=1.5, label=f"step {i}")
+    else:
+        ax.scatter(pts[:, 0], pts[:, 1], color="black", s=200, marker="X",
+                   zorder=10, label=f"final point at t=0.5")
+ax.set_title("de Casteljau at t = 0.5\n(repeated midpoints → curve point)")
+ax.set_xlim(-0.5, 4.5); ax.set_ylim(-0.5, 3.5); ax.set_aspect("equal")
+ax.legend(loc="lower right", fontsize=9); ax.grid(True, alpha=0.3)
+
+# (3) Effect of moving a control point: same curve, shifted middle handle.
+ax = axes[2]
+base = np.array([(0, 0), (1, 2), (3, 2), (4, 0)], dtype=float)
+for shift, color in zip([-2, 0, 2], ["tab:red", "tab:blue", "tab:green"]):
+    moved = base.copy()
+    moved[1, 1] += shift          # only move the second control point's y
+    moved[2, 1] += shift
+    curve = np.array([bezier(moved, t) for t in ts_full])
+    ax.plot(curve[:, 0], curve[:, 1], color=color, lw=2,
+            label=f"middle handles y += {shift}")
+    ax.plot(moved[:, 0], moved[:, 1], "o--", color=color, alpha=0.3, lw=0.8)
+ax.set_title("Moving control points → curve bends with them\n(this is exactly the pen tool in Illustrator)")
+ax.set_xlim(-0.5, 4.5); ax.set_ylim(-1.5, 4.5); ax.set_aspect("equal")
+ax.legend(fontsize=9); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print intermediate values from de Casteljau on the cubic.
+print("De Casteljau pyramid for the cubic at t = 0.5:")
+for i, level in enumerate(levels):
+    pts = [tuple(np.round(p, 3)) for p in level]
+    print(f"  level {i}: {pts}")
+```
+
+**Three things the plots make obvious:**
+
+- **Higher degree = more flexibility.** Linear is a straight line;
+  quadratic adds one bend; cubic gives you S-curves. *Most graphics
+  systems use cubic Béziers* — they're the sweet spot of expressive
+  power vs control complexity. SVG, PostScript, TrueType fonts, and
+  Adobe Illustrator all draw cubic Béziers.
+- **De Casteljau is the simplest possible algorithm.** Repeated linear
+  interpolation between consecutive control points produces the curve
+  point by point. It's also numerically stable and easy to subdivide
+  for high-quality rendering.
+- **Designers manipulate Béziers visually.** Drag a control point in
+  Illustrator or Figma — you're moving one of the dashed dots in the
+  rightmost plot, and the curve bends to follow. CSS animations'
+  `cubic-bezier(x1, y1, x2, y2)` timing function is *exactly* a cubic
+  Bézier with two of the four control points fixed at $(0, 0)$ and
+  $(1, 1)$, and the curve interpreted as time-vs-progress.
+
 ## Connection to CS / Games / AI
 
 - **Vector graphics** — SVG paths, Adobe Illustrator, font outlines (TrueType)
