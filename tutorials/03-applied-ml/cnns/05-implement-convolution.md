@@ -184,6 +184,127 @@ for desc, F, oH, oW, C, K in configs:
 print(f"  Total: {total_ops:,} operations per sample")
 ```
 
+## Visualisation — A multi-channel conv layer in action
+
+A real CNN layer takes a **multi-channel input** (e.g. an RGB image
+has 3 channels) and produces a **multi-channel output** (one feature
+map per filter). The plot shows: 3 input channels (R, G, B), 4
+learnable filters, 4 output feature maps — the structure of every
+`Conv2d(3, 4, 3)` layer in PyTorch.
+
+```python
+# ── Visualising a multi-channel conv layer ──────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(0)
+
+def conv2d_multichan(image_HWC, filters_FKKC):
+    """Conv: image (H, W, C_in) and filters (F, K, K, C_in)
+       → output (H − K + 1, W − K + 1, F).  Pure NumPy."""
+    H, W, C = image_HWC.shape
+    F, K, _, _ = filters_FKKC.shape
+    out = np.zeros((H - K + 1, W - K + 1, F))
+    for f in range(F):
+        for i in range(out.shape[0]):
+            for j in range(out.shape[1]):
+                # Sum over kernel pixels AND input channels.
+                out[i, j, f] = (image_HWC[i:i + K, j:j + K, :] *
+                                filters_FKKC[f]).sum()
+    return out
+
+# Build a synthetic 24×24 RGB image: a colourful pattern.
+H, W = 24, 24
+img = np.zeros((H, W, 3))
+yy, xx = np.ogrid[:H, :W]
+img[..., 0] = 0.5 + 0.5 * np.sin(xx / 3)             # red: vertical sinusoid
+img[..., 1] = 0.5 + 0.5 * np.sin(yy / 3)             # green: horizontal sinusoid
+img[..., 2] = (((xx - W/2)**2 + (yy - H/2)**2) < 25).astype(float)  # blue: central disc
+
+# Hand-designed 4 filters: edge-X, edge-Y, blur, identity-on-blue.
+F, K = 4, 3
+filters = np.zeros((F, K, K, 3))
+sobel_x = np.array([[-1, 0, 1], [-2, 0, 2], [-1, 0, 1]])
+sobel_y = np.array([[-1, -2, -1], [0, 0, 0], [1, 2, 1]])
+blur    = np.ones((3, 3)) / 9.0
+# Each filter combines its kernel across all 3 channels (averaged).
+for c in range(3): filters[0, ..., c] = sobel_x / 3
+for c in range(3): filters[1, ..., c] = sobel_y / 3
+for c in range(3): filters[2, ..., c] = blur     / 3
+filters[3, ..., 2] = np.eye(3) / 3                  # only sees blue channel
+
+out = conv2d_multichan(img, filters)
+filter_names = ["edge-X (Sobel)", "edge-Y (Sobel)", "blur", "blue-only diagonal"]
+
+fig = plt.figure(figsize=(15, 9))
+
+# Top row: 3 input channels.
+for c, name in enumerate(["R", "G", "B"]):
+    ax = fig.add_subplot(3, 4, c + 1)
+    ax.imshow(img[..., c], cmap="gray", vmin=0, vmax=1)
+    ax.set_title(f"input channel {name}")
+    ax.axis("off")
+
+# Original RGB combined for reference.
+ax = fig.add_subplot(3, 4, 4)
+ax.imshow(img)
+ax.set_title("RGB image\n(combined view)")
+ax.axis("off")
+
+# Middle row: the four 3×3×3 filters, summarised by averaging over channels.
+for f in range(F):
+    ax = fig.add_subplot(3, 4, 5 + f)
+    avg_filter = filters[f].mean(axis=-1)
+    im = ax.imshow(avg_filter, cmap="RdBu", vmin=-1, vmax=1)
+    for i in range(K):
+        for j in range(K):
+            ax.text(j, i, f"{avg_filter[i, j]:+.2f}",
+                    ha="center", va="center", fontsize=8)
+    ax.set_title(f"filter {f}: {filter_names[f]}\n(channel-avg view)")
+    ax.set_xticks([]); ax.set_yticks([])
+
+# Bottom row: 4 output feature maps.
+for f in range(F):
+    ax = fig.add_subplot(3, 4, 9 + f)
+    ax.imshow(out[..., f], cmap="viridis")
+    ax.set_title(f"output channel {f}")
+    ax.axis("off")
+
+plt.tight_layout()
+plt.show()
+
+# Print parameter and FLOP counts for some realistic CNN layers.
+print(f"For a Conv2d layer with K={K}, C_in=3, C_out={F}:")
+print(f"  Parameters    : F × K × K × C_in + F = "
+      f"{F} × {K} × {K} × 3 + {F} = {F * K * K * 3 + F:,}")
+print(f"  Output shape  : {out.shape}")
+print(f"  Multiply-adds : F × out_H × out_W × K × K × C_in = "
+      f"{F * out.shape[0] * out.shape[1] * K * K * 3:,}")
+print()
+print("Realistic FLOPs grow fast with channel count:")
+for desc, F_, oH, oW, C_in, K_ in [
+    ("ResNet50 conv block (256→512, 3×3, 28×28 out)", 512, 28, 28, 256, 3),
+    ("Stable Diffusion U-Net cross-attn step (1024×1024 → ...)", 320, 64, 64, 320, 3),
+]:
+    flops = F_ * oH * oW * K_ * K_ * C_in
+    print(f"  {desc}: {flops:,} multiply-adds per layer")
+```
+
+**The structure of every `Conv2d(C_in, C_out, K)`:**
+
+- **One filter is a 3-D tensor of shape $(K, K, C_{in})$.** It looks at
+  *all input channels* in the same $K \times K$ spatial window
+  simultaneously.
+- **The layer has $C_{out}$ such filters** (plus $C_{out}$ biases). Each
+  filter produces one output feature map. Stacking those gives the
+  output tensor of shape $(H', W', C_{out})$.
+- **Parameters = $C_{out} \times K \times K \times C_{in} + C_{out}$.**
+  For a typical mid-network ResNet block (256 → 512, 3×3) that's
+  $512 \times 3 \times 3 \times 256 + 512 = 1{,}180{,}160$ parameters
+  in a *single layer*. CNN parameter counts add up fast — but they're
+  still vastly fewer than what a fully-connected layer of the same
+  shape would have.
+
 ## Connection to CS / Games / AI
 
 - **Understanding frameworks** — `torch.nn.Conv2d(in_channels, out_channels, kernel_size)` does exactly what we coded

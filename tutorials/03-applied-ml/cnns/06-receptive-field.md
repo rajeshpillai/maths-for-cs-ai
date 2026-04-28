@@ -180,6 +180,119 @@ for d in [1, 2, 4, 8]:
     print(f"  3×3, dilation={d}: effective kernel = {eff_k}×{eff_k}, params = 9")
 ```
 
+## Visualisation — Receptive field grows with depth
+
+The **receptive field** is "how many input pixels can ultimately
+influence a single output pixel". Two pictures: how a stack of small
+3×3 convs builds an effective large field cheaply, and how *dilation*
+enlarges the field for free without adding parameters.
+
+```python
+# ── Visualising receptive-field growth ──────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Recursive formula:
+#   r_{l+1} = r_l + (k_{l+1} − 1) · stride_product
+# where stride_product is the cumulative stride up to layer l.
+def receptive_field(layers):
+    """layers: list of (kernel_size, stride). Returns RF and per-layer history."""
+    r = 1; s_prod = 1; history = [(0, "input", r)]
+    for idx, (k, s) in enumerate(layers, start=1):
+        r = r + (k - 1) * s_prod
+        s_prod *= s
+        history.append((idx, f"conv{idx}: k={k}, s={s}", r))
+    return r, history
+
+# Stack of 3×3 convs (stride 1) → RF grows by 2 per layer.
+stack_3 = [(3, 1)] * 8
+# Add stride-2 layers in between.
+mixed = [(3, 1), (3, 1), (2, 2),                 # block1
+         (3, 1), (3, 1), (2, 2),                 # block2
+         (3, 1), (3, 1), (3, 1), (2, 2),         # block3 (VGG-like)
+         (3, 1), (3, 1), (3, 1)]                 # block4
+
+_, hist_stack = receptive_field(stack_3)
+_, hist_mixed = receptive_field(mixed)
+
+fig, axes = plt.subplots(1, 2, figsize=(15, 5))
+
+# (1) Receptive field vs depth: 3×3 stack vs mixed (with downsampling).
+ax = axes[0]
+xs1 = [h[0] for h in hist_stack]
+ys1 = [h[2] for h in hist_stack]
+xs2 = [h[0] for h in hist_mixed]
+ys2 = [h[2] for h in hist_mixed]
+ax.plot(xs1, ys1, "o-", color="tab:blue", lw=2, label="Eight 3×3 convs (stride 1)")
+ax.plot(xs2, ys2, "s-", color="tab:red",  lw=2, label="VGG-like with pool/stride-2")
+for x, _, r in hist_mixed[::3]:
+    ax.text(x, r + 4, f"RF = {r}", fontsize=9, color="tab:red", ha="center")
+ax.set_xlabel("layer index")
+ax.set_ylabel("receptive field (input pixels)")
+ax.set_title("Receptive field grows with depth\n— stride-2 layers boost it dramatically")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) Dilated convolution: same 9 weights see a much wider area.
+# A 3×3 kernel with dilation d "samples" pixels at spacing d, so its
+# effective receptive field is k_eff = k + (k − 1)(d − 1) = 1 + 2d.
+ax = axes[1]
+fig_size = 17
+for d_idx, dilation in enumerate([1, 2, 4]):
+    centre = fig_size // 2
+    img = np.ones((fig_size, fig_size)) * 0.95
+    # Mark which pixels the kernel SAMPLES at this dilation.
+    for di in (-1, 0, 1):
+        for dj in (-1, 0, 1):
+            i = centre + di * dilation
+            j = centre + dj * dilation
+            if 0 <= i < fig_size and 0 <= j < fig_size:
+                img[i, j] = 0.0 if (di, dj) == (0, 0) else 0.4
+    extent = [d_idx * (fig_size + 2), (d_idx + 1) * (fig_size + 2) - 2,
+              0, fig_size]
+    ax.imshow(img, cmap="gray", vmin=0, vmax=1, extent=extent)
+    ax.text((d_idx + 0.5) * (fig_size + 2),
+            -1.5, f"dilation = {dilation}\nRF = {1 + 2*dilation}×{1 + 2*dilation}",
+            fontsize=11, ha="center")
+ax.set_xlim(-1, 3 * (fig_size + 2))
+ax.set_ylim(-3.5, fig_size + 1)
+ax.set_aspect("equal"); ax.axis("off")
+ax.set_title("Dilated convolution: same 9 parameters, larger RF")
+
+plt.tight_layout()
+plt.show()
+
+# Summary table.
+print("Receptive-field history for the simple 3×3 stack (no pooling):")
+for idx, label, r in hist_stack:
+    print(f"  layer {idx:>2}: {label:<15}  RF = {r:>3} px")
+print()
+print("And for a VGG-like mix with pool/stride-2 layers:")
+for idx, label, r in hist_mixed[::2]:
+    print(f"  layer {idx:>2}: {label:<22}  RF = {r:>4} px")
+```
+
+**Two forces grow the receptive field:**
+
+- **Depth alone is *additive*.** Each 3×3 conv with stride 1 adds 2 to
+  the receptive field. After 10 such convs the field is 21 — modest.
+- **Stride and pooling are *multiplicative*.** Once you stride by 2,
+  every subsequent kernel pixel "covers" twice as many input pixels as
+  before. This is why VGG (and ResNet, EfficientNet, ConvNeXt…) reach
+  receptive fields of *hundreds* of pixels by their final layers,
+  even with tiny 3×3 kernels.
+- **Dilation = receptive field for free.** A 3×3 kernel with dilation
+  $d$ samples pixels at spacing $d$ — so its effective receptive size
+  is $1 + 2d$, while still using only 9 weights. Dilated convs power
+  semantic-segmentation networks (DeepLab, U-Net++) and audio models
+  like WaveNet, where you need a huge context without paying for a
+  huge kernel.
+
+The receptive field is the answer to "*can my network even see the
+relevant context?*" — for object detection it must cover entire
+objects; for time-series forecasting it must reach back far enough to
+see relevant history. Underestimate it and your network is staring at
+a tiny window of the world.
+
 ## Connection to CS / Games / AI
 
 - **Architecture design** — receptive field must be large enough to capture the relevant pattern (e.g., a face is ~100px, so RF must be ≥100)

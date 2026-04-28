@@ -173,6 +173,117 @@ for W, K_size in [(28, 3), (28, 5), (32, 3), (224, 7)]:
     print(f"  Input {W}×{W}, Kernel {K_size}×{K_size} → Output {out}×{out}")
 ```
 
+## Visualisation — Image filters as convolutions
+
+A 2-D convolution slides a small **kernel** across an image, producing
+an output where each pixel is the weighted sum of its neighbourhood.
+Different kernels do different things — blur, sharpen, edge-detect.
+This is the *exact* operation a convolutional layer in a CNN performs;
+the only difference is that CNNs *learn* the kernel from data instead
+of hand-designing it.
+
+```python
+# ── Visualising 2-D convolution kernels ─────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+def correlate2d(image, kernel):
+    """Valid-mode 2-D cross-correlation (what CNN libraries actually
+    compute — convolution differs only by a kernel flip, see lesson 2)."""
+    H, W = image.shape
+    kH, kW = kernel.shape
+    out = np.zeros((H - kH + 1, W - kW + 1))
+    for i in range(out.shape[0]):
+        for j in range(out.shape[1]):
+            out[i, j] = (image[i:i + kH, j:j + kW] * kernel).sum()
+    return out
+
+# Build a synthetic test image: a checker pattern with a circular blob
+# in the middle. Keeps the picture small enough that Pyodide handles it
+# fast and lets us *see* what each kernel does pixel by pixel.
+def make_test_image(N=40):
+    img = np.zeros((N, N))
+    # Vertical stripes (high-frequency content for edge detectors).
+    img[:, ::4] = 1.0
+    # Horizontal stripes mid-strip.
+    img[N // 3 : N // 3 + 2, :] = 0.5
+    # Bright disk in the middle.
+    yy, xx = np.ogrid[:N, :N]
+    disk = (yy - N / 2) ** 2 + (xx - N / 2) ** 2 < (N / 5) ** 2
+    img[disk] = 1.0
+    return img
+
+img = make_test_image(40)
+
+# Four hand-designed kernels, each picking out a different feature.
+kernels = {
+    "Blur (box, normalised)":      np.ones((3, 3)) / 9.0,
+    "Sharpen":                     np.array([[ 0, -1,  0],
+                                              [-1,  5, -1],
+                                              [ 0, -1,  0]], dtype=float),
+    "Vertical edges (Sobel-x)":    np.array([[-1, 0, 1],
+                                              [-2, 0, 2],
+                                              [-1, 0, 1]], dtype=float),
+    "Horizontal edges (Sobel-y)":  np.array([[-1, -2, -1],
+                                              [ 0,  0,  0],
+                                              [ 1,  2,  1]], dtype=float),
+}
+
+fig, axes = plt.subplots(2, len(kernels) + 1, figsize=(15, 6))
+
+# Original image (top-left); leave the bottom-left empty so the
+# columns line up with the four kernels.
+axes[0, 0].imshow(img, cmap="gray", vmin=0, vmax=1)
+axes[0, 0].set_title("Input image")
+axes[0, 0].axis("off")
+axes[1, 0].axis("off")
+axes[1, 0].text(0.5, 0.5, "Kernel ↓\nFiltered ↑", ha="center", va="center",
+                fontsize=11, transform=axes[1, 0].transAxes)
+
+for col, (name, k) in enumerate(kernels.items(), start=1):
+    out = correlate2d(img, k)
+    # Top row: the filtered output.
+    axes[0, col].imshow(out, cmap="gray")
+    axes[0, col].set_title(f"{name}\noutput {out.shape}")
+    axes[0, col].axis("off")
+    # Bottom row: visualise the 3×3 kernel as a heatmap with values.
+    axes[1, col].imshow(k, cmap="RdBu", vmin=-2, vmax=2)
+    for i in range(k.shape[0]):
+        for j in range(k.shape[1]):
+            axes[1, col].text(j, i, f"{k[i, j]:+.0f}",
+                              ha="center", va="center",
+                              fontsize=11, fontweight="bold",
+                              color="white" if abs(k[i, j]) > 1 else "black")
+    axes[1, col].set_title("kernel (3×3)")
+    axes[1, col].set_xticks([]); axes[1, col].set_yticks([])
+
+plt.tight_layout()
+plt.show()
+
+# Print the output-size formula for each kernel size, mirroring the lesson.
+print(f"{'input':>8}  {'kernel':>8}  {'output (no padding, stride 1)':>35}")
+for W in [28, 32, 64, 224]:
+    for K in [3, 5, 7]:
+        print(f"  {W}×{W:<5}  {K}×{K:<5}  {W - K + 1}×{W - K + 1}")
+```
+
+**The pictures explain a CNN at a glance:**
+
+- **Convolution = pixel-wise weighted sum of a neighbourhood.** Each
+  output pixel is a tiny dot product of the kernel and a 3×3 patch of
+  the input. Slide the kernel across, get a feature map.
+- **The kernel decides what feature you respond to.**
+  - Box filter → averages → **blur**.
+  - Centre-positive, neighbours-negative → **sharpen** (a kind of high-pass).
+  - $\pm$ along the columns → **vertical edge detector** (Sobel-x).
+  - $\pm$ along the rows → **horizontal edge detector** (Sobel-y).
+- **CNNs learn these kernels from data.** Early-layer kernels in a
+  trained CNN look strikingly like the Sobel filters above — the
+  network re-discovers edge detection on its own. Later layers combine
+  edges into corners and textures, then into object parts, then into
+  whole objects. *Hierarchical feature learning* is what makes CNNs
+  the dominant tool for vision.
+
 ## Connection to CS / Games / AI
 
 - **CNNs** — convolutional layers learn kernels automatically via backpropagation

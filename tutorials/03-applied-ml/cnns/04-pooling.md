@@ -184,6 +184,118 @@ print(f"  Upstream gradient: 0.5")
 print(f"  Gradients: [0, 0, 0, 0.5] (only max position gets gradient)")
 ```
 
+## Visualisation — Max-pool vs average-pool, side by side
+
+Pooling shrinks a feature map by summarising each window into a single
+value. **Max-pool** keeps the strongest signal in each window (good
+for "is this feature *present anywhere* in this region?"); **average-
+pool** keeps the smoothed mean. Same input, two outputs, very
+different feel.
+
+```python
+# ── Visualising max-pool vs average-pool ────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# A small feature map with a few sharp activations and lots of noise.
+# Mimics what an early CNN layer's edge response might look like.
+rng = np.random.default_rng(0)
+fmap = 0.3 * rng.standard_normal((8, 8))
+fmap[1, 1] = 3.0; fmap[1, 5] = 2.5
+fmap[5, 2] = 2.0; fmap[5, 6] = 2.8
+fmap[2, 7] = 1.5
+
+def pool2x2(f, op):
+    """Apply a 2x2 pool with stride 2 over feature map f."""
+    H, W = f.shape
+    out = np.zeros((H // 2, W // 2))
+    for i in range(out.shape[0]):
+        for j in range(out.shape[1]):
+            window = f[2*i:2*i + 2, 2*j:2*j + 2]
+            out[i, j] = op(window)
+    return out
+
+max_pool = pool2x2(fmap, np.max)
+avg_pool = pool2x2(fmap, np.mean)
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+
+# (1) Original feature map. Annotate each cell so the pool windows
+# below have something concrete to summarise.
+ax = axes[0]
+im = ax.imshow(fmap, cmap="viridis")
+for i in range(fmap.shape[0]):
+    for j in range(fmap.shape[1]):
+        ax.text(j, i, f"{fmap[i, j]:+.1f}", ha="center", va="center",
+                fontsize=8, color="white" if fmap[i, j] < 1 else "black")
+# Show the 2×2 pool windows as overlaid grid lines.
+for i in range(0, fmap.shape[0], 2):
+    ax.axhline(i - 0.5, color="white", lw=1.5)
+    ax.axvline(i - 0.5, color="white", lw=1.5)
+ax.axhline(fmap.shape[0] - 0.5, color="white", lw=1.5)
+ax.axvline(fmap.shape[1] - 0.5, color="white", lw=1.5)
+ax.set_title("Input feature map (8×8)\n2×2 pool windows shown by white grid")
+ax.axis("off")
+plt.colorbar(im, ax=ax, fraction=0.046)
+
+# (2) Max-pool output. Each cell = max of the corresponding 2×2 window.
+ax = axes[1]
+im = ax.imshow(max_pool, cmap="viridis", vmin=fmap.min(), vmax=fmap.max())
+for i in range(max_pool.shape[0]):
+    for j in range(max_pool.shape[1]):
+        ax.text(j, i, f"{max_pool[i, j]:+.1f}", ha="center", va="center",
+                fontsize=10, color="white" if max_pool[i, j] < 1 else "black",
+                fontweight="bold")
+ax.set_title("Max-pool 2×2, stride 2 → 4×4\n(keeps the strongest activation)")
+ax.axis("off")
+plt.colorbar(im, ax=ax, fraction=0.046)
+
+# (3) Average-pool output. Each cell = mean of the 2×2 window.
+ax = axes[2]
+im = ax.imshow(avg_pool, cmap="viridis", vmin=fmap.min(), vmax=fmap.max())
+for i in range(avg_pool.shape[0]):
+    for j in range(avg_pool.shape[1]):
+        ax.text(j, i, f"{avg_pool[i, j]:+.2f}", ha="center", va="center",
+                fontsize=10, color="white" if avg_pool[i, j] < 1 else "black",
+                fontweight="bold")
+ax.set_title("Average-pool 2×2, stride 2 → 4×4\n(smoothed; noise + signal mixed)")
+ax.axis("off")
+plt.colorbar(im, ax=ax, fraction=0.046)
+
+plt.tight_layout()
+plt.show()
+
+# Print the parameter / spatial-shape comparison.
+print(f"Input feature map: {fmap.shape}")
+print(f"After 2×2 pool, stride 2: {max_pool.shape}  "
+      f"(spatial size halved, channel count unchanged)")
+print(f"\nMax-pool keeps:  {[f'{v:+.1f}' for v in max_pool.flatten()]}")
+print(f"Avg-pool keeps:  {[f'{v:+.2f}' for v in avg_pool.flatten()]}")
+print()
+print("Why max-pool is more common in vision CNNs:")
+print("  - Stronger activations are usually 'features detected', noise is small.")
+print("  - Max-pool is a noise filter: weak responses get crushed; strong ones survive.")
+print("  - Avg-pool blends them all together, diluting the signal.")
+print("  - Modern architectures (ResNet, ConvNeXt) often skip pooling entirely")
+print("    and downsample with stride-2 convolutions instead.")
+```
+
+**Why pooling matters (and why some networks skip it):**
+
+- **Pooling is the cheap downsampler.** Cuts spatial size by 4× per
+  2×2 pool, removing parameters from later FC layers. Pre-2015 it
+  appeared after every 2-3 conv layers (LeNet, AlexNet, VGG).
+- **Max-pool is *spatial robustness*.** A small shift in the input
+  (a feature appearing one pixel left or right within a window) gives
+  the same output. This is *translation invariance at the pixel scale*
+  — a useful inductive bias for image classification.
+- **Modern architectures often drop pooling.** ResNet uses stride-2
+  convs that *learn* the downsampling filter; ConvNeXt and ViT use
+  patch-based downsampling. **Global average pooling** at the end of
+  the network — turning a $H \times W \times C$ tensor into a $C$-vector
+  by averaging across spatial dimensions — is now standard in place
+  of large FC layers, slashing parameters and reducing overfitting.
+
 ## Connection to CS / Games / AI
 
 - **LeNet, AlexNet, VGG** — all use max pooling after conv layers

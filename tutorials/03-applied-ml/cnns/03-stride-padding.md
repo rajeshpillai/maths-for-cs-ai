@@ -174,6 +174,90 @@ print(f"  Conv (16 filters, 5×5):     {conv_params:,} params")
 print(f"  Ratio: {fc_params/conv_params:.0f}×")
 ```
 
+## Visualisation — Stride and padding control the output shape
+
+Stride and padding are the two knobs that decide how a convolution
+*shrinks* (or doesn't) its input. The plot makes the formula
+$\text{out} = \lfloor (W - K + 2P) / S \rfloor + 1$ visible by drawing
+where the kernel actually lands.
+
+```python
+# ── Visualising stride and padding ──────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+
+K = 3                          # 3×3 kernel
+specs = [
+    (5, 1, 0, "stride 1, no padding"),
+    (5, 2, 0, "stride 2, no padding\n(downsamples)"),
+    (5, 1, 1, "stride 1, 'same' padding\n(preserves size)"),
+    (5, 2, 1, "stride 2, padding 1"),
+]
+
+fig, axes = plt.subplots(1, len(specs), figsize=(18, 5))
+
+for ax, (W, S, P, title) in zip(axes, specs):
+    out = (W - K + 2 * P) // S + 1
+    # Draw the (padded) input grid: a (W + 2P) × (W + 2P) light grid.
+    total = W + 2 * P
+    for i in range(total):
+        for j in range(total):
+            is_pad = (i < P or i >= P + W) or (j < P or j >= P + W)
+            color = "lightyellow" if is_pad else "lightgrey"
+            ax.add_patch(Rectangle((j, total - 1 - i), 1, 1,
+                                   facecolor=color, edgecolor="black", lw=0.6))
+    # Draw kernel positions: every valid top-left corner where the
+    # kernel fits, stepping by S.
+    for k_i, i in enumerate(range(0, total - K + 1, S)):
+        for k_j, j in enumerate(range(0, total - K + 1, S)):
+            color = plt.cm.tab20(((k_i * out + k_j) % 20) / 20)
+            ax.add_patch(Rectangle((j, total - 1 - i - K + 1), K, K,
+                                   facecolor=color, alpha=0.35,
+                                   edgecolor="darkblue", lw=1.5))
+    # Axis cosmetics.
+    ax.set_xlim(-0.5, total + 0.5)
+    ax.set_ylim(-0.5, total + 0.5)
+    ax.set_aspect("equal")
+    ax.set_xticks([]); ax.set_yticks([])
+    ax.set_title(f"{title}\n{W}×{W} input + pad {P}, stride {S}, kernel {K}\n"
+                 f"→ output {out}×{out}")
+
+plt.tight_layout()
+plt.show()
+
+# Print the closed-form output-size table.
+print(f"  Output shape formula:  out = ⌊(W − K + 2P) / S⌋ + 1\n")
+print(f"{'W':>4}  {'K':>3}  {'P':>3}  {'S':>3}  {'output':>7}")
+print("-" * 28)
+for W, S, P, _ in specs:
+    out = (W - K + 2 * P) // S + 1
+    print(f"  {W:>2}   {K:>2}   {P:>2}   {S:>2}   {out}×{out}")
+print()
+# Practical rule: 'same' padding keeps shape unchanged (when stride=1).
+print("Practical rules of thumb:")
+print("  - Stride 1 + padding (K-1)/2  →  output size = input size  ('SAME' padding)")
+print("  - Stride 2                    →  output size halved        (downsampling)")
+print("  - 1×1 convolution             →  pure channel-mixing, spatial size unchanged")
+```
+
+**The two knobs and what they do:**
+
+- **Stride** = the step size as the kernel slides. Stride 2 *halves*
+  the spatial resolution per layer — a popular alternative to
+  pooling for downsampling. Modern architectures often replace
+  pool layers with stride-2 convs because the latter has *learnable*
+  filters at the downsampling step.
+- **Padding** = pixels added around the input border (usually zeros,
+  sometimes reflected or replicated). Padding lets you preserve the
+  spatial size — *"same" padding* with stride 1 means
+  $\text{output size} = \text{input size}$. Without padding, every
+  convolution shrinks the feature map; deep nets without padding would
+  run out of pixels.
+- **Output formula in one line:** $\lfloor (W - K + 2P) / S \rfloor +
+  1$. Memorise it. It is the single most-used calculation when
+  designing a CNN.
+
 ## Connection to CS / Games / AI
 
 - **Stride 2** — common way to downsample feature maps (instead of pooling)

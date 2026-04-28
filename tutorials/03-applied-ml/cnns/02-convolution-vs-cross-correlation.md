@@ -161,6 +161,108 @@ for i in range(2):
     print(f"  {row}")
 ```
 
+## Visualisation — The kernel-flip difference
+
+True convolution and cross-correlation differ by a single step: **flip
+the kernel both horizontally and vertically before sliding**. For
+asymmetric kernels the two operations give different results; for
+symmetric kernels (Gaussian blur, etc.) they're identical.
+
+```python
+# ── Visualising convolution vs cross-correlation ────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# A deliberately asymmetric kernel so the two operations differ visibly.
+# Left edge is +1, right edge is -2 → it picks up a horizontal gradient
+# in one direction. Flipping it (true convolution) reverses the sign.
+kernel_xcorr = np.array([[ 1, 0, -2],
+                         [ 1, 0, -2],
+                         [ 1, 0, -2]], dtype=float)
+kernel_conv  = np.flip(kernel_xcorr)        # flip both axes
+
+# A test image with a sharp light → dark transition in one direction.
+img = np.zeros((20, 20))
+img[:, :10] = 1.0                           # left half white, right half black
+
+def correlate2d(image, kernel):
+    """Slide the kernel as-is (cross-correlation, what CNNs use)."""
+    H, W = image.shape; kH, kW = kernel.shape
+    out = np.zeros((H - kH + 1, W - kW + 1))
+    for i in range(out.shape[0]):
+        for j in range(out.shape[1]):
+            out[i, j] = (image[i:i + kH, j:j + kW] * kernel).sum()
+    return out
+
+xcorr_out = correlate2d(img, kernel_xcorr)
+conv_out  = correlate2d(img, kernel_conv)        # cross-correlate with FLIPPED kernel
+                                                  # = true convolution
+
+fig, axes = plt.subplots(1, 4, figsize=(16, 4.5))
+
+# (1) Input image.
+axes[0].imshow(img, cmap="gray", vmin=0, vmax=1)
+axes[0].set_title("Input image\n(left half bright, right half dark)")
+axes[0].axis("off")
+
+# (2) The kernel as displayed in the cross-correlation framing.
+axes[1].imshow(kernel_xcorr, cmap="RdBu", vmin=-2, vmax=2)
+for i in range(3):
+    for j in range(3):
+        axes[1].text(j, i, f"{kernel_xcorr[i, j]:+.0f}",
+                     ha="center", va="center", fontsize=11, fontweight="bold")
+axes[1].set_title("Kernel K (as written)\n→ used by 'cross-correlation'")
+axes[1].set_xticks([]); axes[1].set_yticks([])
+
+# (3) Cross-correlation output.
+im = axes[2].imshow(xcorr_out, cmap="RdBu", vmin=-3, vmax=3)
+axes[2].set_title("Cross-correlation: K * img\n(slide K as-is)")
+axes[2].axis("off")
+plt.colorbar(im, ax=axes[2], fraction=0.046)
+
+# (4) True convolution output: same input, but FLIPPED kernel.
+im = axes[3].imshow(conv_out, cmap="RdBu", vmin=-3, vmax=3)
+axes[3].set_title("True convolution: flip(K) * img\n(opposite sign)")
+axes[3].axis("off")
+plt.colorbar(im, ax=axes[3], fraction=0.046)
+
+plt.tight_layout()
+plt.show()
+
+# Print to make it crystal-clear that the only difference is the flip.
+print("Original kernel (cross-correlation):")
+print(kernel_xcorr.astype(int))
+print("\nFlipped kernel (true convolution):")
+print(kernel_conv.astype(int))
+print()
+print(f"Cross-corr output sample:  {xcorr_out[5, 7]:+.1f}    "
+      f"True conv output sample:   {conv_out[5, 7]:+.1f}")
+print(f"They are *exactly negatives* of each other for this asymmetric kernel.")
+print("\nFor a symmetric kernel (e.g. Gaussian blur), flip(K) == K, so the two\n"
+      "operations give identical results — which is why ML literature says\n"
+      "'convolution' but means 'cross-correlation', without any practical loss.")
+```
+
+**Why ML libraries say *convolution* but compute *cross-correlation*:**
+
+- The mathematical definition of convolution involves a kernel flip:
+  $(f * g)(x) = \int f(\tau)\, g(x - \tau)\, d\tau$. The minus sign is
+  what flips the kernel.
+- Cross-correlation drops the flip: $(f \star g)(x) = \int f(\tau)\,
+  g(x + \tau)\, d\tau$. This is what every CNN library (PyTorch's
+  `Conv2d`, TensorFlow's `tf.nn.conv2d`, JAX's `lax.conv`) actually
+  computes when you call its "convolution" function.
+- **Why doesn't it matter?** During training the kernel weights are
+  *learned*. If a true-convolution implementation would learn weight
+  $W$, the cross-correlation implementation simply learns $\text{flip}(W)$
+  instead. The output is identical, just with internal weights stored
+  in flipped order. So the choice is a trivial naming-convention
+  question for ML.
+- **When the flip matters:** signal processing, the convolution
+  theorem (lesson 9-Fourier), and any algebraic manipulation that
+  uses the *associativity* and *commutativity* of true convolution.
+  Cross-correlation is *not* commutative.
+
 ## Connection to CS / Games / AI
 
 - **All CNN frameworks** — compute cross-correlation, call it "convolution"
