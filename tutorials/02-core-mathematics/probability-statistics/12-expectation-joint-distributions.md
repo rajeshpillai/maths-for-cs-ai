@@ -183,6 +183,112 @@ print(f"E[X] via tower law = {E_X:.4f}")
 print(f"E[X] directly = P(X=1) = 0.30")
 ```
 
+## Visualisation — Joint, marginal, conditional
+
+A *joint distribution* lives in two dimensions. **Marginals** are what
+you get by summing over one axis (collapsing rows or columns).
+**Conditionals** are what you get by *fixing* one variable and
+renormalising the slice — a tall row reweighted to sum to 1.
+
+```python
+# ── Visualising joint, marginal, and conditional PMFs ───────
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Joint PMF over (X, Y) where X ∈ {0, 1, 2} (e.g. # of clicks),
+# Y ∈ {0, 1, 2, 3} (e.g. # of conversions). Rows = Y, columns = X.
+joint = np.array([
+    [0.20, 0.10, 0.05],   # Y = 0
+    [0.10, 0.15, 0.05],   # Y = 1
+    [0.05, 0.10, 0.05],   # Y = 2
+    [0.02, 0.05, 0.08],   # Y = 3
+])
+assert abs(joint.sum() - 1) < 1e-9, "joint must sum to 1"
+
+# Marginals: sum across rows and columns.
+P_X = joint.sum(axis=0)   # marginal of X (sum out Y)
+P_Y = joint.sum(axis=1)   # marginal of Y (sum out X)
+
+# Conditional P(X | Y = 1): take row Y = 1 and divide by P(Y = 1).
+y_cond = 1
+P_X_given_Y = joint[y_cond] / P_Y[y_cond]
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 5))
+
+# (1) Joint PMF as a heatmap. Each cell's colour intensity is
+# the joint probability of that (X, Y) outcome.
+ax = axes[0]
+im = ax.imshow(joint, cmap="Blues", aspect="auto")
+ax.set_xticks(range(3)); ax.set_xticklabels([0, 1, 2])
+ax.set_yticks(range(4)); ax.set_yticklabels([0, 1, 2, 3])
+ax.set_xlabel("X"); ax.set_ylabel("Y")
+for i in range(joint.shape[0]):
+    for j in range(joint.shape[1]):
+        ax.text(j, i, f"{joint[i, j]:.2f}", ha="center", va="center",
+                color="white" if joint[i, j] > 0.10 else "black")
+ax.set_title("Joint PMF P(X, Y)\n(every cell = prob of that (X, Y))")
+plt.colorbar(im, ax=ax, fraction=0.046)
+
+# (2) Marginals as bar charts. They sum to 1 *separately* — collapsing
+# the joint along one axis yields the per-variable distribution.
+ax = axes[1]
+xpos = np.arange(3) - 0.2
+ypos = np.arange(4) + 0.2
+ax.bar(xpos, P_X, width=0.4, color="tab:blue",   alpha=0.85,
+       label=f"P(X), sums to {P_X.sum():.2f}")
+ax.bar(ypos, P_Y, width=0.4, color="tab:orange", alpha=0.85,
+       label=f"P(Y), sums to {P_Y.sum():.2f}")
+ax.set_xticks(np.concatenate([np.arange(3) - 0.2, np.arange(4) + 0.2]))
+ax.set_xticklabels(["0", "1", "2", "0", "1", "2", "3"])
+ax.set_title("Marginals P(X), P(Y)\n(sum the joint along one axis)")
+ax.set_ylabel("probability")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (3) Conditional P(X | Y = 1). Take row Y = 1 and renormalise.
+ax = axes[2]
+ax.bar([0, 1, 2], joint[y_cond], width=0.6, color="tab:blue", alpha=0.5,
+       label=f"row Y = {y_cond} of joint\n(does NOT sum to 1)")
+ax.bar([0, 1, 2], P_X_given_Y, width=0.4, color="tab:red", alpha=0.85,
+       label=f"P(X | Y = {y_cond})\n(sums to 1 after renormalising)")
+for x, p_renorm in enumerate(P_X_given_Y):
+    ax.text(x, p_renorm + 0.02, f"{p_renorm:.3f}", ha="center", fontweight="bold")
+ax.set_xticks([0, 1, 2])
+ax.set_title(f"Conditional P(X | Y = {y_cond})\n= row Y = {y_cond} divided by P(Y = {y_cond})")
+ax.set_xlabel("X"); ax.set_ylabel("probability")
+ax.set_ylim(0, 0.7); ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the four numerical objects so the picture is grounded.
+print("Joint PMF:")
+print(joint)
+print(f"\nMarginal P(X) = {P_X}     (sums to {P_X.sum():.4f})")
+print(f"Marginal P(Y) = {P_Y}      (sums to {P_Y.sum():.4f})")
+print(f"\nConditional P(X | Y = {y_cond}):  {P_X_given_Y}     "
+      f"(sums to {P_X_given_Y.sum():.4f})")
+print(f"\nE[X]              = {(P_X * np.arange(3)).sum():.4f}")
+print(f"E[X | Y = {y_cond}]      = {(P_X_given_Y * np.arange(3)).sum():.4f}")
+print(f"E[X] via tower law = Σ_y P(Y=y) · E[X | Y=y] "
+      f"= {sum(P_Y[y] * (joint[y] / P_Y[y] * np.arange(3)).sum() for y in range(4)):.4f}")
+```
+
+**Three ideas the picture nails:**
+
+- **Joint = the whole story.** The heatmap stores everything — every
+  marginal, every conditional can be derived from it.
+- **Marginal = sum along one axis.** Once you sum over $Y$, you can
+  forget $Y$ existed and treat $X$ as a one-dimensional random
+  variable.
+- **Conditional = row, then renormalise.** Picking $Y = 1$ takes one
+  row of the joint table; that row does *not* sum to 1, so we divide
+  by $P(Y = 1)$ to make it a proper distribution. This is exactly the
+  formula $P(X \mid Y) = P(X, Y) / P(Y)$.
+
+These three operations — joint, marginal, conditional — and the
+**tower law** $E[X] = E_Y [E[X \mid Y]]$ that the print-out verifies
+are the only tools you ever need to manipulate joint distributions.
+
 ## Connection to CS / Games / AI
 
 - **Linearity of expectation** — simplifies expected running time analysis of randomised algorithms (e.g., quicksort)

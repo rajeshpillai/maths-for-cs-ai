@@ -147,6 +147,93 @@ print(f"λ₂ = {lambda2:.4f}")
 print(f"Variance explained by PC1: {lambda1/(lambda1+lambda2):.1%}")
 ```
 
+## Visualisation — What different correlation values *look like*
+
+Numbers like $\rho = 0.6$ are abstract; the same number as a *scatter
+plot* tells you whether your data is "weakly" or "strongly" correlated
+in a way you'll never forget.
+
+```python
+# ── Visualising correlation by scatter plot ─────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(0)
+N = 250
+
+def correlated_pair(rho, n=N):
+    """Generate (x, y) with target correlation rho via a 2-D normal."""
+    x = rng.standard_normal(n)
+    z = rng.standard_normal(n)
+    y = rho * x + np.sqrt(1 - rho * rho) * z       # exact relation for unit variances
+    return x, y
+
+# Six representative correlation values, including a non-linear pattern.
+specs = [
+    (-1.00, "Perfect negative\n($\\rho = -1$)",  "tab:red"),
+    (-0.60, "Strong negative\n($\\rho = -0.6$)", "tab:red"),
+    ( 0.00, "Uncorrelated\n($\\rho \\approx 0$)", "grey"),
+    ( 0.60, "Strong positive\n($\\rho = +0.6$)",  "tab:blue"),
+    ( 1.00, "Perfect positive\n($\\rho = +1$)",   "tab:blue"),
+    ("nonlinear", "Strong relation but\n$\\rho \\approx 0$ — y = x²", "tab:purple"),
+]
+
+fig, axes = plt.subplots(2, 3, figsize=(14, 9))
+
+for ax, (rho, label, color) in zip(axes.flatten(), specs):
+    if rho == "nonlinear":
+        x = rng.uniform(-2, 2, N)
+        y = x ** 2 + 0.15 * rng.standard_normal(N)
+    elif rho == 1.00:
+        x = rng.standard_normal(N); y = x.copy()
+    elif rho == -1.00:
+        x = rng.standard_normal(N); y = -x.copy()
+    else:
+        x, y = correlated_pair(rho)
+    rho_actual = np.corrcoef(x, y)[0, 1]
+
+    ax.scatter(x, y, alpha=0.5, color=color, s=18)
+    # Best-fit line for a visual reference (works even when rho ≈ 0).
+    xs_line = np.array([x.min(), x.max()])
+    slope, intercept = np.polyfit(x, y, 1)
+    ax.plot(xs_line, slope * xs_line + intercept, color="black", lw=1.5, alpha=0.6)
+    ax.set_title(f"{label}\n(measured ρ = {rho_actual:+.2f})")
+    ax.axhline(0, color="grey", lw=0.5); ax.axvline(0, color="grey", lw=0.5)
+    ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the exact correlation values measured in the plot.
+print("Visual ↔ numeric mapping for each panel:")
+for rho, label, _ in specs:
+    if rho == "nonlinear":
+        x = rng.uniform(-2, 2, N); y = x**2 + 0.15 * rng.standard_normal(N)
+    elif rho == 1.0:
+        x = rng.standard_normal(N); y = x
+    elif rho == -1.0:
+        x = rng.standard_normal(N); y = -x
+    else:
+        x, y = correlated_pair(rho)
+    print(f"  {label.replace(chr(10), ' '):<55} → measured ρ = {np.corrcoef(x,y)[0,1]:+.3f}")
+```
+
+**The take-aways every analyst needs:**
+
+- **Sign tells you direction**, magnitude tells you tightness. $\rho =
+  +1$ means the points lie *exactly* on an upward line; $\rho = -1$
+  means an exactly downward line. Anything in between produces a
+  *cloud* whose tightness around the line is what $|\rho|$ measures.
+- **$\rho = 0$ does NOT mean independent.** The bottom-right panel
+  shows a perfect deterministic relationship $y = x^2$ — yet the
+  correlation is essentially zero, because correlation only sees
+  *linear* relationships. Always plot the data; never trust a single
+  correlation number on its own.
+- **A weakish correlation is bigger than you'd expect.** Many people
+  imagine $\rho = 0.6$ as "almost a line"; the picture shows it's a
+  *cloud* with substantial scatter. Real-world relationships are
+  almost always weaker than they sound when reported as a number.
+
 ## Connection to CS / Games / AI
 
 - **PCA** — eigendecomposition of the covariance matrix gives principal components

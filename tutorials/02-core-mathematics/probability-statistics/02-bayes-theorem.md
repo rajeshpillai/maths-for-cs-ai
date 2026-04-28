@@ -159,6 +159,111 @@ print(f"True positives: {true_pos}, False positives: {false_pos}")
 print(f"P(disease | +) = {true_pos}/{total_pos} = {true_pos/total_pos:.4f}")
 ```
 
+## Visualisation — Why a positive test is *not* a diagnosis
+
+The single most counterintuitive result in basic probability: a 99%-accurate
+test for a 1-in-1000 disease gives a **positive result that is wrong about
+91% of the time**. The picture shows why.
+
+```python
+# ── Visualising Bayes' theorem with a population square ─────
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Rectangle
+
+# Scenario from the lesson:
+N        = 10000      # 10,000 people in the population
+p_dis    = 0.001      # prior: 1 in 1,000 actually has the disease
+p_pos_d  = 0.99       # sensitivity: P(test+ | sick)  = 0.99
+p_pos_h  = 0.05       # 1 − specificity: P(test+ | healthy) = 0.05
+
+# Counts in each of four boxes (the contingency table).
+sick           = int(N * p_dis)
+healthy        = N - sick
+true_positive  = int(round(sick    * p_pos_d))
+false_negative = sick - true_positive
+false_positive = int(round(healthy * p_pos_h))
+true_negative  = healthy - false_positive
+
+posterior = true_positive / (true_positive + false_positive)
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5.5))
+
+# (1) Population square — area-proportional. Four rectangles
+# (sick/healthy × test+/test-) tile the unit square. The blue
+# region is "tested positive". Inside the blue, the dark portion
+# is the *correct* diagnoses; the lighter portion is false alarms.
+ax = axes[0]
+sick_frac    = sick    / N
+healthy_frac = healthy / N
+# Layout: leftmost column = sick (very thin), rightmost = healthy (almost the whole width)
+ax.add_patch(Rectangle((0, 0), sick_frac, p_pos_d,
+                       color="darkred",   alpha=0.85, label="True positive (sick & test +)"))
+ax.add_patch(Rectangle((0, p_pos_d), sick_frac, 1 - p_pos_d,
+                       color="lightgrey", alpha=0.85, label="False negative (sick & test −)"))
+ax.add_patch(Rectangle((sick_frac, 0), healthy_frac, p_pos_h,
+                       color="salmon",    alpha=0.85, label="False positive (healthy & test +)"))
+ax.add_patch(Rectangle((sick_frac, p_pos_h), healthy_frac, 1 - p_pos_h,
+                       color="lightgreen", alpha=0.85, label="True negative (healthy & test −)"))
+ax.set_xlim(0, 1); ax.set_ylim(0, 1); ax.set_aspect("equal")
+ax.set_xlabel("Population (left strip = sick, right block = healthy)")
+ax.set_ylabel("Conditional outcome of the test")
+ax.set_title(f"Population of {N:,}: each box is area-proportional\n"
+             f"(left strip is only {sick_frac*100:.2f}% wide!)")
+ax.legend(loc="lower right", fontsize=8)
+
+# (2) The bar of "everyone who tested positive". The split between
+# dark and light bars IS the posterior P(disease | test +).
+ax = axes[1]
+labels = ["Truly sick\nand tested +", "Healthy\nbut tested + (false alarm)"]
+counts = [true_positive, false_positive]
+colors = ["darkred", "salmon"]
+bars   = ax.bar(labels, counts, color=colors, alpha=0.85)
+for bar, n in zip(bars, counts):
+    ax.text(bar.get_x() + bar.get_width()/2, n + max(counts)*0.02,
+            f"{n} people", ha="center", fontsize=11, fontweight="bold")
+total_pos = true_positive + false_positive
+ax.set_title(f"Of the {total_pos} people who tested positive,\n"
+             f"only {true_positive} ({posterior*100:.1f}%) are actually sick")
+ax.set_ylabel(f"count (out of {total_pos} positives)")
+
+plt.tight_layout()
+plt.show()
+
+# Print the four-cell contingency table that mirrors the picture.
+print(f"{'':>20}  test +   test −     row total")
+print(f"{'sick':>20}  {true_positive:>5}    {false_negative:>5}     {sick:>5}")
+print(f"{'healthy':>20}  {false_positive:>5}    {true_negative:>5}     {healthy:>5}")
+print(f"{'col total':>20}  {true_positive + false_positive:>5}    "
+      f"{false_negative + true_negative:>5}     {N:>5}")
+print()
+print(f"P(disease | test+) = {true_positive} / ({true_positive} + {false_positive})"
+      f" = {posterior:.4f}  ≈  {posterior*100:.1f}%")
+print("Even with a 99% accurate test, most positives are false alarms")
+print("because the disease is rare (low prior) and the population is huge.")
+```
+
+**Why this picture matters:**
+
+- The left plot makes the *prior* visible as a width — sick people are
+  only 0.1% of the population, so their column is *invisibly thin*. The
+  test sensitivity of 99% is the height of the dark-red strip inside
+  that thin column, which is *also tiny*.
+- Meanwhile the 5% false-positive rate, multiplied by the huge healthy
+  block, produces a much larger pink area — there are simply more
+  *opportunities* to misclassify a healthy person.
+- The right plot is the **posterior** $P(\text{disease} \mid +)$ as a
+  bar split: out of every 100 positive results, only ~9 are true. The
+  Bayes formula
+
+  $$P(D \mid +) = \frac{P(+ \mid D)\,P(D)}{P(+)}$$
+
+  isn't algebra trickery — it's just *(red area) / (red + pink area)*.
+- This is **why doctors order confirmatory tests** for low-prevalence
+  diseases. Each new positive test multiplies the posterior odds by the
+  same likelihood ratio, dragging the belief from "probably wrong" to
+  "almost certainly right" only after several confirmations.
+
 ## Connection to CS / Games / AI
 
 - **Spam filters** — Naive Bayes: $P(\text{spam}|\text{words}) \propto P(\text{words}|\text{spam})P(\text{spam})$

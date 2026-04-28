@@ -120,6 +120,100 @@ for i, count in enumerate(bins):
     print(f"  {val:.1f}: {bar}")
 ```
 
+## Visualisation — Watching CLT happen in real time
+
+The Central Limit Theorem says: **regardless of the original
+distribution's shape**, sample means become approximately normal as the
+sample size $n$ grows. The plot below proves it visually by drawing
+sample means from a *deliberately ugly* distribution and watching the
+histogram shape evolve.
+
+```python
+# ── Visualising the Central Limit Theorem ───────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(42)
+
+# Pick a deliberately NON-normal "parent" distribution: a heavily
+# right-skewed exponential. CLT says sample means will still
+# converge to a normal — even from this lopsided start.
+def draw_population(size):
+    return rng.exponential(scale=1.0, size=size)
+
+pop_mean = 1.0          # mean of Exponential(λ=1)
+pop_std  = 1.0          # std  of Exponential(λ=1)
+
+fig, axes = plt.subplots(1, 4, figsize=(18, 4.5))
+
+# (1) The parent distribution itself: clearly NOT normal.
+ax = axes[0]
+samples = draw_population(50000)
+ax.hist(samples, bins=60, density=True, color="tab:red", alpha=0.75,
+        edgecolor="darkred")
+xs = np.linspace(0, 8, 400)
+ax.plot(xs, np.exp(-xs), color="black", lw=2, label="true PDF")
+ax.set_title("Parent distribution: Exponential(λ = 1)\n— right-skewed, not normal at all")
+ax.set_xlabel("x"); ax.set_ylabel("density")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) — (4) Sample means from the parent, for n = 2, 10, 30.
+# As n grows, the histogram of sample means becomes more bell-shaped,
+# narrower, and centred exactly on the true mean μ.
+for ax, n in zip(axes[1:], [2, 10, 30]):
+    NUM_REPS = 50000
+    sample_means = draw_population((NUM_REPS, n)).mean(axis=1)
+
+    # Theoretical normal that CLT predicts: N(μ, σ²/n)
+    theoretical_std = pop_std / np.sqrt(n)
+    grid = np.linspace(0, 3, 400)
+    pdf  = np.exp(-0.5 * ((grid - pop_mean) / theoretical_std) ** 2) \
+           / (theoretical_std * np.sqrt(2 * np.pi))
+
+    ax.hist(sample_means, bins=60, density=True, color="tab:blue", alpha=0.75,
+            edgecolor="navy", label=f"observed sample means")
+    ax.plot(grid, pdf, color="red", lw=2, label=f"N(μ, σ²/n)\nσ/√n = {theoretical_std:.3f}")
+    ax.axvline(pop_mean, color="black", lw=1.5, linestyle="--", alpha=0.6)
+    ax.set_title(f"Sample means with n = {n}\n(50,000 repeats)")
+    ax.set_xlabel("$\\bar X$"); ax.set_ylabel("density")
+    ax.set_xlim(0, 3)
+    ax.legend(fontsize=9); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the empirical std deviations vs the theoretical CLT prediction.
+print(f"Population: Exp(1)  →  μ = {pop_mean},  σ = {pop_std}")
+print(f"\nCLT predicts std of sample means: σ/√n")
+print(f"\n  n  | predicted σ/√n  | empirical std  ")
+print(f"  ---|-----------------|----------------")
+for n in [2, 10, 30, 100]:
+    predicted = pop_std / np.sqrt(n)
+    empirical = draw_population((50000, n)).mean(axis=1).std()
+    print(f"  {n:<3}|     {predicted:.4f}      |    {empirical:.4f}")
+```
+
+**Three things to read off the picture:**
+
+- **Shape converges.** The leftmost panel is *clearly* not normal —
+  it's the right-skewed exponential. Yet by $n = 30$ (rightmost panel),
+  the histogram of sample means is essentially indistinguishable from
+  the red bell curve. That's CLT.
+- **Spread shrinks like $1/\sqrt n$.** The width of the bell curve is
+  $\sigma / \sqrt n$, not $\sigma$. Quadrupling the sample size only
+  *halves* the standard error — the famous "diminishing returns" of
+  more data.
+- **Centre is unchanged.** The peak of every blue histogram sits
+  exactly at the true mean (dashed line). That's why **a sample mean
+  is an *unbiased* estimator** of the population mean — even when the
+  population is wildly skewed.
+
+This single result is what makes statistical inference possible. *Even
+if you don't know the population distribution*, you know the
+distribution of its sample means — and that's enough to compute
+confidence intervals (lesson 15), run A/B tests, and reason about
+mini-batch gradients in deep learning.
+
 ## Connection to CS / Games / AI
 
 - **Mini-batch SGD** — the gradient estimate from a mini-batch is approximately normal (by CLT), enabling convergence analysis

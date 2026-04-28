@@ -195,6 +195,112 @@ print(f"P(|T| > 2) with df=9 = {t_count/N_experiments:.4f} (expected ~0.077)")
 print(f"T has heavier tails: {t_count/z_count:.2f}x more extreme values")
 ```
 
+## Visualisation — Population vs sampling distribution
+
+A **sampling distribution** is *the distribution of a statistic* (like
+the sample mean) when you imagine repeating the experiment many times.
+The plot below shows why this distinction matters: the population can
+be wide and skewed, but the *sample mean* is much narrower and
+approximately normal.
+
+```python
+# ── Visualising the sampling distribution of the mean ───────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(42)
+
+# Population: a deliberately ugly mixture (two modes), so the contrast
+# with a normal sampling distribution is dramatic.
+def population_sample(size):
+    component = rng.random(size) < 0.6
+    return np.where(component,
+                    rng.normal(loc=2.0, scale=1.0, size=size),
+                    rng.normal(loc=7.0, scale=1.0, size=size))
+
+pop_mean = 0.6 * 2.0 + 0.4 * 7.0           # μ = 4.0
+pop_std  = np.sqrt(0.6 * (1**2 + (2 - pop_mean)**2)
+                 + 0.4 * (1**2 + (7 - pop_mean)**2))   # ≈ 2.6
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4.8))
+
+# (1) The population itself — clearly bimodal.
+ax = axes[0]
+big_sample = population_sample(50_000)
+ax.hist(big_sample, bins=80, density=True, color="tab:red", alpha=0.7,
+        edgecolor="darkred")
+ax.axvline(pop_mean, color="black", lw=2, linestyle="--",
+           label=f"population mean μ = {pop_mean:.2f}")
+ax.set_title("Population (bimodal mixture):\nNOT normal at all")
+ax.set_xlabel("x"); ax.set_ylabel("density")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) Sampling distribution of the MEAN with n = 30.
+# Repeat the experiment NUM_REPS times, each time computing the mean
+# of n samples; plot the histogram of those means.
+ax = axes[1]
+n = 30
+NUM_REPS = 20_000
+sample_means = np.array([population_sample(n).mean() for _ in range(NUM_REPS)])
+
+# CLT-predicted normal: N(μ, σ²/n)
+predicted_se = pop_std / np.sqrt(n)
+xs = np.linspace(pop_mean - 4*predicted_se, pop_mean + 4*predicted_se, 400)
+pdf = np.exp(-0.5 * ((xs - pop_mean) / predicted_se) ** 2) / (predicted_se * np.sqrt(2 * np.pi))
+
+ax.hist(sample_means, bins=60, density=True, color="tab:blue", alpha=0.75,
+        edgecolor="navy", label="observed sample means")
+ax.plot(xs, pdf, color="red", lw=2,
+        label=f"N(μ, σ²/n)\nSE = σ/√n = {predicted_se:.3f}")
+ax.axvline(pop_mean, color="black", lw=1.5, linestyle="--", alpha=0.6)
+ax.set_title(f"Sampling distribution of $\\bar X$ (n = {n})\napproximately normal — that's CLT")
+ax.set_xlabel(r"$\bar X$"); ax.set_ylabel("density")
+ax.legend(fontsize=9); ax.grid(True, alpha=0.3)
+
+# (3) Standard error shrinks like 1/√n. Plot SE for n = 5..200 and
+# overlay the empirical SE measured by simulation at four sample sizes.
+ax = axes[2]
+ns = np.arange(5, 201)
+ax.plot(ns, pop_std / np.sqrt(ns), color="black", lw=2,
+        label=r"theory: SE = $\sigma/\sqrt{n}$")
+emp_ns = [10, 30, 100, 200]
+emp_se = [np.array([population_sample(n).mean() for _ in range(5000)]).std()
+          for n in emp_ns]
+ax.scatter(emp_ns, emp_se, color="tab:red", zorder=5, s=80,
+           label="simulated SE (5,000 reps each)")
+ax.set_title("Standard error shrinks as $1/\\sqrt{n}$\n→ 4× the data only halves the error")
+ax.set_xlabel("sample size n"); ax.set_ylabel("standard error of $\\bar X$")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the comparison table — picture and numbers in lockstep.
+print(f"Population: μ = {pop_mean:.4f}, σ = {pop_std:.4f}")
+print(f"\n{'n':>5}  {'predicted SE = σ/√n':>22}  {'empirical SE':>15}")
+for n in [5, 10, 30, 100, 1000]:
+    predicted = pop_std / np.sqrt(n)
+    empirical = np.array([population_sample(n).mean() for _ in range(2000)]).std()
+    print(f"  {n:<3}  {predicted:>20.4f}  {empirical:>15.4f}")
+```
+
+**Three things to internalise:**
+
+- **Population ≠ sampling distribution.** The leftmost panel (the
+  population) is *very* not-normal. The middle panel (the *distribution
+  of sample means*) is essentially a bell curve. They live in different
+  conceptual spaces — population is "what one observation looks like";
+  sampling distribution is "what an estimator looks like across repeated
+  experiments."
+- **The standard error is $\sigma / \sqrt n$.** This is the single most
+  important number in applied statistics. It governs A/B-test sample
+  sizes, polling precision, mini-batch SGD noise, and ensemble model
+  variance reduction.
+- **More data has diminishing returns.** Going from $n = 100$ to $n =
+  400$ only halves the SE. That's why doubling a survey doesn't double
+  its precision — and why ensembles need *exponentially* more models to
+  produce noticeably tighter predictions.
+
 ## Connection to CS / Games / AI
 
 - **A/B testing** — "is the difference in means real?" requires knowing the sampling distribution of $\bar{X}_A - \bar{X}_B$

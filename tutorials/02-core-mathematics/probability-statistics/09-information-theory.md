@@ -153,6 +153,98 @@ print(f"True: {y_true}, Pred: {y_pred}")
 print(f"CE loss = -ln(0.7) = {ce:.4f}")
 ```
 
+## Visualisation — Entropy, cross-entropy, and KL divergence
+
+Three curves capture the whole story: **entropy** measures how
+uncertain a distribution is, **cross-entropy** measures how surprised a
+*wrong* model is by reality, and **KL divergence** is the *gap*
+between the two.
+
+```python
+# ── Visualising entropy, cross-entropy, KL divergence ───────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4.8))
+
+# (1) Entropy of a Bernoulli(p) distribution.
+# H(p) = -p log p - (1 - p) log(1 - p), maximum at p = 0.5 (most uncertain).
+# At p = 0 or 1 the outcome is certain → entropy is 0 → no surprise.
+ax = axes[0]
+ps = np.linspace(0.001, 0.999, 400)
+H = -(ps * np.log2(ps) + (1 - ps) * np.log2(1 - ps))
+ax.plot(ps, H, color="tab:blue", lw=2)
+ax.fill_between(ps, H, alpha=0.20, color="tab:blue")
+ax.axvline(0.5, color="red", lw=1.5, linestyle="--", label="max at p = 0.5: H = 1 bit")
+ax.scatter([0.5], [1.0], color="red", zorder=5, s=80)
+ax.set_title("Entropy of a coin H(p) — peaks at fair coin\n(maximum uncertainty)")
+ax.set_xlabel("p (probability of heads)"); ax.set_ylabel("H(p) (bits)")
+ax.set_ylim(0, 1.1); ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) Cross-entropy H(p, q) vs the parameter q for a fixed true p.
+# When the model q matches truth p, cross-entropy hits its minimum,
+# which is just the entropy H(p). Any other q is worse.
+ax = axes[1]
+p_true = 0.3
+qs = np.linspace(0.01, 0.99, 400)
+CE = -(p_true * np.log2(qs) + (1 - p_true) * np.log2(1 - qs))
+H_p = -(p_true * np.log2(p_true) + (1 - p_true) * np.log2(1 - p_true))
+ax.plot(qs, CE, color="tab:orange", lw=2, label="cross-entropy $H(p, q)$")
+ax.axhline(H_p, color="black", lw=1.5, linestyle=":",
+           label=f"entropy $H(p)$ = {H_p:.3f} bits (lower bound)")
+ax.axvline(p_true, color="red", lw=1.5, linestyle="--",
+           label=f"true $p = {p_true}$")
+ax.scatter([p_true], [H_p], color="red", zorder=5, s=80)
+ax.set_title("Cross-entropy is minimised at the\ncorrect parameter — the truth")
+ax.set_xlabel("model parameter q"); ax.set_ylabel("$H(p, q)$ (bits)")
+ax.set_ylim(0, 4); ax.legend(fontsize=9); ax.grid(True, alpha=0.3)
+
+# (3) KL(p || q) = H(p, q) − H(p). It's the EXTRA bits we pay
+# for using model q when reality is p. Always ≥ 0, equals 0 iff p = q.
+ax = axes[2]
+KL = CE - H_p
+ax.plot(qs, KL, color="tab:green", lw=2, label="KL(p ‖ q)")
+ax.fill_between(qs, KL, alpha=0.30, color="tab:green")
+ax.axvline(p_true, color="red", lw=1.5, linestyle="--",
+           label=f"$q = p = {p_true}$ → KL = 0")
+ax.scatter([p_true], [0], color="red", zorder=5, s=80)
+ax.set_title("KL divergence — *extra* cost of using\nthe wrong distribution")
+ax.set_xlabel("model parameter q"); ax.set_ylabel("$KL(p \\| q)$ (bits)")
+ax.set_ylim(-0.1, 4); ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print a concrete example so the meaning is crisp.
+print("Bernoulli(p = 0.3) example:")
+print(f"  Entropy of truth          : H(p)     = {H_p:.4f} bits")
+for q in [0.1, 0.3, 0.5, 0.9]:
+    ce = -(p_true * np.log2(q) + (1 - p_true) * np.log2(1 - q))
+    kl = ce - H_p
+    print(f"  q = {q:.2f}: CE = {ce:.4f}, KL = CE − H(p) = {kl:.4f} bits "
+          f"({'✓ best' if abs(q - p_true) < 1e-6 else 'extra cost'})")
+```
+
+**The three pictures, one story:**
+
+- **Entropy $H(p)$** is the *minimum average number of bits* you need
+  to store / transmit / predict each draw. It peaks for the most
+  uncertain distribution (a fair coin), and is zero when the outcome is
+  certain (you don't need any bits to encode "always heads").
+- **Cross-entropy $H(p, q)$** is what your *coding scheme* actually
+  costs when you encode samples drawn from $p$ using a code optimal for
+  $q$. It is minimised at $q = p$, where it equals $H(p)$. **This is
+  the loss function used to train every classifier**: the network's
+  predicted distribution $q$ is dragged toward the empirical truth $p$
+  by minimising $H(p, q)$.
+- **KL divergence $\mathrm{KL}(p \| q) = H(p, q) - H(p)$** is the
+  *extra* cost — the gap between using the wrong model and the best
+  possible model. It's always $\ge 0$, exactly zero when $q = p$, and
+  it's *not symmetric* ($\mathrm{KL}(p\|q) \neq \mathrm{KL}(q\|p)$).
+  This asymmetry matters in variational inference: VAEs minimise
+  $\mathrm{KL}(q \| p)$ on purpose because that direction is
+  "mode-seeking" rather than "mean-seeking".
+
 ## Connection to CS / Games / AI
 
 - **Cross-entropy loss** — THE standard classification loss function

@@ -154,6 +154,97 @@ count_even = sum(1 for r in rolls if r % 2 == 0)
 print(f"P(even) ≈ {count_even/100000:.4f} (expected: 0.5)")
 ```
 
+## Visualisation — Sample spaces, events, and the inclusion–exclusion law
+
+Probabilities live on a **sample space** (the set of every possible
+outcome); events are **subsets** of that space. A Venn-style picture
+makes the axioms — especially $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+— literally visible as overlapping areas.
+
+```python
+# ── Visualising probability axioms with a Venn diagram ──────
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle, Rectangle
+
+fig, axes = plt.subplots(1, 2, figsize=(13, 5.5))
+
+# (1) Two-event Venn for a single die roll.
+# Sample space S = {1, 2, 3, 4, 5, 6}, each outcome equally likely (P = 1/6).
+# Event A = "even"   = {2, 4, 6}
+# Event B = "≥ 4"    = {4, 5, 6}
+# A ∩ B  = {4, 6} — the overlap.
+# A ∪ B  = {2, 4, 5, 6} — everything in either circle.
+ax = axes[0]
+ax.add_patch(Rectangle((-2.5, -2), 5, 4, fill=False, edgecolor="black", lw=1.5))
+ax.add_patch(Circle((-0.7, 0), 1.4, alpha=0.35, color="tab:blue"))     # A
+ax.add_patch(Circle(( 0.7, 0), 1.4, alpha=0.35, color="tab:orange"))   # B
+# Place each die outcome where it belongs.
+positions = {1: (-2.0,  1.4), 3: (-2.0, -1.4), 5: ( 2.0, 0.0),         # outside A∩B
+             2: (-1.4,  0.0),                                            # A only
+             4: ( 0.0,  0.0), 6: ( 0.0, -0.6),                           # A ∩ B
+             }
+positions[5] = (1.7, 0.6)    # B only
+positions[3] = (-2.1, -1.5)
+for k, (x, y) in positions.items():
+    ax.text(x, y, str(k), ha="center", va="center",
+            fontsize=14, fontweight="bold")
+ax.text(-1.9,  1.2, "A = even",    color="tab:blue",   fontsize=12, fontweight="bold")
+ax.text( 1.0,  1.2, "B = (≥ 4)",   color="tab:orange", fontsize=12, fontweight="bold")
+ax.text(-2.4,  1.7, "S = {1,…,6}", fontsize=11)
+ax.set_xlim(-3, 3); ax.set_ylim(-2.5, 2.5); ax.set_aspect("equal"); ax.axis("off")
+ax.set_title("Sample space, events, and their intersection")
+
+# (2) Inclusion–exclusion as areas.
+# Three bar groups: P(A), P(B), and three different ways to compute P(A∪B):
+#   (i)  the wrong "just add"          → P(A) + P(B) (double-counts overlap)
+#   (ii) the correct formula           → P(A) + P(B) − P(A ∩ B)
+#   (iii) brute-force counting         → 4/6 (outcomes {2,4,5,6})
+PA, PB, PAB = 3/6, 3/6, 2/6           # P(A), P(B), P(A ∩ B)
+labels  = ["P(A)", "P(B)", "P(A)+P(B)\n(double-counts!)",
+           "P(A)+P(B)−P(A∩B)\n(inclusion–exclusion)",
+           "Brute count\nof A ∪ B"]
+values  = [PA, PB, PA + PB, PA + PB - PAB, 4/6]
+colors  = ["tab:blue", "tab:orange", "tab:red", "tab:green", "tab:green"]
+ax = axes[1]
+bars = ax.bar(range(len(values)), values, color=colors, alpha=0.85)
+for bar, v in zip(bars, values):
+    ax.text(bar.get_x() + bar.get_width()/2, v + 0.02,
+            f"{v:.3f}", ha="center", fontsize=11, fontweight="bold")
+ax.set_xticks(range(len(values)))
+ax.set_xticklabels(labels, fontsize=9)
+ax.axhline(1.0, color="black", lw=0.6, linestyle=":")
+ax.text(4.4, 1.02, "axiom: P ≤ 1", fontsize=9)
+ax.set_ylim(0, 1.2); ax.set_ylabel("probability")
+ax.set_title("Inclusion–exclusion: why we subtract the overlap")
+
+plt.tight_layout()
+plt.show()
+
+# Verify each computed value matches the picture.
+print(f"P(A)            = {PA:.4f}")
+print(f"P(B)            = {PB:.4f}")
+print(f"P(A ∩ B)        = {PAB:.4f}")
+print(f"Naive sum       = {PA + PB:.4f}    ← would exceed 1 if overlap were larger")
+print(f"Correct P(A∪B)  = {PA + PB - PAB:.4f}")
+print(f"Direct count    = {4/6:.4f}    (outcomes 2, 4, 5, 6 out of 6)")
+```
+
+**What this picture pins down:**
+
+- **Sample space $S$ is a *box*** containing every outcome that could
+  happen; an **event is a *region*** inside the box. Probability is
+  literally area (or count, when outcomes are equally likely).
+- **The intersection $A \cap B$** is the lens-shaped overlap. Adding
+  $P(A) + P(B)$ counts that lens **twice** — that's why the red bar in
+  the right plot exceeds the true $P(A \cup B)$. Subtracting $P(A \cap
+  B)$ once fixes the over-count: this is the **inclusion–exclusion
+  principle**.
+- **All three axioms are visible** in the picture: probability is
+  non-negative (areas can't be negative), $P(S) = 1$ (the whole box has
+  area 1), and disjoint regions add up. Everything else in this lesson
+  is a consequence of those three rules.
+
 ## Connection to CS / Games / AI
 
 - **Random number generation** — uniform distribution over a sample space

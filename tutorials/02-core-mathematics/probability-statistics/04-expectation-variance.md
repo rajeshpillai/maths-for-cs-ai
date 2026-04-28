@@ -137,6 +137,89 @@ print(f"Sample mean = {mean:.4f} (expected: 3.5)")
 print(f"Sample var  = {var:.4f} (expected: {35/12:.4f})")
 ```
 
+## Visualisation — Mean as the balance point, variance as the spread
+
+The expectation $E[X]$ is the **balance point** of the distribution; if
+you printed the PMF on a seesaw the fulcrum would sit exactly at $E[X]$.
+Variance measures how *far* probability is spread from that balance
+point — small variance = a tall thin spike, large variance = a wide
+hump.
+
+```python
+# ── Visualising expectation and variance ────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4.8))
+
+# (1) Discrete PMF (one fair die). E[X] = 3.5 is the BALANCE POINT
+# of the bars, drawn as a triangular fulcrum below the x-axis.
+xs   = np.arange(1, 7)
+pmf  = np.full_like(xs, 1/6, dtype=float)
+mean = (xs * pmf).sum()
+var  = ((xs - mean) ** 2 * pmf).sum()
+
+ax = axes[0]
+ax.bar(xs, pmf, color="tab:blue", alpha=0.8, edgecolor="navy")
+ax.axvline(mean, color="red", lw=2, label=f"E[X] = {mean:.2f} (balance)")
+ax.scatter([mean], [-0.012], marker="^", color="red", s=200, clip_on=False)
+ax.set_title("Fair die: E[X] is the *balance point* of the PMF")
+ax.set_xlabel("x"); ax.set_ylabel("P(X=x)")
+ax.set_ylim(-0.025, 0.22)
+ax.grid(True, alpha=0.3); ax.legend()
+
+# (2) Three Gaussians with the same mean but different variances.
+# Same balance point, very different *spreads* — that's variance.
+ax = axes[1]
+xs_c = np.linspace(-8, 8, 400)
+for sigma, color in [(0.7, "tab:green"), (1.5, "tab:orange"), (3.0, "tab:red")]:
+    pdf = np.exp(-0.5 * (xs_c / sigma) ** 2) / (sigma * np.sqrt(2 * np.pi))
+    ax.plot(xs_c, pdf, lw=2, color=color,
+            label=f"σ = {sigma}, Var = {sigma**2:.2f}")
+ax.axvline(0, color="red", lw=2, linestyle="--", label="E[X] = 0 (same)")
+ax.set_title("Same mean, different variance:\nvariance = how WIDE the hump is")
+ax.set_xlabel("x"); ax.set_ylabel("density")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (3) The squared-deviation interpretation. Variance is E[(X − μ)²]:
+# we look at each outcome's distance from the mean, square it, then
+# weight by probability. The bar height shows that contribution.
+ax = axes[2]
+contribs = (xs - mean) ** 2 * pmf
+ax.bar(xs, contribs, color="tab:purple", alpha=0.8, edgecolor="indigo")
+for x, c in zip(xs, contribs):
+    ax.text(x, c + 0.04, f"{(x-mean)**2:.2f}·{pmf[0]:.3f}",
+            ha="center", fontsize=8)
+ax.set_title(f"Variance is the average of squared deviations\n"
+             f"Var(X) = Σ (x − μ)² · p(x) = {var:.4f}")
+ax.set_xlabel("x"); ax.set_ylabel("(x − μ)² · p(x)")
+ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the numerical summaries so picture and numbers agree.
+print(f"Fair die: E[X] = {mean:.4f},  Var(X) = {var:.4f},  σ = √Var = {np.sqrt(var):.4f}")
+print(f"Std dev σ ≈ {np.sqrt(var):.2f} means a typical roll lands within "
+      f"~{np.sqrt(var):.1f} of the mean ({mean:.1f}).")
+```
+
+**Key things the plots make obvious:**
+
+- The **mean (red line)** is *not* "the most likely value" — for a fair
+  die every value is equally likely, yet $E[X] = 3.5$, which is **not
+  even one of the possible outcomes!** It's the *centre of mass*.
+- The middle plot is the canonical picture of variance: three bell
+  curves with the same centre but different widths. The wider the
+  hump, the larger the variance — and the *standard deviation* $\sigma
+  = \sqrt{\text{Var}}$ is roughly "the typical distance from the mean
+  in the same units as $x$".
+- The right plot makes the formula $\text{Var}(X) = \sum (x - \mu)^2 \,
+  p(x)$ visible bar by bar: outcomes far from the mean contribute much
+  more than outcomes nearby (because we *square* the distance). This is
+  why variance is sensitive to outliers — and why ML uses MSE loss when
+  it wants outliers punished more than small errors.
+
 ## Connection to CS / Games / AI
 
 - **Loss functions** — expected loss over the data distribution is what we minimise

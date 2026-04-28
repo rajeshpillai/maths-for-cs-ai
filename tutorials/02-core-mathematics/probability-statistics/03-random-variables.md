@@ -145,6 +145,103 @@ count = sum(1 for s in samples if 0.5 <= s <= 1)
 print(f"  P(0.5 ≤ X ≤ 1) ≈ {count/100000:.4f} (exact: 0.75)")
 ```
 
+## Visualisation — PMFs, PDFs, and their CDFs
+
+A random variable comes in two flavours: **discrete** (a list of
+possible values, each with a probability — a PMF) and **continuous** (a
+density curve where probability is *area*, not height — a PDF). The
+**CDF** $F(x) = P(X \le x)$ is the sum or integral of the PMF/PDF up to
+$x$, and it always climbs from 0 to 1.
+
+```python
+# ── Visualising discrete vs continuous random variables ─────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(2, 2, figsize=(13, 9))
+
+# Discrete RV: roll one fair die. Values 1..6, each with P = 1/6.
+xs_d = np.arange(1, 7)
+pmf  = np.full_like(xs_d, 1/6, dtype=float)
+cdf_d = np.cumsum(pmf)            # 1/6, 2/6, …, 6/6 = 1
+
+# (1) PMF as bars: height = probability of that exact value.
+ax = axes[0, 0]
+ax.bar(xs_d, pmf, color="tab:blue", alpha=0.8, edgecolor="navy")
+ax.set_title("Discrete: PMF p(x)\nbar HEIGHT = probability of each value")
+ax.set_xlabel("x"); ax.set_ylabel("P(X = x)")
+ax.set_ylim(0, 0.25); ax.grid(True, alpha=0.3)
+for x, p in zip(xs_d, pmf):
+    ax.text(x, p + 0.005, f"{p:.3f}", ha="center", fontsize=9)
+
+# (2) CDF for a discrete RV is a STAIR-STEP: it jumps by p(x) at each
+# value and stays flat in between.
+ax = axes[0, 1]
+ax.step(np.concatenate([[0], xs_d, [7]]),
+        np.concatenate([[0], cdf_d, [1]]),
+        where="post", color="tab:blue", lw=2)
+for x, c in zip(xs_d, cdf_d):
+    ax.scatter(x, c, color="tab:blue", zorder=5)
+ax.set_title("Discrete: CDF F(x) = P(X ≤ x)\nstaircase, jumps by p(x)")
+ax.set_xlabel("x"); ax.set_ylabel("F(x)")
+ax.set_xlim(0, 7); ax.set_ylim(-0.05, 1.1); ax.grid(True, alpha=0.3)
+
+# Continuous RV from the lesson:  f(x) = 2x on [0, 1], f = 0 elsewhere.
+xs_c = np.linspace(0, 1, 400)
+pdf  = 2 * xs_c
+cdf_c = xs_c ** 2                  # F(x) = x²
+
+# (3) PDF as a curve. Probability lives in *area under the curve*,
+# not in the height. The shaded region is P(0.5 ≤ X ≤ 1) = 0.75.
+ax = axes[1, 0]
+ax.plot(xs_c, pdf, color="tab:orange", lw=2, label="$f(x) = 2x$")
+mask = xs_c >= 0.5
+ax.fill_between(xs_c[mask], pdf[mask], color="tab:orange", alpha=0.35,
+                label="$P(0.5 \\leq X \\leq 1)$ = shaded area = 0.75")
+ax.set_title("Continuous: PDF f(x)\nprobability = AREA under the curve")
+ax.set_xlabel("x"); ax.set_ylabel("density f(x)")
+ax.set_xlim(-0.1, 1.1); ax.set_ylim(0, 2.3)
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (4) CDF for a continuous RV is a smooth S-curve from 0 to 1.
+ax = axes[1, 1]
+ax.plot(xs_c, cdf_c, color="tab:orange", lw=2, label="$F(x) = x^2$")
+ax.axhline(1.0, color="black", lw=0.6, linestyle=":")
+ax.scatter([1.0], [1.0], color="tab:orange", zorder=5)
+ax.scatter([0.0], [0.0], color="tab:orange", zorder=5)
+ax.set_title("Continuous: CDF F(x) = ∫₀ˣ f(t)dt\nsmooth, climbs from 0 to 1")
+ax.set_xlabel("x"); ax.set_ylabel("F(x)")
+ax.set_xlim(-0.1, 1.1); ax.set_ylim(-0.05, 1.1)
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Sanity check: P(0.5 ≤ X ≤ 1) using F.
+print(f"From the CDF: P(0.5 ≤ X ≤ 1) = F(1) - F(0.5) = {1.0**2 - 0.5**2:.4f}")
+print(f"             — matches the orange shaded area in the bottom-left plot.")
+print(f"PMF rule: sum of bars = {pmf.sum():.4f}  (probabilities must total 1)")
+trap = getattr(np, "trapezoid", None) or np.trapz   # numpy 2.0 renamed it
+print(f"PDF rule: integral of f over its support = {trap(pdf, xs_c):.4f}")
+```
+
+**The four pictures, side by side:**
+
+- **Top-left (PMF).** Each bar is the actual probability of that value
+  — the heights add to 1.
+- **Top-right (discrete CDF).** A *staircase* that starts at 0, jumps
+  by $p(x)$ at each possible value, and ends at 1.
+- **Bottom-left (PDF).** The curve's *height is a density*, not a
+  probability; densities can exceed 1. **Probability is the area**
+  under the curve over the interval of interest. The shaded region is
+  $P(0.5 \le X \le 1) = 0.75$.
+- **Bottom-right (continuous CDF).** A smooth S-curve. To compute
+  $P(a \le X \le b)$ you can read off $F(b) - F(a)$ directly — no
+  integration needed once you have the CDF.
+
+A useful mantra: *PMF/PDF tells you "how concentrated is probability
+here?", CDF tells you "how much probability has accumulated by here?"*
+
 ## Connection to CS / Games / AI
 
 - **Neural network outputs** — softmax produces a PMF over classes

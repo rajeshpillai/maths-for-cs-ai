@@ -190,6 +190,104 @@ print(f"lambda_2 = {lam2:.4f} (expected 0.5)")
 print(f"Eigenvector for lam_1: (1, 1)/sqrt(2) -- 45-degree tilt")
 ```
 
+## Visualisation — The bivariate Gaussian "hill" and its contours
+
+A 2-D Gaussian is a smooth *hill* in 3-D space: tallest at the mean,
+falling off in every direction. Its level sets — the curves where the
+density equals a constant — are **ellipses**. The shape and orientation
+of those ellipses tell you the variances and the correlation directly.
+
+```python
+# ── Visualising the bivariate normal ────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D  # noqa: F401  (registers 3-D projection)
+
+# Three correlation values, same marginals, same mean. ρ controls
+# the *tilt* and the *eccentricity* of the contour ellipses.
+specs = [(-0.7, "ρ = -0.7"),
+         ( 0.0, "ρ =  0.0"),
+         ( 0.7, "ρ = +0.7")]
+
+mu = np.array([0.0, 0.0])
+sigma_x = sigma_y = 1.0
+
+# Grid of (x, y) where we evaluate the joint density.
+grid = np.linspace(-3, 3, 200)
+X, Y = np.meshgrid(grid, grid)
+points = np.dstack([X, Y])
+
+def bivariate_pdf(points, mu, sigma_x, sigma_y, rho):
+    """Closed-form density of a 2-D Gaussian (no scipy)."""
+    dx = points[..., 0] - mu[0]
+    dy = points[..., 1] - mu[1]
+    z  = (dx / sigma_x) ** 2 - 2 * rho * (dx * dy) / (sigma_x * sigma_y) \
+       + (dy / sigma_y) ** 2
+    norm = 1.0 / (2 * np.pi * sigma_x * sigma_y * np.sqrt(1 - rho * rho))
+    return norm * np.exp(-z / (2 * (1 - rho * rho)))
+
+fig = plt.figure(figsize=(15, 9))
+
+# Top row: 2-D contour plots overlaid with samples.
+# Bottom row: 3-D surface views of the same density.
+rng = np.random.default_rng(0)
+for col, (rho, label) in enumerate(specs):
+    pdf = bivariate_pdf(points, mu, sigma_x, sigma_y, rho)
+
+    # 2-D contour + scatter
+    ax = fig.add_subplot(2, 3, col + 1)
+    cs = ax.contour(X, Y, pdf, levels=8, cmap="viridis")
+    cov = np.array([[sigma_x ** 2,  rho * sigma_x * sigma_y],
+                    [rho * sigma_x * sigma_y,  sigma_y ** 2]])
+    samples = rng.multivariate_normal(mu, cov, size=300)
+    ax.scatter(samples[:, 0], samples[:, 1], alpha=0.30, s=10, color="tab:red")
+    ax.axhline(0, color="grey", lw=0.5); ax.axvline(0, color="grey", lw=0.5)
+    ax.set_xlim(-3, 3); ax.set_ylim(-3, 3); ax.set_aspect("equal")
+    ax.set_title(f"{label}\ncontours + 300 samples")
+    ax.set_xlabel("X"); ax.set_ylabel("Y")
+
+    # 3-D surface
+    ax3 = fig.add_subplot(2, 3, col + 4, projection="3d")
+    ax3.plot_surface(X, Y, pdf, cmap="viridis", alpha=0.85,
+                     linewidth=0, antialiased=True)
+    ax3.set_title(f"{label}\nthe density 'hill'")
+    ax3.set_xlabel("X"); ax3.set_ylabel("Y"); ax3.set_zlabel("f(x, y)")
+
+plt.tight_layout()
+plt.show()
+
+# Print eigenvalues — the squared lengths of the contour ellipse's
+# semi-axes. PCA's "principal components" are exactly these eigenvectors.
+print("Contour ellipse axis lengths come from the covariance eigenvalues:")
+print(f"{'ρ':>5}  {'cov matrix':>30}  {'λ₁':>8}  {'λ₂':>8}  axis tilt")
+for rho, label in specs:
+    cov = np.array([[1.0, rho], [rho, 1.0]])
+    eigvals, eigvecs = np.linalg.eigh(cov)
+    lam2, lam1 = eigvals                     # smaller, larger
+    angle = np.degrees(np.arctan2(eigvecs[1, 1], eigvecs[0, 1]))
+    print(f"  {rho:+.1f}   [[1, {rho}], [{rho}, 1]]      "
+          f"  {lam1:.3f}   {lam2:.3f}   {angle:+.1f}°")
+```
+
+**What to read off the picture:**
+
+- **Zero correlation** ($\rho = 0$, middle column): contours are
+  *circles*, the hill is rotationally symmetric. Knowing $X$ tells you
+  nothing about $Y$.
+- **Positive correlation** ($\rho = +0.7$, right column): contours are
+  *tilted ellipses* leaning along the line $y = x$. High $X$ tends to
+  come with high $Y$. Samples cluster along a diagonal cloud.
+- **Negative correlation** ($\rho = -0.7$, left column): the same
+  ellipses, *flipped* — they lean along $y = -x$. High $X$ comes with
+  low $Y$.
+- **Eigenvalues of the covariance matrix = squared semi-axis lengths.**
+  When $\rho = 0$ both eigenvalues are 1 — circle. As $|\rho|$ grows,
+  one eigenvalue grows while the other shrinks — the ellipse stretches
+  in one direction and squeezes in the other. This is *exactly* what
+  PCA does on real data: it finds the eigenvectors of the empirical
+  covariance and treats the longest-axis direction as the most
+  informative dimension.
+
 ## Connection to CS / Games / AI
 
 - **Gaussian Mixture Models (GMMs)** — each cluster is a multivariate normal; the bivariate case is the simplest non-trivial example

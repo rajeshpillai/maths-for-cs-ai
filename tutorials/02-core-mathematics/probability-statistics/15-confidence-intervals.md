@@ -215,6 +215,105 @@ for n in [10, 25, 50, 100, 400, 1000]:
     print(f"  n={n:4d}: width = {width:.2f}")
 ```
 
+## Visualisation — What "95% confidence" actually means
+
+A 95% confidence interval is *not* "there's a 95% chance the true mean
+is inside this particular interval". The truth is subtler — and the
+plot below makes it concrete: if you repeat the procedure many times,
+**about 95% of the resulting intervals contain the true mean**. The
+*procedure* has 95% coverage, not any single interval.
+
+```python
+# ── Visualising confidence-interval coverage ────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(7)
+
+mu_true = 5.0      # the population mean (we secretly know it)
+sigma   = 2.0      # known population std
+n       = 30       # each experiment uses a sample of size 30
+NUM_EXPERIMENTS = 50
+
+# z* = 1.96 for 95% confidence (Standard Normal critical value)
+z_crit = 1.96
+half_width = z_crit * sigma / np.sqrt(n)
+
+fig, axes = plt.subplots(1, 2, figsize=(15, 6))
+
+# (1) Simulate 50 independent experiments, each producing a
+# 95% CI. Colour the bar green if the interval covers μ_true,
+# red if it does not. About 5% should miss in expectation.
+ax = axes[0]
+covers = 0
+for i in range(NUM_EXPERIMENTS):
+    sample = rng.normal(loc=mu_true, scale=sigma, size=n)
+    xbar   = sample.mean()
+    lo, hi = xbar - half_width, xbar + half_width
+    inside = lo <= mu_true <= hi
+    if inside:
+        covers += 1
+    color = "tab:green" if inside else "tab:red"
+    ax.plot([lo, hi], [i, i], color=color, lw=2)
+    ax.plot([xbar], [i], "o", color=color, markersize=4)
+ax.axvline(mu_true, color="black", lw=2, linestyle="--",
+           label=f"true μ = {mu_true}")
+ax.set_xlabel("interval"); ax.set_ylabel("experiment number")
+ax.set_title(f"50 independent 95% CIs from samples of n = {n}\n"
+             f"Coverage in this run: {covers}/{NUM_EXPERIMENTS} ≈ {covers/NUM_EXPERIMENTS*100:.0f}%")
+ax.legend(loc="lower right")
+ax.grid(True, alpha=0.3)
+
+# (2) CI width is governed by the standard error σ/√n. Plot CI
+# width vs n on a single chart, with the famous *1/√n* shape.
+ax = axes[1]
+ns = np.arange(5, 401)
+widths = 2 * z_crit * sigma / np.sqrt(ns)
+ax.plot(ns, widths, color="tab:blue", lw=2,
+        label=r"width = $2 z^* \sigma / \sqrt n$")
+for n_mark in [10, 30, 100, 400]:
+    w = 2 * z_crit * sigma / np.sqrt(n_mark)
+    ax.scatter([n_mark], [w], color="tab:red", zorder=5, s=70)
+    ax.text(n_mark, w + 0.15, f"n = {n_mark}\nwidth = {w:.2f}",
+            ha="center", fontsize=9)
+ax.set_title("CI width shrinks as $1/\\sqrt{n}$\n→ 4× the sample, half the width")
+ax.set_xlabel("sample size n"); ax.set_ylabel("95% CI width")
+ax.set_ylim(0, max(widths) * 1.1)
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Verify that long-run coverage really is ~95% by running 5,000 experiments.
+NUM_LONG = 5_000
+long_run_cover = sum(
+    abs(rng.normal(loc=mu_true, scale=sigma, size=n).mean() - mu_true) <= half_width
+    for _ in range(NUM_LONG)
+)
+print(f"Long-run coverage ({NUM_LONG} experiments): "
+      f"{long_run_cover}/{NUM_LONG} = {long_run_cover/NUM_LONG*100:.2f}%")
+print("(Expected: 95.00% — and yes, it really is the *procedure* that has")
+print(" 95% coverage; any single interval either contains μ or does not.)")
+```
+
+**The two key ideas the picture pins down:**
+
+- **"95% confidence" is a property of the procedure**, not of any
+  individual interval. The left plot shows 50 different intervals from
+  the same recipe — most cover the true mean, a few don't. If you
+  *kept repeating* the experiment, the long-run fraction of intervals
+  that cover the truth would be 95%.
+- **CI width is bounded by $1/\sqrt n$.** The right plot is the same
+  diminishing-returns curve we've now seen three times (CLT, sampling
+  distributions, here): cutting the CI width in half costs *four*
+  times as much data. This is why surveys hit a "wall" at a few
+  thousand respondents — beyond that the marginal precision is tiny
+  but the budget is huge.
+
+When journalists report "the poll has a margin of error of ±3% with 95%
+confidence," they're describing exactly this — half-width $z^* \sigma /
+\sqrt n$ and a procedure that is right 95% of the time.
+
 ## Connection to CS / Games / AI
 
 - **A/B testing** — "is the conversion rate significantly different?" is answered by checking if CIs overlap (or better, by CI for the difference)

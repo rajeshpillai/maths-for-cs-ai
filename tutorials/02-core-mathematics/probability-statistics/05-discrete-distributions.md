@@ -154,6 +154,108 @@ for k in [1, 3, 5, 10, 20]:
     print(f"  P(X ≤ {k:2d}) = {cdf:.4f}")
 ```
 
+## Visualisation — The four discrete shapes
+
+Each discrete distribution answers a different "counting" question. The
+plot below puts all four side by side so you can read off the *shape*
+each one produces.
+
+```python
+# ── Visualising the four core discrete distributions ────────
+import numpy as np
+import matplotlib.pyplot as plt
+from math import comb, factorial
+
+fig, axes = plt.subplots(1, 4, figsize=(18, 4.5))
+
+# (1) Bernoulli(p=0.3): a single trial, two outcomes (0 or 1).
+# This is the building block of binomial.
+ax = axes[0]
+p = 0.3
+ax.bar([0, 1], [1 - p, p], color="tab:blue", alpha=0.85, edgecolor="navy")
+for x, prob in [(0, 1 - p), (1, p)]:
+    ax.text(x, prob + 0.02, f"{prob:.2f}", ha="center", fontsize=11, fontweight="bold")
+ax.set_title(f"Bernoulli(p = {p})\n(single coin flip, 1 = success)")
+ax.set_xlabel("x"); ax.set_ylabel("P(X = x)")
+ax.set_xticks([0, 1]); ax.set_ylim(0, 1.0)
+ax.grid(True, alpha=0.3)
+
+# (2) Binomial(n=20, p=0.3): number of successes in n independent trials.
+# Shape: roughly bell-curved, peaked near n·p.
+ax = axes[1]
+n, p_b = 20, 0.3
+ks = np.arange(0, n + 1)
+pmf_b = np.array([comb(n, k) * p_b**k * (1 - p_b)**(n - k) for k in ks])
+ax.bar(ks, pmf_b, color="tab:orange", alpha=0.85, edgecolor="darkorange")
+ax.axvline(n * p_b, color="red", lw=2, linestyle="--",
+           label=f"E[X] = n·p = {n*p_b:.1f}")
+ax.set_title(f"Binomial(n = {n}, p = {p_b})\n(# successes in n trials)")
+ax.set_xlabel("k = number of successes"); ax.set_ylabel("P(X = k)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (3) Geometric(p=0.2): how many trials until the FIRST success.
+# Shape: monotonically decreasing — early successes are most likely.
+ax = axes[2]
+p_g = 0.2
+ks = np.arange(1, 21)
+pmf_g = (1 - p_g)**(ks - 1) * p_g
+ax.bar(ks, pmf_g, color="tab:green", alpha=0.85, edgecolor="darkgreen")
+ax.axvline(1 / p_g, color="red", lw=2, linestyle="--",
+           label=f"E[X] = 1/p = {1/p_g:.1f}")
+ax.set_title(f"Geometric(p = {p_g})\n(trials until 1st success)")
+ax.set_xlabel("k = trial of first success"); ax.set_ylabel("P(X = k)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (4) Poisson(λ=4): number of events in a fixed window when events
+# occur independently at average rate λ. Shape: peak at ⌊λ⌋, right-skewed
+# for small λ, becomes more bell-shaped as λ grows.
+ax = axes[3]
+lam = 4
+ks = np.arange(0, 16)
+pmf_p = np.exp(-lam) * lam**ks / np.array([factorial(k) for k in ks])
+ax.bar(ks, pmf_p, color="tab:purple", alpha=0.85, edgecolor="indigo")
+ax.axvline(lam, color="red", lw=2, linestyle="--",
+           label=f"E[X] = λ = {lam}")
+ax.set_title(f"Poisson(λ = {lam})\n(# events in a fixed window)")
+ax.set_xlabel("k = event count"); ax.set_ylabel("P(X = k)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the key statistics — every one of these is a closed form.
+print(f"{'Distribution':<22}  {'E[X]':>6}    {'Var(X)':>8}    Notes")
+print("-" * 75)
+print(f"{'Bernoulli(p)':<22}  {p:>6.2f}    {p*(1-p):>8.4f}    one Yes/No trial")
+print(f"{'Binomial(n=20, p=0.3)':<22}  {n*p_b:>6.2f}    {n*p_b*(1-p_b):>8.4f}    "
+      f"sum of {n} Bernoullis")
+print(f"{'Geometric(p=0.2)':<22}  {1/p_g:>6.2f}    {(1-p_g)/p_g**2:>8.4f}    "
+      f"trials until 1st success")
+print(f"{'Poisson(λ=4)':<22}  {lam:>6.2f}    {lam:>8.4f}    "
+      f"E = Var = λ (Poisson signature)")
+```
+
+**Reading the four shapes:**
+
+- **Bernoulli** is the atom of probability — *one* trial with two
+  outcomes. Every binary classifier output is a Bernoulli prediction.
+- **Binomial** is what you get when you add up $n$ independent
+  Bernoullis. The bell-shaped result hints at the **Central Limit
+  Theorem** (lesson 7): sums of independent things become approximately
+  normal.
+- **Geometric** answers "how long until the first success?" and is the
+  unique discrete *memoryless* distribution — its decay rate $1 - p$
+  doesn't depend on how many failures you've already seen.
+- **Poisson** is the limit of a binomial as $n \to \infty$ and $p \to 0$
+  with $np = \lambda$ held constant. It's the universal model for "rare
+  events at a steady rate" — server hits, photon arrivals, typos per
+  page, deaths-by-horse-kick (the original 1898 example).
+
+A visual rule of thumb: **right-skewed shape → geometric or low-λ
+Poisson; bell-ish → binomial or high-λ Poisson**. The mean $E[X]$ is
+the red dashed line; for Poisson, the variance equals the mean — that's
+the distribution's signature.
+
 ## Connection to CS / Games / AI
 
 - **Bernoulli** — dropout (each neuron is a Bernoulli trial), click-through rates

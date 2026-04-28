@@ -149,6 +149,98 @@ print(f"BCE loss = {bce:.4f}")
 print(f"Log-likelihood = {-bce:.4f}")
 ```
 
+## Visualisation — The likelihood landscape
+
+Maximum Likelihood Estimation isn't magic — it literally finds the
+parameter value that makes the **likelihood curve** highest. Plotting
+that curve makes the whole procedure visible.
+
+```python
+# ── Visualising MLE: where does the likelihood peak? ────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 4.8))
+
+# (1) Bernoulli MLE: 7 heads in 10 coin flips. Try every plausible
+# coin bias p and plot the likelihood L(p) = p^7 (1-p)^3.
+# The peak is at p̂ = 7/10 = 0.7 — the obvious sample proportion.
+ax = axes[0]
+heads, n = 7, 10
+ps = np.linspace(0.001, 0.999, 400)
+L  = ps ** heads * (1 - ps) ** (n - heads)
+mle = heads / n
+ax.plot(ps, L, color="tab:blue", lw=2, label="likelihood $L(p)$")
+ax.axvline(mle, color="red", lw=2, linestyle="--",
+           label=f"MLE $\\hat p = {mle}$")
+ax.fill_between(ps, L, alpha=0.20, color="tab:blue")
+ax.set_title(f"Bernoulli MLE\n{heads} heads in {n} flips → $\\hat p$ = {mle}")
+ax.set_xlabel("candidate p (coin bias)"); ax.set_ylabel("likelihood L(p)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (2) The same likelihood as a *log-likelihood*. Same peak, but on a
+# scale where multiplying many small probabilities won't underflow.
+# This is why training code always uses log-likelihood, never the raw
+# likelihood — the latter underflows to 0 for any moderate dataset.
+ax = axes[1]
+log_L = heads * np.log(ps) + (n - heads) * np.log(1 - ps)
+ax.plot(ps, log_L, color="tab:orange", lw=2, label="log-likelihood")
+ax.axvline(mle, color="red", lw=2, linestyle="--",
+           label=f"MLE $\\hat p = {mle}$")
+ax.set_title("Same MLE, viewed as log-likelihood\n(numerically safer)")
+ax.set_xlabel("candidate p"); ax.set_ylabel("log L(p)")
+ax.set_ylim(-30, 0)
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (3) Gaussian MLE for the mean. Five observations, fixed σ = 1.
+# We sweep candidate μ values and plot log-likelihood.
+# The peak is exactly the sample mean.
+ax = axes[2]
+data = np.array([1.5, 2.2, 1.9, 2.6, 2.0])
+sigma = 1.0
+mus = np.linspace(0, 4, 400)
+log_L_gauss = np.array([
+    -0.5 * np.sum((data - mu)**2) / sigma**2 - len(data) * np.log(sigma * np.sqrt(2 * np.pi))
+    for mu in mus
+])
+ax.plot(mus, log_L_gauss, color="tab:green", lw=2, label="log-likelihood")
+sample_mean = data.mean()
+ax.axvline(sample_mean, color="red", lw=2, linestyle="--",
+           label=f"MLE $\\hat \\mu$ = {sample_mean:.2f}\n(= sample mean)")
+ax.set_title("Gaussian-mean MLE\n→ MLE always equals the sample mean")
+ax.set_xlabel("candidate μ"); ax.set_ylabel("log L(μ)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Numerical check: confirm the calculus answer matches the plot's peak.
+print(f"Bernoulli: 7 heads in 10  →  closed-form MLE = {heads / n}")
+print(f"          ↳ peak in plot is at p = {ps[np.argmax(L)]:.4f}")
+print()
+print(f"Gaussian (σ = 1): data = {data.tolist()}")
+print(f"          ↳ closed-form MLE = sample mean = {sample_mean:.4f}")
+print(f"          ↳ peak in plot is at μ = {mus[np.argmax(log_L_gauss)]:.4f}")
+```
+
+**What the three curves together prove:**
+
+- **MLE = "find the peak".** The likelihood is a function of the
+  *parameter*, not of the data; the data is fixed. We slide the
+  parameter and ask "which value would have made the data we actually
+  saw most probable?".
+- **Log-likelihood has the same peak.** Because $\log$ is monotonic,
+  taking $\log$ doesn't move the maximum — but it turns the
+  product-of-many-tiny-numbers into a sum, which is what every modern
+  optimiser actually computes. Cross-entropy loss in deep learning is
+  *exactly* the negative log-likelihood of a Bernoulli or categorical
+  model.
+- **Closed-form answers exist for the easy cases.** Bernoulli MLE is the
+  sample proportion $7/10$. Gaussian-mean MLE is the sample mean. These
+  closed forms are special cases of the general "set the gradient of
+  the log-likelihood to zero" recipe — gradient descent does the same
+  thing iteratively when no closed form exists.
+
 ## Connection to CS / Games / AI
 
 - **Neural network training** — cross-entropy loss IS negative log-likelihood (MLE)

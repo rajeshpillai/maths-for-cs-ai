@@ -230,6 +230,134 @@ print(f"P(|Z| > 3) for normal: {z_tail:.4f}")
 print(f"t has {t_tail/z_tail:.1f}x more probability in the tails")
 ```
 
+## Visualisation — A zoo of continuous shapes
+
+Each continuous distribution is a *shape*. Once you've seen them, you
+recognise them in real datasets immediately.
+
+```python
+# ── Visualising the core continuous distributions ───────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(2, 3, figsize=(16, 9))
+
+# (1) Uniform on [a, b]: flat density 1/(b - a) inside, zero outside.
+# Models "every value equally likely in a range" — random angle, random hash bucket.
+ax = axes[0, 0]
+a, b = 2, 6
+x = np.linspace(0, 8, 400)
+pdf = np.where((x >= a) & (x <= b), 1 / (b - a), 0)
+ax.fill_between(x, pdf, alpha=0.5, color="tab:blue")
+ax.plot(x, pdf, color="navy", lw=2)
+ax.set_title(f"Uniform({a}, {b})\nflat — every value equally likely")
+ax.set_xlabel("x"); ax.set_ylabel("f(x)")
+ax.grid(True, alpha=0.3)
+
+# (2) Normal (Gaussian): the bell curve. Defined by mean μ and std σ.
+# 68% of the area lies within ±1σ, 95% within ±2σ, 99.7% within ±3σ.
+ax = axes[0, 1]
+mu, sigma = 0, 1
+x = np.linspace(-4, 4, 400)
+pdf = np.exp(-0.5 * ((x - mu) / sigma) ** 2) / (sigma * np.sqrt(2 * np.pi))
+ax.plot(x, pdf, color="tab:orange", lw=2)
+ax.fill_between(x, pdf, where=np.abs(x - mu) <= sigma,    alpha=0.30, color="tab:orange",
+                label="±1σ ≈ 68%")
+ax.fill_between(x, pdf, where=np.abs(x - mu) <= 2*sigma,  alpha=0.15, color="tab:orange",
+                label="±2σ ≈ 95%")
+ax.set_title(f"Normal(μ = {mu}, σ = {sigma})\nbell curve, 68-95-99.7 rule")
+ax.set_xlabel("x"); ax.set_ylabel("f(x)")
+ax.legend(loc="upper right", fontsize=9); ax.grid(True, alpha=0.3)
+
+# (3) Exponential(λ): memoryless waiting time between events at rate λ.
+# Right-skewed, density decays from λ at x=0 down to 0.
+ax = axes[0, 2]
+lam = 1.0
+x = np.linspace(0, 6, 400)
+pdf = lam * np.exp(-lam * x)
+ax.plot(x, pdf, color="tab:green", lw=2)
+ax.fill_between(x, pdf, alpha=0.30, color="tab:green")
+ax.axvline(1 / lam, color="red", lw=1.5, linestyle="--", label=f"mean = 1/λ = {1/lam}")
+ax.set_title(f"Exponential(λ = {lam})\nwaiting time, memoryless")
+ax.set_xlabel("x"); ax.set_ylabel("f(x)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (4) Gamma: a flexible right-skewed shape that generalises exponential.
+# Gamma(k, θ): k = shape, θ = scale. k=1 reproduces exponential.
+ax = axes[1, 0]
+x = np.linspace(0, 12, 400)
+for k_shape, theta, color in [(1.0, 1.0, "tab:blue"),
+                              (2.0, 1.0, "tab:orange"),
+                              (5.0, 1.0, "tab:green")]:
+    # PDF of Gamma using only numpy (no scipy): f(x) = x^(k-1) e^(-x/θ) / (θ^k Γ(k))
+    from math import gamma as gamma_fn
+    pdf = (x**(k_shape - 1) * np.exp(-x / theta)) / (theta**k_shape * gamma_fn(k_shape))
+    ax.plot(x, pdf, lw=2, color=color, label=f"k = {k_shape}, θ = {theta}")
+ax.set_title("Gamma(k, θ)\nflexible right-skewed family")
+ax.set_xlabel("x"); ax.set_ylabel("f(x)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+# (5) Chi-squared(ν): sum of ν independent squared standard normals.
+# It's the distribution that pops up in variance tests.
+ax = axes[1, 1]
+x = np.linspace(0.01, 25, 400)
+for nu, color in [(1, "tab:blue"), (3, "tab:orange"),
+                  (5, "tab:green"), (10, "tab:red")]:
+    # Chi² is just Gamma(k = ν/2, θ = 2)
+    pdf = (x**(nu/2 - 1) * np.exp(-x / 2)) / (2**(nu/2) * gamma_fn(nu/2))
+    ax.plot(x, pdf, lw=2, color=color, label=f"ν = {nu}")
+ax.set_title("Chi-squared(ν)\nused in variance / goodness-of-fit tests")
+ax.set_xlabel("x"); ax.set_ylabel("f(x)")
+ax.set_ylim(0, 0.5); ax.legend(); ax.grid(True, alpha=0.3)
+
+# (6) Student's t: like the normal but with HEAVIER TAILS.
+# As ν → ∞, Student's t → standard normal.
+ax = axes[1, 2]
+x = np.linspace(-5, 5, 400)
+# Standard normal for reference
+ax.plot(x, np.exp(-x**2 / 2) / np.sqrt(2 * np.pi),
+        lw=2, color="black", linestyle="--", label="Normal (∞ d.f.)")
+for nu, color in [(1, "tab:red"), (3, "tab:orange"), (10, "tab:blue")]:
+    # Student's t PDF using gamma function
+    norm = gamma_fn((nu + 1)/2) / (np.sqrt(nu * np.pi) * gamma_fn(nu/2))
+    pdf = norm * (1 + x**2 / nu)**(-(nu + 1)/2)
+    ax.plot(x, pdf, lw=2, color=color, label=f"t with ν = {nu}")
+ax.set_title("Student's t(ν)\nlike normal but with FAT TAILS")
+ax.set_xlabel("x"); ax.set_ylabel("f(x)")
+ax.legend(); ax.grid(True, alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the canonical means and variances so the picture has anchors.
+print(f"{'Distribution':<25}  {'Mean':>10}  {'Variance':>10}")
+print("-" * 55)
+print(f"{'Uniform(a, b)':<25}  {'(a+b)/2':>10}  {'(b−a)²/12':>10}")
+print(f"{'Normal(μ, σ)':<25}  {'μ':>10}  {'σ²':>10}")
+print(f"{'Exponential(λ)':<25}  {'1/λ':>10}  {'1/λ²':>10}")
+print(f"{'Gamma(k, θ)':<25}  {'k·θ':>10}  {'k·θ²':>10}")
+print(f"{'Chi-squared(ν)':<25}  {'ν':>10}  {'2ν':>10}")
+print(f"{'Student t(ν), ν > 2':<25}  {'0':>10}  {'ν/(ν−2)':>10}")
+```
+
+**Recognising shapes by sight:**
+
+- **Uniform** is the only distribution that is *flat* — same density
+  everywhere on its support.
+- **Normal** is *the* bell. Symmetric. The 68-95-99.7 shading tells you
+  how much area lives within 1, 2, and 3 standard deviations.
+- **Exponential** is the only continuous distribution that is
+  *memoryless* — its right tail is identical no matter how far you've
+  already waited. Always right-skewed, always non-negative, peak at 0.
+- **Gamma** is the right-skewed *flexible* shape. Tweak $k$ and $\theta$
+  to match almost any positive-only data (rainfall, insurance claims).
+- **Chi-squared** is what shows up when you square things — variance
+  estimates, goodness-of-fit statistics.
+- **Student's t** looks like a normal that swallowed too much coffee:
+  symmetric, but with fatter tails. Heavy tails matter — they're why
+  small-sample t-tests use Student's t rather than the normal, and why
+  fat-tailed return distributions wreck naïve risk models.
+
 ## Connection to CS / Games / AI
 
 - **Uniform** — random number generation, initialising neural network weights
