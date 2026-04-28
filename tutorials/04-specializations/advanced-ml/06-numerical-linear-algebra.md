@@ -115,6 +115,119 @@ for N, nnz in [(1000, 5000), (100000, 500000), (1000000, 10000000)]:
     print(f"  {N}×{N}, nnz={nnz:>10,}: dense={dense:>15,}, sparse={sparse:>11,}, savings={ratio:.0f}×")
 ```
 
+## Visualisation — Sparse matrices and iterative-solver convergence
+
+Two pictures: the **sparsity pattern** of a real-world-style sparse
+matrix (most entries zero), and the convergence of three iterative
+solvers (Jacobi, Gauss–Seidel, conjugate gradient) on the same system.
+
+```python
+# ── Visualising sparse matrices and iterative solvers ───────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(0)
+
+# Build a 60×60 banded sparse matrix that is symmetric positive-definite.
+# Such matrices arise in finite-element analysis and PDE discretisation.
+N = 60
+A = np.zeros((N, N))
+for i in range(N):
+    A[i, i] = 4.0
+    if i > 0:
+        A[i, i - 1] = -1.0; A[i - 1, i] = -1.0
+    if i > 1 and rng.random() < 0.1:
+        A[i, i - 2] = -0.5; A[i - 2, i] = -0.5
+b = rng.standard_normal(N)
+x_true = np.linalg.solve(A, b)
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5.5))
+
+# (1) Sparsity pattern: black where A[i, j] ≠ 0.
+ax = axes[0]
+ax.spy(A, markersize=4, color="navy")
+nnz = int(np.sum(A != 0))
+density = nnz / (N * N) * 100
+ax.set_title(f"Sparsity pattern of a 60×60 banded matrix\n"
+             f"non-zeros: {nnz}/{N*N} ({density:.1f}%)\n"
+             f"For real-world matrices density is often 0.001%")
+ax.set_xlabel("column"); ax.set_ylabel("row")
+
+# (2) Iterative-solver convergence: residual ||Ax_k − b|| over iterations.
+ax = axes[1]
+
+def jacobi(A, b, n_iter):
+    D = np.diag(A); R = A - np.diag(D)
+    x = np.zeros_like(b); residuals = []
+    for _ in range(n_iter):
+        x = (b - R @ x) / D
+        residuals.append(np.linalg.norm(A @ x - b))
+    return residuals
+
+def gauss_seidel(A, b, n_iter):
+    n = len(b); x = np.zeros(n); residuals = []
+    for _ in range(n_iter):
+        for i in range(n):
+            s = sum(A[i, j] * x[j] for j in range(n) if j != i)
+            x[i] = (b[i] - s) / A[i, i]
+        residuals.append(np.linalg.norm(A @ x - b))
+    return residuals
+
+def conjugate_gradient(A, b, n_iter):
+    x = np.zeros_like(b); r = b - A @ x; p = r.copy()
+    rs_old = r @ r; residuals = []
+    for _ in range(n_iter):
+        Ap = A @ p
+        alpha = rs_old / (p @ Ap)
+        x = x + alpha * p
+        r = r - alpha * Ap
+        residuals.append(np.linalg.norm(A @ x - b))
+        rs_new = r @ r
+        if rs_new < 1e-30: break
+        p = r + (rs_new / rs_old) * p
+        rs_old = rs_new
+    return residuals
+
+n_iter = 60
+ax.semilogy(jacobi(A, b, n_iter),              "o-", color="tab:red",
+            lw=1.5, markersize=3, label="Jacobi")
+ax.semilogy(gauss_seidel(A, b, n_iter),        "s-", color="tab:orange",
+            lw=1.5, markersize=3, label="Gauss-Seidel")
+ax.semilogy(conjugate_gradient(A, b, n_iter),  "^-", color="tab:green",
+            lw=1.5, markersize=3, label="Conjugate Gradient")
+ax.set_xlabel("iteration")
+ax.set_ylabel("||Ax − b|| (log)")
+ax.set_title("Convergence of three iterative solvers\n(CG dominates for SPD matrices)")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Storage comparison printed.
+print(f"Storage (60×60 example): dense = {N*N} numbers, sparse-COO = "
+      f"~3·nnz = {3*nnz}\n")
+print(f"At REAL-world scales the saving is huge:")
+for N_v, nnz_v in [(1_000, 5_000), (100_000, 500_000), (1_000_000, 10_000_000)]:
+    dense = N_v * N_v; sparse = 3 * nnz_v
+    print(f"  {N_v:>9,}×{N_v:<9,}  dense={dense:>15,}  sparse={sparse:>14,}  "
+          f"saving = {dense // sparse}×")
+```
+
+**Two truths every numerical-linear-algebra engineer learns:**
+
+- **Storage decides the algorithm.** A million-by-million dense matrix
+  needs $10^{12}$ floats — petabytes of memory. The same matrix in
+  CSR sparse format with 1% density needs ~$10^{10}$ × 12 bytes ≈
+  120 GB. *That's why iterative methods exist*: they only need to
+  multiply $A v$, never to materialise $A^{-1}$.
+- **Conjugate Gradient (CG) is the workhorse for symmetric positive-
+  definite systems.** It converges in at most $n$ iterations exactly,
+  but in *practice* converges to high precision in $O(\sqrt{\kappa})$
+  iterations, where $\kappa$ is the condition number. **Preconditioned
+  CG** is what powers finite-element solvers, PDE discretisations,
+  and the second-order optimisation steps inside ML libraries like
+  PyTorch's L-BFGS.
+
 ## Connection to CS / Games / AI / Business / Industry
 
 - **AI / ML.** Training large language models ($10^{11}+$ parameters)

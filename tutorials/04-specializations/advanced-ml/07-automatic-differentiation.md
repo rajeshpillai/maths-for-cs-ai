@@ -188,6 +188,87 @@ for n_in, n_out, name in [(1000000, 1, "Neural net"), (3, 1000, "Sensor sim"), (
     print(f"  {name}: {n_in} inputs, {n_out} outputs → {better} mode ({min(fwd_cost, rev_cost)} passes)")
 ```
 
+## Visualisation — Reverse-mode is exponentially better for many-in / few-out
+
+The plot makes the key autodiff trade-off undeniable: **reverse mode**
+costs $\propto$ the number of *outputs*, **forward mode** costs
+$\propto$ the number of *inputs*. For neural networks (millions of
+inputs, one scalar loss output), reverse mode wins by a factor of
+millions.
+
+```python
+# ── Visualising the forward vs reverse autodiff cost picture ──
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+# (1) Cost-vs-#inputs for fixed #outputs = 1 (the neural-net regime).
+ax = axes[0]
+ns_in = np.logspace(0, 7, 50)
+forward_cost = ns_in                       # one forward pass per input
+reverse_cost = np.ones_like(ns_in)         # one reverse pass total
+ax.loglog(ns_in, forward_cost, "o-", color="tab:red",
+          lw=2, label="Forward mode (one pass per input)")
+ax.loglog(ns_in, reverse_cost, "s-", color="tab:green",
+          lw=2, label="Reverse mode (one pass total)")
+# Mark realistic ML scales.
+for n_p, name in [(1e6, "ResNet-50"), (1e8, "BERT-base"),
+                  (1e10, "GPT-3 layer"), (1e12, "GPT-4 (rumoured)")]:
+    ax.axvline(n_p, color="grey", linestyle=":", alpha=0.5)
+    ax.text(n_p * 1.05, 5e6, name, fontsize=8, rotation=90, va="top",
+            color="black")
+ax.set_xlabel("number of inputs (parameters)")
+ax.set_ylabel("number of evaluation passes (log)")
+ax.set_title("Single scalar loss output:\nreverse mode is the only viable choice for neural nets")
+ax.legend(fontsize=9); ax.grid(True, which="both", alpha=0.3)
+
+# (2) Forward beats reverse when there are many outputs but few inputs.
+ax = axes[1]
+ns_out = np.logspace(0, 7, 50)
+forward_cost2 = np.ones_like(ns_out)                    # cost = #inputs (we use 3)
+forward_cost2 *= 3
+reverse_cost2 = ns_out                                  # cost = #outputs
+ax.loglog(ns_out, forward_cost2, "o-", color="tab:red",
+          lw=2, label="Forward mode (3 inputs)")
+ax.loglog(ns_out, reverse_cost2, "s-", color="tab:green",
+          lw=2, label="Reverse mode (one pass per output)")
+ax.set_xlabel("number of outputs")
+ax.set_ylabel("number of evaluation passes (log)")
+ax.set_title("Few inputs, many outputs:\nforward mode wins (fluid simulators, sensor calibration)")
+ax.legend(fontsize=9); ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the cost table for several real configurations.
+print(f"{'Use case':<35}  {'#inputs':>10}  {'#outputs':>10}  {'better mode':>14}")
+print("-" * 75)
+for case, n_in, n_out in [
+    ("ResNet-50 trained with SGD",        25_000_000, 1),
+    ("Llama 7B fine-tuning step",        7_000_000_000, 1),
+    ("Robot inverse kinematics",         7,        100),
+    ("Square Jacobian (e.g. ODE solve)", 100,      100),
+]:
+    if n_in <= n_out:
+        better = f"forward ({n_in}× cheaper)"
+    else:
+        better = f"reverse ({n_out}× cheaper)"
+    print(f"  {case:<35}  {n_in:>10,}  {n_out:>10,}  {better}")
+```
+
+**The two-line summary that drives every modern ML framework:**
+
+- **Forward mode** = one extra pass per *input* you want a derivative
+  for. Good when you have few inputs and many outputs (e.g.
+  fluid-dynamics sensitivities to a couple of parameters).
+- **Reverse mode** = one extra pass per *output* (the "backward
+  pass"). Good when you have many inputs and few outputs — exactly
+  the setup of training a neural network: millions of weights → one
+  scalar loss. PyTorch's `loss.backward()` is reverse mode through a
+  computation graph; JAX has both via `jax.grad` (reverse) and
+  `jax.jvp` (forward).
+
 ## Connection to CS / Games / AI / Business / Industry
 
 - **AI / ML.** **Every deep-learning framework — PyTorch, TensorFlow,

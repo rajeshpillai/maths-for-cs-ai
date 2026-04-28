@@ -114,6 +114,101 @@ for row in A_norm:
     print(f"  {[f'{v:.3f}' for v in row]}")
 ```
 
+## Visualisation — Message passing on a small graph
+
+A GNN computes new node features by **averaging features of each
+node's neighbours** — message passing. The plot shows a small graph,
+the initial random features at each node, and how those features
+spread across the graph after one and two layers of message passing.
+
+```python
+# ── Visualising GNN message passing ─────────────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(0)
+
+# A small graph: 6 nodes, 7 edges. Adjacency list.
+N = 6
+edges = [(0, 1), (0, 2), (1, 3), (2, 3), (3, 4), (4, 5), (1, 5)]
+
+A = np.zeros((N, N))
+for u, v in edges:
+    A[u, v] = 1; A[v, u] = 1
+
+# Add self-loops (so each node also keeps its own info).
+A_hat = A + np.eye(N)
+
+# Symmetric normalisation: D^{-1/2} A_hat D^{-1/2}.
+D = A_hat.sum(axis=1)
+D_inv_sqrt = np.diag(1 / np.sqrt(D))
+A_norm = D_inv_sqrt @ A_hat @ D_inv_sqrt
+
+# Initial features: each node has a random scalar feature in [0, 1].
+features = rng.uniform(0, 1, size=(N, 1))
+
+# After 1 and 2 message-passing steps:
+features_1 = A_norm @ features
+features_2 = A_norm @ features_1
+
+# Layout the graph in a circle for the plots.
+angles = np.linspace(0, 2*np.pi, N, endpoint=False) + np.pi / 2
+pos = np.array([[np.cos(a), np.sin(a)] for a in angles])
+
+fig, axes = plt.subplots(1, 3, figsize=(15, 5.5))
+
+def draw_graph(ax, feats, title):
+    # Edges first (so nodes draw on top).
+    for u, v in edges:
+        ax.plot([pos[u, 0], pos[v, 0]], [pos[u, 1], pos[v, 1]],
+                color="grey", lw=2, alpha=0.6)
+    # Nodes coloured by their feature value.
+    sc = ax.scatter(pos[:, 0], pos[:, 1],
+                    c=feats.flatten(), cmap="viridis",
+                    vmin=0, vmax=1, s=900, edgecolor="black", lw=2, zorder=5)
+    for i in range(N):
+        ax.text(pos[i, 0], pos[i, 1], f"{feats[i, 0]:.2f}",
+                ha="center", va="center", fontsize=10, fontweight="bold",
+                color="white" if feats[i, 0] > 0.5 else "black")
+    ax.set_xlim(-1.5, 1.5); ax.set_ylim(-1.5, 1.5); ax.set_aspect("equal")
+    ax.set_title(title); ax.axis("off")
+    plt.colorbar(sc, ax=ax, fraction=0.046)
+
+draw_graph(axes[0], features,    "Initial features (random)")
+draw_graph(axes[1], features_1,  "After 1 message-pass\n(node = avg of itself + neighbours)")
+draw_graph(axes[2], features_2,  "After 2 message-passes\n(info from 2-hop neighbourhood)")
+
+plt.tight_layout()
+plt.show()
+
+# Print the feature values to mirror the picture.
+print("Initial features:", features.flatten())
+print("After 1 layer:   ", features_1.flatten().round(3))
+print("After 2 layers:  ", features_2.flatten().round(3))
+print()
+print("With each layer, every node's feature gets mixed with one more\n"
+      "hop's worth of neighbours. After K layers, a node's representation\n"
+      "depends on its K-hop neighbourhood.")
+```
+
+**Why GNNs work the way they do:**
+
+- **A GNN layer = neighbour averaging + a non-linearity.** That's
+  literally it. Mathematically, $H^{(\ell+1)} = \sigma(\hat A H^{(\ell)}
+  W^{(\ell)})$. The depth controls the *receptive field on the graph*
+  — after $K$ layers each node has aggregated information from its
+  $K$-hop neighbourhood.
+- **Different aggregation rules give different GNNs.** GCN uses
+  symmetric-normalised mean (lesson 1's formula); GraphSAGE uses
+  arbitrary aggregators (mean / max / LSTM); GAT uses
+  attention-weighted means; Graph Transformers use full attention
+  over all node pairs.
+- **Real GNN deployments are huge.** Pinterest's PinSage runs on a
+  graph with 3 billion nodes and 18 billion edges. Drug-discovery GNNs
+  (AlphaFold, DiffDock) treat molecules as graphs of atoms; social-
+  graph fraud detection treats accounts and transactions as graph
+  nodes and edges.
+
 ## Connection to CS / Games / AI
 
 - **Drug discovery** — molecules are graphs (atoms = nodes, bonds = edges); GNNs predict drug properties

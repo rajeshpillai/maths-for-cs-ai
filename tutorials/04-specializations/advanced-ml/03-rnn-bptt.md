@@ -144,6 +144,93 @@ for f_gate in [0.5, 0.9, 0.99, 1.0]:
         print(f"  f={f_gate}, T={T:3d}: gradient = {grad:.4e}")
 ```
 
+## Visualisation — Vanishing gradient through time
+
+The single most important practical lesson of RNNs: **simple RNNs
+forget very fast**. The plot shows how gradient magnitude decays
+exponentially with time-step distance, and how an LSTM's forget gate
+*can* preserve memory over hundreds of steps.
+
+```python
+# ── Visualising vanishing gradients in RNNs vs LSTMs ────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+# (1) Plain RNN: gradient propagation contracts (or blows up) by a
+# factor of |w| each time step. With |w| < 1 it vanishes; with |w| > 1
+# it explodes. Sweet spot is razor-thin.
+ax = axes[0]
+T = 50
+for w_recurrent, color in [(0.5, "tab:red"),
+                           (0.9, "tab:orange"),
+                           (1.0, "tab:green"),
+                           (1.05, "tab:blue"),
+                           (1.2, "tab:purple")]:
+    grads = w_recurrent ** np.arange(T + 1)
+    ax.plot(np.arange(T + 1), grads, "o-", markersize=3, lw=1.5, color=color,
+            label=f"|w| = {w_recurrent}")
+ax.set_yscale("log")
+ax.axhline(1.0, color="black", lw=0.6)
+ax.axhline(1e-7, color="grey", lw=0.6, linestyle="--")
+ax.text(45, 1.5e-7, "≈ float32 noise floor", fontsize=8, color="grey", va="center")
+ax.set_xlabel("time-steps unrolled (T)")
+ax.set_ylabel("|gradient| through time (log)")
+ax.set_title("Plain RNN: gradient = wᵀ\nVANISHES if |w| < 1, EXPLODES if |w| > 1")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+# (2) LSTM forget gate: with f close to 1, gradient stays alive much
+# longer; with f = 0.5, it's gone within ~10 steps. This is why LSTMs
+# can model dependencies hundreds of tokens apart.
+ax = axes[1]
+for f_gate, color in [(0.5, "tab:red"),
+                      (0.9, "tab:orange"),
+                      (0.99, "tab:green"),
+                      (0.999, "tab:blue")]:
+    grads = f_gate ** np.arange(T + 1)
+    ax.plot(np.arange(T + 1), grads, "o-", markersize=3, lw=1.5, color=color,
+            label=f"forget gate f = {f_gate}")
+ax.set_yscale("log")
+ax.axhline(1e-7, color="grey", lw=0.6, linestyle="--")
+ax.set_xlabel("time-steps unrolled (T)")
+ax.set_ylabel("|gradient| through time (log)")
+ax.set_title("LSTM forget gate ≈ 1 keeps gradients alive\n(memory of long-range context)")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the gradient magnitudes after a few horizons.
+print(f"{'horizon T':>10}  {'|w|=0.9':>15}  {'|w|=1.0':>15}  {'|w|=1.1':>15}")
+print("-" * 60)
+for T in [5, 10, 50, 100, 200]:
+    print(f"  {T:>8}     {0.9**T:>13.2e}    {1.0**T:>13.2e}    {1.1**T:>13.2e}")
+print()
+print("LSTMs work because their forget-gate value typically lives near 1,")
+print("so the multiplicative gradient chain stays close to 1 even over")
+print("hundreds of time-steps.  Transformers (next lesson) sidestep the")
+print("issue entirely with attention — a *direct* link between any two")
+print("positions, regardless of distance.")
+```
+
+**Why RNNs gave way to Transformers:**
+
+- **Plain RNNs are recurrence relations of the form $h_t = f(W h_{t-1}
+  + U x_t)$.** Backprop through time multiplies the recurrence
+  derivative $W^\top \cdot f'(\cdot)$ at every step. With $|w| < 1$
+  the gradient vanishes; with $|w| > 1$ it explodes. There's almost
+  no useful range.
+- **LSTMs introduced gates** that *learn* to keep gradients alive.
+  When the forget gate is near 1, $\partial h_T / \partial h_0 \approx
+  1$ even for huge $T$. This is why LSTMs dominated NLP and speech
+  from 2014–2018.
+- **Transformers don't have the problem at all.** With self-attention,
+  any two positions can connect *directly* — the gradient from token
+  500 back to token 1 takes one matrix multiply, not 500 of them.
+  That's the architectural reason BERT, GPT, T5, and Llama replaced
+  LSTMs everywhere.
+
 ## Connection to CS / Games / AI
 
 - **Language modelling** — RNNs/LSTMs were the basis of early seq2seq models (Google Translate pre-2017)

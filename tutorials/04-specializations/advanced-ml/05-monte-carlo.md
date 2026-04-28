@@ -109,6 +109,88 @@ for N in [100, 10000, 1000000]:
 print("  To halve the error, need 4× the samples")
 ```
 
+## Visualisation — Estimating π by throwing darts
+
+The classic Monte-Carlo demo: estimate $\pi$ by throwing random darts
+at a square and counting how many land in the inscribed circle. The
+$1/\sqrt{N}$ error rate becomes visible as the estimate slowly homes
+in on $\pi$.
+
+```python
+# ── Visualising Monte Carlo estimation of π ────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(0)
+
+# Throw N points uniformly on [-1, 1]²; count how many land inside
+# the unit circle. Ratio × 4 = π estimate.
+N_max = 5000
+xs = rng.uniform(-1, 1, N_max)
+ys = rng.uniform(-1, 1, N_max)
+inside = xs * xs + ys * ys <= 1.0
+running_count = np.cumsum(inside)
+ks = np.arange(1, N_max + 1)
+running_pi = 4 * running_count / ks
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5.5))
+
+# (1) The dart picture: blue points inside circle, red points outside.
+ax = axes[0]
+n_show = 2000
+ax.scatter(xs[:n_show][inside[:n_show]], ys[:n_show][inside[:n_show]],
+           color="tab:blue", s=4, alpha=0.5, label="inside circle")
+ax.scatter(xs[:n_show][~inside[:n_show]], ys[:n_show][~inside[:n_show]],
+           color="tab:red", s=4, alpha=0.5, label="outside circle")
+theta = np.linspace(0, 2 * np.pi, 200)
+ax.plot(np.cos(theta), np.sin(theta), color="black", lw=2)
+ax.add_patch(plt.Rectangle((-1, -1), 2, 2, fill=False, edgecolor="black", lw=2))
+ax.set_aspect("equal"); ax.set_xlim(-1.1, 1.1); ax.set_ylim(-1.1, 1.1)
+in_count = inside[:n_show].sum()
+pi_est   = 4 * in_count / n_show
+ax.set_title(f"{n_show} random darts: {in_count} hit the circle\n"
+             f"π ≈ 4 · {in_count}/{n_show} = {pi_est:.4f}\n"
+             f"(true π = 3.14159…)")
+ax.legend(loc="upper right", fontsize=9)
+ax.grid(True, alpha=0.3)
+
+# (2) Convergence plot: |estimate − π| vs N on log-log axes.
+# Slope is approximately −1/2, matching the 1/√N error rate.
+ax = axes[1]
+errors = np.abs(running_pi - np.pi)
+ax.loglog(ks, errors, color="tab:blue", lw=0.8, alpha=0.8, label="|estimate − π|")
+ax.loglog(ks, 2.0 / np.sqrt(ks), color="tab:red", lw=2, linestyle="--",
+          label="$2/\\sqrt{N}$ reference")
+ax.set_xlabel("number of samples N")
+ax.set_ylabel("absolute error (log)")
+ax.set_title("Monte-Carlo error decays like $1/\\sqrt{N}$\n"
+             "(quadrupling samples ⇒ halving error)")
+ax.legend(); ax.grid(True, which="both", alpha=0.3)
+
+plt.tight_layout()
+plt.show()
+
+# Print the convergence table.
+print(f"{'N':>10}  {'estimate of π':>15}  {'error':>10}")
+print("-" * 40)
+for n in [100, 1_000, 10_000, 100_000, N_max]:
+    est = 4 * np.mean(inside[:n])
+    print(f"  {n:>8,}  {est:>13.6f}    {abs(est - np.pi):>10.5f}")
+```
+
+**Two universal Monte-Carlo lessons:**
+
+- **Random sampling can compute things you can't write a closed-form
+  for.** The area of a circle is "easy" — $\pi r^2$. But replace the
+  circle with an arbitrarily-shaped region and Monte Carlo still works
+  unchanged: throw darts, count hits.
+- **The $1/\sqrt{N}$ rate is a constant of nature.** Doesn't depend
+  on the dimension or the integrand's shape. To go from 2 digits of
+  precision to 3, need 100× more samples; to 6 digits, need
+  $10^{12}$ samples. **This is why path tracing is slow** — every
+  pixel of a noise-free render requires *thousands* of light-path
+  samples.
+
 ## Connection to CS / Games / AI / Business / Industry
 
 - **AI / ML.** **Monte Carlo Tree Search** is the engine that beat the

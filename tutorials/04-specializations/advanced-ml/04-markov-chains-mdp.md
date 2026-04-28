@@ -118,6 +118,100 @@ for iteration in range(20):
 print(f"  Optimal: V(A)=10, V(B)=20 (always stay)")
 ```
 
+## Visualisation — Convergence to a stationary distribution
+
+A Markov chain run forever forgets its starting point: the
+distribution of states converges to a **stationary distribution**
+that depends only on the transition matrix. The plot shows two
+chains starting from very different initial distributions converging
+to the *same* stationary one.
+
+```python
+# ── Visualising a Markov chain converging to its stationary ──
+import numpy as np
+import matplotlib.pyplot as plt
+
+# A simple 3-state weather model: Sunny / Cloudy / Rainy.
+# Rows = today's weather, columns = tomorrow's weather.
+P = np.array([
+    [0.7, 0.2, 0.1],   # Sunny  → 70% Sunny, 20% Cloudy, 10% Rainy
+    [0.3, 0.4, 0.3],   # Cloudy → ...
+    [0.2, 0.3, 0.5],   # Rainy  → ...
+])
+states = ["Sunny", "Cloudy", "Rainy"]
+
+# Two different starting distributions.
+start_a = np.array([1.0, 0.0, 0.0])     # certainly Sunny today
+start_b = np.array([0.0, 0.0, 1.0])     # certainly Rainy today
+
+# Simulate distribution evolution: π_{t+1} = π_t · P.
+N_STEPS = 30
+trajs = {}
+for label, start in [("start = Sunny", start_a), ("start = Rainy", start_b)]:
+    pi = start.copy(); history = [pi.copy()]
+    for _ in range(N_STEPS):
+        pi = pi @ P
+        history.append(pi.copy())
+    trajs[label] = np.array(history)
+
+# Find the stationary distribution: solve π·P = π, i.e. eigenvector
+# of P^T with eigenvalue 1, then normalise.
+vals, vecs = np.linalg.eig(P.T)
+idx = np.argmin(np.abs(vals - 1))
+stationary = np.real(vecs[:, idx])
+stationary = stationary / stationary.sum()
+
+fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+
+# (1) Distribution evolution side by side.
+ax = axes[0]
+colors = ["tab:orange", "tab:grey", "tab:blue"]
+for i, state in enumerate(states):
+    ax.plot(trajs["start = Sunny"][:, i], "o-", color=colors[i],
+            lw=1.6, markersize=3, label=f"{state} (start: Sunny)")
+    ax.plot(trajs["start = Rainy"][:, i], "s--", color=colors[i],
+            lw=1.6, markersize=3, alpha=0.5, label=f"{state} (start: Rainy)")
+    ax.axhline(stationary[i], color=colors[i], lw=0.8, linestyle=":")
+ax.set_xlabel("step"); ax.set_ylabel("P(state)")
+ax.set_title("Two different starts → same stationary distribution\n"
+             "(dotted lines = stationary values)")
+ax.legend(loc="upper right", fontsize=8); ax.grid(True, alpha=0.3)
+ax.set_ylim(-0.05, 1.05)
+
+# (2) The stationary distribution as a bar chart.
+ax = axes[1]
+ax.bar(states, stationary, color=colors, edgecolor="black", alpha=0.8)
+for i, p in enumerate(stationary):
+    ax.text(i, p + 0.02, f"{p:.3f}", ha="center", fontsize=12, fontweight="bold")
+ax.set_ylim(0, 0.6)
+ax.set_ylabel("long-run probability")
+ax.set_title("Stationary distribution\n(eigenvector of $P^\\top$ with eigenvalue 1)")
+ax.grid(True, alpha=0.3, axis="y")
+
+plt.tight_layout()
+plt.show()
+
+# Print numerical confirmation.
+print("Stationary distribution: π · P = π")
+print(f"  π = {stationary.round(4)}")
+print(f"  π · P = {(stationary @ P).round(4)}  (should equal π)")
+```
+
+**Two ideas hold every Markov-chain application together:**
+
+- **Markov chains forget their initial state.** Run them long enough
+  and the distribution of states converges to the stationary
+  distribution — no matter where you started. This is why **PageRank**
+  doesn't depend on which page Google "starts" the imaginary surfer
+  at, and why **MCMC samplers** can produce samples from a target
+  distribution by simply running long enough.
+- **The stationary distribution = eigenvector of $P^\top$ with
+  eigenvalue 1.** That's eigendecomposition (linear algebra lesson 13)
+  doing real work. **Power iteration** finds it; PageRank uses
+  exactly this trick on the web graph (≈ $4 \times 10^9$ × $4 \times
+  10^9$ matrix). Spectral graph methods, statistical mechanics, and
+  queueing theory all converge to the same eigenvector picture.
+
 ## Connection to CS / Games / AI / Business / Industry
 
 - **AI / ML.** Markov Decision Processes are the **mathematical foundation

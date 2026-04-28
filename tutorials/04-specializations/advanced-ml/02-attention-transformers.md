@@ -136,6 +136,105 @@ print(f"  d_model={d_model}, heads={n_heads}, d_k={d_k}")
 print(f"  Parameters: 4 × {d_model}² = {params:,}")
 ```
 
+## Visualisation — The attention matrix
+
+A Transformer's attention layer is, at heart, a **soft-max over
+dot-products**. The plot shows what the resulting attention matrix
+looks like for a small toy sequence, and how the **causal mask** in
+GPT-style models prevents tokens from attending to future positions.
+
+```python
+# ── Visualising scaled dot-product attention ────────────────
+import numpy as np
+import matplotlib.pyplot as plt
+
+rng = np.random.default_rng(0)
+
+# A short toy "sentence" — 6 tokens, each with d_model = 16 random
+# features. In a real Transformer these would be embedding vectors.
+seq_len, d_model = 6, 16
+tokens = ["The", "cat", "sat", "on", "the", "mat"]
+X = rng.standard_normal((seq_len, d_model))
+
+# Random projection matrices for Q, K, V (untrained).
+WQ = rng.standard_normal((d_model, d_model)) * 0.3
+WK = rng.standard_normal((d_model, d_model)) * 0.3
+WV = rng.standard_normal((d_model, d_model)) * 0.3
+
+Q = X @ WQ
+K = X @ WK
+V = X @ WV
+
+def softmax(z, axis=-1):
+    z = z - z.max(axis=axis, keepdims=True)
+    e = np.exp(z)
+    return e / e.sum(axis=axis, keepdims=True)
+
+# Unmasked attention.
+scores = Q @ K.T / np.sqrt(d_model)
+A_unmasked = softmax(scores)
+
+# Causal mask: zero out future positions before softmax.
+mask = np.triu(np.ones((seq_len, seq_len)), k=1) * (-1e9)
+A_causal = softmax(scores + mask)
+
+fig, axes = plt.subplots(1, 2, figsize=(13, 5.5))
+
+for ax, (A_mat, title) in zip(axes,
+                              [(A_unmasked, "Encoder attention\n(every token sees every other)"),
+                               (A_causal,   "Decoder (causal) attention\n(token i can only see j ≤ i — needed for generation)")]):
+    im = ax.imshow(A_mat, cmap="viridis", vmin=0, vmax=A_mat.max())
+    ax.set_xticks(range(seq_len)); ax.set_yticks(range(seq_len))
+    ax.set_xticklabels(tokens); ax.set_yticklabels(tokens)
+    ax.set_xlabel("attended-to (key)"); ax.set_ylabel("query")
+    for i in range(seq_len):
+        for j in range(seq_len):
+            ax.text(j, i, f"{A_mat[i, j]:.2f}", ha="center", va="center",
+                    fontsize=8, color="white" if A_mat[i, j] > 0.3 else "black")
+    ax.set_title(title)
+    plt.colorbar(im, ax=ax, fraction=0.046)
+
+plt.tight_layout()
+plt.show()
+
+# Print the parameter count for a real attention layer.
+def attention_params(d_model, n_heads):
+    """Q, K, V projections + output projection."""
+    return 4 * d_model * d_model
+
+for d, h, name in [(512, 8, "BERT-base"),
+                   (768, 12, "GPT-2"),
+                   (4096, 32, "Llama-7B"),
+                   (8192, 64, "GPT-4 (rumoured)")]:
+    p = attention_params(d, h)
+    print(f"  {name:<22}  d_model={d:>5}  heads={h:>3}  params per layer = {p:>14,}")
+print()
+print("Self-attention scales like O(seq_len²) in time and memory —")
+print("which is exactly why context-length improvements are big news,")
+print("and why people invent FlashAttention, sparse attention, RoPE, etc.")
+```
+
+**The single most-revolutionary equation in modern ML:**
+
+$$
+\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^\top}{\sqrt{d_k}}\right) V
+$$
+
+- **It computes a weighted sum of values.** The weights come from the
+  similarity (dot product) of each query against every key, normalised
+  by softmax. Tokens that are *most relevant* to the current query
+  contribute most.
+- **The matrix you see is the soul of a Transformer.** Each row is one
+  query token; each column is one position being attended to. Bright
+  cells = "this query depends heavily on that key". Visualising
+  attention matrices is how researchers debug what a model is "looking
+  at".
+- **Causal masking enables generation.** GPT-style decoders use the
+  upper-triangular mask in the right plot — token $i$ can only attend
+  to tokens $\le i$, so a partial sequence's predictions don't depend
+  on the future. The self-attention block is the *only* layer where
+  this masking matters.
+
 ## Connection to CS / Games / AI
 
 - **GPT/ChatGPT** — stacks of Transformer decoder blocks with causal (masked) attention
