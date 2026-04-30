@@ -34,6 +34,18 @@ function extractLatex(md: string): LatexExtraction {
       : `<span data-katex-inline="${id}"></span>`;
   }
 
+  // Mask code spans before LaTeX extraction so '$' inside Python/etc. code
+  // (e.g. matplotlib mathtext "$2^k$") isn't mistaken for inline math.
+  // Order matters: fenced first (greedy multi-line), then inline.
+  const codeStash: string[] = [];
+  const stash = (s: string): string => {
+    const id = codeStash.length;
+    codeStash.push(s);
+    return `CODESTASH${id}END`;
+  };
+  md = md.replace(/```[\s\S]*?```|~~~[\s\S]*?~~~/g, stash);
+  md = md.replace(/`[^`\n]+`/g, stash);
+
   // Block math: $$...$$ — render in display mode.
   md = md.replace(/\$\$([\s\S]+?)\$\$/g, (_, tex) => {
     try {
@@ -57,6 +69,8 @@ function extractLatex(md: string): LatexExtraction {
       return `<code class="katex-error">${tex}</code>`;
     }
   });
+
+  md = md.replace(/CODESTASH(\d+)END/g, (_, id) => codeStash[Number(id)]);
 
   return { md, rendered };
 }
