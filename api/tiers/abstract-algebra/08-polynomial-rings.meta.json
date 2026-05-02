@@ -1,0 +1,1 @@
+{"tier": "abstract-algebra", "slug": "08-polynomial-rings", "title": "Polynomial Rings", "prerequisites": [{"tier": "abstract-algebra", "lesson_num": "07", "description": "", "slug": "07-rings"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI / Business / Industry", "Check Your Understanding"]}

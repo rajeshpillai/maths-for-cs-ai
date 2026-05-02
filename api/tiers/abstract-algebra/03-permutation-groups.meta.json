@@ -1,0 +1,1 @@
+{"tier": "abstract-algebra", "slug": "03-permutation-groups", "title": "Permutation Groups", "prerequisites": [{"tier": "abstract-algebra", "lesson_num": "01", "description": "", "slug": "01-groups"}], "sections": ["Intuition", "Prerequisites", "From First Principles", "Python Verification", "Connection to CS / Games / AI / Business / Industry", "Check Your Understanding"]}

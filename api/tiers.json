@@ -1,0 +1,482 @@
+[
+  {
+    "tier": "foundation-1",
+    "title": "Foundation 1",
+    "lessons": [
+      "01-surds-indices-logarithms",
+      "02-algebraic-manipulation",
+      "03-multi-step-equations",
+      "04-inequalities",
+      "05-simultaneous-equations",
+      "06-function-notation",
+      "07-linear-functions",
+      "08-quadratic-functions",
+      "09-polynomial-functions",
+      "10-rational-expressions",
+      "11-absolute-value",
+      "12-exponent-rules-mastery"
+    ]
+  },
+  {
+    "tier": "foundation-2",
+    "title": "Foundation 2",
+    "lessons": [
+      "01-cartesian-plane",
+      "02-transformations-of-functions",
+      "03-exponential-functions",
+      "04-logarithmic-functions",
+      "05-coordinate-geometry",
+      "06-basic-trigonometry",
+      "07-function-composition-inverses",
+      "08-basic-statistics",
+      "09-piecewise-functions",
+      "10-graph-reading-skills"
+    ]
+  },
+  {
+    "tier": "foundation-3",
+    "title": "Foundation 3",
+    "lessons": [
+      "01-polynomial-long-division",
+      "02-polynomial-roots",
+      "03-polynomial-division",
+      "04-radical-functions",
+      "05-exponential-logarithmic-equations",
+      "06-sequences-series",
+      "07-systems-nonlinear",
+      "08-matrices-introduction",
+      "09-summation-notation",
+      "10-mathematical-thinking"
+    ]
+  },
+  {
+    "tier": "foundation-4",
+    "title": "Foundation 4",
+    "lessons": [
+      "01-limits-intuitive",
+      "02-trig-functions-advanced",
+      "03-inverse-trig-functions",
+      "04-trig-identities",
+      "05-conic-sections-intro",
+      "06-vectors-intuitive",
+      "07-complex-numbers",
+      "08-continuity-review"
+    ]
+  },
+  {
+    "tier": "number-systems",
+    "title": "Number Systems",
+    "lessons": [
+      "01-number-systems",
+      "02-number-bases",
+      "03-floating-point",
+      "04-modular-arithmetic",
+      "05-primes-gcd-lcm",
+      "06-divisibility-rules-derived",
+      "07-factor-counting-formulas"
+    ]
+  },
+  {
+    "tier": "discrete-mathematics",
+    "title": "Discrete Mathematics",
+    "lessons": [
+      "01-logic-boolean-algebra",
+      "02-set-theory",
+      "03-relations-and-functions",
+      "04-combinatorics",
+      "05-graph-theory",
+      "06-proof-techniques",
+      "07-inclusion-exclusion",
+      "08-stars-and-bars",
+      "09-pascal-identities",
+      "10-recurrence-counting",
+      "11-catalan-numbers",
+      "12-counting-on-grids",
+      "13-problem-solving-heuristics",
+      "14-polyhedra-euler-formula"
+    ]
+  },
+  {
+    "tier": "linear-algebra",
+    "title": "Linear Algebra",
+    "lessons": [
+      "01-scalars-vectors-matrices-tensors",
+      "02-vector-operations",
+      "03-dot-product-geometry",
+      "04-matrix-multiplication",
+      "05-linear-transformations",
+      "06-identity-inverse-transpose",
+      "07-determinants",
+      "08-systems-gaussian-elimination",
+      "09-linear-combinations-span-independence",
+      "10-subspaces-column-null-space",
+      "11-bases-change-of-coordinates",
+      "12-dimension-rank-nullity",
+      "13-eigenvalues-eigenvectors",
+      "14-diagonalization",
+      "15-symmetric-matrices-spectral-theorem",
+      "16-norms",
+      "17-orthogonality-cauchy-schwarz",
+      "18-orthogonal-projections",
+      "19-gram-schmidt",
+      "20-quadratic-forms-definiteness",
+      "21-svd",
+      "22-pca"
+    ]
+  },
+  {
+    "tier": "calculus",
+    "title": "Calculus",
+    "lessons": [
+      "01-limits",
+      "02-derivatives",
+      "03-partial-derivatives-gradient",
+      "04-chain-rule",
+      "05-jacobian-hessian",
+      "06-integrals",
+      "07-fundamental-theorem",
+      "08-multivariable-integration",
+      "09-taylor-series",
+      "10-numerical-vs-symbolic-differentiation"
+    ]
+  },
+  {
+    "tier": "probability-statistics",
+    "title": "Probability Statistics",
+    "lessons": [
+      "01-probability-axioms",
+      "02-bayes-theorem",
+      "03-random-variables",
+      "04-expectation-variance",
+      "05-discrete-distributions",
+      "06-continuous-distributions",
+      "07-central-limit-theorem",
+      "08-mle",
+      "09-information-theory",
+      "10-covariance-correlation",
+      "11-joint-distributions",
+      "12-expectation-joint-distributions",
+      "13-bivariate-normal",
+      "14-sampling-distributions",
+      "15-confidence-intervals"
+    ]
+  },
+  {
+    "tier": "optimisation",
+    "title": "Optimisation",
+    "lessons": [
+      "01-loss-functions",
+      "02-gradient-descent",
+      "03-sgd-minibatch",
+      "04-momentum-rmsprop-adam",
+      "05-convexity",
+      "06-lagrange-multipliers",
+      "07-numerical-methods"
+    ]
+  },
+  {
+    "tier": "neural-networks",
+    "title": "Neural Networks",
+    "lessons": [
+      "01-neuron-as-dot-product",
+      "02-activation-functions",
+      "03-forward-pass",
+      "04-backpropagation",
+      "05-numpy-network",
+      "06-pytorch-comparison"
+    ]
+  },
+  {
+    "tier": "cnns",
+    "title": "Cnns",
+    "lessons": [
+      "01-2d-convolution",
+      "02-convolution-vs-cross-correlation",
+      "03-stride-padding",
+      "04-pooling",
+      "05-implement-convolution",
+      "06-receptive-field"
+    ]
+  },
+  {
+    "tier": "geometry-trigonometry",
+    "title": "Geometry Trigonometry",
+    "lessons": [
+      "01-unit-circle-radians",
+      "02-sine-cosine-tangent",
+      "03-pythagorean-distance",
+      "04-rotation-matrices",
+      "05-quaternions",
+      "06-homogeneous-coordinates",
+      "07-projection",
+      "08-bezier-curves",
+      "09-ray-intersection",
+      "10-collision-detection"
+    ]
+  },
+  {
+    "tier": "classical-geometry",
+    "title": "Classical Geometry",
+    "lessons": [
+      "01-angle-chasing",
+      "02-triangle-congruence-similarity",
+      "03-special-triangles",
+      "04-triangle-inequality",
+      "05-area-formulas",
+      "06-herons-formula",
+      "07-inscribed-angle-theorem",
+      "08-cyclic-quadrilaterals",
+      "09-chord-secant-tangent",
+      "10-tangent-lines-and-circles",
+      "11-angle-bisector-and-incircle",
+      "12-circumcircle-and-apollonius"
+    ]
+  },
+  {
+    "tier": "fourier-analysis",
+    "title": "Fourier Analysis",
+    "lessons": [
+      "01-periodic-functions",
+      "02-fourier-series",
+      "03-fourier-transform",
+      "04-dft-fft",
+      "05-convolution-theorem",
+      "06-applications"
+    ]
+  },
+  {
+    "tier": "advanced-ml",
+    "title": "Advanced Ml",
+    "lessons": [
+      "01-graph-neural-networks",
+      "02-attention-transformers",
+      "03-rnn-bptt",
+      "04-markov-chains-mdp",
+      "05-monte-carlo",
+      "06-numerical-linear-algebra",
+      "07-automatic-differentiation"
+    ]
+  },
+  {
+    "tier": "jee-problem-solving",
+    "title": "Jee Problem Solving",
+    "lessons": [
+      "01-properties-of-triangles",
+      "02-conics-advanced",
+      "03-advanced-integration",
+      "04-inequalities-competition",
+      "05-theory-of-equations",
+      "06-substitution-tricks",
+      "07-symmetry-exploitation",
+      "08-bounding-estimation",
+      "09-representation-switching",
+      "10-backwards-construction",
+      "11-extreme-cases-small-examples",
+      "12-multi-concept-integration"
+    ]
+  },
+  {
+    "tier": "vedic-maths",
+    "title": "Vedic Maths",
+    "lessons": [
+      "01-nikhilam-subtraction",
+      "02-urdhva-tiryak-multiplication",
+      "03-ekadhikena-squaring",
+      "04-anurupyena-proportionality",
+      "05-paravartya-division",
+      "06-shunyam-samyasamuccaye",
+      "07-vinculum-numbers",
+      "08-duplex-method-squaring",
+      "09-digital-roots-divisibility",
+      "10-algebraic-squaring-cubing",
+      "11-simultaneous-equations-vedic",
+      "12-recurring-decimals",
+      "13-cube-roots",
+      "14-calendrical-calculations",
+      "15-mental-math-mastery"
+    ]
+  },
+  {
+    "tier": "differential-equations",
+    "title": "Differential Equations",
+    "lessons": [
+      "01-introduction-classification",
+      "02-separable-equations",
+      "03-first-order-linear",
+      "04-direction-fields",
+      "05-existence-uniqueness",
+      "06-eulers-method",
+      "07-second-order-homogeneous",
+      "08-second-order-nonhomogeneous",
+      "09-spring-mass-systems",
+      "10-systems-of-odes",
+      "11-phase-portraits",
+      "12-stability-analysis",
+      "13-laplace-transform-basics",
+      "14-laplace-solving-odes",
+      "15-convolution-laplace",
+      "16-series-solutions",
+      "17-fourier-series-for-des",
+      "18-boundary-value-problems",
+      "19-pde-introduction",
+      "20-heat-equation",
+      "21-wave-equation",
+      "22-numerical-methods-odes",
+      "23-stiff-systems",
+      "24-dynamical-systems-chaos",
+      "25-applications-ml-physics"
+    ]
+  },
+  {
+    "tier": "multivariable-calculus",
+    "title": "Multivariable Calculus",
+    "lessons": [
+      "01-vector-valued-functions",
+      "02-arc-length-curvature",
+      "03-multivariable-limits-continuity",
+      "04-partial-derivatives-revisited",
+      "05-tangent-planes-linearization",
+      "06-multivariable-chain-rule",
+      "07-gradient-directional-deeper",
+      "08-optimization-lagrange-deeper",
+      "09-double-integrals",
+      "10-double-integrals-polar",
+      "11-triple-integrals",
+      "12-change-of-variables",
+      "13-vector-fields",
+      "14-line-integrals",
+      "15-greens-theorem",
+      "16-divergence-curl",
+      "17-surface-integrals",
+      "18-stokes-theorem",
+      "19-divergence-theorem",
+      "20-applications"
+    ]
+  },
+  {
+    "tier": "advanced-discrete-math",
+    "title": "Advanced Discrete Math",
+    "lessons": [
+      "01-number-theory-foundations",
+      "02-modular-arithmetic-advanced",
+      "03-fermats-euler",
+      "04-rsa-cryptography",
+      "05-boolean-algebra-advanced",
+      "06-recurrence-relations",
+      "07-generating-functions",
+      "08-advanced-graph-theory",
+      "09-graph-algorithms",
+      "10-network-flow",
+      "11-matching-theory",
+      "12-automata-basics",
+      "13-context-free-grammars",
+      "14-turing-machines",
+      "15-computational-complexity",
+      "16-information-theory-advanced",
+      "17-algorithmic-game-theory",
+      "18-lattices-partial-orders",
+      "19-crt-non-coprime",
+      "20-multiplicative-order-and-decimals"
+    ]
+  },
+  {
+    "tier": "advanced-statistics",
+    "title": "Advanced Statistics",
+    "lessons": [
+      "01-estimation-theory",
+      "02-method-of-moments",
+      "03-hypothesis-testing-foundations",
+      "04-z-test-t-test",
+      "05-chi-squared-tests",
+      "06-anova",
+      "07-linear-regression-matrix",
+      "08-multiple-regression",
+      "09-logistic-regression",
+      "10-nonparametric-methods",
+      "11-bayesian-inference",
+      "12-bayesian-computation",
+      "13-causal-inference-intro",
+      "14-experimental-design",
+      "15-bootstrap-resampling"
+    ]
+  },
+  {
+    "tier": "methods-of-proof",
+    "title": "Methods Of Proof",
+    "lessons": [
+      "01-propositional-logic-formal",
+      "02-predicate-logic",
+      "03-direct-proof",
+      "04-proof-by-contradiction",
+      "05-proof-by-contrapositive",
+      "06-mathematical-induction-strong",
+      "07-proof-by-cases",
+      "08-set-theory-proofs",
+      "09-function-proofs",
+      "10-cardinality",
+      "11-epsilon-delta-proofs",
+      "12-proof-writing-workshop"
+    ]
+  },
+  {
+    "tier": "abstract-algebra",
+    "title": "Abstract Algebra",
+    "lessons": [
+      "01-groups",
+      "02-subgroups-cyclic",
+      "03-permutation-groups",
+      "04-cosets-lagrange",
+      "05-normal-subgroups-quotients",
+      "06-homomorphisms-isomorphisms",
+      "07-rings",
+      "08-polynomial-rings",
+      "09-ideals-quotient-rings",
+      "10-fields-extensions",
+      "11-applications-crypto",
+      "12-symmetry-neural-networks"
+    ]
+  },
+  {
+    "tier": "supplementary-activations",
+    "title": "Supplementary Activations",
+    "lessons": [
+      "01-activation-deep-dive"
+    ]
+  },
+  {
+    "tier": "supplementary-graphs",
+    "title": "Supplementary Graphs",
+    "lessons": [
+      "01-linear-quadratic-cubic",
+      "02-exponential-logarithmic",
+      "03-conic-sections",
+      "04-bell-curve-sigmoid-relu",
+      "05-power-laws-log-plots"
+    ]
+  },
+  {
+    "tier": "supplementary-foundations",
+    "title": "Supplementary Foundations",
+    "lessons": [
+      "01-parametric-implicit",
+      "02-polar-coordinates",
+      "03-hyperbolic-functions",
+      "04-cayley-hamilton-matrix-exp",
+      "05-3d-lines-planes"
+    ]
+  },
+  {
+    "tier": "supplementary-applied",
+    "title": "Supplementary Applied",
+    "lessons": [
+      "01-kinematics-suvat",
+      "02-projectile-motion",
+      "03-forces-equilibrium",
+      "04-simple-harmonic-motion",
+      "05-differential-equations",
+      "06-hypothesis-testing",
+      "07-regression-correlation",
+      "08-trapezium-rule"
+    ]
+  }
+]
