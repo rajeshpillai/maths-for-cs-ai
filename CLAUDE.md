@@ -120,6 +120,8 @@ then immediately implemented in clean Python**.
 - Floating-point representation (IEEE 754) and why `0.1 + 0.2 ≠ 0.3`
 - Modular arithmetic & clock arithmetic
 - Prime numbers, GCD, LCM (Euclidean algorithm from scratch)
+- Divisibility rules derived from $10^j \bmod d$ (3, 7, 9, 11, 99, 1001)
+- Counting and summing factors: $\tau(n)$, $\sigma(n)$, perfect numbers
 
 ### Tier 1 — Discrete Mathematics (CS backbone)
 - Logic: propositions, truth tables, Boolean algebra, implications, biconditionals
@@ -129,6 +131,14 @@ then immediately implemented in clean Python**.
 - Supremum, infimum, argmax, argmin
 - Relations and functions (injective, surjective, bijective)
 - Combinatorics: permutations, combinations, pigeonhole principle
+- Inclusion–exclusion principle, derangements
+- Stars and bars, distributions, integer-equation counting
+- Pascal identities: hockey stick, Vandermonde, sum of squares, absorption
+- Recurrence-based counting (tilings, lattice paths, Fibonacci as counting)
+- Catalan numbers (parens, Dyck paths, triangulations, BSTs)
+- Counting on grids, the reflection principle, ballot problem
+- Heuristics: casework, complementary counting, symmetry, bijections
+- Polyhedra and Euler's formula V − E + F = 2
 - Graph theory basics: vertices, edges, paths, trees
 - Proof techniques: induction, contradiction, contrapositive
 
@@ -223,6 +233,20 @@ then immediately implemented in clean Python**.
 - Ray–sphere / ray–plane intersection (derive & implement)
 - Collision detection math
 
+### Tier 8b — Classical Euclidean Geometry (problem-solving track)
+- Angle-chasing as a technique
+- Triangle congruence (SSS/SAS/ASA/AAS) and similarity (AA, SAS, SSS)
+- Special triangles (30-60-90, 45-45-90) and Pythagorean triples
+- Triangle inequality and the metric-space view
+- Area formulas: triangle, parallelogram, trapezoid, kite, regular n-gon, shoelace
+- Heron's formula and Heronian triangles
+- Inscribed angle theorem and Thales' theorem
+- Cyclic quadrilaterals, Ptolemy's theorem
+- Chords, secants, tangents, and the power of a point
+- Tangent lines and two-circle configurations (common tangents, belt length)
+- Angle bisector theorem, incentre, incircle, $\text{area} = rs$
+- Perpendicular bisectors, circumcentre, circumradius, Apollonius circle
+
 ### Tier 9 — Signals & Fourier Analysis (audio, images)
 - Periodic functions and superposition
 - Fourier Series: decompose a periodic signal (derive)
@@ -265,7 +289,9 @@ then immediately implemented in clean Python**.
 - Applications: fluid dynamics, electromagnetism, normalizing flows
 
 ### Tier 13 — Advanced Discrete Mathematics
-- Number theory: divisibility, FTA, modular arithmetic, CRT
+- Number theory: divisibility, FTA, modular arithmetic, CRT (coprime case)
+- Chinese Remainder Theorem for non-coprime moduli (existence and uniqueness)
+- Multiplicative order, repeating-decimal periods, Legendre's formula for $v_p(n!)$
 - Fermat & Euler theorems, RSA cryptography from first principles
 - Boolean algebra: DNF, CNF, Karnaugh maps, NAND universality
 - Recurrence relations, generating functions

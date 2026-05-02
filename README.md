@@ -2,7 +2,7 @@
 
 Live Site at: https://rajeshpillai.github.io/maths-for-cs-ai/
 
-A structured learning platform for mastering the mathematics behind computer science, game development, and AI/ML. **111 lessons** across 15 sections, from number systems to Transformers.
+A structured learning platform for mastering the mathematics behind computer science, game development, and AI/ML. **312 lessons** across 28 sections, from number systems to Transformers.
 
 ## Philosophy
 
@@ -100,22 +100,35 @@ After the first deploy, every subsequent push is just `npm run deploy`.
 - **Code execution**: Pyodide (Python in the browser via WebAssembly)
 - **Math rendering**: KaTeX for LaTeX
 - **Code editor**: CodeMirror 6 with Python syntax
-- **Tutorials**: 111 Markdown lessons with LaTeX math notation
+- **Tutorials**: 312 Markdown lessons with LaTeX math notation
 
 ## Content
 
 | Section | Lessons | Topics |
 |---------|---------|--------|
-| Tier 0 | 5 | Number systems, binary/hex, IEEE 754, modular arithmetic, primes/GCD |
-| Tier 1 | 6 | Logic, sets, relations, combinatorics, graph theory, proof techniques |
-| Tier 2 | 12 | Vectors, matrices, transformations, determinants, eigenvalues, SVD, PCA |
-| Tier 3 | 10 | Limits, derivatives, gradient, chain rule, integrals, Taylor series |
-| Tier 4 | 9 | Probability, Bayes, distributions, CLT, MLE, entropy, covariance |
-| Tier 5 | 7 | Loss functions, gradient descent, SGD, Adam, convexity, Lagrange |
-| Tier 6 | 6 | Neurons, activations, forward pass, backpropagation, network from scratch |
-| Tier 7 | 6 | 2D convolution, stride/padding, pooling, receptive fields |
-| Tier 8 | 10 | Trig, rotations, quaternions, projections, Bezier, ray tracing, collision |
-| Tier 9 | 6 | Fourier series/transform, DFT/FFT, convolution theorem |
-| Tier 10 | 7 | GNNs, Transformers, RNNs, Markov/MDP, Monte Carlo, auto-diff |
-| Supplementary | 27 | Graph shapes, activation functions, pre-calculus, applied maths |
-| **Total** | **111** | |
+| Foundation 1 | 12 | Algebra: surds, indices, logs, polynomials, exponent rules |
+| Foundation 2 | 10 | Functions, coordinate geometry, basic trig, transformations |
+| Foundation 3 | 10 | Advanced algebra, sequences, rational equations, matrices |
+| Foundation 4 | 8 | Pre-calculus: limits intro, advanced trig, conics, complex numbers |
+| Tier 0 — Number Systems | 7 | Binary/hex, IEEE 754, modular arithmetic, primes/GCD, divisibility rules, factor counting |
+| Tier 1 — Discrete Mathematics | 14 | Logic, sets, combinatorics, graphs, proofs; inclusion-exclusion, stars & bars, Pascal identities, recurrence/Catalan, grid paths, heuristics, polyhedra |
+| Tier 2 — Linear Algebra | 22 | Vectors, matrices, transformations, determinants, eigenvalues, SVD, PCA |
+| Tier 3 — Calculus | 10 | Limits, derivatives, gradient, chain rule, integrals, Taylor series |
+| Tier 4 — Probability & Statistics | 15 | Probability, Bayes, distributions, CLT, MLE, entropy, covariance |
+| Tier 5 — Optimisation | 7 | Loss functions, gradient descent, SGD, Adam, convexity, Lagrange |
+| Tier 6 — Neural Networks | 6 | Neurons, activations, forward pass, backpropagation, network from scratch |
+| Tier 7 — CNNs | 6 | 2D convolution, stride/padding, pooling, receptive fields |
+| Tier 8 — Geometry & Trig (graphics) | 10 | Trig, rotations, quaternions, projections, Bezier, ray tracing, collision |
+| Tier 8b — Classical Euclidean Geometry | 12 | Angle-chasing, congruence/similarity, special triangles, Heron, inscribed angle, cyclic quads, power of a point, incircle, circumcircle |
+| Tier 9 — Fourier Analysis | 6 | Fourier series/transform, DFT/FFT, convolution theorem |
+| Tier 10 — Advanced ML | 7 | GNNs, Transformers, RNNs, Markov/MDP, Monte Carlo, auto-diff |
+| Tier 11 — Differential Equations | 25 | ODEs, PDEs, Laplace, chaos, neural ODEs |
+| Tier 12 — Multivariable Calculus | 20 | Vector calculus, multiple integrals, Green/Stokes/divergence theorems |
+| Tier 13 — Advanced Discrete Math | 20 | Number theory (CRT non-coprime, multiplicative order), boolean, automata, complexity |
+| Tier 14 — Advanced Statistics | 15 | Estimation, hypothesis testing, regression, Bayesian, causal inference |
+| Tier 15 — Methods of Proof | 12 | Logic, proof techniques, set theory proofs, ε-δ |
+| Tier 16 — Abstract Algebra | 12 | Groups, rings, fields, finite fields, applications to crypto |
+| JEE Problem Solving | 12 | Curated multi-topic problem-solving track |
+| Vedic Maths | 15 | Mental-arithmetic shortcuts and ancient Indian techniques |
+| Supplementary | 19 | Graph shapes, activation deep-dives, parametric curves, applied mechanics |
+| **Total** | **312** | |
