@@ -1,0 +1,11 @@
+{
+  "title": "Shape & Space",
+  "description": "What stays the same when you move things? Geometry from first principles — the coordinate plane, Pythagoras, lines, triangles, circles, and transformations. The mathematical foundation of computer graphics, robotics, physics simulation, and architecture.",
+  "levels": {
+    "foundation": "Foundation",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "master": "Master",
+    "research": "Research-adjacent"
+  }
+}

@@ -14,9 +14,20 @@ import re
 import shutil
 from pathlib import Path
 
+import yaml
+
 ROOT = Path(__file__).resolve().parent.parent
 TUTORIALS_DIR = ROOT / "tutorials"
 OUTPUT_DIR = ROOT / "frontend" / "public" / "api"
+
+# Strand directories follow `tutorials/strand-*/<level>/NN-slug.md`.
+# A (strand-root, level) pair is exposed to the API as a single tier whose
+# id concatenates them, so existing /api/tiers/{tier}/{slug}.json routing
+# keeps working unchanged.
+STRAND_LEVEL_ORDER = {
+    "foundation": 0, "intermediate": 1, "advanced": 2,
+    "master": 3, "research": 4,
+}
 
 # Sort order for tier directories (by group folder prefix, then alphabetically)
 GROUP_ORDER = {
@@ -61,13 +72,25 @@ PREREQ_MAP = {
 
 
 def discover_tiers() -> list[Path]:
-    """Find all tier directories inside group folders, sorted by group then tier order."""
+    """Find all tier directories inside group folders, sorted by group then tier order.
+
+    Also discovers strand directories: `tutorials/strand-*/{level}/*.md`.
+    Each (strand, level) pair is treated as a tier whose id is
+    `{strand-root}-{level}` (e.g. `strand-1-number-quantity-foundation`).
+    Strands sort before everything else so the pilot is visible.
+    """
     tiers = []
-    for group_dir in sorted(TUTORIALS_DIR.iterdir()):
-        if not group_dir.is_dir() or group_dir.name.startswith("."):
+    for top in sorted(TUTORIALS_DIR.iterdir()):
+        if not top.is_dir() or top.name.startswith("."):
             continue
-        group_order = GROUP_ORDER.get(group_dir.name, 99)
-        for tier_dir in group_dir.iterdir():
+        if top.name.startswith("strand-"):
+            for level_dir in top.iterdir():
+                if not level_dir.is_dir() or not any(level_dir.glob("*.md")):
+                    continue
+                tiers.append((-1, STRAND_LEVEL_ORDER.get(level_dir.name, 99), level_dir))
+            continue
+        group_order = GROUP_ORDER.get(top.name, 99)
+        for tier_dir in top.iterdir():
             if tier_dir.is_dir() and any(tier_dir.glob("*.md")):
                 tier_order = TIER_ORDER.get(tier_dir.name, 99)
                 tiers.append((group_order, tier_order, tier_dir))
@@ -75,12 +98,54 @@ def discover_tiers() -> list[Path]:
     return [t[2] for t in tiers]
 
 
+def tier_id(tier_dir: Path) -> str:
+    """The id used in the API URL for this tier directory."""
+    parent = tier_dir.parent
+    if parent.name.startswith("strand-"):
+        return f"{parent.name}-{tier_dir.name}"
+    return tier_dir.name
+
+
+def strand_info(tier_dir: Path) -> dict | None:
+    """Return strand/level pair if this tier_dir lives under a strand root."""
+    parent = tier_dir.parent
+    if parent.name.startswith("strand-"):
+        return {"strand": parent.name, "level": tier_dir.name}
+    return None
+
+
+_FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?\n)---\s*\n", re.DOTALL)
+
+
+def parse_frontmatter(content: str) -> tuple[dict, str]:
+    """Split YAML frontmatter from body. Returns ({}, content) when absent."""
+    m = _FRONTMATTER_RE.match(content)
+    if not m:
+        return {}, content
+    try:
+        meta = yaml.safe_load(m.group(1)) or {}
+    except yaml.YAMLError:
+        return {}, content
+    body = content[m.end():]
+    return meta if isinstance(meta, dict) else {}, body
+
+
 def find_tier_dir(tier_name: str) -> Path | None:
-    """Find a tier directory by name across all group folders."""
-    for group_dir in TUTORIALS_DIR.iterdir():
-        if not group_dir.is_dir():
+    """Find a tier directory by name across all group folders.
+
+    Accepts both legacy tier ids (`number-systems`) and strand-tier ids
+    (`strand-1-number-quantity-foundation`).
+    """
+    for top in TUTORIALS_DIR.iterdir():
+        if not top.is_dir():
             continue
-        candidate = group_dir / tier_name
+        if top.name.startswith("strand-") and tier_name.startswith(top.name + "-"):
+            level = tier_name[len(top.name) + 1:]
+            candidate = top / level
+            if candidate.is_dir():
+                return candidate
+            continue
+        candidate = top / tier_name
         if candidate.is_dir():
             return candidate
     return None
@@ -96,38 +161,68 @@ def resolve_slug(tier: str, lesson_num: str) -> str | None:
     return None
 
 
-def parse_meta(tier: str, slug: str, content: str) -> dict:
+def parse_meta(tier: str, slug: str, content: str, fm: dict | None = None) -> dict:
+    """Build lesson metadata. Frontmatter (when present) wins over prose scraping."""
+    fm = fm or {}
     lines = content.split("\n")
 
-    title = slug
-    for line in lines:
-        if line.startswith("# "):
-            title = line[2:].strip()
-            break
+    title = fm.get("title")
+    if not title:
+        title = slug
+        for line in lines:
+            if line.startswith("# "):
+                title = line[2:].strip()
+                break
 
-    prereqs = []
-    in_prereqs = False
-    prereq_re = re.compile(r"(?:Tier|Foundation)\s+(\d+),\s*Lesson\s+(\d+)(?::\s*(.+))?")
-    for line in lines:
-        if line.strip().startswith("## Prerequisites"):
-            in_prereqs = True
-            continue
-        if in_prereqs and line.startswith("## "):
-            break
-        if in_prereqs and line.strip().startswith("- "):
-            m = prereq_re.search(line)
-            if m:
-                kind = "foundation-" if "Foundation" in line else "tier-"
-                tier_num, lesson_num, desc = m.group(1), m.group(2), m.group(3)
-                old_tier = f"{kind}{tier_num}"
-                new_tier = PREREQ_MAP.get(old_tier, old_tier)
-                resolved = resolve_slug(new_tier, lesson_num)
+    prereqs: list[dict] = []
+    # Frontmatter form: list of "tier-id/slug" strings or {tier, slug, description} objects.
+    if "prerequisites" in fm and isinstance(fm["prerequisites"], list):
+        for entry in fm["prerequisites"]:
+            if isinstance(entry, str) and "/" in entry:
+                # Accept "tier-id/slug" or "tier-id/NN-…"
+                t, s = entry.split("/", 1)
+                num_match = re.match(r"(\d+)", s)
                 prereqs.append({
-                    "tier": new_tier,
-                    "lesson_num": lesson_num.zfill(2),
-                    "description": desc.strip() if desc else "",
-                    "slug": resolved,
+                    "tier": t,
+                    "lesson_num": (num_match.group(1).zfill(2) if num_match else ""),
+                    "description": "",
+                    "slug": s,
                 })
+            elif isinstance(entry, dict):
+                t = entry.get("tier", "")
+                s = entry.get("slug")
+                num_match = re.match(r"(\d+)", s or "")
+                prereqs.append({
+                    "tier": t,
+                    "lesson_num": (num_match.group(1).zfill(2) if num_match else ""),
+                    "description": entry.get("description", ""),
+                    "slug": s,
+                })
+    else:
+        # Legacy prose-scraping fallback: "## Prerequisites" section with
+        # "- Tier N, Lesson M: …" or "- Foundation N, Lesson M: …" bullets.
+        in_prereqs = False
+        prereq_re = re.compile(r"(?:Tier|Foundation)\s+(\d+),\s*Lesson\s+(\d+)(?::\s*(.+))?")
+        for line in lines:
+            if line.strip().startswith("## Prerequisites"):
+                in_prereqs = True
+                continue
+            if in_prereqs and line.startswith("## "):
+                break
+            if in_prereqs and line.strip().startswith("- "):
+                m = prereq_re.search(line)
+                if m:
+                    kind = "foundation-" if "Foundation" in line else "tier-"
+                    tier_num, lesson_num, desc = m.group(1), m.group(2), m.group(3)
+                    old_tier = f"{kind}{tier_num}"
+                    new_tier = PREREQ_MAP.get(old_tier, old_tier)
+                    resolved = resolve_slug(new_tier, lesson_num)
+                    prereqs.append({
+                        "tier": new_tier,
+                        "lesson_num": lesson_num.zfill(2),
+                        "description": desc.strip() if desc else "",
+                        "slug": resolved,
+                    })
 
     sections = [line[3:].strip() for line in lines if line.startswith("## ")]
 
@@ -137,6 +232,10 @@ def parse_meta(tier: str, slug: str, content: str) -> dict:
         "title": title,
         "prerequisites": prereqs,
         "sections": sections,
+        "strand": fm.get("strand"),
+        "level": fm.get("level"),
+        "connections": fm.get("connections", []),
+        "applications": fm.get("applications", []),
     }
 
 
@@ -169,40 +268,46 @@ def build():
     total_lessons = 0
 
     for tier_dir in discover_tiers():
+        tid = tier_id(tier_dir)
         lessons = sorted(f.stem for f in tier_dir.glob("*.md"))
-        title = tier_dir.name.replace("-", " ").title()
+        strand = strand_info(tier_dir)
+        title = tid.replace("-", " ").title()
 
-        tiers_list.append({
-            "tier": tier_dir.name,
+        tier_entry = {
+            "tier": tid,
             "title": title,
             "lessons": lessons,
-        })
+        }
+        if strand:
+            tier_entry.update(strand)
+        tiers_list.append(tier_entry)
 
-        tier_out = OUTPUT_DIR / "tiers" / tier_dir.name
+        tier_out = OUTPUT_DIR / "tiers" / tid
         tier_out.mkdir(parents=True, exist_ok=True)
 
         for lesson_file in sorted(tier_dir.glob("*.md")):
             slug = lesson_file.stem
-            content = lesson_file.read_text()
+            raw = lesson_file.read_text()
+            fm, body = parse_frontmatter(raw)
 
             content_data = {
-                "tier": tier_dir.name,
+                "tier": tid,
                 "slug": slug,
                 "filename": lesson_file.name,
-                "content": content,
+                "content": body,
             }
             (tier_out / f"{slug}.json").write_text(
                 json.dumps(content_data, ensure_ascii=False)
             )
 
-            meta_data = parse_meta(tier_dir.name, slug, content)
+            meta_data = parse_meta(tid, slug, body, fm)
             (tier_out / f"{slug}.meta.json").write_text(
                 json.dumps(meta_data, ensure_ascii=False)
             )
 
-            search_text = extract_search_text(content)
+            search_text = extract_search_text(body)
             search_index.append({
-                "tier": tier_dir.name,
+                "tier": tid,
                 "slug": slug,
                 "title": meta_data["title"],
                 "sections": meta_data["sections"],
@@ -217,6 +322,42 @@ def build():
     )
     (OUTPUT_DIR / "search-index.json").write_text(
         json.dumps(search_index, ensure_ascii=False)
+    )
+
+    # Strand index: one entry per strand-* directory, with per-level lesson lists.
+    # A manually-authored tutorials/strand-*/strand.json provides title and
+    # description; without it we fall back to a slug-derived title.
+    strands_index = []
+    for strand_root in sorted(TUTORIALS_DIR.glob("strand-*")):
+        if not strand_root.is_dir():
+            continue
+        manifest_path = strand_root / "strand.json"
+        manifest: dict = {}
+        if manifest_path.is_file():
+            try:
+                manifest = json.loads(manifest_path.read_text())
+            except json.JSONDecodeError:
+                manifest = {}
+        levels = []
+        for level_dir in sorted(
+            (d for d in strand_root.iterdir() if d.is_dir() and any(d.glob("*.md"))),
+            key=lambda d: STRAND_LEVEL_ORDER.get(d.name, 99),
+        ):
+            level_lessons = sorted(f.stem for f in level_dir.glob("*.md"))
+            levels.append({
+                "id": level_dir.name,
+                "title": manifest.get("levels", {}).get(level_dir.name, level_dir.name.title()),
+                "tier_id": f"{strand_root.name}-{level_dir.name}",
+                "lessons": level_lessons,
+            })
+        strands_index.append({
+            "id": strand_root.name,
+            "title": manifest.get("title", strand_root.name.replace("-", " ").title()),
+            "description": manifest.get("description", ""),
+            "levels": levels,
+        })
+    (OUTPUT_DIR / "strands.json").write_text(
+        json.dumps(strands_index, ensure_ascii=False, indent=2)
     )
 
     for extra in ("learning-paths.json", "ml-curriculum.json", "jee-curriculum.json"):

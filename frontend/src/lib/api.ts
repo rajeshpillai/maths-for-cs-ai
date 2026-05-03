@@ -32,6 +32,24 @@ export interface LessonMeta {
   title: string;
   prerequisites: Prerequisite[];
   sections: string[];
+  strand?: string | null;
+  level?: string | null;
+  connections?: string[];
+  applications?: Array<Record<string, string>>;
+}
+
+export interface StrandLevel {
+  id: string;
+  title: string;
+  tier_id: string;
+  lessons: string[];
+}
+
+export interface StrandInfo {
+  id: string;
+  title: string;
+  description: string;
+  levels: StrandLevel[];
 }
 
 export async function fetchTiers(): Promise<TierInfo[]> {
@@ -56,4 +74,15 @@ export async function fetchLessonMeta(
   const res = await fetch(`${BASE_PATH}api/tiers/${tier}/${slug}.meta.json`);
   if (!res.ok) throw new Error("Metadata not found");
   return res.json();
+}
+
+export async function fetchStrands(): Promise<StrandInfo[]> {
+  const res = await fetch(`${BASE_PATH}api/strands.json`);
+  if (!res.ok) throw new Error("Failed to fetch strands");
+  return res.json();
+}
+
+export async function fetchStrand(id: string): Promise<StrandInfo | null> {
+  const all = await fetchStrands();
+  return all.find((s) => s.id === id) ?? null;
 }

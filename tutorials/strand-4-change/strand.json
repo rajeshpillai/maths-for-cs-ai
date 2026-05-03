@@ -1,0 +1,11 @@
+{
+  "title": "Change",
+  "description": "How does one quantity vary with another? Calculus from first principles — limits, derivatives, integrals, and the fundamental theorem connecting them. The mathematical engine behind physics, ML training, and modern science.",
+  "levels": {
+    "foundation": "Foundation",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "master": "Master",
+    "research": "Research-adjacent"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "title": "Pattern & Counting",
+  "description": "How many arrangements? How many ways to choose? How are pieces connected? Combinatorics from first principles — multiplication and addition rules, permutations, combinations, Pascal's triangle, recursion, Fibonacci. The mathematical home of CS theory and the language behind probability counts.",
+  "levels": {
+    "foundation": "Foundation",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "master": "Master",
+    "research": "Research-adjacent"
+  }
+}

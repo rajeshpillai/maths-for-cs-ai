@@ -1,0 +1,11 @@
+{
+  "title": "Structure",
+  "description": "What is sameness? What operations make sense? Algebraic structures from first principles — operations, identity, inverse, groups, rings, fields. The mathematical home of symmetry, cryptography, and the foundation of abstract reasoning.",
+  "levels": {
+    "foundation": "Foundation",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "master": "Master",
+    "research": "Research-adjacent"
+  }
+}
