@@ -1,0 +1,11 @@
+{
+  "title": "Computation",
+  "description": "How do we actually do it on a finite machine? Number representation, algorithms, complexity, numerical methods, and automatic differentiation. The mathematical foundation of CS as a discipline.",
+  "levels": {
+    "foundation": "Foundation",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "master": "Master",
+    "research": "Research-adjacent"
+  }
+}

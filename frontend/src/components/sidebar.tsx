@@ -38,11 +38,14 @@ const TIER_LABELS: Record<string, string> = {
   "strand-3-shape-space-foundation": "Shape & Space — Foundation",
   "strand-3-shape-space-intermediate": "Shape & Space — Intermediate",
   "strand-4-change-foundation": "Change — Foundation",
+  "strand-4-change-intermediate": "Change — Intermediate",
   "strand-5-pattern-counting-foundation": "Pattern & Counting — Foundation",
   "strand-5-pattern-counting-intermediate": "Pattern & Counting — Intermediate",
   "strand-6-uncertainty-foundation": "Uncertainty — Foundation",
   "strand-6-uncertainty-intermediate": "Uncertainty — Intermediate",
+  "strand-7-computation-foundation": "Computation — Foundation",
   "strand-8-reasoning-foundation": "Reasoning — Foundation",
+  "strand-8-reasoning-intermediate": "Reasoning — Intermediate",
 };
 
 function getTierSection(tier: string): string {
