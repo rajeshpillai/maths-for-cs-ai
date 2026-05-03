@@ -104,9 +104,12 @@ const FractionVisual: Component<Props> = (props) => {
   );
 };
 
-const SLICE_FILLED = "#1f6feb";
-const SLICE_EMPTY = "#e6e9ee";
-const SLICE_STROKE = "#fff";
+// Use CSS theme tokens via inline style strings so the colors track
+// light/dark mode. SVG attribute strings can't reference var() directly,
+// but the `style=` attribute can.
+const SLICE_FILLED = "var(--accent)";
+const SLICE_EMPTY = "var(--border)";
+const SLICE_STROKE = "var(--card-bg)";
 
 function PieView(p: { num: number; den: number }) {
   const r = 36;
@@ -129,9 +132,7 @@ function PieView(p: { num: number; den: number }) {
                 {(i) => (
                   <path
                     d={slicePath(cx, cy, r, (i / p.den) * TAU, ((i + 1) / p.den) * TAU)}
-                    fill={i < fillCount ? SLICE_FILLED : SLICE_EMPTY}
-                    stroke={SLICE_STROKE}
-                    stroke-width="1"
+                    style={`fill: ${i < fillCount ? SLICE_FILLED : SLICE_EMPTY}; stroke: ${SLICE_STROKE}; stroke-width: 1`}
                   />
                 )}
               </For>
@@ -157,9 +158,7 @@ function BarView(p: { num: number; den: number }) {
             y={0}
             width={cellWidth()}
             height={height}
-            fill={i < p.num ? SLICE_FILLED : SLICE_EMPTY}
-            stroke={SLICE_STROKE}
-            stroke-width="1"
+            style={`fill: ${i < p.num ? SLICE_FILLED : SLICE_EMPTY}; stroke: ${SLICE_STROKE}; stroke-width: 1`}
           />
         )}
       </For>
@@ -181,7 +180,7 @@ function NumberLineView(p: { num: number; den: number }) {
   };
   return (
     <svg width={width} height="40" viewBox={`0 0 ${width} 40`} role="img">
-      <line x1={padding} y1={20} x2={width - padding} y2={20} stroke="#7f8b99" stroke-width="2" />
+      <line x1={padding} y1={20} x2={width - padding} y2={20} style="stroke: var(--text-muted); stroke-width: 2" />
       <For each={tickValues()}>
         {(v) => {
           const isInteger = Number.isInteger(v);
@@ -192,8 +191,7 @@ function NumberLineView(p: { num: number; den: number }) {
                 y1={isInteger ? 12 : 16}
                 x2={xAt(v)}
                 y2={isInteger ? 28 : 24}
-                stroke="#7f8b99"
-                stroke-width={isInteger ? 1.5 : 1}
+                style={`stroke: var(--text-muted); stroke-width: ${isInteger ? 1.5 : 1}`}
               />
               <Show when={isInteger}>
                 <text
@@ -201,7 +199,7 @@ function NumberLineView(p: { num: number; den: number }) {
                   y={38}
                   text-anchor="middle"
                   font-size="10"
-                  fill="#57606a"
+                  style="fill: var(--text-muted)"
                 >
                   {v}
                 </text>
@@ -210,7 +208,7 @@ function NumberLineView(p: { num: number; den: number }) {
           );
         }}
       </For>
-      <circle cx={xAt(value())} cy={20} r={5} fill={SLICE_FILLED} />
+      <circle cx={xAt(value())} cy={20} r={5} style={`fill: ${SLICE_FILLED}`} />
     </svg>
   );
 }

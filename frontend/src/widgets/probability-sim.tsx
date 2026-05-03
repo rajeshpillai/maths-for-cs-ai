@@ -205,7 +205,7 @@ function Histogram(p: {
   return (
     <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} role="img">
       {/* y-axis */}
-      <line x1={PAD_L} y1={PAD_T} x2={PAD_L} y2={H - PAD_B} stroke="#7f8b99" />
+      <line x1={PAD_L} y1={PAD_T} x2={PAD_L} y2={H - PAD_B} style="stroke: var(--text-muted)" />
       {/* gridlines + labels */}
       <For each={[0, 0.25, 0.5, 0.75, 1]}>
         {(t) => (
@@ -215,15 +215,14 @@ function Histogram(p: {
               x2={W - PAD_R}
               y1={yAt(t)}
               y2={yAt(t)}
-              stroke="#e6e9ee"
-              stroke-width="1"
+              style="stroke: var(--border); stroke-width: 1"
             />
             <text
               x={PAD_L - 6}
               y={yAt(t) + 4}
               text-anchor="end"
               font-size="10"
-              fill="#57606a"
+              style="fill: var(--text-muted)"
             >
               {t.toFixed(2)}
             </text>
@@ -231,7 +230,7 @@ function Histogram(p: {
         )}
       </For>
       {/* x-axis */}
-      <line x1={PAD_L} y1={H - PAD_B} x2={W - PAD_R} y2={H - PAD_B} stroke="#7f8b99" />
+      <line x1={PAD_L} y1={H - PAD_B} x2={W - PAD_R} y2={H - PAD_B} style="stroke: var(--text-muted)" />
       {/* theoretical reference line for the target */}
       <Show when={p.showTheoretical && p.theoretical > 0}>
         <line
@@ -266,14 +265,14 @@ function Histogram(p: {
                 y={yAt(prop())}
                 width={barWidth()}
                 height={h()}
-                fill={isTarget() ? "#1f6feb" : "#a6adc8"}
+                style={`fill: ${isTarget() ? "var(--accent)" : "var(--text-muted)"}`}
               />
               <text
                 x={barX(i()) + barWidth() / 2}
                 y={H - PAD_B + 14}
                 text-anchor="middle"
                 font-size="11"
-                fill={isTarget() ? "#1f6feb" : "#57606a"}
+                style={`fill: ${isTarget() ? "var(--accent)" : "var(--text-muted)"}`}
                 font-weight={isTarget() ? "600" : "400"}
               >
                 {label}
@@ -284,7 +283,7 @@ function Histogram(p: {
                   y={yAt(prop()) - 4}
                   text-anchor="middle"
                   font-size="10"
-                  fill="#57606a"
+                  style="fill: var(--text-muted)"
                 >
                   {prop().toFixed(2)}
                 </text>
