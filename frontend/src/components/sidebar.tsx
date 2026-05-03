@@ -32,6 +32,7 @@ const TIER_LABELS: Record<string, string> = {
   "supplementary-foundations": "Advanced Topics (Parametric, Polar, Hyperbolic)",
   "supplementary-applied": "Applied Maths & Mechanics",
   "strand-1-number-quantity-foundation": "Number Sense — Foundation",
+  "strand-1-number-quantity-intermediate": "Number Sense — Intermediate",
   "strand-6-uncertainty-foundation": "Uncertainty — Foundation",
 };
 
