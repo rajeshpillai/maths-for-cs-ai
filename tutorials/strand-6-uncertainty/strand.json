@@ -1,0 +1,11 @@
+{
+  "title": "Uncertainty",
+  "description": "How do we reason about events that haven't happened yet? Probability from first principles — coin flips, dice, and the long-run patterns that emerge from short-run randomness. Builds directly on Strand 1's fractions and counting.",
+  "levels": {
+    "foundation": "Foundation",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "master": "Master",
+    "research": "Research-adjacent"
+  }
+}
