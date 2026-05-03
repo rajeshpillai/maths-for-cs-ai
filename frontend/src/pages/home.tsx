@@ -1,6 +1,6 @@
 import { A } from "@solidjs/router";
 import { createResource, createSignal, For, Show } from "solid-js";
-import { fetchTiers, type TierInfo } from "../lib/api";
+import { fetchTiers, fetchStrands, type TierInfo, type StrandInfo } from "../lib/api";
 
 interface LearningPath {
   id: string;
@@ -116,6 +116,7 @@ export default function Home() {
   const [paths] = createResource(fetchLearningPaths);
   const [mlCurriculum] = createResource(fetchMLCurriculum);
   const [jeeCurriculum] = createResource(fetchJEECurriculum);
+  const [strands] = createResource(fetchStrands);
   const [selectedPath, setSelectedPath] = createSignal<string | null>(null);
   const [showAllTiers, setShowAllTiers] = createSignal(false);
   const [activeCurriculum, setActiveCurriculum] = createSignal<"ml" | "jee">("ml");
@@ -131,6 +132,40 @@ export default function Home() {
         Learn math so you can solve it with <strong>paper and pen</strong>.
         Python is only used to verify your hand-computed answers.
       </p>
+
+      {/* Number Sense (Pilot) — interactive lesson track */}
+      <Show when={(strands()?.length ?? 0) > 0}>
+        <div class="strand-pilot">
+          <div class="strand-pilot-eyebrow">Pilot</div>
+          <h2 class="strand-pilot-heading">
+            Number Sense — Hands-On
+          </h2>
+          <p class="strand-pilot-blurb">
+            Counting, place value, mental arithmetic. Each lesson has a widget
+            you actually manipulate — drills, base converters, checks with
+            instant feedback. Foundation level for now; more on the way.
+          </p>
+          <div class="strand-pilot-cards">
+            <For each={strands()}>
+              {(s: StrandInfo) => {
+                const lessonCount = s.levels.reduce(
+                  (n, l) => n + l.lessons.length,
+                  0,
+                );
+                return (
+                  <A href={`/strand/${s.id}`} class="strand-pilot-card">
+                    <span class="strand-pilot-card-title">{s.title}</span>
+                    <span class="strand-pilot-card-meta">
+                      {lessonCount} lesson{lessonCount === 1 ? "" : "s"}
+                    </span>
+                    <span class="strand-pilot-card-desc">{s.description}</span>
+                  </A>
+                );
+              }}
+            </For>
+          </div>
+        </div>
+      </Show>
 
       {/* Curriculum selector: ML / JEE */}
       {(() => {

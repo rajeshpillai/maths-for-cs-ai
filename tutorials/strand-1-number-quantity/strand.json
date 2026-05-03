@@ -1,0 +1,11 @@
+{
+  "title": "Number & Quantity",
+  "description": "How big? How many? Number sense, mental arithmetic, place value in any base, fractions as ratios, and decimals as base-10 fractions. Builds the bedrock that everything else in computing and AI sits on.",
+  "levels": {
+    "foundation": "Foundation",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "master": "Master",
+    "research": "Research-adjacent"
+  }
+}

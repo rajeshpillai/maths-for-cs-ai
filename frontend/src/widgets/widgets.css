@@ -1,0 +1,100 @@
+/* Shared widget chrome — individual widgets add their own internals. */
+
+.widget {
+  margin: 1.25rem 0;
+  padding: 1rem;
+  border: 1px solid var(--border, #d0d7de);
+  border-radius: 8px;
+  background: var(--widget-bg, #fafbfc);
+}
+
+.widget-error {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-left: 4px solid #d1242f;
+  background: #ffebe9;
+  color: #82071e;
+  font-family: ui-monospace, SFMono-Regular, monospace;
+  font-size: 0.9rem;
+  white-space: pre-wrap;
+}
+
+.widget-prompt {
+  font-size: 1.05rem;
+  margin-bottom: 0.75rem;
+}
+
+.widget-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.widget-button {
+  padding: 0.4rem 0.9rem;
+  border: 1px solid #d0d7de;
+  background: #f6f8fa;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.widget-button:hover {
+  background: #eaeef2;
+}
+
+.widget-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.widget-button.primary {
+  background: #1f6feb;
+  color: #fff;
+  border-color: #1f6feb;
+}
+
+.widget-button.primary:hover {
+  background: #1158c7;
+}
+
+.widget-input {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  width: 8rem;
+}
+
+.widget-feedback {
+  margin-top: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.widget-feedback.correct {
+  background: #dafbe1;
+  color: #1a7f37;
+  border: 1px solid #1a7f37;
+}
+
+.widget-feedback.incorrect {
+  background: #ffebe9;
+  color: #82071e;
+  border: 1px solid #d1242f;
+}
+
+.widget-explain {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #57606a;
+}
+
+.widget-score {
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}

@@ -31,9 +31,11 @@ const TIER_LABELS: Record<string, string> = {
   "supplementary-activations": "Activation Functions",
   "supplementary-foundations": "Advanced Topics (Parametric, Polar, Hyperbolic)",
   "supplementary-applied": "Applied Maths & Mechanics",
+  "strand-1-number-quantity-foundation": "Foundation",
 };
 
 function getTierSection(tier: string): string {
+  if (tier.startsWith("strand-")) return "strands";
   if (tier.startsWith("foundation-")) return "foundations";
   if (tier.startsWith("supplementary-")) return "supplementary";
   // Check specific names for grouping
@@ -51,6 +53,7 @@ function getTierSection(tier: string): string {
 }
 
 const SECTION_LABELS: Record<string, string> = {
+  strands: "Number Sense (Pilot)",
   foundations: "Foundations (Start Here)",
   core: "Core Mathematics",
   "applied-ml": "Applied ML",

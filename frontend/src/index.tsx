@@ -4,6 +4,7 @@ import { Router, Route } from "@solidjs/router";
 import Layout from "./layout.tsx";
 import Home from "./pages/home.tsx";
 import Lesson from "./pages/lesson.tsx";
+import Strand from "./pages/strand.tsx";
 import "./index.css";
 
 const root = document.getElementById("root");
@@ -15,6 +16,7 @@ render(
   () => (
     <Router root={Layout} base={base === "/" ? undefined : base.replace(/\/$/, "")}>
       <Route path="/" component={Home} />
+      <Route path="/strand/:slug" component={Strand} />
       <Route path="/lesson/:tier/:slug" component={Lesson} />
     </Router>
   ),

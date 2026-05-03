@@ -5,6 +5,8 @@ import { fetchLesson, fetchLessonMeta, fetchTiers } from "../lib/api";
 import { renderMarkdown } from "../lib/markdown";
 import { isCompleted, toggleCompleted } from "../lib/progress";
 import CodeRunner from "../components/code-runner";
+import { WIDGETS } from "../widgets/registry";
+import "../widgets/widgets.css";
 
 interface LessonNav {
   prev: { tier: string; slug: string; label: string } | null;
@@ -70,12 +72,19 @@ export default function Lesson() {
     };
   });
 
-  function mountCodeRunners() {
+  function mountWidgets() {
     disposers.forEach((d) => d());
     disposers.length = 0;
 
     if (!containerRef) return;
 
+    // Legacy: Python code blocks → CodeRunner.
+    // CodeMirror 6 with autocomplete + theme + Python lang is heavy
+    // (~50ms each on a slow laptop). With multiple blocks per lesson
+    // plus the widget mounts, mounting them all eagerly can freeze
+    // the page on initial render. Defer each block until it scrolls
+    // near the viewport — until then, the hljs-highlighted <pre> is
+    // already visible and looks identical to the editor's read-only state.
     const preBlocks = containerRef.querySelectorAll("pre");
     preBlocks.forEach((pre) => {
       const codeEl = pre.querySelector("code.hljs.language-python");
@@ -83,14 +92,59 @@ export default function Lesson() {
 
       const rawCode = codeEl.textContent || "";
 
-      const wrapper = document.createElement("div");
-      pre.replaceWith(wrapper);
-
-      const dispose = render(
-        () => <CodeRunner code={rawCode} />,
-        wrapper
+      let mounted = false;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (mounted) return;
+          if (entries.some((e) => e.isIntersecting)) {
+            mounted = true;
+            observer.disconnect();
+            const wrapper = document.createElement("div");
+            pre.replaceWith(wrapper);
+            const dispose = render(
+              () => <CodeRunner code={rawCode} />,
+              wrapper,
+            );
+            disposers.push(dispose);
+          }
+        },
+        { rootMargin: "300px" },
       );
-      disposers.push(dispose);
+      observer.observe(pre);
+      disposers.push(() => observer.disconnect());
+    });
+
+    // New: :::widget directive placeholders → registered Solid components
+    const widgetEls = containerRef.querySelectorAll<HTMLElement>("[data-widget]");
+    widgetEls.forEach((el) => {
+      const type = el.getAttribute("data-widget") || "";
+      const propsAttr = el.getAttribute("data-props") || "{}";
+      const loader = WIDGETS[type];
+      if (!loader) {
+        el.outerHTML = `<pre class="widget-error">unknown widget type: ${type}</pre>`;
+        return;
+      }
+      let props: Record<string, unknown> = {};
+      try {
+        props = JSON.parse(propsAttr);
+      } catch {
+        el.outerHTML = `<pre class="widget-error">widget props for type=${type} are not valid JSON</pre>`;
+        return;
+      }
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "widget";
+      el.replaceWith(wrapper);
+
+      // Lazy-load and mount. The async gap is fine — wrapper stays in the
+      // DOM; mount populates it when the component module resolves.
+      loader().then((mod) => {
+        const Component = mod.default;
+        const dispose = render(() => <Component {...props} />, wrapper);
+        disposers.push(dispose);
+      }).catch((err) => {
+        wrapper.innerHTML = `<pre class="widget-error">failed to load widget ${type}: ${err}</pre>`;
+      });
     });
   }
 
@@ -123,7 +177,7 @@ export default function Lesson() {
   createEffect(() => {
     if (lesson()) {
       requestAnimationFrame(() => {
-        mountCodeRunners();
+        mountWidgets();
       });
     }
   });
