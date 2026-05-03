@@ -133,17 +133,18 @@ export default function Home() {
         Python is only used to verify your hand-computed answers.
       </p>
 
-      {/* Number Sense (Pilot) — interactive lesson track */}
+      {/* Strands (Pilot) — interactive lesson tracks */}
       <Show when={(strands()?.length ?? 0) > 0}>
         <div class="strand-pilot">
           <div class="strand-pilot-eyebrow">Pilot</div>
           <h2 class="strand-pilot-heading">
-            Number Sense — Hands-On
+            Hands-On Strands
           </h2>
           <p class="strand-pilot-blurb">
-            Counting, place value, mental arithmetic. Each lesson has a widget
-            you actually manipulate — drills, base converters, checks with
-            instant feedback. Foundation level for now; more on the way.
+            Pick a track and start. Each lesson has a widget you actually
+            manipulate — drills, base converters, fraction visuals,
+            probability simulators — with instant feedback. Foundation level
+            for now; more strands and levels on the way.
           </p>
           <div class="strand-pilot-cards">
             <For each={strands()}>

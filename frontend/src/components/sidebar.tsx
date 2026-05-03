@@ -31,7 +31,8 @@ const TIER_LABELS: Record<string, string> = {
   "supplementary-activations": "Activation Functions",
   "supplementary-foundations": "Advanced Topics (Parametric, Polar, Hyperbolic)",
   "supplementary-applied": "Applied Maths & Mechanics",
-  "strand-1-number-quantity-foundation": "Foundation",
+  "strand-1-number-quantity-foundation": "Number Sense — Foundation",
+  "strand-6-uncertainty-foundation": "Uncertainty — Foundation",
 };
 
 function getTierSection(tier: string): string {
@@ -53,7 +54,7 @@ function getTierSection(tier: string): string {
 }
 
 const SECTION_LABELS: Record<string, string> = {
-  strands: "Number Sense (Pilot)",
+  strands: "Strands (Pilot)",
   foundations: "Foundations (Start Here)",
   core: "Core Mathematics",
   "applied-ml": "Applied ML",
