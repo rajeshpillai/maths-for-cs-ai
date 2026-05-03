@@ -1,0 +1,148 @@
+---
+strand: uncertainty
+level: advanced
+order: 6
+title: Central Limit Theorem — Rigorous
+prerequisites:
+  - tier: strand-6-uncertainty-advanced
+    slug: 05-laws-of-large-numbers
+    description: Laws of large numbers
+connections:
+  - strand-6-uncertainty-advanced/07-martingales
+applications:
+  - cs: "Confidence intervals, hypothesis testing, statistical ML"
+  - life: "Why the bell curve is everywhere"
+---
+
+# Central Limit Theorem — Rigorous
+
+## Mental
+
+The **Central Limit Theorem** (CLT): for iid $X_1, X_2, \ldots$ with
+finite mean $\mu$ and variance $\sigma^2$,
+
+$$
+\frac{\bar X_n - \mu}{\sigma / \sqrt n} \overset{d}{\to} \mathcal{N}(0, 1).
+$$
+
+The standardised sample mean is asymptotically standard normal.
+
+**Why this is striking**: doesn't matter what distribution $X_i$ has
+(provided finite variance) — the average is approximately normal.
+Universality.
+
+## Characteristic-function proof sketch
+
+**Characteristic function** $\phi_X(t) = \mathbb{E}[e^{itX}]$. For $\mathcal{N}(0, 1)$: $\phi(t) = e^{-t^2/2}$.
+
+For iid $X_i$: $\phi_{S_n / \sqrt n}(t) = (\phi_X(t/\sqrt n))^n$.
+
+Taylor-expand $\phi_X(s) = 1 - \sigma^2 s^2/2 + o(s^2)$ near 0
+(assumes finite $\sigma^2$):
+
+$\phi_{S_n / \sqrt n}(t) \to (1 - t^2/(2n))^n \to e^{-t^2/2}$ — the
+normal characteristic function.
+
+Then **Lévy's continuity theorem** (convergence of characteristic
+functions implies convergence in distribution) closes the proof.
+
+## Berry-Esseen quantitative bound
+
+The CLT says $|F_n(x) - \Phi(x)| \to 0$. **Berry-Esseen** quantifies
+the rate:
+
+$$
+\sup_x |F_n(x) - \Phi(x)| \le \frac{C \rho}{\sigma^3 \sqrt n}
+$$
+
+where $\rho = \mathbb{E}|X - \mu|^3$ is the third absolute moment
+and $C$ is a universal constant ($C \approx 0.4748$).
+
+Convergence is at rate $1/\sqrt n$.
+
+## Generalisations
+
+- **Multivariate CLT**: vector versions with covariance matrix.
+- **Lindeberg-Feller**: CLT for non-iid sequences under a "negligible
+  small parts" condition.
+- **Stable laws**: when $\sigma^2 = \infty$, normalised sums converge
+  to *stable distributions* (Cauchy, Lévy, ...) — not normal.
+- **Donsker's theorem**: CLT for stochastic processes — partial-sum
+  paths converge to Brownian motion.
+
+## Interactive
+
+:::widget type=numeric-input prompt="CLT: standardised $\\bar X_n \\to ?$ — distribution. Type 1 for $\\mathcal{N}(0, 1)$." answer=1 explain="Yes.":::
+
+:::widget type=numeric-input prompt="Convergence rate in CLT: $1/\\sqrt n$ — Berry-Esseen. Type 1." answer=1 explain="Yes.":::
+
+:::widget type=numeric-input prompt="Cauchy distribution: CLT applies? (no finite variance)" answer=0 explain="No — converges to Cauchy, not normal.":::
+
+:::widget type=numeric-input prompt="Multivariate CLT: covariance matrix replaces variance. Type 1." answer=1 explain="Yes.":::
+
+## Symbolic
+
+**Continuous mapping theorem** + CLT enable transformations:
+$g(\bar X_n) \approx g(\mu) + g'(\mu)(\bar X_n - \mu)$.
+
+So $\sqrt n (g(\bar X_n) - g(\mu)) \overset{d}{\to} \mathcal{N}(0, g'(\mu)^2 \sigma^2)$
+— the **delta method** in statistics.
+
+**Edgeworth expansion**: refinement of CLT giving polynomial
+corrections of order $1/\sqrt n, 1/n, \ldots$ — used for higher
+accuracy.
+
+## Computational
+
+```python
+import numpy as np
+from scipy import stats
+
+# CLT demo: average of N uniforms approaches normal
+def clt_simulation(N, trials=10000):
+    means = np.array([np.mean(np.random.rand(N)) for _ in range(trials)])
+    standardized = (means - 0.5) / (1 / np.sqrt(12 * N))
+    return standardized
+
+samples = clt_simulation(50)
+print(np.mean(samples), np.std(samples))         # ~0, ~1
+
+# Compare to normal
+ks_stat, p_value = stats.kstest(samples, 'norm')
+print(ks_stat, p_value)                          # tiny KS distance, large p
+
+# Cauchy: CLT fails
+def cauchy_average(N, trials=1000):
+    return np.array([np.mean(np.random.standard_cauchy(N)) for _ in range(trials)])
+
+print(np.std(cauchy_average(100)))               # huge, doesn't shrink with N
+print(np.std(cauchy_average(10000)))             # still huge — CLT doesn't apply
+
+# Berry-Esseen: rate is 1/sqrt(n)
+N = 100
+samples = clt_simulation(N)
+ks_stat, _ = stats.kstest(samples, 'norm')
+print(ks_stat * np.sqrt(N))                      # bounded by Berry-Esseen constant
+```
+
+## Applied
+
+- **Confidence intervals** — $\bar X \pm z_{\alpha/2} \sigma / \sqrt n$
+  is approximately valid by CLT.
+- **Hypothesis testing** — z-tests, t-tests, chi-square tests rely on
+  asymptotic normality.
+- **Bootstrap** — resampling with CLT-justified normal approximation.
+- **A/B testing** — sample-size calculations use CLT.
+- **Polling and election forecasts** — margin of error follows CLT.
+- **Brownian motion in physics / finance** — limiting object of
+  random walks (Donsker).
+
+## Check Your Understanding
+
+:::widget type=numeric-input prompt="CLT requires finite variance. Type 1." answer=1 explain="Yes.":::
+
+:::widget type=numeric-input prompt="CLT convergence rate: $1/\\sqrt n$. Type 1." answer=1 explain="Yes.":::
+
+:::widget type=numeric-input prompt="Delta method derives asymptotic distribution of $g(\\bar X_n)$. Type 1." answer=1 explain="Yes.":::
+
+:::widget type=numeric-input prompt="Donsker's theorem: random walks converge to Brownian motion. Type 1." answer=1 explain="Yes.":::
