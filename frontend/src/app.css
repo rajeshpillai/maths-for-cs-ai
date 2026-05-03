@@ -198,14 +198,49 @@
   min-height: 100vh;
 }
 
-/* Top bar with search */
+/* Top bar with search and GitHub star */
 .top-bar {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  gap: 0.75rem;
   margin-bottom: 1rem;
   padding-right: 2.5rem;
   position: relative;
   z-index: 50;
+}
+
+/* GitHub star button */
+.github-star {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  background: var(--card-bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.github-star:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+
+.github-star svg {
+  flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .github-star span {
+    display: none;
+  }
 }
 
 /* Search */
