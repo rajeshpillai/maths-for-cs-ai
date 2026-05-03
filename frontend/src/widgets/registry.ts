@@ -10,6 +10,7 @@ export const WIDGETS: Record<string, () => Promise<{ default: Component<any> }>>
   "fraction-visual": () => import("./fraction-visual"),
   "step-revealer": () => import("./step-revealer"),
   "probability-sim": () => import("./probability-sim"),
+  "pascal-triangle": () => import("./pascal-triangle"),
 };
 
 export type WidgetType = keyof typeof WIDGETS;
