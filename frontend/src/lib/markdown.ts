@@ -94,7 +94,20 @@ function parseInlineProps(s: string): Record<string, unknown> {
 // embeds the widget type and JSON-encoded props as data attributes. The
 // placeholder is inline HTML so marked passes it through unchanged.
 function extractWidgets(md: string): string {
-  // Multi-line first so its `:::` doesn't collide with the single-line form.
+  // Single-line FIRST. The multi-line regex's `[^\n]*` for inline props
+  // is too greedy: starting from a single-line directive it would happily
+  // match across many lines until it found a `\n:::` (e.g., the closing
+  // line of an unrelated multi-line directive far below), swallowing
+  // everything in between. Running single-line first eats all complete
+  // one-liners, so multi-line only ever sees genuine multi-line bodies.
+  md = md.replace(
+    SINGLE_LINE_WIDGET_RE,
+    (_, type: string, inlineProps: string) => {
+      const props = parseInlineProps(inlineProps);
+      const json = escapeHtmlAttr(JSON.stringify(props));
+      return `<div data-widget="${type}" data-props="${json}"></div>`;
+    },
+  );
   md = md.replace(
     MULTI_LINE_WIDGET_RE,
     (_, type: string, inlineProps: string, body: string) => {
@@ -110,14 +123,6 @@ function extractWidgets(md: string): string {
           return `<pre class="widget-error">widget body for type=${type} is not valid JSON</pre>`;
         }
       }
-      const json = escapeHtmlAttr(JSON.stringify(props));
-      return `<div data-widget="${type}" data-props="${json}"></div>`;
-    },
-  );
-  md = md.replace(
-    SINGLE_LINE_WIDGET_RE,
-    (_, type: string, inlineProps: string) => {
-      const props = parseInlineProps(inlineProps);
       const json = escapeHtmlAttr(JSON.stringify(props));
       return `<div data-widget="${type}" data-props="${json}"></div>`;
     },
