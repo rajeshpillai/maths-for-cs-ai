@@ -1,0 +1,11 @@
+{
+  "title": "Reasoning",
+  "description": "How do we know any of this is true? Logic, sets, functions, proof techniques, and cardinality. The infrastructure of mathematical thought — and the foundation of formal verification, type theory, and theoretical CS.",
+  "levels": {
+    "foundation": "Foundation",
+    "intermediate": "Intermediate",
+    "advanced": "Advanced",
+    "master": "Master",
+    "research": "Research-adjacent"
+  }
+}
