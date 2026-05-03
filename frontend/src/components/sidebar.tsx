@@ -33,8 +33,11 @@ const TIER_LABELS: Record<string, string> = {
   "supplementary-applied": "Applied Maths & Mechanics",
   "strand-1-number-quantity-foundation": "Number Sense — Foundation",
   "strand-1-number-quantity-intermediate": "Number Sense — Intermediate",
+  "strand-3-shape-space-foundation": "Shape & Space — Foundation",
   "strand-5-pattern-counting-foundation": "Pattern & Counting — Foundation",
+  "strand-5-pattern-counting-intermediate": "Pattern & Counting — Intermediate",
   "strand-6-uncertainty-foundation": "Uncertainty — Foundation",
+  "strand-6-uncertainty-intermediate": "Uncertainty — Intermediate",
 };
 
 function getTierSection(tier: string): string {
