@@ -34,6 +34,7 @@ const TIER_LABELS: Record<string, string> = {
   "strand-1-number-quantity-foundation": "Number Sense — Foundation",
   "strand-1-number-quantity-intermediate": "Number Sense — Intermediate",
   "strand-1-number-quantity-advanced": "Number Sense — Advanced",
+  "strand-2-structure-foundation": "Structure — Foundation",
   "strand-3-shape-space-foundation": "Shape & Space — Foundation",
   "strand-3-shape-space-intermediate": "Shape & Space — Intermediate",
   "strand-4-change-foundation": "Change — Foundation",
