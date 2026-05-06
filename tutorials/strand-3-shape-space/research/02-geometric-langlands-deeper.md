@@ -16,6 +16,17 @@ applications:
 
 # Geometric Langlands — Deeper
 
+## Explain Like I Am 7
+
+Pretend two giant libraries on opposite sides of a city secretly
+share the same books, but each library *labels* them by totally
+different rules.  A book about "loops on a doughnut" in one library
+matches a book about "wave patterns" in the other.  **Geometric
+Langlands** is the master dictionary that says exactly which book
+in library A is the twin of which book in library B.  It's one of
+the deepest bridges in math, tying geometry, algebra, and physics
+into a single conversation.
+
 ## Mental
 
 Strand 1 Research Lesson 04 introduced **geometric Langlands** for

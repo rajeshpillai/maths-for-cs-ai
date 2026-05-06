@@ -1,5 +1,16 @@
 # Mental Cube Root Extraction
 
+## Explain Like I Am 7
+
+Someone hands you the giant number **185193** and asks for its cube
+root.  Sounds impossible — but watch.  First, the **last digit** of
+the cube tells you the last digit of the answer (each digit 0-9 has
+its own special cube ending — 7³ ends in 3, so the answer ends in
+**7**).  Then chop off the last three digits and look at what's
+left: 185.  Find the biggest cube that fits inside 185 — that's
+5³=125.  So the first digit is **5**.  Stitch them: **57**.  Cube
+57 to check — yep, 185193!  Five seconds, no calculator.
+
 ## Intuition
 
 Given a large perfect cube like 185193, can you find its cube root mentally?

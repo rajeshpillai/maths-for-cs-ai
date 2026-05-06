@@ -1,5 +1,16 @@
 # Inequalities for Competition Mathematics
 
+## Explain Like I Am 7
+
+You and your friend share 10 cookies.  No matter how you split them,
+*the average is always 5*, but if one of you grabs more, the other
+gets less.  Surprising rule: the average of two numbers is always
+**at least as big** as the square root of their product.  Equal
+shares win when you want the biggest "fair" mix.  Inequalities are
+just a bunch of tidy rules like this — they tell you the smallest or
+biggest something can ever be, without making you check every
+possibility.  Champions of maths puzzles use them like cheat codes.
+
 ## Intuition
 
 Inequalities are the art of bounding — proving that one quantity is always at least (or at

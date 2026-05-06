@@ -1,5 +1,16 @@
 # Numerical Methods for ODEs — Runge-Kutta
 
+## Explain Like I Am 7
+
+Walking through fog one tiny step at a time works, but you keep
+drifting off the trail.  A smarter hiker peeks at the slope where
+they *are*, then peeks halfway through the next step, then again,
+then once at the far end — and averages all four peeks before
+committing.  Each step uses more thinking, but the trail you walk
+hugs the real path so much closer that you can take *bigger* steps
+and still arrive in better shape.  Same idea, four guesses per stride
+beats one.
+
 ## Intuition
 
 Euler's method (Lesson 6) is the simplest numerical ODE solver, but it is

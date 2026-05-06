@@ -1,5 +1,16 @@
 # Bivariate Normal Distribution
 
+## Explain Like I Am 7
+
+Tip a bucket of dry sand onto a tabletop — it forms a soft, round
+hill, taller in the middle and tapering off.  Look down on it from
+above and the rings of equal height are perfect **circles**.  Now
+imagine that taller children also tend to be heavier.  If you sprinkle
+a sand grain for every kid, the hill stretches into an *oval* — the
+heights and weights pull together.  This **two-dimensional bell-hill**
+shows up everywhere two measurements drift up and down together — its
+shape is the *bivariate normal*.
+
 ## Intuition
 
 The bivariate normal is the two-dimensional bell curve.  Imagine a hill of sand

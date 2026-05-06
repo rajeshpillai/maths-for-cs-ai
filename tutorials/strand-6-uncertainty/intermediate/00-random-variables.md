@@ -18,6 +18,17 @@ applications:
 
 # Random Variables
 
+## Explain Like I Am 7
+
+Imagine a wheel of fortune.  Spin it and a number pops out — but
+you can never know which one in advance.  A **random variable** is
+just a label for that mystery number, like $X$ in algebra except
+$X$ takes on different values with different chances.  The list of
+"$X$ takes value $k$ with probability so-and-so" is called its
+**distribution**.  Some random variables only land on whole numbers
+(like dice rolls), and some can be any number on a smooth scale
+(like the height of a person picked at random).
+
 ## Mental
 
 A **random variable** is a function that assigns a number to each

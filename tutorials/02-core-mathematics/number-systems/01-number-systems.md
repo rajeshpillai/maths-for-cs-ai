@@ -1,5 +1,16 @@
 # Number Systems — The Bedrock
 
+## Explain Like I Am 7
+
+Picture a treasure box with smaller boxes nested inside.  The tiniest
+box holds **counting numbers** — 1, 2, 3 — the ones you use for
+counting marbles.  Open it inside a bigger box and you get **negative
+numbers** too, so you can owe a friend a marble.  Bigger still, and
+*halves* and *quarters* sneak in.  Bigger again, and weird never-
+ending decimals like the one for $\pi$ join the party.  Each box is a
+**bigger family** of numbers that lets you solve problems the smaller
+boxes couldn't.
+
 ## Intuition
 
 Every number you have ever used belongs to a family. Understanding these

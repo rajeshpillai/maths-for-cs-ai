@@ -17,6 +17,17 @@ applications:
 
 # Capstone — Logic at the Frontier
 
+## Explain Like I Am 7
+
+This chapter is the field trip into the strangest corners of the
+logic museum.  Stickers that depend on numbers; signpost-arrow maps
+of "true and false"; alternate snow-globe universes where math runs
+by different weather; promises about "always" and "eventually"
+checked by a tireless robot.  Each is a tool living researchers reach
+for when they want to verify spaceships, certify AI safety, or prove
+brand-new theorems.  Today's tour is about how logic stops being
+classroom homework and starts being a serious engineering material.
+
 ## Mental
 
 Nine lessons on:

@@ -18,6 +18,16 @@ applications:
 
 # Limits — The Concept Calculus Rests On
 
+## Explain Like I Am 7
+
+Walk halfway to the wall.  Then walk halfway again.  Then halfway
+again, and again, and again.  You'll *never* actually touch the
+wall — but you can clearly see what spot you're heading toward.
+A **limit** is exactly that: not where you arrive, but where you'd
+arrive if you could keep stepping forever.  This sneaky idea
+("getting infinitely close without touching") is the secret
+foundation calculus is built on.
+
 ## Mental
 
 A **limit** asks: as $x$ gets closer and closer to some value $a$

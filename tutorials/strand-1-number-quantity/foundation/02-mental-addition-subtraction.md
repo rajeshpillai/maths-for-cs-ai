@@ -18,6 +18,17 @@ applications:
 
 # Mental Addition and Subtraction
 
+## Explain Like I Am 7
+
+Imagine you're climbing a staircase and someone says "go up 47 more
+steps."  You don't move one tiny step at a time — you bound up by
+forties first, *then* tidy up with the leftover sevens.  Adding in your
+head works the same way: handle the big chunks first, then the small
+ones, so you only ever hold one tidy running total in your mind.
+Subtraction is just walking back down the same staircase, and a
+borrowed step from the next floor is exactly what "borrowing" means on
+paper.
+
 ## Mental
 
 Most people were taught to add by **stacking** numbers and working

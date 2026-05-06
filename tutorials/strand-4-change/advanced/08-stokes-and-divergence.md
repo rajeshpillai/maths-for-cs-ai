@@ -16,6 +16,17 @@ applications:
 
 # Green, Stokes, and Divergence Theorems
 
+## Explain Like I Am 7
+
+Picture water swirling in a bathtub.  If you walk around the *edge*
+of a region in the water and add up how much the current is
+pushing you along, you get the *same* answer as walking around
+the *inside* of the region and adding up how much the water is
+spinning at every point.  Three big theorems — Green, Stokes, and
+Divergence — all say the same big idea: *what happens on a
+boundary is the sum of what happens inside*.  It's the
+multivariable version of "slope-finder undoes area-finder."
+
 ## Mental
 
 The "fundamental theorem of calculus" in higher dimensions has three

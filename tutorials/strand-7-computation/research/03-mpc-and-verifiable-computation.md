@@ -16,6 +16,17 @@ applications:
 
 # MPC and Verifiable Computation
 
+## Explain Like I Am 7
+
+Five friends each have a number on a private card and want the total
+*without* showing anyone their card.  They split each card into silly
+fragments, swap fragments around like trading cards, and at the end
+add up what they're holding — *somehow* the right total appears, with
+nobody ever seeing anybody else's number.  A second magic trick lets
+you ship a hard sum to a stranger and get back not just an answer but
+a tiny *receipt* you can check in seconds.  These two tricks let
+strangers cooperate without trust.
+
 ## Mental
 
 **Multi-party computation (MPC)**: $N$ parties jointly compute

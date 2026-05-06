@@ -16,6 +16,17 @@ applications:
 
 # Young Tableaux and the Symmetric Group
 
+## Explain Like I Am 7
+
+Picture a staircase of square boxes — six boxes in the bottom row,
+four boxes above, three above that.  Drop the numbers $1$ through
+$13$ into the boxes so each row grows from left to right and each
+column grows from top to bottom.  Each valid filling is a **Young
+tableau**, and counting how many fillings exist is a famously deep
+puzzle.  Amazingly, you can compute it from a tiny "hook" rule —
+each box looks at the boxes to its right and below itself, and a
+single tidy formula tumbles out.
+
 ## Mental
 
 A **partition** $\lambda = (\lambda_1 \ge \lambda_2 \ge \ldots \ge \lambda_k > 0)$ of $n$:

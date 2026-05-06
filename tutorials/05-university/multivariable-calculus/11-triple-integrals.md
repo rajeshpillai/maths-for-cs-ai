@@ -1,5 +1,16 @@
 # Triple Integrals
 
+## Explain Like I Am 7
+
+You have a big jelly mould — a wibbly chunk of jelly — and you want
+to know how heavy it is, knowing that some bits are dense raisin and
+some bits are airy fluff.  You can't just weigh a square of the
+floor; you have to imagine cutting the whole jelly into tiny
+sugar-cube blocks, weighing each cube based on what's inside it, and
+adding every cube together.  A **triple integral** is that brave
+sugar-cube count, summing stuff up across a whole solid lump in
+three dimensions at once.
+
 ## Intuition
 A double integral accumulates over a 2D region to get volume. A triple integral
 accumulates over a 3D region to get a **hypervolume** — or more practically, it

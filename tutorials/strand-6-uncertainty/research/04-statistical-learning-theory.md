@@ -16,6 +16,19 @@ applications:
 
 # Statistical Learning Theory Frontier
 
+## Explain Like I Am 7
+
+Classical theory says a learning machine with billions of dials
+should *over-memorise* its training data and forget how to handle
+fresh examples.  But neural networks shrug and *generalise*
+beautifully anyway.  Why?  Statistical learning theory researchers
+keep inventing finer measuring sticks: PAC-Bayes bounds reward
+"flat" solutions; norm-based bounds care about the size of the
+weights; neural-tangent-kernel theory matches infinitely-wide
+networks to nicely-behaved kernel methods.  The frontier is
+explaining why deep learning works, theoretically, not just
+empirically.
+
 ## Mental
 
 Classical SLT (Vapnik-Chervonenkis): generalisation bounded by

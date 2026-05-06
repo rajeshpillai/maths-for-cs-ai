@@ -1,5 +1,15 @@
 # Graph Reading Skills — Rate of Change, Intervals, and Concavity
 
+## Explain Like I Am 7
+
+When you ride a bike up and down hilly streets, the squiggly line of
+your speed tells a story.  A **steep** climb means you're slowing down
+fast; a flat bit means you're cruising; a downhill swoop means you're
+speeding up.  Reading a graph is just listening to that story — *where
+is it going up, where is it going down, where is it bending into a
+smile or into a frown?*  Once you can read those clues, you can guess
+what the rider was feeling without ever seeing the bike.
+
 ## Intuition
 
 Before you learn calculus, you need to read graphs fluently — the way a

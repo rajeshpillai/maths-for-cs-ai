@@ -16,6 +16,17 @@ applications:
 
 # Forcing and Independence
 
+## Explain Like I Am 7
+
+You have a small list of house rules for a board game.  Some
+questions about the game ("can the king ever land on this square?")
+*can't* be answered by the rules alone — you can build *one* perfectly
+legal version of the game where the answer is yes, and *another*
+where the answer is no, both following exactly the same rules.
+**Forcing** is the magical recipe for cooking up these alternative
+worlds and showing certain math questions live forever in this "yes
+in some worlds, no in others" twilight zone.
+
 ## Mental
 
 Some statements in mathematics are **independent** of ZFC: neither

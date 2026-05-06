@@ -16,6 +16,18 @@ applications:
 
 # Category Theory in Depth
 
+## Explain Like I Am 7
+
+Imagine the world's biggest train-station map: all the stations are
+"things," and the train lines between them are "ways one thing turns
+into another."  Category theory studies those maps — and asks
+universal questions like "what's the smallest station that connects to
+both A and B?" or "what's the cheapest way to glue two routes?"  The
+answers don't care what the stations *are* (numbers, shapes,
+programs); they only care about the arrows between them.  That's why
+the same category-theoretic idea pops up in algebra, geometry, and
+computer programming languages.
+
 ## Mental
 
 Strand 8 Advanced Lesson 02 introduced categories. Going deeper:

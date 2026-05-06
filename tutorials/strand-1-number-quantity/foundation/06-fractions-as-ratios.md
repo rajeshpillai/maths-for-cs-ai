@@ -19,6 +19,17 @@ applications:
 
 # Fractions as Ratios
 
+## Explain Like I Am 7
+
+Picture a pizza sliced into eight equal pieces.  If you grab three of
+them, you've taken $\tfrac{3}{8}$ of the whole pizza — the **bottom
+number** says how many slices the pizza was cut into, the **top
+number** says how many slices are on your plate.  The same pizza could
+be re-cut into 16 slimmer slices and you'd be holding 6 of them: same
+amount of pizza, just thinner slices, so $\tfrac{3}{8}$ and
+$\tfrac{6}{16}$ are secretly the same friend wearing a different
+hat.
+
 ## Mental
 
 A fraction is a **comparison between two whole numbers** —

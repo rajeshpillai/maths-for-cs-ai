@@ -1,5 +1,16 @@
 # Bounding and Estimation
 
+## Explain Like I Am 7
+
+Suppose you can't count the exact number of jellybeans in a giant
+jar — there are too many!  But you *can* see it's "more than 100 and
+less than 500."  That's a **bound** — a fence around the answer.
+If you squint harder you might say "more than 230 and less than 250."
+The fence got tighter, and now you almost know the answer.  Maths
+problems often ask, "is this number bigger than 7?" — you don't need
+the exact value, you just need to **fence it in** until your fence
+sits clearly above (or below) 7.  Bounding is about smart squeezing.
+
 ## Intuition
 
 Not every problem asks for an exact answer. Many JEE problems ask you to prove an inequality, find which integer an expression lies between, or determine the behaviour of a sequence. The strategy: instead of computing the exact value, trap it between two simpler quantities.

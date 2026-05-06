@@ -17,6 +17,17 @@ applications:
 
 # Capstone — Calculus in the Wild
 
+## Explain Like I Am 7
+
+You've added new gadgets: wavy-and-galloping slope finders, an
+ant-race for tricky limits, smoothie-splitting for fractions,
+infinite-paint accounting, and Taylor's road-copying recipe.  In
+this capstone you take real wild puzzles — figuring out how a
+medicine clears your blood, how a parachute slows down, how a
+tank empties — and let your bigger toolkit chew them up.  Each
+real problem takes more than one tool, and watching them combine
+is what calculus is really for.
+
 ## Mental
 
 Ten lessons on:

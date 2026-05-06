@@ -1,5 +1,15 @@
 # Advanced Graph Theory
 
+## Explain Like I Am 7
+
+Imagine a treasure map of dots and lines — each dot is a town, each
+line is a road.  Lots of fun puzzles live in that picture.  Can you
+colour every town so neighbours never share a colour, using only
+four crayons?  Can you redraw the whole map flat on a piece of paper
+with no roads crossing?  Can you walk every road exactly once and
+not cheat?  These dot-and-line puzzles aren't just games — they're
+how grown-ups untangle traffic, schedule classes, and lay out chips.
+
 ## Intuition
 
 Graphs are the universal language of connections — social networks, road maps,

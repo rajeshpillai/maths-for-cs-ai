@@ -16,6 +16,18 @@ applications:
 
 # The Langlands Program — A Glimpse
 
+## Explain Like I Am 7
+
+Imagine two very different museums.  One is full of strange number
+sculptures; the other is full of beautiful musical scores written in a
+language nobody can read.  Robert Langlands made an outrageous guess:
+*every* sculpture in museum A has a matching score in museum B, and
+each pair tells the same story from two completely different sides.
+The Langlands program is a centuries-long quest to slowly verify
+matching pairs — and every time one is confirmed, deep mathematical
+mysteries fall like dominoes (Fermat's Last Theorem was one of those
+dominoes).
+
 ## Mental
 
 The **Langlands program** (Robert Langlands, 1967) proposes a vast

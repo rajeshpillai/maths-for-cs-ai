@@ -1,5 +1,16 @@
 # The Cartesian Plane — Points, Distance, and Midpoints
 
+## Explain Like I Am 7
+
+Pretend the floor of your bedroom is a giant ticked grid, and you and a
+friend each stand on a square.  To tell someone exactly where you are
+standing, you say "go three steps right, then two steps forward" — that
+pair of numbers is your **address** on the floor.  Once everyone has an
+address, you can ask grown-up questions like "how many steps between
+us?" or "what square is exactly in the middle?" without ever leaving
+your chair.  That's all the Cartesian plane is: an address book for
+every spot on a flat surface.
+
 ## Intuition
 
 Every pixel on your screen has an address: a column number and a row number.

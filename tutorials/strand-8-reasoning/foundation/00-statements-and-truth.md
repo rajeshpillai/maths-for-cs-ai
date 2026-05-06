@@ -15,6 +15,16 @@ applications:
 
 # Statements and Truth Values
 
+## Explain Like I Am 7
+
+Imagine a green stamp that says "TRUE" and a red stamp that says
+"FALSE."  Some sentences earn one stamp or the other: "Two plus two
+equals four" gets the green; "Paris is in Germany" gets the red.
+Other sentences refuse both — "Close the door!" or "What's for
+lunch?" aren't even *trying* to be a fact.  In logic, we only collect
+sentences that deserve one stamp, and we use them as little
+building-bricks for bigger arguments later on.
+
 ## Mental
 
 Logic is the **calculus of true and false**. The basic unit is the

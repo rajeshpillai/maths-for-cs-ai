@@ -16,6 +16,17 @@ applications:
 
 # Group Homomorphisms
 
+## Explain Like I Am 7
+
+Imagine two dance studios where the dancers move in different ways.
+A **homomorphism** is a translator who watches a dancer in studio A
+and re-creates a faithful version in studio B — and crucially, *if you
+combine two moves before translating, you get the same answer as
+translating both moves and then combining them in B*.  The translator
+might lose detail (several A-dancers can map to the same B-dancer),
+but the choreography rules are obeyed.  This "structure-respecting
+translator" is the bridge that lets one group teach you about another.
+
 ## Mental
 
 A **group homomorphism** $\varphi: G \to H$ is a function that

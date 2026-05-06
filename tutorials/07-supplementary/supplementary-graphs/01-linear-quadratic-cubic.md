@@ -1,5 +1,16 @@
 # Linear, Quadratic, and Cubic Graphs
 
+## Explain Like I Am 7
+
+Think of three different slides in the playground.  The **straight
+slide** goes down at the same steepness from top to bottom — that's
+the linear one.  The **U-shaped half-pipe** swoops down, levels out at
+the bottom, then climbs up again — that's the quadratic one.  The
+**S-curve slide** dips, twists, and changes its mind once before
+heading off — that's the cubic one.  Once you know each shape's
+silhouette, you can spot the equation behind it without doing any
+arithmetic.
+
 ## Intuition
 
 Every equation has a shape.  **Linear** = straight line.  **Quadratic** =

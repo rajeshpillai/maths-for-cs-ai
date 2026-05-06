@@ -1,5 +1,15 @@
 # Objective Functions and Loss Functions
 
+## Explain Like I Am 7
+
+Pretend you're playing darts but you can't see the bullseye — only a friend
+who shouts "your dart is **8 inches off!**" after every throw.  That number
+is the **loss**: one tidy score telling you how wrong you were.  Your job
+is to wiggle your aim until that number gets as small as possible.  Some
+games count distance squared (so big misses hurt extra), and some games
+count tiny clues like "you're a little to the left."  Picking the right
+scoring rule is the whole trick — it tells you which way to wiggle next.
+
 ## Intuition
 
 An **objective function** is what you want to minimise (or maximise).  In ML,

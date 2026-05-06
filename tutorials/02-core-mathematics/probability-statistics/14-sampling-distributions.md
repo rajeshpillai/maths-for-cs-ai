@@ -1,5 +1,16 @@
 # Sampling Distributions
 
+## Explain Like I Am 7
+
+Ask 5 random kids how many pets they have and find their **average**.
+Tomorrow, ask a *different* 5 kids and find that average — it'll be
+slightly different.  Do this every day for a year and write all those
+averages on a graph.  That graph itself has a tidy bell-curve shape!
+Even though each survey is a bit shaky, the *averages of small
+surveys* form a nice predictable pattern.  This pattern is the
+**sampling distribution**, and it's how scientists know how much
+to trust a single survey result.
+
 ## Intuition
 
 Every time you compute a sample mean from data, you get a slightly different

@@ -1,5 +1,15 @@
 # Conic Sections — Parabola, Ellipse, Hyperbola
 
+## Explain Like I Am 7
+
+Take an ice-cream cone and slice through it with a butter knife at
+different angles.  Slice flat across — perfect circle.  Tilt the knife
+a little — you get a stretched oval (an ellipse).  Tilt so the knife
+runs parallel to the cone's slope — the cut opens out like a satellite
+dish (a parabola).  Tilt even more so the knife slices both the top
+*and* the upside-down bottom cone at once — you get two mirror-image
+swooshes (a hyperbola).  Same cone, four very different curves.
+
 ## Intuition
 
 Slice a cone at different angles and you get different curves: a **circle**

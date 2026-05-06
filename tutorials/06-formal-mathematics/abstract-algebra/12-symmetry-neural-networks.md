@@ -1,5 +1,16 @@
 # Symmetry and Neural Networks — Geometric Deep Learning
 
+## Explain Like I Am 7
+
+Hold a paper cut-out of a cat.  Slide it around a table, spin it
+upside-down, hold it up to a mirror — it's still a cat.  We want our
+picture-recognising machines to know that too, without having to
+practise on every possible position.  So we build the machine out of
+parts that already obey those slide-and-spin rules.  Then "cat" stays
+"cat" no matter where the cut-out lands, and the machine learns much
+faster because it doesn't waste time relearning the same shape from
+every angle.
+
 ## Intuition
 
 A CNN recognises a cat regardless of where it appears in the image. This is

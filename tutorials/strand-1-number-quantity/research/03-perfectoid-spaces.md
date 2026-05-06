@@ -16,6 +16,17 @@ applications:
 
 # Perfectoid Spaces
 
+## Explain Like I Am 7
+
+Imagine two playgrounds separated by a tall wall.  On one side, kids
+play in a world where multiplying any number by $p$ is *allowed* but
+never undoes itself; on the other, the same operation has a perfect
+"undo" button.  Scholze's clever idea was to install a magic doorway —
+the **tilting** map — that flips you back and forth between the two
+playgrounds while keeping all your toys in matching shape.  Suddenly
+problems too hard on one side become easy on the other, and modern
+arithmetic geometry has been racing through that door ever since.
+
 ## Mental
 
 A **perfectoid space** (Scholze, 2012) is a class of analytic spaces

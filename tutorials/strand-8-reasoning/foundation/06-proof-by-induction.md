@@ -16,6 +16,15 @@ applications:
 
 # Proof by Induction
 
+## Explain Like I Am 7
+
+Set up a long row of dominoes.  If you can promise two things —
+"the first domino *will* fall" and "any falling domino *will* knock
+over the next one" — then you've already promised that the *whole*
+row will fall, no matter how long.  You don't need to push each one
+yourself.  **Induction** is exactly that two-promise trick, used to
+prove a fact for every counting number all the way up to forever.
+
 ## Mental
 
 To prove "$P(n)$ is true for all $n \ge n_0$":

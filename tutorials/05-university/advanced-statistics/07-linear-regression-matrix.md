@@ -1,5 +1,16 @@
 # Linear Regression via Matrices (OLS)
 
+## Explain Like I Am 7
+
+Sprinkle a bunch of dots on a piece of paper that look like they
+*kind of* fall along a slanted line.  Now ask: of all the lines I
+could draw with a ruler, which one passes closest to the most dots?
+For each dot, measure how far above or below the line it sits — and
+pick the line where the sum of those squared distances is the
+smallest possible.  That tidy "closest line" is what regression
+finds.  And in matrix-land, the answer pops out in one neat
+formula, no fiddling needed.
+
 ## Intuition
 
 You have data points and want to fit a straight line (or hyperplane) that

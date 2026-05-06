@@ -19,6 +19,16 @@ applications:
 
 # Divisibility Rules — From First Principles
 
+## Explain Like I Am 7
+
+A divisibility rule is a magic spell for telling whether a big number
+splits up evenly — *without* doing the long division.  "Add the digits;
+if the sum is in the three-times table, the whole number is too" is
+one such spell.  These tricks aren't lucky coincidences: they fall out
+of how our 10-digit number system *behaves on a clock*.  Each rule is
+just clock-math wearing a costume — the costume that lets you check
+big numbers in your head.
+
 ## Mental
 
 You met the **divisibility-by-3** rule in Foundation Lesson 04: a

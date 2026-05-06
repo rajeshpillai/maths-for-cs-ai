@@ -16,6 +16,18 @@ applications:
 
 # Homological Algebra
 
+## Explain Like I Am 7
+
+Picture a chain of paper cups linked by strings, where every string
+follows the same rule: "the next two strings cancel out."  At each
+cup, two strings come in and two go out, and you ask: "what's left
+unexplained at this cup?"  That leftover is called **homology** — a
+sort of receipt of the topological holes the chain detects.
+Homological algebra is the bookkeeping toolkit for these chains, and
+it's how mathematicians count holes in shapes, count ways data can
+fail to fit a model, and understand obstructions in many corners of
+mathematics.
+
 ## Mental
 
 A **chain complex** is a sequence of abelian groups (or modules):

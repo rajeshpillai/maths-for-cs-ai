@@ -1,5 +1,15 @@
 # Arc Length and Curvature
 
+## Explain Like I Am 7
+
+Take a wiggly garden hose and lay it out in the yard.  The straight
+distance from one end to the other is short, but if an ant marches
+all along the hose without skipping, the ant's footstep count is
+*much* bigger.  That footstep count is the **arc length**.  Now look
+at where the hose bends sharply versus where it lazes nearly
+straight — sharp corners are where the road's "twistiness" is high,
+and lazy straight bits have hardly any twist at all.
+
 ## Intuition
 Arc length answers "how far did the character actually travel along a curved path?"
 — not the straight-line shortcut, but the odometer reading. Curvature measures how

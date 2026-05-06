@@ -16,6 +16,18 @@ applications:
 
 # Symmetric Functions Frontier
 
+## Explain Like I Am 7
+
+Earlier we met polynomials that don't care if you swap their
+letters.  Mathematicians built fancier versions: tweak each one with
+two extra dials labelled $q$ and $t$, and you get **Macdonald
+polynomials** — a whole family that gracefully reduces to the
+older ones at special dial settings.  These deformed polynomials
+hide remarkable patterns: their coefficients are always whole
+positive numbers, even though there's no obvious reason they should
+be.  This frontier links combinatorics, algebra, and physics in
+ways still being unraveled.
+
 ## Mental
 
 Strand 5 Master Lesson 01 introduced the symmetric functions ring

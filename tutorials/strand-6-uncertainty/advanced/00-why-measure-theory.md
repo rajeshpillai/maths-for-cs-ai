@@ -16,6 +16,17 @@ applications:
 
 # Why Measure Theory?
 
+## Explain Like I Am 7
+
+You'd think you can ask "what's the length of *any* set of points on
+a number line?" — the length of a stick is its size, easy.  But it
+turns out some sets are so weirdly torn apart that no sensible
+length-rule works for them at all.  There's even a paradox showing
+you can chop a ball into a few of these weird pieces and rearrange
+them into *two* full balls.  **Measure theory** is the careful
+discipline of saying which sets are well-behaved enough to be
+assigned a size, and only ever measuring those.
+
 ## Mental
 
 In Strand 6 Foundation we worked with finite or countable sample

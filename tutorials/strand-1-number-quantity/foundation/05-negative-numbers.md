@@ -18,6 +18,16 @@ applications:
 
 # Negative Numbers
 
+## Explain Like I Am 7
+
+Imagine an elevator in a tall building.  Floor 0 is the lobby; the
+floors above are 1, 2, 3 and the basement levels are −1, −2, −3.  A
+**negative number** is just a label for "below the lobby" or "owed
+instead of owned."  Adding a positive number presses the *up* arrow;
+adding a negative one presses the *down* arrow.  That's why two
+"downs" in a row (like subtracting a debt) end up taking you *up* —
+the second minus sign cancels the first.
+
 ## Mental
 
 Some quantities have a natural **direction**. Money you owe is the

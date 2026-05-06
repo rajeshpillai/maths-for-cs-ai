@@ -16,6 +16,17 @@ applications:
 
 # Modal Logic
 
+## Explain Like I Am 7
+
+Plain logic talks about what is.  **Modal logic** adds two extra
+words: "*must*" and "*might*."  Picture a chain of bedrooms in a
+hotel; each bedroom is a possible world.  "*Must* be true" means it's
+true in every bedroom you can wander into; "*might* be true" means
+there's at least one bedroom where it's true.  Different hotels
+(different ways the bedrooms link up) give you different flavours:
+one for "necessary," one for "I know," one for "it's allowed,"
+even one for "later."  Same trick, lots of uses.
+
 ## Mental
 
 **Modal logic** extends propositional logic with operators expressing

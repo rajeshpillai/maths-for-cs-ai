@@ -1,5 +1,16 @@
 # Basic Statistics — Mean, Median, Mode, Standard Deviation, Box Plots
 
+## Explain Like I Am 7
+
+You and your friends pour all your sweets into one big bowl, then
+share them out so everyone gets the same — that's the **mean**.  Now
+line everyone up by how tall they are; the kid right in the middle is
+the **median**.  The hat colour worn by the most kids is the **mode**.
+And the **spread** measures whether everyone is bunched together or
+scattered everywhere — like the difference between a tidy queue and
+kids running wild on a playground.  Four little numbers can sum up a
+huge crowd of measurements.
+
 ## Intuition
 
 Before probability distributions and hypothesis tests, you need the basics:

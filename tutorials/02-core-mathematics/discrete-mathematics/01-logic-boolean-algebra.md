@@ -1,5 +1,16 @@
 # Logic — Propositions, Truth Tables, Boolean Algebra
 
+## Explain Like I Am 7
+
+Two light switches in your room can each be **on** or **off**.  Some
+lights only turn on if **both** switches are on (an *and* light).
+Others turn on if **either one** is on (an *or* light).  And one
+mischievous switch flips whatever you give it: on becomes off, off
+becomes on.  Logic is the maths of switches and lights — chasing the
+right combinations to make a bulb glow.  This is exactly what every
+computer chip does, billions of times a second, behind the scenes of
+every game and app.
+
 ## Intuition
 
 Every `if` statement you write is logic.  Every database query with `AND`,

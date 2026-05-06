@@ -16,6 +16,16 @@ applications:
 
 # Shortest Paths — Dijkstra
 
+## Explain Like I Am 7
+
+Imagine a treasure map with castles connected by bumpy roads, each
+road labelled with how many minutes it takes to walk it.  You want the
+quickest trip from your castle to every other castle.  The trick:
+always step out of the *closest* castle you haven't fully explored,
+update the times to its neighbours, and repeat.  Because you always
+greedily pick the smallest time so far, the answer for that castle is
+locked in — nothing slower can sneak through and beat it.
+
 ## Mental
 
 Given a directed graph with **non-negative** edge weights, find the

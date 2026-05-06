@@ -19,6 +19,16 @@ applications:
 
 # The Coordinate Plane
 
+## Explain Like I Am 7
+
+Imagine giving directions to a friend on a giant tiled floor.  You stand
+together at one special tile and say, "walk three tiles to the right,
+then four tiles forward."  Now your friend can find any tile in the
+whole room from just two numbers.  That pair of numbers is what
+mathematicians call a *coordinate*, and the tiled floor with its
+two arrow-axes is the **coordinate plane** — a way to give every spot
+on a flat surface its own little name tag.
+
 ## Mental
 
 To do geometry, we need a way to **describe where things are**. The

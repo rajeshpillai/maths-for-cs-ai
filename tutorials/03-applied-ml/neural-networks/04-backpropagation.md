@@ -1,5 +1,16 @@
 # Backpropagation — Derived from the Chain Rule, Step by Step
 
+## Explain Like I Am 7
+
+Imagine a long chain of kids passing a hot potato.  By the time the
+potato reaches the end, it gets fumbled — *whose hands wobbled?*
+**Backpropagation** is the kids' detective game: the last kid says,
+"my hands wobbled this much," and tells the kid behind, "you wobbled
+this much *because* of me."  The blame travels backward all the way to
+the start, and every kid finds out exactly how much they should change
+their grip next time.  Once each kid knows their share of the mistake,
+they all squeeze a little better — and the next pass is smoother.
+
 ## Intuition
 
 Backpropagation is not a mysterious algorithm — it's simply the **chain rule**

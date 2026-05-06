@@ -16,6 +16,16 @@ applications:
 
 # The Fundamental Theorem of Calculus
 
+## Explain Like I Am 7
+
+Two seemingly different jobs — *finding slopes* and *finding areas*
+— turn out to be secret opposites of each other, like locking and
+unlocking the same door.  This is the **fundamental theorem of
+calculus**: the area-under-a-curve from one place to another can be
+computed by un-doing the slope-finder.  It's the punchline of all
+the lessons before, and the reason we don't have to add up zillions
+of skinny rectangles by hand to get exact answers.
+
 ## Mental
 
 The **fundamental theorem of calculus** (FTC) is the deep

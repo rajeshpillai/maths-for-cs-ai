@@ -1,5 +1,16 @@
 # Properties of Triangles
 
+## Explain Like I Am 7
+
+A triangle looks simple — three sticks pinned together — but it's
+secretly hiding a treasure chest of clever links between its corners
+and its sides.  Did you know every triangle fits perfectly inside one
+special circle that passes through all three corners?  And another
+special circle nestles inside, just kissing all three sides?  The
+sizes of these circles are tied tightly to the triangle's sides and
+angles by tidy little rules.  Once you know any three pieces of the
+puzzle, you can usually fish out everything else.
+
 ## Intuition
 
 Every triangle hides a rich web of relationships between its sides, angles, and special circles.

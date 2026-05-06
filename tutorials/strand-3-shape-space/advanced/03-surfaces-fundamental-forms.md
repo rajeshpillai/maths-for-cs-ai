@@ -16,6 +16,16 @@ applications:
 
 # Surfaces and the First Fundamental Form
 
+## Explain Like I Am 7
+
+Pretend you're an ant living on a giant trampoline.  You can only
+walk along the rubber sheet — you don't know it's curving up and
+down beneath the sky.  The **first fundamental form** is the ant's
+personal ruler: it tells the ant exactly how long any walk on the
+sheet will be, and how fat the area of any patch is, *without ever
+needing to look up at 3D space*.  Two trampolines that feel
+identical to the ant might still look totally different from above.
+
 ## Mental
 
 A **smooth surface** in $\mathbb{R}^3$ can be parameterised locally

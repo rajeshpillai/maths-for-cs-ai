@@ -1,5 +1,16 @@
 # Generating Functions
 
+## Explain Like I Am 7
+
+Imagine a really long string of beads — each bead is a number from
+your sequence, threaded one after another.  Now imagine packing the
+whole string into a single magical clothesline expression, where the
+1st bead hangs at peg "$x$", the 2nd at peg "$x^2$", the 3rd at peg
+"$x^3$", and so on.  All your beads, tucked into one tidy formula!
+You can shake, multiply, or rearrange the clothesline using regular
+algebra — and when you're done, just read off bead 100 to see what
+the 100th term turned out to be.
+
 ## Intuition
 
 A generating function encodes an entire infinite sequence into a single

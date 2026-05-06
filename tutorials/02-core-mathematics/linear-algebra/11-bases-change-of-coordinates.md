@@ -1,5 +1,16 @@
 # Bases & Change of Coordinates
 
+## Explain Like I Am 7
+
+You're describing where the swing is in the playground.  Your dad
+says "ten steps east and four steps north" — using north and east as
+his rulers.  Your friend tilts her head and says "five jumps along
+the path and one jump sideways" — using path-rulers instead.  Both
+descriptions point to *the same swing*; just the **rulers** are
+different.  A **basis** is a chosen set of rulers, and **changing
+basis** is the trick for swapping descriptions while keeping the
+swing exactly where it is.
+
 ## Intuition
 
 Every coordinate you have ever seen is relative to some **basis** — a chosen

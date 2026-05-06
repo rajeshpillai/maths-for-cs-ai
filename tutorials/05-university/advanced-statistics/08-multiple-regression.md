@@ -1,5 +1,16 @@
 # Multiple Regression
 
+## Explain Like I Am 7
+
+How big a tomato will grow doesn't depend on just *one* thing — it's
+sunshine, *and* water, *and* the kind of soil, *and* how many bugs.
+With one cause, we drew a slanted line.  With many causes, we draw
+a slanted *room*: each ingredient nudges the tomato a tiny bit, and
+all those nudges together predict the size.  We still pick the
+"room" that lands closest to all the real tomatoes — and the same
+neat matrix recipe spits out exactly how much each ingredient
+contributes.
+
 ## Intuition
 
 A single predictor rarely tells the whole story. Player engagement might

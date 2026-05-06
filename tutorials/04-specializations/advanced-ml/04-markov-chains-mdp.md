@@ -1,5 +1,17 @@
 # Markov Chains and Markov Decision Processes
 
+## Explain Like I Am 7
+
+Imagine a board game where you hop between coloured squares — each
+square has its own dice that decides where you go next.  Crucially,
+the dice **only cares about the square you're on right now** — it
+doesn't remember anywhere you've been.  That's a **Markov chain**.
+Now upgrade the game: at every square you also pick a *move card*
+(jump, sneak, sprint), and you collect candy as you go.  Your goal
+is to find which card to pick on each square so you end up with the
+most candy.  That game is called a **Markov decision process** — and
+it's how robots learn to walk.
+
 ## Intuition
 
 A **Markov chain** models systems where the future depends only on the

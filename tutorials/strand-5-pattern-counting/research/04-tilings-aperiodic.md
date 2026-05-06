@@ -16,6 +16,17 @@ applications:
 
 # Aperiodic Tilings and Quasi-Crystals
 
+## Explain Like I Am 7
+
+Suppose you cover an enormous bathroom floor with tiles so that no
+matter how far you slide your eyes across the floor, the pattern
+*never repeats*.  Penrose found a beautiful pair of tiles that does
+this; in 2023 mathematicians finally found a *single* funny-shaped
+tile (nicknamed "the hat") that pulls off the same trick alone.
+Real materials — quasi-crystals — have atoms arranged like these
+non-repeating patterns, which is why they were thought "impossible"
+until Shechtman won a Nobel Prize for finding them.
+
 ## Mental
 
 A **tiling** of the plane by congruent copies of finitely many

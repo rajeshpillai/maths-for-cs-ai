@@ -18,6 +18,17 @@ applications:
 
 # Bayes' Theorem
 
+## Explain Like I Am 7
+
+Suppose a rare disease affects $1$ in $1000$ people, and the test
+for it gets $99\%$ of cases right.  If your test comes back
+positive, are you almost certainly sick?  Surprisingly, no — you're
+probably *fine*.  The reason is that the test is also wrong $1\%$ of
+the time on the many *healthy* people, and there are far more
+healthy people to be wrong about.  **Bayes' theorem** is the
+careful arithmetic that updates your belief properly: it weighs
+the test result against how rare the disease was *before* the test.
+
 ## Mental
 
 Strand 6 Foundation Lesson 07 introduced conditional probability and

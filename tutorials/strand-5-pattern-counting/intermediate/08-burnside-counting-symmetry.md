@@ -18,6 +18,17 @@ applications:
 
 # Counting Under Symmetry — Burnside's Lemma
 
+## Explain Like I Am 7
+
+Imagine making a four-bead bracelet using red and blue beads.  If
+you list every order — RRBB, RBRB, RBBR, and so on — you'll get
+sixteen patterns.  But the bracelet doesn't sit still: spin it a
+quarter-turn and what looked different now looks the same.  How do
+you count the *truly* different bracelets?  The trick is to take
+each spin one at a time, ask "how many bracelets look unchanged
+after this spin?", then average those answers.  That clever average
+gives the real number of distinct bracelets — six, in this case.
+
 ## Mental
 
 Many counting problems have a **symmetry**: configurations that look

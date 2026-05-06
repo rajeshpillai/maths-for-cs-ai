@@ -1,5 +1,16 @@
 # Numerical vs Symbolic vs Automatic Differentiation
 
+## Explain Like I Am 7
+
+There are three ways to ask "how steep is this slide right here?"
+You can **think very hard** about the slide's shape and write down the
+exact slope rule (*symbolic*).  You can **measure two nearby points**
+and divide rise by run for a quick guess (*numerical*).  Or you can
+**watch every little step** the builder took and chain those steps
+together to get a perfect answer cheaply (*automatic*).  Each way
+trades brain effort, accuracy, and speed differently — and machine
+learning loves the third trick most.
+
 ## Intuition
 
 There are three fundamentally different ways to compute derivatives:

@@ -1,5 +1,16 @@
 # Maximum Likelihood Estimation (MLE)
 
+## Explain Like I Am 7
+
+You see a friend pull a marble from a hidden bag *and it's blue*.
+Then again — *blue*.  Eight times in a row, blue, blue, blue.  You
+don't know what's in the bag, but you start to guess: "**Probably
+mostly blue marbles!**"  That's exactly what *maximum likelihood*
+does.  It looks at the things that actually happened and says: "Of
+all the bags this **could** have come from, which bag makes what we
+saw the *least surprising*?"  Pick that bag.  This is how nearly
+every machine-learning model learns from data.
+
 ## Intuition
 
 You observe data.  You have a model with unknown parameters.  MLE asks:

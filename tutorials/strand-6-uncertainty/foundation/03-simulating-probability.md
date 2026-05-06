@@ -19,6 +19,17 @@ applications:
 
 # Simulating Probability — The Law of Large Numbers
 
+## Explain Like I Am 7
+
+Flip a coin only ten times and the heads count might be wildly off
+— maybe seven heads, maybe three.  But flip a coin a million
+times and you'll land *very* close to half a million heads.  The
+**law of large numbers** says the more times you try, the more the
+real-world fraction creeps toward the calculated probability.  This
+is why a casino or insurance company can predict yearly profits
+even though each individual game or claim is unpredictable — they
+play the same long game over and over again.
+
 ## Mental
 
 So far probability has been a **theoretical** number we computed from

@@ -16,6 +16,17 @@ applications:
 
 # Random Graphs and Threshold Phenomena
 
+## Explain Like I Am 7
+
+Sprinkle dots on a page, then for each pair of dots, flip a biased
+coin to decide whether to connect them.  If your coin almost never
+shows heads, the picture is a sparse dust; if it almost always
+shows heads, the picture is one big interconnected ball.  The
+amazing thing is the *sudden jump* between those two worlds —
+right at a critical coin-bias, a giant cluster pops into being like
+ice freezing.  This phase-transition rules epidemics, social
+networks, and the moment a sudoku puzzle suddenly becomes solvable.
+
 ## Mental
 
 The **Erdős-Rényi random graph** $G(n, p)$: $n$ vertices, each edge

@@ -18,6 +18,16 @@ applications:
 
 # Transformations — Translate, Rotate, Reflect, Scale
 
+## Explain Like I Am 7
+
+Pick up a paper cut-out of a star.  You can **slide** it across the
+table, **spin** it on a thumbtack, **flip** it over like a pancake,
+or **shrink it down** with a magic copier.  Each of those four moves
+is a *transformation* — a tidy way to mess with a shape that doesn't
+break it apart.  Sliding, spinning, and flipping keep the star the
+same size; shrinking only changes its size, not its shape.  Stack
+several moves together and you can put the star anywhere you want.
+
 ## Mental
 
 A **transformation** is a rule that maps every point in the plane to

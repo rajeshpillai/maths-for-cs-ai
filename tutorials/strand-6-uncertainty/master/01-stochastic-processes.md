@@ -16,6 +16,18 @@ applications:
 
 # Stochastic Processes
 
+## Explain Like I Am 7
+
+A **stochastic process** is a random pattern that unfolds over
+*time* — a whole movie reel of mystery numbers, one at every
+clock tick.  Some processes only remember where they were last
+(memoryless ladybugs).  Some keep their average constant under
+fair betting rules (martingales).  Others, like the **Poisson
+process**, count rare events as they trickle in: phone calls
+arriving at a help desk or photons hitting a detector.  Different
+classes of random movies fit different real-world situations like
+custom-made hats.
+
 ## Mental
 
 A **stochastic process** $\{X_t\}_{t \in T}$ is a collection of

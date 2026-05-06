@@ -16,6 +16,17 @@ applications:
 
 # Stochastic Calculus and Itô Integration
 
+## Explain Like I Am 7
+
+Watch a tiny dust speck dancing in a sunbeam.  Air molecules bump
+it from every side, so it jitters and zigzags in a wild,
+unpredictable path.  Ordinary calculus needs smooth tracks; this
+jittery wiggle is way too jagged.  **Stochastic calculus** is the
+clever brand of calculus invented just for jittery things — it
+follows running totals along that crazy zig-zag and produces
+sensible answers even though the path itself never settles down.
+Stock prices and fluid noise are tamed this way.
+
 ## Mental
 
 Standard calculus integrates against $dx$ or $dt$. **Stochastic

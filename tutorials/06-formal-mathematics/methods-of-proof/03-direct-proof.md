@@ -1,5 +1,14 @@
 # Direct Proof
 
+## Explain Like I Am 7
+
+Imagine a treasure map: you start at the X marked "what we already
+know," and you have to reach the prize marked "what we want to show."
+A **direct proof** is just walking from X to the prize one stepping
+stone at a time, where each stone is a fact you already trust.  No
+tricks, no detours, no jumping.  If you can lay down stones the whole
+way, you've proven the treasure is real.
+
 ## Intuition
 
 A direct proof is the most natural form of argument: you start from what

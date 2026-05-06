@@ -1,5 +1,15 @@
 # Green's Theorem
 
+## Explain Like I Am 7
+
+Imagine a still pond with tiny invisible whirlpools dotted all over
+the surface.  Walk all the way around the pond's edge, dragging your
+hand in the water — how much does the whole pond want to push your
+hand around the loop?  Green's surprise: that total push around the
+edge equals adding up every single tiny whirlpool inside.  You don't
+have to count whirlpools — just walk the rim — and you don't have to
+walk the rim — just count whirlpools.  Either way, same number.
+
 ## Intuition
 Green's theorem connects a line integral around a closed curve to a double
 integral over the region it encloses. It says: "the total circulation of a

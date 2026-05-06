@@ -17,6 +17,16 @@ applications:
 
 # Capstone — Structure in the Wild
 
+## Explain Like I Am 7
+
+Imagine a "shape detective" who's been training for ten lessons.
+Until now you spotted shapes in arithmetic — clock-loops, twist-kits,
+add-and-multiply systems.  In this capstone, the detective walks into
+real-world rooms — secret-message machines, jigsaw puzzles, music
+scales, internet handshakes — and finds the *same* algebraic shapes
+hiding inside.  The point isn't a new piece of math; it's the
+"a-ha!" of seeing one structure in many disguises.
+
 ## Mental
 
 Ten lessons on:

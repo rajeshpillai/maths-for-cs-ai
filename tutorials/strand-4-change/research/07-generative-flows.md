@@ -16,6 +16,17 @@ applications:
 
 # Generative Flows and Continuous-Time ML
 
+## Explain Like I Am 7
+
+Imagine a river flowing in a wide valley, gently carrying floating
+toy boats from where they started toward a different shape on the
+other side.  If you can design the river's currents just right,
+you can make a cloud of plain-looking boats reshape itself into a
+detailed sailboat regatta.  **Generative flows** train a neural
+net to *be* that river — a smooth, time-changing wind field that
+sweeps simple noise into rich pictures or sounds.  It's calculus
+with arrows that learn.
+
 ## Mental
 
 **Continuous normalising flows (CNF)** (Chen et al. 2018, Grathwohl

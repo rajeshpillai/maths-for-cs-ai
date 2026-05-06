@@ -16,6 +16,17 @@ applications:
 
 # Directional Derivatives and Tangent Planes
 
+## Explain Like I Am 7
+
+Standing on the same hilly field, you can pick *any* direction —
+not just east or north — and ask, "if I take a step *that* way,
+how much do I climb?"  That's a **directional derivative**.  And
+if you press a flat board onto the slope right at your feet so it
+just touches the hill but doesn't dig in, you get the **tangent
+plane** — the best flat copy of the hill at that exact spot.  All
+the directional steepnesses live as different slopes on that one
+flat board.
+
 ## Mental
 
 Partials measure slope along the coordinate axes. The **directional

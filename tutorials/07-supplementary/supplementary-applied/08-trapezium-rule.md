@@ -1,5 +1,15 @@
 # Numerical Methods — Trapezium Rule and Simpson's Rule
 
+## Explain Like I Am 7
+
+You want to know the area of a wobbly puddle on the playground.  You
+can't just multiply length by width because the edges are curvy.  So
+you slice the puddle into skinny strips like loaf-of-bread slices, and
+each strip is *almost* a tidy little trapezium that you *can* measure.
+Add up all the slice areas and you get a great guess for the whole
+puddle.  Use thinner slices and your guess gets even better — and that
+is exactly how a computer "does an integral" without algebra.
+
 ## Intuition
 
 Some integrals have no neat closed-form answer: $\int e^{-x^2}\,dx$ (the

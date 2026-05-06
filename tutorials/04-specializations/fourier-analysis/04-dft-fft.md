@@ -1,5 +1,16 @@
 # Discrete Fourier Transform (DFT) and the FFT Algorithm
 
+## Explain Like I Am 7
+
+A computer can't listen to a *smooth* sound — it has to take rapid
+little snapshots, like flipbook pictures.  The **DFT** is the Fourier
+trick that works on those flipbook samples instead of on smooth
+sound.  The slow way to do it is to compare every sample to every
+test wave — for a thousand samples that's a million little checks.
+The **FFT** is a brilliant short-cut that splits the work in half,
+then in half again, then again — like a class lining up in pairs to
+count themselves.  Suddenly a million checks become a few thousand.
+
 ## Intuition
 
 Computers work with **sampled** (discrete) data, not continuous functions.

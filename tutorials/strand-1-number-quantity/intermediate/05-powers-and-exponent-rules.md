@@ -19,6 +19,16 @@ applications:
 
 # Powers and Exponent Rules
 
+## Explain Like I Am 7
+
+Imagine a single magic seed.  Each day, every plant that exists makes
+*two* new plants.  After 1 day there are 2 plants, after 2 days there
+are 4, after 3 days there are 8 — the count keeps **doubling**, which
+is why $2^{10}$ is over a thousand even though $10$ is a tiny number.
+Multiplying two powers of 2 just sticks the days together (4 days
+plus 3 days = 7 days), and that's the whole reason the exponent rules
+work — they're really just rules about *adding the days*.
+
 ## Mental
 
 A **power** is repeated multiplication, the way multiplication is

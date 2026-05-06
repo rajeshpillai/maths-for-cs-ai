@@ -16,6 +16,17 @@ applications:
 
 # Algorithmic Game Theory Frontier
 
+## Explain Like I Am 7
+
+A board game with sneaky players never quite "settles" — every kid is
+swapping plans to outsmart the others.  Maths people study these
+swirly games to find a quiet spot where nobody wants to swap anymore
+and to design *new* games (called auctions or matching schemes) where
+the rules push everyone toward fair, honest moves.  But the catch is
+that even *finding* the quiet spot in a big game can be hopelessly
+slow.  This frontier is where computer-science speed limits collide
+with strategy.
+
 ## Mental
 
 **Algorithmic Game Theory (AGT)** combines TCS and game theory to

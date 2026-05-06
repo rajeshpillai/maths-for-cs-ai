@@ -17,6 +17,17 @@ applications:
 
 # Capstone — Logic and Foundations Today
 
+## Explain Like I Am 7
+
+This is the chapter where you stand on a viewing platform and look
+out over the whole foundations landscape: jigsaw types, stretchy
+equality paths, ladders that climb past infinity, ironed-out proofs
+without helpers, board-game logic, computer-only universes.  None of
+these are toys — they're the active workshops where today's
+researchers are building the math of the next century.  You don't
+need to climb every tower; you just need to see how they connect on
+the map.
+
 ## Mental
 
 Nine lessons on:

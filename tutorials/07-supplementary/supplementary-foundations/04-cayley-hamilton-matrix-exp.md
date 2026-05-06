@@ -1,5 +1,16 @@
 # Cayley-Hamilton Theorem and Matrix Exponential
 
+## Explain Like I Am 7
+
+Every snowflake has a secret password — a tiny rule that the snowflake
+obeys.  Cayley-Hamilton says the same about every grid of numbers: it
+*always* obeys its own little number-rule, the one written on its
+"ID card."  That sounds boring, but it lets you write monstrous
+multiplications like a matrix-to-the-hundredth-power as a tidy
+combination of just a few easy ones.  And once we know how to grow
+matrices smoothly through time — the **matrix exponential** — we can
+solve whole worlds of physics with one neat trick.
+
 ## Intuition
 
 The **Cayley-Hamilton theorem** says every matrix satisfies its own

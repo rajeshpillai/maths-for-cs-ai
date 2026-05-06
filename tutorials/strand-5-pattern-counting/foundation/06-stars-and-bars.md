@@ -18,6 +18,17 @@ applications:
 
 # Stars and Bars — Distributions and Repetition
 
+## Explain Like I Am 7
+
+You have five identical lollipops to share among three friends.  The
+lollipops all look the same, so the only question is *how many*
+each friend gets.  Picture the lollipops as five little stars in a
+row, and slide two pencils between them as fences: the stars to the
+left of the first pencil go to friend one, the stars between pencils
+go to friend two, and the rest go to friend three.  Counting the
+sharings is the same as counting where to place the two pencils
+among the seven spots — and that's a tidy combination problem.
+
 ## Mental
 
 Lesson 03 counted **selections without repetition**: $\binom{n}{k}$

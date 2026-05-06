@@ -16,6 +16,17 @@ applications:
 
 # KPZ Equation and Universality
 
+## Explain Like I Am 7
+
+Watch coffee slowly soak into a paper towel.  The dark wet edge
+isn't a clean line — it's a wobbly, ragged front that creeps
+forward and roughens up over time.  Strangely, *every* growing
+edge in nature — fire eating paper, bacteria spreading on agar,
+crystals piling up — wrinkles in the *exact same way*.  The KPZ
+equation is the secret rule that all those very different growing
+edges secretly obey, and proving why so many things follow it is
+one of the prettiest stories in modern math.
+
 ## Mental
 
 The **Kardar-Parisi-Zhang (KPZ) equation** (1986):

@@ -1,5 +1,16 @@
 # Multiplicative Order — Power Cycles, Repeating Decimals, Trailing Zeros
 
+## Explain Like I Am 7
+
+Pick a clock with 7 marks and start at 1.  Now keep multiplying by
+3 every step and watching where you land: 3, 2, 6, 4, 5, 1 — and
+then it loops back to 3 forever, a tidy ring of 6 spots.  Pick a
+different starting trick and you might get a smaller or bigger
+ring.  How long is the ring?  That ring length is hidden inside
+why $1/7$ has a six-digit repeating decimal, why $7^k$ ends with
+the same digit pattern, and even why factorials gobble up zeros.
+One little ring length, three big mysteries.
+
 ## Intuition
 
 Why does $1/7 = 0.\overline{142857}$ have a 6-digit repeating block, but

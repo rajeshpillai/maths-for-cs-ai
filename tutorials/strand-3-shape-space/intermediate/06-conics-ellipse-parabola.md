@@ -18,6 +18,16 @@ applications:
 
 # Conic Sections — Ellipse and Parabola
 
+## Explain Like I Am 7
+
+Take a pointy ice-cream cone and slice it cleanly with a knife.
+Slice it flat across — you get a perfect circle.  Tilt the knife a
+little — you get a stretched circle, an **ellipse**, the shape
+planets trace around the Sun.  Tilt the knife so it's parallel to
+the cone's slope — out pops a **parabola**, the same arc a
+fountain of water makes.  Three different cake-cuts, three different
+curves, all hidden inside the same simple cone.
+
 ## Mental
 
 A **conic section** is what you get by slicing a cone with a plane.

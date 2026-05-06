@@ -16,6 +16,16 @@ applications:
 
 # Cosets Revisited
 
+## Explain Like I Am 7
+
+Pick a small tray of cookies inside a giant baking sheet.  Now slide a
+copy of that tray sideways: that shifted tray is a **coset**.  Slide
+again, and again — every cookie ends up in *exactly one* shifted tray,
+the trays never overlap, and they're all the same size.  Cosets are
+the trick we use to chop a group into equal-sized parallel slabs along
+a chosen sub-kit.  In the next lesson, when those slabs themselves
+form a kit-of-moves, they unlock the powerful idea of a "quotient."
+
 ## Mental
 
 Foundation Lesson 07 introduced cosets. Time to use them.

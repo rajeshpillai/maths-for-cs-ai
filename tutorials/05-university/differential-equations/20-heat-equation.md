@@ -1,5 +1,15 @@
 # The Heat Equation
 
+## Explain Like I Am 7
+
+Drop a hot pebble in the middle of a long, cold metal ruler.  At
+first there's a sharp peak of heat.  But minute by minute, the heat
+seeps sideways into the colder bits next to it, the peak slumps, and
+soon the whole ruler is just slightly warm.  The **heat equation**
+says: any sharp bump always melts toward the average of its
+neighbours.  It's the same reason a drop of ink in still water spreads
+out and fades, until everything looks the same.
+
 ## Intuition
 
 Place a hot spot in the middle of a metal rod with both ends held at zero

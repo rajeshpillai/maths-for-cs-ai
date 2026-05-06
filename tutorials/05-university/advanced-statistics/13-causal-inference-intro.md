@@ -1,5 +1,16 @@
 # Causal Inference Introduction
 
+## Explain Like I Am 7
+
+Every time the rooster crows, the sun rises.  Did the rooster *make*
+the sun rise?  Of course not — they both happen because morning is
+coming.  Two things showing up together doesn't mean one caused the
+other; there might be a hidden third thing pulling the strings.
+**Causal** thinking is asking the harder question: "if I had stopped
+the rooster crowing, would the sun still come up?"  This kind of
+"what if I changed only this one thing?" question is what helps
+doctors know which medicines really work.
+
 ## Intuition
 
 "Countries that eat more chocolate win more Nobel Prizes." Does eating

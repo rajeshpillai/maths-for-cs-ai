@@ -1,5 +1,15 @@
 # Permutation Groups
 
+## Explain Like I Am 7
+
+Line up five colour-coded cards on the table.  Now swap a few around —
+maybe red goes where blue was, blue goes where green was, green goes
+back to red, and the other two stay put.  That whole shuffle is a
+**permutation**.  Doing one shuffle followed by another always gives
+you... another shuffle.  Mathematicians love this collection so much
+that they showed *every* group of moves in the universe is secretly
+just a fancy way of shuffling some cards on a long enough table.
+
 ## Intuition
 
 A permutation is a rearrangement. Shuffling a deck of cards, reordering

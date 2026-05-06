@@ -1,5 +1,16 @@
 # Orthogonal Projections
 
+## Explain Like I Am 7
+
+Stand outside on a sunny day and look at your **shadow** on the
+pavement.  No matter how tangled or wiggly your body is, the shadow
+is a flat, simpler version of you, lying in the ground.  A
+**projection** is exactly that: take something complicated, shine a
+straight-down light, and keep only the flat shadow on a chosen
+surface.  This is how computers find the closest "tidy" answer to
+messy data — fitting a straight line through scattered dots is just
+finding the dots' shadow on the line.
+
 ## Intuition
 
 Imagine the sun is directly overhead and you cast a shadow onto the floor.

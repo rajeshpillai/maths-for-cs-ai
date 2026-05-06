@@ -16,6 +16,18 @@ applications:
 
 # Causal Inference Frontier
 
+## Explain Like I Am 7
+
+Earlier we saw causal arrows ("ice cream doesn't cause sharks") on
+hand-drawn diagrams.  But what if you don't even know which arrows
+to draw — you only have a giant pile of raw data?  **Causal
+discovery** algorithms try to *learn* the arrows automatically,
+testing for sneaky independencies, scoring possible diagrams, or
+turning the search into a smooth optimisation.  Even more
+ambitious: *causal representation learning* tries to extract clean
+cause-and-effect variables from messy raw images or brain scans.
+This is one of the hottest frontiers in modern AI.
+
 ## Mental
 
 Strand 6 Master Lesson 08 introduced causal-inference (Pearl). Active

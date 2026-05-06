@@ -16,6 +16,17 @@ applications:
 
 # Mechanistic Interpretability
 
+## Explain Like I Am 7
+
+Imagine someone hands you a working clock and says "I have no idea
+how it works inside."  You unscrew the back and stare at all the
+gears.  At first they look like a hopeless mess, but after lots of
+poking you spot one gear whose only job is "tick once a minute," and
+another whose job is "ring the bell at noon."  AI scientists do the
+exact same thing with giant neural networks — peering inside, naming
+the little gears, and drawing a wiring diagram of what each one
+secretly does.
+
 ## Mental
 
 **Mechanistic interpretability**: reverse-engineer trained NNs to

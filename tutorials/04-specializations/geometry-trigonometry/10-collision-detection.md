@@ -1,5 +1,16 @@
 # Collision Detection Math
 
+## Explain Like I Am 7
+
+Two bumper cars buzz around the rink — when do they bonk?  If both cars
+are *round*, the rule is dead easy: bonk happens when the distance
+between their middles gets smaller than their two radii added together.
+For *boxy* shapes you check each side: is there *any* gap line you can
+slide between them without touching?  If yes, they're not bumping; if
+no gap fits anywhere, they've crashed.  Every video game checks tons
+of these tiny "are you touching me?" questions every single second to
+decide if your sword hit the dragon.
+
 ## Intuition
 
 Does the player's sword hit the enemy?  Is the ball touching the wall?

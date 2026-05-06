@@ -16,6 +16,18 @@ applications:
 
 # $\sigma$-Algebras and Measurable Sets
 
+## Explain Like I Am 7
+
+Imagine a club rule book listing exactly *which* groups of toys are
+official "discussable" toy collections.  The rules say: the whole
+toybox counts; the *opposite* of any official collection counts;
+and stitching together a list of official collections counts.
+Anything you build by repeating those moves is officially in the
+club, and a probability measure only makes statements about club
+members.  This careful list of "allowed sets" is called a
+**$\sigma$-algebra**, and it's the rule book for every modern
+probability theorem.
+
 ## Mental
 
 A **$\sigma$-algebra** $\mathcal F$ on a set $X$ is a collection of

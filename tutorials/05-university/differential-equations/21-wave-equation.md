@@ -1,5 +1,15 @@
 # The Wave Equation
 
+## Explain Like I Am 7
+
+Tie one end of a long jump-rope to a doorknob and flick the other
+end.  A bump zips along the rope, hits the door, and bounces back —
+still recognisably a bump.  The **wave** rule says: where the rope is
+bent, it pulls itself straight, and that pulling sends the bend
+travelling sideways.  Unlike heat which fades away, a wave keeps its
+shape and just goes places — it's why a clap reaches your ear, why
+ripples in a pond cross the whole surface, and why a guitar sings.
+
 ## Intuition
 
 Pluck a guitar string and watch the wave travel back and forth, bouncing off the

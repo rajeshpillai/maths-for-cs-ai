@@ -1,5 +1,16 @@
 # The Laplace Transform — Basics
 
+## Explain Like I Am 7
+
+Imagine you have a wiggly story written in English, but it's tricky to
+read.  You feed it through a magic translator that rewrites it in
+Robot, where the wiggly bits become simple add-and-multiply puzzles.
+You solve the easy puzzle in Robot, then push the answer back through
+the translator and out comes the wiggly English answer you wanted.
+The **Laplace transform** is that translator — it carries hard
+calculus problems into a calmer place, lets you do plain algebra,
+then carries the answer home.
+
 ## Intuition
 
 The Laplace transform converts a differential equation into an algebraic

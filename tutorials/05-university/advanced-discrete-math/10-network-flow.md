@@ -1,5 +1,15 @@
 # Network Flow
 
+## Explain Like I Am 7
+
+Picture a city of garden hoses — some fat, some skinny — all
+joining a faucet to a bathtub.  How fast can the bathtub fill up?
+Not as fast as the fattest hose, but no faster than the *narrowest*
+spot anywhere along the way.  If you sliced the whole network with
+scissors, the smallest snip-load you could find — the tightest
+chokepoint — is exactly how much water can ever sneak through.  The
+narrowest cut and the biggest possible flow always match up.
+
 ## Intuition
 
 Imagine pipes of different widths connecting a water source to a drain. How

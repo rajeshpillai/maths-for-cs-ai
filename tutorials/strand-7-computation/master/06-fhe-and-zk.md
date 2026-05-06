@@ -16,6 +16,17 @@ applications:
 
 # Fully Homomorphic Encryption and Zero Knowledge
 
+## Explain Like I Am 7
+
+Two magic tricks.  First trick: lock your homework in a glass box so
+nobody can read it, hand it to a friend, and the friend *still*
+manages to add up your numbers and hand the box back — neat,
+correct, and never opened.  Second trick: prove to your sister that
+you know the secret password to the treehouse without ever saying the
+password — by passing tests only the password-holder could pass.
+Modern privacy tech runs on these two tricks: compute on locked
+boxes, and prove things without spilling the beans.
+
 ## Mental
 
 **Fully Homomorphic Encryption (FHE)**: encrypt $x \to E(x)$, then

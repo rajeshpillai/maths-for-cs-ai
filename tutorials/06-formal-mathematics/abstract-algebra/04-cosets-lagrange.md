@@ -1,5 +1,16 @@
 # Cosets and Lagrange's Theorem
 
+## Explain Like I Am 7
+
+Tip a tray of jellybeans onto the table and sort them into little piles
+that are exactly the same size — say five jellybeans per pile.  No
+jellybean is left over, no pile is short, and each jellybean lives in
+exactly one pile.  Then the total number of jellybeans must split
+evenly into 5.  In group land, the small piles are called **cosets**,
+and the rule "every pile is the same size, so the small size has to
+divide the big size" is **Lagrange's theorem** — a tidy fact with huge
+consequences.
+
 ## Intuition
 
 If you take a subgroup $H$ and "shift" it by some element $g$, you get a

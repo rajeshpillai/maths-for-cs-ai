@@ -19,6 +19,16 @@ applications:
 
 # Modular Arithmetic — Clock Math
 
+## Explain Like I Am 7
+
+Picture a clock face with twelve numbers around it.  If it's 9 o'clock
+and you wait five hours, the hand doesn't point at "14" — it slides
+past 12 and lands on **2**.  Numbers on a clock loop back around
+instead of marching off to infinity, and the same idea works with any
+loop size: a 7-number loop for days of the week, a 24-number loop for
+hours.  All of "clock math" is figuring out *where on the loop* you
+end up after a long walk.
+
 ## Mental
 
 Look at a clock. It shows hours $0, 1, 2, \ldots, 11$, then wraps

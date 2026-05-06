@@ -1,5 +1,16 @@
 # Circumcircle and the Apollonius Circle
 
+## Explain Like I Am 7
+
+Take any triangle drawn on paper.  Believe it or not, you can always
+draw a single circle that passes through *all three corners* exactly —
+like wrapping a hula hoop around a tripod so it touches all three
+legs.  That hula hoop is the **circumcircle**, and its centre sits at
+the same distance from every corner.  The cousin **Apollonius circle**
+is the path of all points where the distance to one friend is, say,
+twice the distance to another friend — surprisingly, that path also
+turns out to be a perfect circle.
+
 ## Intuition
 
 Just as every triangle has a circle tangent to all three sides from inside

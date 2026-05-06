@@ -1,5 +1,16 @@
 # Numerical Linear Algebra — Iterative Solvers, Sparse Matrices
 
+## Explain Like I Am 7
+
+Imagine a giant Sudoku puzzle the size of a football field — billions
+of squares, but **most of them are already empty** and only a few
+have hints.  The boring way is to fill in every square one at a time:
+takes forever.  The clever way is to make a guess, check how wrong
+it is, nudge the answer a little, repeat.  Each round you get
+closer, like a thermometer creeping toward the right temperature.
+And because most squares are empty, you can skip them — that's how
+search engines crunch through their billion-website maths puzzles.
+
 ## Intuition
 
 Real-world matrices are often **huge** (millions × millions) and **sparse**

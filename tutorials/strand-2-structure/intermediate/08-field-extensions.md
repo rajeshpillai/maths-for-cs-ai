@@ -16,6 +16,17 @@ applications:
 
 # Field Extensions
 
+## Explain Like I Am 7
+
+You have a perfectly fine number-kingdom — say, the rationals.  But
+your kingdom can't solve "$x^2 = 2$," so you build a tiny annex onto
+the kingdom and move $\sqrt{2}$ in.  The annex still obeys *all* the
+old kingdom's rules and now magically contains the new resident plus
+all its mathematical relatives.  This bigger kingdom is a **field
+extension** of the original.  Some annexes are small (one new
+resident); others can be infinitely huge — and the *size* of the
+annex tells you a lot about which puzzles can now be solved.
+
 ## Mental
 
 Given a field $F$ inside a larger field $K$, we say $K$ is an

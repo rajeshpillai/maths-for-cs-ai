@@ -16,6 +16,16 @@ applications:
 
 # Parallel and Distributed Computing
 
+## Explain Like I Am 7
+
+Imagine cleaning the school hall: one kid with one broom takes ages.
+Hand brooms to twenty kids and the floor is shiny in a flash — *if*
+they don't bump into each other and don't all crowd the same corner.
+That's **parallel** work.  Now imagine half the kids are at *another*
+school and have to phone over to share progress; the call adds delay,
+and one kid's phone might break.  That's **distributed** work — same
+idea, but the brooms talk over a wobbly walkie-talkie.
+
 ## Mental
 
 **Parallel** = multiple cores in same machine, shared memory.

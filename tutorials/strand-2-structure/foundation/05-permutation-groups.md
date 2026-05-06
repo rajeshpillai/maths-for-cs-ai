@@ -17,6 +17,18 @@ applications:
 
 # Permutation Groups
 
+## Explain Like I Am 7
+
+Imagine three friends standing in a row for a class photo, and you're
+the photographer who keeps re-arranging them.  Every shuffle — "swap
+the two on the ends," "rotate them rightwards," "everybody stay put" —
+is a permutation, and stringing two shuffles together gives you yet
+another shuffle.  Collect *all* possible re-arrangements and you have
+a self-contained kit-of-moves on the friends — a **permutation group**.
+Cayley showed that *every* group whatsoever is secretly a permutation
+group on something, which is why this picture is the mother of all
+algebra.
+
 ## Mental
 
 A **permutation** of $\{1, 2, \ldots, n\}$ is a bijection from this

@@ -1,5 +1,16 @@
 # Nonparametric Methods
 
+## Explain Like I Am 7
+
+You and your friend each rank your top 5 favourite ice cream
+flavours.  Did your tastes really differ, or is it just that you
+both shouted "vanilla!" first?  Instead of pretending the actual
+votes follow some neat bell curve, we just compare *positions* —
+who came 1st, 2nd, 3rd.  Working with the *order* of things,
+ignoring exact numbers, makes the test work even when the data
+is bumpy or has weird outliers.  The cost: a tiny loss of power
+when the data really *is* nice and bell-shaped.
+
 ## Intuition
 
 The t-test and ANOVA assume your data is normally distributed. But what if

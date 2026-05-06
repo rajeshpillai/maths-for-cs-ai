@@ -16,6 +16,17 @@ applications:
 
 # Network Flow and Matching — Advanced
 
+## Explain Like I Am 7
+
+Think of a city's water pipes from a reservoir to a giant fountain,
+each pipe with a bucket size limit and a price-per-bucket.  Earlier
+chapters asked, "how much water can I push?"  Now we ask harder
+questions: cheapest way to push that water, two reservoirs and two
+fountains sharing the same pipes, and pairing up dance partners where
+the matchups don't have to be left-and-right anymore.  Same
+plumbing-and-pairing picture, just trickier rules and trickier
+puzzles.
+
 ## Mental
 
 Strand 7 Intermediate introduced max-flow / min-cut and bipartite

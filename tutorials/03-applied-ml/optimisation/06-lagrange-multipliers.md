@@ -1,5 +1,16 @@
 # Lagrange Multipliers — Constrained Optimisation
 
+## Explain Like I Am 7
+
+You want to build the biggest possible rectangular sandbox, but you only
+have **20 metres of fence**.  You can't just make it huge — the fence
+runs out!  So you must hunt for the *best* size *while staying on a leash*.
+**Lagrange multipliers** are a magic trick: you bolt the leash rule and
+the size goal together into one new puzzle, then look for the spot
+where pushing harder for more sandbox would tug exactly as hard as the
+fence pushes back.  When the two pulls match perfectly, you've found
+the winner.
+
 ## Intuition
 
 Sometimes you want to minimise a function **subject to a constraint**.

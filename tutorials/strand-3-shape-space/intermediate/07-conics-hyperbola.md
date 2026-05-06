@@ -17,6 +17,16 @@ applications:
 
 # Hyperbolas and Conic Section Unification
 
+## Explain Like I Am 7
+
+Stick two thumbtacks on a board and tie a string between them with a
+loop — that's how to draw an ellipse.  A **hyperbola** is its
+mirror-twin, drawn by a different rule: instead of asking "how far am
+I from both tacks added together?", you ask "how *different* are my
+distances?"  The path you get isn't a closed shape at all — it's two
+curves that swoop apart forever, like the arms of a comet looping
+around the Sun and never coming back.
+
 ## Mental
 
 A **hyperbola** is the set of points whose **difference of distances**

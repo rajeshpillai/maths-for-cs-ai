@@ -18,6 +18,17 @@ applications:
 
 # Significance Testing — p-values
 
+## Explain Like I Am 7
+
+Suppose you flip a coin $100$ times and get $60$ heads.  Is the
+coin really biased, or did you just get lucky?  Significance
+testing asks: "*if* the coin were perfectly fair, how surprised
+would I be to see at least $60$ heads?"  That surprisal-number is
+the **p-value**.  If it's tiny — like $1\%$ — you reject the "fair
+coin" idea, because the result was too unlikely.  If it's big, you
+shrug and say "could be chance."  This is how scientists decide
+whether new medicines actually work.
+
 ## Mental
 
 You have a hypothesis. You run an experiment. The experiment gives a

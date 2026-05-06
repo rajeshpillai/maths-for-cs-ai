@@ -1,5 +1,15 @@
 # Multivariable Optimization and Lagrange Multipliers — Deeper
 
+## Explain Like I Am 7
+
+You want the lowest spot on a hilly playground — but you have to
+stay on the painted hopscotch line.  The lowest spot in the *whole*
+playground might be off the line, so you have to find the lowest
+spot you can reach *while still hopping on the line*.  The trick is
+this: when you find the right spot, the hill's downhill arrow points
+straight off the line, like the line is bouncing the hill back.
+Wherever those two arrows line up, that's your tied-up minimum.
+
 ## Intuition
 Finding the minimum or maximum of a function of several variables is the heart of
 machine learning — every trained model is the result of an optimisation problem.

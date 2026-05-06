@@ -1,5 +1,16 @@
 # Orthogonality and the Cauchy-Schwarz Inequality
 
+## Explain Like I Am 7
+
+Two arrows are **orthogonal** when they meet at a perfect L-shape —
+right angles, like the corner of a book.  Pushing one arrow has zero
+effect on the other; they're completely independent.  And no matter
+how big two arrows are, the strongest team-up they can ever produce
+happens *only* when they line up exactly the same way — never more.
+That promise (you can't team up beyond your full strengths) is the
+**Cauchy-Schwarz** rule, and it's a quiet little safeguard at the
+heart of distance, similarity, and angle.
+
 ## Intuition
 
 Two vectors are **orthogonal** when they point in completely independent

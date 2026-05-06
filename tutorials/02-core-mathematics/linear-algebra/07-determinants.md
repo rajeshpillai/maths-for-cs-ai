@@ -1,5 +1,15 @@
 # Determinants — Geometric Meaning
 
+## Explain Like I Am 7
+
+Squish a piece of pizza dough into a new shape with your hands.  The
+new shape is bigger or smaller than before — and the **determinant**
+is the single number that says *how many times bigger* (or smaller)
+the area got.  If the determinant is $3$, your dough got three times
+larger.  If it's $0$, you flattened the dough into a straight line.
+If it's a *negative* number, you flipped the dough upside down like
+turning a pancake.  One number, one quick verdict on the squish.
+
 ## Intuition
 
 The determinant tells you **how much a transformation scales area (or volume)**.

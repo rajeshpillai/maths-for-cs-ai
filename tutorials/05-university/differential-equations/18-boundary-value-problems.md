@@ -1,5 +1,15 @@
 # Boundary Value Problems and Eigenvalue Problems
 
+## Explain Like I Am 7
+
+Tie a piece of string between two doorknobs and pluck it.  It wobbles
+— but only in special tidy patterns: one big belly, two bellies, three
+bellies, never two-and-a-half.  The doorknobs hold the ends still, and
+those rules force the string to pick one of these special shapes.
+That's a **boundary** problem: the answer isn't one curve, it's a
+ladder of allowed shapes, each humming at its own pitch — exactly the
+notes a guitar string sings.
+
 ## Intuition
 
 An initial value problem specifies what happens at the **start** ($y(0)$,

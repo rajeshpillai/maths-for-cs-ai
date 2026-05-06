@@ -1,5 +1,16 @@
 # Theory of Equations — Vieta's Formulas and Symmetric Functions
 
+## Explain Like I Am 7
+
+Imagine three mystery boxes that hold three secret numbers.  You
+don't know the numbers, but you're told two clues: "their **sum**
+is 10" and "their **product** is 24."  Already you know loads about
+the boxes without ever peeking inside!  **Vieta's** trick is exactly
+that: the numbers in front of an equation tell you the sum and
+product of its hidden answers — no need to actually solve for them.
+Want the sum of the cubes of the answers?  There's a recipe.  It's
+like having X-ray vision for equations.
+
 ## Intuition
 
 When you solve a polynomial equation, you find its roots. But Vieta's formulas reveal a

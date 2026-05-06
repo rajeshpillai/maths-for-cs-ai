@@ -1,5 +1,15 @@
 # Hypothesis Testing — z-test, t-test, Chi-Squared
 
+## Explain Like I Am 7
+
+Your friend says their coin is fair, but they flip it ten times and
+get nine heads.  Possible — but really suspicious!  How do you decide
+whether to believe the coin or call a foul?  You first *pretend* the
+coin is fair and ask "if it really were fair, how often would I see
+something this bonkers?"  If the answer is "almost never," you stop
+believing them.  This lesson teaches the careful version of that
+"hmm, that's too fishy" feeling, with numbers instead of vibes.
+
 ## Intuition
 
 You run an A/B test: version B has a 2% higher click rate.  Is that real or

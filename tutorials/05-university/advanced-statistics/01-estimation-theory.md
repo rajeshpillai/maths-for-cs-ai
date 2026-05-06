@@ -1,5 +1,16 @@
 # Estimation Theory
 
+## Explain Like I Am 7
+
+Imagine you want to know the average size of all the apples on a
+giant orchard.  You can't pick every apple — that would take
+forever — so you grab a small basket and weigh those.  But did your
+basket trick you?  If the apples you picked were all from the
+sunny side, your guess will be too big every time.  A *good* guess
+gets closer to the truth as you grab more apples, doesn't lean one
+way on average, and doesn't wildly swing if you'd picked a different
+basket.  That's what makes a guess trustworthy.
+
 ## Intuition
 
 Imagine you want to know the average height of every person on Earth. You

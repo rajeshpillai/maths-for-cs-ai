@@ -1,5 +1,15 @@
 # Limits — The Foundation of Calculus
 
+## Explain Like I Am 7
+
+Walk toward a wall, but each step you take is half the distance left
+to go.  You'll never *touch* the wall — yet you and everyone watching
+know perfectly well **where you're heading**.  A **limit** is the
+maths name for that "where you're heading" answer, the place a
+journey is creeping toward, even if it never arrives.  Limits let
+us speak precisely about smooth, sneaky things — *what is the speed
+right at one instant?* — without ever having to actually freeze time.
+
 ## Intuition
 
 A limit asks: "What value does $f(x)$ approach as $x$ gets closer and closer

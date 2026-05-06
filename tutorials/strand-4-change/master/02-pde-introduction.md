@@ -16,6 +16,17 @@ applications:
 
 # PDEs — An Introduction
 
+## Explain Like I Am 7
+
+Drop a hot iron on one corner of a metal sheet.  Heat starts
+crawling outward in *every* direction at once: how fast it crawls
+to the right *and* how fast it crawls up *and* how fast it cools
+in time are all tangled together by one rule.  A **partial
+differential equation** is just a rule that ties together how
+something changes across many directions at the same time —
+ripples on a pond, sound through air, signals down a wire.  PDEs
+are the equations of the wiggly, wobbly, real-world.
+
 ## Mental
 
 A **partial differential equation** (PDE) involves derivatives in

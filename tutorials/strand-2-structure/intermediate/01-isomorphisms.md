@@ -16,6 +16,17 @@ applications:
 
 # Isomorphisms
 
+## Explain Like I Am 7
+
+Two jigsaw puzzles can show *completely different pictures* on the
+front and yet have the **same** shaped pieces fitting together in the
+same way on the back.  An **isomorphism** is the proof that two
+algebra-puzzles are like that: same back-side shape, just painted
+differently.  Once you find one, you can solve any question about
+puzzle A by working in puzzle B and shipping the answer back through
+the painter — even though to a casual eye the two puzzles looked
+totally unrelated.
+
 ## Mental
 
 An **isomorphism** is a homomorphism that's also a **bijection**.

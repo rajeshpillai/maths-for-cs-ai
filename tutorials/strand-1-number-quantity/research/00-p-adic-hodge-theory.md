@@ -16,6 +16,18 @@ applications:
 
 # $p$-adic Hodge Theory
 
+## Explain Like I Am 7
+
+Imagine a piece of music that exists in two completely different sheet-
+music languages — one for piano, one for harp.  A clever translator
+could write a *dictionary* that turns the piano notes into the harp
+notes without losing the song.  Hodge theory is just that kind of
+dictionary, but for the "songs" hiding inside curved geometric
+shapes.  The $p$-adic version uses the strange-distance number system
+(where being divisible by lots of $p$s means "very close") to write
+its dictionary, and the dictionary pages — Fontaine's period rings —
+are the centrepiece of the whole subject.
+
 ## Mental
 
 **Hodge theory** classically: a smooth complex projective variety $X$

@@ -16,6 +16,17 @@ applications:
 
 # Quantum Supremacy and Verification
 
+## Explain Like I Am 7
+
+Picture a hundred ordinary calculators racing one quantum gizmo on a
+job specially designed to be horrible for ordinary calculators.  When
+the gizmo finishes in minutes and the calculator army is *still*
+chugging away weeks later, scientists call that *quantum supremacy*.
+The trickier question is: how do you check the gizmo's answer is
+right when no calculator can keep up?  Researchers invent statistical
+tests — gentle nudges that a real quantum machine should pass and a
+fake one would flunk.
+
 ## Mental
 
 **Quantum supremacy / advantage**: a quantum computer performing a

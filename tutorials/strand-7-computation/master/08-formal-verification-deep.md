@@ -16,6 +16,17 @@ applications:
 
 # Formal Verification at Industrial Scale
 
+## Explain Like I Am 7
+
+When you build a Lego castle, you can wiggle each tower and *test*
+that it doesn't fall.  But "I tested it" only proves it's strong for
+the wiggles you tried.  **Formal verification** is the harder
+promise: a mathematical receipt saying "no matter how anyone shakes
+this castle, it cannot fall."  Engineers use proof-checker robots to
+issue these receipts for things like aeroplane software, train
+brakes, and chip designs — places where one missed wiggle means
+disaster.
+
 ## Mental
 
 **Formal verification**: prove that a system meets its specification

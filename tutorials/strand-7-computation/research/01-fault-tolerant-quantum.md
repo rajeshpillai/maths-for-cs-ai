@@ -16,6 +16,17 @@ applications:
 
 # Fault-Tolerant Quantum Computing
 
+## Explain Like I Am 7
+
+Quantum coins are amazing but ridiculously fragile — sneeze near one
+and it falls flat.  To do anything serious, scientists wrap one
+*pretend* coin inside a circle of many *real* coins, all chiming
+together so any one mistake gets out-voted.  As long as the chiming
+circles can each be built reliably enough, you can stack them to make
+a coin that almost never fails — even though every coin inside is a
+bit unreliable.  This wrapping-and-voting trick is how a wobbly lab
+contraption could one day grow into a trustworthy quantum computer.
+
 ## Mental
 
 **NISQ** (Noisy Intermediate-Scale Quantum, ~2018-2025): physical

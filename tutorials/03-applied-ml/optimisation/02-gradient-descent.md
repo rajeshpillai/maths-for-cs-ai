@@ -1,5 +1,16 @@
 # Gradient Descent — The Algorithm Derived from Calculus
 
+## Explain Like I Am 7
+
+Picture a ball put down on a bumpy hill.  It naturally rolls toward the
+**lowest spot** because each tiny patch of ground tilts somewhere — and
+the ball follows the steepest way down.  **Gradient descent** is just a
+computer pretending to be that ball: it pokes its toe to feel which way
+goes downhill, then takes a small step that direction, then pokes again.
+If steps are too tiny, it takes forever.  If steps are too big, it
+trips and bounces past the bottom.  Picking just the right step size is
+the whole game.
+
 ## Intuition
 
 Imagine you're blindfolded on a hilly landscape and want to find the lowest

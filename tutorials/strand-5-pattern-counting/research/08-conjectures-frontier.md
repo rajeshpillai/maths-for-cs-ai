@@ -16,6 +16,18 @@ applications:
 
 # Open Conjectures in Combinatorics
 
+## Explain Like I Am 7
+
+Even though counting puzzles look simple, some of them have stayed
+unsolved for decades.  Can you colour every spot of an infinite
+grid with just five crayons so no two spots one inch apart share a
+colour?  Can you write a never-ending list of plus-and-minus ones
+so the running totals stay tiny forever?  Can you stuff a base-three
+grid full of dots without ever forming three in a row?  Working
+mathematicians chip away at these dragons every year — and 2023
+saw two of them slain at last (the polynomial Freiman-Ruzsa
+conjecture and the single-tile aperiodic tiling).
+
 ## Mental
 
 Modern combinatorics has an active list of major open problems.

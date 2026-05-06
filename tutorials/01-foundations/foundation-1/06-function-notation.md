@@ -1,5 +1,13 @@
 # Function Notation
 
+## Explain Like I Am 7
+
+A function is a magic vending machine.  You drop a number into the slot,
+the machine follows its secret rule, and a different number drops out the
+bottom.  Writing $f(3) = 6$ is just a short way of saying: "I put **3** in,
+and **6** came out."  The same number going in always gives the same number
+coming out — the machine never cheats and never gets confused.
+
 ## Intuition
 
 A function is a **machine** — you feed it an input, it applies a rule, and it

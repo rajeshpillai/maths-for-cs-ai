@@ -16,6 +16,17 @@ applications:
 
 # Dynamic Programming
 
+## Explain Like I Am 7
+
+You're climbing a staircase, taking one or two steps at a time, and
+you want to count how many different ways you can reach the top.
+Without help, you'd recount the same stairs over and over.  Smart kids
+write each step's answer on a sticky note as they go: "from step 5
+there are 8 ways."  Next time the question comes up, they peek at the
+sticky note instead of counting again.  **Dynamic programming** is
+this clever sticky-note habit — never solve the same little puzzle
+twice.
+
 ## Mental
 
 **Dynamic programming (DP)** turns recursive problems with

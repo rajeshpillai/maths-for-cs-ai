@@ -1,5 +1,16 @@
 # Ray-Sphere and Ray-Plane Intersection
 
+## Explain Like I Am 7
+
+You're playing torchlight tag in a dark garden.  You shine a thin
+torch beam — a **ray** — straight from your eye into the bushes.  Does
+it hit a ball?  Does it hit a wall?  The maths is exactly the question
+"how far along my beam do I bump into something?"  Set up a tiny
+equation, solve for the distance, and either you get a real answer (you
+hit it!) or no answer (the beam misses).  Every glossy reflection in a
+fancy game and every "click to pick that flower" mouse tap uses this
+same beam-versus-shape puzzle.
+
 ## Intuition
 
 Ray casting asks: "If I shoot a ray from point A in direction D, what does it

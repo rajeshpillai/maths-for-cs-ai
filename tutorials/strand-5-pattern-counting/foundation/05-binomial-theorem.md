@@ -19,6 +19,17 @@ applications:
 
 # The Binomial Theorem
 
+## Explain Like I Am 7
+
+When you multiply $(a + b)$ by itself many times, lots of little
+pieces appear.  Each piece is built by walking through the brackets
+one by one and grabbing either an $a$ or a $b$.  How often you grab
+$b$ exactly *k* times — that count is just the number of ways to
+choose $k$ brackets from $n$, which is the same combination number
+you met with the candy bowl.  So the messy expansion is really the
+adding tower from Pascal's triangle wearing algebra clothes.  The
+**binomial theorem** is just that simple connection, written down.
+
 ## Mental
 
 Multiply $(a + b)$ by itself a few times:

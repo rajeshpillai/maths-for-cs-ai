@@ -16,6 +16,17 @@ applications:
 
 # Symmetric Functions
 
+## Explain Like I Am 7
+
+Imagine a polynomial in many letters $x_1, x_2, x_3, \ldots$ that
+*doesn't care* if you swap any two letters around — like a salad
+recipe where it doesn't matter which apple goes in which bowl.
+These swap-proof polynomials live in their own special world with a
+handful of natural building-blocks: sums of all $x_i$, sums of
+products of pairs, sums of cubes, and so on.  Each of these is a
+"basis" — a different way to spell the same swap-proof world.
+They're the secret language behind characters and group symmetry.
+
 ## Mental
 
 The **ring of symmetric functions** $\Lambda = \mathbb Z[x_1, x_2, \ldots]^S$

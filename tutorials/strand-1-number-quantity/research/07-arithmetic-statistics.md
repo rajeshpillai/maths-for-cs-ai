@@ -16,6 +16,18 @@ applications:
 
 # Arithmetic Statistics
 
+## Explain Like I Am 7
+
+Walk into a vast warehouse stacked with mathematical creatures —
+elliptic-curve racetracks, number-fields, polynomials — and instead of
+studying one creature at a time, line them up by size and *measure
+the crowd*.  How many have a "normal" personality?  How many are
+freakish?  Arithmetic statistics is the science of crowd patterns
+inside this warehouse: not "what does *this* curve do?" but "of all
+curves smaller than a billion, what fraction does X?"  Surprising
+average laws often emerge — and Bhargava won a Fields medal counting
+them.
+
 ## Mental
 
 **Arithmetic statistics** asks: "what's the distribution of X among

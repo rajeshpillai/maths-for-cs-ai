@@ -1,5 +1,16 @@
 # SVD — Singular Value Decomposition
 
+## Explain Like I Am 7
+
+Take **any** weird, lumpy stretching of a rubber sheet.  No matter
+how tangled it looks, the **SVD** says: it's secretly just three tidy
+moves done one after another.  *Spin* the sheet to a friendly angle.
+*Stretch* it along straight lines, each by a different amount.  Then
+*spin* it again to its final pose.  That's it!  Every messy
+transformation is really three simple moves in disguise — and once
+you see them, you can keep just the biggest stretches and throw away
+the wobbles to compress giant images and tables.
+
 ## Intuition
 
 Any matrix — even non-square ones — can be broken into three simple steps:

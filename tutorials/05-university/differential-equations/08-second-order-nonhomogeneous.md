@@ -1,5 +1,15 @@
 # Second-Order Nonhomogeneous ODEs
 
+## Explain Like I Am 7
+
+A swing left alone settles into its own little rhythm.  But what if
+your big sister keeps giving it a shove every few seconds?  Now the
+swing's wiggle is *its own song* plus *her shoves*, layered on top of
+each other.  Solve the lonely-swing version first, then figure out how
+the swing reacts to each push, and finally stack the two answers
+together.  That's how a forced change-rule works: nature's tune plus
+the visitor's drum, added like two transparent pictures.
+
 ## Intuition
 
 A homogeneous ODE describes free motion — a spring released and left alone.

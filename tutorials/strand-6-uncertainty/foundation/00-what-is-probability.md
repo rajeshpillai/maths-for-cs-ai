@@ -16,6 +16,17 @@ applications:
 
 # What is Probability?
 
+## Explain Like I Am 7
+
+The sun *will* rise tomorrow.  You *won't* roll a $7$ on a normal
+six-sided die.  Most things in life sit between those two
+extremes — like "will it rain on the picnic?"  **Probability** is a
+number we glue onto each maybe-thing to say how likely it is.  We
+agree on a tidy scale: $0$ means impossible, $1$ means absolutely
+certain, and a fair coin landing heads is right in the middle at
+$\tfrac{1}{2}$.  Probability is just that little measuring stick
+for chance.
+
 ## Mental
 
 Some things are **certain** to happen — the sun will rise tomorrow.

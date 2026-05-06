@@ -16,6 +16,18 @@ applications:
 
 # Mirror Symmetry
 
+## Explain Like I Am 7
+
+Imagine two strange puzzle boxes that look totally different on the
+outside, but every secret button on one matches a secret lever on
+the other.  **Mirror symmetry** is the spooky discovery that pairs
+of curvy multi-dimensional shapes come like that: doing
+"area-counting" on the left box is exactly the same as doing
+"complex-number-counting" on the right box.  Physicists noticed it
+while studying tiny string-loops; mathematicians are still
+unwrapping why these two very different worlds end up giving the
+same answers.
+
 ## Mental
 
 **Mirror symmetry**: a remarkable conjectural duality between two

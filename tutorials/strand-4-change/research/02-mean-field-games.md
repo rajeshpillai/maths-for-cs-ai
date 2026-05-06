@@ -16,6 +16,17 @@ applications:
 
 # Mean-Field Games
 
+## Explain Like I Am 7
+
+A million ants leave the nest, each one trying to find food while
+also avoiding the crowded paths the *other* ants are using.
+Tracking every ant separately is impossible — but you can track
+just one "average ant" who reacts to the *cloud* of all the
+others.  **Mean-field games** is the math of huge crowds where
+each member is selfish but their collective behaviour is smooth.
+It explains traffic jams, market panics, and how millions of
+phones share a wifi tower.
+
 ## Mental
 
 **Mean-field games (MFG)** (Lasry-Lions, Caines-Huang-Malhamé, ~2006):

@@ -18,6 +18,18 @@ applications:
 
 # Conditional Probability — "Given That…"
 
+## Explain Like I Am 7
+
+The chance the next card is the ace of spades is $\tfrac{1}{52}$.
+But if a friend whispers "psst, the next card is a black card,"
+your knowledge has changed.  Black cards are only $26$ of the deck,
+and just one of them is the ace of spades — so the chance is now
+$\tfrac{1}{26}$.  This new chance, after you've learned a clue, is
+called a **conditional probability**, and we write it $P(A \mid
+B)$.  Almost every fancy use of probability — medical tests, spam
+filters, weather forecasts — boils down to updating your beliefs
+once a clue arrives.
+
 ## Mental
 
 Probabilities **change** when you learn new information.

@@ -16,6 +16,18 @@ applications:
 
 # Tropical Geometry Deeper
 
+## Explain Like I Am 7
+
+Earlier we replaced "plus" with "min" and "times" with "plus."
+That funny tropical algebra has its own *geometry*: instead of
+smooth circles and parabolas, it draws polygons made of straight
+edges.  Astonishingly, when you count solutions to certain
+tropical-shape puzzles, you get the same answer as counting
+solutions of the smooth versions — so a hard *geometric* counting
+question becomes a tame combinatorial one.  Tropical geometry is
+the bridge that lets you study evolutionary trees and curve
+counting with the same dictionary.
+
 ## Mental
 
 **Tropical geometry** (Strand 5 Master Lesson 03) studies algebraic

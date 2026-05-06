@@ -1,5 +1,16 @@
 # Partial Derivatives Revisited: Higher-Order and Clairaut's Theorem
 
+## Explain Like I Am 7
+
+Stand on a hilly field and feel the ground under each foot.  Tilt
+your *east-west* foot a little — how steep is it?  Now your
+*north-south* foot — how steep is *that*?  Each "lean check" is one
+partial peek at the slope.  But you can do it again: ask how the
+east-lean *itself* changes as you walk north.  And here's the lovely
+surprise — peeking east-then-north gives the same answer as
+north-then-east.  The order doesn't matter, like opening two presents
+in any order and still ending up with both toys.
+
 ## Intuition
 A partial derivative tells you the slope of a surface in one direction while
 holding the other directions fixed. Higher-order partial derivatives tell you how

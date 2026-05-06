@@ -18,6 +18,17 @@ applications:
 
 # Derangements — Permutations with No Fixed Points
 
+## Explain Like I Am 7
+
+Imagine everyone at a party drops their hat in a basket, then a
+mischievous cat jumbles them and hands one back to each guest.  A
+**derangement** is the unlucky case where *nobody* gets their own
+hat.  Surprisingly, no matter how big the party — five guests or
+five hundred — the chance of this perfect mismatch hovers right
+around $37\%$, the number $1/e$ in disguise.  That same
+"nobody-picks-themselves" puzzle is exactly the worry behind the
+Secret Santa shuffle every December.
+
 ## Mental
 
 A **derangement** of $n$ items is a permutation in which **no item

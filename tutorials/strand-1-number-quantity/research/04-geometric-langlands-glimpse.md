@@ -16,6 +16,18 @@ applications:
 
 # Geometric Langlands — A Glimpse
 
+## Explain Like I Am 7
+
+Earlier we glimpsed the Langlands program — the giant matching game
+between *number sculptures* and *musical scores*.  Now imagine
+re-staging the whole game, but instead of regular numbers in your
+sculptures you use *curved geometric shapes* like loops and surfaces.
+The matchings on this geometric stage are easier to draw and even
+animate, and many pairs that would take a lifetime to verify with
+plain numbers can be confirmed almost picture-by-picture here.  This
+"geometry-flavoured" version is where many of the program's biggest
+recent victories have come from.
+
 ## Mental
 
 Replace number field $\mathbb Q$ with **function field** $\mathbb F_q(C)$

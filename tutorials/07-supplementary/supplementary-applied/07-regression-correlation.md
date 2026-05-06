@@ -1,5 +1,15 @@
 # Regression and Correlation — R² Derivation
 
+## Explain Like I Am 7
+
+Imagine plotting your friends' heights against their shoe sizes — the
+dots make a fuzzy diagonal cloud.  Now stretch a piece of string
+across the cloud and wiggle it until the dots are as close to the
+string as possible.  That string is the **best-fit line**.  The
+"R-squared" score is just a number from 0 to 1 telling you how snugly
+the dots hug the string: 1 means everyone's lined up like soldiers,
+0 means the cloud is total mush and the string is no help at all.
+
 ## Intuition
 
 **Regression** finds the best-fit line through data.  **R²** tells you how

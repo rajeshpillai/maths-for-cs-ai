@@ -1,5 +1,15 @@
 # Fourier Series Methods for Differential Equations
 
+## Explain Like I Am 7
+
+A jagged drum beat — *thump-thump-THUMP* — sounds messy.  But if you
+listen closely, it's really just a smooth low hum, plus a quicker
+hum, plus an even quicker hum, all stacked on top of each other.
+When something pushes on a swing in a jagged repeating pattern, we
+break the push into those little hums, ask the swing how it reacts to
+each hum on its own (easy!), and finally stack the swing's wiggles
+back together into the full bouncy answer.
+
 ## Intuition
 
 Many real-world forces are periodic but not sinusoidal — think of a square wave

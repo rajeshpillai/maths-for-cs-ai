@@ -16,6 +16,17 @@ applications:
 
 # Taylor Series
 
+## Explain Like I Am 7
+
+Stand right next to a curvy road and try to guess where it goes.
+First guess: the road keeps the height it has *here*.  Better
+guess: the road keeps going with its current *slope*.  Even better:
+the road keeps its slope *and* its current bend.  A **Taylor
+series** is exactly this idea, but pushed forever — match the
+height, the slope, the bend, the bend-of-the-bend, and so on, and
+your simple polynomial copies the curvy road as closely as you
+like, near where you started.
+
 ## Mental
 
 A **Taylor series** approximates a smooth function $f(x)$ near a

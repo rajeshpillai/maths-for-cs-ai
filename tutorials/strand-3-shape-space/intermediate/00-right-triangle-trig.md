@@ -21,6 +21,16 @@ applications:
 
 # Right-Triangle Trigonometry
 
+## Explain Like I Am 7
+
+Lean a ladder against a wall.  No matter how long the ladder is, if
+the angle between the ladder and the ground is the same, the *ratio*
+of "how high it touches" to "how long the ladder is" never changes.
+That hidden ratio has a name: **sine**.  There are two more siblings,
+**cosine** and **tangent**, that compare the other pairs of sides.
+With these three little ratios you can figure out the height of a
+tree without ever climbing it — just measure one angle and one side.
+
 ## Mental
 
 For a right triangle with one acute angle $\theta$, the three side

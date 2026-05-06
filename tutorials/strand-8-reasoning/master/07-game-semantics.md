@@ -16,6 +16,17 @@ applications:
 
 # Game Semantics
 
+## Explain Like I Am 7
+
+Every claim in math turns into a tiny board game with two players: a
+hero who insists the claim is true, and a heckler trying to break it.
+The hero plays a *strategy* — a plan for what to do whatever the
+heckler throws — and the claim is true when the hero has a strategy
+that *always* wins.  Programs are strategies, types are the rules of
+the game, and "running a program" is the same as "playing the
+game."  This game-board view of logic helps researchers reason about
+what programs really *do*.
+
 ## Mental
 
 **Game semantics**: interpret types as games, programs as strategies,

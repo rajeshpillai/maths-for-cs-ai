@@ -1,5 +1,16 @@
 # Conic Sections — Circles, Ellipses, Parabolas, Hyperbolas
 
+## Explain Like I Am 7
+
+Get an ice-cream cone — yes, just the cone, no ice cream — and slice
+it with a knife.  Cut straight across and the slice is a perfect
+**circle**.  Tilt the knife a bit and you get a stretched oval, called
+an **ellipse**.  Tilt it parallel to the cone's side and the slice
+opens out into a swooping **parabola**.  Slice straight down through
+both ends and you get the strange two-piece **hyperbola**.  Four
+different shapes, all hiding inside one cone — and the maths is just
+the recipe for each slice.
+
 ## Intuition
 
 Slice a cone with a plane at different angles and you get four distinct curves:

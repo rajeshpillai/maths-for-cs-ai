@@ -16,6 +16,17 @@ applications:
 
 # Algebraic Topology Deeper
 
+## Explain Like I Am 7
+
+You've already seen one trick: turn a squishy shape into a list of
+hole-counts.  Now imagine a magic translator that swaps every
+*shape* for a *number machine*, and every *squish* for a tidy
+arithmetic operation between machines.  Suddenly, hard questions
+about clay-blobs become easy adding and subtracting.  This deeper
+study collects whole families of these translators — different
+ones spotting different kinds of holes — so we can tell two
+similar-looking shapes apart by their secret arithmetic.
+
 ## Mental
 
 Algebraic topology turns topological problems into algebraic ones via

@@ -16,6 +16,17 @@ applications:
 
 # P vs NP and Complexity Frontier
 
+## Explain Like I Am 7
+
+There are two toy bins.  In one go puzzles where finding the answer is
+quick.  In the other go puzzles where *checking* a friend's answer is
+quick but finding the answer yourself feels brutal.  The world's
+biggest unsolved riddle is whether those two bins are secretly the
+same — that is, whether every puzzle whose answer is easy to *check*
+also has a quick way to *find*.  Most mathematicians bet *no*, but
+nobody has nailed down a proof.  Crack this open and you'd rewrite
+codes, cures, and crime puzzles overnight.
+
 ## Mental
 
 **P vs NP**: does $P = NP$? Open since formalised by Cook 1971,

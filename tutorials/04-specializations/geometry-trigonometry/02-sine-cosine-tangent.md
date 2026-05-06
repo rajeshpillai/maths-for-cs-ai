@@ -1,5 +1,15 @@
 # Sine, Cosine, Tangent — From Right-Triangle Ratios
 
+## Explain Like I Am 7
+
+Lean a ladder against a wall.  How high does the top reach?  How far
+does the foot stick out?  That depends only on the lean — the *angle* —
+and the ladder's length.  **Sine** tells you how high it climbs.
+**Cosine** tells you how far the foot is from the wall.  **Tangent**
+tells you how steeply the ladder rises compared to how wide it spreads.
+Same three ratios, no matter if the ladder is for an ant or a giant —
+just scale up or down.
+
 ## Intuition
 
 Trig functions answer one question: given an angle in a right triangle, what

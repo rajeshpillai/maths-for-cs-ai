@@ -16,6 +16,17 @@ applications:
 
 # TDA Frontier — Persistent Homotopy
 
+## Explain Like I Am 7
+
+Sprinkle a bunch of dots on the table, then slowly grow a balloon
+around each one.  As the balloons get bigger, neighbours start
+overlapping and forming bigger and bigger blobs — sometimes with
+holes!  Some holes pop into existence early then close up; others
+hang around forever.  **Persistent homotopy** is the frontier
+craft of deciding *which* holes are real features of your dot-cloud
+and which are just lucky-balloon coincidences, helping computers
+spot real patterns inside messy data.
+
 ## Mental
 
 Strand 2 Advanced Lesson 09 introduced **persistent homology**.

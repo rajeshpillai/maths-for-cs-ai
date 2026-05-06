@@ -1,5 +1,16 @@
 # Urdhva-Tiryagbhyam — "Vertically and Crosswise"
 
+## Explain Like I Am 7
+
+Multiplying 23 by 41 the long way takes ages — four little multiplies
+and a stack of carries.  The **vertically and crosswise** trick does
+it in three quick zaps.  Stack the two numbers like train carriages
+and zap them straight down (3 times 1 = 3), then zap them in a big
+**X** across (2 times 1 + 3 times 4 = 14), then straight down again
+(2 times 4 = 8).  Stitch the answers together with carries: **943**.
+Same answer, half the brainwork.  Once your fingers know the dance,
+you can multiply any two numbers in your head.
+
 ## Intuition
 
 This is the most general Vedic multiplication technique. It works for ANY

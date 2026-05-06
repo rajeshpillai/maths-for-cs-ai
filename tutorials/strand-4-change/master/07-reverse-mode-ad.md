@@ -16,6 +16,17 @@ applications:
 
 # Reverse-Mode Automatic Differentiation
 
+## Explain Like I Am 7
+
+Imagine a long row of dominos standing up — each push wiggles a
+big network of dominos in front, and at the very end one final
+domino reads out a single answer.  You want to know: *which
+starting domino, if I tap it a tiny bit harder, would change the
+end-answer most?*  Reverse-mode does it cleverly: start at the
+*end*, send a "blame" signal backwards through the chain,
+collecting at each step how sensitive the answer was.  This
+backwards-blame trick is exactly how neural networks learn.
+
 ## Mental
 
 For $f : \mathbb R^n \to \mathbb R^m$:

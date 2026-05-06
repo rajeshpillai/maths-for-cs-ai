@@ -1,5 +1,16 @@
 # Homogeneous Coordinates and 4×4 Transform Matrices
 
+## Explain Like I Am 7
+
+You have a sticker of a duck.  Spinning it is easy with a maths recipe,
+but **sliding** the sticker across the page is *not* the same kind of
+recipe — it doesn't fit.  The sneaky trick: tape a tiny invisible "+1"
+tag onto every sticker.  Suddenly there's room for a sliding rule too,
+and one neat 4-row recipe can spin, shrink *and* slide all in one go.
+Every 3D game uses this trick — every camera swoop, every character
+walk, every duck waddle is one big multiplication thanks to that
+hidden +1.
+
 ## Intuition
 
 Translation is not a linear transformation — you can't represent it as a

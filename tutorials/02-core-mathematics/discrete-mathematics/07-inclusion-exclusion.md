@@ -1,5 +1,16 @@
 # Inclusion–Exclusion Principle
 
+## Explain Like I Am 7
+
+You count the kids wearing wellies (10) and the kids wearing
+raincoats (8).  But oh no — three kids wear *both*, and you've
+counted them twice!  To get the right total of "kids wearing
+something rainy," you add the wellies and the raincoats then
+**subtract the overlap once**.  This add-and-subtract dance is
+**inclusion–exclusion**.  With three or four overlapping circles you
+just keep flipping the sign — add, subtract, add, subtract — until
+no kid is double-counted.
+
 ## Intuition
 
 If you count students who play football and students who play basketball

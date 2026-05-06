@@ -16,6 +16,18 @@ applications:
 
 # Differential Privacy
 
+## Explain Like I Am 7
+
+Suppose the class wants to know how many kids brush their teeth at
+night, but nobody wants to admit the truth.  So before each kid
+answers, they secretly flip a coin: heads, tell the truth; tails,
+just say "yes."  The teacher counts up the answers, then quietly
+subtracts what the coin would have added — and out comes a pretty
+good estimate.  No single kid can be blamed because no answer is
+*provably* theirs.  That clean trick — adding tiny calibrated noise
+so totals work but individuals are hidden — is **differential
+privacy**.
+
 ## Mental
 
 A randomised algorithm $\mathcal A$ is **$\epsilon$-differentially

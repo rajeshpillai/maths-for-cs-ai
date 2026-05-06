@@ -1,5 +1,16 @@
 # The Neuron as a Dot Product + Activation
 
+## Explain Like I Am 7
+
+Think of one **neuron** as a tiny taste-tester for a smoothie.  Each
+ingredient pours in (apple, banana, spinach), and the tester has its own
+*opinion* about each one — likes apple a lot, likes spinach a little,
+hates kale.  It blends those opinions with the actual amounts and gets
+one number — a "yumminess score."  Then a final yes/no rule fires: if
+the score is high enough, shout "YUM!"  Stack millions of these little
+testers together and you've built a brain — every fancy AI is just a
+crowd of these tiny tasters voting in layers.
+
 ## Intuition
 
 A single neuron is the simplest computational unit in a neural network.

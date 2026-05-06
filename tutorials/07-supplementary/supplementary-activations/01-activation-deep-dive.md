@@ -1,5 +1,16 @@
 # Activation Functions — Complete Deep Dive
 
+## Explain Like I Am 7
+
+A neuron in a neural network is like a kid finishing a maths
+worksheet — they get a big messy number at the end and need to turn
+it into a tidy answer to hand in.  An **activation** is the squisher
+that does that tidying.  Some squishers gently flatten anything huge
+or tiny into a number between 0 and 1; some chop off all the
+negatives; some let positives through cleanly but only let a tiny
+trickle of negatives slip past.  Picking the right squisher is like
+picking the right pencil — it changes how the whole worksheet feels.
+
 ## Intuition
 
 This lesson consolidates and extends Tier 6-02.  We derive every major

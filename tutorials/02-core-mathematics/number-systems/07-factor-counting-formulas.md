@@ -1,5 +1,16 @@
 # Counting and Summing the Factors of $n$
 
+## Explain Like I Am 7
+
+Take the number 12.  It splits cleanly into $1, 2, 3, 4, 6, 12$ —
+six tidy ways.  How could you predict that "six" without listing
+anything?  Crack 12 into its prime LEGO bricks ($2 \times 2 \times 3$)
+and the count just falls out of how many of each brick you have.
+**Counting factors** is exactly that: you build every possible little
+model from your bag of prime bricks and ask "how many different models
+can I build?"  The answer is a quick multiplication, no listing
+needed.
+
 ## Intuition
 
 How many positive divisors does $360$ have?  What is the sum of all divisors

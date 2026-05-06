@@ -1,5 +1,16 @@
 # Factor Theorem & Remainder Theorem
 
+## Explain Like I Am 7
+
+Pretend a big jigsaw is glued together from smaller puzzle pieces.
+If you can guess **one** piece correctly and pop it out cleanly,
+suddenly the rest of the jigsaw is much easier to take apart.  The
+*Factor Theorem* is the magic trick for spotting one of those pieces:
+plug a number into the expression, and if you get **zero**, you've
+found a piece — and you can lift it right out.  The *Remainder
+Theorem* is the friendly twin: it tells you, without doing the lift,
+exactly what would be left behind if you tried.
+
 ## Intuition
 
 If you plug a number into a polynomial and get zero, you have found a root —

@@ -1,5 +1,16 @@
 # Mental Math Mastery — Combining All Techniques
 
+## Explain Like I Am 7
+
+Picture a kitchen drawer full of different tools — whisk, peeler,
+rolling pin, grater.  A great cook doesn't think hard about which
+tool to grab; they just glance at the food and **the right hand
+shoots out** for the right gadget.  After learning all 14 Vedic
+tricks, your maths brain becomes that drawer.  See a number ending
+in 5?  *Whisk!*  Two numbers near 100?  *Peeler!*  Sum suspiciously
+balanced?  *Rolling pin!*  This last lesson is about training the
+"snap-and-grab" reflex so the right trick pops out automatically.
+
 ## Intuition
 
 This capstone lesson brings together all 14 previous techniques into a unified

@@ -16,6 +16,18 @@ applications:
 
 # Extremal Set Theory and Ramsey
 
+## Explain Like I Am 7
+
+If you scribble friendship lines on a *huge* group of kids using
+only two coloured pens, the rule that says big groups always
+contain a smaller perfectly-organised group, no matter how messily
+you draw it, kicks in: somewhere a small clique of kids will all
+be linked by the *same* coloured line.  This is **Ramsey's**
+discovery — total disorder is impossible once your structure is
+big enough.  Mathematicians push this idea further, asking how
+big "big enough" needs to be, with answers that grow eye-wateringly
+fast.
+
 ## Mental
 
 Strand 5 Advanced Lesson 08 covered classical extremal results

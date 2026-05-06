@@ -21,6 +21,17 @@ applications:
 
 # Equivalence Relations and Partitions
 
+## Explain Like I Am 7
+
+Imagine sorting a giant box of Lego bricks into smaller bins by
+colour.  Every brick goes into exactly one bin, and bricks in the
+*same* bin all share that "same colour" feeling.  Mathematicians call
+this kind of "same-as" sorting an **equivalence relation**, and the
+bins it makes are called a **partition**.  Whether you sort by colour,
+shape, or some weirder rule, the result is always the same shape:
+non-overlapping piles that together hold every brick.  Many advanced
+tricks in algebra come from picking the *right* sorting rule.
+
 ## Mental
 
 An **equivalence relation** $\sim$ on a set $A$ is a relation that

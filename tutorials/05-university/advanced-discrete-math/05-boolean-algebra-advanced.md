@@ -1,5 +1,15 @@
 # Advanced Boolean Algebra
 
+## Explain Like I Am 7
+
+Imagine a row of light switches.  Each switch is either up or down,
+and a clever wiring decides whether a bulb lights up.  You can build
+*any* possible bulb-rule using just one boring kind of gizmo — like
+those plastic snap-together blocks where every block does the same
+small job.  And there are tidy ways to write down each rule: as a
+big "this match OR that match OR..." list, or as a big "all of these
+must hold AND..." list.  Same rule, two different shapes.
+
 ## Intuition
 
 Boolean algebra is the mathematics of true/false, 1/0, on/off. In basic logic

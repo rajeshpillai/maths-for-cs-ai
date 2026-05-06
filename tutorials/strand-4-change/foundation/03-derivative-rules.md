@@ -17,6 +17,17 @@ applications:
 
 # Derivative Rules — Power, Sum, Constant
 
+## Explain Like I Am 7
+
+Doing the marble-tangent trick from scratch each time is exhausting
+— like building a Lego car brick by brick every time you want to
+drive it.  Luckily, mathematicians figured out three handy
+shortcuts: a **power rule** for things like $x^2$ and $x^5$, a
+**sum rule** for adding pieces together, and a **constant rule** for
+when there's just a stuck-on number.  Memorise three little
+shortcuts and suddenly you can find the slope of giant polynomials
+in your head.
+
 ## Mental
 
 Computing derivatives by the limit definition is correct but tedious.

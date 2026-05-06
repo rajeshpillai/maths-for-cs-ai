@@ -16,6 +16,16 @@ applications:
 
 # Vector Fields and Line Integrals
 
+## Explain Like I Am 7
+
+Imagine the wind blowing over a playground: at every spot there's
+an arrow showing which way and how hard the wind pushes.  That's a
+**vector field**.  Now suppose a leaf rides a curvy path through
+all that wind.  How much *help* does the wind give it overall?
+Some of the path is with the wind, some against it.  A **line
+integral** is the running total of "wind in your favour minus wind
+against you" along the entire path — the leaf's grand wind-score.
+
 ## Mental
 
 A **vector field** in $\mathbb{R}^n$ assigns a vector $\mathbf{F}(\mathbf{x})$

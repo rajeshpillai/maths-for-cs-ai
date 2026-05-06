@@ -18,6 +18,16 @@ applications:
 
 # The Derivative — Tangent Slope as a Limit
 
+## Explain Like I Am 7
+
+Roll a marble along a curvy track.  At any single instant, the
+marble seems to be heading in *one* exact direction — the way it
+would fly off if the track suddenly vanished.  The slope of that
+flying-off line is the **derivative**.  You find it by picking two
+spots on the curve, drawing a chord between them, and then sliding
+the spots so close together that the chord becomes the perfect
+"flying-off" line at that single point.
+
 ## Mental
 
 The **derivative** of $f$ at $a$ is the **slope of the tangent** to

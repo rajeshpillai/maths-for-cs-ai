@@ -1,5 +1,14 @@
 # Proof by Contrapositive
 
+## Explain Like I Am 7
+
+"If it rained, the pavement is wet" and "if the pavement is dry, it
+didn't rain" are saying *exactly the same thing* — just looked at from
+the other end.  Sometimes one direction is hard to walk and the other
+is easy, like a slide that's tough to climb but fun to come down.
+**Contrapositive proof** flips the statement around so you slide down
+instead of climbing up, and the answer you get is just as good.
+
 ## Intuition
 
 The statement "if it is raining, the ground is wet" is logically the same as

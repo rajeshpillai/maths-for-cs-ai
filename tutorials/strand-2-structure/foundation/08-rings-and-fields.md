@@ -16,6 +16,17 @@ applications:
 
 # Rings and Fields
 
+## Explain Like I Am 7
+
+A **group** is a kit with one kind of move; now imagine a kit with
+*two* kinds — call them adding-blocks and stacking-blocks — that
+play nicely together (you can spread one across the other, like
+distributing apples to friends).  That's a **ring**: a number-system
+where you can add *and* multiply.  If, on top of that, *every* non-zero
+number has a stacking-undo (so you can divide too), you've leveled up
+to a **field**.  The everyday integers are a ring; fractions and real
+numbers are fields.
+
 ## Mental
 
 A **ring** is a set with two operations — usually called $+$ and

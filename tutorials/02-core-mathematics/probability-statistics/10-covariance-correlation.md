@@ -1,5 +1,16 @@
 # Covariance and Correlation Matrices
 
+## Explain Like I Am 7
+
+When the temperature goes up, ice-cream sales go up too — they
+**move together**.  When it gets cold, *hot-chocolate* sales go up
+while ice cream goes down — they move *opposite* ways.  **Covariance**
+is just a number that says whether two things tend to dance together,
+dance opposite, or pay no attention to each other.  **Correlation**
+shrinks that number to between $-1$ and $1$ so you can compare
+across totally different things — like comparing dance partners on
+the same scoreboard.
+
 ## Intuition
 
 **Covariance** tells you whether two variables tend to move together (positive),

@@ -16,6 +16,17 @@ applications:
 
 # Capstone — Frontiers of Number Theory
 
+## Explain Like I Am 7
+
+Imagine standing on the very edge of a map labelled "here be dragons,"
+holding a torch over the unexplored darkness.  In this capstone you
+look back at the strange tools you collected to get here — magic
+mailboxes, $p$-adic magnifiers, music-of-the-primes, fingerprints of
+shapes — and ahead at the dragons that nobody has tamed yet:
+post-quantum codes, AI-suggested conjectures, theorems proved by
+computer.  This isn't a final answer; it's a torch-lit invitation to
+stay curious about a frontier that's actively being mapped right now.
+
 ## Mental
 
 Nine lessons on:

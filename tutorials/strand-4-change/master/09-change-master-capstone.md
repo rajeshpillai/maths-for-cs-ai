@@ -17,6 +17,17 @@ applications:
 
 # Capstone — Calculus at the Frontier
 
+## Explain Like I Am 7
+
+Now your toolbox holds infinity-dimension geometry, jittery dust
+calculus, prism-splitters for signals, blame-back domino tricks,
+and best-path soap-film machines.  In this capstone you peek at
+how working scientists glue these together: maybe a model that
+learns and obeys a physical rule at the same time, or a
+simulation of bubbling fluid that knows about randomness.  These
+are the kinds of mash-ups that make today's AI and physics
+research possible.
+
 ## Mental
 
 Nine lessons on:

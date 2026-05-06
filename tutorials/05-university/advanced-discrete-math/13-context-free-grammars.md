@@ -1,5 +1,16 @@
 # Context-Free Grammars
 
+## Explain Like I Am 7
+
+Think of a story-writing kit with little card rules: "a SENTENCE is
+a NAME, then a VERB, then a THING," and "a THING is 'apple' or 'a
+NAME'," and so on.  Each card can refer back to other cards, even
+itself!  Following the cards, you build sentences nested inside
+sentences, like Russian dolls.  These nested rules are perfect for
+matching every open-bracket with a close-bracket — something a
+plain board game can't do.  Every computer programming language
+hides such a card-set behind it.
+
 ## Intuition
 
 Regular languages (DFAs) cannot count: they cannot match nested parentheses

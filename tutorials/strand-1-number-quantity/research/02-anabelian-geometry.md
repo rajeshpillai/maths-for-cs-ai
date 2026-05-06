@@ -16,6 +16,18 @@ applications:
 
 # Anabelian Geometry
 
+## Explain Like I Am 7
+
+Pretend each twisty geometric shape carries an invisible **knot
+pattern** — the list of all the loops you can draw on it without
+slipping the loop off.  Grothendieck's wild guess was: for *certain*
+specially shaped objects (hyperbolic curves), the knot pattern alone
+is so detailed that you can rebuild the original shape from it,
+without ever needing the shape's coordinates.  It's like recognising a
+person purely from their fingerprint, with the whole rest of the body
+erased.  Anabelian geometry chases the cases where this fingerprint
+trick really works.
+
 ## Mental
 
 Grothendieck's anabelian conjectures: certain "anabelian" varieties

@@ -1,5 +1,17 @@
 # Substitution Tricks
 
+## Explain Like I Am 7
+
+Imagine a giant tangled ball of wool that's almost impossible to
+unknot.  Now look at it through magic glasses that turn the wool into
+a tidy straight string — the same yarn, just a friendlier picture.
+A **substitution** is exactly those glasses for maths: rename a
+clump of stuff with one short letter (like "let $u$ stand for that
+big mess"), and suddenly the puzzle looks simple.  Solve the easy
+version, then swap the wool back in at the end.  Choosing the right
+glasses is the whole skill — once you spot them, the maths is a
+snap.
+
 ## Intuition
 
 Substitution is the art of making a hard problem look easy by changing the variable. The right substitution transforms a tangled expression into something clean and recognisable. In JEE Advanced, recognising *which* substitution to use is often the entire battle — the remaining algebra is routine.

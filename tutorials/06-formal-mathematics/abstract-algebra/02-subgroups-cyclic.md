@@ -1,5 +1,15 @@
 # Subgroups and Cyclic Groups
 
+## Explain Like I Am 7
+
+Inside a big toy box, you sometimes find a smaller box of toys that
+already plays by the same rules as the big box — that smaller box is a
+**subgroup**.  A **cyclic** subgroup is special: you start with one
+favourite move, like "spin a quarter-turn clockwise," and you keep
+doing it over and over.  Eventually you loop back to where you started,
+and the whole little box is just that one move repeated — a merry-go-
+round of moves that comes back around to the beginning.
+
 ## Intuition
 
 A subgroup is a group hiding inside a bigger group — like how the even

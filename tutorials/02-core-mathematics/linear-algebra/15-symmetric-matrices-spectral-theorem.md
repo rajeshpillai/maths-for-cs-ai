@@ -1,5 +1,16 @@
 # Symmetric Matrices & the Spectral Theorem — Nature's Favourite Matrices
 
+## Explain Like I Am 7
+
+Some grids of numbers are like a butterfly's wings: fold them along
+their diagonal and the two halves match perfectly.  These polite,
+mirror-image grids are the *symmetric* ones.  Whenever you stretch a
+circle of dough using one of them, you get a clean **oval** lined up
+with two right-angled directions — never a wonky tilted oval, never a
+weird twist.  This tidy behaviour is so common in real life
+(measuring distances, springs, friendship strengths) that nature
+seems to have a soft spot for these particular grids.
+
 ## Intuition
 
 Many real-world matrices are symmetric: covariance matrices, distance matrices,

@@ -1,5 +1,16 @@
 # Algorithmic Game Theory
 
+## Explain Like I Am 7
+
+Two friends are playing rock-paper-scissors, and each is trying to
+outguess the other.  If you always throw rock, your friend will
+always throw paper.  If you always throw paper, they'll throw
+scissors.  After lots of rounds, you both find a sneaky balance —
+each picking randomly so neither can profit by changing.  That
+balance, where nobody wants to switch, is the heart of game theory.
+It explains why drivers stick to their lane, why kids share, and why
+sometimes everyone loses by being too clever.
+
 ## Intuition
 
 When multiple agents make decisions that affect each other, mathematics

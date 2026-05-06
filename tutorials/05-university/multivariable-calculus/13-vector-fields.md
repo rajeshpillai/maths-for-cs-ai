@@ -1,5 +1,16 @@
 # Vector Fields
 
+## Explain Like I Am 7
+
+Imagine standing in a field where, at every patch of grass, a tiny
+flag is flapping.  Each flag points which way the wind is blowing
+right there, and a long flag means strong wind, short flag means
+soft breeze.  That whole forest of flags is a **vector field** —
+every spot has its own arrow.  Drop a feather anywhere and it gets
+carried by whichever flag it's standing on, then by the next one,
+then the next.  The same idea tells you which way water swirls in
+a sink or how a planet's pull tugs anything that drifts close.
+
 ## Intuition
 A vector field assigns a vector to every point in space. Think of a weather map
 showing wind velocity at each location, or the gravitational pull at every point

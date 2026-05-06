@@ -16,6 +16,17 @@ applications:
 
 # Catalan Numbers and the Ballot Problem
 
+## Explain Like I Am 7
+
+Imagine an election where Alice gets more votes than Bob, and you
+peek at the ballots one at a time.  What's the chance Alice is
+*always* ahead, from the very first ballot to the last?  Surprisingly
+the answer comes from those magical **Catalan numbers** that also
+count balanced bracket strings, mountain-shaped paths that never dip
+below ground, and binary trees.  The trick that solves all of them
+is the **reflection principle** — a clever mirror move that flips
+the bad paths into easy-to-count shapes and subtracts them away.
+
 ## Mental
 
 The **Catalan numbers** $C_n$ count an enormous family of structures:

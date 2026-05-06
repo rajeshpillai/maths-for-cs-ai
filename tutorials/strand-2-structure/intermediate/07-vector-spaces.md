@@ -16,6 +16,17 @@ applications:
 
 # Vector Spaces over a Field
 
+## Explain Like I Am 7
+
+Imagine little arrows you can lay end-to-end to make new arrows, and
+you can also stretch any arrow to twice its length, half its length,
+or flip its direction.  A **vector space** is *any* collection of
+things that behaves like that: combinable by adding, stretchable by
+numbers from a chosen number-system.  Arrows in space, lists of
+numbers, even functions on a number-line — they all fit the bill, and
+once you spot the pattern you can use the same tools (basis,
+dimension, projection) on each.
+
 ## Mental
 
 A **vector space** $V$ over a field $F$ is an abelian group $(V, +)$

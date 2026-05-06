@@ -16,6 +16,18 @@ applications:
 
 # Combinatorial Physics
 
+## Explain Like I Am 7
+
+Picture a giant chessboard where each square has a tiny arrow
+pointing in one of four directions, but with rules: every square
+must have exactly two arrows coming in and two going out.  Counting
+the legal arrow-fillings of an enormous board sounds impossible,
+yet physicists discovered exact, beautiful answers.  These tiles
+also model how ice crystals freeze, how soap bubbles stack, and how
+quantum particles arrange themselves.  Combinatorial physics is the
+playground where counting puzzles and physical reality wear the
+same clothes.
+
 ## Mental
 
 **Combinatorial physics** studies physical models with combinatorial

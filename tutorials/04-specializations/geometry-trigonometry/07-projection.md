@@ -1,5 +1,16 @@
 # Projection — Orthographic vs Perspective
 
+## Explain Like I Am 7
+
+Hold a toy car under a sunny window.  Its **shadow** on the floor is a
+flat picture of the 3D car — that's a **projection**.  In *orthographic*
+projection the sun shines straight down, so the shadow is the same
+size whether the car is near or far.  In *perspective* projection the
+light comes from your eye like a torch beam — the closer the car, the
+bigger the shadow.  Real life looks like the second one (railway tracks
+shrinking off into the distance), and so does almost every 3D video
+game.
+
 ## Intuition
 
 Projection maps 3D space onto a 2D screen.  **Orthographic** preserves

@@ -1,5 +1,16 @@
 # Compare with the PyTorch Equivalent
 
+## Explain Like I Am 7
+
+Imagine you spent a whole afternoon kneading bread by hand — measuring
+flour, mashing dough, watching it rise.  Then your dad shows you the
+**bread machine**: pour stuff in, press one button, done.  PyTorch is
+the bread machine for neural networks.  It does the boring squishing
+and slope-finding for you in a single line, but underneath the lid the
+moving parts are *exactly* the steps you did by hand.  Knowing the hand
+recipe makes the machine feel friendly, not magic — when it beeps, you
+know what's happening inside.
+
 ## Intuition
 
 You've built a neural network from scratch.  Now see how PyTorch expresses

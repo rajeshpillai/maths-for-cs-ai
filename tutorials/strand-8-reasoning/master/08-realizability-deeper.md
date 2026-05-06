@@ -16,6 +16,17 @@ applications:
 
 # Realizability and Effective Topos
 
+## Explain Like I Am 7
+
+Earlier you saw that proofs secretly carry working gadgets inside.
+Now picture an entire *math universe* where **only** things you can
+actually compute are allowed to exist — anything that can't be
+calculated by some little robot is simply absent from the world.
+This computer-only snow globe is called the *effective topos*, and
+doing math inside it is like building cars where every tool must be
+buildable from scratch in the workshop.  Strange things happen — but
+everything is provably constructable.
+
 ## Mental
 
 Strand 8 Advanced Lesson 06 introduced realizability: each

@@ -16,6 +16,18 @@ applications:
 
 # Large Deviations
 
+## Explain Like I Am 7
+
+The law of large numbers tells you a coin's average will hover
+near $0.5$.  The central limit theorem says the size of typical
+wiggles shrinks like one over root $n$.  But how rare is a *huge*
+deviation — say averaging $0.7$ heads in a million flips?  **Large
+deviation theory** says it's exponentially small, and it gives the
+exact rate of decay using a tidy "rate function" you can compute
+from each coin's recipe.  This is how physicists model rare
+catastrophic events and how machine-learners bound the chance an
+algorithm goes badly off course.
+
 ## Mental
 
 LLN says $\bar X_n \to \mu$. CLT says $\sqrt n (\bar X_n - \mu) \to \mathcal N(0, \sigma^2)$.

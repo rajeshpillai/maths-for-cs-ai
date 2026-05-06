@@ -16,6 +16,17 @@ applications:
 
 # Recursion — Solving Problems by Self-Reference
 
+## Explain Like I Am 7
+
+You want to know how many people are in front of you in a long, twisty
+queue, but you can't see the front.  Easy: tap the kid in front of you
+and ask, "how many people are in front of *you*, plus one?"  That kid
+asks the next, who asks the next, all the way to the front of the
+line.  The very first kid says "zero," and the answer travels back to
+you.  **Recursion** is solving a big problem by politely asking a
+slightly smaller copy of itself for help, and trusting it to come
+back.
+
 ## Mental
 
 A **recursive** function solves a problem by calling itself on a

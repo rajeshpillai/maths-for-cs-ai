@@ -16,6 +16,17 @@ applications:
 
 # Condensed Mathematics
 
+## Explain Like I Am 7
+
+Topology — the math of stretchy, glue-able shapes — turns out to play
+*badly* with the algebra of vector-arrows: combining the two languages
+keeps producing broken sentences.  Clausen and Scholze had a wild
+fix: replace the idea of a "shape" with a more flexible bookkeeping
+device called a **condensed set**, where every shape is reconstructed
+from its cluster of tiny disconnected fragments.  In this new world,
+the algebra and the topology finally hold hands without arguing —
+unlocking decades-stuck problems in analysis and arithmetic geometry.
+
 ## Mental
 
 **Condensed mathematics** (Clausen-Scholze, ~2018) replaces

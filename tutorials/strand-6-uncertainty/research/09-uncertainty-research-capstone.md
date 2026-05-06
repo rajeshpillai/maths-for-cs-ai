@@ -16,6 +16,18 @@ applications:
 
 # Capstone — Uncertainty at the Frontier
 
+## Explain Like I Am 7
+
+This grand finale walks the frontier: random conformal SLE curves,
+quantum-gravity crumpled surfaces, universal eigenvalue gaps,
+free-probability semicircles, generalisation bounds for deep
+learning, sample-efficient reinforcement learning, Bayesian
+deep nets that know what they don't know, automatic causal
+discovery, and the homogenisation of randomness into smooth
+effective laws.  We thread these into three modern stories — image
+generation, learning theory, and multi-scale modelling — to show
+how researchers in 2026 actually use this entire toolbox at once.
+
 ## Mental
 
 Nine lessons on:

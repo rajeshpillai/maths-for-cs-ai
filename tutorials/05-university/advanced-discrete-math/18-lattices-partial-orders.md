@@ -1,5 +1,16 @@
 # Lattices and Partial Orders
 
+## Explain Like I Am 7
+
+Imagine sorting toys by size: a marble is smaller than a ball, a
+ball is smaller than a bike.  Easy line.  But now sort marbles
+against teddy bears — they're not bigger or smaller than each other,
+just *different*!  Some pairs of toys can be compared, others can't.
+That's a **partial order**.  A nicer kind of partial order, called a
+**lattice**, always lets you find a "smallest thing both fit inside"
+and a "biggest thing both fit on top of" — like family trees, where
+any two relatives share a common ancestor and a common descendant.
+
 ## Intuition
 
 Not everything can be ranked in a single line. Some things are incomparable —

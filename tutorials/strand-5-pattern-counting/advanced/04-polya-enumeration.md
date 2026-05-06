@@ -16,6 +16,17 @@ applications:
 
 # Pólya Enumeration
 
+## Explain Like I Am 7
+
+Suppose you're painting necklace beads with red, blue, or green
+paint, but spinning the necklace doesn't make a *new* necklace.
+Counting the truly different paintings is hard because the spins
+muddle them.  Pólya's trick is a clever recipe that tracks not just
+*how* spins shuffle beads, but *how many* of each colour go where.
+With it you can ask "how many necklaces have exactly two red, three
+blue, one green?" and get an exact answer — useful when chemists
+count molecules or game designers count rotated puzzle pieces.
+
 ## Mental
 
 **Burnside's lemma** (Strand 2 Intermediate Lesson 05) counts orbits.

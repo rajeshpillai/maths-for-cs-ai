@@ -16,6 +16,17 @@ applications:
 
 # Categorical Quantum Mechanics
 
+## Explain Like I Am 7
+
+Quantum physics is famously full of scary equations.  Researchers
+discovered that almost all the maths can be drawn instead as
+*spaghetti diagrams*: each quantum particle is a string, each
+interaction is a knot or crossing, and you reason by tugging the
+strings into tidier shapes.  If two diagrams can be wiggled into the
+same picture without snipping or gluing, they describe the *same*
+physics.  Suddenly hard quantum proofs become little doodling games,
+and tricks like teleportation are a few twists of spaghetti.
+
 ## Mental
 
 **Categorical quantum mechanics (CQM)** (Abramsky-Coecke 2004):

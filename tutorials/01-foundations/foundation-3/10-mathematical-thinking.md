@@ -1,5 +1,15 @@
 # Mathematical Thinking — Problem-Solving Strategies
 
+## Explain Like I Am 7
+
+When a brand-new puzzle lands on the table, you don't just stare at it
+— you turn pieces over, group the edges, look for matching colours,
+and try a corner.  *Mathematical thinking* is the same set of habits.
+Draw a picture, try a tiny version first, look for a pattern, ask "have
+I seen something like this before?", and check your answer at the end
+to make sure it really fits.  Maths heroes aren't faster — they just
+keep using these little tricks until something snaps into place.
+
 ## Intuition
 
 Mathematics is not about memorising formulas — it is about **thinking

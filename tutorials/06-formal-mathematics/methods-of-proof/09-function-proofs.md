@@ -1,5 +1,15 @@
 # Function Proofs — Injectivity, Surjectivity, Bijectivity
 
+## Explain Like I Am 7
+
+Imagine a coat-check at a party.  Each guest hands in a coat and gets a
+ticket.  If no two guests ever get the *same* ticket, the system is
+**one-to-one** — no mix-ups when you come back.  If every ticket from
+the booklet ends up given out, the system is **onto** — no leftover
+tickets.  When both happen at once it's a perfect pairing: every coat
+has a unique ticket and every ticket has a coat.  That's the dream
+machine, and you can run it backwards to fetch the right coat every time.
+
 ## Intuition
 
 A function is like a machine that takes inputs and produces outputs. An

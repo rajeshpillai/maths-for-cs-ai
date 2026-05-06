@@ -16,6 +16,17 @@ applications:
 
 # Cyclic Group Classification
 
+## Explain Like I Am 7
+
+Imagine a single dance step that you keep doing over and over —
+"hop right one notch."  After enough hops you've visited every chair
+on a circle of seats and you're back home.  A **cyclic** group is just
+that: a kit-of-moves built from one repeated step.  And here's a
+beautiful surprise: *every* cyclic kit of size $n$ is secretly the
+same as clock-arithmetic on $n$ — they're all the same group wearing
+different hats.  Two simple shapes (a clock-loop or the infinite
+ladder of integers) cover every single cyclic kit in the universe.
+
 ## Mental
 
 A group $G$ is **cyclic** if there's some $g \in G$ — a *generator*

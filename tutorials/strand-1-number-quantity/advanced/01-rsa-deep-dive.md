@@ -17,6 +17,17 @@ applications:
 
 # RSA — Cryptography from First Principles
 
+## Explain Like I Am 7
+
+Picture a magical mailbox with two keys.  The **public** key locks the
+box and you can hand it out to anyone — taped to a billboard, even.
+The **private** key unlocks it, and you keep that one in your pocket.
+The trick that makes it work: the lock is built from two huge prime
+numbers multiplied together, and even the world's best computers can't
+un-multiply the result back into those primes within a human
+lifetime.  So strangers can drop secret notes into your box, and only
+you can read them.
+
 ## Mental
 
 **RSA** (Rivest-Shamir-Adleman, 1977) is the public-key cryptosystem

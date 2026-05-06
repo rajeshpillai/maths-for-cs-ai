@@ -16,6 +16,17 @@ applications:
 
 # Martingales
 
+## Explain Like I Am 7
+
+A **martingale** is a fair game where on average you neither win
+nor lose — your wealth tomorrow, on average given everything you
+know today, equals your wealth today.  Picture a coin-flip game
+where heads adds a dollar and tails subtracts a dollar.  No matter
+how cleverly you decide when to stop playing, you can't expect to
+walk away richer than you started.  This "no free lunch" idea
+underpins gambling theory, financial pricing, and modern online
+learning algorithms — it's the math of fairness through time.
+
 ## Mental
 
 A **martingale** is a stochastic process $X_0, X_1, X_2, \ldots$

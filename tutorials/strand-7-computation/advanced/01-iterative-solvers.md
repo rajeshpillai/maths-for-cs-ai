@@ -16,6 +16,17 @@ applications:
 
 # Iterative Solvers and Sparse Methods
 
+## Explain Like I Am 7
+
+You're solving a giant join-the-dots puzzle — millions of dots — and
+the lazy way is to start with a guess and *nudge* it closer to the
+answer over and over, like adjusting a wonky picture frame until it
+hangs straight.  Each nudge is cheap, and after enough nudges the
+frame is straight enough.  Most of the picture is already nailed in
+place, so you only ever touch the few wobbly spots.  That's the whole
+trick: cheap nudges, ignore the empty space, stop when it looks
+right.
+
 ## Mental
 
 For huge sparse systems $A \mathbf{x} = \mathbf{b}$ ($n = 10^6$ or

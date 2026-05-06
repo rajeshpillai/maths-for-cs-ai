@@ -16,6 +16,17 @@ applications:
 
 # Liouville Quantum Gravity
 
+## Explain Like I Am 7
+
+Imagine the bedsheet of a 2D universe, but the bedsheet is
+crumpled at *every* scale by quantum randomness — bumps within
+bumps within bumps.  **Liouville quantum gravity** is the math of
+those random crumpled surfaces, where every spot's "thickness" is
+the exponential of a random fluctuating number.  When physicists
+draw random surfaces with random curves on them — the building
+blocks of 2D quantum gravity — Sheffield and friends showed how
+to encode each surface as a tidy pair of random tree-walks.
+
 ## Mental
 
 **Liouville Quantum Gravity (LQG)**: a random Riemannian metric in

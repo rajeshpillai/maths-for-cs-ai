@@ -16,6 +16,17 @@ applications:
 
 # Asymptotic Combinatorics
 
+## Explain Like I Am 7
+
+Some counting answers — like the number of ways to shuffle a
+hundred cards — are gigantic numbers no calculator can handle
+exactly.  Asymptotic counting trades exactness for a tidy
+"close-enough" formula that gets nearly perfect for big numbers.
+Stirling's recipe, for instance, says $n!$ behaves almost exactly
+like $\sqrt{2\pi n} (n/e)^n$.  This is how birthday-paradox surprises,
+hash-table collision rates, and the running time of randomised
+sorting are all estimated without crunching every detail.
+
 ## Mental
 
 Counting often produces sequences that grow rapidly. **Asymptotic

@@ -17,6 +17,17 @@ applications:
 
 # Cross Product and 3D Vectors
 
+## Explain Like I Am 7
+
+Hold two pencils flat on your desk, both starting at the same point
+but pointing different ways.  Now imagine a *third* pencil that
+sticks straight up out of the desk, perpendicular to both.  That
+third pencil — pointing out of the page — is what the **cross
+product** gives you.  Its length tells you how big a parallelogram
+the first two pencils enclose, and the way it points tells you which
+side of the desk is "up."  Game engines use this to find which way
+walls face.
+
 ## Mental
 
 In 3D, vectors are triples: $\mathbf{v} = (v_x, v_y, v_z)$.

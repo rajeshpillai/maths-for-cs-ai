@@ -1,5 +1,16 @@
 # Vinculum Numbers — Bar Numbers for Simplified Arithmetic
 
+## Explain Like I Am 7
+
+Suppose someone asks for **"7 dollars 89 cents."**  You might pay with
+8 dollars and ask for 11 cents back — easier than counting out 89
+pennies!  **Vinculum numbers** use exactly that "almost-but-take-one-
+back" idea.  Instead of dealing with the big digit 9, write 89 as
+"90 minus 1," with a tiny bar over the 1 to remind you it's a
+**takeaway** digit.  Big chunky digits become small friendly digits.
+Multiply, add, whatever you wanted — it's gentler on your brain.
+Then convert back at the end.  Fewer carries, fewer slips.
+
 ## Intuition
 
 When you multiply by a number like 89, you're dealing with large digits (8 and 9)

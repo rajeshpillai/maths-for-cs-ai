@@ -16,6 +16,16 @@ applications:
 
 # Ricci Flow and Geometric Analysis
 
+## Explain Like I Am 7
+
+Pour hot water on a lumpy ice sculpture and watch it slowly smooth
+out into a round shape.  **Ricci flow** is exactly that idea, but
+for the bumps in the *shape of space itself*: a rule that gradually
+melts away the wrinkly bits of a curved world while leaving its
+big features alone.  Mathematicians used this melting trick to
+solve the Poincaré conjecture — a famous riddle from 1904 about
+which 3D shapes are secretly just round balls in disguise.
+
 ## Mental
 
 **Hamilton's Ricci flow** (1982): evolve a Riemannian metric $g$ by

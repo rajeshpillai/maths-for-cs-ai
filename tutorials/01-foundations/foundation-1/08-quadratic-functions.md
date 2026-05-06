@@ -1,5 +1,13 @@
 # Quadratic Functions — Forms, Graphs, and the Quadratic Formula
 
+## Explain Like I Am 7
+
+Throw a ball straight up in the air.  It goes up, slows down, stops for a
+tiny moment at the top, then falls back down — drawing a smooth arch in
+the sky.  That arch shape is a **quadratic**.  Anything that grows by
+*squaring* — like the area of a square tile when you double its side —
+makes the same kind of curvy U-shape when you draw it on a graph.
+
 ## Intuition
 
 A quadratic function describes any quantity that grows (or shrinks) with the

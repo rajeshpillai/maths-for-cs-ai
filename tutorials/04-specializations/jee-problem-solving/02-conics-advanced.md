@@ -1,5 +1,16 @@
 # Conics — Advanced (Parametric Forms, Tangents, Loci)
 
+## Explain Like I Am 7
+
+Slice an ice-cream cone with a knife at different angles and the cut
+makes different curvy shapes — a circle, an oval (ellipse), a smile
+(parabola), or two curving wings (hyperbola).  These are **conics**.
+Instead of describing them with one big messy equation, we use a
+**parameter** — a tiny dial we turn from 0 to all-the-way-around.
+As we spin the dial, our pencil traces out the whole curve in order,
+like an ant walking the path.  This makes finding tangent lines and
+special points a hundred times easier.
+
 ## Intuition
 
 Conic sections — parabola, ellipse, hyperbola — are the curves you get by slicing a cone

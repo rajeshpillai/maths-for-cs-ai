@@ -1,5 +1,16 @@
 # Numerical Methods — Newton-Raphson and Bisection
 
+## Explain Like I Am 7
+
+You hid a treasure between metre 0 and metre 100 of the garden.  Your
+friend can only tell you "warmer" or "colder."  **Bisection** says: try
+metre 50 — *cold*.  Now you know it's between 0 and 50, so try 25.
+Each guess chops the search in half, so you home in fast and you're
+*never wrong*.  **Newton's method** is fancier: you also peek at the
+slope of the ground and slide along that slope toward zero, jumping
+huge distances when you're far away — super speedy when it works, but
+sometimes it slips off the trail entirely.
+
 ## Intuition
 
 Not every equation has a neat closed-form solution.  $x^5 - x - 1 = 0$?

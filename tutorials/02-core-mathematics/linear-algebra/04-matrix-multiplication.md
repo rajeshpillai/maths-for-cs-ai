@@ -1,5 +1,16 @@
 # Matrix Multiplication — Why Rows × Columns
 
+## Explain Like I Am 7
+
+Imagine two recipe-maker machines lined up on the kitchen counter.
+The first machine takes apples in and spits out smoothie ingredients.
+The second machine takes those ingredients and makes you a milkshake.
+**Matrix multiplication** is the rule for sticking the two machines
+together to get one super-machine: apples in, milkshake out.  Each
+spot in the new machine's recipe card is built by walking down a row
+of one card and across a column of the other, multiplying matched
+items, and summing the lot.
+
 ## Intuition
 
 Matrix multiplication is not "multiply entry by entry."  It's a series of

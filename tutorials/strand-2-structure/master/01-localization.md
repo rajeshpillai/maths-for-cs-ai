@@ -16,6 +16,17 @@ applications:
 
 # Localisation
 
+## Explain Like I Am 7
+
+Think of a ring as a town where most streets are one-way: you can
+multiply by stuff, but dividing only works for a few special items.
+**Localisation** is what happens when you officially declare a chosen
+neighbourhood of streets to be two-way — those items now have proper
+divide-by buttons.  Building fractions out of the integers (turning
+$\mathbb Z$ into $\mathbb Q$) is the most familiar example.  Algebraic
+geometers do this all the time when they want to "zoom in" on one
+patch of a curve and pretend the rest of the curve doesn't exist.
+
 ## Mental
 
 For a commutative ring $R$ and a multiplicatively closed subset

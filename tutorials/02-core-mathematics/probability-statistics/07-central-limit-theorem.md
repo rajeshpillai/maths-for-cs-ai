@@ -1,5 +1,16 @@
 # Central Limit Theorem
 
+## Explain Like I Am 7
+
+Roll a single die — the answer is just as likely to be 1 as 6.  Now
+roll **fifty** dice and write down the **average**.  Try this many
+times and look at all your averages: they bunch up beautifully around
+$3.5$, with very few way-out-there results.  No matter how lumpy or
+weird your starting bag of numbers is, the *average of lots of them*
+always settles into the same friendly bell-shape.  That hidden tidiness
+is why bell curves pop up in heights, test scores, and noisy
+sensors — the famous **central limit theorem**.
+
 ## Intuition
 
 Take **any** distribution — no matter how weird — and average many independent

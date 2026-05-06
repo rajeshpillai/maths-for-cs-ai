@@ -16,6 +16,17 @@ applications:
 
 # Dependent Types
 
+## Explain Like I Am 7
+
+Imagine each toy in the box wears a sticker: *teddy*, *truck*,
+*marble*.  A normal sticker says only what *kind* of toy it is.  A
+**dependent** sticker says more: not just "marble" but "*marble from
+a bag of seven marbles*."  When you slot two of these stickered toys
+together, the labels have to *match the numbers* — try to glue a
+"bag-of-seven" piece to a "bag-of-three" socket and the label refuses
+to fit.  These number-aware stickers stop a whole class of mistakes
+before the toy is ever assembled.
+
 ## Mental
 
 **Simple types**: a function $f : A \to B$ takes any $A$ and returns

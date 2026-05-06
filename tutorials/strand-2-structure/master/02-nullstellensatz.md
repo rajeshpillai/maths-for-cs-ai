@@ -16,6 +16,17 @@ applications:
 
 # Hilbert's Nullstellensatz
 
+## Explain Like I Am 7
+
+Imagine a treasure map covered in equations.  The **shape drawn on
+the map** (the set of points where every equation hits zero) and the
+**list of equations** itself look like two totally different things —
+geometry on one side, algebra on the other.  Hilbert's
+"zero-place-theorem" is a magic dictionary that translates between
+the two perfectly: every shape is described by exactly one tidy
+ideal-of-equations, and vice versa.  This single dictionary is the
+foundation of all algebraic geometry.
+
 ## Mental
 
 Over an algebraically closed field $k$ (e.g., $\mathbb{C}$):

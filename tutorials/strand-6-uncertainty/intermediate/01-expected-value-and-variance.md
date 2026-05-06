@@ -18,6 +18,17 @@ applications:
 
 # Expected Value and Variance
 
+## Explain Like I Am 7
+
+Two games might both pay $\$0$ on average, yet feel utterly
+different.  One pays $\$1$ heads, $-\$1$ tails — small wobbles.
+The other pays a million dollars or *minus* a million dollars on
+the same coin flip — heart-stopping wobbles.  The **expected
+value** captures the average payout, but it doesn't notice the
+wobble.  The **variance** does.  Variance measures, on average,
+how far each spin lands from the mean.  Together they answer "what
+will it be?" *and* "how surprised should I be?".
+
 ## Mental
 
 Strand 6 Foundation Lesson 08 introduced expected value $E[X] = \sum

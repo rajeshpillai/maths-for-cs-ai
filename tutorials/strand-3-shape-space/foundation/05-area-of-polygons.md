@@ -18,6 +18,16 @@ applications:
 
 # Area of Polygons
 
+## Explain Like I Am 7
+
+Pretend you're tiling a bathroom floor with little square stickers.
+The **area** of any shape is just *how many sticker-squares fit
+inside without leaving gaps or overlapping*.  A rectangle is easy:
+count the rows, count the columns, multiply.  Any wonkier shape — a
+triangle, a kite, a slice of pie — can be cut up, slid around, and
+re-glued into rectangles, so the same square-counting trick still
+works once you know which clever cut to make.
+
 ## Mental
 
 **Area** measures how much surface a 2D shape covers. It is measured in

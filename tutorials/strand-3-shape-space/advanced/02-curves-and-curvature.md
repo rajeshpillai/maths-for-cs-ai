@@ -16,6 +16,16 @@ applications:
 
 # Curves and Curvature
 
+## Explain Like I Am 7
+
+Drive a toy car along a windy road.  On the straight bits, the
+steering wheel sits still; on tight hairpins, you crank the wheel
+hard.  **Curvature** is just a number that tells you how hard the
+wheel is turning at each spot.  Big number on the hairpins, zero
+on the straights.  If you also drive on a road that *climbs and
+dives*, you need a second number for "how much it twists out of
+flatness" — that's torsion, the road's corkscrewing.
+
 ## Mental
 
 A **smooth parameterised curve** $\gamma : I \to \mathbb{R}^n$ assigns

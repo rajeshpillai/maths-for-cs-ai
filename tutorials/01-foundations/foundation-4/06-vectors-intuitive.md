@@ -1,5 +1,16 @@
 # Vectors — Intuitive Introduction
 
+## Explain Like I Am 7
+
+Knowing "I walked 5 metres" doesn't help your friend find you — they
+also need to know **which way**.  A **vector** is just an arrow that
+carries both pieces of news at once: how far, and in what direction.
+Two arrows added together mean "do the first walk, then the second
+walk, and end up wherever you end up."  Doubling an arrow means
+"walk the same way, but twice as far."  That tiny idea — arrows that
+add and stretch — is enough to steer rockets, robots, and game
+characters.
+
 ## Intuition
 
 A scalar tells you "how much" (temperature, mass, speed).  A **vector** tells

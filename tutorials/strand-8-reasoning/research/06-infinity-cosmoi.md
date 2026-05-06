@@ -16,6 +16,17 @@ applications:
 
 # $\infty$-Cosmoi and Formal $\infty$-Category Theory
 
+## Explain Like I Am 7
+
+There are several different ways to draw the same fancy map (we
+called them "snow globes" earlier — categories with paths, paths of
+paths, and so on).  Mathematicians kept asking, "is the map I drew
+the *same* as the one over there?"  An **$\infty$-cosmos** is a
+playground big enough to hold all those maps at once and let you
+prove things *without* committing to one drawing style.  It's like
+explaining a recipe in a way that works in every kitchen, no matter
+which oven brand the cook owns.
+
 ## Mental
 
 There are several **models** of $(\infty, 1)$-categories:

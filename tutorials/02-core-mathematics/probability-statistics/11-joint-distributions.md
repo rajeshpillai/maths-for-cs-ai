@@ -1,5 +1,15 @@
 # Joint Distributions — Joint PMF/PDF, Marginals, and Independence
 
+## Explain Like I Am 7
+
+Pretend you're rolling a red die *and* a blue die at the same time.
+A **joint distribution** is a giant table that lists, for every
+possible pair (red=4 and blue=2, red=1 and blue=6, …), exactly how
+likely that pair is.  If you only care about the red die, you can
+*ignore* the blue and squash the table into one row — that squashed
+view is called the **marginal**.  And if knowing one die never
+changes your guess about the other, the dice are **independent**.
+
 ## Intuition
 
 So far every distribution has described a single variable.  But in the real

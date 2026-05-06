@@ -16,6 +16,17 @@ applications:
 
 # Smooth Manifolds
 
+## Explain Like I Am 7
+
+Stand on the soccer field at school.  The field looks perfectly flat
+to you — but you also know the whole Earth is a giant ball.  A
+**smooth manifold** is any shape that's like that: it might be
+curved or twisted overall, but if you zoom in tight on any one spot,
+it looks like an ordinary flat sheet of paper.  A globe, a rubber
+inner-tube, a saddle, a pretzel — all are smooth manifolds.  A pile
+with a sharp pointy corner is *not*, because the corner won't ever
+look flat no matter how close you zoom in.
+
 ## Mental
 
 A **smooth manifold** $M$ of dimension $n$ is a topological space

@@ -16,6 +16,19 @@ applications:
 
 # Free Probability
 
+## Explain Like I Am 7
+
+In ordinary probability, $X \cdot Y$ and $Y \cdot X$ mean the same
+thing because numbers commute.  But matrices don't!  When you ask
+"what's the spectrum of two huge random matrices added together?"
+classical independence doesn't help.  Voiculescu invented **free
+probability** for this non-commuting world: a new kind of
+"independence" called *freeness*, with its own central limit
+theorem (where bell curves are replaced by semicircles).  This
+strange new probability shows up wherever big random matrices
+appear — quantum information, ML eigenvalue analysis, wireless
+communications.
+
 ## Mental
 
 **Free probability** (Voiculescu 1985): a non-commutative analogue of

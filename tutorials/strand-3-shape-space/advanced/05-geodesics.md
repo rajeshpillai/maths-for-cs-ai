@@ -16,6 +16,16 @@ applications:
 
 # Geodesics
 
+## Explain Like I Am 7
+
+Stretch a rubber band tight between two pins on a basketball.  It
+won't take a wonky path — it will snap into the *shortest possible*
+route along the curved skin of the ball.  That route is a
+**geodesic** — the local "straightest" line a surface allows.  On
+a flat floor it's just a straight line; on a globe it's an arc of
+the great circle, which is why airplanes from London to Tokyo curve
+up over the North Pole instead of going straight east on the map.
+
 ## Mental
 
 A **geodesic** on a surface (or Riemannian manifold) is a curve that

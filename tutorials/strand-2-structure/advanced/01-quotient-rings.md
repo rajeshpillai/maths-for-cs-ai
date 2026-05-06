@@ -16,6 +16,17 @@ applications:
 
 # Quotient Rings
 
+## Explain Like I Am 7
+
+Take a ring of toys, pick out a sticky drawer (an ideal), and pretend
+*everything inside the drawer is the same as zero*.  Now any two toys
+that differ only by something in the drawer get glued together into
+one new toy.  The collection of these glued toys, with the obvious
+add-and-multiply rules, is a brand-new ring — a **quotient ring**.
+Modular arithmetic is the simplest example: collapse all multiples of
+$n$ to zero, and you get clock arithmetic mod $n$, which is itself a
+ring.
+
 ## Mental
 
 Given a ring $R$ and ideal $I$, the **quotient ring** $R/I$ has:

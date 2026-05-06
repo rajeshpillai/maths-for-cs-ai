@@ -1,5 +1,16 @@
 # Graph Neural Networks — Spectral Convolution
 
+## Explain Like I Am 7
+
+Picture a giant friendship-web on the playground: every kid is a dot,
+and a string ties two kids if they're best friends.  Now play the
+**telephone game**: each kid whispers a small fact about themselves
+to all their string-buddies.  After one round, every kid mixes what
+they hear into a new fact about who they are.  Do that a few times
+and tucked-away friendships start to glow — the kid who barely
+talks turns out to share friends with the loudest kid.  A **GNN**
+plays this telephone game with numbers instead of secrets.
+
 ## Intuition
 
 CNNs work on grids (images).  But what about data on **graphs** — social

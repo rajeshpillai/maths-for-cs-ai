@@ -16,6 +16,18 @@ applications:
 
 # Non-Commutative Geometry
 
+## Explain Like I Am 7
+
+In ordinary geometry, you describe a shape by listing the well-behaved
+functions that live on it — and crucially, "function $f$ then $g$"
+gives the same answer as "function $g$ then $f$."  Quantum physics
+broke that politeness: measurement A then B can disagree with B then
+A.  Connes's bold idea was to drop the politeness rule but *keep
+doing geometry anyway* — using operator-algebra recipes to define
+"shape," "distance," and "curvature" for spaces that are too quantum
+to draw on paper.  It's geometry where the order of ingredients
+matters.
+
 ## Mental
 
 **Connes's non-commutative geometry (NCG)**: replace classical

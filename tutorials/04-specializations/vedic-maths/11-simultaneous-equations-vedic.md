@@ -1,5 +1,16 @@
 # Sunyam Anyat & Paravartya — Vedic Simultaneous Equations
 
+## Explain Like I Am 7
+
+Two riddles about two mystery numbers — say "x and y."  The textbook
+way takes lots of careful steps.  The Vedic way is a quick **cross
+dance**: you write the numbers from each riddle in two rows, draw
+two diagonal arrows, multiply along the arrows and subtract.  The
+top of your fraction is one mystery; the bottom is the other.  Pop
+out the answers in seconds!  And if the riddles are extra symmetric
+(like both ending the same way), there's an even faster shortcut
+where the answer is "**zero**" before you finish reading.
+
 ## Intuition
 
 Solving simultaneous equations the textbook way (substitution or elimination)

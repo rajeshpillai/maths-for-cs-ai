@@ -1,5 +1,15 @@
 # Exponential and Logarithmic Equations — Growth, Decay, and Half-Life
 
+## Explain Like I Am 7
+
+A rabbit family doubles every spring; a melting ice cube halves every
+hour in the sun.  These equations let you ask grown-up questions like
+*"when will there be a thousand rabbits?"* or *"how long until only a
+spoonful of ice is left?"*  The trick: doubling and halving are
+*partners* with the **logarithm**, which is the magical undo-button
+that turns a runaway pile of rabbits back into a tidy little number
+of springs.  Set up the rule, press undo, read off the answer.
+
 ## Intuition
 
 Exponential growth and decay model processes where the rate of change is

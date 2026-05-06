@@ -16,6 +16,17 @@ applications:
 
 # Quadratic Reciprocity
 
+## Explain Like I Am 7
+
+Imagine two prime-numbered villages, Pville and Qville.  In each
+village there's a question: "is the *other* village's number a perfect
+square on our local clock?"  You'd think the two villages would answer
+independently — they're far apart, after all.  Gauss discovered an
+*astonishing* secret: the two answers are nearly always the same, and
+when they disagree, you can predict it from one quick look at whether
+each prime is "naughty" (3 mod 4) or "nice" (1 mod 4).  It's like a
+hidden pen-pal handshake between every pair of primes.
+
 ## Mental
 
 For an odd prime $p$ and an integer $a$ coprime to $p$, define the

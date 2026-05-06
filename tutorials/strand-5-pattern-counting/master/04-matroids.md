@@ -16,6 +16,17 @@ applications:
 
 # Matroids
 
+## Explain Like I Am 7
+
+A **matroid** is a fancy word for "anything that behaves like a
+bunch of independent things."  Picture a pile of LEGO bricks: some
+sets of bricks fit together into a sturdy tower without falling
+over (these are the "independent" sets), and any sub-pile of a
+sturdy pile is still sturdy.  The deep idea is that the *same*
+abstract rules describe linearly independent vectors, cycle-free
+collections of road segments on a map, and many other unrelated
+puzzles — so the same greedy algorithm solves them all.
+
 ## Mental
 
 A **matroid** $M = (E, \mathcal I)$:

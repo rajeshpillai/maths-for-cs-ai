@@ -1,5 +1,15 @@
 # Predicate Logic — Quantifiers and Bound Variables
 
+## Explain Like I Am 7
+
+Imagine a big basket of toys.  You can say things about *one* toy ("this
+red car has four wheels") or about *every* toy ("every toy in the basket
+has a sticker") or about *some* toy ("at least one toy in the basket is
+a dinosaur").  Those last two — "every" and "at least one" — are the
+two magic words this lesson teaches.  And there's a flipping rule: the
+opposite of "every toy has a sticker" isn't "no toy has a sticker," it's
+"at least one toy is missing its sticker."
+
 ## Intuition
 
 Propositional logic says "it is raining" is true or false. But we often need

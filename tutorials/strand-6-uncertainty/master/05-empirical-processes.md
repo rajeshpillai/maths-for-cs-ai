@@ -16,6 +16,18 @@ applications:
 
 # Empirical Processes and Concentration
 
+## Explain Like I Am 7
+
+You measure the height of $n$ random kids and build a "height
+histogram" from your sample.  How well does this histogram match
+the *true* histogram of all kids in the world — not just at one
+spot, but *everywhere* on the height axis at once?  **Empirical
+process** theory bounds the worst-case gap between your sample
+histogram and reality.  It's the math foundation behind why
+machine-learning models trained on $n$ examples *generalise* —
+they don't just match the training data, they actually approximate
+the true world.
+
 ## Mental
 
 For iid $X_1, \ldots, X_n$ with distribution $\mu$:

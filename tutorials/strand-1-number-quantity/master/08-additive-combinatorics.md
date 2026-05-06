@@ -16,6 +16,17 @@ applications:
 
 # Additive Combinatorics
 
+## Explain Like I Am 7
+
+Sprinkle a handful of pebbles along a number-line.  Now ask: "If I
+take every pair of pebbles and add their positions, do the answers
+clump tightly together or spread out?"  Tightly clumped means the
+original pebbles were arranged in a hidden ladder pattern; spread out
+means they were truly random.  Additive combinatorics is the science
+of these clumps and ladders — and it turns out to be the secret
+muscle behind theorems like "any big enough pile of whole numbers
+*must* contain a perfect arithmetic ladder."
+
 ## Mental
 
 **Additive combinatorics** studies sets with structure under

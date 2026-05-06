@@ -18,6 +18,16 @@ applications:
 
 # Riemann Sums and the Definite Integral
 
+## Explain Like I Am 7
+
+Imagine a wiggly hilltop drawn on graph paper.  How much *area* is
+trapped under that wiggle?  Try this: cover the area with skinny
+upright rectangles, all the same width.  Add their tiny areas up
+— that's a rough guess.  Now make the rectangles thinner and use
+more of them; your guess gets better.  Keep shrinking forever, and
+the guess settles onto the *exact* area.  That settling-down number
+is the **definite integral** — area, summed up one slice at a time.
+
 ## Mental
 
 The **definite integral** of a function $f$ over an interval $[a, b]$

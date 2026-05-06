@@ -1,5 +1,16 @@
 # Yavadunam — "Whatever the Extent of Deficiency"
 
+## Explain Like I Am 7
+
+To square 52 in your head, don't multiply 52 by 52 the long way.
+**Slide** the number to a friendly neighbour: 52 is just 50 plus 2.
+Square the neighbour (50 squared = 2500), add **double the friend**
+times the little 2 (that's 200), then square the little 2 (that's
+4).  Add: 2500 + 200 + 4 = **2704**.  Done!  Three easy adds, no
+ugly multiplication.  Same idea works for cubing.  The trick is
+trusting that little algebra recipes hold true for *any* number, so
+you can lean on them whenever a multiplication looks scary.
+
 ## Intuition
 
 This sutra uses algebraic identities — $(a+b)^2$, $(a-b)^2$, $(a+b)^3$ — as

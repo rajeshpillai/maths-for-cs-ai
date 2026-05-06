@@ -19,6 +19,18 @@ applications:
 
 # Symmetry Groups — Cyclic and Dihedral
 
+## Explain Like I Am 7
+
+Cut a paper snowflake and try to rotate or flip it so it lands looking
+*exactly* like before.  Each successful flip-or-spin is a **symmetry**
+of the snowflake, and the whole collection of them — a "do nothing"
+plus its handful of rotations and mirror flips — is a **symmetry
+group**.  An equilateral triangle has six such moves; a regular
+hexagon has twelve.  Different shapes give different groups, but
+every group of shape-symmetries falls into just two families:
+**cyclic** (only rotations) or **dihedral** (rotations *and*
+mirrors).
+
 ## Mental
 
 A **symmetry** of a shape is a transformation (rotation, reflection)

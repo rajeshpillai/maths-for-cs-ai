@@ -19,6 +19,16 @@ applications:
 
 # Mental Multiplication
 
+## Explain Like I Am 7
+
+Picture a chocolate bar that's snapped into rows and columns of little
+squares.  Three rows of four squares is *twelve* squares — and so is
+four rows of three.  Multiplying is just counting the squares in a
+rectangle, no matter how the chocolate happens to be turned.  When the
+numbers get big, you tile the rectangle with smaller bars you already
+know — like splitting a wall into easy-to-paint patches — so $13
+\times 7$ becomes "ten sevens plus three sevens."
+
 ## Mental
 
 Multiplication asks one question two ways:

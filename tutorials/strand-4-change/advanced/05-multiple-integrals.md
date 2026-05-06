@@ -16,6 +16,17 @@ applications:
 
 # Multiple Integrals
 
+## Explain Like I Am 7
+
+A single integral stacks skinny vertical *strips* under a curve
+to get an area.  A **double integral** stacks tiny vertical
+*toothpicks* under a wavy surface to get a volume — like measuring
+how much sand you'd pour over a lumpy patch of garden to bury it.
+A triple integral does it inside a 3D blob: chop the blob into
+sugar-cube-tiny chunks, weigh each chunk, add them all up.  It's
+just the rectangle-stacking idea, repeated for higher-dimensional
+piles.
+
 ## Mental
 
 A **double integral** $\iint_R f(x, y) \, dA$ generalises the area-

@@ -17,6 +17,16 @@ applications:
 
 # Capstone — Modern Geometry
 
+## Explain Like I Am 7
+
+You now have an entire workshop: surfboards-on-fruit for tangents,
+leaky-bucket meters for forms, ant-rulers for distance, swing-
+playgrounds for symplectic, dangling-balloons for bundles, and
+Lego-builds for CW complexes.  In this capstone you take a real
+curvy object — say, the surface of a doughnut wrapped in arrows —
+and let every gadget take a turn analysing it.  By the end you'll
+see how all of modern geometry's tools cooperate on a single shape.
+
 ## Mental
 
 Nine lessons on:

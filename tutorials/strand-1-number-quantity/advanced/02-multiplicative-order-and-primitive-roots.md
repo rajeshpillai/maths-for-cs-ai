@@ -17,6 +17,17 @@ applications:
 
 # Multiplicative Order and Primitive Roots
 
+## Explain Like I Am 7
+
+Pick a number on a clock-face and keep multiplying it by itself,
+landing on a new clock position each time.  Sooner or later you'll
+loop back home to "1," and the *number of multiplies* it took is the
+**order** of your starting number.  Some lucky starters visit *every*
+non-zero clock position before returning home — those superstars are
+called **primitive roots**, and a single one of them is enough to
+generate the whole clock.  Diffie-Hellman key-sharing on the internet
+relies on exactly this kind of one-step generator.
+
 ## Mental
 
 For $\gcd(a, n) = 1$, the **multiplicative order** of $a$ modulo $n$

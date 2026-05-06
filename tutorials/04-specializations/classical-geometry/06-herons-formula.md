@@ -1,5 +1,15 @@
 # Heron's Formula — Triangle Area from Side Lengths
 
+## Explain Like I Am 7
+
+You have a triangle made of three sticks but no ruler tall enough to
+measure its height.  How big is the inside?  Two thousand years ago a
+clever man named **Heron** worked out a magic recipe: add the three
+stick lengths, halve them to get a "halfway" number, then mix it with
+the three sticks in a special way under a square root.  Out pops the
+area — no height, no angles, no fuss.  As long as you know the three
+sides, Heron's recipe never fails.
+
 ## Intuition
 
 If you know all three sides of a triangle but **not** the height, can you

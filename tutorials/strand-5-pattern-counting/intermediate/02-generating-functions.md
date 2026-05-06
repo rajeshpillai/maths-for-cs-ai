@@ -21,6 +21,17 @@ applications:
 
 # Generating Functions — Counting with Polynomials
 
+## Explain Like I Am 7
+
+Think of a tidy little machine that hides a whole list of counts
+inside one polynomial.  Each power of $x$ is a *bucket*, and the
+number sitting in front of $x^k$ is "how many ways to make $k$."
+The magic happens when you *multiply* two of these machines:
+the buckets blend together exactly the way two-dice rolls combine
+into a two-dice sum.  By treating counts as polynomial coefficients,
+hard counting puzzles turn into ordinary algebra problems you can
+solve by multiplying, adding, and looking up the right bucket.
+
 ## Mental
 
 A **generating function** is a polynomial (or formal power series)

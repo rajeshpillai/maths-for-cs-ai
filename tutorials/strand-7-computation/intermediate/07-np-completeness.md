@@ -16,6 +16,17 @@ applications:
 
 # NP-Completeness and Reductions
 
+## Explain Like I Am 7
+
+Imagine a *boss puzzle* so sneaky that solving it would magically
+solve a whole pile of other tough puzzles too.  Show me a fast trick
+for the boss puzzle and I can quietly translate any other tough puzzle
+*into* the boss, run your trick, and translate the answer back.  The
+**NP-complete** puzzles are exactly these bosses — and we know
+hundreds of them, all secretly the same puzzle wearing different
+costumes.  Crack one and you crack them all; nobody yet knows whether
+that's possible.
+
 ## Mental
 
 A polynomial-time **reduction** $A \le_p B$ transforms instances of

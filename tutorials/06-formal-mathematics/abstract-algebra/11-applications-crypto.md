@@ -1,5 +1,16 @@
 # Applications to Cryptography
 
+## Explain Like I Am 7
+
+Two friends want to whisper a secret across a noisy playground full of
+eavesdroppers.  They each pick a private hop count, jump that many
+spaces around a circular hopscotch, and call out where they landed.
+By doing the *other* person's hop count from the spot just yelled, they
+both end up on the same secret square — but anyone listening can't
+work out either friend's private number.  Modern secret-code maths is
+that hopscotch trick on giant clock-circles where running it backwards
+is so slow nobody can do it in a lifetime.
+
 ## Intuition
 
 Modern cryptography is built on abstract algebra. Diffie-Hellman key exchange

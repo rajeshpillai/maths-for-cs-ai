@@ -1,5 +1,16 @@
 # Jacobian and Hessian Matrices
 
+## Explain Like I Am 7
+
+Imagine a control panel with several knobs that all change several
+lights.  A **Jacobian** is a tidy table that lists, for every knob
+and every light, *how much* the light changes when you nudge that
+knob a tiny bit.  The **Hessian** goes one step further: it
+describes the *bend* — is the brightness curving up like a smile or
+down like a frown as you twist?  Together they tell us whether we're
+heading down into a cosy bowl, up onto a peak, or onto a tricky
+horse-saddle.
+
 ## Intuition
 
 The **Jacobian** generalises the derivative to functions with multiple inputs

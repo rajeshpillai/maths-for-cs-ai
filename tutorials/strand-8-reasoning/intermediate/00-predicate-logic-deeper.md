@@ -16,6 +16,17 @@ applications:
 
 # Predicate Logic in Depth
 
+## Explain Like I Am 7
+
+Plain logic talks about whole sentences in one gulp.  **Predicate**
+logic zooms in to talk about *people* and *things* doing *stuff*:
+"Maya likes broccoli," "Sam is taller than Maya."  Now we can stack
+the *for-all* and *there-exists* badges in different orders, and the
+order really matters: "*every* lock has *some* key that opens it" is
+nice, but "there's *one* key that opens *every* lock" is the kind of
+master key a sneaky burglar dreams about.  Same words, very different
+worlds.
+
 ## Mental
 
 Foundation logic dealt with **propositions** ("$P$ is true / false")

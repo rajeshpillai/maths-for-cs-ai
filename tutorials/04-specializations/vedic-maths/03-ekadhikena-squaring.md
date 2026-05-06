@@ -1,5 +1,16 @@
 # Ekadhikena Purvena — "By One More Than the Previous One"
 
+## Explain Like I Am 7
+
+Want to square **75** in your head?  Watch this magic.  Take the
+front digit (**7**) and multiply it by the next number up (**8**) —
+that gives **56**.  Stick **25** on the end.  Answer: **5625**.
+That's it!  This trick works for any number ending in 5, because of
+a tidy bit of algebra hiding behind it.  No long multiplication, no
+columns of carries — just one little times-table fact and a "25"
+glued on the back.  After ten minutes of practice you can square
+15, 25, 35, all the way to 95 faster than someone can type it.
+
 ## Intuition
 
 Want to square 75 in your head? Answer: 5625. How? Take the tens digit (7),

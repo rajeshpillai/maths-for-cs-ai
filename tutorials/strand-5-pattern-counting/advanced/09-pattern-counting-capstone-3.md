@@ -17,6 +17,17 @@ applications:
 
 # Capstone — Counting at Scale
 
+## Explain Like I Am 7
+
+This is the grand finale.  You've collected polynomial-machines,
+bracelet-spin tricks, mirror-image tricks, average-argument tricks,
+and graph-flow tricks.  Now you point them at *real* problems —
+how fast does a randomised sort run on average?  How many tries does
+Secret Santa need before the gifts work out?  How many friendship
+graphs hide a hidden triangle?  The same toolkit that started with
+counting lollipops now answers questions a real-world algorithm
+designer faces every day.
+
 ## Mental
 
 Nine lessons on:

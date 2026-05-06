@@ -1,5 +1,15 @@
 # Solving ODEs with Laplace Transforms
 
+## Explain Like I Am 7
+
+You have a hard maths puzzle written in curly secret code.  Step one:
+zap the whole puzzle through the magic translator so it becomes a
+plain "find the missing number" puzzle.  Step two: shuffle the
+numbers around like normal until the answer pops out.  Step three:
+zap the answer back through the translator and you're holding the
+solution to the curly puzzle.  Best part: any starting clues you knew
+already get baked right into the recipe — no separate hunting later.
+
 ## Intuition
 
 In Lesson 13 you learned to translate individual functions into the $s$-domain.

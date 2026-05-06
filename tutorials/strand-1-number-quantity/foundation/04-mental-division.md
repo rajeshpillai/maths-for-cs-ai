@@ -19,6 +19,16 @@ applications:
 
 # Mental Division
 
+## Explain Like I Am 7
+
+Picture a giant pile of birthday-cake crumbs and three plates.  Sharing
+the crumbs **equally** is one kind of division.  But you could also
+ask: "if I scoop crumbs into spoonfuls of three, how many spoonfuls do
+I make?" — that's the *same answer*, told from the other side.  The
+biggest secret is that every multiplication fact you already know
+(like "three sixes are eighteen") is secretly a division fact in
+disguise ("eighteen split into threes is six").
+
 ## Mental
 
 Division asks one question two ways:

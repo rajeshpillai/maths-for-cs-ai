@@ -16,6 +16,17 @@ applications:
 
 # Capstone — Computation at the Frontier
 
+## Explain Like I Am 7
+
+This chapter is the world tour of computer-science adventures still
+being figured out *right now*.  Locked-box arithmetic.  Coins that
+won't stay still.  Padlocks built for a quantum future.  Maps of the
+secret gears inside neural networks.  Some of these mysteries will
+crack open in your lifetime; some may stay puzzles forever.  Either
+way, today's chapter takes the toolkit and points it at the open
+questions on the frontier — the kind of stuff working researchers
+argue about over coffee.
+
 ## Mental
 
 Nine lessons on:

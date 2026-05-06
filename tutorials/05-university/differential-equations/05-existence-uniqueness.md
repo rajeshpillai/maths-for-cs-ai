@@ -1,5 +1,15 @@
 # Existence & Uniqueness of Solutions
 
+## Explain Like I Am 7
+
+Before you go hunting for treasure, two questions matter most: *is the
+treasure really there?* and *is there only one chest, or did someone
+bury two?*  Mathematicians ask the same about change-rules: starting
+from where I am right now, is there a path the world will follow, and
+is it the **only** path?  If the rule is gentle and well-behaved (no
+sudden cliffs), the answer is yes to both — exactly one trail of
+breadcrumbs leads from here.
+
 ## Intuition
 
 Before you spend hours solving a differential equation, you should know: does

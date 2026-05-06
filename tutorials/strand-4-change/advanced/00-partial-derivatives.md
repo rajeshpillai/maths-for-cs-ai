@@ -16,6 +16,17 @@ applications:
 
 # Partial Derivatives and the Gradient
 
+## Explain Like I Am 7
+
+Stand in a hilly field where the height of the ground depends on
+how far north and how far east you walked.  How steep is it?
+Well, *which way* are you facing?  A **partial derivative** asks
+for the steepness in just one specific direction — say, only
+walking east.  Stack all the per-direction steepnesses together
+into a single arrow that points "uphill the fastest way," and
+you've got the **gradient** — nature's compass for "this is the
+quickest path up."
+
 ## Mental
 
 For a function $f : \mathbb{R}^n \to \mathbb{R}$, the **partial

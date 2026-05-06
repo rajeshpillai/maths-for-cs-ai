@@ -16,6 +16,18 @@ applications:
 
 # Brownian Motion
 
+## Explain Like I Am 7
+
+Drop a tiny grain of pollen into a glass of water and watch it
+through a microscope.  It zigzags wildly in every direction,
+pushed around by invisible water molecules.  **Brownian motion**
+is the math model of that frantic dance: a continuous random path
+where every short piece is a fresh tiny independent normal step.
+The path is so jagged it has *no slope* anywhere, yet it never
+breaks.  This single object is the building block of stock-market
+models, diffusion-based AI image generators, and the chemistry of
+heat spreading through a metal bar.
+
 ## Mental
 
 **Brownian motion** $(B_t)_{t \ge 0}$ — also called *Wiener process* —

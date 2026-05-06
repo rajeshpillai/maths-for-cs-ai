@@ -16,6 +16,17 @@ applications:
 
 # Rough Paths and Regularity Structures
 
+## Explain Like I Am 7
+
+Some paths are *so* jittery that even ordinary jittery-dust math
+can't follow them — like trying to track lightning through fog.
+**Rough paths** is a daring extension that says: even if the path
+itself is too crinkled to handle, you can carry around extra
+"bookkeeping" — say, how much area the path sweeps out — and that
+extra info is *just enough* to do calculus on it.  It cracked open
+math problems about wild noise that had been stuck for decades and
+won a Fields Medal in 2014.
+
 ## Mental
 
 For paths $X : [0, T] \to \mathbb R^d$ that are *too rough* to admit

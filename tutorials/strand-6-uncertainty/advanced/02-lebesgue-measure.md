@@ -16,6 +16,17 @@ applications:
 
 # Lebesgue Measure and Integration
 
+## Explain Like I Am 7
+
+The old-school way to find the area under a wiggly curve is to
+slice the *floor* into thin strips and add up rectangles — that's
+Riemann integration.  Lebesgue had a sharper idea: slice the
+*height* axis into thin levels instead, and ask "how wide is the
+region where the curve stands at this height?"  This sneaky flip
+handles much wilder curves — even ones that jump up and down
+infinitely often — and gives the integral all the tidy convergence
+laws modern probability needs.
+
 ## Mental
 
 **Lebesgue measure** $m$ on $\mathbb{R}^n$ assigns to each measurable

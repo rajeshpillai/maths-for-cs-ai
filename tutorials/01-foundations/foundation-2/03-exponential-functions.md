@@ -1,5 +1,15 @@
 # Exponential Functions
 
+## Explain Like I Am 7
+
+Today you have **one** chocolate coin.  Tomorrow you have two.  The day
+after that, four.  Then eight, sixteen, thirty-two — every day the pile
+*doubles*.  Pretty soon the coins won't fit in your room, then your
+house, then your whole street.  That runaway doubling is what an
+**exponential** does: it doesn't add the same amount each step, it
+*multiplies* by the same amount, so the pile grows faster and faster
+the bigger it gets.
+
 ## Intuition
 
 A population that doubles every hour, a rumour that spreads to twice as many

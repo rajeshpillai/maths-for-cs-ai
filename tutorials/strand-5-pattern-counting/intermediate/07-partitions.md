@@ -18,6 +18,17 @@ applications:
 
 # Integer Partitions
 
+## Explain Like I Am 7
+
+You have four identical cookies and you want to share them into
+piles.  You could keep them in one big pile of four, or split them
+as $3 + 1$, or $2 + 2$, or $2 + 1 + 1$, or four lonely cookies on
+their own.  That's five different "partitions" of the number four.
+The piles don't care about order — $3 + 1$ and $1 + 3$ count as the
+same way of sharing.  Counting these pile-arrangements as the total
+grows is a deep puzzle: even the great Ramanujan was charmed by it,
+because there's no easy formula, only a beautiful pattern.
+
 ## Mental
 
 A **partition** of a positive integer $n$ is a way to write $n$ as a

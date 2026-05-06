@@ -1,5 +1,16 @@
 # Stars and Bars — Counting Distributions
 
+## Explain Like I Am 7
+
+Lay 10 identical chocolate buttons in a row.  Drop three little
+fences between them — anywhere you like — and you've split the
+chocolates into four groups, one for each child.  Slide the fences
+about and the kids' shares change.  Counting how many ways to
+distribute the buttons is the **same** as counting how many ways to
+arrange the row of buttons and fences.  This silly star-and-bar
+picture turns a head-scratching sharing puzzle into one quick
+combination calculation.
+
 ## Intuition
 
 You have 10 identical cookies and 4 children.  How many ways can you give them

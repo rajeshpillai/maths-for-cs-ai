@@ -1,5 +1,16 @@
 # Angle-Chasing — The Universal Geometry Technique
 
+## Explain Like I Am 7
+
+Imagine a treasure-hunt drawing on the chalkboard with corners marked
+"30°", "70°" and a few question marks.  **Angle-chasing** is playing
+detective.  You know that any triangle's three corners always add to
+180°, and that lines crossing each other share matching angles like
+twins.  Step by step you read each clue, jot the answer next to a
+question mark, and use that fresh clue to crack the next one — like
+dominoes falling.  Pretty soon every angle in the picture has a number,
+and the puzzle is solved.
+
 ## Intuition
 
 A geometry diagram is a network of constraints: triangle angles sum to 180°,

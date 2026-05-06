@@ -1,5 +1,15 @@
 # Floating-Point Representation (IEEE 754)
 
+## Explain Like I Am 7
+
+Try to write the number "one third" with only finitely many decimal
+digits — *0.3333…* never quits!  Computers have the same trouble with
+some numbers, but in their tray world.  When you ask a computer to
+add $0.1$ and $0.2$, it stores each one as the *closest binary number
+it can fit* and then adds them — and the answer comes out a whisker
+off $0.3$.  It's not a bug; it's because the computer can only carry a
+**fixed bag of digits**, and some numbers don't fit neatly.
+
 ## Intuition
 
 How do you store 3.14 or 0.001 in a computer that only knows 0s and 1s?

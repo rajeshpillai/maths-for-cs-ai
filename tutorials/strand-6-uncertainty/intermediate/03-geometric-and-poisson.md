@@ -18,6 +18,18 @@ applications:
 
 # Geometric and Poisson Distributions
 
+## Explain Like I Am 7
+
+Two more shapes of randomness.  **Geometric**: how many times do
+you have to flip the coin until you finally see heads?  Maybe one
+flip, maybe twenty.  **Poisson**: in the next hour, how many phone
+calls will the help desk get if calls trickle in at an average of
+$5$ per hour?  Maybe three, maybe eight.  The first counts how long
+you wait for a rare lucky thing; the second counts how many random
+events show up during a fixed window.  Buses arriving, lightning
+strikes, and goals in a soccer match all roughly follow these
+shapes.
+
 ## Mental
 
 Two more named discrete distributions, each answering a specific

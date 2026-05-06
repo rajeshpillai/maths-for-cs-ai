@@ -17,6 +17,16 @@ applications:
 
 # Capstone — Geometry, Curvature, and Topology
 
+## Explain Like I Am 7
+
+You've stocked your toolkit with railway-track horizons, twisty-road
+curvature, ant-on-a-trampoline rulers, rubber-band shortest paths,
+and clay-shape squishing tricks.  In this capstone you put a
+real curved object — a sphere, a doughnut, a saddle — on the table
+and take it apart with all your tools at once.  You'll measure how
+it bends, count its holes, and find the straightest paths across it,
+seeing how every gadget you learned cooperates.
+
 ## Mental
 
 Nine lessons on:

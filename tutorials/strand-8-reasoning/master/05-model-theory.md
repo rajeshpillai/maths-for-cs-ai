@@ -16,6 +16,17 @@ applications:
 
 # Model Theory
 
+## Explain Like I Am 7
+
+You write a list of rules — "everyone has exactly one mother,"
+"there's a king with no mother" — and ask: *can a real world obey all
+these rules at once?*  A world that does is a **model** of the rules.
+Some rule lists have just one possible world, some have many wildly
+different worlds, and some have *no* world at all (because the rules
+secretly contradict each other).  **Model theory** is the careful
+study of which sentences match which possible worlds, and what
+worlds the rules can and can't squeeze into.
+
 ## Mental
 
 **Model theory** studies *mathematical structures* through the

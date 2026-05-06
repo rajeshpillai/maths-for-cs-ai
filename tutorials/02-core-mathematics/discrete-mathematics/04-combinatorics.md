@@ -1,5 +1,16 @@
 # Combinatorics — Permutations, Combinations, Pigeonhole
 
+## Explain Like I Am 7
+
+You have three flavours of ice cream and two cone types.  How many
+totally different cones can you build?  Six!  (Three flavours, each in
+two cones.)  **Combinatorics** is just the art of counting choices
+without writing them all down.  It also has a funny rule called
+*pigeonhole*: if you stuff seven socks into six drawers, **at least
+two socks must share a drawer** — there's no escape.  These two
+ideas — multiply your choices, and stuff overflows — explain a
+surprising amount of the world.
+
 ## Intuition
 
 Combinatorics answers the question "how many ways?"  How many passwords are

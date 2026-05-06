@@ -16,6 +16,17 @@ applications:
 
 # Cohesive Type Theory and Synthetic Differential Geometry
 
+## Explain Like I Am 7
+
+Imagine cookie dough rolled out flat: nearby crumbs stick together,
+they don't jump.  Most math universes treat points like loose
+sprinkles with no stickiness.  **Cohesive** type theory adds little
+operators that say "here are the points that are *gummed together*"
+versus "here's the loose dough."  With this stickiness baked in, you
+can do calculus and geometry by *talking about* infinitely tiny
+distances directly, without sneaky limit-arguments — calculus done
+the way it feels in a kid's imagination.
+
 ## Mental
 
 A **cohesive type theory** equips HoTT with extra **modalities** —

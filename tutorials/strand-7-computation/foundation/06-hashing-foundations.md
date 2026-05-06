@@ -16,6 +16,17 @@ applications:
 
 # Hash Functions and Hash Tables
 
+## Explain Like I Am 7
+
+Imagine the cloakroom at a giant party with hundreds of coats.  If
+every coat went onto a random peg, finding yours later would take
+forever.  Instead, the cloakroom person looks at your name, jumbles
+the letters into a number from 1 to 100, and always hangs your coat on
+*that* peg.  When you come back, they jumble your name the same way
+and walk straight to the right peg.  Now and then two names land on
+the same peg — that's why each peg has a tiny rail you can slide
+several coats onto.
+
 ## Mental
 
 A **hash function** $h : \text{Keys} \to \{0, 1, \ldots, m-1\}$ maps

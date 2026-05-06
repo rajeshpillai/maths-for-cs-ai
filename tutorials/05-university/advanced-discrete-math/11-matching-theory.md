@@ -1,5 +1,16 @@
 # Matching Theory
 
+## Explain Like I Am 7
+
+Imagine a class where each kid wants to be paired with a partner for
+a project, and each kid only likes a few of the others.  Can the
+teacher pair *everyone* up so no kid is alone and every pair likes
+each other?  The trick: if any little group of kids is collectively
+fussy and only likes too-few partners, the whole pairing breaks.
+But if every group is willing to share enough partners between
+them, a tidy pairing always exists.  That's the rule for matching
+kids to partners — or apps to drivers.
+
 ## Intuition
 
 Given a group of job applicants and a set of positions, can everyone be

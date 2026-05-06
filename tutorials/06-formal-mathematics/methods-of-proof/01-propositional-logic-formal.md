@@ -1,5 +1,15 @@
 # Propositional Logic — Formal Treatment
 
+## Explain Like I Am 7
+
+Imagine you have a row of light switches, and each one is either ON or
+OFF — no in-between.  You can wire them together with little plastic
+"and" / "or" / "not" gadgets to build a bigger machine: "lights up only
+when switch A is on AND switch B is off."  Propositional logic is the
+rulebook for that wiring.  Once you write your circuit on paper, you can
+shuffle the gadgets around — like rearranging Lego bricks — into a
+shorter circuit that lights up in exactly the same situations.
+
 ## Intuition
 
 In Tier 1 we met truth tables and basic connectives. Now we go deeper:

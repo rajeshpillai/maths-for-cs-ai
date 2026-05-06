@@ -1,5 +1,16 @@
 # Recurrence-Based Counting — Tilings, Paths, Fibonacci
 
+## Explain Like I Am 7
+
+Suppose you're tiling a long thin strip with little squares and
+*double*-squares.  Instead of counting all the giant patterns at once,
+ask one tiny question: *what tile sits at the very end?*  If it's a
+square, the rest is a slightly shorter strip; if it's a double, the
+rest is shorter still.  So the count for length-10 just **leans on**
+the count for length-9 and length-8.  This "lean on the smaller
+problem" trick is called a **recurrence**, and it's how Fibonacci
+rabbits keep multiplying.
+
 ## Intuition
 
 Some counting problems resist a single closed-form formula but yield instantly

@@ -1,5 +1,15 @@
 # Inverse Trigonometric Functions
 
+## Explain Like I Am 7
+
+Hold a ladder against a wall and ask: *"How tilted is it?"*  You can
+measure how tall it reaches and how far its feet stick out — but you
+want the **angle**.  Inverse trig is the rewind button that takes the
+two distances and hands back the angle.  Because lots of angles can
+make the same shadow shape, mathematicians made a polite agreement:
+"if I rewind, I'll always give you the *small, tidy* answer," so the
+button has one clean reply instead of an infinite list.
+
 ## Intuition
 
 Trig functions answer "given an angle, what is the ratio?"  Inverse trig

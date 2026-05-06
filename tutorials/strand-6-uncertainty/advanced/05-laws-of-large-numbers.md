@@ -16,6 +16,18 @@ applications:
 
 # Laws of Large Numbers
 
+## Explain Like I Am 7
+
+Roll a fair die a hundred times and average the results — you'll
+land near $3.5$.  Roll it a million times — you'll land *really*
+close to $3.5$.  The **law of large numbers** is the theorem that
+makes this everyday observation a mathematical certainty.  There
+are two flavours: the **weak** version says the chance of being far
+off shrinks as you keep rolling, and the **strong** version says
+nearly *every* possible run of rolls eventually settles right onto
+the true average.  This is the bedrock under polls, simulations,
+and machine learning.
+
 ## Mental
 
 Two flavors:

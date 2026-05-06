@@ -1,5 +1,16 @@
 # Expectation, Variance, and Standard Deviation
 
+## Explain Like I Am 7
+
+If you spin a chocolate-prize wheel a million times, what's your
+*typical* prize?  That long-run average is the **expectation**.  Now
+the **variance** asks the second question: are the prizes mostly the
+same (always one or two chocolates), or wildly mixed (sometimes a
+single sweet, sometimes a giant box)?  Big variance means a bumpy
+ride; small variance means boringly predictable.  These two numbers
+together describe a *random thing*: where it usually lands, and how
+much it bounces around.
+
 ## Intuition
 
 **Expectation** is the "average" value you'd get if you repeated the experiment

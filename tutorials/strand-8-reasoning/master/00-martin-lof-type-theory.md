@@ -16,6 +16,17 @@ applications:
 
 # Martin-Löf Type Theory
 
+## Explain Like I Am 7
+
+Imagine a giant box of jigsaw pieces where each piece wears a sticker
+saying exactly what shape it is *and* which other shapes it can plug
+into.  In this world, "writing a proof" is the same as "snapping
+matching pieces together" — there's literally no difference between
+"a working puzzle" and "a finished proof."  **Martin-Löf type theory**
+is this whole jigsaw kit.  It's the foundation behind proof
+assistants like Coq and Lean, where humans and computers cooperate by
+clicking pieces into place.
+
 ## Mental
 
 **Martin-Löf type theory (MLTT)** is a constructive type theory and

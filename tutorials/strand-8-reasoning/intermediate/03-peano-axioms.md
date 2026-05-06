@@ -16,6 +16,16 @@ applications:
 
 # Peano Axioms — Building $\mathbb{N}$
 
+## Explain Like I Am 7
+
+Imagine you have one starter block called *zero*, and one rubber
+stamp that turns any block into "the next one."  Stamp zero and you
+get *one*; stamp *one* and you get *two*; never two different blocks
+share a stamp, and you never circle back to zero.  Out of this little
+two-piece kit — a block and a stamp — you can build every counting
+number that ever existed.  These few rules are how mathematicians
+quietly say what whole numbers *are* without using fingers.
+
 ## Mental
 
 Where do the natural numbers come from? Peano gives a small set of

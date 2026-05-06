@@ -16,6 +16,17 @@ applications:
 
 # Noetherian Rings and Hilbert Basis Theorem
 
+## Explain Like I Am 7
+
+Imagine adding sticky-drawer compartments inside compartments inside
+compartments.  In some cabinets, you can keep nesting forever, building
+ever-finer stacks.  In a **Noetherian** cabinet, that's *forbidden*:
+every chain of nested compartments has to hit a final stage and stop.
+This polite "no infinite shrinking" property is what makes a ring
+**computable** — without it, computers would never finish answering
+questions about the ring.  Hilbert's basis theorem says polite rings
+stay polite even after you tack on extra variables.
+
 ## Mental
 
 A commutative ring $R$ is **Noetherian** if every ideal is finitely

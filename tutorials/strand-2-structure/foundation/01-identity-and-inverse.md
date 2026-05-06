@@ -18,6 +18,17 @@ applications:
 
 # Identity and Inverse
 
+## Explain Like I Am 7
+
+Every game has a "do nothing" move and an "undo" move.  Push your
+chair away from a table and pull it back — you're sitting where you
+started.  In maths, the **identity** is the do-nothing move (adding
+zero, multiplying by one), and the **inverse** is the undo move
+(adding $-3$ undoes adding $3$).  Whenever every move in your toolbox
+has an undo, you can play freely without fear of getting stuck — and
+that's the secret heartbeat of every "group" you'll meet in this
+strand.
+
 ## Mental
 
 For an operation $\star$ on a set $S$:

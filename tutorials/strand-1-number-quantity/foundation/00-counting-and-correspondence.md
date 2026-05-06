@@ -14,6 +14,17 @@ applications:
 
 # Counting and One-to-One Matching
 
+## Explain Like I Am 7
+
+Picture a row of teacups and a basket of saucers.  You can find out
+whether you have enough saucers *without ever counting either pile* —
+just slide one saucer under each cup until you run out of one or the
+other.  When everything pairs up with nothing left over, the two
+collections are the **same size**.  That sliding-and-matching trick is
+older than the number-words themselves; counting is just the same
+trick, but matching things to "one, two, three" instead of to each
+other.
+
 ## Mental
 
 Hold up your hand. You have **five fingers**. How do you *know* it's

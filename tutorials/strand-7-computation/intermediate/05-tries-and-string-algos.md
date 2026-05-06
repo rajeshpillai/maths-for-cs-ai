@@ -16,6 +16,16 @@ applications:
 
 # Tries and String Algorithms
 
+## Explain Like I Am 7
+
+Imagine a giant tree of letters where each branch is one letter.  To
+look up the word "cat," you start at the trunk, follow the branch
+labelled *c*, then *a*, then *t*, and there it is at the leaf.  Words
+that share a head — like "car," "cat," "carrot" — also share branches
+near the trunk, which saves loads of room.  This letter-tree is a
+**trie**, and it's how phone keyboards guess what you're about to type
+after only two or three letters.
+
 ## Mental
 
 A **trie** (prefix tree) stores a set of strings so that lookup,

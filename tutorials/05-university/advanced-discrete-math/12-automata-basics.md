@@ -1,5 +1,16 @@
 # Automata Theory — DFA, NFA, and Regular Languages
 
+## Explain Like I Am 7
+
+Imagine a board game where you stand on one square and the dice
+roll tells you which arrow to follow to the next square.  Some
+squares are special "yay you win!" squares, and some aren't.  An
+**automaton** is exactly this kind of board: read each letter of a
+word like a dice roll, follow the arrow to the next square, and at
+the end check whether you landed on a winning square.  That's how a
+vending machine knows you've put in enough coins, and how a phone
+knows when you've finished typing a valid email.
+
 ## Intuition
 
 An automaton is the simplest model of a computer: it reads input symbols one

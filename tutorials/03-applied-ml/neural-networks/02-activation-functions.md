@@ -1,5 +1,16 @@
 # Activation Functions — Sigmoid, Tanh, ReLU, GELU
 
+## Explain Like I Am 7
+
+If every neuron just added stuff up, stacking lots of them would be the
+same as having one big calculator — boring and not very smart.  An
+**activation** is a little squisher or gate that bends the answer in a
+fun way.  **ReLU** is the easiest: if your number is negative, set it
+to zero; if it's positive, leave it alone (like a one-way door).
+**Sigmoid** squashes any number into "between 0 and 1," like turning a
+shout into a probability.  These tiny bends are what let a stack of
+neurons learn curvy, twisty patterns instead of just straight lines.
+
 ## Intuition
 
 Without activation functions, a neural network is just matrix multiplications

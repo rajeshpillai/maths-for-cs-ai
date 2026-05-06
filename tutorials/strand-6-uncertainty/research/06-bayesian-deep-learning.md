@@ -16,6 +16,18 @@ applications:
 
 # Bayesian Deep Learning
 
+## Explain Like I Am 7
+
+A regular neural network gives one definite answer when asked "is
+this picture a cat?"  A **Bayesian** neural network keeps a whole
+*distribution* over possible weights instead, so it can also tell
+you how *sure* it is.  When the picture is fuzzy or unlike training
+examples, a Bayesian net says "I don't know" instead of confidently
+guessing wrong.  Computing the exact distribution is impossible for
+modern networks, so researchers invent clever shortcuts — variational
+inference, MC dropout, deep ensembles — each trading honest
+uncertainty for tractable computation.
+
 ## Mental
 
 **Bayesian Deep Learning (BDL)**: learn a *distribution* over neural

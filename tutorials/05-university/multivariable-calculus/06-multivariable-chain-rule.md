@@ -1,5 +1,15 @@
 # Multivariable Chain Rule
 
+## Explain Like I Am 7
+
+Imagine a chain of dominoes, but the chain branches: tip one domino
+and three knock over, each of *those* tips two more, and so on.  If
+you nudge the very first domino just a tiny bit, how big a wobble
+appears at the very end?  You'd add up every path the wobble could
+travel, multiplying the squish at each domino along the way.  The
+**chain rule for many roads** is exactly that: trace every route from
+the start to the finish, multiply the squishes, then sum the routes.
+
 ## Intuition
 The chain rule tells you how to differentiate a composition of functions. In
 multiple dimensions, a single output can depend on intermediate variables that

@@ -16,6 +16,17 @@ applications:
 
 # Lie Groups and Lie Algebras
 
+## Explain Like I Am 7
+
+Picture all the ways you can spin a soccer ball without moving its
+centre.  Each spin is a "move," and you can stack two spins into
+one bigger spin.  But the *set of all possible spins* itself forms
+a smooth, curvy shape.  That's a **Lie group**: a shape whose
+points are also moves.  Tiny spins — wiggles barely budging the
+ball — live on a flat sheet just touching the no-spin point, and
+that flat sheet, the **Lie algebra**, holds the recipe for every
+big spin once you know how to add up many tiny ones.
+
 ## Mental
 
 A **Lie group** $G$ is a smooth manifold that is also a group, with

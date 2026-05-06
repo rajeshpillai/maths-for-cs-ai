@@ -18,6 +18,16 @@ applications:
 
 # Polar Coordinates
 
+## Explain Like I Am 7
+
+Imagine you're standing in the middle of a playground and you want to
+tell a friend where the slide is.  You could say "12 steps east, 5
+steps north" — that's the boring grid way.  Or you could say "spin to
+face that way, then walk 13 steps straight."  The second way is
+**polar**: just an angle and a distance.  It's perfect for anything
+spinny, like a snail shell, the swirl of cream in coffee, or a
+spiraling firework, where straight grids feel awkward.
+
 ## Mental
 
 The **polar** coordinate system identifies a 2D point by its

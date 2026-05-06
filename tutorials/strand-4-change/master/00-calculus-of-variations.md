@@ -16,6 +16,17 @@ applications:
 
 # Calculus of Variations
 
+## Explain Like I Am 7
+
+A bead sliding down a slippery wire wants to take the *fastest*
+possible path from start to finish.  But there are infinitely many
+wires it could slide on — straight, loopy, zig-zaggy.  Which shape
+of wire makes the bead arrive soonest?  **Calculus of variations**
+is the math of choosing the best *whole path* (or shape, or
+function) that makes some total cost — total time, total length,
+total energy — as small as it can be.  Every soap-film, light ray,
+and rolling marble obeys this kind of best-path rule.
+
 ## Mental
 
 Standard calculus minimises a *function* $f : \mathbb R \to \mathbb R$.

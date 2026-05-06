@@ -1,5 +1,16 @@
 # Recurrent Networks — Backpropagation Through Time (BPTT)
 
+## Explain Like I Am 7
+
+Picture a kid reading a story word by word.  After each word she
+quietly updates her *memory* — a little notebook in her head — so
+that by the end of the sentence she knows what the story is about.
+A **recurrent network** does this with numbers: every new word nudges
+its tiny memory.  When the story ends and we want to teach it from
+its mistakes, the blame must travel **backwards through every word**
+of the story.  But over a long story the blame fades to nothing or
+explodes — special gates called LSTMs save the day.
+
 ## Intuition
 
 RNNs process **sequences** by maintaining a hidden state that updates at each

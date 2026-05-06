@@ -16,6 +16,17 @@ applications:
 
 # Differential Forms and Stokes' Theorem
 
+## Explain Like I Am 7
+
+Imagine a leaky bucket factory.  If you add up all the water leaking
+out *through the skin* of every bucket, you get the same total as if
+you went *inside* each bucket and added up all the little leaks at
+every point.  **Differential forms** are tiny leak-meters you can
+attach to little bits of curved space, and **Stokes' theorem** is
+the big rule that says: "the meters along the edge always agree
+with the meters spread across the inside."  It's the grandparent of
+all the conservation laws in physics.
+
 ## Mental
 
 A **$k$-form** $\omega$ on a manifold $M$ is a smooth section of the

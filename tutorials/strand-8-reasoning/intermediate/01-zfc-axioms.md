@@ -16,6 +16,17 @@ applications:
 
 # ZFC Set-Theory Axioms
 
+## Explain Like I Am 7
+
+Imagine starting a board game and writing down a small list of rules
+that everybody must obey when making new game pieces: "two boxes are
+the same if they hold the same toys," "you can scoop a corner of any
+box into a new box," "there's an empty box."  These rules are tiny,
+but every other piece in the game has to be built using *only* them.
+**ZFC** is exactly that small rule list — the agreed-upon house rules
+that mathematicians use to build every set, every number, and every
+shape on top.
+
 ## Mental
 
 Naive set theory says "a set is a collection." That hits **Russell's

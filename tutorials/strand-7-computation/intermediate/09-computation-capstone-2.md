@@ -17,6 +17,17 @@ applications:
 
 # Capstone — Algorithms Powering Modern Software
 
+## Explain Like I Am 7
+
+This chapter is the science fair where every gadget you've built so
+far gets switched on at once.  The maps, the tries, the sticky-note
+trick, the cheapest-pipe builder, the priority clipboard — they all
+team up to make the apps you actually use: the route-finder in your
+phone, the search bar that guesses your sentence, the spam filter
+quietly tossing junk mail.  No new tools today, just a guided tour
+through how grown-up software stitches the toolkit into things that
+feel like magic.
+
 ## Mental
 
 Nine lessons on:

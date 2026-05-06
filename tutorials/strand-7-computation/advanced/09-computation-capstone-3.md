@@ -17,6 +17,17 @@ applications:
 
 # Capstone — Algorithms at the Edge
 
+## Explain Like I Am 7
+
+This is the chapter where the kindergarten toolkit grows up and
+travels.  The toy stamp pad becomes a billion-row database, the
+treasure hunt becomes a satellite navigation network, the secret
+padlock becomes the security on every web page you load.  No new
+gadgets today — instead, every gadget is bolted onto a real machine
+working at "internet size," with limited memory, dodgy hardware, and
+billions of users tapping on it at once.  This is computation pushed
+to its real-world limits.
+
 ## Mental
 
 Nine lessons on:

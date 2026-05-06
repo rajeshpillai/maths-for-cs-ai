@@ -1,5 +1,15 @@
 # Double Integrals in Polar Coordinates
 
+## Explain Like I Am 7
+
+Picture a pizza.  If you cut it into a grid of squares, the slices
+near the crust are weird and ragged.  Way easier: cut it into rings,
+and slice each ring into thin wedges, like a dartboard.  Now every
+piece is a tidy crescent.  The catch: wedges out near the crust are
+*bigger* than wedges near the middle, so when you add them up you
+must remember to count outer pieces more.  That extra weight is what
+the little "$r$" reminds us about — outer rings hold more pizza.
+
 ## Intuition
 When the region of integration is circular, annular, or wedge-shaped, polar
 coordinates make the integral vastly simpler. Instead of describing a circle as

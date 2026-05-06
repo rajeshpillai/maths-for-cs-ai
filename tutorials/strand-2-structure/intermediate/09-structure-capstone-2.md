@@ -17,6 +17,16 @@ applications:
 
 # Capstone — Algebra Powering Modern Systems
 
+## Explain Like I Am 7
+
+After nine lessons of new tools — translators, parallel-tray slicers,
+arrow stretchers, kingdom annexes — this capstone takes the toolbox to
+*real machines*.  The QR code on a cereal box uses kingdom annexes to
+recover from a torn corner.  The spinning logo of a sport game uses
+group actions to animate cleanly.  The video call you're on right now
+uses everything at once.  The capstone isn't more theory; it's the
+moment you see all the abstract pieces hard at work in everyday tech.
+
 ## Mental
 
 Nine lessons on:

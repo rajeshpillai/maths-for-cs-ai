@@ -1,5 +1,15 @@
 # Complex Numbers — Argand Diagram, Modulus-Argument, De Moivre
 
+## Explain Like I Am 7
+
+Plain numbers live on a single number line, like beads on a string.
+**Complex numbers** live on a flat sheet of paper instead — every
+number has both an "across" and an "up."  Multiplying two of them
+isn't just stretching the bead; it also *spins* it round the page.
+That spin is why complex numbers describe spinning windmill arms,
+ripples in water, and the colourful patterns inside fractals: every
+multiply is secretly a tiny twirl.
+
 ## Intuition
 
 Tier 0 introduced complex numbers as $a + bi$.  Now we go deeper: represent

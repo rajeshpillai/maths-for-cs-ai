@@ -16,6 +16,17 @@ applications:
 
 # Structural Induction
 
+## Explain Like I Am 7
+
+Lego instructions tell you the rule for *making* a model: start with
+a baseplate, then snap a brick onto something already built.  If a
+property holds for the baseplate **and** survives every snap, then it
+holds for *whatever* you build, no matter how silly or huge.  This
+"prove the rule for the smallest piece, prove it survives the snap"
+trick is **structural induction** — domino-style proof, but for
+trees, lists, sentences, and anything else built up out of smaller
+pieces.
+
 ## Mental
 
 **Structural induction** generalises ordinary induction from $\mathbb{N}$

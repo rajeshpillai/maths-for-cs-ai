@@ -1,5 +1,16 @@
 # The Gram-Schmidt Process & QR Decomposition
 
+## Explain Like I Am 7
+
+Imagine you've been given a wonky bunch of sticks that all lean
+against each other, none of them pointing nicely at right angles.
+**Gram-Schmidt** is the polite carpenter's trick to straighten them
+out one by one.  Pick the first stick — keep it.  Take the next
+stick, snip off the part that already overlaps the first, and
+*what's left* points cleanly sideways.  Keep going until every stick
+is at a right angle to all the others.  Now you've got tidy
+graph-paper rulers from a messy pile of pick-up sticks.
+
 ## Intuition
 
 You have a set of basis vectors that are "skewed" — not perpendicular to each

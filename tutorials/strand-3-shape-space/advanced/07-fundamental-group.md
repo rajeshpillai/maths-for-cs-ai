@@ -16,6 +16,17 @@ applications:
 
 # The Fundamental Group
 
+## Explain Like I Am 7
+
+Stick a pin on a doughnut and tie a long loop of string to it.
+Some loops can be slid around and shrunk down to a single tiny
+point at the pin — those are the boring "no hole caught" loops.
+But other loops thread through the doughnut's hole, and no amount
+of wiggling will let them shrink past the dough.  The
+**fundamental group** is the bookkeeper that says: "loops that can
+shrink are the same; loops caught around different holes are
+different," giving every shape its own loop-fingerprint.
+
 ## Mental
 
 Pick a basepoint $x_0 \in X$. A **loop** is a continuous map

@@ -1,5 +1,15 @@
 # Cardinality — Countable and Uncountable Sets
 
+## Explain Like I Am 7
+
+Two endless bags of marbles.  How do you tell if they hold the *same*
+amount of marbles when you can't ever finish counting either bag?
+Pair them up — pull one marble from each bag at the same time, again
+and again forever.  If the pairing never runs out on either side, the
+bags are the same size.  Surprisingly, some endless bags are *bigger
+than other endless bags*: no matter how clever your pairing, the bag
+of all decimal numbers always has marbles left over.
+
 ## Intuition
 
 How do you compare the sizes of infinite sets? You cannot count to infinity,

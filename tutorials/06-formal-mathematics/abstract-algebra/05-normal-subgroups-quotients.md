@@ -1,5 +1,16 @@
 # Normal Subgroups and Quotient Groups
 
+## Explain Like I Am 7
+
+Imagine a giant Lego model and you decide all the *grey* bricks count
+as the same — a wall is just "wall," and you stop caring whether brick
+1234 or brick 5678 is at any spot.  When you zoom out like that, you
+see a *simpler* model with fewer pieces but the same overall shape.
+For the trick to leave nothing wobbling, the bricks you're blurring
+together have to look the same from every angle of the build — that's
+what "normal" means.  Then the zoomed-out picture is a **quotient
+group**.
+
 ## Intuition
 
 A quotient group is what you get when you "zoom out" — you stop

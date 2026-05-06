@@ -17,6 +17,17 @@ applications:
 
 # L'Hôpital's Rule
 
+## Explain Like I Am 7
+
+Sometimes you ask "what does this division become?" and both the
+top and the bottom shrink to zero at the same time, like dividing
+$0 \div 0$.  Confusing!  L'Hôpital's rule is a clever trick: when
+that happens, peek at how *fast* the top is shrinking versus how
+fast the bottom is shrinking.  Whichever shrinks faster, that's
+who wins, and the ratio of the two shrink-speeds gives you the
+answer.  It's like a foot race between two ants approaching the
+same finish line.
+
 ## Mental
 
 When evaluating $\lim_{x \to a} \frac{f(x)}{g(x)}$ gives a

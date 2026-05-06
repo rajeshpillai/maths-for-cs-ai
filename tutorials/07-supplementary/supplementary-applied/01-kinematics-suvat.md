@@ -1,5 +1,15 @@
 # Kinematics — SUVAT Equations
 
+## Explain Like I Am 7
+
+A toy car rolls down a sloped book.  How fast is it going at the
+bottom?  How far did it travel?  How long did the trip take?  If you
+know any three of those numbers, the SUVAT recipe cards let you work
+out the missing two without watching the car again.  They're the five
+secret cheat-cards every game uses to fling jumping characters,
+falling crates, and bouncing balls through the air at exactly the
+right speed.
+
 ## Intuition
 
 Kinematics describes **motion** without worrying about what causes it.

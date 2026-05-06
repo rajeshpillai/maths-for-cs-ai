@@ -16,6 +16,17 @@ applications:
 
 # Algebraic and Transcendental Numbers
 
+## Explain Like I Am 7
+
+Some numbers are "tame": they're the answer to a tidy puzzle like
+"what number squared gives 2?"  The puzzle is short, the number is
+hiding in it, and you can pin it down — those are the **tame**
+numbers (mathematicians call them algebraic).  But $\pi$ and $e$ are
+**wild**: no finite, polite puzzle made from whole numbers and powers
+ever pins them down.  Almost every number on the number line turns out
+to be wild like that, even though the famous ones we name in school
+are tame.
+
 ## Mental
 
 The real numbers split into two big classes (and several smaller

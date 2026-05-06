@@ -1,5 +1,16 @@
 # Confidence Intervals
 
+## Explain Like I Am 7
+
+You measure the height of 10 children in your class and get an
+average of $130$ cm.  Is the *whole-school* average exactly $130$?
+Probably not — your sample was small.  A **confidence interval** is
+a polite way of saying, "I'm not certain it's $130$ exactly, but I
+*am* pretty sure it's somewhere between $128$ and $132$."  It's a
+**fence around your guess** that wraps the real answer most of the
+time, and the bigger your sample, the tighter the fence.  Scientists
+report this fence so you can see how shaky their guess is.
+
 ## Intuition
 
 A sample mean is almost never exactly equal to the population mean.  A

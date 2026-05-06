@@ -16,6 +16,16 @@ applications:
 
 # Projective Transformations and Homographies
 
+## Explain Like I Am 7
+
+Take a photograph of a checkerboard from straight above — every
+square is a perfect square.  Now take a photo of the same board
+from off to the side: the squares look like wonky kites, the lines
+that were parallel now meet at a faraway point.  A **projective
+transformation** is the math recipe that bends the first picture
+into the second.  Phones and self-driving cars use it to "un-tilt"
+photos and read straightened-out signs from sideways angles.
+
 ## Mental
 
 A **projective transformation** of $\mathbb{RP}^n$ is a map of

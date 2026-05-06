@@ -16,6 +16,17 @@ applications:
 
 # Post-Quantum Cryptography Frontier
 
+## Explain Like I Am 7
+
+Today's secret padlocks lean on jigsaws like "find these two prime
+puzzle pieces."  But a future quantum machine could solve those
+jigsaws in an afternoon and pop every lock open.  So the world is
+swapping in *new* puzzles that even quantum machines find dizzying —
+puzzles about hiding short vectors in tall, weird-shaped grids, or
+about codes peppered with random typos.  The goal is to switch to
+these tougher puzzles *before* the quantum machines arrive, so all
+the old secrets stay locked.
+
 ## Mental
 
 Shor's algorithm breaks RSA / DH / ECDSA on a sufficiently large

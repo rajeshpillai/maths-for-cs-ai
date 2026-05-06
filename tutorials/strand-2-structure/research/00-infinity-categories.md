@@ -16,6 +16,18 @@ applications:
 
 # $\infty$-Categories
 
+## Explain Like I Am 7
+
+Picture two LEGO houses that look "the same" — but maybe you'd build
+them slightly differently each time.  Are they really equal?  Maybe
+the *building processes* are equal.  Or maybe just the *ways of
+comparing the building processes* are equal.  $\infty$-categories let
+us say "yes, they're connected, but only up to a tower of higher and
+higher tweaks-of-tweaks-of-tweaks, all the way up."  It's the natural
+home for situations where exact equality is too strong but
+"essentially the same shape" is the right idea — and it's where
+modern algebraic geometry now lives.
+
 ## Mental
 
 Ordinary categories: objects + morphisms + composition.

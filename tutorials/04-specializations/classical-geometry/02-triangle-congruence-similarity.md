@@ -1,5 +1,16 @@
 # Triangle Congruence and Similarity — SSS, SAS, ASA, AAS, AAA
 
+## Explain Like I Am 7
+
+You and your friend each cut out a paper triangle.  When can you be
+*sure* both triangles are exact twins?  It turns out you only need a
+few matching clues: all three sides the same, OR two sides plus the
+corner between them, OR two corners plus the side joining them.  Any of
+those locks the triangle in — there's only one way to draw it.
+**Similar** triangles are not twins but the same *shape* — like a small
+photo and a poster of the same picture.  All angles match; all sides
+grow by the same zoom factor.
+
 ## Intuition
 
 Two triangles are **congruent** if they're identical up to rigid motion

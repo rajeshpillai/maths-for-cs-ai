@@ -16,6 +16,17 @@ applications:
 
 # Second Fundamental Form and Gauss Curvature
 
+## Explain Like I Am 7
+
+Try wrapping flat paper around an orange.  It crinkles!  Try
+wrapping it around a pringle chip — also crinkles, but the *other*
+way.  A flat plane is happy.  This stubborn fact — that you can't
+flatten an orange peel without ripping it — is what **Gauss
+curvature** measures.  Each spot on a surface gets a curvature
+number: positive for orange-like bulges, negative for saddle-like
+dips, and zero for things that *can* be unrolled flat, like cans
+and cones.
+
 ## Mental
 
 The first fundamental form measures **intrinsic** geometry (distance,

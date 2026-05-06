@@ -1,5 +1,15 @@
 # Pooling Operations — Max-Pool and Average-Pool
 
+## Explain Like I Am 7
+
+Imagine you have a giant class photo and you want a tiny thumbnail.  You
+chop the photo into little 2×2 squares.  For each square you can either
+**keep the brightest pixel** (max pool — "show me the loudest kid in
+each group") or **average the four pixels together** (average pool — "show
+me the typical face").  Either way the new picture is half the size but
+still tells the story.  Pooling helps a computer not freak out when the
+cat moves a couple of pixels to the left — the summary still says "cat."
+
 ## Intuition
 
 Pooling shrinks the spatial dimensions of feature maps by summarising local

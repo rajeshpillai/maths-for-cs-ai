@@ -1,5 +1,15 @@
 # Fourier Series — Decompose a Periodic Signal
 
+## Explain Like I Am 7
+
+Press a single key on a piano: you hear *one* clean note.  Now press a
+chord: many keys at once and the sound becomes rich and full.  A
+**Fourier series** is the world's best music teacher — give it any
+repeating sound and it tells you, "Aha, that's a *little* of middle C,
+*lots* of high E, a sprinkle of G."  Every wiggly repeating signal,
+no matter how scribbly, is secretly just a chord made of pure piano
+notes added together.  Fourier's job is to peel them apart.
+
 ## Intuition
 
 Any periodic function — no matter how jagged — can be written as a sum of

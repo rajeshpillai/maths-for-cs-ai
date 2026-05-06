@@ -16,6 +16,17 @@ applications:
 
 # Normal Subgroups and Quotient Groups
 
+## Explain Like I Am 7
+
+Last lesson we sliced a group into parallel cookie-trays.  Most of the
+time, you can't bake the whole tray-collection back into a fresh
+cookie-shop, because rotating one tray by an outside move messes up
+the slicing.  But for a special, **normal** sub-kit, every outside
+move just shuffles the trays *as wholes* — none of them get smashed
+together.  Then the trays themselves become a brand-new group: this
+"group of trays" is called a **quotient group**, and it's a powerful
+way to zoom out and study the original kit at a coarser scale.
+
 ## Mental
 
 A subgroup $N \le G$ is **normal** (written $N \trianglelefteq G$) if

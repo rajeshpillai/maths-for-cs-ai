@@ -17,6 +17,17 @@ applications:
 
 # Capstone — Modern Probability in Practice
 
+## Explain Like I Am 7
+
+Now we play with all the new toys at once.  We tame impossible
+posteriors using ladybug-hopping algorithms (MCMC), bound an online
+learning algorithm's mistakes using fair-game tools (martingales),
+and prove confidence statements using bell-curve theorems (CLT).
+Each of these real applications draws from several lessons —
+measure theory, convergence modes, laws of large numbers,
+martingales, and Markov chains — woven together.  This is the
+toolkit modern statisticians and ML researchers reach for daily.
+
 ## Mental
 
 Nine lessons on:

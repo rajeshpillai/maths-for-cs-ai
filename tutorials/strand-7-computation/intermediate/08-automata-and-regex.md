@@ -16,6 +16,17 @@ applications:
 
 # Automata and Regular Expressions
 
+## Explain Like I Am 7
+
+Picture a board game with a few labelled rooms and arrows between
+them.  You read your secret message one letter at a time, and each
+letter tells your token which arrow to slide along.  When the message
+ends, look at the room you're standing in: if it has a gold star, the
+message is "accepted"; otherwise, "rejected."  This little rooms-and-
+arrows machine is the simplest kind of computer — strong enough to
+recognise patterns like "starts with A and ends with Z," but too dumb
+to count past a small fixed amount.
+
 ## Mental
 
 A **finite automaton (FA)** has finitely many states, reads input one

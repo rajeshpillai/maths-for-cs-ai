@@ -16,6 +16,17 @@ applications:
 
 # Solvability by Radicals
 
+## Explain Like I Am 7
+
+A "tidy formula" is one that uses only $+$, $-$, $\times$, $\div$,
+and roots — square roots, cube roots, and so on.  The quadratic
+formula gives a tidy formula for any $ax^2 + bx + c = 0$.  But Galois,
+just before dying in a duel at twenty, proved that for *most*
+fifth-degree equations, **no** tidy formula can possibly exist — and
+the reason hides in the polynomial's marble-swap kit (its Galois
+group).  If that kit can be neatly chopped into "rotation" pieces, a
+tidy formula exists.  If not, no amount of effort will conjure one.
+
 ## Mental
 
 A polynomial $f \in F[x]$ is **solvable by radicals** if its roots can

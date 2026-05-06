@@ -1,5 +1,16 @@
 # Anurupyena — "Proportionality"
 
+## Explain Like I Am 7
+
+Imagine you need to lift a heavy log.  Instead of straining to lift
+it whole, you cut it into ten lighter chunks and lift each easily.
+**Anurupyena** does the same trick with numbers.  Want to multiply
+by 18?  That's annoying — but 18 is just 9 times 2.  Multiply by 9
+(easy: it's "10 minus 1") and then double the answer.  Or want to
+multiply by 25?  That's the same as multiplying by 100 then dividing
+by 4 — much friendlier!  The whole idea is: a hard number is often
+just a *scaled-up* version of an easy one.
+
 ## Intuition
 
 The Anurupyena sutra exploits proportional relationships to simplify

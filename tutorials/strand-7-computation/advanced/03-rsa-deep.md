@@ -16,6 +16,17 @@ applications:
 
 # RSA in Depth
 
+## Explain Like I Am 7
+
+Pick two huge prime numbers and multiply them together.  Easy peasy.
+Now hand someone the giant product and dare them to find your two
+primes — almost impossible, even with a school full of computers.
+**RSA** locks secrets behind exactly that one-way door: anyone can use
+the giant product to scramble a message *to* you, but only the person
+who knows the original two primes can unscramble it.  It's a padlock
+that the whole world can click shut, and only one person owns the
+key.
+
 ## Mental
 
 **RSA** (Rivest-Shamir-Adleman, 1977) was the first practical public-

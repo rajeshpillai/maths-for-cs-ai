@@ -1,5 +1,16 @@
 # 2D Convolution from First Principles
 
+## Explain Like I Am 7
+
+Imagine you have a colouring book picture and a tiny see-through stamp
+the size of a postage stamp.  The stamp has numbers printed on it.
+You slide the stamp across the picture, square by square, and at every
+spot you multiply each stamp number by the picture number underneath,
+add them all up, and write that one number down on a fresh sheet.
+That's a **convolution**.  Different stamps spot different things —
+one stamp lights up wherever there's a sharp edge, another finds round
+blobs, another picks up stripes.
+
 ## Intuition
 
 A convolution slides a small grid of numbers (the **kernel**) over an image,

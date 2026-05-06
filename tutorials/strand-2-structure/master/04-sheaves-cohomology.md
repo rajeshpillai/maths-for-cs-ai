@@ -16,6 +16,18 @@ applications:
 
 # Sheaves and Cohomology
 
+## Explain Like I Am 7
+
+Imagine surveying a huge country.  Each town keeps its own little
+notebook of local information, and where two towns overlap, the
+notebooks have to agree on the shared road.  A **sheaf** is exactly
+that pile of consistent local notebooks.  Sometimes the local
+notebooks all join into one big national atlas; sometimes they
+*can't*, and the obstruction — a kind of leftover record of "you
+can't quite glue this" — is what **cohomology** measures.  These
+obstructions are how mathematicians detect global twists in shapes
+they can only see locally.
+
 ## Mental
 
 A **presheaf** $\mathcal F$ on a topological space $X$:

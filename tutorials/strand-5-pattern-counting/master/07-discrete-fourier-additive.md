@@ -16,6 +16,18 @@ applications:
 
 # Discrete Fourier Analysis on Groups
 
+## Explain Like I Am 7
+
+Imagine a row of light bulbs flashing on and off in a pattern.
+Fourier analysis splits that flashing pattern into a tidy stack of
+pure waves — slow ones and fast ones — that, when added together,
+recreate the original blinking.  When the row of bulbs is arranged
+on a *finite* group (like the corners of a clock face or the
+yes/no answers in a quiz), the same idea still works, but the
+waves come from special numbers called characters.  This trick
+powers fast multiplication, error-correcting codes, and the WiFi
+on your phone.
+
 ## Mental
 
 For a finite abelian group $G$:

@@ -16,6 +16,17 @@ applications:
 
 # NTK and Feature-Learning Theory
 
+## Explain Like I Am 7
+
+If you make a neural network *infinitely* wide, something funny
+happens: while it trains, the wiggly connections barely move at
+all — they only nudge tiny bits.  That makes the giant network
+behave like a much *simpler* mathematical machine, easy to study.
+This frozen-at-birth picture is the **NTK**.  Real networks aren't
+infinitely wide, though, so they actually do *learn* by growing
+new internal patterns.  Researchers are still figuring out exactly
+when and how that learning happens.
+
 ## Mental
 
 **Neural Tangent Kernel** (Jacot-Gabriel-Hongler 2018): in the

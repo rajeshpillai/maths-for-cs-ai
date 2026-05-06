@@ -1,5 +1,15 @@
 # Random Variables — Discrete and Continuous
 
+## Explain Like I Am 7
+
+Roll two dice and **add them up** — the answer could be anything from
+$2$ to $12$, but you don't know which until the dice stop.  That
+mystery total is a **random variable** — a number that hasn't made
+its mind up yet.  Some random variables can only land on whole-number
+values (like dice totals).  Others can land *anywhere* in a range
+(like the exact height of the next person to walk by).  Random
+variables let us do tidy maths with surprises.
+
 ## Intuition
 
 A **random variable** is a number that depends on the outcome of a random

@@ -18,6 +18,16 @@ applications:
 
 # Logarithms — Exponents Reversed
 
+## Explain Like I Am 7
+
+If a kingdom of rabbits doubles every year and you wake up to find a
+million rabbits, it's natural to ask: "how many years was I asleep?"
+A **logarithm** is exactly that question: not "how big does it get?"
+but "how many doublings did it take to get this big?"  Logarithms
+shrink scary, sky-rocketing numbers down to gentle, walk-up-the-stairs
+numbers — that's why earthquakes, sound levels, and computer search
+times all use them.
+
 ## Mental
 
 A **logarithm** answers the question: *"to what power must I raise

@@ -16,6 +16,17 @@ applications:
 
 # Tropical Mathematics
 
+## Explain Like I Am 7
+
+In ordinary math you add and multiply.  In **tropical** math you
+swap them out — "plus" becomes "take the smaller of two numbers,"
+and "times" becomes the usual plus.  Suddenly $3 \oplus 5 = 3$ and
+$3 \otimes 5 = 8$.  Tropical polynomials draw piecewise straight
+lines instead of smooth curves, and their *zeros* are the corners
+where the line bends.  This funny algebra turns out to be the right
+language for shortest-path puzzles, evolutionary tree-building, and
+some kinds of optimisation that use only mins and pluses.
+
 ## Mental
 
 **Tropical semiring** $\mathbb T = \mathbb R \cup \{+\infty\}$ with

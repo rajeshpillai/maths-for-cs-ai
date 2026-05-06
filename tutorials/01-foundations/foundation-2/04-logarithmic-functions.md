@@ -1,5 +1,15 @@
 # Logarithmic Functions
 
+## Explain Like I Am 7
+
+If doubling chocolate coins makes a pile that explodes, a **logarithm**
+asks the opposite question: "how many times did I have to double before
+the pile got *this* big?"  One coin became eight after three doublings,
+so the logarithm of eight (in doubles) is three.  It's a way of
+*counting the steps* instead of counting the coins, which is super
+useful when the pile is so huge — like all the websites in the world —
+that the number of coins is impossible to picture.
+
 ## Intuition
 
 If exponentials answer "what do I get when I raise $a$ to the power $x$?",

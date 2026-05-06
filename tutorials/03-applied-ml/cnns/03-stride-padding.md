@@ -1,5 +1,16 @@
 # Stride and Padding — Derive the Output Size Formula
 
+## Explain Like I Am 7
+
+Imagine hopping across a tiled floor with a friend.  **Stride** is how
+far you jump each time — hop on every tile and you visit them all; hop
+on every second tile and you skip half.  Bigger jumps mean fewer
+landings, so the answer sheet shrinks faster.  **Padding** is taping
+extra blank tiles around the edge of the floor so your jumps don't run
+off the side and the answer sheet stays the same size as the original
+floor.  Stride shrinks the picture; padding fluffs it back up.  Mix
+the two and you get exactly the size you wanted.
+
 ## Intuition
 
 **Stride** controls how far the kernel jumps between positions (stride 2 = skip

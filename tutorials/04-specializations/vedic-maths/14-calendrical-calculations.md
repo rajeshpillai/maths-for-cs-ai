@@ -1,5 +1,16 @@
 # Calendrical Calculations — Day of the Week Mentally
 
+## Explain Like I Am 7
+
+"What day of the week were you born?"  You can answer that in ten
+seconds without a calendar — really!  Days of the week march in a
+loop of seven, so all the maths becomes "remainders after dividing
+by seven."  Each year has a special "doomsday" you memorise, each
+month has another tiny number, and your birthday is just a small
+hop away from those.  Add up the hops, divide by seven, look at the
+leftover — that's your day.  It's a maths party trick, but it also
+shows how the calendar is one big clockwork of sevens.
+
 ## Intuition
 
 Given any date in history or the future, you can determine the day of the

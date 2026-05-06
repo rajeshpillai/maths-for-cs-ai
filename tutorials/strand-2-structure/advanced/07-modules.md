@@ -16,6 +16,17 @@ applications:
 
 # Modules over a Ring
 
+## Explain Like I Am 7
+
+A vector space lets you stretch arrows by *any* fraction.  Now imagine
+you can only stretch by *whole numbers* — no halves, no thirds, just
+$\ldots,-2, -1, 0, 1, 2, \ldots$  The collection of arrows you can
+build is still useful and sensible, but it has new wrinkles: some
+arrows might satisfy "stretching by 6 lands me at zero" (called
+*torsion*).  This kind of "vector-space with stricter scalars" is a
+**module**, and it's the natural setting for things like infinite
+crystal lattices and integer-only spreadsheets.
+
 ## Mental
 
 A **module** over a ring $R$ is to $R$ what a vector space is to a

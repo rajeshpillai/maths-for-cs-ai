@@ -21,6 +21,17 @@ applications:
 
 # Catalan Numbers
 
+## Explain Like I Am 7
+
+Suppose you write a string of opening "(" and closing ")" brackets,
+like $(())()$.  How many such strings of length six *make sense* —
+where the brackets always pair up properly?  The answer is one of
+the **Catalan numbers**: $1, 1, 2, 5, 14, 42, 132, \ldots$  The
+strange thing is, the *same* sequence shows up when you count
+mountain-shaped paths that never dip below ground, family trees with
+branching twos, or ways to slice a pizza into triangles.  All these
+puzzles are secretly the same shape wearing different costumes.
+
 ## Mental
 
 The **Catalan numbers** $C_0, C_1, C_2, \ldots$ form one of the most

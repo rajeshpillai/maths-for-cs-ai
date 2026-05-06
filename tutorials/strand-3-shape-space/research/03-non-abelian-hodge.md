@@ -16,6 +16,17 @@ applications:
 
 # Non-Abelian Hodge Theory
 
+## Explain Like I Am 7
+
+Imagine you can describe a curvy painted surface in three totally
+different languages: by the brush-strokes that drew it, by the
+sound it makes when you tap it, and by the ripples that flow
+across it.  **Non-abelian Hodge theory** is the surprising
+declaration that all three languages secretly tell the *same*
+story — every painting in the first language has a perfect twin in
+each of the others.  It's a triple-dictionary that lets geometers
+swap freely between very different ways of looking at one shape.
+
 ## Mental
 
 Classical Hodge theory: cohomology of compact Kähler manifold has

@@ -1,5 +1,16 @@
 # The Divergence Theorem (Gauss's Theorem)
 
+## Explain Like I Am 7
+
+Picture a room with lots of little smoke machines puffing inside.
+Some bits puff out smoke (sources), some bits suck it in (vacuums).
+Now ask: how much smoke leaks out through the windows and walls of
+the room?  Common-sense answer: count up every puff and slurp inside,
+take the difference, and that *must* be what escapes outside.  You
+can either watch the walls or count the machines — both numbers are
+the same.  That bookkeeping rule for spreading-out things is the
+divergence theorem.
+
 ## Intuition
 The divergence theorem says: "the total flux of a vector field out through a
 closed surface equals the total divergence inside the volume." Think of it as a

@@ -1,5 +1,16 @@
 # Convolution Theorem
 
+## Explain Like I Am 7
+
+Sliding a stamp across a giant picture and writing answers — that's
+**convolution**, and it's lots of work.  But here's a wild trick:
+turn both the picture *and* the stamp into their secret note-recipes
+(using the Fourier magic), then **just multiply the recipes
+together**.  Tap the inverse-Fourier button and out pops the same
+stamped picture, finished in a flash.  In one world it's slow sliding;
+in the other world it's fast multiplying.  Same answer, way less
+work — that's why fancy filters and even AI use this shortcut.
+
 ## Intuition
 
 Convolution in the time/spatial domain is **multiplication** in the frequency

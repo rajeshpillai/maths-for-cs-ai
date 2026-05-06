@@ -19,6 +19,16 @@ applications:
 
 # Lines and Slope
 
+## Explain Like I Am 7
+
+A ramp can be gentle, like a wheelchair ramp into a shop, or steep,
+like a slide at the playground.  The number that says "how steep" is
+called the **slope** — it's just *how far up you go each time you
+take one step sideways*.  A flat floor has slope zero (no climbing).
+A wall would have an infinite slope (all climbing, no sideways).
+Every straight line on a graph has its own steepness number, and
+that one number tells you almost everything about the line.
+
 ## Mental
 
 A **straight line** in the coordinate plane has one defining feature:

@@ -16,6 +16,17 @@ applications:
 
 # Schemes — A Glimpse
 
+## Explain Like I Am 7
+
+Hilbert's dictionary turned equations into shapes — but it only worked
+over very nice number-systems.  Grothendieck took the wild step of
+saying: **every** number-system, polite or not, gets a shape attached
+to it.  The shape's "points" are the ring's prime drawers, and a tiny
+recipe-book attached to each open patch tells you which functions live
+on it.  This new species of geometric object — a **scheme** — was so
+flexible that all of modern arithmetic geometry, including the proof
+of Fermat's Last Theorem, lives on top of it.
+
 ## Mental
 
 Grothendieck's revolutionary idea: **every commutative ring** has

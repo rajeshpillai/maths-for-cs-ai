@@ -16,6 +16,17 @@ applications:
 
 # Recursion Theory
 
+## Explain Like I Am 7
+
+Imagine a tape with a tiny robot scribbling, erasing, and shuffling
+left-and-right, following a list of rules.  Some questions the robot
+*can* eventually answer no matter what — those are the **computable**
+ones.  Others, like "will this robot ever stop?", are forever out of
+reach: there's no robot that can solve that for *every* program.  This
+chapter is the family tree of "can be done by a robot" versus "cannot
+be done by *any* robot, ever," and how to tell which side a problem is
+on.
+
 ## Mental
 
 **Recursion theory** (= **computability theory**) studies the set of

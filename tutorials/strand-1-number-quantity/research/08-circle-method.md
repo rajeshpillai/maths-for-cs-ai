@@ -16,6 +16,17 @@ applications:
 
 # The Circle Method
 
+## Explain Like I Am 7
+
+Imagine a giant glass jellybean jar full of colour-mixed beans.  If
+each bean's colour is the answer to "how many ways can $n$ be a sum
+of cubes?", you can stir the jar around the rim of a circle and let
+the answers reveal themselves where the colours interfere most
+strongly.  Hardy and Littlewood spotted that *most* of the rim is
+quiet noise, with sharp spikes only at "clock-friendly" angles — and
+adding up just those spikes counts the answers.  Modern number theory
+still uses this circle-walking trick to count Diophantine solutions.
+
 ## Mental
 
 Hardy-Littlewood **circle method** (1920s) — a powerful analytic

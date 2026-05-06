@@ -18,6 +18,17 @@ applications:
 
 # Confidence Intervals
 
+## Explain Like I Am 7
+
+You ask a small group of people if they like ice cream and $52\%$
+say yes.  But the *true* fraction in the whole town might be a bit
+different — maybe $48\%$ or $55\%$.  A **confidence interval**
+draws a fence around your guess that's wide enough to *almost
+certainly* trap the true number.  When polls report "$52\%$,
+margin of error $\pm 3\%$," the fence is the $\pm 3$ part.  The
+fence shrinks as your sample grows — bigger experiments give
+tighter, more useful fences around the truth.
+
 ## Mental
 
 A **confidence interval** is a range of values, computed from

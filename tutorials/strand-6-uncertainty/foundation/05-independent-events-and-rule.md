@@ -19,6 +19,17 @@ applications:
 
 # Independent Events — The Multiplication Rule
 
+## Explain Like I Am 7
+
+A coin has no memory.  What it landed on yesterday tells you
+*nothing* about what it'll land on today.  Whenever two chance
+events are like that — neither one cares about the other — they
+are **independent**, and the chance of *both* happening is just
+the chances multiplied: $P(\text{rain}) \times P(\text{flat tyre})$.
+Be careful — if one event secretly nudges the other (like sneezing
+and feeling tired both being symptoms of a cold), they're *not*
+independent and the multiplication trick lies to you.
+
 ## Mental
 
 Two events are **independent** when one happening doesn't change the

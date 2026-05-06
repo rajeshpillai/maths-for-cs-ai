@@ -18,6 +18,17 @@ applications:
 
 # Derivatives of Trig, Log, and Exp
 
+## Explain Like I Am 7
+
+So far you've found slopes for nice powers like $x^3$.  But the
+world is also full of *wavy* things (a swing's height versus
+time), *galloping* things (bacteria doubling), and *shy* things
+(a hot cup of cocoa cooling slower as it gets close to room
+temperature).  Each of these has its own famous slope-recipe.
+Wavy sine becomes wavy cosine.  The galloping function $e^x$ is
+the magical one that's its *own* slope at every point — it
+literally never gets bored of itself.
+
 ## Mental
 
 Three classes of functions appear constantly outside polynomials.

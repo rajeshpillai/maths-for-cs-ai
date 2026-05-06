@@ -1,5 +1,16 @@
 # Polynomial Roots — Rational Root Theorem and Descartes' Rule
 
+## Explain Like I Am 7
+
+Imagine you've lost a single special marble somewhere in a huge field.
+Instead of crawling over every blade of grass, a friend whispers two
+clues: *"It's in the dirt patch, not the grass,"* and *"It probably
+rolled downhill, so check there first."*  Now you only need to peek at
+a tiny handful of spots.  These rules for finding the **roots** of a
+big curvy expression do exactly that — they don't tell you the answer,
+but they slim down the list of places where the answer can possibly
+hide.
+
 ## Intuition
 
 Finding where a polynomial equals zero is one of the oldest problems in

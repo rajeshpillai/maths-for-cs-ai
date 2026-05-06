@@ -17,6 +17,16 @@ applications:
 
 # Vectors in 2D
 
+## Explain Like I Am 7
+
+A point is just a *spot* on the floor — like an X marking buried
+treasure.  A **vector** is more interesting: it's an *arrow*, with
+a length and a direction, like the move "go three steps east and
+two steps north."  You can stick two arrows tail-to-head to combine
+moves, or stretch an arrow to make a longer move.  Vectors are
+nature's instruction-cards for *getting from here to there*, and
+they show up every time something has both speed and direction.
+
 ## Mental
 
 A **vector** is a directed magnitude — an arrow with a length and

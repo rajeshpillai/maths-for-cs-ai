@@ -16,6 +16,16 @@ applications:
 
 # Strong Induction and Well-Ordering
 
+## Explain Like I Am 7
+
+Regular induction lets you push the next domino if you know the one
+right behind it has fallen.  **Strong** induction lets you peek at
+*every* domino that has fallen so far before you push.  Sometimes the
+trick that knocks down domino number 12 needs ideas from dominoes 5,
+7, and 9, not just 11 — like splitting a number $12 = 4 \times 3$
+relies on what we already know about $4$ and $3$.  Either way, the
+whole row tumbles, and the proof is airtight.
+
 ## Mental
 
 Foundation induction: assume $P(k)$, prove $P(k+1)$.

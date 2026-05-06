@@ -16,6 +16,18 @@ applications:
 
 # Optimal Transport
 
+## Explain Like I Am 7
+
+You have two piles of dirt of the same total weight, and you want
+to reshape pile A into the shape of pile B by pushing scoops of
+dirt around.  Each scoop costs effort proportional to how far you
+push it.  **Optimal transport** asks: what's the *cheapest* total
+effort to transform one shape into the other?  The cost defines a
+true distance between *probability distributions* — the famous
+Wasserstein distance.  This distance powers WGAN image
+generators, single-cell biology trajectory inference, and image
+colour-matching tools.
+
 ## Mental
 
 Given two probability measures $\mu, \nu$ on $\mathbb R^d$ and a

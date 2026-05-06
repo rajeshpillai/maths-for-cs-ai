@@ -16,6 +16,17 @@ applications:
 
 # Homotopy Type Theory
 
+## Explain Like I Am 7
+
+In normal maths, "$3 = 3$" is one boring fact.  In **homotopy** type
+theory, equality becomes a *path*: imagine a wiggly piece of string
+between two stickers labelled $3$.  Sometimes there are *many* paths
+between the same two stickers, and even paths between *paths* — like
+two different ways to wrap the string.  Suddenly equality has shape
+and history.  This stretchy view of "the same" is letting people
+write proofs about geometry and topology in a brand-new way that
+computers can check.
+
 ## Mental
 
 **Homotopy Type Theory (HoTT)** = MLTT + a few extra axioms providing

@@ -1,5 +1,16 @@
 # Dynamical Systems, Bifurcations, and Chaos
 
+## Explain Like I Am 7
+
+Drop two identical leaves into a fast, swirly stream, almost in the
+same spot.  At first they float together, but every little eddy
+nudges them apart, and a minute later they're miles away from each
+other.  **Chaos** is exactly that: rules so twisty that even a
+hair's-breadth difference at the start blows up into wildly different
+endings.  That's why nobody can promise tomorrow's weather two weeks
+ahead — the air does the same trick the swirly stream does to those
+two leaves.
+
 ## Intuition
 
 Most differential equations you have seen so far are linear — superposition

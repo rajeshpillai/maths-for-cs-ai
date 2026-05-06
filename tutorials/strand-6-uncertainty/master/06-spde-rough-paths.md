@@ -16,6 +16,17 @@ applications:
 
 # Stochastic PDEs and Rough Paths
 
+## Explain Like I Am 7
+
+A normal heat equation predicts how warmth spreads smoothly
+through a metal bar.  Now imagine the bar is being randomly
+poked with sparks of noise at every point and every moment — that's
+a stochastic PDE.  The wiggle is so violent that classical math
+breaks down: you can't even square the noise without infinities
+appearing.  Hairer's brilliant **regularity structures** taught
+mathematicians how to subtract the right infinities and make sense
+of the equations anyway, winning him a Fields Medal in 2014.
+
 ## Mental
 
 A **stochastic PDE (SPDE)**:

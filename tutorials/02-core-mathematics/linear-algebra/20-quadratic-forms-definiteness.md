@@ -1,5 +1,17 @@
 # Quadratic Forms, Definiteness & the Pseudoinverse
 
+## Explain Like I Am 7
+
+Drop a marble onto a strange surface and see what happens.  If the
+surface is shaped like a **bowl**, the marble rolls down to the
+bottom — that's a *positive definite* shape.  If it's like an
+upside-down bowl (a hill), the marble rolls *away* from the top —
+*negative definite*.  And if it's a **horse-saddle**, the marble
+rolls one way along one direction and the *opposite* way along
+another.  A **quadratic form** is the maths recipe that decides which
+of these surfaces you're standing on, just by looking at one tidy
+grid.
+
 ## Intuition
 
 When a neural network's loss surface curves like a bowl, gradient descent rolls

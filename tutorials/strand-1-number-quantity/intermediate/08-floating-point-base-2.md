@@ -21,6 +21,17 @@ applications:
 
 # Floating Point — Why $0.1 + 0.2 \ne 0.3$
 
+## Explain Like I Am 7
+
+Imagine you can only buy chocolate bars in whole halves, quarters,
+eighths, sixteenths and so on — never tenths.  Asked to give someone
+*a tenth* of a bar, you'd have to chip together a 1/16 plus a 1/32 plus
+a tinier sliver and *still* never get it exactly right.  Computers are
+in the same fix: their slicing knife only knows powers of two, so
+"0.1" is stored as a tiny bit too much.  Add two of those slightly-off
+slices together and you get *visibly* off — that's why $0.1 + 0.2$
+prints as $0.30000000000000004$.
+
 ## Mental
 
 Lesson 09 of Foundation showed that $\dfrac{1}{3}$ has a *repeating

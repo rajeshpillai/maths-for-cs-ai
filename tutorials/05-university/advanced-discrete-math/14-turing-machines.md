@@ -1,5 +1,16 @@
 # Turing Machines
 
+## Explain Like I Am 7
+
+Imagine an endless roll of squared paper and a tiny robot with a
+pencil.  The robot can read whatever's in the square it's on, scribble
+something new, and shuffle one square left or right — that's it.
+Amazingly, with just those moves and a list of rules, the little
+robot can do anything any laptop on Earth can do.  Even more amazing:
+no robot, however clever, can always tell you whether *another*
+robot's program will ever stop or scribble forever.  Some questions
+no computer can ever answer.
+
 ## Intuition
 
 A Turing machine is the theoretical limit of computation — an infinitely long

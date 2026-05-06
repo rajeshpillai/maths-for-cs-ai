@@ -18,6 +18,17 @@ applications:
 
 # Implicit Differentiation and Related Rates
 
+## Explain Like I Am 7
+
+A ladder leans against a wall.  As the foot of the ladder slides
+out, the top *also* slides down — the two motions are tied
+together.  When two things wiggle together because they share a
+secret rule, **related rates** is the trick that lets you compute
+one wiggle-speed if you know the other.  And **implicit
+differentiation** is the slope-finder for shapes (like circles)
+where $y$ is tangled up inside the rule with $x$ instead of being
+written cleanly on its own.
+
 ## Mental
 
 Some equations don't give $y = f(x)$ explicitly. Example:

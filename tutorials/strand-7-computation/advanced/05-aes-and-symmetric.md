@@ -16,6 +16,17 @@ applications:
 
 # AES and Symmetric Ciphers
 
+## Explain Like I Am 7
+
+You and your best friend share one secret password.  To send a note,
+you scribble each letter through a *gigantic* mixer that swaps
+letters, shuffles them around the page, and stirs them again — over
+and over, ten or so rounds.  When your friend gets the scrambled note,
+they reverse every step using the same password and the original
+message pops out.  Anyone snooping just sees alphabet soup.  **AES**
+is exactly this kind of fast, password-shared mixer, and it's what
+locks your phone and Wi-Fi.
+
 ## Mental
 
 **Symmetric** ciphers use the same key for encryption and decryption.

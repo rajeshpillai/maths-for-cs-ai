@@ -19,6 +19,17 @@ applications:
 
 # Combinations — When Order Doesn't Matter
 
+## Explain Like I Am 7
+
+Picture a bowl of five different candies.  You're allowed to grab
+three of them and stuff them in your pocket.  The pocket doesn't care
+which one you grabbed first — only *which three* end up inside.  If
+you first count every grabbing-order ($5 \times 4 \times 3 = 60$),
+each pocketful of three is counted six times (because three candies
+can be picked in $3! = 6$ different orders).  Divide $60$ by $6$ and
+you get $10$ different pocketfuls.  That's a **combination**: counting
+groups when order is forgotten.
+
 ## Mental
 
 Lesson 02 counted **ordered** arrangements. Now we count **unordered**

@@ -16,6 +16,17 @@ applications:
 
 # Group Actions
 
+## Explain Like I Am 7
+
+So far we've studied the kit-of-moves itself.  A **group action** is
+what happens when you let that kit *play* with a separate set of
+toys.  A "rotate-90-degrees" move from the cube's kit, applied to a
+sticker on the cube, slides the sticker to a new face.  Each toy
+traces out an **orbit** — the set of places it can land — and Burnside
+showed how to count those orbits with one elegant counting trick.
+Group actions are how symmetry stops being abstract and starts
+*moving things around* in the real world.
+
 ## Mental
 
 A **group action** is a homomorphism $\rho : G \to \mathrm{Sym}(X)$ —

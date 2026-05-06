@@ -1,5 +1,16 @@
 # Basic Trigonometry — Right Triangles, the Unit Circle, and Trig Graphs
 
+## Explain Like I Am 7
+
+Climb halfway up a slide and look down.  How far across the floor are
+you, and how high above it?  The slide makes a triangle with the floor
+and the ladder, and **trigonometry** is just three little number tricks
+— *sine*, *cosine*, *tangent* — that tell you those distances if you
+know the slide's tilt.  The same tricks describe a swing going back
+and forth, the hands of a clock spinning round, and ripples on a pond,
+because every smooth round-and-round motion is secretly a triangle
+quietly turning.
+
 ## Intuition
 
 Every rotation in a game — a turret tracking a target, a character turning, a

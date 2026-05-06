@@ -1,5 +1,15 @@
 # Direction Fields & Qualitative Analysis
 
+## Explain Like I Am 7
+
+Picture a giant field where, at every patch of grass, a tiny arrow is
+poking out of the ground telling you which way the wind is blowing
+*right there*.  If you drop a feather anywhere and let the wind carry
+it, the feather drifts along, always turning to follow the next arrow.
+That whole forest of arrows is a **direction field** — and the curvy
+trail your feather draws is the answer to a change-rule, sketched out
+without ever doing any algebra.
+
 ## Intuition
 
 Imagine you are standing in a field where every point has a signpost showing

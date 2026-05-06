@@ -20,6 +20,17 @@ applications:
 
 # $\mathbb{Z}/n\mathbb{Z}$ — Modular Arithmetic as a Structure
 
+## Explain Like I Am 7
+
+We've already seen the clock: keep adding hours and you eventually
+loop back to where you started.  Now zoom out and look at the *clock
+itself* as one little universe of its own — a tiny world with $n$
+inhabitants, and add/multiply rules that *never* let you escape.  This
+universe behaves like the integers in many ways and *unlike* them in
+surprising ways (sometimes two non-zero numbers multiply to zero!).
+Recognising the clock as its own self-contained number-system is the
+first step from "doing arithmetic" to "studying structure."
+
 ## Mental
 
 Strand 1 Intermediate Lesson 03 introduced modular arithmetic

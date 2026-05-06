@@ -1,5 +1,16 @@
 # Chi-Squared Tests
 
+## Explain Like I Am 7
+
+A bag is supposed to hold 30 red, 50 blue, and 20 green sweets.  I
+shake it, pull out 100, and count: 22 red, 60 blue, 18 green.  Does
+the bag really match the label, or is something fishy?  For each
+colour, I check how *different* my count is from what I expected,
+square the gap, and add them up.  If the total is small, it could
+just be normal wiggling.  If the total is big, the bag is lying.
+That total — that's the chi-squared score — works for any number of
+colour buckets.
+
 ## Intuition
 
 A game designer sets loot drop rates to 30% common, 50% uncommon, 15% rare,

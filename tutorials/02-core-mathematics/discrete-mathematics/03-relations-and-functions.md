@@ -1,5 +1,16 @@
 # Relations and Functions — Injective, Surjective, Bijective
 
+## Explain Like I Am 7
+
+Picture a row of children and a row of coat pegs.  Drawing a line from
+each child to a peg is a **relation**: it says who's connected to
+what.  A **function** has a stricter rule: every child goes to exactly
+*one* peg.  Three special words describe how tidy the pairing is — if
+no two kids share a peg, it's *injective*; if every peg gets used,
+it's *surjective*; if both, it's a perfect matching, called
+*bijective*.  Lots of tricky maths boils down to "what kind of
+matching is this?"
+
 ## Intuition
 
 A **relation** is a connection between elements of two sets — like "student X

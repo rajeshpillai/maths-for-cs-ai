@@ -1,5 +1,16 @@
 # Eigenvalues & Eigenvectors — Directions That Survive a Transform
 
+## Explain Like I Am 7
+
+When you stretch a rubber sheet, most arrows drawn on it twist into
+weird new directions — but a few special arrows just get **longer or
+shorter while pointing the same way**.  Those stubborn arrows are
+**eigenvectors**, and the amount they grew (or shrunk) is the
+**eigenvalue**.  Finding them is like finding the *grain* of the
+wood: the natural lines along which the stretching is purely up-and-
+down with no twisting.  This grain shows up everywhere from
+spinning tops to Google's search ranking.
+
 ## Intuition
 
 Most vectors change direction when you multiply them by a matrix.  But some

@@ -1,5 +1,16 @@
 # Periodic Functions and Superposition
 
+## Explain Like I Am 7
+
+Think of pushing a friend on a swing.  They go forward, back, forward,
+back — the same pattern over and over.  That's a **periodic** wiggle.
+Now imagine two friends on two swings of different speeds, both
+holding the same long ribbon.  The ribbon bounces in a brand-new wavy
+pattern that's just the two swings *added together*.  Add a third
+friend, a fourth, a hundred — you can make almost any wiggle you can
+imagine just by mixing simple swing-wiggles.  That's the magic
+superpower at the heart of Fourier maths.
+
 ## Intuition
 
 A **periodic function** repeats at regular intervals — like a heartbeat, a

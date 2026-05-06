@@ -1,5 +1,16 @@
 # Hypothesis Testing Foundations
 
+## Explain Like I Am 7
+
+I tell you my coin is fair.  You flip it 100 times and get 70
+heads.  That sounds suspicious — but a *fair* coin can sometimes
+get 70 heads just by lucky chance.  How often, though?  If a fair
+coin would only do that less than once in a hundred experiments,
+that's pretty fishy and you can call my bluff.  Hypothesis testing
+is exactly this: you ask "if the boring story were true, how often
+would the world fool me with luck this big?"  If the answer is
+"hardly ever," you trust your eyes.
+
 ## Intuition
 
 A game studio claims their new matchmaking algorithm gives 50% win rates.

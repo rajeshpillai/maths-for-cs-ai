@@ -16,6 +16,17 @@ applications:
 
 # Reasoning Research Capstone
 
+## Explain Like I Am 7
+
+This is the very end of the reasoning road — the final viewing
+platform.  From here you can see the early dominoes of induction, the
+sock-pile rules of equivalence, the snow-globe universes of toposes,
+the spaghetti diagrams of quantum logic, and the brand-new wings of
+univalent foundations rising in the distance.  Each tool was a tiny
+trick that grew up into something powerful.  Today's question isn't
+"can a computer reason?" — it's "*how* should we teach humans and
+computers to reason together for the next hundred years?"
+
 ## Mental
 
 Strand 8 (Reasoning) terminates here. The capstone connects everything

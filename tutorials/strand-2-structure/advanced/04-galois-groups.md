@@ -16,6 +16,17 @@ applications:
 
 # Galois Groups
 
+## Explain Like I Am 7
+
+Inside a freshly-built playroom (the splitting field) sit all the
+roots of a polynomial — like a handful of identical-looking marbles
+scattered on the floor.  A **Galois symmetry** is any way to swap the
+marbles around that *no one in the original room* can detect: from the
+ground floor's point of view, the marbles look interchangeable.  All
+such allowable swaps form a kit-of-moves: the **Galois group**.  The
+shape of this kit is the polynomial's secret fingerprint, and reading
+it tells you whether the polynomial can be solved by tidy formulas.
+
 ## Mental
 
 For a Galois extension $K/F$, the **Galois group**

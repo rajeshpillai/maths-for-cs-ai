@@ -19,6 +19,17 @@ applications:
 
 # GCD and Euclid's Algorithm
 
+## Explain Like I Am 7
+
+You have a long ribbon and a short ribbon, and you want to cut them
+both into pieces that are *exactly* the same length, with no scraps
+left over.  What's the **biggest** length that works?  Euclid's clever
+trick: chop the long ribbon down by the short one as many times as it
+fits, and whatever sticks out becomes your new short ribbon.  Repeat,
+and the pieces shrink and shrink until one fits the other perfectly —
+*that* tiny leftover piece is the biggest length you can use for
+both.
+
 ## Mental
 
 The **greatest common divisor** of two whole numbers is the largest

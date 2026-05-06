@@ -16,6 +16,17 @@ applications:
 
 # Random Matrix Universality
 
+## Explain Like I Am 7
+
+Build a giant grid of random numbers and find its eigenvalues —
+the special numbers that describe how the matrix stretches space.
+Strangely, the *gaps* between consecutive eigenvalues, and the
+distribution of the largest one, look almost identical no matter
+how you choose the random numbers.  This is **universality**: the
+local statistics don't care about the recipe; they only care about
+the symmetry of the matrix.  The same Tracy-Widom curve pops up in
+nuclear physics, traffic-jam models, and growing crystal surfaces.
+
 ## Mental
 
 For random Hermitian / symmetric / unitary matrices of size $N \to \infty$:

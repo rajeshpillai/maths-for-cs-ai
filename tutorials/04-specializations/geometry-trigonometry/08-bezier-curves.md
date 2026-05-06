@@ -1,5 +1,15 @@
 # Bézier Curves and Splines — From Polynomial Interpolation
 
+## Explain Like I Am 7
+
+Tie a piece of string between two pins.  Now place a magnet to the side
+and let it tug the string into a graceful curve — no kinks, no hard
+corners, just a smooth arc.  A **Bézier curve** is exactly that idea:
+two endpoints decide where the curve starts and stops, and a couple of
+extra "magnet" points pull the line into a swoopy shape.  Move a magnet
+and the whole curve gently glides.  Every smooth letter in a font and
+every swoosh in an animated logo is drawn this way.
+
 ## Intuition
 
 Bézier curves create smooth, controllable shapes from a few **control points**.

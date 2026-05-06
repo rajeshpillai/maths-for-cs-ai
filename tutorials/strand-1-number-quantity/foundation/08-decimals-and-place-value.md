@@ -21,6 +21,17 @@ applications:
 
 # Decimals and Place Value
 
+## Explain Like I Am 7
+
+Picture a ruler.  The big lines mark whole inches; the smaller lines
+chop each inch into ten tinier strips, and you can imagine even tinier
+strips between *those*.  A decimal point is a little gate: digits to
+the **left** count whole inches, digits to the **right** count those
+finer and finer strips — tenths, hundredths, thousandths.  Writing
+"3.14" is just saying "three whole inches, plus one tenth-strip, plus
+four hundredth-strips" — money works the same way, with cents being
+hundredths of a dollar.
+
 ## Mental
 
 A decimal is a fraction whose **denominator is a power of $10$** —

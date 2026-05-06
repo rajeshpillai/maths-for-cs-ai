@@ -18,6 +18,17 @@ applications:
 
 # Mutually Exclusive Events — The Addition Rule
 
+## Explain Like I Am 7
+
+Roll a single die.  You can land a $3$ or a $5$, but never both at
+once on the same roll.  Two events that *can't both happen* are
+called **mutually exclusive**, and the chance of *either one*
+happening is found by simply adding their chances together.
+Remember: "and" with independent events makes you *multiply*; "or"
+with exclusive events makes you *add*.  Mixing the two rules up is
+the most common probability mistake — keep the words straight and
+you'll dodge a lot of confusion.
+
 ## Mental
 
 Two events are **mutually exclusive** when they **can't both happen

@@ -1,5 +1,16 @@
 # Multivariable Integration
 
+## Explain Like I Am 7
+
+To find the **area** of a wobbly puddle on the floor, you tile it
+with skinny rectangles and add them up.  Now imagine a *hill*
+instead of a flat puddle — bumpy and bulgy.  To find its **volume**
+you tile its floor with tiny squares, build a thin tower of clay on
+each square up to the hill's height, and add up *all* the clay.
+That's a **double integral** — adding tiny chunks across two
+directions at once.  Do it across three and you can total up
+ingredients in a whole 3D cake.
+
 ## Intuition
 
 Single-variable integrals give area under a curve.  **Double integrals** give

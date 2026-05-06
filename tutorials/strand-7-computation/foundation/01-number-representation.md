@@ -16,6 +16,16 @@ applications:
 
 # Number Representation in Computers
 
+## Explain Like I Am 7
+
+Computers only know two things — *light on* and *light off*, like a
+row of tiny torches.  To write the number eleven, the torches show a
+pattern: ON-OFF-ON-ON, which is shorthand for "one eight, no four, one
+two, one one — that adds up to eleven."  Every number in every game,
+photo, and song is hidden in long rows of these torches.  Hex is just a
+shorter way to write the rows: instead of saying "OFF-ON-ON-ON" you
+say "$7$," because four torches can pack one hex letter.
+
 ## Mental
 
 Computers store everything as **binary** — sequences of $0$s and $1$s

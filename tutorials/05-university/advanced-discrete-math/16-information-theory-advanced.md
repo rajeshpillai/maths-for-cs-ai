@@ -1,5 +1,16 @@
 # Advanced Information Theory
 
+## Explain Like I Am 7
+
+Imagine shouting messages to a friend across a windy field — some
+words get blown away.  How can your message still arrive correctly?
+The trick is to repeat clever extra clues, like saying "the red ball
+that bounces" instead of just "ball" — even if "red" is lost, the
+listener can figure it out from "bounces."  Adding the right kind of
+extra is called an **error-correcting code**, and the wonderful
+result is that even with a noisy wind, you can almost always pack
+your messages safely through to the other side.
+
 ## Intuition
 
 How much data can you push through a noisy phone line? Shannon's channel

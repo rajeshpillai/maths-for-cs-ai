@@ -16,6 +16,16 @@ applications:
 
 # Graphs — BFS and DFS
 
+## Explain Like I Am 7
+
+Picture a tangle of friendship lines: each kid is a dot and a line
+joins any two who are pals.  Searching this tangle is like looking for
+your missing rubber duck.  You can either walk *outwards in rings* —
+ask all your friends, then all *their* friends, then theirs — or you
+can dive *deep* down one trail until you hit a dead end, then back up
+and try the next.  Both ways visit every kid; one explores in
+spreading ripples, the other like a torch beam down a tunnel.
+
 ## Mental
 
 A **graph** $G = (V, E)$ has vertices $V$ and edges $E$. Edges may

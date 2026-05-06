@@ -16,6 +16,17 @@ applications:
 
 # Tannakian Formalism
 
+## Explain Like I Am 7
+
+Imagine a shy actor who refuses to show their face but is happy to
+star in plays.  By watching *every* play they've performed and
+*every* way two of their roles combine, you can secretly figure out
+who the actor is — their height, voice, mannerisms — without ever
+seeing them directly.  Tannakian reconstruction does exactly that for
+groups: knowing the full catalogue of a group's "performances" (its
+representations) and how they tensor together is enough to rebuild
+the group itself.  It's surveillance via shadows, in the gentlest way.
+
 ## Mental
 
 **Tannakian reconstruction**: an algebraic group $G$ can be

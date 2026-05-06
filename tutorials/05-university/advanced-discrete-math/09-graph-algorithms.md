@@ -1,5 +1,16 @@
 # Graph Algorithms
 
+## Explain Like I Am 7
+
+You're at the front door of a giant maze with treats hidden in some
+rooms.  One way to find them: explore room by room outward, like a
+ripple — visit every neighbour, then every neighbour's neighbour.
+Another way: dive deep into one corridor, never look back, hit a
+dead end, and only then back up.  If some doors cost candies to
+open, a careful explorer will always pick the cheapest unlocked door
+first.  These three explorer-rules tell phones how to send messages
+and games how to find paths.
+
 ## Intuition
 
 Graphs model connections, but the real power comes from algorithms that

@@ -1,5 +1,15 @@
 # Mathematical Induction — Weak, Strong, and Well-Ordering
 
+## Explain Like I Am 7
+
+Stand up an endless line of dominoes.  If you can show two things — the
+very first one tips over, and any tipping domino is close enough to
+knock down its neighbour — then you know without checking that *every*
+domino in the whole line will fall.  That's **induction**.  "Strong"
+induction is the same trick with a fancier promise: every neighbour
+gets a push from the *whole crowd* of fallen dominoes behind it, not
+just the one right next door.
+
 ## Intuition
 
 Imagine an infinite line of dominoes. If you can prove (1) the first domino

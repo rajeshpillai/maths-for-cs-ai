@@ -1,5 +1,16 @@
 # Modular Arithmetic — Clock Math
 
+## Explain Like I Am 7
+
+Look at the kitchen clock.  After **12** o'clock, the hour hand
+doesn't keep climbing to 13 or 14 — it loops back round to 1.  If it's
+10 o'clock and you wait 5 hours, you get to 3 o'clock, not 15
+o'clock.  **Modular arithmetic** is just numbers that wrap around the
+same way, like beads on a circle instead of beads on a long string.
+Whenever your maths needs to "go round and round" — days of the
+week, days in a year, secret codes, even bouncing ball game scores —
+this is the tool.
+
 ## Intuition
 
 If it's 10 o'clock and you add 5 hours, it's 3 o'clock — not 15.  The clock

@@ -1,5 +1,16 @@
 # Logistic Regression
 
+## Explain Like I Am 7
+
+Will the kid eat their broccoli — yes or no?  We can't draw a
+slanted line that predicts "yes-ness" because yes-ness only goes
+between 0 and 1.  So we feed our slanted-line answer through a
+squishy slide that gently squashes any number into something
+between 0 and 1, then read it as a probability.  Big positive
+numbers slide down to nearly 1 (almost certainly yes); big negative
+numbers slide down to nearly 0 (no chance); right in the middle
+means we genuinely can't tell.
+
 ## Intuition
 
 Linear regression predicts continuous values, but what if the outcome is

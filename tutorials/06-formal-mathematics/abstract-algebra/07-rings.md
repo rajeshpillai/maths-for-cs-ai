@@ -1,5 +1,15 @@
 # Rings — Where Addition Meets Multiplication
 
+## Explain Like I Am 7
+
+Take a calculator that has both a "+" button and a "×" button — and
+they share the same set of numbers.  A **ring** is the rulebook saying
+those two buttons play nicely together.  You can add things, you can
+multiply things, and the magic line $a \times (b + c) = a\times b +
+a\times c$ ties the two buttons together so neither is a stranger to
+the other.  Whole numbers, polynomials, and even matrices all live
+inside this kind of double-button calculator.
+
 ## Intuition
 
 A **ring** is what you get when a single set has both addition and

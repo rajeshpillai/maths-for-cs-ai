@@ -16,6 +16,18 @@ applications:
 
 # Geometric Group Theory
 
+## Explain Like I Am 7
+
+Imagine writing every secret-code instruction your group of friends
+can perform — "step left," "step right," "spin." If each
+instruction is an arrow you can draw on the floor, the *floor map
+of all reachable spots* becomes a giant connected dot-and-string
+picture called a **Cayley graph**.  Geometric group theorists
+study these pictures from very far away — like squinting at a
+city from space — and discover that the shape, growth, and
+"thickness" of the map already tells you almost everything about
+the secret-code group itself.
+
 ## Mental
 
 Treat **groups as geometric objects**: study a group $G$ via the

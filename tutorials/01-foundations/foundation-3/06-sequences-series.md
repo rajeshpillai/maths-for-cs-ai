@@ -1,5 +1,16 @@
 # Sequences and Series — Arithmetic, Geometric, Convergence
 
+## Explain Like I Am 7
+
+Stack one block.  Then stack two more.  Then three more.  A
+**sequence** is the list of pile-sizes you get along the way; a
+**series** is what you get when you glue every pile together into one
+giant tower.  Some towers grow forever and never stop, but here's a
+weird thing: if each new pile is *much smaller* than the last (like
+half of it, then a quarter, then an eighth), the tower stops growing
+at a sensible height even though you keep adding bricks forever.  That
+quiet settling is called **convergence**.
+
 ## Intuition
 
 A **sequence** is an ordered list of numbers following a rule.  A **series**

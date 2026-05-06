@@ -1,5 +1,16 @@
 # Automatic Differentiation — Forward Mode vs Reverse Mode
 
+## Explain Like I Am 7
+
+Think of a long Rube-Goldberg machine: a marble drops, a bell rings, a
+cup tips, a flag flies up.  We want to know: if I let the marble go a
+*little* harder, how much higher does the flag fly?  **Forward mode**
+walks through the machine carrying both the marble's speed *and* "how
+much it would change" — gadget by gadget.  **Reverse mode** lets the
+machine run all the way to the flag first, then walks **backwards**
+asking each gadget "how much did the next thing depend on you?"  For
+neural nets, reverse is the speedy choice — that's backprop.
+
 ## Intuition
 
 We covered this briefly in Tier 3.  Now we go deeper.  **Forward mode** AD

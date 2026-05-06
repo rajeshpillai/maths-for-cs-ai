@@ -1,5 +1,16 @@
 # Advanced Modular Arithmetic
 
+## Explain Like I Am 7
+
+Imagine three different sized clocks on the wall — one with 3
+numbers, one with 5, one with 7.  You can pick any moment and write
+down what each clock says, like (1, 4, 2).  The lovely surprise:
+those three little numbers, all together, point to **exactly one**
+moment in the next 3 × 5 × 7 = 105 ticks.  No two moments share the
+same triple of clock-faces.  So if a friend whispers three clock
+readings, you can always work out the secret moment they meant —
+that's how clocks help keep secrets.
+
 ## Intuition
 
 Modular arithmetic is "clock arithmetic" on steroids. When you wrap numbers

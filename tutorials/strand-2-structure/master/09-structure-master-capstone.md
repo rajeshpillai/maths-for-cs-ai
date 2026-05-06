@@ -17,6 +17,17 @@ applications:
 
 # Capstone — Structure as Universal Language
 
+## Explain Like I Am 7
+
+After nine master-level lessons, you're not just collecting tools any
+more — you're learning to *read the same shape in different places*.
+Geometry, number theory, programming languages, even quantum physics
+all turn out to speak dialects of the same algebraic grammar:
+schemes, sheaves, categories, tensors.  This capstone celebrates that
+"universal language" — once you've heard it, you can move between
+fields like a multilingual traveller, and the same proof technique
+unlocks shockingly different problems.
+
 ## Mental
 
 Nine lessons on:

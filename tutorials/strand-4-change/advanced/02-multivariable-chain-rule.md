@@ -16,6 +16,17 @@ applications:
 
 # Multivariable Chain Rule and Jacobian
 
+## Explain Like I Am 7
+
+Imagine a domino chain where every domino can topple *several*
+other dominos at once, and each next domino in turn is pushed by
+several dominos behind it.  How fast does the wave at the back
+push the wave at the front?  The **multivariable chain rule** is
+the rule of multiplied wiggles when many things depend on many
+things.  The **Jacobian** is just a tidy table that lists every
+"this wiggle pushes that wiggle" rate, so you can multiply tables
+together to follow the whole topple.
+
 ## Mental
 
 In one dimension: $(f \circ g)'(x) = f'(g(x)) \cdot g'(x)$.

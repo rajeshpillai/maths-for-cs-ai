@@ -17,6 +17,17 @@ applications:
 
 # Capstone — Computation in the Wild
 
+## Explain Like I Am 7
+
+Imagine you've been collecting little tools all year — a magnifying
+glass for spotting tiny errors, a stopwatch for timing recipes, a
+torch made of light bulbs for counting in twos, a half-line trick for
+splitting puzzles in two.  Today is the show-and-tell day where you
+take every tool out of the box and use them together on a real
+project: a bouncing ball, a search bar, a tiny calculator.  This
+chapter is the field trip where the toolbox stops being a toolbox and
+starts being something the world actually uses.
+
 ## Mental
 
 Nine lessons on:

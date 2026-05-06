@@ -18,6 +18,16 @@ applications:
 
 # Similarity and Scaling
 
+## Explain Like I Am 7
+
+Look at a photo of yourself on your phone, then look at the same
+photo printed on a poster.  Tiny-you and giant-you are *exactly the
+same shape* — same nose, same smile, same proportions — only one is
+bigger.  Two shapes that match like that are called **similar**.
+The trick is that *every distance grows by the same multiplier*: if
+your nose doubled, so did your ears, your shoulders, and the gap
+between your eyes.  That one growing-number is the scale factor.
+
 ## Mental
 
 Two shapes are **similar** when they have the **same shape** but

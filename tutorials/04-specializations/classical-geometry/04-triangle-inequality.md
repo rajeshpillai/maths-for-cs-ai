@@ -1,5 +1,15 @@
 # Triangle Inequality — When Three Sides Form a Triangle
 
+## Explain Like I Am 7
+
+You have three sticks: a 2 cm one, a 3 cm one, and a 100 cm one.  Can
+you make a triangle?  Of course not — the two short sticks can't even
+reach each other across the long one!  The rule is: **any two sides
+must add up to more than the third**.  Picture walking from your house
+to school: the straight road across the park is always shorter than
+walking along two sides of the park.  Going the long way around can
+never be shorter than the direct path — that's the same idea.
+
 ## Intuition
 
 Can you build a triangle with sides $2, 3, 100$?  Obviously not — the short

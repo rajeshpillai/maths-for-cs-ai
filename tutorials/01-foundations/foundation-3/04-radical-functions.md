@@ -1,5 +1,16 @@
 # Radical Functions — nth Roots, Rational Exponents, and Extraneous Solutions
 
+## Explain Like I Am 7
+
+You build a perfect square out of $25$ tiles, $5$ along each side.  If
+someone hands you the floor and asks "how long was each side?" you
+**un-square** the $25$ to get $5$ — that's a square *root*.  Cube
+roots do the same trick for boxes of bricks.  Roots and powers are
+opposites: powers are "smush these together," roots are "pull them
+apart again."  But beware — sometimes when you do this on paper, an
+answer pops up that doesn't actually fit, like a ghost guest at the
+party.
+
 ## Intuition
 
 A **radical** undoes a power: $\sqrt[n]{x}$ asks "what number, raised to the

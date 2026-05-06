@@ -1,5 +1,16 @@
 # Set Theory — Unions, Intersections, Power Sets, Cartesian Products
 
+## Explain Like I Am 7
+
+You have a bag of red toys and your friend has a bag of yellow toys.
+Tip both bags into one big basket and you get the **union** —
+everything from either bag.  Pick out only the toys that *both* of you
+brought (maybe you each had a teddy) and that's the **intersection**.
+A **set** is just a bag where the toys have no order and nothing is
+duplicated.  Once you can mix and overlap bags like this, you can
+describe almost every collection in the world — friend lists, fruit
+bowls, even rows in a database.
+
 ## Intuition
 
 A set is just a collection of distinct objects with no order.  Your contact

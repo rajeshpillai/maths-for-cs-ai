@@ -16,6 +16,18 @@ applications:
 
 # Fiber Bundles and Connections
 
+## Explain Like I Am 7
+
+Picture a long row of houses.  Above each house, dangle a tiny
+balloon — and each balloon has its own little world inside it.  The
+row of houses is the *base*; the dangling worlds are the *fibres*;
+the whole apartment-of-balloons is a **fibre bundle**.  Now imagine
+walking along the houses while *also* moving inside the balloon
+above you.  A **connection** is a rule that says: "if you take this
+step on the ground, here's the matching step you should take inside
+the balloon to stay lined up."  That rule is how curvature is
+secretly stored.
+
 ## Mental
 
 A **fiber bundle** $E \xrightarrow{\pi} B$ with **fiber** $F$:

@@ -1,5 +1,15 @@
 # Trigonometric Functions — All Six, Identities & Exact Values
 
+## Explain Like I Am 7
+
+You already met three round-and-round helpers — *sine*, *cosine*, and
+*tangent*.  This lesson adds three more brothers and sisters to the
+family, plus a small **secret handbook** of facts every one of them
+must obey.  Once you know the handbook, you can swap one helper for
+another whenever it makes a problem easier — like trading a heavy
+shovel for a tiny spoon when you only need to dig out a little hole.
+Less digging, same answer.
+
 ## Intuition
 
 In Foundation 2 you met sine, cosine, and tangent through right triangles.

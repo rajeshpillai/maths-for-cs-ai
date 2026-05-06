@@ -16,6 +16,17 @@ applications:
 
 # Causal Inference
 
+## Explain Like I Am 7
+
+Ice cream sales and shark attacks both rise in summer.  Did ice
+cream cause the sharks?  Of course not — they share a common
+*cause* (hot weather brings beach-goers).  Plain probability can
+spot the *correlation* but not pull the *cause* apart.  **Causal
+inference** uses arrow-diagrams of "what causes what" to ask the
+right question — "what would happen if I *intervened* and changed
+ice cream sales while leaving the weather alone?" — and to compute
+honest answers from messy real-world data.
+
 ## Mental
 
 Statistics traditionally answers $P(Y | X)$ — *correlation*.

@@ -17,6 +17,17 @@ applications:
 
 # Capstone — Multivariable Calculus in Practice
 
+## Explain Like I Am 7
+
+Your toolkit just grew a lot: hill-compass gradients, fence-walking
+optimisation, sand-toothpicking volumes, rubber-sheet stretching,
+and bathtub-current bookkeeping.  In this capstone you point all
+those tools at honest, hairy real problems — like figuring out
+how a heat-seeking missile finds the warmest spot, how a soap
+bubble settles into a minimum-area shape, or how to compute the
+total mass of a strange-density blob.  Many tools, one giant
+problem each.
+
 ## Mental
 
 Nine lessons on:

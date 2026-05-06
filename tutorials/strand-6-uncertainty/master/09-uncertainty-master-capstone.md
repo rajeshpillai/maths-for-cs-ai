@@ -16,6 +16,18 @@ applications:
 
 # Capstone — Probability at the Frontier
 
+## Explain Like I Am 7
+
+This is the grand walk through modern probability: the jittery
+pollen path of Brownian motion, the rate of impossible-seeming
+events, ladybugs whose long-time averages match space averages,
+secret-code information theory, generalisation bounds for ML,
+sparked-up stochastic equations, dirt-pile transport distances,
+and arrow-diagram causal reasoning.  We point this whole museum at
+real problems: training a diffusion image generator, designing a
+medical study, and bounding a learning algorithm's mistakes.  This
+is probability as researchers actually use it in 2026.
+
 ## Mental
 
 Nine lessons on:

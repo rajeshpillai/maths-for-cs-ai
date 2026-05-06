@@ -16,6 +16,18 @@ applications:
 
 # Modal Type Theory
 
+## Explain Like I Am 7
+
+Remember how some lessons taught logic with the words "must" and
+"might"?  **Modal type theory** sticks those words *onto the
+stickers* on each puzzle piece.  Now a piece can wear "$\Box$ secret"
+meaning "this thing is locked safely in a box," or "$\Diamond$
+later" meaning "this thing arrives in the future."  When you snap
+pieces together, the must-and-might rules ride along, so the puzzle
+itself enforces "you can't peek inside the box yet" or "you can't use
+tomorrow's data today."  Useful for security, staged programs, and
+distributed systems.
+
 ## Mental
 
 **Modal logic**: classical / intuitionistic logic enriched with

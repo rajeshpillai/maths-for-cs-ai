@@ -1,5 +1,15 @@
 # Further Vectors — Lines and Planes in 3D
 
+## Explain Like I Am 7
+
+Stand somewhere in your room and point with your finger.  To describe
+a perfectly straight line in 3D, all you need is *where you started*
+and *where you're pointing* — the line is everything you'd hit if you
+shot a laser pen out of your finger.  A flat tabletop in 3D needs
+something different: a single dot on the table, plus an arrow sticking
+straight *up* from the table.  That up-arrow says "the table is the
+floor that's perpendicular to me" and pins down the whole flat surface.
+
 ## Intuition
 
 In 2D, a line is $y = mx + c$.  In 3D, a line needs a **point** and a

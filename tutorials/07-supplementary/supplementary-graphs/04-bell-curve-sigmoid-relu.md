@@ -1,5 +1,15 @@
 # Bell Curve, S-Curve, Step Functions, and ReLU
 
+## Explain Like I Am 7
+
+Four shapes you'll meet again and again.  The **bell** looks like a
+hat — most things sit near the middle, fewer at the edges (heights of
+people, exam marks).  The **S-curve** is a slow ramp — it lazily lifts
+from "no" up to "yes" with a soft middle.  The **step** is a sudden
+on/off switch — flat, then *boop*, jumps up.  And **ReLU** is a bent
+hose — it sits flat at zero until you crank it past zero, then it
+grows in a perfectly straight diagonal.
+
 ## Intuition
 
 These four shapes appear constantly in ML and statistics.  The **bell curve**

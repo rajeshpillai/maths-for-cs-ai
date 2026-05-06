@@ -1,5 +1,15 @@
 # 2D and 3D Rotation Matrices — Derived from Trigonometry
 
+## Explain Like I Am 7
+
+Spin a paper arrow on your desk around its tail with your finger.  Every
+point on the arrow swings to a new spot, but it stays the same shape and
+the same length from the centre.  A **rotation matrix** is a tiny
+recipe — just four numbers in a 2×2 box — that tells you exactly where
+each spinning point lands.  Plug in any old point, multiply, and out
+pops the new point at the new angle.  Computers use this exact recipe
+millions of times a second to swing a game character's sword.
+
 ## Intuition
 
 Rotating a point around the origin is a linear transformation — so it can be

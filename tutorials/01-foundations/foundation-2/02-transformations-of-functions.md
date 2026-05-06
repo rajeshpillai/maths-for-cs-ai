@@ -1,5 +1,15 @@
 # Transformations of Functions
 
+## Explain Like I Am 7
+
+Imagine you drew a wiggly snake on a piece of see-through plastic.  Now
+slide the plastic up, down, left, or right — the snake hasn't changed
+shape, it just lives somewhere new.  Squash the plastic taller and the
+snake gets stretched; flip the plastic over and the snake faces the
+other way.  *Transformations* are exactly these tricks done with maths
+instead of plastic: you keep the same curve but nudge it, stretch it,
+or flip it without ever drawing it again from scratch.
+
 ## Intuition
 
 Game developers resize, flip, and reposition sprites all the time.  Function

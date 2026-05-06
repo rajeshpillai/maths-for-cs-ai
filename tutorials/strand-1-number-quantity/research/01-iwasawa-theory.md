@@ -16,6 +16,17 @@ applications:
 
 # Iwasawa Theory
 
+## Explain Like I Am 7
+
+Picture a magnificent watchtower being built one storey at a time, and
+each new floor adds a tiny twist to the whole tower's shape.
+Iwasawa's idea: instead of staring at one floor, watch how a single
+fixed property (like "how broken is unique factorisation here?")
+**evolves** as you climb.  Surprisingly, the way these properties
+shift floor by floor is governed by a single, hidden $p$-adic
+function — like a single tune that the whole tower hums.  That tune
+is conjectured to *be* the $p$-adic L-function we met before.
+
 ## Mental
 
 For a prime $p$, consider the **cyclotomic $\mathbb Z_p$-extension**

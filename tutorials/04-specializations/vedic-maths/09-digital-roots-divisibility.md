@@ -1,5 +1,16 @@
 # Beejank — Digital Roots and Divisibility
 
+## Explain Like I Am 7
+
+Take the number 583.  Add its digits: 5+8+3 = **16**.  Now do it
+again: 1+6 = **7**.  That tiny **7** is the number's *digital root*
+— a kind of fingerprint.  Cool fact: when you add or multiply two
+numbers, their fingerprints follow the same rule.  So if you compute
+something big and the fingerprints don't match, you know you've made
+a mistake without redoing all the work.  Old shopkeepers used this
+trick (called "casting out nines") for hundreds of years to spot
+arithmetic blunders before handing back change.
+
 ## Intuition
 
 Digital roots (beejank) give you an instant sanity check for any arithmetic

@@ -1,5 +1,15 @@
 # Piecewise Functions
 
+## Explain Like I Am 7
+
+The ice-cream van charges 50p for one scoop, £1 for two, and a flat £2
+for any tub bigger than three scoops.  There isn't a single rule for
+the price — there are **different rules for different sizes**, all
+glued together.  A *piecewise* rule is exactly that: one formula here,
+another formula there, with neat little gates that say "use this rule
+when the input falls in *this* range."  When you draw it, you get a
+graph made of stitched-together pieces.
+
 ## Intuition
 
 A piecewise function uses different formulas on different intervals — like a

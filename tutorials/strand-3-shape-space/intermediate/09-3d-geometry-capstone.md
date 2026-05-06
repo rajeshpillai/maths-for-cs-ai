@@ -17,6 +17,16 @@ applications:
 
 # 3D Geometry Capstone
 
+## Explain Like I Am 7
+
+You've gathered three new gadgets: a trig-ratio calculator, an arrow
+toolkit, and a swirl-coordinate map.  Now imagine someone hands you
+a real puzzle in three dimensions — like aiming a basketball, or
+finding where a laser pointer hits the ceiling, or fitting a shelf
+into a tilted attic.  In this lesson you mash all your gadgets
+together and watch how flat geometry, vectors, and angles team up
+to solve genuinely *spatial* problems that live in the real world.
+
 ## Mental
 
 Strand 3 Foundation covered 2D geometry. Strand 3 Intermediate

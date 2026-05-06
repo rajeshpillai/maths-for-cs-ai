@@ -17,6 +17,16 @@ applications:
 
 # Fermat's Little Theorem and Euler's Totient
 
+## Explain Like I Am 7
+
+Picture a circle of 7 chairs and a hopping frog.  No matter how many
+chairs the frog jumps each turn (1, 2, 3, anything not a multiple of
+7), if it makes exactly 6 hops in a row of the same size, it always
+ends up back in its starting chair.  Fermat noticed this lovely
+clockwork — and Euler later showed how to count, for *any* circle, how
+many "good" jump-sizes you have to pick from.  That secret count is
+the engine that runs every padlock on the modern internet.
+
 ## Mental
 
 Two cornerstone theorems of number theory, both about modular

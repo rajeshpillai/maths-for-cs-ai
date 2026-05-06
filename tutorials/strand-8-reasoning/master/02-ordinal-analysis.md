@@ -16,6 +16,17 @@ applications:
 
 # Ordinals and Proof-Theoretic Strength
 
+## Explain Like I Am 7
+
+Counting numbers go $0, 1, 2, 3, \ldots$ forever.  But after "all
+the counting numbers" you can imagine a brand-new number called
+*infinity*, and then *infinity plus one*, and so on — a whole new
+ladder beyond the old one, then a ladder beyond *that*.  These are
+**ordinals**.  Each system of math rules has its own personal "how
+high it can climb" ordinal — and a stronger rulebook climbs higher.
+Mathematicians measure rulebooks against each other by asking, "how
+tall is your ladder?"
+
 ## Mental
 
 **Ordinals** generalise natural numbers:

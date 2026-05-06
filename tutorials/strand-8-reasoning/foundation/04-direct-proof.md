@@ -16,6 +16,16 @@ applications:
 
 # Direct Proof
 
+## Explain Like I Am 7
+
+You want to convince your sceptical friend that "if I have an even
+number of sweets, I can split them in two equal piles."  A **direct
+proof** is the tidy walk from "okay, suppose I have an even number of
+sweets" all the way to "...so here are two equal piles."  Each
+stepping stone is something both of you already agree on, and you
+hop from one to the next without skipping or guessing.  At the end
+your friend has no choice but to nod.
+
 ## Mental
 
 A **direct proof** of "$P \to Q$" assumes $P$ and derives $Q$ via a

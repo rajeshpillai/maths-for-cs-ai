@@ -1,5 +1,16 @@
 # Gradient and Directional Derivatives — A Deeper Look
 
+## Explain Like I Am 7
+
+Stand on a grassy hill, blindfolded, and feel the ground with your
+feet.  One special way of walking points *straight uphill* — the
+fastest climb — and another way is *straight downhill*, the way a
+raindrop slides.  That uphill arrow is the **gradient**.  Now if a
+friend tells you to walk in a different direction, you can still
+work out how steep that path feels — just see how much your chosen
+direction lines up with the uphill arrow.  Same arrow, every road
+asks it for advice.
+
 ## Intuition
 The gradient is a vector that points uphill on a surface, and its magnitude tells
 you how steep the slope is. The directional derivative answers: "if I walk in

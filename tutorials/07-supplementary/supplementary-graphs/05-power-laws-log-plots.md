@@ -1,5 +1,16 @@
 # Power Laws, Log Plots, and Exponential Growth & Decay
 
+## Explain Like I Am 7
+
+Walk around a city and you'll notice a few enormous skyscrapers, lots
+of medium buildings, and tons of tiny shops.  The same lopsided
+pattern shows up everywhere: a few words ("the", "and") fill most of a
+book, a few millionaires hold most of the cash.  These wonky
+"few-giants-many-tinies" patterns are called **power laws**, and on
+ordinary graph paper they look like steep curves you can't compare.
+Switch to special log-paper and the curves magically straighten into
+neat ramps you can read at a glance.
+
 ## Intuition
 
 **Power laws** ($y = cx^k$) describe phenomena where a few items dominate:

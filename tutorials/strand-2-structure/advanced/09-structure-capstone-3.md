@@ -17,6 +17,17 @@ applications:
 
 # Capstone — Algebra at the Edge
 
+## Explain Like I Am 7
+
+Picture a workshop full of strange-looking machines you've built over
+nine lessons: sticky drawers, marble-swap kits, fingerprint Galois
+groups, multi-dimensional peg-grids.  In this capstone you fire them
+all up and watch them solve problems that would have been
+unrecognisable just a few decades ago — quantum-resistant codes,
+topology-flavoured data analysis, the inner skeleton of large language
+models.  This isn't a final theorem; it's a tour of how far the same
+basic algebra ideas reach when you stack them.
+
 ## Mental
 
 Nine lessons on:

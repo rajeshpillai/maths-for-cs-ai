@@ -1,5 +1,16 @@
 # Dimension, Rank & Nullity — The Rank-Nullity Theorem
 
+## Explain Like I Am 7
+
+A juicer takes apples in and squirts juice out.  How **wide** is the
+juicer's output spray?  That width is the **rank** — how many real
+directions the juicer can squirt in.  Some apples get crushed and
+make *no juice at all* (twins that perfectly cancel) — count those
+crushed apples and you get the **nullity**.  The lovely promise is:
+*useful directions* + *wasted directions* always equals the number of
+apples you started with.  Nothing vanishes; it either becomes juice
+or becomes silence.
+
 ## Intuition
 
 When a matrix maps vectors from $\mathbb{R}^n$ to $\mathbb{R}^m$, not all of the

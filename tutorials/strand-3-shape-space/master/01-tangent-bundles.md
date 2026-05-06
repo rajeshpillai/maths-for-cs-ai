@@ -16,6 +16,17 @@ applications:
 
 # Tangent Bundles and Vector Fields
 
+## Explain Like I Am 7
+
+Glue a tiny flat board onto every spot of an apple, just touching the
+peel at that point — like a million little surfboards riding the
+fruit's curve.  All those flat boards together are the **tangent
+bundle**.  Now, on each board, draw a little arrow.  The whole
+collection of arrows is a **vector field** — like the wind blowing
+across a weather map, but the map is curvy.  Comb a hairy ball
+smoothly and you'll find at least one cowlick: a famous fact about
+arrows on spheres.
+
 ## Mental
 
 For an $n$-manifold $M$, the **tangent bundle** is

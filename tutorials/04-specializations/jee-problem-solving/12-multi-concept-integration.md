@@ -1,5 +1,16 @@
 # Multi-Concept Integration
 
+## Explain Like I Am 7
+
+Think of the toughest video-game level: it's not enough to know one
+move — you need to combine running, jumping, *and* swinging a sword,
+all in the right order.  The hardest maths problems are like that
+boss level.  No single trick cracks them; you have to spot which
+*three* tricks belong together and chain them up.  Champions get
+good at this by playing lots of mini-levels first (each technique
+on its own), then practising swapping between them quickly.  The
+bridge between two ideas is often the whole answer.
+
 ## Intuition
 
 The hardest JEE Advanced problems don't test one concept — they test your ability to connect three or more ideas in a single solution. These "boss level" problems require you to: identify which tools are relevant (often non-obvious), try each systematically, and find the bridge that connects them.

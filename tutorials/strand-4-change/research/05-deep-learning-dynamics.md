@@ -16,6 +16,17 @@ applications:
 
 # Deep-Learning Dynamics
 
+## Explain Like I Am 7
+
+Imagine a marble run with billions of tracks, where as the marble
+bounces it slowly *changes* the tracks underneath itself to make
+its own ride smoother.  That's roughly what training a deep
+neural net feels like.  But there are big mysteries: why doesn't
+the marble get stuck in tiny holes?  Why does it keep finding
+sensible answers even with way more tracks than data points?
+**Deep-learning dynamics** is the wide-open research field
+chasing these riddles, mixing physics, stats, and calculus.
+
 ## Mental
 
 Modern DL theory tries to explain *what training does* and *why it

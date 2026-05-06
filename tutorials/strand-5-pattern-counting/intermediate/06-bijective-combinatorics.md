@@ -17,6 +17,17 @@ applications:
 
 # Bijective Combinatorics
 
+## Explain Like I Am 7
+
+Imagine two different bowls of jellybeans.  You don't want to count
+each bowl one by one — instead, you find a magic rule that pairs
+each bean in bowl A with exactly one bean in bowl B, and vice
+versa.  If every bean has its perfect partner, the two bowls
+*must* hold the same number, no counting required.  This pairing
+trick — a **bijection** — is one of the most elegant ways to prove
+that two completely different-looking puzzles have the same answer.
+You don't have to compute either count; you just hold up the pairing.
+
 ## Mental
 
 A **bijection** is a one-to-one correspondence between two

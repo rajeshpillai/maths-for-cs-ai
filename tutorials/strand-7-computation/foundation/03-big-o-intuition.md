@@ -16,6 +16,16 @@ applications:
 
 # Big-O — Counting Steps as Input Grows
 
+## Explain Like I Am 7
+
+Pretend you've been given a giant pile of socks to match into pairs.
+If the pile doubles, how much longer does the job take?  Some matching
+tricks finish in *twice* the time — the work grows in step with the
+pile.  Some clumsy tricks need *four times* as long, because every
+sock has to be compared with every other sock.  **Big-O** is the
+short label kids give to these growth shapes — a quick way to say "if
+the pile gets ten times bigger, my method gets *this much* slower."
+
 ## Mental
 
 Big-O notation **bounds growth rate** of an algorithm's running time

@@ -22,6 +22,17 @@ applications:
 
 # Primes and Unique Factorisation
 
+## Explain Like I Am 7
+
+Think of every whole number as a Lego model.  Some Legos are tiny
+single bricks that can't be split — those are the **primes**.  Every
+bigger model is built by snapping prime bricks together: $12$ is
+$2\times2\times3$, like a tower made of two of one brick and one of
+another.  And here's the magic: no matter how you take a model apart,
+you always end up with the **same** pile of prime bricks — never a
+different mix.  That's why primes are called the atoms of
+multiplication.
+
 ## Mental
 
 Whole numbers come in two kinds:

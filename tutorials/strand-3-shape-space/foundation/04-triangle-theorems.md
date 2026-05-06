@@ -18,6 +18,16 @@ applications:
 
 # Triangle Theorems — Inequality, Congruence, Similarity
 
+## Explain Like I Am 7
+
+Try to build a triangle out of three sticks: a tiny one-inch stick, a
+one-inch stick, and a giant ten-inch stick.  You can't!  The two short
+sticks can't reach across the long one.  That's the **triangle
+inequality** — any two sides must add up to more than the third.
+Triangles are also unbendable: once you nail three sticks together,
+the shape can't wobble.  That's why builders put triangles in roof
+trusses and bridges and you put them inside cardboard forts.
+
 ## Mental
 
 Triangles are the **simplest** rigid 2D shape — three sides that

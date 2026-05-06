@@ -18,6 +18,16 @@ applications:
 
 # LCM and the Identity gcd · lcm = a · b
 
+## Explain Like I Am 7
+
+Two friends visit a park: Alex turns up every 12 days, Sam every 18.
+On which day will they both show up *together* again?  The answer is
+the **smallest** day-number that fits Alex's pattern *and* Sam's — the
+"least common meeting day."  And there's a neat handshake between this
+meeting day and the largest spacing they share: multiply Alex's spacing
+by Sam's, and you get the meeting day times the shared spacing.  The
+two pieces of the puzzle always slot together perfectly.
+
 ## Mental
 
 The **least common multiple** of two whole numbers is the smallest

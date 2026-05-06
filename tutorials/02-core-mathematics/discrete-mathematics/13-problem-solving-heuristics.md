@@ -1,5 +1,16 @@
 # Problem-Solving Heuristics — Casework, Complementary Counting, Symmetry
 
+## Explain Like I Am 7
+
+If your jigsaw box is a giant mess, you don't try to solve it all in
+one go.  You **sort the pieces** — edges in one pile, sky pieces in
+another, grass pieces in another.  Counting puzzles work the same.
+Sometimes you split into separate piles and count each (*casework*).
+Sometimes it's easier to count the *bad* outcomes and subtract them
+from everything (*complementary counting*).  Sometimes the puzzle
+looks the same after a flip or a spin, so you only count one side
+and double it (*symmetry*).
+
 ## Intuition
 
 Most counting problems don't yield to a single formula.  The art is in

@@ -1,5 +1,16 @@
 # Surface Integrals
 
+## Explain Like I Am 7
+
+Imagine wrapping a balloon in tissue paper that's painted unevenly —
+some patches red, some patches white.  How much red paint is on the
+whole balloon?  You'd cut the balloon's surface into tiny patches,
+peek at the paint on each one, and add them all up — even though the
+balloon is curvy in three directions.  Now imagine instead asking
+"how much wind is blowing *through* the balloon's skin?"  Same idea,
+patch by patch — counting how much air sneaks through each tiny bit
+of fabric.
+
 ## Intuition
 A line integral sums along a curve. A **surface integral** sums over a surface
 in 3D space. There are two types: integrating a scalar function over a surface

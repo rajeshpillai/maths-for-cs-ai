@@ -16,6 +16,18 @@ applications:
 
 # Central Limit Theorem — Rigorous
 
+## Explain Like I Am 7
+
+We've seen the bell curve appear when you average lots of random
+numbers.  Now we *prove* it with care: each random variable has a
+secret fingerprint called a characteristic function.  When you
+average $n$ samples and shrink the result to the right scale, the
+fingerprints multiply together, and a tiny Taylor approximation
+shows them collapsing into the bell-curve fingerprint $e^{-t^2/2}$.
+That's the rigorous heart of why bell curves dominate statistics —
+no matter the shape you started from, the average's fingerprint
+always converges to the same one.
+
 ## Mental
 
 The **Central Limit Theorem** (CLT): for iid $X_1, X_2, \ldots$ with

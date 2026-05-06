@@ -1,5 +1,16 @@
 # Linear Transformations — What a Matrix Does to Space
 
+## Explain Like I Am 7
+
+Picture the floor as a giant rubber sheet with a checkerboard drawn
+on it.  Now grab two opposite corners and stretch.  Or twist.  Or
+shear sideways like sliding a stack of cards.  Every square of the
+checkerboard turns into a parallelogram, but the lines stay straight
+and the *centre* of the room stays put.  A **linear transformation**
+is exactly that kind of stretch-or-twist of the floor — and a
+**matrix** is the tiny instruction card that records what happened to
+just two arrows, enough to predict where every other point ends up.
+
 ## Intuition
 
 A matrix isn't just a grid of numbers.  It's an **action** — it stretches,

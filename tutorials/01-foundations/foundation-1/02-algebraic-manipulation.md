@@ -1,5 +1,13 @@
 # Algebraic Manipulation — Expanding, Factorising, Completing the Square
 
+## Explain Like I Am 7
+
+Imagine a paper bag with a mystery toy inside.  You don't know what the toy
+is yet, but you can still write rules about it: "two bags plus three apples."
+Algebra is just doing arithmetic with mystery bags before anyone peeks
+inside.  Expanding means tipping the bags out into one big pile; factorising
+means scooping the pile back into tidy bags so the rule is short again.
+
 ## Intuition
 
 Algebra is the language of abstraction — using letters for unknowns so you

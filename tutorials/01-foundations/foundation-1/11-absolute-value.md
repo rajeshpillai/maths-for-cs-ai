@@ -1,5 +1,13 @@
 # Absolute Value — Distance, Piecewise Thinking, and Norms
 
+## Explain Like I Am 7
+
+If your friend stands 5 steps to the **left** of you, and another friend
+stands 5 steps to the **right**, both of them are still **5 steps away**.
+Absolute value is the question "how far?" — and it doesn't care about which
+direction.  It always gives you a happy, never-grumpy, never-negative
+answer.
+
 ## Intuition
 
 The absolute value $|x|$ answers one question: **how far is $x$ from zero?**

@@ -16,6 +16,17 @@ applications:
 
 # Fourier Analysis and Distributions
 
+## Explain Like I Am 7
+
+Strike a piano chord and you hear one big sound — but if you slow
+down and listen carefully, that one chord is really many simple
+tones playing together.  **Fourier analysis** is the magic prism
+that splits *any* wiggly signal back into its pure tone-pieces,
+the way sunlight splits into rainbow colours.  **Distributions**
+extend the idea to crazy spikes and bumps that aren't normal
+functions at all, like the *infinitely sharp tap* of a hammer —
+mathematicians' way of taming things too sudden to be smooth.
+
 ## Mental
 
 The **Fourier transform** decomposes a function $f : \mathbb R \to \mathbb C$

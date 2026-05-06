@@ -17,6 +17,17 @@ applications:
 
 # Capstone — Number Theory at the Frontier
 
+## Explain Like I Am 7
+
+Imagine you've spent years climbing a series of taller and taller
+mountains, and now you've reached the highest base camp.  Above you
+stretches a foggy ridge with a few flickering lights — the unsolved
+problems that mathematicians today are still squinting at.  This
+capstone is the moment you sit at the campfire and look out: which
+peaks have been climbed, which paths still go nowhere, which cousins
+of your favourite questions are showing up in surprising places (like
+quantum-resistant cryptography or AI-assisted proof search).
+
 ## Mental
 
 Nine lessons on:

@@ -16,6 +16,17 @@ applications:
 
 # Constructibility — Compass and Straightedge
 
+## Explain Like I Am 7
+
+Pretend the only tools in your art kit are a ruler with no markings
+and a pair of compasses.  You can draw lines through any two dots and
+circles around any dot, but that's it — no measuring.  Surprisingly,
+many tricky things *can* be drawn (like a perfect square or a regular
+five-sided star), and surprisingly many *cannot* (like an angle that's
+exactly one third of a given angle).  Whether a shape can be drawn
+turns out to depend on whether its lengths are built only from
+square-roots — the *only* lengths your two simple tools can ever reach.
+
 ## Mental
 
 The ancient Greeks asked: which points in the plane can be

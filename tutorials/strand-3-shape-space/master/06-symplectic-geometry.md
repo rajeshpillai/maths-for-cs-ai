@@ -16,6 +16,17 @@ applications:
 
 # Symplectic Geometry
 
+## Explain Like I Am 7
+
+Push a swing.  At every instant, the swing has two facts: *where it
+is* (in front, in back) and *how fast it's going*.  Pair those two
+together and you've made a single point in a special "phase
+playground."  **Symplectic geometry** is the math of that playground:
+it gives the playground a clever area-meter that *never changes* as
+the swing whooshes through.  Even if everything wobbles, the area of
+any patch of starting-conditions stays exactly the same forever —
+which is why pendulums never get their motion mixed up.
+
 ## Mental
 
 A **symplectic manifold** $(M, \omega)$: smooth manifold $M$ of

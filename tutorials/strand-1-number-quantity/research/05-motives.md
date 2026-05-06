@@ -16,6 +16,18 @@ applications:
 
 # Motives — A Glimpse
 
+## Explain Like I Am 7
+
+Picture an apple on a table.  A photographer takes a top-down shot, an
+x-ray machine takes a see-through shot, an artist sketches it in
+pencil — *three* different pictures, one apple.  Each picture loses
+something, but they all share an invisible "essence" that is
+**really** the apple.  Grothendieck dreamed of an essence-object for
+every geometric shape, called a **motive**, that all those different
+"camera angles" (cohomology theories) are merely shadows of.  Most
+of the dream is still unproved, but it secretly steers a huge chunk
+of modern number theory.
+
 ## Mental
 
 Different cohomology theories (singular, de Rham, étale, crystalline,

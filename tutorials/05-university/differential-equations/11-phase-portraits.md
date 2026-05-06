@@ -1,5 +1,15 @@
 # Phase Portraits & Fixed Point Classification
 
+## Explain Like I Am 7
+
+Imagine a giant marble run carved into a hilly garden.  Drop a marble
+anywhere and watch it roll: some marbles spiral down into a bowl,
+some balance on a peak and tip away the moment a breeze hits, and
+some loop endlessly around a flat ring.  The whole picture of where
+*every* marble would roll is a **phase portrait** — the bowls are
+calm spots that pull marbles in, the peaks are danger spots that
+shove them away, and the loops are forever-circling paths.
+
 ## Intuition
 
 A phase portrait is a map of all possible futures of a system. Instead of

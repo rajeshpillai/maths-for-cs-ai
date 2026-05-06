@@ -16,6 +16,18 @@ applications:
 
 # The Galois Correspondence
 
+## Explain Like I Am 7
+
+Picture a tall apartment building (the splitting field) with the
+ground floor (your starting field) at the bottom.  Each floor in the
+middle is a smaller playroom — and Galois noticed something stunning:
+*every* floor is paired with a sub-kit of marble-swapping moves, and
+*every* sub-kit is paired with a floor.  Move up the building, the
+sub-kit shrinks; move down, it grows.  This perfect upside-down
+pairing turns hard "which floor exists?" questions into easy
+"which sub-kit exists?" questions, and is one of the most beautiful
+bridges in mathematics.
+
 ## Mental
 
 For a Galois extension $K/F$ with group $G = \mathrm{Gal}(K/F)$,

@@ -1,5 +1,15 @@
 # Systems of Nonlinear Equations
 
+## Explain Like I Am 7
+
+Draw a straight road across your driveway with chalk.  Now draw a big
+chalk circle around the car.  How many times does the road cut through
+the circle?  Sometimes twice (it slices right through), sometimes once
+(it just grazes the edge), sometimes not at all (it misses).  Solving
+a *nonlinear system* is exactly this game with maths instead of chalk:
+two pictures sit on the same paper, and the answers are the spots
+where they bump into each other.
+
 ## Intuition
 
 A system of linear equations gives you intersecting lines — at most one

@@ -16,6 +16,17 @@ applications:
 
 # Pell's Equation and Diophantine Solutions
 
+## Explain Like I Am 7
+
+Imagine searching for hidden treasure on a giant grid where only the
+*whole-number* squares count.  Pell's puzzle asks: "find a square
+whose area, after you scoop out a fixed multiple of another square, is
+exactly 1."  Most grid points fail — but once you find your **first**
+treasure square, an enchanted recipe spits out infinitely more,
+each one *much* bigger than the last.  These special whole-number
+solutions are how the ancients hunted very accurate fractions for
+$\sqrt{2}$, $\sqrt{3}$, and so on.
+
 ## Mental
 
 A **Diophantine equation** is one where we seek **integer**

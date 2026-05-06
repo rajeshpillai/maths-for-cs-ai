@@ -16,6 +16,18 @@ applications:
 
 # Stochastic Homogenisation
 
+## Explain Like I Am 7
+
+Imagine a sponge made of random tiny pockets — some hard, some
+soft — and you want to know how it bends when squeezed.  At the
+sponge's *fingertip* scale the material is wildly different in
+every spot, but *zoomed out* the sponge has a single, smooth,
+average stiffness.  **Stochastic homogenisation** is the math of
+that zoom-out: how randomness at small scales gives birth to
+deterministic effective laws at big scales.  This is how
+materials scientists, climate modellers, and biologists pass from
+microscopic mess to clean usable equations.
+
 ## Mental
 
 **Homogenisation**: pass from small-scale heterogeneous problem to

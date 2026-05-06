@@ -1,5 +1,15 @@
 # Polyhedra and Euler's Formula — V − E + F = 2
 
+## Explain Like I Am 7
+
+Pick up a dice, a soccer ball, or any pointy 3D shape with flat
+sides.  Count its **corners**, count its **edges**, and count its
+**faces** (the flat sides).  Now do this maths: corners − edges +
+faces.  No matter which lumpy or smooth solid you tried, you'll get
+the **same answer: 2**.  Always.  This little party trick — Euler's
+formula — secretly tells us why there are only five truly perfect
+solids and why a soccer ball can't be made entirely of hexagons.
+
 ## Intuition
 
 Take any **convex polyhedron** — a cube, a tetrahedron, a soccer ball.

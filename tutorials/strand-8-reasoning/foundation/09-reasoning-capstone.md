@@ -16,6 +16,16 @@ applications:
 
 # Reasoning Capstone — Three Famous Proofs
 
+## Explain Like I Am 7
+
+Three of the most famous showpiece arguments in maths are coming on
+stage at once.  One stares down a row of dominoes.  One trips a sneaky
+"pretend the opposite" trick.  One spots a hidden ladder that climbs
+between counting numbers and weird wiggly decimals.  Each is a tidy
+little story — beginning, middle, end — and together they show how
+the proof tools you've collected so far can settle huge questions
+that puzzled people for centuries.
+
 ## Mental
 
 You now have:

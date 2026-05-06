@@ -1,5 +1,16 @@
 # Extreme Cases and Small Examples
 
+## Explain Like I Am 7
+
+Before guessing how a giant LEGO castle is built, you'd build a tiny
+version with only **two bricks** first to see how the bricks click
+together.  Same trick in maths!  Faced with a scary problem about
+a hundred numbers?  Try just **two**.  Then **three**.  A pattern
+usually peeks out, and once you spot it, the hundred-number version
+is easy.  Also try silly extremes: what if the number is zero?
+What if it's huge?  Tiny tests and crazy tests catch wrong ideas
+before they grow into wrong answers.
+
 ## Intuition
 
 Before attacking a general problem, check what happens at the boundaries. Test n = 1, 2, 3. See what happens when a parameter goes to 0 or infinity. Make the triangle degenerate into a line. Let the ellipse become a circle. These extreme and small cases serve two purposes: they reveal patterns that guide your solution, and they immediately eliminate wrong answers.

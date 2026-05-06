@@ -17,6 +17,17 @@ applications:
 
 # Product, Quotient, and Chain Rules
 
+## Explain Like I Am 7
+
+Sometimes one wiggling thing depends on another wiggling thing.
+A balloon's volume depends on its radius; the radius depends on
+how long you've been blowing.  How fast is the volume changing?
+The **chain rule** is the magical multiply-the-speeds rule for
+nested wiggles.  And when two wigglers are *multiplied* together
+(like the speed of a fan times the size of its blades), the
+**product rule** tells you exactly how to mix their two speeds.
+Three rules, lots of grown-up wiggles tamed.
+
 ## Mental
 
 Beyond simple polynomials, derivatives need three more rules.

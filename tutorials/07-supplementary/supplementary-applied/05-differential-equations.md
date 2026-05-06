@@ -1,5 +1,15 @@
 # Differential Equations — Separable, First-Order, Second-Order
 
+## Explain Like I Am 7
+
+Imagine a fish tank where the *number* of guppies you have decides how
+fast new guppies are born — more guppies, more babies, faster and
+faster.  A **differential equation** is a sentence that tells you the
+*rate* of change but not the actual amount.  Solving it is like being
+told "you got £1 every minute, plus a bonus equal to 10% of your
+current piggy bank" and figuring out how much money is in the piggy
+bank at lunchtime.  The hidden treasure is the function itself.
+
 ## Intuition
 
 A differential equation relates a function to its derivatives.  "The rate of

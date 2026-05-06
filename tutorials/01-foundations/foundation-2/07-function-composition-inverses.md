@@ -1,5 +1,15 @@
 # Function Inverses — Horizontal Line Test, Graphical Reflection, Domain Restriction
 
+## Explain Like I Am 7
+
+You put your shoes on, then your wellies over the top.  To go back to
+bare feet you do it backwards: wellies off, then shoes off.  An
+**inverse** is just the *undo* button for a rule — but only some rules
+can be undone.  If two different kids hung their hats on the same peg,
+nobody can tell whose hat was whose, so that rule has no clean undo.
+Mathematicians fix this by promising "every kid gets their own peg" —
+then the undo button works perfectly every time.
+
 ## Intuition
 
 In programming, many operations have an "undo": encode/decode, encrypt/decrypt,

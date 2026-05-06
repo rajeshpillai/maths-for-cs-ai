@@ -1,5 +1,16 @@
 # Linear Combinations, Span, and Linear Independence
 
+## Explain Like I Am 7
+
+You have one arrow pointing **east** and one pointing **north**.  By
+mixing some east-walks and some north-walks (and stepping backward
+counts as negative), you can reach **any** spot on the playground.
+The spots you can reach are the **span**.  Now add a third arrow
+pointing north-east — uh oh, that's just east + north put together,
+so it's a freeloader: it doesn't unlock any new spots.  When an
+arrow is a freeloader, the bunch is **linearly dependent**.  Tidy
+arrow-bags only carry arrows that pay their way.
+
 ## Intuition
 
 In a game engine, every position in the world can be built by mixing a few

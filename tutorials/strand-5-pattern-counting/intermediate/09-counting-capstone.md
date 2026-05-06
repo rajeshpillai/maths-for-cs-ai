@@ -18,6 +18,17 @@ applications:
 
 # Capstone — Counting in Real Algorithms
 
+## Explain Like I Am 7
+
+Now we put all your counting toys in one big toolbox and tackle real
+puzzles.  How many shapes can a tree of names take inside a
+computer?  How likely is it that a Secret Santa shuffle gives
+*nobody* their own gift?  How many flips does a pancake-sorting
+robot need on average?  Each story is a Russian-doll mix of the
+tricks you've already learned — counting branches, choosing groups,
+multiplying choices, then dividing out the look-alikes — assembled
+into one big satisfying answer.
+
 ## Mental
 
 Two integrated walkthroughs combine multiple Intermediate tools.

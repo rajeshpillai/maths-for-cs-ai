@@ -16,6 +16,18 @@ applications:
 
 # Reinforcement Learning Theory
 
+## Explain Like I Am 7
+
+Imagine teaching a video-game robot to win a level by trial and
+error.  Each step it picks an action, sees what happens, and learns
+from the reward or pain.  **Reinforcement learning theory** asks
+the precise question: how many trial games does the robot *need*
+before it can play near-optimally?  The answers depend on how big
+the level is, how long each game lasts, and how risky exploration
+must be.  Tight bounds use the same probability tools — Markov
+chains, concentration inequalities, optimism — that power statistics
+elsewhere.
+
 ## Mental
 
 **RL** poses optimal-control / sequential-decision problems via

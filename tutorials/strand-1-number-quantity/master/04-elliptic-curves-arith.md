@@ -16,6 +16,17 @@ applications:
 
 # Arithmetic of Elliptic Curves
 
+## Explain Like I Am 7
+
+Imagine a smooth, looping racetrack where you can pick any two
+checkpoints, draw the straight stick joining them, and bounce that
+stick off the curve to land on a new "sum" checkpoint.  This bouncing
+game turns a swooping curve into a pocket calculator: every
+fraction-coordinate point becomes addable to every other.  Looking at
+which checkpoints have nice fraction coordinates — and how they
+combine — is one of the deepest puzzles in number theory, and it's
+also what hides your phone's keys when you tap to pay.
+
 ## Mental
 
 An **elliptic curve** over $\mathbb{Q}$ is a smooth Weierstrass curve

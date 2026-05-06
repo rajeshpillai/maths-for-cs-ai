@@ -18,6 +18,16 @@ applications:
 
 # Putting It Together — Three Real Problems
 
+## Explain Like I Am 7
+
+You've been collecting tools — a ruler, a protractor, a tile-counter,
+a circle-string — for nine lessons.  Now imagine someone walks up
+with a real puzzle: how tall is that tree if you can't climb it?
+How much paint do you need for a weirdly shaped wall?  In this
+lesson you reach into your toolbox, pull out the right tool for
+each job, and discover that the boring practice from earlier
+suddenly solves real, grown-up problems.
+
 ## Mental
 
 Nine lessons in, you have:

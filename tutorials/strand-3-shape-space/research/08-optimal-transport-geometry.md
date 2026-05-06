@@ -16,6 +16,17 @@ applications:
 
 # Optimal Transport on Manifolds
 
+## Explain Like I Am 7
+
+Imagine sand piled into one funny lumpy mountain on a curvy hill.
+You want to push it grain by grain to make a different lumpy
+mountain on the same hill, but you're charged for every step a
+grain has to walk along the bumpy ground.  **Optimal transport**
+on a curvy world is the question of which moving plan costs the
+least sand-walking.  The answer turns out to know all about the
+hill's curvature — gentle valleys make sand-moving cheaper, sharp
+ridges make it more expensive.
+
 ## Mental
 
 Strand 6 Master Lesson 07 introduced Wasserstein optimal transport.

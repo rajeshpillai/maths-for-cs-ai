@@ -18,6 +18,17 @@ applications:
 
 # Applications of Derivatives — Optimisation
 
+## Explain Like I Am 7
+
+Walk along a hilly path.  At the very top of a hill, just before
+you start going down, the ground is *flat for an instant*.  Same
+at the bottom of a valley.  Anywhere the slope is exactly zero is
+a place where you might be on a peak or in a dip.  So if you want
+to find the *biggest* or *smallest* value of some wiggly thing —
+the cheapest box, the highest jump, the fastest motor — you hunt
+for spots where its slope (its derivative) is zero, then check
+which ones are tops and which are bottoms.
+
 ## Mental
 
 Setting $f'(x) = 0$ finds **critical points** — candidate locations

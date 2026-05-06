@@ -17,6 +17,16 @@ applications:
 
 # Dot Product and Angle Between Vectors
 
+## Explain Like I Am 7
+
+Two friends each push a toy car.  If they push the *same way*, the
+car zooms together.  If they push at right angles to each other,
+they fight a bit and the car stalls.  If they push *opposite*, they
+cancel out.  The **dot product** is just a single number that tells
+you how much two arrows are agreeing: a big positive number means
+"same direction!", zero means "totally sideways", and negative
+means "you're undoing each other."
+
 ## Mental
 
 The **dot product** of two vectors combines them into a scalar:

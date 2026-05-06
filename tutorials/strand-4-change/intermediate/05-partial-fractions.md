@@ -16,6 +16,17 @@ applications:
 
 # Partial Fractions
 
+## Explain Like I Am 7
+
+Imagine a strange fruit smoothie that's a mix of three simple
+juices.  If someone told you the smoothie's recipe, you could pour
+it back into three separate cups — apple, mango, and pear — and
+suddenly each cup is something easy.  A messy fraction with a big
+denominator is just like that smoothie.  **Partial fractions** is
+the trick of un-mixing it back into tidy pieces with simple
+denominators, where each piece is a fraction you already know how
+to deal with.
+
 ## Mental
 
 A **proper rational** $\frac{P(x)}{Q(x)}$ ($\deg P < \deg Q$) can be

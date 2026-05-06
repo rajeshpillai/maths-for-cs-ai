@@ -16,6 +16,17 @@ applications:
 
 # Categorical Logic
 
+## Explain Like I Am 7
+
+Imagine a giant signpost map: dots for places, arrows for the trails
+between them, with rules for stitching one trail onto the next.
+**Categorical logic** is a sneaky discovery that "true and false," "and,"
+"or," "for all," "there exists" — every shape from logic — secretly
+*is* one of these dot-and-arrow patterns when you stand back and
+squint.  So instead of writing fiddly proofs, you draw little
+diagrams of arrows, and the picture itself does the proving.  It's
+geometry meeting reasoning.
+
 ## Mental
 
 **Category theory** abstracts mathematics: objects + morphisms +

@@ -16,6 +16,17 @@ applications:
 
 # Numerical Methods for PDEs
 
+## Explain Like I Am 7
+
+PDE rules are usually too curly for a person to solve by hand.
+So we hand the job to a computer — but a computer can only deal
+with finite pieces.  **Numerical methods for PDEs** is the craft
+of chopping a smooth wavy world into tiny squares (or triangles
+or chunks), turning the curly rule into "this corner equals an
+average of its neighbours," and letting the computer churn until
+the squares settle into a picture.  It's how weather forecasts,
+crash simulations, and special-effects fluids get computed.
+
 ## Mental
 
 Three classical approaches:

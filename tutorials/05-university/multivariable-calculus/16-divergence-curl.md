@@ -1,5 +1,16 @@
 # Divergence and Curl
 
+## Explain Like I Am 7
+
+Stick a tiny paddle wheel into a swirling pond.  If the water is
+gushing *outward* from where you stand — like a sprinkler under your
+feet — that's lots of **spreading-out**.  If water is rushing *into*
+your spot — like a drain — that's gathering-in.  Now if the wheel
+itself spins on its axle without moving, the water is **swirling**
+around you.  Spreading-out and swirling are two different questions
+about the same flow, and most flows do a little bit of both at every
+single spot.
+
 ## Intuition
 Divergence and curl are two ways to measure how a vector field behaves locally.
 **Divergence** measures whether stuff is spreading out (source) or converging in

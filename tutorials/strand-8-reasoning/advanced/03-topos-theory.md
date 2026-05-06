@@ -16,6 +16,17 @@ applications:
 
 # Topos Theory — A Glimpse
 
+## Explain Like I Am 7
+
+Imagine each math universe is a separate snow globe with its own
+weather, its own clocks, and its own little "TRUE/FALSE" colour wheel
+inside.  Our usual snow globe — the one full of plain old sets — is
+just one of many.  A **topos** is one of those alternate snow
+globes: the rules of logic still work, but maybe "true" comes in
+shades, or stories about "now and later" are baked into the very
+fabric.  Topos theory studies this whole shelf of math snow globes
+together.
+
 ## Mental
 
 A **topos** is a category that behaves like the category of sets:

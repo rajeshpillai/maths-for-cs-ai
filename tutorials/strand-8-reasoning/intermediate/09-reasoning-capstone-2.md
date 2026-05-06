@@ -16,6 +16,17 @@ applications:
 
 # Capstone — Reasoning at Scale
 
+## Explain Like I Am 7
+
+This chapter zooms out and shows what happens when the proof tools
+get pointed at *real grown-up* problems.  Tidy sock-pile rules
+become quotient spaces; domino chains become arguments about every
+program ever written; the careful "exists or doesn't exist" debate
+becomes the engine that lets a computer pull a working program out of
+a maths proof.  Same toolkit as before — bigger workshop, sturdier
+projects, all the way up to the kind of reasoning that powers
+industrial software.
+
 ## Mental
 
 Ten lessons on:

@@ -1,5 +1,16 @@
 # Geometric Meaning of the Dot Product
 
+## Explain Like I Am 7
+
+Stand a stick up in the sand and shine a torch straight down.  The
+**shadow** the stick makes on the ground tells you how *flat* it's
+lying — a tall stick has a tiny shadow, a stick lying flat has a long
+shadow.  The **dot product** is exactly the size of one arrow's
+shadow on another.  Two arrows pointing the same way cast a big
+shadow on each other; two at right angles cast a shadow of zero.
+That's why it's the secret behind "how alike are these two things?"
+in everything from search engines to 3D lighting.
+
 ## Intuition
 
 The dot product isn't just "multiply and add."  Geometrically, it measures

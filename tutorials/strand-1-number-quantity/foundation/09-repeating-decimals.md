@@ -18,6 +18,17 @@ applications:
 
 # Repeating Decimals
 
+## Explain Like I Am 7
+
+Imagine a wind-up music box that plays a short tune over and over,
+*forever*.  When you try to write $\tfrac{1}{3}$ as a decimal, the
+long-division process gets stuck in a loop and the same digits keep
+spilling out: $0.333333\ldots$  Some fractions stop neatly (like
+$\tfrac{1}{4} = 0.25$); others — the ones whose bottom number doesn't
+play nicely with tens — march on forever in a repeating pattern.  The
+length of the loop is set by the bottom number, like the size of the
+gear inside the music box.
+
 ## Mental
 
 Some fractions, when you carry out the division, give a **clean, finite

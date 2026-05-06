@@ -1,5 +1,16 @@
 # Systems of Linear Equations — Gaussian Elimination
 
+## Explain Like I Am 7
+
+You have a few mystery clues about three secret numbers — say,
+"$2$ apples and $1$ pear weigh 5 kilos" and "$3$ apples minus $2$
+pears weigh 4 kilos."  How do you find the apple's weight?  You
+combine clues to **make one mystery vanish**: subtract one clue from
+the other so the pears cancel out, then you've got a tidy single-
+mystery riddle left.  *Gaussian elimination* is the neat marching
+order for this cancel-and-shrink dance, going step by careful step
+until every secret number falls out.
+
 ## Intuition
 
 A system of linear equations is just asking: "Where do these lines (or planes)

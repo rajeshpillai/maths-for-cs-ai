@@ -18,6 +18,17 @@ applications:
 
 # Inclusion–Exclusion
 
+## Explain Like I Am 7
+
+In a class some kids play football, some play tennis, and some play
+*both*.  If you ask "how many kids play *some* sport?" you can't
+just add the two lists — the both-sport kids would be counted twice.
+So you add the lists, then subtract the kids who showed up twice.
+**Inclusion–exclusion** is the same fix scaled up to many lists:
+add the singles, take away the pairs, add back the triples, take
+away the quadruples, and so on, with the plus and minus signs
+flip-flopping until everyone is counted exactly once.
+
 ## Mental
 
 Strand 6 Lesson 06 gave the two-event version: $|A \cup B| = |A| +

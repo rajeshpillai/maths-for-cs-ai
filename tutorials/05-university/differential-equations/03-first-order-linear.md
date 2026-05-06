@@ -1,5 +1,15 @@
 # First-Order Linear ODEs & the Integrating Factor
 
+## Explain Like I Am 7
+
+Imagine trying to read a wrinkled piece of paper — the words are all
+smudged.  But if you find the right magic sticker and press it on top,
+suddenly the wrinkles smooth out and the message is plain to read.  That
+sticker is an **integrating factor**.  When a change-rule is too messy
+to sort into two piles, we hunt for a special multiplier that, once
+sprinkled on both sides, makes the whole thing fold neatly into one
+clean derivative we can undo.
+
 ## Intuition
 
 Not every first-order ODE is separable. When $y$ and its derivative appear in

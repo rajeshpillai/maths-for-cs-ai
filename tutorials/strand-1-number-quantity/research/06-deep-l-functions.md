@@ -16,6 +16,17 @@ applications:
 
 # L-Functions and Selberg's Class
 
+## Explain Like I Am 7
+
+We've met many "infinite-choir" L-function songs scattered through
+this strand.  Selberg looked at all of them and asked: "what *rules*
+must any tune obey to count as a real L-function?"  He wrote a tiny
+list of four polite rules — keeps a Euler-product, has a mirror
+symmetry, behaves nicely at infinity — and conjectured every member of
+this exclusive club secretly comes from arithmetic.  It's like
+defining what counts as a "true" musical note before listing every
+song that might use it.
+
 ## Mental
 
 **Selberg's class** $\mathcal S$: the axiomatic family of "L-functions"

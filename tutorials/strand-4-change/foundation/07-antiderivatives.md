@@ -18,6 +18,17 @@ applications:
 
 # Antiderivatives — Inverting Differentiation
 
+## Explain Like I Am 7
+
+If you know how *fast* a marble was rolling at every moment, can
+you figure out *where it ended up*?  Yes: it's the same as undoing
+the speed-finder.  An **antiderivative** is the answer to "what
+function had this slope?"  It's just running the slope-finder
+backwards.  There's a tiny catch — moving everything up by a fixed
+amount doesn't change the slope — so any antiderivative comes
+with a "plus some constant" tail, since you can't tell where you
+*started* from speed alone.
+
 ## Mental
 
 An **antiderivative** of $f$ is a function $F$ whose derivative is

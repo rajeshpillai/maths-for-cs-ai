@@ -1,5 +1,15 @@
 # Spring-Mass Systems & Harmonic Motion
 
+## Explain Like I Am 7
+
+Hold a Slinky upright with a tennis ball dangling on the bottom, and
+let it bob.  Boing!  The ball wants to come back to the middle (the
+spring tugs it), but the air slows it down a little (that's the drag),
+and maybe you keep tapping it from above with one finger (the
+push-push-push).  When you tap exactly at the speed the ball *wants*
+to bounce, the wiggle gets bigger and bigger — that's **resonance**,
+the same trick that makes a swing fly higher when you pump in time.
+
 ## Intuition
 
 Every time a game character lands on a bouncy platform, a car's suspension

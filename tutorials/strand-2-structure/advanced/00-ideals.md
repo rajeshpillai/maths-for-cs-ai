@@ -16,6 +16,17 @@ applications:
 
 # Ideals in Commutative Rings
 
+## Explain Like I Am 7
+
+Imagine a special-purpose drawer in a giant tool-cabinet.  This drawer
+is sticky: anything you multiply by an item already inside it gets
+*pulled into the drawer*, no matter what number-system tool you used
+to multiply.  An **ideal** is exactly that kind of "absorbing"
+sub-collection of a ring.  Ideals are the trapdoors through which we
+can collapse pieces of a ring (next lesson's quotient rings) and
+they're the secret behind why some rings have unique factorisation
+and others don't.
+
 ## Mental
 
 A **subset** $I \subseteq R$ of a commutative ring $R$ is an **ideal** if:

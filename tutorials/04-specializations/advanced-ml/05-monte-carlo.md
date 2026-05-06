@@ -1,5 +1,15 @@
 # Monte Carlo Methods and MCMC
 
+## Explain Like I Am 7
+
+Imagine a weird-shaped puddle on the playground and you want to know
+how big it is.  You can't measure the curvy edge by hand — too hard.
+But here's a fun trick: stand back and **toss a hundred small
+pebbles** into the playground square.  Count how many landed *in* the
+puddle.  If 30 out of 100 splashed, the puddle is about 30% of the
+square.  That's **Monte Carlo**: replace fancy maths with throwing
+random pebbles and counting hits.  More pebbles, better answer.
+
 ## Intuition
 
 Some integrals and probabilities are impossible to compute analytically.

@@ -1,5 +1,16 @@
 # Momentum, RMSProp, Adam — Derive Each Update Rule
 
+## Explain Like I Am 7
+
+Pretend you're pushing a wagon down a wiggly path to the bottom of a
+hill.  A plain wagon zigzags wildly and gets stuck.  Give it **momentum**
+and it builds up speed in the steady direction, ignoring tiny wobbles —
+like a marble that's already moving.  **RMSProp** is a smart wagon that
+takes baby steps where the path is bumpy and big strides where it's
+smooth.  **Adam** is the deluxe wagon: it has both the rolling speed
+*and* the bumpy-path sense, so it cruises straight to the bottom even on
+tricky hills.
+
 ## Intuition
 
 Plain SGD is like a ball rolling downhill on an icy surface — it oscillates in

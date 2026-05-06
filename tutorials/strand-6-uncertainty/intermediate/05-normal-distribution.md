@@ -18,6 +18,18 @@ applications:
 
 # The Normal Distribution
 
+## Explain Like I Am 7
+
+Measure the heights of every kid in a giant school and plot how
+many kids fall in each height bucket.  You'll see a fat hump in
+the middle, with thinner tails on each side — the famous
+**bell curve**.  This shape, called the **normal distribution**,
+shows up everywhere: test scores, measurement errors, blood
+pressure, daily stock-market wobbles.  About $68\%$ of values sit
+within one wobble-step of the average and almost everyone is
+within three wobble-steps.  It's nature's favourite shape for
+randomness.
+
 ## Mental
 
 The **normal distribution** (also called **Gaussian** or "bell

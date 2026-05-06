@@ -1,5 +1,15 @@
 # Introduction to Partial Differential Equations
 
+## Explain Like I Am 7
+
+A regular change-rule asks "how does this one thing change as time
+ticks?"  But what if you stir a drop of food colour into a bathtub?
+The colour doesn't just change with time — it changes from spot to
+spot too.  Near the drop it's bright; far away it's clear; an hour
+later it's all swirled.  A **partial** rule cares about *both*
+where-you-are and *when-you-are* together — and it tells you how the
+swirl changes from one tiny patch of water to the next neighbour.
+
 ## Intuition
 
 Ordinary differential equations describe how a quantity changes with one

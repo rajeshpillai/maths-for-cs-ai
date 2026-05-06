@@ -1,5 +1,16 @@
 # Method of Moments
 
+## Explain Like I Am 7
+
+Suppose I'm told a bag of marbles has a hidden mix of colours, and
+I have to guess how many red and how many blue without peeking.  I
+shake the bag, pull out a handful, and check: "the average colour
+of my handful was reddish, and the colours were quite varied."  I
+can match those two facts — the average and the spread — to a
+recipe and solve for the secret mix.  This is the **method of
+moments**: match what your handful looks like to what the bag *would*
+look like, then back out the recipe.
+
 ## Intuition
 
 If you know a distribution is Gaussian but do not know its mean and variance,

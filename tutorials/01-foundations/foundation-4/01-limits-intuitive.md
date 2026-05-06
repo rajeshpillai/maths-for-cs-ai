@@ -1,5 +1,16 @@
 # Limits — Intuitive Introduction
 
+## Explain Like I Am 7
+
+Walk halfway across the room.  Then halfway across what's left.  Then
+halfway again.  You keep getting closer to the wall, but each step is
+tinier than the one before.  You never quite touch the wall, yet you
+*know* exactly where you're heading.  A **limit** is the name for that
+"where you're heading" number — the place a wandering walk is
+**snuggling up to**, even if it never lands.  Calculus uses this trick
+to ask "how fast am I going *right now?*" instead of "how fast over the
+whole trip?"
+
 ## Intuition
 
 Imagine driving a car and glancing at the speedometer.  The speedometer shows

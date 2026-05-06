@@ -1,5 +1,16 @@
 # Implement a Fully Connected Network from Scratch in NumPy
 
+## Explain Like I Am 7
+
+Imagine building a robot helper out of LEGO bricks instead of buying a
+shiny pre-made toy.  Every brick is a piece you snap in yourself: the
+arm, the eyes, the wheels.  It's slower than opening a box, but you
+*see* exactly how every piece works.  Building a brain in **NumPy** is
+the same: you write each tiny step yourself — multiply, add, squish,
+adjust — instead of letting a fancy library hide it.  When the robot
+finally wiggles its arm, you know which brick made it move, and no
+piece feels like magic anymore.
+
 ## Intuition
 
 Now we put everything together.  We'll build a complete neural network —

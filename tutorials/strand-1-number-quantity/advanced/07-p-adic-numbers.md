@@ -16,6 +16,17 @@ applications:
 
 # p-adic Numbers — A Different Notion of Distance
 
+## Explain Like I Am 7
+
+In our usual world, two numbers are close if their difference is tiny
+on the number line.  Now imagine a strange new world where two numbers
+are "close" if their difference shares lots of copies of the same
+prime — say, the prime 5.  In this world, $25$ is closer to $0$ than
+$1$ is, because $25$ has more 5s hiding inside.  This upside-down
+ruler builds a whole new kind of number-line, and on it some equations
+that look unsolvable suddenly have neat answers.  Number theorists use
+it like a magnifying glass that zooms in on one prime at a time.
+
 ## Mental
 
 The real numbers $\mathbb{R}$ are built from the rationals

@@ -17,6 +17,16 @@ applications:
 
 # Place Value in Any Base
 
+## Explain Like I Am 7
+
+Imagine you collect marbles in jars: ten loose marbles fill a small
+jar, ten small jars fill a big crate, and ten crates fill a giant
+container.  When you write **243**, that's really shorthand for "two
+crates, four jars, three loose marbles."  The trick still works if your
+jars only hold *eight* marbles, or *two* marbles — you write the same
+total with different digits.  Computers prefer jars that hold exactly
+two marbles, which is why they whisper to each other in 1s and 0s.
+
 ## Mental
 
 Look at the number **4072**. It is not "four marks, zero marks, seven

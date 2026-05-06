@@ -16,6 +16,17 @@ applications:
 
 # Minimum Spanning Trees
 
+## Explain Like I Am 7
+
+Imagine a town of houses and a builder must lay water pipes so every
+house gets water.  Each possible pipe between two houses has a
+different price, and the builder wants to spend as little money as
+possible while still connecting everyone.  No fancy loops are allowed
+— each extra pipe is wasted money.  The builder keeps adding the
+*cheapest* pipe that doesn't form a closed loop until every house is
+on the network.  That bare-bones, no-loops, lowest-cost pipe layout is
+a **minimum spanning tree**.
+
 ## Mental
 
 Given an undirected weighted graph $G = (V, E, w)$, a **spanning

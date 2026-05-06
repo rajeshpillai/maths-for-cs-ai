@@ -1,5 +1,15 @@
 # Convolution and the Laplace Convolution Theorem
 
+## Explain Like I Am 7
+
+Picture clapping inside a big stone cathedral.  Every clap is followed
+by a tail of echoes that fade away.  Now imagine *two* drummers
+playing — what you hear at any moment is each old clap, blended with
+how echoes have been ringing since.  **Convolution** is that careful
+mixing of past sounds and lingering echoes.  In the magic translator
+world, this messy blending becomes plain multiplying — two stories
+multiplied side by side, no echoes to chase.
+
 ## Intuition
 
 When you apply a filter to an image or pass audio through a reverb effect, you

@@ -18,6 +18,17 @@ applications:
 
 # Groups — The First Algebraic Structure
 
+## Explain Like I Am 7
+
+Picture a Rubik's cube and the *complete* list of allowed twists.
+Combine any two twists and you get another twist on the same list;
+there's a "do nothing" twist; and every twist has a perfect "untwist."
+That neat little kit of moves — *closed*, *invertible*, with a
+do-nothing — is what mathematicians call a **group**.  Once you know
+this magic kit-of-moves shape, you start spotting it *everywhere*:
+clock arithmetic, jigsaw rotations, secret-message scramblers.  The
+shape, not the puzzle, is what algebra is really about.
+
 ## Mental
 
 A **group** is a set $G$ with a binary operation $\star$ satisfying

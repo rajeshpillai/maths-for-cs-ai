@@ -1,5 +1,15 @@
 # Convolution vs Cross-Correlation
 
+## Explain Like I Am 7
+
+You've got a sticker shaped like an arrow pointing right.  You can press
+it onto a page two ways: the way it came out of the packet, *or* flipped
+so it's a mirror copy.  **Cross-correlation** is "stamp it just like the
+sticker."  **Convolution** is "flip the sticker first, then stamp."  In
+maths class it really matters which one you mean.  In a learning
+computer it doesn't, because the computer is allowed to redraw the
+sticker any way it likes — it just learns the flipped picture instead.
+
 ## Intuition
 
 There's a dirty secret in deep learning: what everyone calls "convolution" in

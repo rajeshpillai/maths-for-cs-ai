@@ -16,6 +16,17 @@ applications:
 
 # Tensor Products
 
+## Explain Like I Am 7
+
+Imagine two grids of pegs — one of three pegs and one of four — sitting
+side by side.  How do you "multiply" them into a single bigger object?
+The **tensor product** invents a brand-new $3 \times 4$ peg-grid where
+every pair of an old peg from grid A and an old peg from grid B has its
+own fresh peg.  Combining two stretchable arrow-collections this way
+makes a *bigger* stretchable collection, and it's the engine behind
+modern AI's multi-dimensional arrays — every neural network's hidden
+state is, deep down, a tensor product.
+
 ## Mental
 
 Given $R$-modules $M$ and $N$, the **tensor product** $M \otimes_R N$ is

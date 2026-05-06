@@ -16,6 +16,17 @@ applications:
 
 # Constructive vs Classical Logic
 
+## Explain Like I Am 7
+
+You promise the class "there's a hidden sweet under one of these
+cups."  Two ways to prove it.  The **classical** way: you argue
+"every cup being empty would be impossible, so a sweet must be there
+somewhere."  The **constructive** way: you walk over, lift cup three,
+and show everyone the sweet.  Both ways say a sweet exists, but only
+the constructive proof actually hands you the sweet.  Computer
+people love the constructive style because each "proof" comes with a
+working recipe to *find* the thing.
+
 ## Mental
 
 **Classical logic** accepts the **law of excluded middle** (LEM):

@@ -18,6 +18,17 @@ applications:
 
 # Fibonacci and Recursive Counting
 
+## Explain Like I Am 7
+
+Imagine hopping up a staircase, taking either *one* step or *two* at
+a time.  How many ways can you reach the top of a four-step stair?
+The clever trick: your *first* hop is either small (and then you have
+a three-step stair left) or big (and then you have a two-step stair
+left).  So the answer for four steps is just the answer for three
+plus the answer for two.  This add-the-last-two recipe makes the
+**Fibonacci** numbers $1, 1, 2, 3, 5, 8, 13, \ldots$, the same
+sequence that hides in pinecones and sunflower spirals.
+
 ## Mental
 
 Some counting problems satisfy the property: **the count for size

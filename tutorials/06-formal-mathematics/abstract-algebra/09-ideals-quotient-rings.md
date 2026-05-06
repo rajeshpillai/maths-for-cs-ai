@@ -1,5 +1,16 @@
 # Ideals and Quotient Rings
 
+## Explain Like I Am 7
+
+Picture a clock face with 12 numbers.  At 12 o'clock you "fall back to
+zero" and start over — 13 o'clock is really 1 o'clock.  An **ideal** is
+the secret list of numbers you've decided to throw away as zero, like
+"every multiple of 12 is just zero now."  Once you do that, the entire
+number line collapses into a tiny clock with only 12 hour marks.
+That tiny clock is the **quotient ring**, and it's how computers do
+arithmetic on bytes and how secret codes squeeze big numbers into
+small bins.
+
 ## Intuition
 
 Just as normal subgroups let us build quotient groups, **ideals** let us

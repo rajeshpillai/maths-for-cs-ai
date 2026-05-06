@@ -16,6 +16,17 @@ applications:
 
 # Temporal Logic and Model Checking
 
+## Explain Like I Am 7
+
+Picture a model train chugging round and round a track that splits at
+every station.  You want promises like "the red light *eventually*
+turns green," "the doors are *never* open while moving," "*always*,
+once a button is pressed, the bell rings *next*."  **Temporal logic**
+gives you tidy little symbols for these "always," "eventually,"
+"next" promises.  A robot called a *model checker* then walks the
+whole track at lightning speed, checking every station and every fork,
+and tells you exactly which promise — if any — gets broken.
+
 ## Mental
 
 **Temporal logic** uses modal operators specialised for time:

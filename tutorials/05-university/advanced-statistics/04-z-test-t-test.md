@@ -1,5 +1,16 @@
 # Z-Test and T-Test
 
+## Explain Like I Am 7
+
+Did the new sneaker really make me run faster, or is today just a
+lucky day?  I'd time myself a few times in old shoes, a few times
+in new shoes, and check how big the gap is *compared to how jumpy
+my times usually are*.  If my times always wobble by 2 seconds and
+the new shoes save me 0.1 seconds, that's nothing.  If the new
+shoes save me 5 whole seconds, that's huge!  The bigger the gap
+relative to my normal wobble, the more I trust the sneakers really
+helped.
+
 ## Intuition
 
 You measure the response times of a web server after a code change. Did

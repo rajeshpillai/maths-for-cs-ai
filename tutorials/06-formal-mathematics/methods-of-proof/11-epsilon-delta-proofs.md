@@ -1,5 +1,16 @@
 # Epsilon-Delta Proofs
 
+## Explain Like I Am 7
+
+Imagine a friend dares you: "I bet you can't get *this* close to the
+target."  They draw a tiny ring around the bullseye.  You answer by
+drawing your own ring of footprints around the throwing line: stand
+inside *my* ring, and your dart will land inside *your* ring — every
+time.  However tiny they shrink their target ring, you can always
+shrink your footprint ring small enough to keep the promise.  That
+back-and-forth challenge is what makes "gets really, really close" mean
+something exact.
+
 ## Intuition
 
 When we say $\lim_{x \to a} f(x) = L$, we mean informally that $f(x)$ gets

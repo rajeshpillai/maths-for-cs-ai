@@ -1,5 +1,16 @@
 # The Chain Rule — The Foundation of Backpropagation
 
+## Explain Like I Am 7
+
+Three gears are linked: turning the small one twice as fast spins
+the medium gear three times as fast, which spins the big gear four
+times as fast.  How fast does the big gear go when you crank the
+small one?  Easy — **multiply**: $2 \times 3 \times 4 = 24$ times
+faster.  The **chain rule** is exactly that: when one change causes
+another change which causes another, the overall change is the
+product of all the little changes.  This is the entire trick that
+trains every neural network.
+
 ## Intuition
 
 If you know how $y$ changes with $u$, and how $u$ changes with $x$, then you

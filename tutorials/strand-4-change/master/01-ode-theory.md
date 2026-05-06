@@ -16,6 +16,17 @@ applications:
 
 # Ordinary Differential Equations — Deeper
 
+## Explain Like I Am 7
+
+Imagine a marble rolling on a track where the *steepness* of the
+track at each point depends on where the marble currently is.
+That kind of feedback rule — "your speed is set by your spot" — is
+an **ordinary differential equation**.  But there are deep
+questions: does a single, well-behaved marble-path always exist?
+Two marbles starting nearby — do they stay nearby, or do they
+sprint apart?  These existence and stability puzzles are the
+deeper theory hiding behind even simple-looking rules.
+
 ## Mental
 
 An **ODE** $y' = f(t, y)$ models continuous evolution. Theoretical

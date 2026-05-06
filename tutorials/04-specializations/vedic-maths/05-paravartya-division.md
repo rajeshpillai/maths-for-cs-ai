@@ -1,5 +1,16 @@
 # Paravartya Yojayet — "Transpose and Adjust"
 
+## Explain Like I Am 7
+
+Long division feels like climbing a tall ladder one slow step at a
+time.  **Paravartya** is more like sliding down a clean banister.
+Take the dividing number, **flip the signs** of its little digits,
+and now instead of the slow guess-and-multiply dance, you just bring
+each digit down, multiply by the flipped digits, and add — straight
+across in one tidy row.  It works wonders when you're dividing by
+numbers a smidge above 10 or 100 (like 112 or 1032).  Same answer,
+half the writing, far fewer mistakes.
+
 ## Intuition
 
 Long division is tedious. The Paravartya method replaces the repeated

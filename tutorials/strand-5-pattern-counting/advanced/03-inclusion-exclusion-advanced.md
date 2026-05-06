@@ -16,6 +16,17 @@ applications:
 
 # Inclusion-Exclusion in Action
 
+## Explain Like I Am 7
+
+Sometimes the count you want — like "how many letter-mixings give
+*nobody* their own letter back?" — is awkward, but its messy
+overlapping pieces are easy to count.  The trick is to count the
+*opposite* (everyone who *did* get their own letter), then peel that
+off by adding singles, taking away pairs, adding back triples, and
+so on with flip-flopping signs.  Once the dust settles, only the
+clean count you wanted remains.  This add-then-subtract dance unlocks
+derangements, Euler totients, surjection counts, and more.
+
 ## Mental
 
 The **inclusion-exclusion principle** for counting:

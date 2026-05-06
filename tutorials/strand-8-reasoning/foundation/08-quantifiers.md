@@ -16,6 +16,16 @@ applications:
 
 # Quantifiers — For All and There Exists
 
+## Explain Like I Am 7
+
+"*Every* kid in the class brought a lunchbox" is a much stronger
+claim than "*at least one* kid brought a lunchbox."  Logic gives each
+of these everyday phrases its own little badge: *for-all* and
+*there-exists*.  And they flip when you say "no" — the opposite of
+"every kid brought one" isn't "no kid brought one"; it's "*at least
+one* kid forgot."  Getting these badges right is how mathematicians
+keep their claims from quietly turning into something else.
+
 ## Mental
 
 Two **quantifiers** turn open sentences into statements:

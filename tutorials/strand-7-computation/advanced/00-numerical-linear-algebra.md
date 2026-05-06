@@ -16,6 +16,17 @@ applications:
 
 # Numerical Linear Algebra
 
+## Explain Like I Am 7
+
+Pretend you have a giant grid of numbers — bigger than the floor of
+the school gym — and you need to do arithmetic on the whole thing
+without making any squiggly mistakes.  Two problems gang up on you at
+once: the grid is *enormous* (so a clumsy method takes years), and the
+computer's number postcards always round a bit (so tiny rounding-bumps
+can grow into big wrong answers).  This chapter is about clever
+shortcuts that finish quickly **and** keep the rounding-bumps from
+piling up.
+
 ## Mental
 
 Pure linear algebra: solve $A \mathbf{x} = \mathbf{b}$, find

@@ -1,5 +1,16 @@
 # Field Extensions and Finite Fields
 
+## Explain Like I Am 7
+
+Your crayon box has lots of colours, but you really wanted *purple* and
+there isn't one.  So you mix red and blue together to invent it, and
+now your box has a brand-new colour without losing any old ones.  A
+**field extension** is exactly that move: take your number-system, find
+something missing — like $\sqrt{2}$ — and stir it in to make a bigger
+number-system.  A **finite field** is the same idea on a tiny clock-
+face: only a fixed number of "colours," but they still mix neatly under
+adding and multiplying.
+
 ## Intuition
 
 The rationals have no $\sqrt{2}$, so we "extend" to $\mathbb{Q}(\sqrt{2})$.

@@ -1,5 +1,16 @@
 # Stiff Systems and Implicit Methods
 
+## Explain Like I Am 7
+
+Imagine you're at a party with a hyper toddler running in zigzags and
+a grandpa sipping tea.  If your camera tries to follow both, you have
+to snap pictures fast enough to catch the toddler — even when only
+grandpa is moving.  That's **stiff**: one fast thing forces tiny
+steps on everything else.  A clever trick is to ask, "where is each
+person *going to be* in a moment?" instead of "where are they right
+now?"  Solving that future-pose lets you take big calm steps without
+losing the toddler.
+
 ## Intuition
 
 Imagine simulating a chemical reaction where one substance decays in

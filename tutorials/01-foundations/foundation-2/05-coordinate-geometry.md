@@ -1,5 +1,16 @@
 # Coordinate Geometry — Circles
 
+## Explain Like I Am 7
+
+Push a drawing pin into a piece of cardboard, tie a piece of string to
+the pin, and tie a pencil to the other end.  Pull the string tight and
+walk the pencil all the way around — the line you draw is a perfect
+**circle**, because every point on it is exactly the string's length
+away from the pin.  The pin is the *centre*, the string is the
+*radius*.  Once we put the cardboard on a numbered grid, we can write
+down a tidy rule that catches *only* the points on that ring and no
+others.
+
 ## Intuition
 
 A circle is the set of all points at a fixed distance (radius) from a centre.

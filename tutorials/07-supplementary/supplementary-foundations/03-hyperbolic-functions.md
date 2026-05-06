@@ -1,5 +1,15 @@
 # Hyperbolic Functions — sinh, cosh, tanh
 
+## Explain Like I Am 7
+
+Hold the ends of a chain or a skipping rope and let it droop.  The
+shape it falls into isn't a U-shape and isn't a parabola — it's a
+special floppy curve called a **catenary**, and it's exactly what
+$\cosh$ draws.  These curvy cousins of sine and cosine come from
+mixing growing exponentials with shrinking ones, and one of them —
+$\tanh$ — is the gentle squisher our neural networks use to keep big
+numbers from running off the page.
+
 ## Intuition
 
 Hyperbolic functions are to the **hyperbola** what trig functions are to the

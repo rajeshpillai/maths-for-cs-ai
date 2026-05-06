@@ -18,6 +18,16 @@ applications:
 
 # Sets — Unions, Intersections, Subsets
 
+## Explain Like I Am 7
+
+Picture two bowls on a table.  One bowl holds your favourite fruits;
+the other holds the fruits your friend brought to school.  *Tip them
+together* into one big bowl and you get a **union** — every fruit
+either of you owns.  *Pick out only the fruits sitting in **both**
+bowls* and you get an **intersection** — the shared favourites.  Sets
+are these bowls, and learning to mix and compare them is the way
+maths talks about groups of things in tidy, no-arguments language.
+
 ## Mental
 
 A **set** is an unordered collection of distinct **elements**. We

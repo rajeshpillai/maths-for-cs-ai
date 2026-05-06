@@ -16,6 +16,17 @@ applications:
 
 # Emerging Foundations of Mathematics
 
+## Explain Like I Am 7
+
+A hundred years ago everyone agreed there was *one* official rulebook
+for math.  Today there's a small shelf of competing rulebooks, each
+with its own fans and its own kinds of proofs.  Some treat sets as
+the very bottom; some treat little jigsaw types; some treat arrows
+and dots; some sneak in stretchy paths.  This chapter takes you down
+the shelf and shows what each rulebook is good at — and why
+mathematicians no longer think there's only *one* "correct" way to
+build the math universe.
+
 ## Mental
 
 Mathematics in 2025 has multiple competing **foundations**, no

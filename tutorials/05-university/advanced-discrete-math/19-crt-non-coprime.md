@@ -1,5 +1,15 @@
 # Chinese Remainder Theorem — The Non-Coprime Case
 
+## Explain Like I Am 7
+
+Two clocks again!  But this time they share a hidden tooth — say a
+12-hour clock and a 15-hour clock.  Both clocks tick to the beat of
+a tiny 3-tooth gear inside.  If two friends each whisper a clock
+reading and those readings *don't* agree on what the shared 3-gear
+should say, the moment they're describing **doesn't exist**.  But if
+their readings *do* agree on the shared piece, then exactly one
+moment fits — every 60 ticks (the lowest beat both clocks share).
+
 ## Intuition
 
 The classical CRT says: if you know $x \bmod 5$ and $x \bmod 7$, you can

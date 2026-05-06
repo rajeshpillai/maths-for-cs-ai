@@ -16,6 +16,18 @@ applications:
 
 # Perverse Sheaves
 
+## Explain Like I Am 7
+
+Imagine a topographical map carved into terraces — high plateau, mid
+slope, low valley — each with its own little weather report.  An
+ordinary sheaf assigns *any* weather to each terrace; a **perverse
+sheaf** is bound by a strict balance rule that forces the weather on
+each terrace to behave just-so relative to the others.  Why bother?
+Because perverse sheaves uniquely capture the "intersection" of
+geometric pieces in a way that respects all the layers, and they're
+the language in which much of geometric representation theory and the
+geometric Langlands program is written.
+
 ## Mental
 
 **Perverse sheaves** (Beilinson-Bernstein-Deligne 1982) — a special

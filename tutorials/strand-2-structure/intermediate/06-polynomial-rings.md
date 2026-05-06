@@ -16,6 +16,17 @@ applications:
 
 # Polynomial Rings
 
+## Explain Like I Am 7
+
+Imagine a row of pigeon-holes labelled "ones," "$x$s," "$x^2$s," and so
+on, and inside each hole you can drop a number from your favourite
+number-system.  A polynomial is the whole row of drops, and you can
+add two polynomials by adding the numbers hole-by-hole, or multiply
+them by carefully sliding holes together.  This big collection of
+expressions, with these add-and-multiply rules, is itself a number-
+system — a **polynomial ring**.  It looks like algebra-class symbols
+but behaves like a brand-new kind of number.
+
 ## Mental
 
 The **polynomial ring** $R[x]$ consists of finite formal sums

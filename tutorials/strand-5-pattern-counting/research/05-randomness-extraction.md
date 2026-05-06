@@ -16,6 +16,17 @@ applications:
 
 # Randomness Extraction
 
+## Explain Like I Am 7
+
+Imagine a coin that is *almost* fair but secretly biased — heads
+shows up $51\%$ of the time.  You really need clean fifty-fifty
+randomness for a magic trick.  A **randomness extractor** is a
+clever recipe that takes the lumpy biased coin flips, plus a tiny
+spoonful of perfect randomness, and squeezes out a long stream of
+truly fair coin flips.  This idea is what turns the noisy
+randomness from a phone's microphone or from atmospheric static
+into the strong cryptographic keys that protect online banking.
+
 ## Mental
 
 A **randomness extractor**: a function $\mathrm{Ext} : \{0, 1\}^n \times \{0, 1\}^d \to \{0, 1\}^m$

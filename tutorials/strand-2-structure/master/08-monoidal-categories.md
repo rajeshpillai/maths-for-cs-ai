@@ -16,6 +16,18 @@ applications:
 
 # Monoidal and Symmetric Monoidal Categories
 
+## Explain Like I Am 7
+
+Take the train-station map from the last lesson and add a new
+ingredient: any two stations can be **smooshed together** into a
+joint station, like running two train lines side by side as one
+"twin-track."  This smooshing has to obey gentle rules — pairing
+three stations gives the same result no matter which pair you smoosh
+first.  That's a **monoidal category**.  When the smoosh is also
+order-blind ("A twin B = B twin A"), it's **symmetric**, and the
+diagrams you can draw in such a world look just like braided
+ribbons — and underpin quantum computing.
+
 ## Mental
 
 A **monoidal category** has:

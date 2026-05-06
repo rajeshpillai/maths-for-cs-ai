@@ -1,5 +1,16 @@
 # Attention Mechanism & Transformers — Derive Scaled Dot-Product Attention
 
+## Explain Like I Am 7
+
+You walk into a noisy classroom looking for a friend.  Your ears
+**don't** listen equally to every kid — they tune in extra hard to the
+voices that match the friend you're seeking.  **Attention** is a
+computer doing the same thing with words: when reading "the dog
+chased the **ball**," the word "ball" leans in close to "chased" and
+to "dog," because those tell us what's happening, but ignores boring
+words like "the."  A **transformer** stacks lots of these clever
+listenings together — that's the engine inside chatbots like me.
+
 ## Intuition
 
 Attention answers: "When processing this word, which other words should I

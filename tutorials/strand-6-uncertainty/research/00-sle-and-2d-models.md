@@ -16,6 +16,17 @@ applications:
 
 # Schramm-Loewner Evolution (SLE)
 
+## Explain Like I Am 7
+
+Imagine a tiny ant drawing a wiggly line on a sheet of paper, but
+the wiggle is *random*, like a Brownian path.  Schramm asked: which
+random scribbles look the same after you stretch or rotate the
+paper without tearing it?  The answer is a single magical family
+of curves called **SLE**, controlled by one dial $\kappa$.  At
+$\kappa = 6$ the SLE curve is the boundary you'd see in the
+critical phase transition of percolation, and other $\kappa$ values
+match other physics models.  One ant, infinite physics.
+
 ## Mental
 
 **Schramm-Loewner Evolution** $\mathrm{SLE}_\kappa$ (Schramm 2000): a

@@ -16,6 +16,18 @@ applications:
 
 # TCS Frontier — Codes and PCPs
 
+## Explain Like I Am 7
+
+Imagine a giant homework book where you only need to peek at three
+random pages to be almost certain whether the *whole thing* is
+correct.  That sounds impossible — surely you'd need to read the
+whole book?  Mathematicians figured out a way to *write* the homework
+in a magical, spread-out style so that any mistake leaves fingerprints
+on lots of pages, so even a peek finds them.  These spread-out writing
+tricks (called codes and probabilistically checkable proofs) are how
+the internet quietly catches errors and the future will check
+gigantic proofs in a blink.
+
 ## Mental
 
 Modern theoretical computer science: codes (error correction) +

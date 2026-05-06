@@ -16,6 +16,17 @@ applications:
 
 # Fukaya Categories and Floer Theory
 
+## Explain Like I Am 7
+
+Stretch a few rubber sheets across a curvy room.  Some sheets cross
+each other; some don't.  Now count the rubber-sheet crossings, and
+also count the tiny soap-bubble disks that connect them.  The
+**Fukaya category** is a careful bookkeeper that keeps track of all
+those crossings and bubbles, packaged so geometers can compare two
+sheets in a precise way.  It became a star tool because it sits on
+*one* side of the mirror in mirror symmetry, talking to algebra on
+the *other* side.
+
 ## Mental
 
 For a symplectic manifold $(X, \omega)$, the **Fukaya category**

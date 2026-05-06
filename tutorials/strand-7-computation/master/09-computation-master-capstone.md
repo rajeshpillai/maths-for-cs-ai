@@ -16,6 +16,16 @@ applications:
 
 # Capstone — Computation at the Frontier
 
+## Explain Like I Am 7
+
+This is the chapter where computers start doing things that *shouldn't
+be possible*: adding numbers inside a locked box, asking spinning
+quantum coins for the answer, sweeping through a billion items with a
+thumbnail of memory, proving programs perfect with a maths receipt.
+None of this is sci-fi anymore — every gadget here is already running
+somewhere in the world today.  Think of it as a backstage tour of the
+strangest, smartest tools that grown-ups have actually built.
+
 ## Mental
 
 Nine lessons on:

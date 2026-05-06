@@ -1,5 +1,16 @@
 # Shunyam Samyasamuccaye — "When the Sum is the Same, the Sum is Zero"
 
+## Explain Like I Am 7
+
+Imagine a perfectly balanced see-saw with two friends, one on each
+end.  Suddenly each kid pours the *same* bag of marbles onto their
+own side.  Does the see-saw tip?  No — it stays balanced!  This sutra
+is exactly that idea: if both sides of an equation share the same
+chunk, that chunk doesn't matter, and the rest must equal zero.
+Spotting these "balanced bag" patterns lets you write the answer
+without doing the algebra dance at all — like reading the see-saw's
+mind.
+
 ## Intuition
 
 This sutra provides instant solutions to certain equation types that would

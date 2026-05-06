@@ -16,6 +16,17 @@ applications:
 
 # Projective Coordinates
 
+## Explain Like I Am 7
+
+Stand on a long, straight railway track and look down it.  The two
+rails are perfectly parallel — they never actually touch — yet your
+eyes see them meeting at a single faraway dot on the horizon.
+**Projective coordinates** are a way of doing geometry where we
+*officially* let those faraway dots be real points, called "points
+at infinity."  It's the geometry of how a camera sees the world,
+where every set of parallel lines gets its own meeting-point in the
+distance.
+
 ## Mental
 
 In Euclidean geometry, two parallel lines never meet. Annoying — for

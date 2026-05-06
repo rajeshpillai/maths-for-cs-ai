@@ -16,6 +16,17 @@ applications:
 
 # Realizability and Program Extraction
 
+## Explain Like I Am 7
+
+Every well-told story in math secretly carries a tiny working
+gadget.  "There's a sweet hidden somewhere" comes with a *finder*; "if
+you have an even number of beans, you can split them" comes with a
+*splitter*.  **Realizability** is the discovery that proofs and
+gadgets are two sides of the same coin: write a careful proof, and a
+machine can pop the matching gadget out the other end like a vending
+machine handing you a chocolate bar.  This is how some apps in your
+phone are *built from* their proofs.
+
 ## Mental
 
 **Realizability** — a way to interpret intuitionistic logic in terms

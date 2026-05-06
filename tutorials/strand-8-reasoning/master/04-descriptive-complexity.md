@@ -16,6 +16,18 @@ applications:
 
 # Descriptive Complexity
 
+## Explain Like I Am 7
+
+There's a hidden bridge between "how *fast* can a problem be solved?"
+and "how *fancy* a sentence do you need to *describe* the problem?"
+Tiny sentences only describe easy problems.  Sentences with the
+"there exists" badge describe puzzles whose answers are easy to
+*check*.  Stack the badges higher and you describe harder and harder
+problems.  This sneaky bridge means questions about computer speed
+turn into questions about how rich your sentence-writing kit is — a
+beautiful coincidence that lets logic and computer science talk to
+each other.
+
 ## Mental
 
 **Descriptive complexity** characterises complexity classes via the

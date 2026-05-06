@@ -1,5 +1,15 @@
 # Multivariable Limits and Continuity
 
+## Explain Like I Am 7
+
+Imagine a flat playground with one tiny mystery dot in the middle.
+On a number line you could only sneak up on the dot from the left or
+the right, but on a playground you can walk in from north, south,
+east, west, in spirals, in zig-zags — endless ways!  For the dot to
+be *real*, every single approach has to end at the same height.  If
+two paths arrive at different heights, the playground has a secret
+cliff right there, and there's no proper "value" living at the spot.
+
 ## Intuition
 In single-variable calculus, a limit asks: "what happens as we slide along the
 number line toward a point?" In multiple dimensions, we can approach from

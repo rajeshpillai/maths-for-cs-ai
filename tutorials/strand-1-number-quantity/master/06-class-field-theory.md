@@ -16,6 +16,17 @@ applications:
 
 # Class Field Theory
 
+## Explain Like I Am 7
+
+When you build new number worlds by adding things like $\sqrt{-5}$ to
+the regular numbers, sometimes "factoring into primes" stops being
+unique — the number $6$ can break apart in two different ways.
+Class field theory is a giant card-catalogue that lists *exactly* which
+extra worlds you can build "without scrambling the order" and how the
+mismatch in factoring fits each one.  It tied together two seemingly
+separate things — the way primes split and the symmetries of new
+number fields — into one tidy library.
+
 ## Mental
 
 For a number field $K$ (finite extension of $\mathbb{Q}$):

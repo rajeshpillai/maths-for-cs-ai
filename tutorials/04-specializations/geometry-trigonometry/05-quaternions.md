@@ -1,5 +1,16 @@
 # Quaternions — Why They Beat Euler Angles
 
+## Explain Like I Am 7
+
+Imagine spinning a toy spaceship using three twisty knobs: nose-up,
+roll-left, turn-right.  Sometimes two knobs end up pointing the same
+way and *you can't pitch up anymore* — your spaceship gets stuck.  That
+horrible jam is called gimbal lock.  A **quaternion** is a clever
+4-number gizmo that twirls the spaceship in any direction at once
+without ever jamming.  It also slides smoothly between two poses —
+perfect for camera swoops in games.  Three knobs trip over each other;
+the quaternion just glides.
+
 ## Intuition
 
 Euler angles (yaw, pitch, roll) are intuitive but suffer from **gimbal lock**

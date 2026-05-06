@@ -1,5 +1,16 @@
 # Proof Techniques — Induction, Contradiction, Contrapositive
 
+## Explain Like I Am 7
+
+Imagine a long line of dominoes.  If you can promise *(a)* the first
+one will fall and *(b)* every falling domino knocks over the next
+one, you don't have to push each one yourself — they'll all topple
+forever.  That's **proof by induction**.  Other proofs are detective
+games: "If the cookies were stolen by Sam, the jar would be on the
+floor, but the jar is on the shelf — so it wasn't Sam."  Proofs are
+just careful storytelling that forces a conclusion to be true,
+*every time, with no exceptions*.
+
 ## Intuition
 
 Proofs are how mathematicians (and computer scientists) know that something

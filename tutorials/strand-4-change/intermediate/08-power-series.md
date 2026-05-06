@@ -16,6 +16,17 @@ applications:
 
 # Power Series and Convergence
 
+## Explain Like I Am 7
+
+Imagine throwing pebbles into a pond, each one a bit smaller than
+the last.  If they shrink fast enough, the splashes pile up to a
+neat finite total.  Throw them in too lazily and the splashes pile
+up forever.  A **power series** is an infinite sum of pebbles —
+each term a piece of $x$ raised to a higher power — and the great
+question is: *for which values of x does the pile stay finite?*
+The answer is always a nice happy zone around the centre, called
+the radius of convergence.
+
 ## Mental
 
 A **power series** is an infinite polynomial:

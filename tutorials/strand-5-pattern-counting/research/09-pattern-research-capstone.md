@@ -16,6 +16,17 @@ applications:
 
 # Capstone — Combinatorics at the Frontier
 
+## Explain Like I Am 7
+
+This is the grandest tour of all: combinatorics in $2026$.  We
+revisit Cayley-graph cities, super-connected expander webs, knotted
+strings with their Khovanov shadows, ice-rule arrow-tilings,
+non-repeating bathroom floors, randomness-purifying machines,
+double-dialed Macdonald polynomials, tropical-shape geometry, and
+the dragon-conjectures that researchers wrestle today.  Then we
+weave them together to attack real problems and peek over the
+horizon at what the next decade of pattern hunting might look like.
+
 ## Mental
 
 Nine lessons on:

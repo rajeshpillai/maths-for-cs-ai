@@ -16,6 +16,17 @@ applications:
 
 # Probabilistic Data Structures
 
+## Explain Like I Am 7
+
+Imagine a bouncer at a tiny club who can't possibly remember every
+guest, so instead they keep a thumb-stamp pad with one hundred
+squares.  Each guest's hand stamps three random squares, and on the
+way out the bouncer just glances to see if the right squares are
+already smudged.  The bouncer is *almost* always right, but
+occasionally lets a stranger in by mistake — and in exchange they fit
+a million guests' worth of memory in a stamp pad.  These tiny "almost
+right" gadgets are everywhere in big-data systems.
+
 ## Mental
 
 For huge data, we can't always afford exact answers. **Probabilistic

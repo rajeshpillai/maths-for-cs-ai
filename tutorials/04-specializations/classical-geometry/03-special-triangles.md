@@ -1,5 +1,16 @@
 # Special Triangles — 30-60-90, 45-45-90, and Pythagorean Triples
 
+## Explain Like I Am 7
+
+Some triangles are like favourite recipes — chefs know them by heart.
+Cut a square in half corner-to-corner and you get a triangle whose
+sides go **1, 1, $\sqrt{2}$** — a tidy ratio.  Cut an equilateral
+triangle in half and you get sides **1, $\sqrt{3}$, 2** — another tidy
+recipe.  And some triangles have all *whole-number* sides, like a
+3-4-5 triangle: the Pythagorean rule works out perfectly with no
+square-root mess.  Once you spot one of these old friends inside a
+fancy diagram, the problem usually solves itself.
+
 ## Intuition
 
 Most geometric problems eventually reduce to one of a handful of "special"

@@ -16,6 +16,17 @@ applications:
 
 # Approximation Algorithms
 
+## Explain Like I Am 7
+
+Imagine you're packing a school lunch and it would take a *month* to
+work out the absolute best snack choice.  Instead, a clever rule
+promises: "you'll never end up with worse than twice the best lunch,
+and I can pick one in five seconds."  Sometimes the rule even
+promises "I'll get within one percent if you give me a little more
+time."  These speedy *almost-best* recipes are how huge real-world
+puzzles — packing trucks, drawing routes, scheduling factories — get
+solved in time for tea.
+
 ## Mental
 
 For NP-hard problems, we accept polynomial-time solutions that are

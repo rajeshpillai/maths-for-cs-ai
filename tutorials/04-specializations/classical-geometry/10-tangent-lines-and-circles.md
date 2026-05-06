@@ -1,5 +1,16 @@
 # Tangent Lines and Two-Circle Configurations
 
+## Explain Like I Am 7
+
+Roll a ball along a flat floor.  The floor *just kisses* the ball at
+one tiny spot — that flat line is a **tangent**.  Cool fact: the line
+from the ball's middle to the kissing spot is at a perfect right
+angle to the floor.  Now imagine two balls on the floor, like two
+oranges side by side.  You can stretch a piece of string so it kisses
+both oranges at once, like a belt around them — and you can do that
+in a few different ways.  Those belt strings are how engineers design
+real pulleys and gears.
+
 ## Intuition
 
 A **tangent** to a circle touches it at exactly one point.  Tangents have

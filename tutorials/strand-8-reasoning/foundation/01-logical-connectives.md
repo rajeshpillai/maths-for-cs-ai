@@ -18,6 +18,17 @@ applications:
 
 # Logical Connectives and Truth Tables
 
+## Explain Like I Am 7
+
+Take two little green-or-red bricks (each marked TRUE or FALSE) and
+glue them with one of these words: *and*, *or*, *not*, *if-then*.
+The glued brick gets a brand-new green-or-red colour decided by a
+fixed rule.  *AND* only goes green if **both** bricks are green; *OR*
+goes green if **at least one** is.  A **truth table** is just the
+recipe card listing every possible pair of brick colours and the
+colour the glued brick comes out — no guessing, just pure
+look-it-up.
+
 ## Mental
 
 Five **connectives** combine statements into compound statements.

@@ -1,5 +1,15 @@
 # Unit Circle, Radians, and Degrees
 
+## Explain Like I Am 7
+
+Picture a pizza spinning on the table.  A **degree** is the slice you'd
+get if you cut the pizza into 360 super-thin slivers — humans like that
+because 360 splits neatly into halves and quarters and tenths.  A
+**radian** is the angle you make when you bend a piece of string the
+same length as the pizza's radius around the crust.  The whole crust
+holds about 6.28 of those string-lengths — that's $2\pi$.  Maths and
+computers love radians because circles speak that language naturally.
+
 ## Intuition
 
 Angles are everywhere in games and graphics: rotating a character, aiming a

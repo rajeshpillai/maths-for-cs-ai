@@ -16,6 +16,17 @@ applications:
 
 # Random Variables and Distributions
 
+## Explain Like I Am 7
+
+A random variable is just a polite rule that says "if such-and-such
+random thing happens, here's the number I'll spit out."  Once we
+have it, we can ask: out of every possible outcome, what fraction
+maps to a number $\le x$?  That fraction-as-a-function-of-$x$ is
+the **cumulative distribution function**, the most honest
+fingerprint of the random variable.  Continuous variables also
+have a **density** — a smooth height curve where total area
+underneath equals $1$, just like the soft hump of a bell curve.
+
 ## Mental
 
 A **random variable** $X : (\Omega, \mathcal F, P) \to \mathbb{R}$ is

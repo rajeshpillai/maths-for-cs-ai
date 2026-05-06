@@ -1,5 +1,15 @@
 # Parametric Equations and Implicit Differentiation
 
+## Explain Like I Am 7
+
+Watch a snail crawl across a wet pavement, leaving a slimy trail.
+Instead of writing the trail as "for every $x$ here's the $y$," it's
+much easier to say "at second 1 the snail was here, at second 2 it was
+there..." — using *time* as a sneaky helper.  That helper is a
+**parameter**.  And when the snail's path is a circle that loops back
+on itself, asking "what's $y$ in terms of $x$?" gets confused, but
+asking "where was the snail at time $t$?" is no trouble at all.
+
 ## Intuition
 
 Sometimes a curve is easier to describe using a **parameter** $t$ that traces

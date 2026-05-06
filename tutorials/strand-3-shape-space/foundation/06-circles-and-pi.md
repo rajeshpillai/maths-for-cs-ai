@@ -18,6 +18,16 @@ applications:
 
 # Circles and π
 
+## Explain Like I Am 7
+
+Take any round lid — a jar, a can, a cookie tin — and wrap a string
+around its rim.  Now stretch that string along a ruler and compare it
+to how wide the lid is across the middle.  Surprise: the string is
+*always* a little more than three lid-widths long.  That special
+number, just past three, is **π** — pi.  Every round circle in the
+universe, no matter how big or tiny, hides this same number, like
+a secret password belonging to roundness itself.
+
 ## Mental
 
 A **circle** is the set of all points in the plane at a fixed

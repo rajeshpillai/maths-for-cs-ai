@@ -19,6 +19,17 @@ applications:
 
 # Surds — Exact Arithmetic with Roots
 
+## Explain Like I Am 7
+
+Imagine the diagonal of a perfect square tile.  No matter how cleverly
+you write its length as a decimal, the digits never settle down — yet
+you *know* it's a real, exact length, because you can see it on the
+tile.  Mathematicians refuse to round it off; they keep the symbol
+$\sqrt{2}$ unspoiled and do arithmetic with it directly, the way a
+recipe might call for "one bottle of olive oil" without weighing the
+oil.  As long as you obey the rules ("a bottle plus a bottle is two
+bottles"), the answer stays perfectly exact forever.
+
 ## Mental
 
 A **surd** is a square root (or higher root) of a non-negative number

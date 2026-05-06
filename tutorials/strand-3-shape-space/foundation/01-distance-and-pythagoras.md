@@ -22,6 +22,16 @@ applications:
 
 # Distance and Pythagoras' Theorem
 
+## Explain Like I Am 7
+
+Think about walking from your front door to a friend's house.  You can
+zig-zag along the streets — three blocks east, then four blocks north —
+or, if a bird flew straight there, it would take a much shorter path
+diagonally across the rooftops.  Pythagoras noticed something
+beautiful: if you square the two street-walks and add them up, you
+get exactly the *square* of that bird's-eye flight.  So 3 and 4 give
+9 + 16 = 25, and the bird flies a tidy 5 blocks.
+
 ## Mental
 
 Lesson 00 showed how to find the distance between two points on the

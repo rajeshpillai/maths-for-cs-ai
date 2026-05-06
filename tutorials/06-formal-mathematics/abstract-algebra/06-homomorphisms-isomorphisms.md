@@ -1,5 +1,16 @@
 # Group Homomorphisms and Isomorphisms
 
+## Explain Like I Am 7
+
+Imagine a translator who turns English instructions into French ones
+without scrambling the order: "stack two blocks then turn left" comes
+out as "empile deux blocs puis tourne à gauche" — same recipe, new
+words.  That's a **homomorphism**: it carries the *order of moves*
+across to the other side perfectly.  When the translator is so good
+that every French sentence has exactly one English partner, the two
+languages are basically the same toy with different paint — and
+mathematicians call them **isomorphic**.
+
 ## Intuition
 
 A **homomorphism** is a function between groups that respects the group

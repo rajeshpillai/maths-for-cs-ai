@@ -1,5 +1,15 @@
 # Summation Notation — Sigma, Properties, and Telescoping
 
+## Explain Like I Am 7
+
+Every morning for a week, Grandma drops a different number of biscuits
+into a tin.  Instead of writing "Monday's biscuits plus Tuesday's
+biscuits plus Wednesday's biscuits..." over and over, mathematicians
+draw a curly **sigma** symbol that means "go through every day and
+add them all up."  It's a tiny instruction that says *do this for each
+one, then total it*.  If you can imagine walking from Monday to Sunday
+counting biscuits in a tin, you've already understood **sigma**.
+
 ## Intuition
 
 The sigma symbol $\Sigma$ is just compact notation for "add up a bunch of

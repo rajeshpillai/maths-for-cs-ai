@@ -1,5 +1,16 @@
 # Pascal Identities — Hockey Stick, Vandermonde, Row Sums
 
+## Explain Like I Am 7
+
+Pascal's triangle is a tower of numbers where every brick is the sum
+of the two bricks resting just above it.  This silly little wall hides
+a *bunch* of secret patterns.  Slide your finger down a slanted line
+of bricks, add them up, and you always land on a specific brick
+nearby — like a *hockey stick* hugging the wall.  Add a whole row
+across, and you always get a doubling number ($2^n$).  These tricks
+mean you almost never have to count by listing — the wall does it for
+you.
+
 ## Intuition
 
 Pascal's triangle is a number tableau where every entry is a sum of two above

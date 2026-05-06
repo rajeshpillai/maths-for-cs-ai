@@ -17,6 +17,16 @@ applications:
 
 # Calculus Capstone — Three Real Problems
 
+## Explain Like I Am 7
+
+You've collected the marble-speed finder, the wall-walking
+limit-trick, the rectangle-stacking area finder, and the door
+that swaps slopes and areas.  In this capstone, real puzzles arrive
+on your bench: how fast is a balloon swelling?  How much water has
+poured into a tub?  When does a roller coaster reach its peak?
+You reach into your kit, pick the right calculus tool for each
+job, and watch the wiggles of the world settle into clean answers.
+
 ## Mental
 
 You now have the basics:

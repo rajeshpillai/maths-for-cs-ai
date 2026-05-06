@@ -16,6 +16,17 @@ applications:
 
 # Neural-Network Approximation Theory
 
+## Explain Like I Am 7
+
+A neural network is just a big stack of simple plumbing pieces
+called neurons, glued together with connecting pipes.  An amazing
+discovery: with enough of these pieces, you can plumb together
+*any* smooth shape you want — every curve, every bumpy hill,
+every wiggly graph in the world has a network that copies it as
+closely as you like.  Approximation theory is the careful study of
+*how many* pieces you need, and how their arrangement matters,
+which guides why deep stacks beat wide flat ones.
+
 ## Mental
 
 Classical theorems on what continuous functions can be approximated

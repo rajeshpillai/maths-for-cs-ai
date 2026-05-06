@@ -1,5 +1,15 @@
 # Simple Harmonic Motion (SHM)
 
+## Explain Like I Am 7
+
+Hang a weight on a stretchy spring and pull it down — it bounces up
+and down, up and down, never bored.  The further you pull, the harder
+the spring tugs back to the middle.  That "the more you stray, the
+harder you get pulled home" rule makes the bob trace out a perfect
+wobble — the same wobble shape you see in a pendulum, a guitar string,
+and even sound waves bouncing inside your eardrum.  One single pattern
+hiding inside a hundred different things.
+
 ## Intuition
 
 A mass on a spring, a pendulum, a vibrating guitar string — they all oscillate

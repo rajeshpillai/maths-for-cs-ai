@@ -16,6 +16,18 @@ applications:
 
 # Ergodic Theory
 
+## Explain Like I Am 7
+
+If a single ladybug wanders forever inside her garden, after
+enough time, the *fraction* of moments she spends near each flower
+matches how big each flower-region is.  Roughly: **time-average
+equals space-average**.  Ergodic theory is the careful study of
+when this equality holds — when one long random run gives you the
+same answer as averaging over the whole forest of possible
+universes at once.  This idea is the engine behind MCMC sampling,
+the equilibrium-statistics of physics, and many ML training
+analyses.
+
 ## Mental
 
 A **measure-preserving transformation** $T : (\Omega, \mathcal F, \mu) \to (\Omega, \mathcal F, \mu)$

@@ -1,5 +1,16 @@
 # Dwandwa Yoga — The Duplex Method for General Squaring
 
+## Explain Like I Am 7
+
+Squaring **just** numbers ending in 5 is easy — but what about a
+number like 4327?  The **duplex method** turns scary squaring into a
+series of teeny moves.  Walk along the digits and at each spot do a
+tiny calculation: a digit times itself, *or* twice the product of two
+matching digits.  Each tiny move gives one digit of the answer, then
+you carry like normal addition.  It feels a bit like playing piano —
+left hand and right hand cooperating in pairs.  After practice, you
+can square any number in your head without breaking a sweat.
+
 ## Intuition
 
 The Duplex method gives you a systematic way to square ANY number mentally,

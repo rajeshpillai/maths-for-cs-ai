@@ -16,6 +16,17 @@ applications:
 
 # Modes of Convergence of Random Variables
 
+## Explain Like I Am 7
+
+Suppose you have a long line of random gadgets $X_1, X_2, X_3,
+\ldots$ that *seem* to be settling down.  But what does "settling
+down" really mean?  Maybe almost every single trial path lands
+near zero — that's "almost-sure" settling.  Maybe the *chance* of
+landing far from zero shrinks — that's "in probability."  Maybe the
+average squared error shrinks — that's "in $L^p$."  These different
+kinds of settling don't always agree, and modern probability needs
+to be careful about which one it means.
+
 ## Mental
 
 For a sequence $X_n$ of random variables and a limit $X$, "$X_n \to X$"

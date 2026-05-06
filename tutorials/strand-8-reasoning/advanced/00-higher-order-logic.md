@@ -16,6 +16,17 @@ applications:
 
 # Higher-Order Logic
 
+## Explain Like I Am 7
+
+Plain logic talks about *things*: "this kid is six years old."  But
+sometimes you want to talk about *rules* themselves: "*every* rule
+about kids that holds for the youngest holds for everyone."  That's
+talking about a rule about rules — a higher level.  **Higher-order
+logic** is a stretchier kind of logic that lets you scoop up rules,
+collections of rules, and even rules-about-collections-of-rules into
+your sentences, just like you'd talk about ordinary kids.  More
+power, more responsibility.
+
 ## Mental
 
 **First-order logic** quantifies over individuals: $\forall x: P(x)$.

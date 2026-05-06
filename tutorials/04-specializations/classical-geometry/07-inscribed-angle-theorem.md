@@ -1,5 +1,15 @@
 # The Inscribed Angle Theorem
 
+## Explain Like I Am 7
+
+Imagine a round dinner plate with two crumbs at the edge.  Now sit
+anywhere else on the rim of the plate and stare at the two crumbs —
+the angle your eyes make is *the same* no matter where on the rim you
+sit.  Move halfway around the plate?  Same angle.  And here's the
+kicker: that angle is exactly **half** the angle the cook in the
+middle of the plate would see.  This single rule cracks loads of
+circle puzzles open like an egg.
+
 ## Intuition
 
 Pick a circle.  Pick an arc on it.  Now stand anywhere else on the circle and

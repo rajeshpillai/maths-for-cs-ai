@@ -16,6 +16,18 @@ applications:
 
 # Generating Functions
 
+## Explain Like I Am 7
+
+Picture a row of magic mailboxes labelled $x^0, x^1, x^2, \ldots$
+Inside each box you drop the count of "ways to do something with
+$n$ items."  All those mailboxes glued together with plus signs
+become one big polynomial — the **generating function**.  When you
+multiply two of these polynomials, the mailbox at position $n$
+fills up with all the ways to combine the two ingredients summing
+to $n$, automatically.  Adding, multiplying, and dividing these
+polynomials is like asking different counting questions, but with
+the *algebra* doing the heavy lifting for you.
+
 ## Mental
 
 A **(ordinary) generating function** for a sequence $(a_0, a_1, a_2, \ldots)$ is

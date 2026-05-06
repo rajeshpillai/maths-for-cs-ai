@@ -16,6 +16,17 @@ applications:
 
 # Simplicial Homology
 
+## Explain Like I Am 7
+
+Loops can spot a doughnut's hole, but what about a hollow ball that
+has a *3D bubble* trapped inside?  No string can lasso that.
+**Homology** is a more powerful hole-detector.  Build any shape out
+of triangle-tiles and pyramid-bricks, then count which closed
+boundaries can't be filled in by some bigger piece — those leftovers
+are the holes.  The trick gives a tidy *number* of holes in each
+dimension, so you can tell apart a sphere, a doughnut, and a pretzel
+just by counting.
+
 ## Mental
 
 The **fundamental group** captures 1-dimensional holes. To capture

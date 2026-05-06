@@ -1,5 +1,13 @@
 # Linear Functions — Slope, Intercept, and Line Equations
 
+## Explain Like I Am 7
+
+Imagine walking up a ramp.  Every step forward, you go up by the **same
+amount** — the ramp never gets steeper or flatter, it's just one straight
+slope.  A straight-line equation is the rule for that ramp: where you
+**started** (your height before any steps) and how much you **rise for each
+step** you take forward.  Bigger rise per step means a steeper ramp.
+
 ## Intuition
 
 A linear function draws a straight line.  In games, if your character gains

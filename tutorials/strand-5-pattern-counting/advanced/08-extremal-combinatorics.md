@@ -16,6 +16,18 @@ applications:
 
 # Extremal Combinatorics
 
+## Explain Like I Am 7
+
+Suppose you draw friendship lines between a hundred kids, but you
+must avoid making any little group of three who *all* know each
+other.  How many friendship lines can you sneak in before a
+three-person clique appears?  Surprisingly the answer is a clean
+$2500$, achieved by splitting the kids into two halves and only
+drawing lines across the gap.  **Extremal** problems ask exactly
+this kind of question — *how stuffed can a structure get before a
+forbidden pattern is forced to appear?*  The answers are usually
+beautifully tidy.
+
 ## Mental
 
 **Extremal combinatorics** asks: among all combinatorial structures of

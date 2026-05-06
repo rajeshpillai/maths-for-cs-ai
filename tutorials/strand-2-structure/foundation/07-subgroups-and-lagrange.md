@@ -17,6 +17,17 @@ applications:
 
 # Subgroups and Lagrange's Theorem
 
+## Explain Like I Am 7
+
+Inside a big toolbox of moves, you can sometimes find a *smaller*
+toolbox that's complete on its own — every two of its moves still
+combine inside, every move still has its undo.  That hidden mini-kit
+is called a **subgroup**.  Lagrange spotted a magical rule about these
+mini-kits: the size of a sub-kit always divides evenly into the size of
+the big kit, like a small box of chocolates packing perfectly inside a
+bigger box with nothing rattling around.  That rule alone solves a
+huge pile of puzzles in number theory.
+
 ## Mental
 
 A **subgroup** $H$ of a group $G$ is a subset of $G$ that is itself

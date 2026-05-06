@@ -1,5 +1,16 @@
 # Number Theory Foundations
 
+## Explain Like I Am 7
+
+Every whole number bigger than one is like a Lego sculpture, and
+**primes** are the special bricks that can't be split into smaller
+ones — 2, 3, 5, 7, 11.  Every other number is just a tower of those
+prime bricks clicked together: 12 is two 2-bricks and one 3-brick,
+nothing else, no other arrangement.  Take any number you like, smash
+it apart into bricks, and you'll always get the *same* pile every
+single time.  That magical guarantee is what makes counting, sharing,
+and secret codes work.
+
 ## Intuition
 
 Every integer has a unique "DNA" — its prime factorisation. Just as every molecule

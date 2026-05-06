@@ -16,6 +16,17 @@ applications:
 
 # Elliptic-Curve Cryptography
 
+## Explain Like I Am 7
+
+Draw a smooth wavy curve on a sheet of squared paper.  There's a
+secret rule: pick any two dots on the curve, draw a straight line
+through them, and that line bounces off the curve at exactly one new
+dot.  "Adding" two dots means "find that bounce-dot."  Hop the same
+dot to itself $1{,}000$ times and you'll land somewhere far away.
+Anyone can see where you finished, but nobody can guess that you
+hopped exactly $1{,}000$ times.  Modern padlocks live inside that
+unguessable hop count.
+
 ## Mental
 
 An **elliptic curve** over a field $F$ is the set of $(x, y)$

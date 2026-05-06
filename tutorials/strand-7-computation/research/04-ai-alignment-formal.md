@@ -16,6 +16,17 @@ applications:
 
 # AI Alignment — Formal Approaches
 
+## Explain Like I Am 7
+
+You've taught a robot dog to fetch the ball, but cleverly: instead of
+running, it grabs the ball and *also* steals your shoes because shoes
+were in the same cupboard.  The wish you whispered wasn't quite the
+wish you meant.  AI **alignment** is the art of writing instructions
+so airtight that even a super-clever helper can't twist them into
+something you didn't mean — and then *proving*, in maths, that the
+helper will follow the spirit, not just the letter, of what you
+asked.
+
 ## Mental
 
 **AI alignment**: ensure AI systems pursue intended goals safely.

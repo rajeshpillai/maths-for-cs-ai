@@ -18,6 +18,17 @@ applications:
 
 # Pascal's Triangle
 
+## Explain Like I Am 7
+
+Draw a tower of bricks where every brick is the *sum* of the two
+bricks sitting on top of it.  Start with a single $1$, place two
+$1$s under it, then keep going down — $1, 2, 1$ then $1, 3, 3, 1$
+and so on forever.  This little adding tower is **Pascal's triangle**,
+and it's amazing because every row tells you how many ways to choose
+candies from a bag.  Indian, Persian, and Chinese mathematicians had
+been drawing it centuries before Pascal showed up — so it really is
+a worldwide treasure of patterns.
+
 ## Mental
 
 Stack the values $\binom{n}{k}$ in a triangle:

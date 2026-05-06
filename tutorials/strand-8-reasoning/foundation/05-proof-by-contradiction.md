@@ -16,6 +16,16 @@ applications:
 
 # Proof by Contradiction
 
+## Explain Like I Am 7
+
+You want to prove the cat is in the kitchen, but you're stuck.  So
+try the cheeky trick: *pretend* the cat is **not** in the kitchen and
+follow that thought wherever it goes.  If you end up at "...so the
+fishbowl is empty *and* the fishbowl is full," — total nonsense — then
+the pretending must have been wrong, and the cat must be in the
+kitchen after all.  Proving things by *ruling out* the only other
+possibility is a sneaky but completely legal move.
+
 ## Mental
 
 A **proof by contradiction** of $P$ shows: if you assume $\neg P$, you

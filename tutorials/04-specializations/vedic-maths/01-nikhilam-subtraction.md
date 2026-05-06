@@ -1,5 +1,16 @@
 # Nikhilam Sutra — "All from 9, Last from 10"
 
+## Explain Like I Am 7
+
+You want to multiply 97 by 96 in your head — sounds scary!  Here's
+the **Nikhilam** trick: 97 is **3 less than 100**, and 96 is **4 less
+than 100**.  Subtract diagonally: 97 minus 4 (or 96 minus 3) gives
+**93** — those are the first two digits.  Then multiply the little
+amounts: 3 times 4 equals **12** — those are the last two digits.
+Stick them together: **9312**.  Done in under three seconds!  It
+works because the two numbers are huddled close to a friendly round
+number, and the maths leans on that base.
+
 ## Intuition
 
 The Nikhilam sutra is the cornerstone of Vedic speed arithmetic. It lets you

@@ -1,5 +1,16 @@
 # Taylor and Maclaurin Series
 
+## Explain Like I Am 7
+
+Drawing a perfect roller-coaster from memory is hard, but copying it
+in *little chunks* near where you're standing is easy.  Near the
+start it looks like a straight line.  A bit further, it begins to
+curve like a **U**.  A bit further still, it wiggles up and down.
+A **Taylor series** is the recipe for stacking these matched-up bits
+— line, then curve, then wiggle — until your simple polynomial
+copies the roller-coaster better and better.  This is exactly how
+calculators secretly compute sine and cosine.
+
 ## Intuition
 
 Any smooth function can be approximated by a polynomial — and polynomials are

@@ -16,6 +16,17 @@ applications:
 
 # Integration by Parts
 
+## Explain Like I Am 7
+
+Two friends carry a heavy basket together.  If you swap who holds
+which handle, the basket is just as carryable but the workload
+shifts from one to the other.  **Integration by parts** does the
+same thing for hard area problems: an area that's a *product* of
+two pieces gets traded for a different (hopefully easier) area
+where the pieces have been swapped — one differentiated, one
+integrated.  It's the product-rule from slope-finding running
+backwards, helping you escape a stuck integration.
+
 ## Mental
 
 Integration by parts is the **product rule run backwards**.

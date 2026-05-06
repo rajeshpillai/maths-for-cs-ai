@@ -19,6 +19,17 @@ applications:
 
 # Sample Spaces and Outcomes
 
+## Explain Like I Am 7
+
+Before you can talk about how *likely* something is, you have to
+list everything that *could* happen.  For a coin flip, the list is
+just $\{H, T\}$.  For a single die, it's $\{1, 2, 3, 4, 5, 6\}$.
+That whole list is called the **sample space** — like a menu of
+possibilities.  An **event** is just the bit of the menu you care
+about, like "rolling an even number," which bundles three of the
+six options together.  Almost every probability puzzle starts with
+patiently writing the menu down.
+
 ## Mental
 
 Before you can compute the probability of *anything*, you need to be

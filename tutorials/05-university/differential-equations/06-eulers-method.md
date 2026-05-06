@@ -1,5 +1,15 @@
 # Euler's Method — Numerical Solution of ODEs
 
+## Explain Like I Am 7
+
+Imagine you're walking through fog, and a friendly bird keeps shouting
+"step this way, just a little bit!"  You can't see the whole path, so
+you take a tiny step in the direction the bird suggests, then ask
+again, then take another tiny step.  Soon you've walked a long curvy
+trail, one tiny step at a time.  That's **Euler's method**: you don't
+know where the answer ends up, but if you keep peeking at the slope and
+shuffling forward in baby steps, you sketch the whole journey.
+
 ## Intuition
 
 When you cannot solve a DE analytically (which is most of the time in

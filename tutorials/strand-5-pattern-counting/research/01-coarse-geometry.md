@@ -16,6 +16,17 @@ applications:
 
 # Coarse Geometry and Expanders
 
+## Explain Like I Am 7
+
+Squint at a friendship-line picture from very far away.  The
+fine wrinkles vanish, and only the *big shape* remains — that
+faraway view is what **coarse geometry** studies.  An **expander**
+is a special friendship picture where every small group of friends
+has *lots* of links flying out to the rest — meaning a juicy rumour
+spreads almost instantly through the whole map.  These hyper-
+connected webs underlie reliable internet routing, error-correcting
+codes, and lightning-fast distributed algorithms.
+
 ## Mental
 
 **Coarse geometry**: study spaces *up to bounded perturbations*.

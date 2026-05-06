@@ -16,6 +16,17 @@ applications:
 
 # Dirichlet L-Functions
 
+## Explain Like I Am 7
+
+Take the same infinite-choir tune from the zeta function — but before
+each singer sings, hand them a coloured filter (red, blue, green) that
+tweaks their volume in a careful, repeating pattern.  Now the choir
+splits into many separate songs, one per filter, and each song listens
+in on a *different* family of numbers — say, "primes that leave
+remainder 1 when divided by 7."  Dirichlet used these filtered songs
+to prove that *every* such family has infinitely many primes.  They're
+zeta's little siblings, each tuned to a specific clock.
+
 ## Mental
 
 A **Dirichlet character** modulo $q$ is a function $\chi : \mathbb{Z} \to \mathbb{C}$

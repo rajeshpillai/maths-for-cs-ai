@@ -1,5 +1,15 @@
 # Stability Analysis & Linearization
 
+## Explain Like I Am 7
+
+Balance a pencil on its tip — one tiny breath and it tips over.  Now
+balance it on its flat end — push it a little and it wobbles back to
+standing.  The pencil itself is the same; only the spot it's resting
+on decides if a tiny nudge grows into a fall or fades away.
+**Stability** is exactly that question, asked about every resting
+spot in a wiggly world: is this a cosy bowl that catches little
+pushes, or a slippery peak that magnifies them?
+
 ## Intuition
 
 Most real systems are nonlinear — a pendulum's $\sin\theta$, a population's

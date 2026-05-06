@@ -18,6 +18,18 @@ applications:
 
 # Bernoulli and Binomial Distributions
 
+## Explain Like I Am 7
+
+The simplest random thing in the universe is a single coin flip
+that comes up heads with chance $p$ — that's a **Bernoulli**
+trial.  Flip the same coin $n$ times in a row and count the
+heads, and you get the **binomial** family of probabilities.
+Want exactly three heads in five flips of a fair coin?  Choose
+*which* three of the five positions get heads (Pascal's triangle
+arrives), then multiply by the chance of that exact heads/tails
+pattern.  The binomial counts successes; it's the workhorse of
+A/B tests and drop-rate calculations.
+
 ## Mental
 
 The simplest random variable: **Bernoulli($p$)**.

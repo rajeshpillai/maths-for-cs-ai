@@ -1,5 +1,16 @@
 # Prime Numbers, GCD, and LCM — The Euclidean Algorithm
 
+## Explain Like I Am 7
+
+Some numbers can be neatly split into smaller equal piles ($12 = 3 +
+3 + 3 + 3$), but a few stubborn ones — $2, 3, 5, 7, 11$ — refuse to
+split evenly except into a single pile or singletons.  Those are the
+**primes**, and they're the building blocks of every other number,
+the way LEGO bricks are the building blocks of every model.  The
+**greatest common divisor** is the biggest brick that fits inside two
+different models, and there's a clever swap-and-shrink dance for
+finding it that's older than nearly every algorithm we use today.
+
 ## Intuition
 
 Prime numbers are the "atoms" of arithmetic — every integer is built from

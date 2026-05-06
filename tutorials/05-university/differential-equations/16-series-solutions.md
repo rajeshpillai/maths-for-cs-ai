@@ -1,5 +1,15 @@
 # Power Series Solutions of Differential Equations
 
+## Explain Like I Am 7
+
+Imagine you can't draw the perfect curve of a tricky river, but you
+*can* lay down little Lego bricks one by one, each correcting the
+last, and after enough bricks the line of bricks hugs the river
+exactly.  When a change-rule has no tidy answer made of familiar
+shapes, we build the answer brick by brick: add a tiny constant, then
+a tiny tilt, then a tiny curve, then a tiny twist, each brick chosen
+so the rule stays happy.  The whole stack of bricks *is* the answer.
+
 ## Intuition
 
 Some differential equations have no nice closed-form solution in terms of

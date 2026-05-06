@@ -1,5 +1,15 @@
 # Forces and Equilibrium
 
+## Explain Like I Am 7
+
+Imagine three friends pulling on knotted ropes tied together in the
+middle.  If they all tug exactly hard enough in the right directions,
+the knot stays *perfectly still* even though everyone's pulling.
+That's **equilibrium**: every tug has another tug perfectly cancelling
+it out.  The trick we learn is to break each pull into "how much it
+goes sideways" and "how much it goes up-and-down," then check those
+two piles separately — both piles need to add up to zero.
+
 ## Intuition
 
 Forces cause objects to accelerate (Newton's second law: $F = ma$).  When

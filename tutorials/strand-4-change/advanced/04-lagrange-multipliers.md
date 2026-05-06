@@ -16,6 +16,17 @@ applications:
 
 # Lagrange Multipliers
 
+## Explain Like I Am 7
+
+Imagine you have to walk along a curvy fence in a field, and you
+want to find the highest point on the path.  The hill's gradient
+points uphill, but you can't go uphill directly — you have to stay
+on the fence.  At the highest point along the fence, the only
+"uphill" direction left is *off* the fence.  **Lagrange
+multipliers** is the elegant trick that says: "find the spot where
+the hill's uphill arrow lines up exactly with the fence's
+sideways arrow," and bingo — you've found the constrained peak.
+
 ## Mental
 
 To maximise $f(\mathbf{x})$ **subject to** $g(\mathbf{x}) = 0$, the

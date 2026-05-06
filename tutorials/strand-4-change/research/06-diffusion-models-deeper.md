@@ -16,6 +16,17 @@ applications:
 
 # Diffusion Models — Mathematical Foundations
 
+## Explain Like I Am 7
+
+Take a beautiful photo and slowly add static fuzz to it, frame by
+frame, until you can't see anything but TV snow.  Now imagine you
+trained a robot to *un-fuzz* the picture step by tiny step — peel
+off a little noise, then a little more, then a little more.
+**Diffusion models** are exactly that: machines taught to crawl
+backwards from snowy nonsense into a fresh, never-seen-before
+picture.  The math underneath is dust-jitter calculus and tiny
+gradient nudges, dressed up to dream new images.
+
 ## Mental
 
 Modern generative AI (Stable Diffusion, DALL-E 3, Imagen, Sora) uses

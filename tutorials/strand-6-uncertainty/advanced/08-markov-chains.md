@@ -16,6 +16,18 @@ applications:
 
 # Markov Chains
 
+## Explain Like I Am 7
+
+Picture a hopping ladybug that only remembers where it is right now —
+not where it came from before.  At each tick of a clock she chooses
+a new spot using a fixed table of "from-here-to-there" chances.
+That's a **Markov chain**.  Even though her path looks random,
+after long enough she settles into a steady pattern — spending a
+fixed *fraction* of time on each spot.  Markov chains rank web
+pages (PageRank), shuffle cards properly, model weather, and let
+algorithms sample from impossible-to-write-down probability
+distributions.
+
 ## Mental
 
 A **Markov chain** is a sequence of random variables

@@ -1,5 +1,14 @@
 # Simultaneous Equations
 
+## Explain Like I Am 7
+
+Two friends visit a sweet shop.  The first one buys 2 lollipops and 3
+chocolates and pays ₹21.  The second buys 4 lollipops and 1 chocolate and
+pays ₹17.  Nobody told you the price of one lollipop or one chocolate — but
+by lining up the two shopping trips and comparing them, you can figure out
+both prices at once.  That's solving two puzzles **together**, where each
+puzzle helps unlock the other.
+
 ## Intuition
 
 Imagine two players in a game trading items.  Player A says "2 swords and

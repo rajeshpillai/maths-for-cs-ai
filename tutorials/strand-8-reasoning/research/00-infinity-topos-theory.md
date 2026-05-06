@@ -16,6 +16,17 @@ applications:
 
 # $\infty$-Topos Theory
 
+## Explain Like I Am 7
+
+Earlier you met a shelf of math snow globes — different little
+universes where logic plays out a bit differently.  An
+**$\infty$-topos** is a snow globe with extra layers: dots, paths
+between dots, paths between paths, paths between *those* — all the
+way up.  Every layer is part of the universe and equally important.
+This stretchy, all-the-paths-at-once snow globe is the natural home
+for the wiggly equality of homotopy type theory and is where modern
+researchers do their wildest thinking.
+
 ## Mental
 
 A **topos** (Strand 8 Advanced Lesson 03): generalises Set with

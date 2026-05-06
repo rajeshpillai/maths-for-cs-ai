@@ -16,6 +16,17 @@ applications:
 
 # Modular Forms
 
+## Explain Like I Am 7
+
+Picture a stained-glass window so cleverly designed that if you rotate
+it, slide it, or flip it in just the right ways, the pattern looks
+identical to before — only the colours' brightness changes by a tidy
+rule.  A **modular form** is a mathematical pattern with that kind of
+extreme symmetry on a curved hyperbolic floor.  Because they're so
+tightly constrained, *the few ways to build one* end up encoding very
+deep secrets — like the one that finally cracked Fermat's Last
+Theorem.
+
 ## Mental
 
 A **modular form of weight $k$** for the modular group

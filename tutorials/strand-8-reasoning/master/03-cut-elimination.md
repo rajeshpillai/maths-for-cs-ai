@@ -16,6 +16,17 @@ applications:
 
 # Cut Elimination and Sequent Calculus
 
+## Explain Like I Am 7
+
+Sometimes a proof takes a tidy shortcut: "first I'll prove a little
+helper fact, then I'll use it."  The helper fact is the *cut*.
+Mathematicians discovered something gorgeous: any proof that uses
+helper facts can be patiently rewritten into a *direct* proof with
+**no helpers at all** — like ironing all the little folds out of a
+crumpled paper map.  The unfolded version might be way longer, but
+the existence of that unfolded form is a deep promise about how
+truth works.
+
 ## Mental
 
 **Sequent calculus** (Gentzen, 1934) writes proofs as derivations of

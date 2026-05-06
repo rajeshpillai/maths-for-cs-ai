@@ -1,5 +1,15 @@
 # Applications: Neural ODEs, PINNs, and Hamiltonian Networks
 
+## Explain Like I Am 7
+
+Most thinking machines are like staircases — step, step, step.  But
+imagine instead a slide that flows smoothly from top to bottom, no
+distinct steps at all.  Some clever robots learn that way: they pour
+their thoughts down a continuous slide, and the *shape* of the slide
+is itself the thing they learn.  Even better, you can carve into the
+slide the rules of the real world — like "balls roll downhill" — so
+the robot's daydreams always obey the same physics that ours do.
+
 ## Intuition
 
 Traditional neural networks map inputs to outputs through discrete layers.

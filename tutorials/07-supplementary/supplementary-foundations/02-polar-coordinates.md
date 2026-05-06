@@ -1,5 +1,15 @@
 # Polar Coordinates and Curves
 
+## Explain Like I Am 7
+
+Two ways to tell a friend where the toy chest is.  Way one: "walk five
+steps east, then three steps north."  Way two: "spin until you're
+facing that way, then walk this far."  Way two is **polar
+coordinates** — distance plus direction.  For round things like
+spirals on a snail shell, daisy petals, or the spinning beam of a
+lighthouse, the spin-and-walk recipe is way simpler than counting
+sideways and forwards steps.
+
 ## Intuition
 
 Cartesian coordinates use $(x, y)$.  **Polar coordinates** use $(r, \theta)$

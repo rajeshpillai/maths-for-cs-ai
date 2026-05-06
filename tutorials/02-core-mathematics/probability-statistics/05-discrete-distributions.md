@@ -1,5 +1,16 @@
 # Discrete Distributions — Bernoulli, Binomial, Poisson
 
+## Explain Like I Am 7
+
+Some chance-y things show up *all the time* in the world, and we
+give them friendly names.  *"Will this one coin show heads?"* — that's
+a **Bernoulli**.  *"How many heads in ten flips?"* — that's a
+**Binomial**.  *"How many ice-cream-truck dings will I hear in an
+hour?"* — that's a **Poisson**.  Each is a different popular pattern
+of randomness with its own count-up rule.  Once you know the pattern
+your problem fits, the maths comes pre-baked, like a recipe from a
+cookbook.
+
 ## Intuition
 
 Certain patterns of randomness appear again and again.  Coin flips → Bernoulli.

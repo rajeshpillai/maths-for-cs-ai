@@ -16,6 +16,17 @@ applications:
 
 # Capstone — Geometry at the Frontier
 
+## Explain Like I Am 7
+
+You've climbed past the soft-shape geometry of clay and reached the
+wild research mountains: mirror-twin shapes, soap-film theory,
+melting metric trampolines, sand-moving on curvy hills.  In this
+capstone you peek at how today's working mathematicians actually
+*pose* unsolved questions: what they doodle on a chalkboard, why
+they argue about which shape proves what, and which strange new
+ideas might one day solve another century-old riddle.  Geometry's
+frontier is still very much alive.
+
 ## Mental
 
 Nine lessons on:

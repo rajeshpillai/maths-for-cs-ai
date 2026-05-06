@@ -1,5 +1,16 @@
 # Identity, Inverse, and Transpose
 
+## Explain Like I Am 7
+
+Every grid-of-numbers comes with three party tricks.  The **identity**
+is the magic mirror that gives back exactly what you put in — *no
+change at all*.  The **inverse** is the rewind button: if a
+transformation tilted the rubber floor sideways, the inverse tilts it
+right back to flat.  The **transpose** is a flip across the staircase
+diagonal — rows turn into columns and columns into rows, like
+stepping out of a photo and turning around.  Three tricks, used
+constantly.
+
 ## Intuition
 
 The **identity matrix** is the "do nothing" transformation — multiply anything

@@ -19,6 +19,17 @@ applications:
 
 # Equally Likely Outcomes
 
+## Explain Like I Am 7
+
+When every outcome on your menu has the same chance — like every
+face of a fair die or every card in a well-shuffled deck — the
+probability of an event is wonderfully simple.  Just count the
+menu entries that match your event, count the whole menu, and put
+one over the other.  $2$ even faces out of $6$ total faces makes
+$P(\text{even}) = \tfrac{2}{6} = \tfrac{1}{3}$.  Most "probability
+is hard!" stories are really "I miscounted."  Slow, careful
+counting is the secret superpower.
+
 ## Mental
 
 Lesson 00 introduced the formula and Lesson 01 introduced the sample

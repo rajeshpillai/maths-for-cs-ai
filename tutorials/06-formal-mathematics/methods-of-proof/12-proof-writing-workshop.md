@@ -1,5 +1,15 @@
 # Proof Writing Workshop
 
+## Explain Like I Am 7
+
+When you build a Lego castle, your messy sketch on scrap paper is one
+thing — towers crossed out, doors moved, walls reshuffled.  The
+*finished* castle on the table is another thing entirely: only the
+bricks that worked, in the order that holds them up.  A real proof is
+the finished castle, not the scratch.  This lesson is about taking your
+scribbled "I think it works because..." and rebuilding it neatly so a
+stranger can walk through it without tripping.
+
 ## Intuition
 
 Knowing proof techniques is like knowing how to swing a hammer. Writing a

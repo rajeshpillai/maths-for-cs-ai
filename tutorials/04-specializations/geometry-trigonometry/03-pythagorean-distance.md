@@ -1,5 +1,16 @@
 # Pythagorean Theorem → Distance Formula in N Dimensions
 
+## Explain Like I Am 7
+
+You walk **3 steps east** and then **4 steps north**.  How far is your
+new spot from where you started, *as the crow flies*?  Square the two
+walks (9 and 16), add them (25), then take the square root: 5 steps —
+exactly.  That's **Pythagoras**.  The cool part is the same trick works
+in 3D (square *three* numbers, add, square root) and even in 100D.
+Every time a video-game arrow says "20 metres to enemy" or a search
+engine says "these two photos look similar," it's this same recipe
+running underneath.
+
 ## Intuition
 
 The Pythagorean theorem ($a^2 + b^2 = c^2$) is the most important formula in

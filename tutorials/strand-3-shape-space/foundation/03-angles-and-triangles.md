@@ -18,6 +18,16 @@ applications:
 
 # Angles and the Triangle Sum
 
+## Explain Like I Am 7
+
+Stand facing the front door.  Now turn so you're facing the side wall.
+The amount you turned is an **angle**.  A full spin all the way back
+to the door is 360 of those tiny turn-units.  Now grab three drinking
+straws of any lengths, tape them into a triangle, and measure each
+corner — the three corners *always* add up to a half-turn, no matter
+how skinny or fat the triangle is.  That's a magic rule about flat
+triangles that's been true since the floor was invented.
+
 ## Mental
 
 An **angle** measures rotation between two rays (half-lines)

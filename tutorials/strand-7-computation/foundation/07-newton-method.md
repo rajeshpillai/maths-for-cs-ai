@@ -16,6 +16,17 @@ applications:
 
 # Newton's Method
 
+## Explain Like I Am 7
+
+You're hunting for treasure on a curvy hill, and the treasure is buried
+exactly where the slope crosses zero.  You don't know the spot, but
+you do know where you're standing and how steep the ground feels under
+your feet.  So you draw a straight ramp matching that steepness, slide
+down it, and mark where the ramp would have hit zero.  Stand there,
+re-check the slope, draw a new ramp, slide again.  After a couple of
+tries you're practically on top of the treasure — that's **Newton's
+trick**.
+
 ## Mental
 
 To solve $f(x) = 0$: start at a guess $x_0$, then **follow the

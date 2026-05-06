@@ -1,5 +1,15 @@
 # Tangent Planes and Linearization
 
+## Explain Like I Am 7
+
+Press a flat piece of cardboard against a beach ball at one spot.
+Right where they kiss, the cardboard and the ball are nearly the
+same — if a tiny ant walked along the cardboard near that spot, it
+would barely leave the ball's surface.  The cardboard is the
+**tangent plane**.  Faraway from the kiss it lies — far above or
+below the ball — but for tiny wiggles right around the kiss, the
+flat board is a wonderful, easy stand-in for the curvy ball.
+
 ## Intuition
 A tangent plane is the best flat approximation to a surface at a point — like
 pressing a sheet of paper against a basketball at one spot. In games, terrain

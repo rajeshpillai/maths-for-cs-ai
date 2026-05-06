@@ -16,6 +16,17 @@ applications:
 
 # Additive Combinatorics — Deeper
 
+## Explain Like I Am 7
+
+Pick a small set of numbers — say $\{1, 4, 7\}$.  Their sum-set
+$A + A$ is what you get by adding each pair: $\{2, 5, 8, 11, 14\}$.
+If $A + A$ is barely bigger than $A$ itself, the set must be
+secretly *very organised* — like an evenly-spaced ladder.  This
+"small sum-set forces structure" idea is the heart of additive
+combinatorics, and modern math has pushed it from baby-step results
+into deep theorems like the Polynomial Freiman-Ruzsa conjecture,
+which Tao and friends finally cracked in 2023.
+
 ## Mental
 
 Strand 5 Advanced Lesson 03 / 08 introduced Szemerédi's theorem,

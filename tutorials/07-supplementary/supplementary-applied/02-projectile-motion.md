@@ -1,5 +1,15 @@
 # Projectile Motion
 
+## Explain Like I Am 7
+
+Throw a paper aeroplane.  As it flies, two completely different things
+are happening at once: it drifts forwards at a steady speed (because
+nothing's pushing it sideways), and it slowly droops downwards (because
+gravity is tugging it).  Add those two motions together and the paper
+plane traces a smooth arch through the air.  The cool secret is that
+those two motions never bother each other — the sideways trip and the
+falling trip happen on their own clocks.
+
 ## Intuition
 
 Launch something at an angle and gravity pulls it into a **parabolic arc**.

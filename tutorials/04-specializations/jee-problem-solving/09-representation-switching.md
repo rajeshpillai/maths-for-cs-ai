@@ -1,5 +1,16 @@
 # Representation Switching
 
+## Explain Like I Am 7
+
+Think of a chocolate bar.  You could describe it with words ("brown,
+sweet, snappy"), or by drawing it, or by listing its ingredients.
+**Same chocolate**, three pictures.  Maths objects are the same — a
+circle can be an equation, an arrow path, or a shape on graph paper.
+Some problems are **a nightmare in one language but a piece of cake
+in another**.  The trick is asking yourself, "which picture makes
+this puzzle easy?"  Switch your glasses, and a hard problem often
+becomes friendly.  Pros switch glasses on every question.
+
 ## Intuition
 
 Every mathematical object can be viewed from multiple angles. A circle is simultaneously an algebraic equation (x^2 + y^2 = r^2), a parametric curve (r*cos(t), r*sin(t)), a complex number locus (|z| = r), and a geometric shape. The same problem can be trivial in one representation and nightmarish in another.

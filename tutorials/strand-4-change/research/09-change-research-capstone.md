@@ -16,6 +16,17 @@ applications:
 
 # Capstone — Calculus at the Frontier
 
+## Explain Like I Am 7
+
+Up here at the very edge of the map, every direction has open
+questions.  Coffee fronts that all wrinkle alike, robots that
+un-fuzz pictures, ants who only react to the crowd, learning
+machines whose training paths are still half-mystery.  In this
+capstone you take one such living puzzle, decide which mix of
+ideas — random jitter, geometric flow, mean-field crowd, neural
+net theory — to bring to the fight, and try to make a small new
+dent in something that nobody fully understands yet.
+
 ## Mental
 
 Nine lessons on:

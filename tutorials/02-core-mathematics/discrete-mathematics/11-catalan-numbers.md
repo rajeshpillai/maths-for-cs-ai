@@ -1,5 +1,16 @@
 # Catalan Numbers — One Sequence, Many Problems
 
+## Explain Like I Am 7
+
+How many ways can you stack a tower of brackets so each open bracket
+finds its closing partner without crossing?  How many ways to climb a
+staircase if you can never step *above* the diagonal?  How many ways
+to slice a pizza into triangles using straight cuts from corner to
+corner?  Believe it or not, the answers are all the **same number**:
+$1, 2, 5, 14, 42, 132,\ldots$  These are the **Catalan numbers**, and
+they pop up like a friendly ghost wherever something has to "balance"
+or "stay below the line."
+
 ## Intuition
 
 How many ways to put parentheses around 4 numbers like $a \cdot b \cdot c \cdot d$

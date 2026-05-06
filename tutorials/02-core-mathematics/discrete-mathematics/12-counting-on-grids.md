@@ -1,5 +1,15 @@
 # Counting on Grids — Lattice Paths and Reflections
 
+## Explain Like I Am 7
+
+You live on a big grid of streets, like a chequerboard.  To get to
+your friend's house you can only walk **east or north** at each
+corner.  How many shortest routes are there?  And what if there's a
+big puddle right in the middle you can't step into?  *Counting on
+grids* answers these route-puzzles by spotting that every shortest
+walk is just a string of "E"s and "N"s — so counting walks is the
+same as counting how to mix a handful of letters.
+
 ## Intuition
 
 How many shortest routes are there from one corner of a city block to another

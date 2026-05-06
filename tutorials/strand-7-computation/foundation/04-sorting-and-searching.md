@@ -16,6 +16,17 @@ applications:
 
 # Sorting and Searching
 
+## Explain Like I Am 7
+
+Lining up your friends from shortest to tallest is **sorting**.  Once
+they're lined up, finding the kid who is exactly your height is much
+easier — you can step to the middle, see if they're taller or shorter
+than you, and chop the line in half each time.  That clever
+chop-in-half trick beats walking down the whole line one by one.
+Different sorting tricks (swap-the-neighbours, split-and-merge,
+pick-a-pivot) are like different ways of getting the line tidy in the
+first place.
+
 ## Mental
 
 Sorting takes a list and returns it in non-decreasing order. Searching

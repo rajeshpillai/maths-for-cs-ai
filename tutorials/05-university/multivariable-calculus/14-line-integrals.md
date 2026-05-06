@@ -1,5 +1,16 @@
 # Line Integrals
 
+## Explain Like I Am 7
+
+Imagine pulling a wagon on a curvy garden path while a friend keeps
+shoving the wagon, sometimes from behind, sometimes from the side,
+sometimes against you.  How much *helpful* push did your friend give
+over the whole journey?  You can't just measure one shove; you have
+to walk the path and tally up how much each shove pointed your way,
+inch by inch.  A **line integral** is exactly that walking-tally —
+adding up little contributions from a field along every step of a
+chosen route.
+
 ## Intuition
 A regular integral sums a function along a straight interval. A **line integral**
 sums a function along a curve — think of measuring the total weight of a wire

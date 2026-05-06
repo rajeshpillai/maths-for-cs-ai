@@ -17,6 +17,17 @@ applications:
 
 # The Multiplication Principle for Counting
 
+## Explain Like I Am 7
+
+Imagine you have three T-shirts and two pairs of shorts.  Lay each shirt
+on the floor, then under it line up every pair of shorts.  Each shirt
+gets two outfits, and there are three shirts, so you can dress yourself
+in $3 \times 2 = 6$ different ways.  That little trick — multiply the
+choices at each step — works for ice-cream flavours times cone types,
+or for how many secret passwords you can build by picking each letter
+on its own.  As long as one choice doesn't *spoil* the next one, you
+just multiply.
+
 ## Mental
 
 Suppose you have $3$ shirts and $2$ pairs of trousers. How many

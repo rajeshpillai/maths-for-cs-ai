@@ -19,6 +19,17 @@ applications:
 
 # Tree Diagrams — Counting by Branching
 
+## Explain Like I Am 7
+
+Think of every choice as a fork in a path through a forest.  At the
+start there is one trunk; at each fork the path splits into the
+choices you can make.  Keep splitting until every story is finished,
+then count the *tips* of the branches at the end — those are all the
+different stories that could have happened.  Tree diagrams are
+specially useful when one branch is *bushier* than another, like
+"flip a coin; if it lands heads you also roll a die."  Counting the
+leaves does the work for you, no formulas needed.
+
 ## Mental
 
 Lesson 00 gave you the multiplication principle: counts of

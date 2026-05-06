@@ -1,5 +1,16 @@
 # Double Integrals
 
+## Explain Like I Am 7
+
+Take a wobbly mound of mashed potatoes and ask, "how much potato is
+on this plate?"  You can't just measure one direction — the heap is
+tall in some places, flat in others, all over the plate.  So you
+imagine slicing the plate into a tiny grid of squares, weighing the
+potato standing on each square, and adding all those tiny weights
+together.  A **double integral** is exactly that grid-and-add trick:
+sum up little columns of *stuff* across a whole flat region to get
+the total.
+
 ## Intuition
 A single integral adds up infinitely thin slices to get an area. A double
 integral adds up infinitely small patches to get a **volume** under a surface —

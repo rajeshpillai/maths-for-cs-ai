@@ -1,5 +1,17 @@
 # Backwards Construction
 
+## Explain Like I Am 7
+
+Imagine a maze on the back of a cereal box.  You could try every
+path from the *start* and hope to reach the cheese — slow!  Or you
+could put your pencil **on the cheese first** and trace backwards
+to the start.  Often the maze is way easier that way because every
+junction near the cheese has fewer choices.  Maths problems are
+the same: sometimes you start at the answer, ask "what would have
+to be true for this to be the answer?", and follow that thread
+back to the question.  The road home from the prize is often the
+cleanest road.
+
 ## Intuition
 
 Sometimes the fastest path to a solution is to start at the destination and work backwards. Instead of asking "where does this lead?", ask "what must be true for this answer to hold?" This is particularly powerful in multiple-choice exams like JEE where you can verify candidates, and in construction problems where you assume the desired object exists and deduce its properties.

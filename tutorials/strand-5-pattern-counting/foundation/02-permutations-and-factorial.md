@@ -19,6 +19,17 @@ applications:
 
 # Permutations and Factorial
 
+## Explain Like I Am 7
+
+Suppose four friends line up for a photo.  Whoever stands on the left
+has four choices; once they pick a spot, the next friend has only
+three friends left to stand beside, then two, then one.  That gives
+$4 \times 3 \times 2 \times 1 = 24$ different photo line-ups.  Math
+people call that shrinking-multiplication a **factorial** and write
+it $4!$.  It explodes fast: ten friends already make over three
+million line-ups, which is why a tiny class can generate a stadium-
+sized number of seating charts.
+
 ## Mental
 
 A **permutation** is an **ordered arrangement** of distinct items.

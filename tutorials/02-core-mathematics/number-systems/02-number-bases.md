@@ -1,5 +1,15 @@
 # Number Bases — Binary, Octal, Hex
 
+## Explain Like I Am 7
+
+Imagine egg trays where each tray holds only nine eggs before you must
+start a fresh one.  That's how we count in tens — when a column fills
+up, we tip a "$1$" into the next column over.  A computer uses trays
+that only hold *one* egg before tipping over, so its number columns
+are full of $0$s and $1$s.  **Binary** is the egg-counting system with
+tiny trays; **hex** is the same idea using fat trays that hold sixteen.
+Same numbers, different sized trays — that's all bases are.
+
 ## Intuition
 
 We count in base 10 because we have 10 fingers.  Computers count in base 2

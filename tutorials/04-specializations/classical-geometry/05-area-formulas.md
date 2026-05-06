@@ -1,5 +1,16 @@
 # Area Formulas — Polygons, Trapezoids, Kites, Regular n-gons
 
+## Explain Like I Am 7
+
+Imagine cutting shapes out of grid paper to count squares.  A rectangle
+is easy: rows times columns.  A triangle is half a rectangle that you
+sliced corner-to-corner — so half the rectangle's squares.  A
+parallelogram, when you snip a triangle off one side and slide it to
+the other, suddenly looks like a rectangle (sneaky!) — same area.
+Every **area formula** is just one of these "rearrange the shape until
+it becomes a rectangle" tricks.  Once you see the cut-and-slide moves,
+you can find the area of just about any flat shape.
+
 ## Intuition
 
 A handful of area formulas cover almost every polygon you'll meet:

@@ -16,6 +16,17 @@ applications:
 
 # Quantum Groups
 
+## Explain Like I Am 7
+
+Imagine a classical kit-of-moves where rotating left then right gives
+the same answer as right then left.  Now twist the kit just slightly,
+so the order *almost* doesn't matter — there's a tiny extra factor
+$q$ that wiggles in.  At $q=1$ it's the classical thing; at other
+values of $q$, the kit becomes non-commutative in a delicately
+controlled way.  These **quantum groups** show up wherever physics
+braids ribbons (think knot invariants, anyons), because the small
+twist captures the entanglement that pure classical algebra missed.
+
 ## Mental
 
 A **quantum group** $U_q(\mathfrak g)$ is a $q$-deformation of the

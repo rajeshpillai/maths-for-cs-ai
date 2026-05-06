@@ -18,6 +18,17 @@ applications:
 
 # Capstone — Three Applied Statistical Problems
 
+## Explain Like I Am 7
+
+Now we point everything you've learned at real questions.  Did the
+new website button colour really get more clicks, or was it just
+luck?  Should an insurance company charge $\$200$ or $\$300$ for
+this policy?  How big a survey do you need to know who'll win the
+mayor election within $\pm 1\%$?  Each answer mixes random
+variables, expected value, the central limit theorem, confidence
+intervals, and p-values together — all the pieces you've collected
+this whole strand, finally working as a team.
+
 ## Mental
 
 Ten lessons in (Foundation + Intermediate combined): you can

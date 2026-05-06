@@ -1,5 +1,15 @@
 # Proof by Contradiction
 
+## Explain Like I Am 7
+
+Pretend the thing you want to prove is *false* and run with that idea
+as far as you can.  If you trip over something obviously silly — like
+"this same number is both even and odd at the same time" — then your
+pretend assumption must have been the silly part, so the real answer
+must be the opposite.  It's like saying "if I'd really left my lunchbox
+at school, it wouldn't be in my bag — but it IS in my bag, so I didn't
+leave it."  That backwards-detective trick is **proof by contradiction**.
+
 ## Intuition
 
 Sometimes the front door is locked, so you go around back. In a proof by

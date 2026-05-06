@@ -18,6 +18,17 @@ applications:
 
 # Multinomial Coefficients
 
+## Explain Like I Am 7
+
+Suppose you have eleven coloured marbles — one red, four blue, four
+green, two yellow — and you want to line them up.  If they were all
+different colours you could swap them around in $11!$ ways.  But the
+four blue marbles look exactly the same, so re-ordering blues among
+themselves doesn't make a *new* line.  We have to "undo" all those
+look-alike re-orderings.  The **multinomial coefficient** does the
+chore: it counts the truly different line-ups when some marbles
+share a colour, by dividing $11!$ by a $!$ for each colour group.
+
 ## Mental
 
 The Foundation capstone introduced anagrams of MISSISSIPPI: the count

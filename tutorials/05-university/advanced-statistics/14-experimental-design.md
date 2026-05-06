@@ -1,5 +1,16 @@
 # Experimental Design
 
+## Explain Like I Am 7
+
+You want to test if blue paper helps kids draw better than white
+paper.  How do you set up the test fairly?  You can't give all the
+fast drawers the blue paper — that would tilt the result.  You
+shouldn't test only on Mondays — kids might be cranky.  You need
+*enough* kids that one weird drawing doesn't decide everything.  And
+each kid should be sorted into blue or white *by coin flip*, so no
+sneaky pattern slips in.  Designing experiments is just being
+careful about all the ways the world could fool you.
+
 ## Intuition
 
 You want to test if a new game tutorial improves player retention. How many

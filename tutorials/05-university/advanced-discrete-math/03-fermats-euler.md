@@ -1,5 +1,15 @@
 # Fermat's Little Theorem and Euler's Totient Function
 
+## Explain Like I Am 7
+
+Pick a clock with a *prime* number of marks — say 7.  Take any
+number you like, multiply it by itself seven times, and look at
+where the result lands on that clock.  Surprise: it always lands on
+the *very same spot* you started from.  Around and around, the 7-clock
+brings every number back home.  That secret boomerang is why a
+locksmith can scramble a number into gibberish and someone with the
+right key can always unscramble it — the number knows the way home.
+
 ## Intuition
 
 Raise any number to the power of a prime $p$, and modular arithmetic brings it

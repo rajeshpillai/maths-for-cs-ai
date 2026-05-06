@@ -1,5 +1,16 @@
 # Applications — Image Filtering, Audio Processing, CNNs
 
+## Explain Like I Am 7
+
+Once you can split a sound or picture into its piano-note recipe, you
+can do all sorts of clever things.  Want to clean a hissy recording?
+Throw away the high-pitched ingredients and the hiss vanishes —
+that's noise-cancelling headphones.  Want to make a photo smaller
+without ruining it?  Toss the tiny ingredients eyes barely notice —
+that's JPEG.  Want to know what song is playing at the cafe?  Compare
+its recipe to a giant cookbook of song-recipes — that's Shazam.  All
+of it is the same Fourier idea wearing different hats.
+
 ## Intuition
 
 Fourier analysis isn't just theory — it powers real technology you use daily.

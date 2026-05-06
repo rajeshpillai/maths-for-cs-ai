@@ -1,5 +1,15 @@
 # Exponent Rules Mastery — Zero, Negative, and Fractional Exponents
 
+## Explain Like I Am 7
+
+You can stack 3 blocks.  You can stack 5 blocks.  But what does it mean to
+stack **zero** blocks, or **minus one** blocks, or **half a block**?
+Mathematicians made up sensible answers — like saying $2^0 = 1$ and
+$2^{-1} = \tfrac{1}{2}$ — *not* by guessing, but by demanding that the
+patterns we already love (like $2^3 \times 2^2 = 2^5$) keep working
+everywhere.  It's like inventing brand-new game rules that don't break any
+of the old ones.
+
 ## Intuition
 
 Exponents start as "repeated multiplication" — $2^3 = 2 \times 2 \times 2$.

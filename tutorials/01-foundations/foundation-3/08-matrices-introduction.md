@@ -1,5 +1,15 @@
 # Matrices — Introduction, Addition, and Scalar Multiplication
 
+## Explain Like I Am 7
+
+A **matrix** is a tidy egg-box of numbers — rows on top of rows, neat
+columns side by side.  If two egg-boxes are exactly the same shape,
+you can stack them and add the eggs square by square: *top-left adds
+to top-left, top-right to top-right*, and so on.  And if you grab one
+egg-box and double every egg inside, all the patterns on the box still
+look the same, just bigger.  That's all this lesson asks of you — to
+treat a grid of numbers like a single, friendly object.
+
 ## Intuition
 
 A **matrix** is a rectangular grid of numbers.  That sounds simple, but

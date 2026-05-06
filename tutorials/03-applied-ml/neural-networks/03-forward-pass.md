@@ -1,5 +1,16 @@
 # Forward Pass as Matrix Multiplication Chains
 
+## Explain Like I Am 7
+
+A **forward pass** is like a chocolate factory's conveyor belt.  Cocoa
+beans roll in at one end.  The first machine grinds them; the next
+machine adds sugar in fixed amounts; the next squishes everything into
+bars; the last one wraps them in foil.  The cocoa changes shape at every
+station, and what comes out the far end is a finished candy bar.  A
+neural network is the same idea: numbers go in, each station multiplies
+and bends them in its own way, and a tidy answer pops out the other
+end — "this picture is a *cat*."
+
 ## Intuition
 
 A neural network's forward pass is just a chain of matrix multiplications

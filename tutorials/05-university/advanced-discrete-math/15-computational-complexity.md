@@ -1,5 +1,16 @@
 # Computational Complexity
 
+## Explain Like I Am 7
+
+Some puzzles are quick to solve, like alphabetising a stack of
+flashcards.  Others, like a really hard Sudoku, seem to need you to
+try heaps of guesses.  But here's the strange part: even when *finding*
+the answer is hard, *checking* an answer once someone hands it to
+you is super easy.  Is finding always harder than checking?  Nobody
+has ever proven it either way.  This is the biggest unanswered
+question in all of computing — and there's a million-dollar prize
+waiting for whoever cracks it.
+
 ## Intuition
 
 Not all problems are created equal. Some can be solved quickly (sorting),

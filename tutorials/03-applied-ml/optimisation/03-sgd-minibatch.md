@@ -1,5 +1,15 @@
 # Stochastic Gradient Descent and Mini-Batches
 
+## Explain Like I Am 7
+
+Imagine tasting a giant pot of soup to decide if it needs more salt.  The
+fussy way is to stir the *whole pot* and taste — accurate, but it takes
+ages.  The quick way is to grab a single spoonful and decide — fast, but
+sometimes you scoop only a chunk of carrot and get fooled.  The smart way
+is **mini-batch**: scoop a small ladleful, taste, adjust, scoop again.
+The little wobbles in flavour from one ladle to the next actually help —
+they shake the cook out of dumb habits and toward the truly best recipe.
+
 ## Intuition
 
 Batch gradient descent processes the **entire** dataset before taking one step.

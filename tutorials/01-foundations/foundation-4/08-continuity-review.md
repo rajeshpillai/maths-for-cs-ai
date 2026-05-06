@@ -1,5 +1,15 @@
 # Continuity and Discontinuity — A Review
 
+## Explain Like I Am 7
+
+Try drawing a wiggly line all the way across a page **without lifting
+your pencil**.  If you can do it, the line is **continuous**.  If you
+have to jump the pen over a gap, or there's a tiny hole where the
+ink ran out, that's a **discontinuity**.  This matters because smooth
+unbroken lines have a friendly promise: if they start at floor level
+and end at the ceiling, they had to pass through every height in
+between — they couldn't have skipped over any.
+
 ## Intuition
 
 A function is **continuous** if you can draw its graph without lifting your

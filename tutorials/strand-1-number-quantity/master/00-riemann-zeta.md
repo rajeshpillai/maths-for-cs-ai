@@ -16,6 +16,17 @@ applications:
 
 # The Riemann Zeta Function
 
+## Explain Like I Am 7
+
+Imagine an infinite choir where the first singer hums at full volume,
+the second at half, the third at a third, and so on forever.  Their
+combined hum has a "loudness" that depends on how quickly the singers
+get quiet — and Euler discovered the wondrous fact that this loudness
+can also be written as a tune sung *only by the prime numbers*.  So
+the secret heartbeat of the primes is hidden inside one beautiful
+sound, and the unsolved Riemann Hypothesis asks where this sound goes
+silent on a hidden complex stage.
+
 ## Mental
 
 For complex $s$ with $\mathrm{Re}(s) > 1$:

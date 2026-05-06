@@ -16,6 +16,17 @@ applications:
 
 # IEEE 754 Floating Point
 
+## Explain Like I Am 7
+
+Imagine you only have room on a postcard for *eight* digits, but you
+want to write down the size of an ant **and** the distance to the
+moon.  The trick is to write a small number plus a "shift the decimal
+point this many places" tag — a bit like saying "$3.14$ and slide it
+six places."  This works great, but tiny in-between numbers have to
+get rounded to the nearest spot the postcard *can* write, which is why
+$0.1 + 0.2$ comes out a hair off from $0.3$ — the postcard simply has
+no slot for the exact answer.
+
 ## Mental
 
 Real numbers are infinite-precision; computer storage is finite.

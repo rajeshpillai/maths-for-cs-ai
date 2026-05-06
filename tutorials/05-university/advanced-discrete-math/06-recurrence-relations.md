@@ -1,5 +1,16 @@
 # Recurrence Relations
 
+## Explain Like I Am 7
+
+A pair of rabbits has two baby rabbits this month, and *those*
+babies grow up and have their own babies next month, and so on.
+Each month's bunny count depends on the months before — a rule of
+"yesterday tells today."  Following the rule one step at a time
+works, but if you want the bunny count after a *thousand* months,
+that's slow.  The clever wizardry is finding a magic formula that
+jumps straight to month one thousand without counting every rabbit
+in between.
+
 ## Intuition
 
 A recurrence relation defines each term in a sequence using previous terms —

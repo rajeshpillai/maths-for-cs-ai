@@ -16,6 +16,18 @@ applications:
 
 # Capstone — Number Theory in the Wild
 
+## Explain Like I Am 7
+
+Think of all the lessons in this strand as Lego pieces that you've
+been collecting one at a time: counting blocks, prime bricks, clock
+gears, mailbox keys, magnifying glasses.  In the **capstone**, you
+empty your whole bin onto the carpet and snap the pieces together to
+build real machines: a working secret-message lock, a calendar that
+stays synced with the sun, a quick test for whether a giant number is
+prime.  The capstone isn't a new piece — it's the first time you see
+all your pieces *cooperating* to do something the world genuinely
+uses.
+
 ## Mental
 
 Ten lessons later (Foundation + Intermediate + Advanced):

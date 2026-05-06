@@ -16,6 +16,17 @@ applications:
 
 # AI Safety Formal Foundations
 
+## Explain Like I Am 7
+
+You teach your robot to fetch the ball, but you also need rules so it
+won't shove granny over to get the ball faster.  **AI safety** is
+the careful art of writing those rules in maths so airtight that a
+much cleverer robot than you couldn't wriggle out of them.  Researchers
+build little maths models of "what is a goal?", "what is a value?",
+"what is honest behaviour?" and try to prove that bots built on those
+models stay helpful even when they grow much smarter than the
+people who built them.
+
 ## Mental
 
 **AI safety / alignment**: ensure AI systems pursue intended

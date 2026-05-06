@@ -1,5 +1,16 @@
 # Graph Theory Basics — Vertices, Edges, Paths, Trees
 
+## Explain Like I Am 7
+
+Draw some dots on paper and join some of them up with lines.  That
+little doodle is a **graph** — the dots stand for things (people,
+cities, friends) and the lines stand for connections (handshakes,
+roads, friendships).  Tracing a finger along the lines from one dot
+to another finds a *path*; if you can come back to where you started
+without retracing a line, you've found a *loop*.  Almost every
+network you can think of — the internet, a road map, friend
+suggestions — is just a graph in disguise.
+
 ## Intuition
 
 A graph is just dots (vertices) connected by lines (edges).  Your social

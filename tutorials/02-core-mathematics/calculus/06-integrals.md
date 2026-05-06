@@ -1,5 +1,15 @@
 # Integrals — Riemann Sums to the Definite Integral
 
+## Explain Like I Am 7
+
+To find the area of a wobbly shape on graph paper, you can paint
+over it with **lots of skinny rectangles** and add up their areas.
+Use fatter rectangles and you get a rough guess; switch to thinner
+ones and your guess gets more and more accurate.  Imagine the
+rectangles getting *infinitely* thin — your answer becomes exact.
+That magical "skinnier and skinnier sum" is what an **integral** is:
+the smooth, perfect total of an entire wobbly area.
+
 ## Intuition
 
 Integration is the reverse of differentiation.  If the derivative gives you

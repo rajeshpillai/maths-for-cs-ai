@@ -16,6 +16,17 @@ applications:
 
 # Proofs about Functions
 
+## Explain Like I Am 7
+
+Picture a juice machine again.  Three things you might want to prove
+about it: (1) two different fruits *never* squeeze into the exact
+same juice — that's "one-to-one"; (2) every juice on the menu *can*
+be made by some fruit — that's "onto"; (3) both at once, so the
+machine is a perfect pairing of fruits and juices.  Each property has
+its own little proof recipe — pick two fruits and chase the juices, or
+pick a juice and hunt for the fruit.  Same machine, different
+questions.
+
 ## Mental
 
 Three properties of a function $f : A \to B$ matter:

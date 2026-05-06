@@ -16,6 +16,17 @@ applications:
 
 # Operations and Their Properties
 
+## Explain Like I Am 7
+
+Think about getting dressed in the morning.  Putting on socks then
+shoes feels normal; doing it the other way round feels silly — order
+matters!  But adding two scoops of ice cream to your bowl gives the
+same dessert no matter which scoop lands first — order *doesn't*
+matter.  Mathematicians give nicknames to these everyday rules:
+**commutative** when order is free, **associative** when grouping is
+free.  Spotting which rule each kind of "combining" obeys is the
+first step of seeing structure inside everyday actions.
+
 ## Mental
 
 An **operation** combines two things to produce a third. Addition,

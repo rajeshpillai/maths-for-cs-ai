@@ -16,6 +16,17 @@ applications:
 
 # Information Geometry
 
+## Explain Like I Am 7
+
+Imagine all possible coin-flipping rules — fair coins, almost-
+always-heads, almost-always-tails — laid out as points on a
+landscape.  Two rules that almost always make the same flips sit
+*close* on the landscape; rules that act totally different sit
+*far apart*.  **Information geometry** treats this whole
+landscape of "rules of chance" like a curvy hilly world with its
+own ruler, then uses the geometry to find the shortest path
+between two probability rules.  It guides how AI tunes itself.
+
 ## Mental
 
 A **statistical manifold** is a parameterised family of probability

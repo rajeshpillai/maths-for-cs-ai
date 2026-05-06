@@ -16,6 +16,17 @@ applications:
 
 # Univalent Foundations Program — Status
 
+## Explain Like I Am 7
+
+Imagine the math universe is a huge building, and for the last
+hundred years everyone has been working in one wing called *sets*.  A
+small but determined crew of builders has been quietly putting up a
+new wing across the courtyard called *univalent foundations* — a math
+universe where "looking the same" really means "is the same."  This
+chapter is the progress report: how much of the new wing is up,
+which rooms are wired in, which big proofs already live there, and
+which corridors still need finishing.
+
 ## Mental
 
 **Univalent Foundations** (Voevodsky, 2010s): replace ZFC with

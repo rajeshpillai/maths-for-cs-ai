@@ -1,5 +1,15 @@
 # Groups — The Foundation of Symmetry
 
+## Explain Like I Am 7
+
+Pick up a Rubik's Cube and write down every twist you can do — left
+face clockwise, top face anti-clockwise, and so on.  Doing two twists
+in a row is itself just another twist, doing nothing leaves the cube
+alone, and every twist has an "undo" twist.  Any collection of moves
+that plays by *those* tidy rules is a **group**.  Whether you're
+twisting a cube, hopping around a clock face, or shuffling cards, the
+moves all behave the same way once you spot the pattern.
+
 ## Intuition
 
 A **group** captures the idea of symmetry in its purest form. Rotating a

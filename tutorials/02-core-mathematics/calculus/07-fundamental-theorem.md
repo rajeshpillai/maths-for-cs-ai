@@ -1,5 +1,16 @@
 # Fundamental Theorem of Calculus
 
+## Explain Like I Am 7
+
+You filled a bathtub at a changing rate — fast at first, slow at the
+end.  You can answer "how much water is in the tub now?" two
+different ways: *measure the puddle* (this is integrating — adding up
+all the splashes), or *check the dribble rate and undo it* (this is
+the reverse of differentiating).  The amazing news of the
+**fundamental theorem** is that **both methods always give exactly
+the same answer**.  Adding up little changes and undoing the rate of
+change are secretly the *same* trick.
+
 ## Intuition
 
 The Fundamental Theorem of Calculus is the bridge between derivatives and

@@ -16,6 +16,16 @@ applications:
 
 # Russell's Paradox and Its Cousins
 
+## Explain Like I Am 7
+
+Imagine a librarian who keeps one special list: a list of *every list
+in the library that doesn't list itself.*  Sounds harmless — until
+you ask, "is this special list on itself?"  If yes, then it lists
+itself, so it shouldn't be there.  If no, then it doesn't list
+itself, so it *should* be there.  No answer works.  This silly
+puzzle quietly tore a hole in early maths and forced everyone to
+agree on stricter rules for what counts as a list (set) at all.
+
 ## Mental
 
 Russell's paradox in one line:

@@ -19,6 +19,17 @@ applications:
 
 # Expected Value — The Long-Run Average
 
+## Explain Like I Am 7
+
+Imagine someone offers a game: roll a die — if it lands on $6$ you
+win $\$10$, otherwise you pay $\$2$.  Should you play?  The
+**expected value** answers it.  You weigh each outcome by its
+chance and add them up: $\tfrac{1}{6} \cdot \$10 + \tfrac{5}{6}
+\cdot (-\$2) = \$0$.  Zero means the game is fair on average over
+many plays.  Expected value tells you what you'd see on average if
+you tried it forever — the secret behind insurance pricing,
+lottery design, and any sensible bet.
+
 ## Mental
 
 Suppose someone offers you a bet: roll a fair die. If you roll a $6$,

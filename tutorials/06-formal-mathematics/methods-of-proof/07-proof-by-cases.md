@@ -1,5 +1,15 @@
 # Proof by Cases (Exhaustive Case Analysis)
 
+## Explain Like I Am 7
+
+Imagine sorting a pile of socks by colour into a few baskets — red,
+blue, green — and you want to show that every sock in the pile has a
+hole.  Instead of inspecting them all in one go, you check the red
+basket, then the blue basket, then the green basket.  If every basket
+turns out to be holey, AND the baskets together hold every sock you
+own, then every sock has a hole.  That's **proof by cases**: split the
+problem into a few buckets that cover everything, and tackle each one.
+
 ## Intuition
 
 Sometimes you cannot handle all possibilities at once, but you can split

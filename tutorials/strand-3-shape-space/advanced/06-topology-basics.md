@@ -16,6 +16,16 @@ applications:
 
 # Topology — Continuous Deformation
 
+## Explain Like I Am 7
+
+Imagine all your shapes are made of soft, stretchy clay.  You're
+allowed to squish, stretch, and bend the clay all you like — but you
+*can't* tear it or glue new bits on.  In this clay-world, a coffee
+mug and a doughnut are secretly the *same* thing, because you can
+slowly squish the mug's body until only the handle's hole is left.
+**Topology** is the math of which shapes can become which under all
+that gentle squishing — it cares about holes, not measurements.
+
 ## Mental
 
 **Topology** studies properties of spaces preserved under continuous

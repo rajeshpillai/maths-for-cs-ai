@@ -1,5 +1,15 @@
 # Derivatives — Slope of the Tangent
 
+## Explain Like I Am 7
+
+When a car drives up and down hills, the **speedometer** doesn't
+care about the whole journey — it only tells you how fast you're
+going *right this very second*.  A **derivative** is exactly that:
+the speedometer reading for *any* changing thing.  How fast is the
+height changing right now?  How steep is the ramp at this exact
+spot?  The derivative answers "how fast" by zooming in until the
+curve looks like a tiny straight line, then reading its tilt.
+
 ## Intuition
 
 The derivative tells you **how fast something is changing** at a specific

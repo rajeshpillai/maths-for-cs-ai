@@ -1,5 +1,16 @@
 # RSA Cryptography from First Principles
 
+## Explain Like I Am 7
+
+Imagine a magical padlock that *anyone* can snap shut, but only the
+person with the secret key can pop it open.  How is that possible?
+You take two huge prime "ingredient" numbers and multiply them
+together.  Multiplying is easy, but un-multiplying — figuring out
+which two primes were used — is so unbelievably hard that even the
+fastest computer on Earth would give up.  So you can hand the public
+padlock to the whole world without giving away the secret recipe
+inside.
+
 ## Intuition
 
 Imagine a padlock that anyone can snap shut (public key) but only you can open

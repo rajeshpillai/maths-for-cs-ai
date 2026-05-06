@@ -1,5 +1,16 @@
 # Angle Bisector and the Incircle
 
+## Explain Like I Am 7
+
+Draw a triangle on the ground with chalk.  Now from each corner, slice
+the corner exactly in half with a ruler.  The amazing thing: all three
+half-slice lines meet at **one perfect spot inside** the triangle.
+That meeting point is the same distance from each of the three sides —
+so you can draw the biggest possible circle that just kisses all three
+walls of the triangle from inside.  That circle is called the
+**incircle**, and it tells you all sorts of clever things about the
+triangle's size.
+
 ## Intuition
 
 Drop the three angle bisectors of a triangle and they meet at one point —

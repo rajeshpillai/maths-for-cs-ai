@@ -1,5 +1,16 @@
 # Polynomial Long Division and Synthetic Division
 
+## Explain Like I Am 7
+
+You have **157 sweets** and want to share them between **12 friends**.
+You hand them out in batches: thirteen each, with one lonely sweet left
+in the bowl.  Polynomial division does the same trick, but with bags
+labelled "$x$" and "$x^2$" instead of plain sweets.  You keep peeling
+off the biggest chunks you can, scribble down what each chunk was, and
+whatever cannot be split evenly is the leftover *remainder*.  It looks
+fancy because of the letters, but it really is the same long-division
+dance you already know.
+
 ## Intuition
 
 When you divide 157 by 12, you get 13 remainder 1.  The same process works

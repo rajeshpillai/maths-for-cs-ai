@@ -16,6 +16,18 @@ applications:
 
 # Capstone — Combinatorics Tomorrow
 
+## Explain Like I Am 7
+
+This grand finale is the museum tour of *modern* counting magic —
+Young tableau staircases, swap-proof polynomial worlds,
+self-mutating algebras, tropical mins-and-pluses, sturdy LEGO
+matroids, sudden phase changes in random graphs, sum-set rigidity,
+flashing-bulb Fourier waves, and the unavoidable order Ramsey
+forces inside chaos.  We replay the highlights, knit them together
+on real problems like recommendation systems and randomness
+extraction, and peek at the open questions a working researcher
+might tackle next.
+
 ## Mental
 
 Nine lessons on:

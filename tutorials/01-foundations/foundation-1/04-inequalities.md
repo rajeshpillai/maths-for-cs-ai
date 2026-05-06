@@ -1,5 +1,13 @@
 # Inequalities
 
+## Explain Like I Am 7
+
+In a video game, you don't always need *exactly* ten hearts to keep playing
+— you just need *at least one* heart so you don't lose.  Inequalities are
+the rules that say "more than," "less than," or "at least this much"
+instead of "exactly this."  They draw a whole strip of okay answers on the
+number line, not just a single dot.
+
 ## Intuition
 
 An inequality is like a health bar in a game — you don't need your HP to

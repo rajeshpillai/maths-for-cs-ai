@@ -16,6 +16,17 @@ applications:
 
 # Improper Integrals
 
+## Explain Like I Am 7
+
+Pretend you're painting an infinite wall that gets thinner the
+farther it goes.  Even though the wall never ends, the *paint* you
+need might still be a finite amount, because the far parts are so
+skinny they barely use any paint.  Or maybe the paint adds up to
+infinity — depends on how fast the wall thins out.  An **improper
+integral** is the careful way to add up areas of shapes that go
+on forever (or shoot up infinitely tall) and decide whether the
+total settles down or runs away.
+
 ## Mental
 
 A definite integral $\int_a^b f(x) dx$ is **improper** when:

@@ -16,6 +16,17 @@ applications:
 
 # Capstone — Algebra at the Frontier
 
+## Explain Like I Am 7
+
+Imagine a workshop where every tool is *still being invented*.  Some
+benches are crowded with eager researchers ($\infty$-categories,
+condensed sets); other corners glow with ideas still wet from the
+press (perfectoids, prismatic cohomology).  This capstone is not a
+neat conclusion — it's a guided tour of the open construction site
+where modern algebra is being built right now.  The takeaway is
+humility plus excitement: the deepest structures in mathematics are
+*still becoming*, and you've now glimpsed the scaffolding.
+
 ## Mental
 
 Nine lessons on:

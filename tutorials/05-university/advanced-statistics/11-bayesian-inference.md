@@ -1,5 +1,16 @@
 # Bayesian Inference
 
+## Explain Like I Am 7
+
+You hear a noise at night.  Probably the cat.  But then you hear it
+again, louder.  Hmm, maybe the wind.  Then the noise sounds like a
+voice.  Now you start thinking burglar.  Each new sound updates your
+guess about what's happening.  That is **Bayesian** thinking: start
+with what you already believe, then nudge your belief every time
+new evidence arrives.  More cat-like sounds make you more sure it's
+the cat; more burglar-like sounds tilt the other way.  Your belief
+is always changing as the world coughs up clues.
+
 ## Intuition
 
 Classical (frequentist) statistics treats parameters as fixed unknowns.

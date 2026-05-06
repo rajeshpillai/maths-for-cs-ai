@@ -1,5 +1,16 @@
 # Change of Variables in Multiple Integrals
 
+## Explain Like I Am 7
+
+Imagine pulling a big sheet of pizza dough.  When you stretch one
+patch wider, that patch gets bigger; when you squish another, it
+shrinks.  If you sprinkled cheese evenly *before* stretching, you
+need to keep track: stretched patches now hold *less* cheese per
+square inch, squished patches hold *more*.  The **Jacobian** is the
+little number at every spot that says "this patch grew or shrank by
+this much" — and you multiply by it whenever you change the way
+you're describing your dough.
+
 ## Intuition
 When you substitute $u = g(x)$ in a single integral, you multiply by $|g'(x)|$
 to account for stretching. In multiple dimensions, the **Jacobian determinant**

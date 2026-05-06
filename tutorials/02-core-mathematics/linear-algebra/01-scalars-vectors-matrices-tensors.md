@@ -1,5 +1,15 @@
 # Scalars, Vectors, Matrices, Tensors — Building the Hierarchy
 
+## Explain Like I Am 7
+
+Think of a single bead — that's a **scalar**, just one number all
+alone.  Now thread several beads on a string: that line of beads is a
+**vector**.  Stack lots of strings side by side and you get a flat
+beaded mat — a **matrix**.  Pile up flat mats into a giant beaded
+cube and you have a **tensor**.  Each step adds one more direction
+you can wander in.  All of machine learning's clever tricks happen by
+shuffling beads up and down these structures.
+
 ## Intuition
 
 A scalar is a single number.  A vector is a list of numbers.  A matrix is a

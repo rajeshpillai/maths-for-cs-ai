@@ -16,6 +16,17 @@ applications:
 
 # Quantum Algorithms
 
+## Explain Like I Am 7
+
+A normal coin is heads *or* tails.  A **quantum** coin is allowed to
+spin in midair, half-heads-and-half-tails, until you slap it down.
+While it's spinning, two coins together carry more possible patterns
+than either one alone.  Quantum recipes nudge these spinning coins so
+that the *wrong* answers cancel out like ripples meeting and
+flattening, while the *right* answer adds up loud.  Slap the coins
+down at the end and the answer to a hard puzzle pops out — sometimes
+faster than any normal computer could find it.
+
 ## Mental
 
 A **qubit** is a unit vector in $\mathbb C^2$:

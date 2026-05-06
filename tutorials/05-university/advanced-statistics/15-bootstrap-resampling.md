@@ -1,5 +1,16 @@
 # Bootstrap and Resampling Methods
 
+## Explain Like I Am 7
+
+You have a small bag of marbles and you want to know how reliable
+your guess about them is.  Trick: pretend the small bag *is* the
+whole world.  Reach in, pull out a marble, write down its colour,
+*put it back*, shuffle, and repeat — building a brand-new pretend
+bag.  Do this thousands of times to get thousands of pretend bags,
+each slightly different.  Looking at how much your guess wobbles
+across all those pretend bags tells you how shaky your real guess
+is, without needing any tricky formula.
+
 ## Intuition
 
 You have one sample of 50 data points and want a confidence interval for

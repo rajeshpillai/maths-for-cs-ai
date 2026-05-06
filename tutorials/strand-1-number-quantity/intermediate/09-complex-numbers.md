@@ -18,6 +18,17 @@ applications:
 
 # Complex Numbers — A New Kind of Quantity
 
+## Explain Like I Am 7
+
+Number lines run *left and right*: that's the world of plain numbers.
+Complex numbers come from drawing a *second* arrow that goes **up and
+down** — a whole new direction that the old number line couldn't reach.
+Now every "number" is a point on a flat map (a step right, then a step
+up).  Multiplying these new numbers doesn't just stretch them; it
+**spins** them.  That's exactly why complex numbers are the tool of
+choice for anything that rotates: spinning gears, stereo speakers,
+twirling 2D sprites.
+
 ## Mental
 
 Lesson 05 (Foundation) extended whole numbers to **negatives**: a

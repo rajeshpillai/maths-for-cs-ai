@@ -16,6 +16,17 @@ applications:
 
 # Kolmogorov Complexity
 
+## Explain Like I Am 7
+
+Pick a long string of letters.  Now ask: what's the *shortest little
+note* that tells a friend exactly that string?  For "ABABABABAB," the
+note is tiny: "A and B, ten times."  For a random jumble like
+"QXKZJWMP," the shortest note is the jumble itself — there's no
+shorter description.  **Kolmogorov complexity** is the length of that
+shortest possible note.  It's how mathematicians measure
+*randomness*: the more random a thing looks, the longer the shortest
+note describing it.
+
 ## Mental
 
 The **Kolmogorov complexity** $K(x)$ of a string $x$ is the length of

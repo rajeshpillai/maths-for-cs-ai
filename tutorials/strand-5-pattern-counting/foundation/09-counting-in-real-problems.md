@@ -18,6 +18,17 @@ applications:
 
 # Putting It Together — Counting Real Problems
 
+## Explain Like I Am 7
+
+Real puzzles rarely come labelled "use stars and bars here."  They
+arrive as messy stories: how many ways to scramble the letters of
+MISSISSIPPI, how many ways to share cookies, how many seating plans
+for a wedding.  The trick is to slice the story into smaller jobs
+and ask "is this an *and* step or an *or* step?"  *And* steps make
+you multiply, *or* steps make you add.  Once you've split the puzzle
+into bite-sized pieces, every counting tool you've collected so far
+clicks into place like LEGO bricks.
+
 ## Mental
 
 Nine lessons in, you have a small but powerful counting toolkit:

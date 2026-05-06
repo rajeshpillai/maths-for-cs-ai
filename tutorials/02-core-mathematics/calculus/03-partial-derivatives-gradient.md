@@ -1,5 +1,16 @@
 # Partial Derivatives and the Gradient ∇
 
+## Explain Like I Am 7
+
+Pretend the bath water has two taps — one hot, one cold — and you're
+trying to make it the right temperature.  A **partial derivative**
+asks: "If I only nudge the *hot* tap a tiny bit and don't touch the
+cold one, how much does the water change?"  Do the same nudge for
+each tap and you get a small list of answers — the **gradient**.
+That little list is a tiny arrow that points exactly in the direction
+that makes the bath hottest fastest, which is *gold* if you're trying
+to warm up (or, flipping the arrow, cool down).
+
 ## Intuition
 
 When a function has multiple inputs (like a loss function depending on many

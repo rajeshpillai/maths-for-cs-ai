@@ -1,5 +1,16 @@
 # PCA — Principal Component Analysis from SVD
 
+## Explain Like I Am 7
+
+Sprinkle a handful of dots on a table.  They might form a long
+sausage shape — most of the spread runs **along** the sausage, with
+hardly any spread sideways.  **PCA** is the trick of finding that
+long direction first, the next-longest after that, and so on.  Now
+you can describe each dot using just one or two clever new rulers
+instead of the original three or ten — losing almost nothing
+important.  This is how thousands-of-pixel faces shrink down to just
+a handful of "face dials."
+
 ## Intuition
 
 You have data with 100 features, but most of the "interesting variation"

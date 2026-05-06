@@ -1,5 +1,15 @@
 # Second-Order Linear Homogeneous ODEs
 
+## Explain Like I Am 7
+
+Push a swing once and let go.  Three things might happen: the swing
+sways back and forth for ages getting smaller, or it slumps back to
+rest without swinging at all, or — just right — it glides home in one
+graceful sweep without bouncing.  Which one happens depends on how
+heavy the swing is, how stiff the chain is, and how much air pushes
+back.  A second-order rule mixes these three voices, and the answer
+sings in one of those three styles.
+
 ## Intuition
 
 A second-order ODE involves the second derivative — acceleration. When a

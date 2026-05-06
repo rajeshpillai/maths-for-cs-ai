@@ -16,6 +16,17 @@ applications:
 
 # Representation Theory of Finite Groups
 
+## Explain Like I Am 7
+
+A group is an abstract kit-of-moves; a **representation** is a way to
+*physically embody* those moves as actual matrices that push arrows
+around in some space.  Like an actor playing a role, the matrix
+*plays* the abstract move, and you can study the abstract group by
+watching how its actors perform.  Marvelously, every performance can
+be broken down into a few "atomic" performances called **irreducible
+representations** — and the whole catalogue of them for a group is
+shockingly small and tidy.
+
 ## Mental
 
 A **representation** of a group $G$ is a homomorphism $\rho : G \to \mathrm{GL}(V)$

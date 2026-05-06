@@ -16,6 +16,17 @@ applications:
 
 # Numerical Integration
 
+## Explain Like I Am 7
+
+You want to know the area of a wobbly puddle on the pavement.  You
+can't measure it directly with a ruler, so you cover the puddle with a
+stack of skinny rectangle stickers and add up their areas.  Make the
+stickers thinner and the answer gets closer to the true area.
+Sometimes you tilt the top of each sticker to follow the puddle's edge
+(those are called *trapezoid* stickers) and you get a great estimate
+even faster.  That's **numerical integration** — counting up tiny
+rectangles when no neat formula will do.
+
 ## Mental
 
 Sometimes the antiderivative of $f$ has no closed form (e.g.,

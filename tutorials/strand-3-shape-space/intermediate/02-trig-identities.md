@@ -18,6 +18,16 @@ applications:
 
 # Trig Identities and the Laws of Sines and Cosines
 
+## Explain Like I Am 7
+
+You know how "two halves" and "one whole" are different ways to write
+the same thing?  Trig **identities** are like that — different
+costumes for the same number.  For instance, the wiggly sine and
+cosine are best friends: square them, add them, and you always get
+1, no matter what angle you started with.  Once you collect a few
+of these magic equal-signs, big scary trig expressions can be
+swapped for tiny tidy ones, the way you swap stickers with a friend.
+
 ## Mental
 
 Beyond the Pythagorean identity, several **trig identities** turn

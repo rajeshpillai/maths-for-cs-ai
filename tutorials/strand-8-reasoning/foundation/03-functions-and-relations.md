@@ -18,6 +18,16 @@ applications:
 
 # Functions and Relations
 
+## Explain Like I Am 7
+
+A **function** is a juice machine: drop one apple in, get exactly one
+glass of apple juice out.  Drop the same apple in tomorrow, you'll get
+the same juice — never two different glasses for the same fruit.  A
+**relation** is more relaxed: it's just a guest list of pairs, and
+the same fruit might be paired with several glasses, or none at all.
+Functions are the strict ones; relations are their easy-going cousins
+who allow any matchup at all.
+
 ## Mental
 
 A **function** $f: A \to B$ assigns to each $a \in A$ exactly one

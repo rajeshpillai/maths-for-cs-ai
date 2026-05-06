@@ -17,6 +17,18 @@ applications:
 
 # Continued Fractions
 
+## Explain Like I Am 7
+
+Imagine you're trying to copy a strange-length stick using only whole
+units.  First you mark off as many *whole* units as fit; what's left
+is a smaller stick.  Now flip the leftover into "one over the
+leftover" and repeat the trick on *that*.  Keep going, and you build a
+nested ladder of fractions that zooms in on the original stick like
+matryoshka dolls.  This ladder gives the **best possible** simple
+fractions to approximate the stick — which is exactly how clockmakers
+pick gear ratios and how the calendar decides when to insert a leap
+day.
+
 ## Mental
 
 A **continued fraction** represents a real number as nested fractions:

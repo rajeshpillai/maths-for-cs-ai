@@ -1,5 +1,13 @@
 # Polynomial Functions — Degree, Roots, and Behaviour
 
+## Explain Like I Am 7
+
+Think of building a wiggly slide using flat pieces, slanty ramps, gentle
+hills, and steeper hills, all glued together into one smooth path.  A
+**polynomial** is maths' way of building wiggly curves out of simple
+pieces — added on top of each other.  The more pieces you allow yourself
+to use, the more wiggles your slide is allowed to have.
+
 ## Intuition
 
 A polynomial is a sum of power terms: constants, $x$, $x^2$, $x^3$, and so on.

@@ -16,6 +16,17 @@ applications:
 
 # Riemannian Geometry
 
+## Explain Like I Am 7
+
+You know how a ruler measures lengths on a flat table?  Now imagine
+a curvy hilly world where the ruler has to bend with the ground.
+**Riemannian geometry** gives the curvy world its very own ruler at
+every spot — sometimes the ruler stretches, sometimes it shrinks,
+depending on how the ground bunches up there.  With this clever
+ruler, an ant can measure its hike's length, the angle between two
+ant-trails, or the area of a hilly meadow, all without ever
+peeking off the surface.
+
 ## Mental
 
 A **Riemannian manifold** $(M, g)$ is a smooth manifold $M$ with a

@@ -1,5 +1,15 @@
 # Cyclic Quadrilaterals — Four Points on a Circle
 
+## Explain Like I Am 7
+
+Drop four pebbles in the sand and connect them in order to make a
+4-sided shape.  Sometimes you can wrap a perfect circle around all
+four pebbles so each one sits on the rim — sometimes you can't.  When
+you *can*, the shape is called **cyclic**, and a magical thing happens:
+the corner angles across from each other always add up to **180°**, like
+a see-saw that balances.  Pair that with another fancy rule about
+the diagonals and you've got a Swiss-army knife for circle puzzles.
+
 ## Intuition
 
 Four points either lie on a common circle or they don't.  The four-point

@@ -16,6 +16,17 @@ applications:
 
 # Geometric Measure Theory
 
+## Explain Like I Am 7
+
+Soap bubbles love to be smooth — but when three soap films meet,
+they form a sharp edge instead of a gentle curve.  Old-style
+geometry only handles smooth shapes, so it can't talk about that
+edge.  **Geometric measure theory** invents a new vocabulary for
+shapes with creases, splatters, and cracks — surfaces that can be
+crinkly almost everywhere yet still have a sensible total area.
+With it we can ask "what's the smallest soapy film stretched across
+this loopy wire?" and actually find the answer.
+
 ## Mental
 
 **Geometric measure theory (GMT)** extends differential geometry to

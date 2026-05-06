@@ -16,6 +16,17 @@ applications:
 
 # Critical Points and the Second-Derivative Test
 
+## Explain Like I Am 7
+
+Walk around a hilly meadow until you find a spot where every
+direction looks flat.  You might be on a peak (top of a hill),
+in a bowl (bottom of a valley), or on a horse's saddle — flat
+left-right but tilting front-back.  Those flat spots are
+**critical points**.  To tell which kind, peek at how the ground
+*bends* in each direction; if it bends down everywhere, peak; up
+everywhere, bowl; mixed, saddle.  That bend-checker is the
+second-derivative test.
+
 ## Mental
 
 A **critical point** of $f : \mathbb{R}^n \to \mathbb{R}$ is a point

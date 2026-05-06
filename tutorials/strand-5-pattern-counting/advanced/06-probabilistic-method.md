@@ -16,6 +16,17 @@ applications:
 
 # The Probabilistic Method
 
+## Explain Like I Am 7
+
+Suppose you want to prove that some special party-invitation list
+*exists* — say, one with no five guests who all dislike each other.
+Instead of building one by hand, the great mathematician Erdős said:
+"Let me invite friends *at random*.  If on average my random list
+already has fewer than one bad clique, then some lucky list has
+*zero* bad cliques."  That sneaky averaging argument proves
+something exists *without ever showing it to you*.  It's the most
+elegant magic trick in combinatorics.
+
 ## Mental
 
 To prove a combinatorial object **exists**, sometimes the cleanest

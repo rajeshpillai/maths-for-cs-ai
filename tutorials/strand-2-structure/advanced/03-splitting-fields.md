@@ -16,6 +16,17 @@ applications:
 
 # Splitting Fields
 
+## Explain Like I Am 7
+
+Imagine a stubborn jigsaw puzzle that won't fully come apart in your
+current playroom — a few pieces refuse to be separated.  So you build
+a *bigger* playroom (a field annex) just large enough that *every*
+piece pops free.  This minimal larger playroom where the polynomial
+finally splits into all its little linear pieces is the **splitting
+field**.  Any other room big enough does the same job, but mathematics
+gives you the smallest one — and astonishingly, all such smallest
+rooms are basically the same room with different paint.
+
 ## Mental
 
 Given $f(x) \in F[x]$, the **splitting field** of $f$ over $F$ is the

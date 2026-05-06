@@ -1,5 +1,16 @@
 # Polynomial Rings
 
+## Explain Like I Am 7
+
+A polynomial is just a recipe written on a card — "two scoops of
+$x^3$, three scoops of $x^2$, one scoop of $x$, and a sprinkle on top."
+You can stack two recipe cards by adding scoop-by-scoop, or combine
+them by multiplying every scoop on one card with every scoop on the
+other.  Even better, you can do *long division* with recipe cards just
+like you do with whole numbers — there's a quotient card and a
+remainder card.  That's what makes polynomial cards behave so much
+like the integers we already know.
+
 ## Intuition
 
 Polynomials are not just functions — they are algebraic objects that can be

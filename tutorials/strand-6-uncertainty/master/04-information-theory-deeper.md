@@ -16,6 +16,18 @@ applications:
 
 # Information Theory Deeper
 
+## Explain Like I Am 7
+
+Imagine a friend describing the weather every day with a secret
+code.  If the weather is *very* predictable (always sunny), the
+code can be tiny — almost no message needed.  If it's wildly
+unpredictable, the code has to be longer to carry all the
+surprise.  **Entropy** measures how surprised you'd be on average,
+and it tells you the shortest possible code length for that source.
+Shannon's deep theorems then say *exactly* how much you can
+compress messages and how fast you can squeeze them through a noisy
+channel before mistakes overwhelm.
+
 ## Mental
 
 **Shannon entropy**: $H(X) = -\sum_x p(x) \log p(x)$. Average bits

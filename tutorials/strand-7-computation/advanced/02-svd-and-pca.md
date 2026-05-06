@@ -16,6 +16,17 @@ applications:
 
 # SVD and PCA Computationally
 
+## Explain Like I Am 7
+
+Imagine a wobbly mountain of data shaped like a flattened blueberry.
+You'd like to wrap it up in three perfectly tidy stretchy sheets — one
+along its longest direction, one along its second longest, one for
+its tiny squashed thickness.  After that wrapping, you can throw away
+the floppy sheet that barely matters and the blueberry still looks
+almost the same with way less paper.  That magical re-wrapping is the
+**SVD**, and using it to throw away the boring directions is what
+**PCA** does for photos and spreadsheets.
+
 ## Mental
 
 The **Singular Value Decomposition** factorises any $m \times n$ matrix:

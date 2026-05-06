@@ -13,6 +13,17 @@ applications:
 
 # What is an Algorithm?
 
+## Explain Like I Am 7
+
+An **algorithm** is just a recipe.  A really, really fussy recipe — one
+where every step is so clear that even a forgetful kitchen helper
+couldn't mess it up.  "Crack two eggs, whisk for thirty seconds, pour
+into the pan" is a recipe; "make it taste nice" isn't, because nobody
+knows when to stop.  The good recipes also promise to *finish* — you
+don't keep stirring forever.  Computers are those forgetful kitchen
+helpers, and every program you've ever used is one of these careful
+recipes.
+
 ## Mental
 
 An **algorithm** is a finite, unambiguous procedure that solves a

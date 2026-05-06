@@ -1,5 +1,16 @@
 # Subspaces — Column Space & Null Space
 
+## Explain Like I Am 7
+
+Imagine a paint-mixing machine.  Pour different colours into the
+inputs and out comes some new mixed paint.  The **column space** is
+the *whole rainbow* of paints this machine can ever produce — anything
+outside that rainbow is forever beyond reach, no matter what you pour
+in.  The **null space** is the opposite mystery: which combinations
+of inputs cancel each other out so completely that *no paint at all*
+comes out the bottom?  Together, these two answer "what can it do?"
+and "what does it ignore?"
+
 ## Intuition
 
 In machine learning, a trained weight matrix $\mathbf{A}$ can only produce

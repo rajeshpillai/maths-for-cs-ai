@@ -16,6 +16,17 @@ applications:
 
 # Heaps and Priority Queues
 
+## Explain Like I Am 7
+
+A hospital emergency room doesn't see people in the order they walked
+in — the kid with a broken arm sees the doctor before the kid with a
+scraped knee.  A **priority queue** is exactly that magic clipboard:
+you can drop new patients onto it any time, and it always hands you
+back the most urgent one.  The clever way to keep the clipboard tidy
+is a tree shape called a **heap**, where every parent is more urgent
+than its two children — so the most urgent patient is always sitting
+at the very top.
+
 ## Mental
 
 A **priority queue** stores elements with **priorities** and supports:

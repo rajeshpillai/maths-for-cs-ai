@@ -1,5 +1,16 @@
 # Ekadhikena for Recurring Decimals — Converting Fractions Mentally
 
+## Explain Like I Am 7
+
+What does 1/19 look like as a decimal?  Long division takes ages —
+but here's a magic chain.  Start with a **1** at the right side of
+your page.  Multiply by 2.  Write the answer next to it.  Multiply
+by 2 again.  Each time, if you get a two-digit number, the tens
+digit becomes a **carry** for the next step.  Keep going and a long
+string of digits unspools right-to-left — the *exact* decimal of
+1/19!  All 18 digits pour out from one tiny rule.  It feels like
+the number is whispering itself to you.
+
 ## Intuition
 
 Converting fractions like 1/19, 1/7, or 1/29 to decimals normally requires

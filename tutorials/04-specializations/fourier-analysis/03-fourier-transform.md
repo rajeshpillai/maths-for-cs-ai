@@ -1,5 +1,16 @@
 # Fourier Transform — Extend to Non-Periodic Signals
 
+## Explain Like I Am 7
+
+Last lesson you peeled a *repeating* tune (like a song chorus on
+loop) into pure piano notes.  But what about a **single doorbell
+ding** — a sound that doesn't loop forever?  The **Fourier
+transform** is the same magic but for any sound, even one-off pops.
+It hands you a colourful bar chart: "here's how much low rumble, how
+much middle hum, how much high sparkle is hiding inside that ding."
+Every photo, every song, every brain scan can be split into its
+secret recipe of slow and fast wiggles.
+
 ## Intuition
 
 The Fourier series decomposes **periodic** signals.  The Fourier Transform

@@ -1,5 +1,16 @@
 # Information Theory — Entropy, Cross-Entropy, KL Divergence
 
+## Explain Like I Am 7
+
+Two friends play "guess what I'm thinking" with yes/no questions.  If
+the answer could be **anything**, your friend needs lots of questions
+— that's **high entropy** (lots of surprise).  If the answer is
+nearly always "cat," they need barely any questions — *low entropy*.
+Now imagine your friend uses the *wrong* guessing strategy: they'll
+need extra questions, and that wasted-questions cost is **cross-
+entropy**.  Comparing the wrong strategy to the perfect one tells
+you how *off* their guess-bag is — that gap is the **KL divergence**.
+
 ## Intuition
 
 **Entropy** measures how "surprised" you are on average.  A fair coin has high

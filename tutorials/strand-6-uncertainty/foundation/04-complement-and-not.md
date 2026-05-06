@@ -18,6 +18,17 @@ applications:
 
 # Complement — When "Not A" is Easier
 
+## Explain Like I Am 7
+
+Suppose you want the chance of rolling *at least one* six in five
+dice rolls.  Counting all the messy ways that could happen is a
+nightmare.  But the *opposite* — rolling *no* sixes at all — is a
+quick calculation.  Since exactly one of the two must happen, the
+probabilities of "at least one" and "none at all" must sum to $1$.
+So just compute the easy one and subtract from $1$.  This little
+flip — count the **complement** — is one of the most useful tricks
+you'll ever learn.
+
 ## Mental
 
 Sometimes a probability question is worded in a way that makes

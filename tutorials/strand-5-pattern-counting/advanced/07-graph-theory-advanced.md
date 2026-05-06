@@ -16,6 +16,17 @@ applications:
 
 # Graph Theory — Coloring, Matching, Flow
 
+## Explain Like I Am 7
+
+Picture a map of friends connected by lines.  Three classic puzzles
+appear.  *Colouring*: paint each friend a colour so connected
+friends never share a colour — what's the smallest crayon box that
+works?  *Matching*: pair friends up into dance partners so nobody
+has two partners.  *Flow*: imagine water pipes between two cities,
+each with a maximum flow rate, and figure out how much water can
+travel from start to end.  These three puzzles power scheduling,
+matchmaking, and traffic-routing in real life.
+
 ## Mental
 
 Three landmark problems in graph theory:

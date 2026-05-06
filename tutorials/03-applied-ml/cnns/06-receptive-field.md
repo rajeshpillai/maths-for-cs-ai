@@ -1,5 +1,16 @@
 # Receptive Field Analysis
 
+## Explain Like I Am 7
+
+Look through a paper-towel tube at a wall — you see only a small circle.
+That's a **receptive field**: the patch of the world a single eye-cell
+can see.  Now imagine the kid behind you peeks through *your* tube; she
+can see whatever your circle reaches, plus a bit more from the angle.
+Stack a few more kids behind, each looking through the kid in front,
+and the kid at the back is somehow seeing the *whole wall* — even though
+each kid's tube was tiny.  Deep layers in a CNN work like that: every
+extra layer widens the view.
+
 ## Intuition
 
 The **receptive field** of a neuron is the region of the original input that

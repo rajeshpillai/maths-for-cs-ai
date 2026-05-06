@@ -18,6 +18,18 @@ applications:
 
 # The Central Limit Theorem
 
+## Explain Like I Am 7
+
+Roll *one* die — the result is wild, anywhere from $1$ to $6$.
+Roll thirty dice and average the results — that average is almost
+always sneakily close to $3.5$.  The **central limit theorem** says
+that no matter how weird your original randomness looks, when you
+average lots of samples the average's distribution settles into a
+neat bell curve centred at the true mean.  This is the secret
+behind why polls work, why insurance companies can predict yearly
+losses, and why the world feels predictable on average even when
+each piece is messy.
+
 ## Mental
 
 Take any distribution — uniform, exponential, even one that looks

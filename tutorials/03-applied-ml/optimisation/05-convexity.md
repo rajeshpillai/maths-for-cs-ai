@@ -1,5 +1,15 @@
 # Convexity — Why It Matters
 
+## Explain Like I Am 7
+
+Imagine two shapes of bowls.  The first is a smooth salad bowl: drop a
+marble anywhere inside and it always rolls to the **same single bottom**.
+The second is a wavy egg carton: a marble might settle in any of a dozen
+little dips and never find the deepest one.  **Convex** means the nice
+salad-bowl shape — easy to find the bottom, no matter where you start.
+A straight line drawn between any two points on the bowl never dips
+below the bowl's surface — that's the secret rule.
+
 ## Intuition
 
 A **convex function** has a single bowl shape — no matter where you start,

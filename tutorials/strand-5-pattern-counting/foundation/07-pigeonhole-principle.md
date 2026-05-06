@@ -18,6 +18,17 @@ applications:
 
 # The Pigeonhole Principle
 
+## Explain Like I Am 7
+
+If thirteen pigeons fly home to twelve birdhouses, *some* birdhouse
+must contain two pigeons — there just aren't enough houses to go
+around.  The same reason tells you that in any class of $367$ kids,
+at least two share a birthday, since there are only $366$ days
+they could be born on.  And if you stick your hand into a sock
+drawer with only black and white socks, three grabs will always give
+you a matching pair.  Silly-obvious as it sounds, this little rule
+proves big surprising things in math.
+
 ## Mental
 
 The principle says something so obvious it borders on tautology:

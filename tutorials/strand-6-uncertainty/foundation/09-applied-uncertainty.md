@@ -19,6 +19,17 @@ applications:
 
 # Putting It Together — Three Real Applications
 
+## Explain Like I Am 7
+
+Eight lessons in, you have a tidy toolkit: count the menu, multiply
+for *and*, add for *or*, take complements when "at least one"
+appears, condition when a clue arrives, and weigh outcomes by
+chance to find expected value.  Now we point this toolkit at three
+real questions: should you buy a lottery ticket?  How accurate is
+a medical test that says you're sick?  How much should an insurer
+charge?  Each answer is just the basic rules glued together with a
+little story.
+
 ## Mental
 
 Eight lessons in, you have a small but powerful toolkit:

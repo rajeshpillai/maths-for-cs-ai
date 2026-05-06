@@ -1,5 +1,16 @@
 # Bayesian Computation (MCMC)
 
+## Explain Like I Am 7
+
+You're blindfolded in a park, trying to figure out where the
+hilliest bits are.  You can't see the whole park, but if you take a
+random little step, you can feel whether the new spot is higher.
+Higher spots, you mostly stay.  Lower spots, you sometimes wander
+back.  After thousands of these tip-toe steps, you've spent the
+most time exactly where the park is highest — even though you never
+saw the whole map.  That's how computers explore tricky
+belief-shapes when the maths is too tangled to solve directly.
+
 ## Intuition
 
 Conjugate priors give clean formulas, but most real-world Bayesian models

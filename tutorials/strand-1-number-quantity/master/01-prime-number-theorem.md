@@ -16,6 +16,17 @@ applications:
 
 # The Prime Number Theorem
 
+## Explain Like I Am 7
+
+Imagine you're walking along the number-line forest.  Tall **prime
+trees** are scattered around, and you want to know how often you bump
+into one.  Near the start they're packed tight, but the further you
+walk, the more spaced apart they become.  The Prime Number Theorem
+gives you the rule: roughly one tree shows up every "few hundred" or
+"few thousand" steps, and that gap grows in step with how many digits
+your position has.  It's the closest mathematicians have come to a
+weather-forecast for primes.
+
 ## Mental
 
 Define $\pi(x) = $ number of primes $\le x$.

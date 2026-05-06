@@ -1,5 +1,13 @@
 # Multi-Step Equations
 
+## Explain Like I Am 7
+
+Picture a see-saw with toys piled on both sides.  As long as it's balanced,
+it stays balanced if you do the **same thing to both sides** — take a teddy
+off the left, take a teddy off the right.  Solving an equation is just
+peeling toys off one side, one at a time, until only the mystery toy is
+left — and copying every move to the other side so the see-saw never tips.
+
 ## Intuition
 
 An equation is a balance scale — whatever you do to one side, you must do to

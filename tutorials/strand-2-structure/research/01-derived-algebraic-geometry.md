@@ -16,6 +16,18 @@ applications:
 
 # Derived Algebraic Geometry
 
+## Explain Like I Am 7
+
+Imagine two flat sheets of paper crashing into each other at an
+angle.  Where they meet, you'd usually just write down "a line."  But
+what if the way they crash carries extra information — like the
+*angle* of the crash, or whether they pinched a third sheet between
+them?  Plain algebraic geometry throws that information away;
+**derived** algebraic geometry keeps a whole staircase of records, so
+that "two things meeting" remembers *how* they met.  This richer
+bookkeeping is essential in places where intersections behave
+strangely, like moduli spaces and string theory.
+
 ## Mental
 
 **Derived algebraic geometry (DAG)** extends algebraic geometry by

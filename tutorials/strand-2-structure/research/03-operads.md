@@ -16,6 +16,18 @@ applications:
 
 # Operads and Higher Algebra
 
+## Explain Like I Am 7
+
+Imagine a giant cookbook of *recipes* where every recipe takes some
+number of inputs (a slot for "two eggs," another for "three cups of
+flour") and produces a single dish.  Recipes can be plugged into each
+other — the output of one becomes the input slot of another, like
+nested funnels — and the rules for plugging form an **operad**.
+Different operads give you different flavours of algebra: associative,
+commutative, Lie-bracket-like.  It's the most flexible way to write
+down "what kinds of operations am I allowing?" before you fill in
+*what* they do.
+
 ## Mental
 
 An **operad** $\mathcal P$: a sequence of objects $\mathcal P(n)$

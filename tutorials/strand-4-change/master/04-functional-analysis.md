@@ -16,6 +16,18 @@ applications:
 
 # Functional Analysis
 
+## Explain Like I Am 7
+
+Imagine a school where the *students* are entire songs.  Some
+songs are loud, some quiet, some catchy, some forgettable.  Now
+treat each song like an arrow you can add to other song-arrows
+and stretch — exactly like stacking and stretching ordinary
+arrows.  **Functional analysis** is the toolkit for doing
+geometry where every "point" is itself a whole function.  It
+lets us measure how close two functions are, find the "shortest"
+function for a job, and tame infinite spaces with finite
+intuition.
+
 ## Mental
 
 **Functional analysis** is linear algebra for infinite-dimensional

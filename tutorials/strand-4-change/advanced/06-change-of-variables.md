@@ -16,6 +16,17 @@ applications:
 
 # Change of Variables — The Jacobian
 
+## Explain Like I Am 7
+
+Pretend you're measuring the area of a bunch of squares on a
+stretchy rubber sheet.  When you stretch the sheet, every little
+square turns into a parallelogram with a different area — even
+though it's the *same* sticker on the rubber.  The **Jacobian** is
+the tiny number that says "this square got stretched 2.5 times
+bigger right here."  When you compute an integral with new
+coordinates, you have to multiply by this stretching factor or
+your area-count will be totally wrong.
+
 ## Mental
 
 In 1D substitution: $\int f(x) dx \to \int f(g(u)) g'(u) du$ — the

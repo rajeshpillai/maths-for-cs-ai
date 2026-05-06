@@ -16,6 +16,17 @@ applications:
 
 # GPU Programming
 
+## Explain Like I Am 7
+
+A normal computer is one really clever cook with eight hot plates.  A
+**GPU** is a hall full of *thousands* of less clever cooks, all
+following the *same* recipe at the *same* time on different
+ingredients.  If your job is "fry one egg perfectly," the clever cook
+wins.  If your job is "fry ten thousand eggs," the egg army wins by
+miles — every cook fries one egg in lockstep.  That's why painting
+pictures on a screen and training neural networks both love GPUs:
+both are mountains of identical little chores.
+
 ## Mental
 
 A **GPU** has **thousands of cores** organised into:

@@ -1,5 +1,14 @@
 # Rational Expressions — Fractions with Polynomials
 
+## Explain Like I Am 7
+
+You know how 6 cookies shared between 2 friends gives 3 cookies each?
+That's a fraction.  Now imagine the cookies *and* the friends both keep
+changing as the day goes on — that's a **rational expression**, a fraction
+where the top and bottom can wriggle.  There's one rule you can never
+break: you can't share cookies with **zero friends**, because that doesn't
+mean anything — so some numbers are simply not allowed on the bottom.
+
 ## Intuition
 
 A rational expression is simply a fraction where the numerator and denominator

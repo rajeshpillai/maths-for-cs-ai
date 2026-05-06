@@ -1,5 +1,16 @@
 # Applications of Multivariable Calculus
 
+## Explain Like I Am 7
+
+Imagine you've collected a whole shelf of magic tools: an uphill
+arrow, a paddle wheel for swirls, a pizza-counter, a balloon-skin
+counter, and bookkeeping rules for whirlpools.  Now you walk
+outside.  The river flowing past your house — your tools say where
+it spins.  The smoke rising from chimneys — your tools say where it
+puffs out.  The way a robot brain learns from mistakes — your tools
+say which way to step downhill.  All those scattered toys turn out
+to be the same toolkit, used in different gardens.
+
 ## Intuition
 Everything we have built in this tier — gradients, multiple integrals, vector
 fields, divergence, curl, and the big theorems — comes together in the physical

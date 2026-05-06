@@ -16,6 +16,17 @@ applications:
 
 # PDEs on Manifolds and Geometric Flows
 
+## Explain Like I Am 7
+
+Pour hot water onto a flat metal plate and the heat spreads in a
+nice predictable way.  But pour it onto a curvy bell or a saucer
+and the heat has to follow the bumps and dips of the curved
+surface — it speeds up in valleys, lingers on ridges.
+**PDEs on manifolds** are the spreading-rules for things flowing
+across curvy worlds.  And **geometric flows** are even cooler:
+the rule slowly *reshapes the surface itself*, smoothing out
+wrinkles like an iron flattening crinkly fabric.
+
 ## Mental
 
 PDEs traditionally on $\mathbb R^n$ extend to **PDEs on manifolds**:

@@ -16,6 +16,17 @@ applications:
 
 # Reverse Mathematics
 
+## Explain Like I Am 7
+
+When you bake a cake you might be using more ingredients than the
+recipe really needs.  **Reverse mathematics** is the cheeky game of
+asking, "what's the *bare minimum* I need on the counter to bake
+*this exact* theorem?"  You strip the kitchen down to flour and
+water, then add ingredients back one by one until your theorem is
+just barely possible.  Mathematicians have discovered that almost
+every classic theorem of analysis lines up neatly into one of *five*
+exact ingredient lists — a surprising tidy ending.
+
 ## Mental
 
 **Reverse mathematics** asks: for each ordinary mathematical theorem

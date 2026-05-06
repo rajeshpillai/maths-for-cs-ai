@@ -1,5 +1,16 @@
 # Implement a 2D Convolution Kernel — Pure Python, Then NumPy
 
+## Explain Like I Am 7
+
+Pretend you have a tiny rubber stamp and a huge sheet of graph paper.
+The slow way is to ink the stamp, press it on square (1,1), write down
+the answer, ink it again, move it one square to the right, press,
+write — until you've covered the whole sheet.  That's **plain Python**:
+clear and obvious but achingly slow.  **NumPy** is like having a
+hundred friends with stamps who all press at once — same answer, finished
+in a blink.  Real cat-recognising computers use the friend-army version
+because pictures have *millions* of squares.
+
 ## Intuition
 
 Implementing convolution yourself removes all mystery.  You'll see it's just

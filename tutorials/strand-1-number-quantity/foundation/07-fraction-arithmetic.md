@@ -18,6 +18,15 @@ applications:
 
 # Fraction Arithmetic
 
+## Explain Like I Am 7
+
+Imagine adding chocolate squares from two different bars.  If both bars
+are cut into the **same** number of squares, you can just count them
+together — easy.  If one bar has fat squares and the other has skinny
+squares, you have to re-cut both bars so every square is the same size
+*before* you scoop them onto one plate.  That's the whole secret of
+adding fractions: get the slice-sizes to match first, then count.
+
 ## Mental
 
 Four operations, four pictures.

@@ -1,5 +1,15 @@
 # Exponential and Logarithmic Graphs
 
+## Explain Like I Am 7
+
+Fold a piece of paper in half once — two layers.  Fold again — four.
+Again — eight.  By the tenth fold you'd have a thousand layers, by the
+twentieth a million.  That runaway doubling is **exponential growth**,
+and it leaps off the page so fast that you almost can't graph it on
+normal paper.  A **logarithm** is its sneaky undo button: it asks "how
+many folds would I need to reach this many layers?" and turns those
+sky-high numbers back down into something you can fit in a notebook.
+
 ## Intuition
 
 **Exponential** growth is the most powerful force in nature and computing —

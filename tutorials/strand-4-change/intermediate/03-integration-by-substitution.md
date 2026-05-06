@@ -16,6 +16,17 @@ applications:
 
 # Integration by Substitution
 
+## Explain Like I Am 7
+
+Pretend you have a rumpled, complicated rug to measure.  If you
+just sweep it into a tidy roll first, it suddenly becomes easy to
+measure.  **Integration by substitution** is exactly that trick
+for areas: rename a messy chunk of the inside of the integral with
+a fresh letter, $u$, and the whole problem reshapes into a tidy
+one you already know how to do.  It's the *chain rule* from
+slope-finding, run in reverse — the same wiggle-recipe used to
+*undo* nested wiggles in an area-finding job.
+
 ## Mental
 
 Integration by substitution is the **chain rule run backwards**.

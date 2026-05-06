@@ -16,6 +16,17 @@ applications:
 
 # Cardinality — Countable and Uncountable
 
+## Explain Like I Am 7
+
+When are two giant piles of stickers the *same* size?  Easy: pair
+them up — one from each pile — and if everyone in both piles finds a
+partner, the piles match.  This trick still works for piles that go
+on forever.  The whole numbers and the *even* numbers turn out to
+match, even though one looks "smaller."  But the in-between
+decimal numbers refuse to be paired with the whole numbers — that
+pile is somehow *bigger* than counting can ever reach.  There's more
+than one size of forever.
+
 ## Mental
 
 Two finite sets have the **same size** if you can match their

@@ -1,5 +1,14 @@
 # Separable Equations
 
+## Explain Like I Am 7
+
+Imagine sorting a tangled basket of socks and shoes before doing laundry.
+You can't wash everything together — so you pull all the socks into one
+pile and all the shoes into another, and then deal with each pile on its
+own.  A **separable** rule is exactly that: a tangled change-rule where
+all the $y$-bits can be pushed to one side and all the $x$-bits to the
+other.  Once they're sorted, each pile is easy to tidy up by itself.
+
 ## Intuition
 
 A separable equation is one where you can push all the $y$ stuff to one side

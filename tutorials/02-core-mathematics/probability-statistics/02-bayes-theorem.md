@@ -1,5 +1,16 @@
 # Conditional Probability and Bayes' Theorem
 
+## Explain Like I Am 7
+
+You hear a sneeze in the next room.  How likely is it that someone
+has a cold?  You start with what you knew before (*"colds are pretty
+common in winter"*) and update it with the new clue (*"that's a wet,
+sniffly sneeze"*).  Each clue **shifts your guess**, making some
+explanations more believable and others less.  **Bayes' theorem** is
+just the maths recipe for that shift — *prior belief* meets *new
+evidence* and produces a smarter, updated belief.  Detectives,
+doctors, and spam filters all do this.
+
 ## Intuition
 
 **Conditional probability** asks: "Given that I know something happened, how

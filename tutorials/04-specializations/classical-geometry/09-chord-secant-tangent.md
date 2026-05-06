@@ -1,5 +1,16 @@
 # Chords, Secants, Tangents — Power of a Point
 
+## Explain Like I Am 7
+
+Stand at any spot near a hula hoop and shoot a stick of spaghetti
+straight through it — the spaghetti pokes the hoop in two places.
+Measure how far each hole is from where you stood and *multiply* the
+two distances.  Now shoot a *different* spaghetti through the same
+spot but in a new direction — measure and multiply again.  Astonishing:
+**you get the same answer**!  That magic number is called the *power
+of the point*, and it tells you everything about how the hoop and your
+spot are related.
+
 ## Intuition
 
 Pick any point $P$ in the plane and any line through $P$ that intersects a

@@ -16,6 +16,17 @@ applications:
 
 # Cubical Type Theory and Univalent Foundations
 
+## Explain Like I Am 7
+
+Imagine a math universe where "looking the same" really *means* "is
+the same" — two perfectly identical Lego houses are not just twins,
+they are the *very same house*.  Univalent foundations is that
+universe.  But there was a snag: the rules said "two equivalent
+things may be swapped" without telling you *how* to actually swap
+them.  **Cubical type theory** plugs that hole using a stretchy
+"interval" — a tiny ruler from 0 to 1 — so the swap can actually be
+performed step by step inside the computer.
+
 ## Mental
 
 **HoTT** (Lesson 01) had a *non-computational* univalence axiom:

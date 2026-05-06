@@ -1,5 +1,15 @@
 # Expectation and Joint Distributions
 
+## Explain Like I Am 7
+
+If, on average, you eat 2 cookies after lunch and 3 after dinner,
+how many cookies do you eat in total each day?  Five — easy!  Just
+**add the averages**.  This "averages add up" rule is amazing
+because it works *even if* the cookies you eat are linked to each
+other.  But to find an *average product* (like total = price × number
+of biscuits), you need to know whether the price and the number wiggle
+together or not — joint distributions tell you exactly that.
+
 ## Intuition
 
 When you have two random variables, how do you compute the expected value of

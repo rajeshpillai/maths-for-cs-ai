@@ -1,5 +1,16 @@
 # Diagonalization — Decomposing a Transform into Stretch Along Axes
 
+## Explain Like I Am 7
+
+Suppose someone hands you a tangled hairball of a transformation —
+twist, stretch, shear, all jumbled together.  **Diagonalization** is
+the trick of saying: "Wait, if I just *tilt my head* the right way,
+this whole mess is really just *stretching* along two clean
+directions and nothing else."  Tilt, stretch, tilt back.  Once you
+see it that way, doing the transformation a *hundred times* is easy —
+each direction simply stretches to its hundredth power, no
+hairballs needed.
+
 ## Intuition
 
 Every diagonalizable matrix is secretly just **stretching along its eigenvector

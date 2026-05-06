@@ -16,6 +16,17 @@ applications:
 
 # Symplectic Topology Frontier
 
+## Explain Like I Am 7
+
+The math of swings and pendulums — where every spot has both a
+position and a wiggle-speed — turns out to have its *own*
+"area-meter" that never lies.  At the frontier, mathematicians ask
+naughty questions about it: can you squish one swingy region inside
+another?  Are there hidden swingy paths that always come back to
+where they started?  These puzzles are still being chipped away at
+today, and the answers shape what we know about chaos, planets, and
+quantum physics.
+
 ## Mental
 
 Strand 3 Master Lesson 06 introduced symplectic geometry. Frontier

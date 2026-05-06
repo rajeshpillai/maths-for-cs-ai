@@ -16,6 +16,18 @@ applications:
 
 # Higher Categorical Physics
 
+## Explain Like I Am 7
+
+Imagine the universe as a giant interactive board game.  Particles
+are pieces; their interactions are arrows between pieces; the
+*processes* changing those interactions over time are arrows-between-
+arrows.  Modern physicists discovered the right way to write down the
+rules of such a multi-layered game is with **higher categories**,
+which keep track of arrows of every level at once.  Topological
+quantum field theory, anyon braiding, even the cobordism hypothesis
+are all part of this giant game-rule book — written in the language of
+higher arrows instead of equations.
+
 ## Mental
 
 Modern theoretical physics increasingly uses **higher categorical

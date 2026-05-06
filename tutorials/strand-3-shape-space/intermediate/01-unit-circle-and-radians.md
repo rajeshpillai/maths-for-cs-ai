@@ -18,6 +18,16 @@ applications:
 
 # The Unit Circle and Radians
 
+## Explain Like I Am 7
+
+Imagine a teeny ant walking around a hula hoop of width one.  As the
+ant walks, you can write down two things: how far right it is from
+the centre, and how far up.  Those two numbers wiggle between -1
+and +1 in a smooth, repeating dance — that's **cosine** and **sine**
+all the way around the circle, even past the top and bottom.  And
+instead of measuring the ant's progress in degrees, we measure how
+much *string* it has walked along the hoop; that's a **radian**.
+
 ## Mental
 
 The right-triangle trig from Lesson 00 only handles acute angles ($0°

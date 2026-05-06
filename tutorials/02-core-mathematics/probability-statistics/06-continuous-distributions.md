@@ -1,5 +1,16 @@
 # Continuous Distributions — Uniform, Gaussian, Exponential, Gamma, Chi-Square, Student's t
 
+## Explain Like I Am 7
+
+Sometimes a random measurement isn't a count — it's a *smooth* number
+like a height or a waiting time.  Imagine pouring sand onto a long
+ruler so the height of the sand-pile shows how likely each value is.
+A **flat** sand-pile means every value is equally likely.  A **bell-
+shaped** pile (the famous Gaussian) means most values cluster near
+the middle.  A pile that **drops off fast** describes waiting times —
+short waits are common, long ones are rare.  Each shape is a story
+about how a measurement spreads out.
+
 ## Intuition
 
 Continuous random variables can take any real value in some interval.  "Any

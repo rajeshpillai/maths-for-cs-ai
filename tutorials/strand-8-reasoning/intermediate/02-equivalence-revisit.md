@@ -16,6 +16,17 @@ applications:
 
 # Equivalence Relations Revisited
 
+## Explain Like I Am 7
+
+Sort all the socks in the laundry basket into piles where each pile
+holds socks "the same colour."  Three rules quietly hold: every sock
+matches itself; if A matches B, then B matches A; and if A matches B
+*and* B matches C, then A matches C.  Anything that obeys these three
+rules — colour, shape, having-the-same-day-of-the-week — chops your
+big basket into perfectly tidy piles with no overlaps.  That tidy
+chopping job is what mathematicians do all the time when they decide
+"these two things should count as the same."
+
 ## Mental
 
 An **equivalence relation** on a set $S$ is a binary relation $\sim$

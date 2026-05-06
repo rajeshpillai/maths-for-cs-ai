@@ -1,5 +1,16 @@
 # Sample Spaces, Events, and Probability Axioms
 
+## Explain Like I Am 7
+
+Drop a marble into a bag with red, blue, and green marbles, then
+fish one out without peeking.  The list of *possible* colours you
+could fish out is the **sample space**.  Asking "what's the chance
+the marble is blue?" is asking for the **probability** of an event
+— a number between $0$ (will *never* happen) and $1$ (will
+*definitely* happen).  All the dazzling maths of chance — coin
+flips, weather forecasts, AI predictions — is built from three
+simple, sensible rules about these chances.
+
 ## Intuition
 
 Probability quantifies uncertainty.  When you flip a coin, draw a card, or

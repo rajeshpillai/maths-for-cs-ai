@@ -1,5 +1,15 @@
 # Introduction to Differential Equations & Classification
 
+## Explain Like I Am 7
+
+Imagine you're watching a marble roll down a wiggly slide.  You don't have
+a map of where the marble *is* at every second — but you do know a rule:
+"the steeper the slide, the faster the marble speeds up."  A
+**differential equation** is exactly that kind of rule — it doesn't tell
+you the whole story, only how things change from one tick to the next.
+If you follow the rule patiently, step by tiny step, the whole journey
+of the marble draws itself.
+
 ## Intuition
 
 A differential equation is a recipe that tells you how something *changes*

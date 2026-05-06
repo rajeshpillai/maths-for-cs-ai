@@ -1,5 +1,16 @@
 # ANOVA (Analysis of Variance)
 
+## Explain Like I Am 7
+
+Three classrooms each take a maths test.  Each classroom's scores
+wobble around a little, because kids are kids.  But are the three
+*classrooms* really at different skill levels, or are they all the
+same and the wobble is just personal differences?  We compare two
+spreads: how much the *class averages* differ from each other,
+versus how much *individual kids* in any one class differ.  If
+between-classes is much bigger than within-class, the classes really
+are at different levels.
+
 ## Intuition
 
 You test three different rendering engines on frame rate. Engine A averages

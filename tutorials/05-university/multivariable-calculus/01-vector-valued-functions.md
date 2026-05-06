@@ -1,5 +1,15 @@
 # Vector-Valued Functions
 
+## Explain Like I Am 7
+
+Imagine following a toy train as it chugs around a wiggly track.  At
+every tick of the clock, you can write down where the engine *is* —
+which row, which column, and how high off the floor.  Three little
+numbers, every tick, packed into one tag.  A **vector-valued function**
+is just that running diary of where the engine sits, and if you stand
+back and connect the tags in order, the path you draw is the whole
+track itself.
+
 ## Intuition
 A vector-valued function maps a single parameter (like time) to a point in space.
 Think of it as the GPS trajectory of a game character: at every moment $t$, the

@@ -16,6 +16,17 @@ applications:
 
 # Knot Invariants Frontier
 
+## Explain Like I Am 7
+
+Take a piece of string, tie it into a tangle, then glue the two
+ends together so it can never come undone.  Two knots can look very
+different, yet maybe one is just a wiggly version of the other.  How
+do you tell?  Mathematicians attach **invariants** — numbers or
+algebra-objects that stay the same no matter how you wiggle the
+string.  Modern invariants like Khovanov homology are so powerful
+they can even reveal information that older tools miss, and they
+hint at deep connections with quantum physics.
+
 ## Mental
 
 A **knot**: embedding $S^1 \hookrightarrow S^3$ up to isotopy.

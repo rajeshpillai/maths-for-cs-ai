@@ -18,6 +18,16 @@ applications:
 
 # Rates of Change
 
+## Explain Like I Am 7
+
+Imagine watching a marble run.  Sometimes the marble zooms; sometimes
+it crawls.  A **rate of change** answers the simple question: "how
+fast is the marble moving *right now*?"  If you only check where it
+was a minute ago and where it is now, you only know the *average*
+speed — slow zooms and fast crawls all blur together.  Calculus is
+the trick of zooming in to a single instant, on a slice of time so
+tiny it almost stops, and asking the same speed-question there.
+
 ## Mental
 
 Calculus is the mathematics of **change**. Before formal definitions,

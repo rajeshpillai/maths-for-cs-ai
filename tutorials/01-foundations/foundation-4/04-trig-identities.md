@@ -1,5 +1,16 @@
 # Trigonometric Identities — Double Angle, Addition, R-Formula
 
+## Explain Like I Am 7
+
+Sometimes the same toy comes in two boxes that look totally
+different.  Open them — *yep, exactly the same toy.*  Trig
+**identities** are pairs of expressions that look like complete
+strangers on paper but are secretly the same wave underneath.  When a
+problem hands you the bulky box, you can swap it for the slim one and
+keep going.  These swaps are how grown-ups untangle wobbly waves —
+sound mixing, animation curves, even the way phones lock onto a
+signal.
+
 ## Intuition
 
 Trig identities let you rewrite expressions in simpler forms — essential for

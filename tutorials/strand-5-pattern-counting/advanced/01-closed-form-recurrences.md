@@ -16,6 +16,17 @@ applications:
 
 # Solving Linear Recurrences
 
+## Explain Like I Am 7
+
+Suppose Monday's cookies depend on Sunday's and Saturday's, and
+*every* day follows the same fair recipe.  Instead of grinding the
+recipe forward 100 times, you guess the secret growth rate is some
+number $r$ raised to the day count.  The recipe collapses into a
+small puzzle whose answers $r_1, r_2$ are special seeds; mixing
+those seeds in the right amounts to match Saturday and Sunday lets
+you skip ahead to any day at lightning speed.  Once you can do this,
+even huge recurrences are no scarier than ordinary algebra.
+
 ## Mental
 
 A **linear homogeneous recurrence** of order $k$:

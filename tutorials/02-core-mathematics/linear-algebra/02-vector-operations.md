@@ -1,5 +1,16 @@
 # Vector Operations — Dot Product, Cross Product
 
+## Explain Like I Am 7
+
+Two friends are pushing the same heavy box.  If they push in the same
+direction, all their effort piles up.  If they push at right angles,
+their effort fights itself and the box barely moves.  The **dot
+product** is a single number that tells you how much two arrows
+*team up* — big when they line up, zero when they're perpendicular.
+The **cross product** does something different in 3D: it points
+straight up out of the floor where the two arrows lie, like the spike
+of a tent pole shooting up between them.
+
 ## Intuition
 
 The **dot product** tells you how much two vectors point in the same direction.

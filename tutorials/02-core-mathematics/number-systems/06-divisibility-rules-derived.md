@@ -1,5 +1,15 @@
 # Divisibility Rules — Derived, Not Memorised
 
+## Explain Like I Am 7
+
+You probably know the trick: a number is divisible by **3** if its
+digits add up to a multiple of 3.  But why on earth does that work?
+The secret is that the digit columns ("ones," "tens," "hundreds") are
+all sitting on a *clock* that ticks every 3 — and they all happen to
+show the same time, so adding the digits is the same as adding their
+clock-times.  Once you spot this trick, you can invent a brand-new
+divisibility rule for **any** number, even spooky ones like 7 and 11.
+
 ## Intuition
 
 Everyone learns "a number is divisible by 9 iff its digit sum is divisible by

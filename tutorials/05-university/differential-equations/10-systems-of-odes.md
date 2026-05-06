@@ -1,5 +1,15 @@
 # Systems of ODEs
 
+## Explain Like I Am 7
+
+Picture a forest with rabbits and foxes.  More rabbits means foxes get
+fat and have lots of fox babies.  More foxes means fewer rabbits.
+Fewer rabbits means foxes go hungry.  Each animal's number changes
+because of the *other* animal's number — they're holding hands.  A
+**system** of change-rules is just a bunch of these hand-holding
+recipes happening at the same time, and you have to track them
+together, never one at a time.
+
 ## Intuition
 
 Real-world systems rarely involve a single quantity. A predator-prey model has

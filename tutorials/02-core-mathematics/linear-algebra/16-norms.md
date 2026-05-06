@@ -1,5 +1,16 @@
 # Norms — L1, L2, Lp, Frobenius
 
+## Explain Like I Am 7
+
+How far is it from your house to school?  *As the crow flies* — a
+straight-line ruler over the rooftops — is one answer.  But a taxi
+can't fly; it has to drive along streets, going east-then-north, so
+its distance is the *blocks walked* added up.  Both are honest
+measures of "how far" — they just count differently.  A **norm** is
+exactly a recipe for size or distance, and different norms suit
+different jobs: crow-flies for a drone, blocks-walked for a delivery
+van.
+
 ## Intuition
 
 A **norm** is a way to measure the "size" of a vector or matrix.  Different

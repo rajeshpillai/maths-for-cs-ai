@@ -18,6 +18,18 @@ applications:
 
 # Solving Linear Recurrences
 
+## Explain Like I Am 7
+
+A recurrence is a recipe like "today's cookies = yesterday's cookies
+plus the day-before's cookies."  To find the cookie count on day
+$100$ without baking through every single day in between, you guess
+that the answer grows like some number $r$ raised to the day,
+$r^n$.  Plug that guess in and the recipe collapses into a tiny
+algebra puzzle whose answers are special numbers (for Fibonacci, the
+golden ratio).  Then you mix those special numbers in just the right
+amounts so day-zero and day-one match — and you can leap straight to
+day $100$.
+
 ## Mental
 
 Foundation Lesson 08 introduced recurrences via Fibonacci. Solving a

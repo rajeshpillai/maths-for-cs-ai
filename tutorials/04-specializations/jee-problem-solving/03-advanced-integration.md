@@ -1,5 +1,16 @@
 # Advanced Integration Techniques
 
+## Explain Like I Am 7
+
+Think of finding the area under a wiggly line as **counting all the
+tiny rice grains** that fit beneath it.  For easy lines you just use a
+ruler.  For tricky wiggly lines you need clever tricks: sometimes you
+**flip the picture left-to-right** and the new view is way easier
+(that's King's rule).  Sometimes the same hard area shows up *inside
+itself* in smaller copies, and you can use that to count step by
+step.  These tricks are like secret kung-fu moves — once you know
+them, "impossible" rice piles fall over instantly.
+
 ## Intuition
 
 Many integrals that appear in physics, probability, and machine learning do not yield to

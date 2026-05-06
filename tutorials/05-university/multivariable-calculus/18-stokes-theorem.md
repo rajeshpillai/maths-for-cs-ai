@@ -1,5 +1,16 @@
 # Stokes' Theorem
 
+## Explain Like I Am 7
+
+Bend a wire into a loop and dip it in soapy water — a thin soap film
+stretches across.  Suppose a strange wind is blowing all around your
+loop.  How much does the wind want to push you around the rim?
+Stokes' lovely surprise: that loop-push equals counting up every
+tiny swirl the wind makes *across the soap film*.  And here's the
+magic — it doesn't matter what shape the soap film bulges into, flat
+or domed or wibbly, you'll get the same total.  The rim alone
+decides the answer.
+
 ## Intuition
 Stokes' theorem is the 3D generalisation of Green's theorem. It says: "the
 circulation of a vector field around a closed curve equals the flux of the curl

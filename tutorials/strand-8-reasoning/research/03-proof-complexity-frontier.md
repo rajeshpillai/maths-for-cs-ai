@@ -16,6 +16,17 @@ applications:
 
 # Proof Complexity Frontier
 
+## Explain Like I Am 7
+
+Some always-true sentences are obvious — easy to prove in two lines.
+Others *might* be always-true but the *shortest* proof anyone has
+found takes thousands of pages.  **Proof complexity** asks: in a
+given proof system, how short can the shortest proof get?  If every
+true sentence had a tiny proof, lots of hard puzzles would suddenly
+get easier.  Showing that some true sentences *demand* huge proofs is
+how mathematicians sneak up on the famous "are check-able puzzles
+also solve-able quickly?" mystery.
+
 ## Mental
 
 **Proof complexity**: how *short* can proofs of tautologies be in

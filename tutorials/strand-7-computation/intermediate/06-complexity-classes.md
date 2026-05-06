@@ -16,6 +16,17 @@ applications:
 
 # Complexity Classes — P, NP, and Beyond
 
+## Explain Like I Am 7
+
+Sort puzzles into two big toy bins.  In the **easy bin** go puzzles
+you can *solve* quickly: spotting the smallest number in a list,
+checking if a word reads the same backwards.  In the **tricky bin** go
+puzzles where finding the answer is brutal but *checking* a friend's
+answer is fast — like a sudoku you can't crack but can verify with one
+glance.  Whether the tricky bin is *secretly* the same as the easy
+bin is one of the biggest unsolved riddles in maths — that's the
+famous P-versus-NP question.
+
 ## Mental
 
 A **decision problem** asks a yes/no question (e.g., "is this number

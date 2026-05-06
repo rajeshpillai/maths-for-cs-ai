@@ -1,5 +1,15 @@
 # Set Theory Proofs
 
+## Explain Like I Am 7
+
+Two hula hoops on the floor with toys scattered inside them.  How do
+you prove the red hoop's toys are all inside the blue hoop too?  You
+pick up one toy at random from the red hoop and check it lives in the
+blue hoop, *without ever picking which toy it is*.  If your argument
+works for "any toy I might grab," it works for all of them.  And to
+show two hoops actually hold the *same* toys, you do this trick once
+each way: red-into-blue and blue-into-red.
+
 ## Intuition
 
 In Tier 1 we learned what sets are and how to combine them. Now we learn how

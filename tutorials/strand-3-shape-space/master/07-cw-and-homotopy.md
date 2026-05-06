@@ -16,6 +16,16 @@ applications:
 
 # CW Complexes and Homotopy
 
+## Explain Like I Am 7
+
+Think of building a Lego model: start with a few studs (dots), snap
+in some long bricks (lines), then glue on flat plates (filled-in
+squares), then maybe stack on chunky 3D blocks.  A **CW complex** is
+exactly that — a shape built up dot-by-line-by-tile-by-block, in
+careful steps.  And **homotopy** is the rule for deciding when two
+finished Lego shapes can be slowly squished into each other without
+breaking, even if they look totally different from the outside.
+
 ## Mental
 
 A **CW complex** is a topological space built by inductively gluing

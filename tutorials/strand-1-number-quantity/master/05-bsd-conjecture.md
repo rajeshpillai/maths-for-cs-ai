@@ -16,6 +16,18 @@ applications:
 
 # The Birch and Swinnerton-Dyer Conjecture
 
+## Explain Like I Am 7
+
+Take that looping racetrack from the last lesson and ask: "how many
+*independent* checkpoints with fraction coordinates can you find?"
+That hidden number — its **rank** — is incredibly hard to read off
+the curve directly.  But Birch and Swinnerton-Dyer noticed something
+spooky: another song attached to the curve, the L-function, seems to
+go *exactly that quiet* at one special note.  If the music is silent
+twice, the rank is two; silent thrice, rank three.  Nobody has yet
+proved this is *always* true — there's a million-dollar prize for
+whoever does.
+
 ## Mental
 
 For an elliptic curve $E / \mathbb{Q}$ with rank $r$:

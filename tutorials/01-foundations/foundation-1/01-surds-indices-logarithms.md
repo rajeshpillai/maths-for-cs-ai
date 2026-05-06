@@ -1,5 +1,14 @@
 # Index Laws & Surds
 
+## Explain Like I Am 7
+
+If you stack 3 blocks the same way, and your friend stacks 5 blocks the same
+way, snapping the two towers together gives a tower of 8 blocks.  That is
+what powers do — they count how many times you stack a number on top of
+itself.  Surds are sneaky "exact-but-messy" numbers, like the side of a
+square whose area is 2: we leave them written as $\sqrt{2}$ instead of a
+never-ending decimal that never quite fits.
+
 ## Intuition
 
 **Indices** (powers) are shorthand for repeated multiplication, just like

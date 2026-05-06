@@ -16,6 +16,17 @@ applications:
 
 # Streaming and Sublinear Algorithms
 
+## Explain Like I Am 7
+
+Imagine standing by the school gate counting kids as they file past in
+a big rush — they only walk by once, and you have a single sticky note
+to write on.  You can't see them again, you can't store all their
+names, yet you still want to answer "how many wore red?" or "what's
+the most common haircut?"  That's the **streaming** game.  Some clever
+counting tricks let you give an *almost-right* answer with one peek
+each and a tiny notepad — they're how the internet measures everyone
+without remembering everyone.
+
 ## Mental
 
 **Streaming model**: data arrives one item at a time; algorithm has
