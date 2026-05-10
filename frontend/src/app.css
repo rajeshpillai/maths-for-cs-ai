@@ -873,12 +873,25 @@
   border-radius: 3px;
 }
 
+/* Tables are wrapped in `.table-wrap` (see lib/markdown.ts) so wide tables
+   scroll *inside* the article rather than forcing the page to scroll. */
+.lesson-content .table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
 .lesson-content table {
   border-collapse: collapse;
-  margin: 1rem 0;
+  margin: 0;
   width: 100%;
 }
 
+/* When a table is *naturally* wider than the viewport, the wrapper scrolls;
+   we still want columns to keep their content together rather than collapse,
+   so set a sensible min-width per cell only on small screens (see media
+   queries below). */
 .lesson-content th, .lesson-content td {
   border: 1px solid var(--border);
   padding: 0.5rem 0.75rem;
@@ -888,6 +901,12 @@
 .lesson-content th {
   background: var(--code-bg);
   font-weight: 600;
+}
+
+/* Images embedded in lessons should never overflow the article width. */
+.lesson-content img {
+  max-width: 100%;
+  height: auto;
 }
 
 .lesson-content a {
@@ -908,6 +927,19 @@
 .katex-display {
   margin: 1.5rem 0;
   overflow-x: auto;
+  overflow-y: hidden;
+  /* Cap to article width so display equations never push the page wider
+     than the viewport; the wrapper scrolls horizontally instead. */
+  max-width: 100%;
+  /* Add a small bottom padding so the horizontal scrollbar (when present)
+     doesn't sit on top of the equation. */
+  padding-bottom: 0.25rem;
+}
+
+/* Inline math should never overflow the line on a phone; allow KaTeX
+   to break gracefully if the inline expression is wider than the column. */
+.lesson-content .katex {
+  max-width: 100%;
 }
 
 .katex-error {
@@ -1280,6 +1312,92 @@
   .theme-toggle {
     top: 0.6rem;
     right: 0.75rem;
+  }
+
+  /* Search results dropdown: on phones, anchor to viewport width
+     instead of staying at the desktop 420px. */
+  .search-results {
+    width: 100%;
+    max-width: calc(100vw - 1.5rem);
+    right: auto;
+    left: 0;
+  }
+
+  /* Lesson body: tighter table padding so cells fit a phone viewport,
+     and force long inline strings (URLs, code) to break instead of
+     overflowing the column. */
+  .lesson-content {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .lesson-content th,
+  .lesson-content td {
+    padding: 0.4rem 0.55rem;
+    font-size: 0.92rem;
+  }
+
+  /* KaTeX display equations: shrink slightly on mobile so common
+     equations fit without scrolling, and let the wrapper handle the
+     ones that genuinely overflow. */
+  .katex-display {
+    font-size: 0.95em;
+  }
+
+  /* Code blocks: cap font size so long Python lines fit more
+     characters before the horizontal scrollbar kicks in. */
+  .lesson-content pre {
+    font-size: 0.82rem;
+    padding: 0.75rem;
+  }
+
+  .code-runner .code-block,
+  .code-output {
+    font-size: 0.82rem;
+    padding: 0.6rem 0.75rem;
+  }
+}
+
+/* Very small phones (<480px): tighten further so 360px-wide devices
+   still get readable lessons without losing meaningful content space. */
+@media (max-width: 480px) {
+  .main-content {
+    padding: 1.25rem 0.75rem;
+    padding-top: 3.25rem;
+  }
+
+  .lesson-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .lesson-content h2 {
+    font-size: 1.25rem;
+  }
+
+  .lesson-content h3 {
+    font-size: 1.05rem;
+  }
+
+  .lesson-content p,
+  .lesson-content li {
+    font-size: 0.97rem;
+  }
+
+  .lesson-content th,
+  .lesson-content td {
+    padding: 0.35rem 0.45rem;
+    font-size: 0.88rem;
+  }
+
+  .katex-display {
+    font-size: 0.9em;
+    margin: 1rem 0;
+  }
+
+  .lesson-content pre,
+  .code-runner .code-block,
+  .code-output {
+    font-size: 0.78rem;
   }
 }
 

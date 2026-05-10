@@ -247,10 +247,20 @@ function linkPrerequisites(md: string): string {
   return result;
 }
 
+// Wrap each <table> in a scrollable container so wide tables (math-heavy
+// cells, many columns) scroll *inside* the article instead of forcing the
+// whole page to scroll horizontally on phones/tablets. The wrapper class
+// `.table-wrap` is styled in app.css with `overflow-x: auto`.
+function wrapTables(html: string): string {
+  return html
+    .replace(/<table>/g, '<div class="table-wrap"><table>')
+    .replace(/<\/table>/g, "</table></div>");
+}
+
 export function renderMarkdown(raw: string): string {
   const withLinks = linkPrerequisites(raw);
   const withWidgets = extractWidgets(withLinks);
   const { md, rendered } = extractLatex(withWidgets);
   const html = marked.parse(md) as string;
-  return restoreLatex(html, rendered);
+  return wrapTables(restoreLatex(html, rendered));
 }
