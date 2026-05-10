@@ -87,6 +87,59 @@ $$\begin{pmatrix} 1 & 2 & 3 \\ 4 & 5 & 6 \end{pmatrix}^T = \begin{pmatrix} 1 & 4
 
 A $2 \times 3$ matrix becomes $3 \times 2$.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — construct a matrix from a rule.** Construct the $2 \times 3$ matrix $\mathbf{A} = [a_{ij}]$ where $a_{ij} = i + 2j$.
+
+Apply the rule for each $(i, j)$ pair:
+
+$$\begin{aligned}
+a_{11} = 1 + 2(1) = 3, \quad a_{12} = 1 + 2(2) = 5, \quad a_{13} = 1 + 2(3) = 7 \\
+a_{21} = 2 + 2(1) = 4, \quad a_{22} = 2 + 2(2) = 6, \quad a_{23} = 2 + 2(3) = 8
+\end{aligned}$$
+
+So $\mathbf{A} = \begin{pmatrix} 3 & 5 & 7 \\ 4 & 6 & 8 \end{pmatrix}$.
+
+**Example 2 — equating two matrices.** Find $x, y, z$ from
+
+$$\begin{pmatrix} x + y & z \\ x - y & 3 \end{pmatrix} = \begin{pmatrix} 6 & 4 \\ 2 & 3 \end{pmatrix}.$$
+
+Two matrices are equal iff *all corresponding entries match*. Equate component-wise:
+
+$$x + y = 6, \quad z = 4, \quad x - y = 2, \quad 3 = 3 \;\checkmark$$
+
+Add the first and third: $2x = 8 \Rightarrow x = 4$. Subtract: $2y = 4 \Rightarrow y = 2$. So $(x, y, z) = (4, 2, 4)$.
+
+**Example 3 — symmetric + skew decomposition.** Decompose $\mathbf{A} = \begin{pmatrix} 1 & 2 \\ 4 & 5 \end{pmatrix}$ into symmetric and skew-symmetric parts.
+
+Compute $\mathbf{A}^T = \begin{pmatrix} 1 & 4 \\ 2 & 5 \end{pmatrix}$.
+
+Symmetric part:
+
+$$\mathbf{S} = \tfrac{1}{2}(\mathbf{A} + \mathbf{A}^T) = \tfrac{1}{2}\begin{pmatrix} 2 & 6 \\ 6 & 10 \end{pmatrix} = \begin{pmatrix} 1 & 3 \\ 3 & 5 \end{pmatrix}.$$
+
+Skew-symmetric part:
+
+$$\mathbf{K} = \tfrac{1}{2}(\mathbf{A} - \mathbf{A}^T) = \tfrac{1}{2}\begin{pmatrix} 0 & -2 \\ 2 & 0 \end{pmatrix} = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}.$$
+
+Verify: $\mathbf{S} + \mathbf{K} = \begin{pmatrix} 1 & 2 \\ 4 & 5 \end{pmatrix} = \mathbf{A}$. ✓
+
+Note $\mathbf{S}^T = \mathbf{S}$ (symmetric) and $\mathbf{K}^T = -\mathbf{K}$ (skew-symmetric, with diagonal entries forced to 0).
+
+**Example 4 — solve a matrix equation.** Find matrices $\mathbf{X}$ and $\mathbf{Y}$ from
+
+$$2\mathbf{X} + 3\mathbf{Y} = \begin{pmatrix} 2 & 3 \\ 4 & 0 \end{pmatrix}, \quad 3\mathbf{X} + 2\mathbf{Y} = \begin{pmatrix} -2 & 2 \\ 1 & -5 \end{pmatrix}.$$
+
+Treat the matrices like scalars in a $2 \times 2$ linear system. Multiply the first by 3 and the second by 2:
+
+$$6\mathbf{X} + 9\mathbf{Y} = \begin{pmatrix} 6 & 9 \\ 12 & 0 \end{pmatrix}, \quad 6\mathbf{X} + 4\mathbf{Y} = \begin{pmatrix} -4 & 4 \\ 2 & -10 \end{pmatrix}.$$
+
+Subtract: $5\mathbf{Y} = \begin{pmatrix} 10 & 5 \\ 10 & 10 \end{pmatrix}$, so $\mathbf{Y} = \begin{pmatrix} 2 & 1 \\ 2 & 2 \end{pmatrix}$.
+
+Back-substitute into the first original equation:
+
+$$2\mathbf{X} = \begin{pmatrix} 2 & 3 \\ 4 & 0 \end{pmatrix} - 3\begin{pmatrix} 2 & 1 \\ 2 & 2 \end{pmatrix} = \begin{pmatrix} -4 & 0 \\ -2 & -6 \end{pmatrix} \;\Longrightarrow\; \mathbf{X} = \begin{pmatrix} -2 & 0 \\ -1 & -3 \end{pmatrix}.$$
+
 ### Visualisation
 
 ```python

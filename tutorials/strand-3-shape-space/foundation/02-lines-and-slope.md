@@ -137,6 +137,37 @@ $$
 
 (We won't derive this at Foundation, but it's worth seeing.)
 
+### Worked examples (NCERT-style)
+
+**Example 1 — slope from inclination $120°$.**
+$m = \tan 120° = \tan(180° - 60°) = -\tan 60° = -\sqrt{3}$.
+
+(A line going "up-left" through the origin at this inclination
+has a negative slope of $-\sqrt{3}$.)
+
+**Example 2 — equation through two points.** Through $(-1, 1)$
+and $(2, -4)$:
+
+Slope: $m = \tfrac{-4 - 1}{2 - (-1)} = -\tfrac{5}{3}$.
+
+Point-slope: $y - 1 = -\tfrac{5}{3}(x + 1)$, which simplifies to
+$5x + 3y + 2 = 0$.
+
+**Example 3 — right triangle by slopes.** Show $A(4,4), B(3,5),
+C(-1,-1)$ form a right triangle.
+
+Slopes: $AB = -1$, $BC = 3/2$, $AC = 1$. Product
+$AB \cdot AC = (-1)(1) = -1$, so $AB \perp AC$. Right angle is
+at $A$.
+
+**Example 4 — distance from point to line.** Find the distance
+from $(2, 3)$ to the line $3x - 4y + 5 = 0$.
+
+$$d = \frac{|3 \cdot 2 - 4 \cdot 3 + 5|}{\sqrt{3^2 + (-4)^2}} = \frac{|6 - 12 + 5|}{\sqrt{25}} = \frac{|-1|}{5} = \tfrac{1}{5}.$$
+
+The point lies $1/5$ unit from the line. (Always take the
+absolute value in the numerator — distance is non-negative.)
+
 ## Computational
 
 ```python

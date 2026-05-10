@@ -100,6 +100,46 @@ $\cos\theta = \sin(\theta + \pi/2)$.
 $\cos\theta = 0$ (vertical asymptotes at $\pm\pi/2, \pm 3\pi/2, \ldots$).
 Period = $\pi$.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — degree $\leftrightarrow$ radian conversion.** Convert $40° 20'$ into radians.
+
+Step 1 — convert minutes to a fraction of a degree. $1' = 1/60$ degree, so $20' = 20/60° = 1/3°$. Thus $40° 20' = 40\tfrac{1}{3}° = \tfrac{121}{3}°$.
+
+Step 2 — multiply by $\pi/180$:
+
+$$\theta_{\text{rad}} = \frac{121}{3} \cdot \frac{\pi}{180} = \frac{121\pi}{540}\text{ radians}.$$
+
+**Example 2 — arc length.** A wheel of radius $r = 25$ cm rotates so that a point on its rim traces an arc of length $\ell = 30$ cm. Through what angle (in radians and degrees) has the wheel turned?
+
+Use $\theta = \ell / r$ (radians):
+
+$$\theta = \frac{30}{25} = 1.2\text{ rad}.$$
+
+In degrees: $\theta_{\text{deg}} = 1.2 \cdot \tfrac{180}{\pi} \approx 68.75°$.
+
+**Example 3 — minute-hand angle.** Through what angle (in radians) does the minute hand of a clock sweep in 40 minutes?
+
+A full revolution is $60$ minutes $= 2\pi$ radians. So $40$ minutes is $\tfrac{40}{60}$ of a revolution:
+
+$$\theta = \frac{40}{60} \cdot 2\pi = \frac{4\pi}{3}\text{ rad}.$$
+
+In degrees: $\tfrac{4\pi}{3} \cdot \tfrac{180}{\pi} = 240°$. (Check: $40$ min $= \tfrac{2}{3}$ of an hour $\Rightarrow \tfrac{2}{3} \cdot 360° = 240°$. ✓)
+
+**Example 4 — sign by quadrant (ASTC).** $\sin\theta = -3/5$ and $\theta$ lies in the third quadrant. Find $\cos\theta$ and $\tan\theta$.
+
+Step 1 — apply the Pythagorean identity:
+
+$$\cos^2\theta = 1 - \sin^2\theta = 1 - \tfrac{9}{25} = \tfrac{16}{25} \;\Longrightarrow\; \cos\theta = \pm \tfrac{4}{5}.$$
+
+Step 2 — pick the sign by quadrant. In QIII, both $\sin$ and $\cos$ are negative (only $\tan$ is positive — the **A**ll-**S**in-**T**an-**C**os rule). So $\cos\theta = -4/5$.
+
+Step 3 — compute $\tan\theta$:
+
+$$\tan\theta = \frac{\sin\theta}{\cos\theta} = \frac{-3/5}{-4/5} = \frac{3}{4}.$$
+
+The negatives cancel, so $\tan\theta > 0$, consistent with QIII.
+
 ### Visualisation
 
 ```python

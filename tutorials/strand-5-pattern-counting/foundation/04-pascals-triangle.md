@@ -114,6 +114,38 @@ A few quick checks:
 }
 :::
 
+### Worked examples (NCERT-style)
+
+**Example 1 — verify Pascal's identity numerically.** Show
+$\binom{6}{3} = \binom{5}{2} + \binom{5}{3}$.
+
+LHS: $\binom{6}{3} = 20$. RHS: $\binom{5}{2} + \binom{5}{3} =
+10 + 10 = 20$. ✓
+
+This is exactly the rule "each entry equals the sum of the two
+above it" used to build the triangle row by row.
+
+**Example 2 — row sum.** Compute $\sum_{r=0}^{5} \binom{5}{r}$.
+
+By the row-sum identity, $\sum_{r=0}^{n}\binom{n}{r} = 2^n$, so
+the row-$5$ sum is $2^5 = 32$. Check by listing:
+$1 + 5 + 10 + 10 + 5 + 1 = 32$. ✓
+
+**Derivation of the identity.** Set $x = 1$ in $(1 + x)^n =
+\sum \binom{n}{r}x^r$:
+
+$$(1 + 1)^n = \sum_{r=0}^{n}\binom{n}{r} \cdot 1^r = \sum_{r=0}^{n}\binom{n}{r}, \quad \text{so } 2^n = \sum_{r=0}^{n}\binom{n}{r}.$$
+
+**Example 3 — alternating row sum.** Show $\sum_{r=0}^{n} (-1)^r
+\binom{n}{r} = 0$ for $n \ge 1$.
+
+Set $x = -1$ in $(1 + x)^n$:
+
+$$(1 - 1)^n = 0 = \sum_{r=0}^{n} \binom{n}{r}(-1)^r.$$
+
+Hence the alternating sum is $0$. (For $n = 0$ the sum is $1$, not
+$0$ — the identity is for $n \ge 1$.)
+
 ## Symbolic
 
 Pascal's identity:

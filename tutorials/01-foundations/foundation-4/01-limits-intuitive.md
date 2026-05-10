@@ -94,6 +94,46 @@ $$g(x) = \begin{cases} 1 & x < 0 \\ -1 & x \ge 0 \end{cases}$$
 $\lim_{x \to 0^-} g(x) = 1$, $\lim_{x \to 0^+} g(x) = -1$.  Left $\ne$ right,
 so $\lim_{x \to 0} g(x)$ **does not exist**.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — factor and cancel.** Evaluate $\displaystyle\lim_{x \to 1} \frac{x^3 - 1}{x - 1}$.
+
+Direct substitution gives $0/0$ — indeterminate. Factor the numerator using $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$:
+
+$$\frac{x^3 - 1}{x - 1} = \frac{(x - 1)(x^2 + x + 1)}{x - 1} = x^2 + x + 1, \quad x \ne 1.$$
+
+The cancelled factor is exactly the offending term. Now substitute $x = 1$:
+
+$$\lim_{x \to 1} \frac{x^3 - 1}{x - 1} = 1 + 1 + 1 = 3.$$
+
+**Example 2 — standard limit $\sin x / x$.** Evaluate $\displaystyle\lim_{x \to 0} \frac{\sin 5x}{x}$.
+
+This is $0/0$ at face value. Multiply and divide by $5$:
+
+$$\frac{\sin 5x}{x} = 5 \cdot \frac{\sin 5x}{5x}.$$
+
+As $x \to 0$, $5x \to 0$, so by the standard limit $\sin u/u \to 1$:
+
+$$\lim_{x \to 0} \frac{\sin 5x}{x} = 5 \cdot 1 = 5.$$
+
+**Example 3 — limit at infinity (rational function).** Evaluate $\displaystyle\lim_{x \to \infty} \frac{2x^2 + 3}{5x^2 + x - 1}$.
+
+Divide numerator and denominator by $x^2$:
+
+$$\frac{2 + 3/x^2}{5 + 1/x - 1/x^2}.$$
+
+As $x \to \infty$, the $1/x$ and $1/x^2$ terms vanish:
+
+$$\lim_{x \to \infty} \frac{2x^2 + 3}{5x^2 + x - 1} = \frac{2 + 0}{5 + 0 - 0} = \tfrac{2}{5}.$$
+
+**Example 4 — secant slope.** Compute $\displaystyle\lim_{h \to 0} \frac{(3 + h)^2 - 9}{h}$.
+
+Expand: $(3 + h)^2 = 9 + 6h + h^2$, so the numerator is $6h + h^2$. Cancel one $h$:
+
+$$\frac{6h + h^2}{h} = 6 + h \xrightarrow{h \to 0} 6.$$
+
+This is the slope of the tangent to $y = x^2$ at $x = 3$ — the derivative is $2x = 6$ at $x = 3$. The limit *defines* the derivative.
+
 ### Visualisation — secant lines approaching a tangent
 
 ```python

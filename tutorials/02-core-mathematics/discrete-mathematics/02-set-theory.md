@@ -163,6 +163,52 @@ For three sets:
 
 $$|A \cup B \cup C| = |A| + |B| + |C| - |A \cap B| - |A \cap C| - |B \cap C| + |A \cap B \cap C|$$
 
+### Worked examples (NCERT-style)
+
+**Example 1 — element vs subset.** Let $A = \{1,\ 2,\ \{3,4\},\ 5\}$. Mark each statement true or false.
+
+- $\{3, 4\} \in A$ — **True**: $\{3, 4\}$ is *listed* as a (single) element of $A$.
+- $\{3, 4\} \subseteq A$ — **False**: for $\{3,4\} \subseteq A$ we would need $3 \in A$ *and* $4 \in A$. Neither holds (only the bracketed pair $\{3,4\}$ is in $A$, not the bare 3 or 4).
+- $\{\{3, 4\}\} \subseteq A$ — **True**: the singleton whose only element is the set $\{3,4\}$ *is* a subset, because its one element $\{3,4\}$ does belong to $A$.
+- $1 \subseteq A$ — **False**: subset is a relation between *sets*; the bare number $1$ is not a set.
+- $\{1\} \subseteq A$ — **True**: $1 \in A$, so the singleton $\{1\}$ is a subset.
+
+The mnemonic: to turn an element into a subset, wrap it in another pair of braces. The exception is $\varnothing$, which is a subset of *every* set without needing braces.
+
+**Example 2 — roster $\to$ set-builder.** Express $\{2,\ 4,\ 8,\ 16,\ 32\}$ in set-builder form.
+
+Step 1: identify the rule. Each element is a power of $2$: $2^1, 2^2, \ldots, 2^5$.
+
+Step 2: name the parameter $n$ and bound it.
+
+$$\{2, 4, 8, 16, 32\} = \{x : x = 2^n,\ n \in \mathbb{N},\ 1 \le n \le 5\}$$
+
+Both the type clause ($n \in \mathbb{N}$) *and* the bound ($1 \le n \le 5$) are required. Without the type clause $n$ could be $1.5$ and $x$ would be $\sqrt{2}$, breaking the listing.
+
+**Example 3 — set-builder $\to$ roster.** Write $\{x : x \in \mathbb{Z},\ -3 < x < 7\}$ in roster form.
+
+The integers strictly between $-3$ and $7$ are $-2, -1, 0, 1, 2, 3, 4, 5, 6$. So the set is
+
+$$\{-2, -1, 0, 1, 2, 3, 4, 5, 6\}\quad (\text{nine elements; both endpoints excluded by } < )$$
+
+**Example 4 — equal sets via solving an equation.** Are these equal?
+
+- $A = \{x : x \text{ is a solution of } x^2 + 5x + 6 = 0\}$
+- $B = \{2, 3\}$
+
+Solve the quadratic: $x^2 + 5x + 6 = (x + 2)(x + 3) = 0 \Rightarrow x = -2$ or $x = -3$. So $A = \{-2, -3\}$, not $\{2, 3\}$. Therefore $A \ne B$. The trap: students see "$5x$" and "$6$" and read off positive roots without factoring.
+
+**Example 5 — power-set count.** If $A = \{a, b, c\}$, list $P(A)$ and count it.
+
+$n(A) = 3$, so $n(P(A)) = 2^3 = 8$. Listing systematically by subset size:
+
+- size 0: $\varnothing$
+- size 1: $\{a\}, \{b\}, \{c\}$
+- size 2: $\{a,b\}, \{a,c\}, \{b,c\}$
+- size 3: $\{a, b, c\}$
+
+Eight subsets, matching $2^3$. Note $P(\varnothing) = \{\varnothing\}$ has *one* element (not zero) — a singleton containing the empty set.
+
 ## Python Verification
 
 ```python

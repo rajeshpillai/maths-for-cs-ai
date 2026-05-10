@@ -103,6 +103,63 @@ $f(2) = 8 - 2 - 1 = 5 > 0$
 Since $f$ is continuous (polynomial) and changes sign, by IVT there is a root
 $c \in (1, 2)$ where $f(c) = 0$.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — three-part test on a piecewise function.** Determine whether $f$ is continuous at $x = -1$:
+
+$$f(x) = \begin{cases} -2 & x \le -1 \\ 2x & x > -1 \end{cases}$$
+
+(i) $f(-1)$ defined? $f(-1) = -2$ (using the first piece, which applies for $x \le -1$). ✓
+
+(ii) Limits exist?
+
+- LHL: substitute $x = -1 - h$ (with $h \to 0^+$): falls in $x \le -1$, so $f = -2$. LHL $= -2$.
+- RHL: substitute $x = -1 + h$: falls in $x > -1$, so $f = 2x$. Substitute: $2(-1 + h) \to -2$ as $h \to 0$. RHL $= -2$.
+
+Both equal $-2$, so the limit exists and is $-2$. ✓
+
+(iii) Limit equals $f(-1)$? $-2 = -2$. ✓
+
+All three conditions met. **$f$ is continuous at $x = -1$.**
+
+**Example 2 — find the constant.** Find $\lambda$ so that the function
+
+$$f(x) = \begin{cases} \lambda(x^2 - 2x) & x \le 0 \\ 4x + 1 & x > 0 \end{cases}$$
+
+is continuous at $x = 0$.
+
+LHL: $f(-h) = \lambda((-h)^2 - 2(-h)) = \lambda(h^2 + 2h) \to 0$ as $h \to 0$.
+
+RHL: $f(h) = 4h + 1 \to 1$ as $h \to 0$.
+
+For continuity, LHL = RHL: $0 = 1$. **Contradiction** — there is no value of $\lambda$ that makes $f$ continuous at $0$. (The LHL is always $0$ regardless of $\lambda$, since $x$ factors out.)
+
+This is a deliberately tricky NCERT-style problem — sometimes the answer is "no solution exists".
+
+**Example 3 — continuity with multiple constraints.** Find $k$ so that
+
+$$f(x) = \begin{cases} kx + 1 & x \le \pi \\ \cos x & x > \pi \end{cases}$$
+
+is continuous at $x = \pi$.
+
+LHL: $k\pi + 1$. RHL: $\cos\pi = -1$.
+
+Set equal: $k\pi + 1 = -1 \Rightarrow k\pi = -2 \Rightarrow k = -2/\pi$.
+
+**Example 4 — discontinuity at the boundary.** Show that
+
+$$f(x) = \begin{cases} x + 5 & x \le 1 \\ x - 5 & x > 1 \end{cases}$$
+
+is discontinuous at $x = 1$ (and continuous everywhere else).
+
+For $x < 1$ and $x > 1$, $f$ is a polynomial — continuous on each open piece. At $x = 1$:
+
+- $f(1) = 1 + 5 = 6$.
+- LHL = $1 + 5 = 6$.
+- RHL = $1 - 5 = -4$.
+
+LHL $\ne$ RHL, so the limit does not exist; $f$ is **discontinuous** at $x = 1$. The discontinuity is a *jump* of size $-4 - 6 = -10$.
+
 ### Visualisation — three discontinuity types side by side
 
 ```python

@@ -111,6 +111,52 @@ Solve any 2 equations for $s, t$, check in the 3rd.
 
 $$d = \frac{|(\mathbf{a}_2 - \mathbf{a}_1) \cdot (\mathbf{d}_1 \times \mathbf{d}_2)|}{|\mathbf{d}_1 \times \mathbf{d}_2|}$$
 
+### Worked examples (NCERT-style)
+
+**Example 1 — equation of a line through two points.** Find the equation (vector form and Cartesian form) of the line passing through $A(1, 2, 3)$ and $B(4, -1, 5)$.
+
+Direction vector: $\vec{b} = \vec{AB} = (3, -3, 2)$.
+
+Vector form: $\vec{r} = \vec{a} + \lambda\vec{b} = (\hat{i} + 2\hat{j} + 3\hat{k}) + \lambda(3\hat{i} - 3\hat{j} + 2\hat{k})$.
+
+Cartesian form: $\dfrac{x - 1}{3} = \dfrac{y - 2}{-3} = \dfrac{z - 3}{2}$.
+
+**Example 2 — angle between two lines.** Find the angle between the lines $\dfrac{x - 1}{2} = \dfrac{y + 1}{3} = \dfrac{z}{4}$ and $\dfrac{x + 2}{3} = \dfrac{y}{4} = \dfrac{z - 1}{5}$.
+
+Direction vectors: $\vec{b}_1 = (2, 3, 4)$, $\vec{b}_2 = (3, 4, 5)$.
+
+$\cos\theta = \dfrac{\vec{b}_1 \cdot \vec{b}_2}{|\vec{b}_1||\vec{b}_2|} = \dfrac{6 + 12 + 20}{\sqrt{29}\sqrt{50}} = \dfrac{38}{\sqrt{1450}} = \dfrac{38}{\sqrt{1450}}$.
+
+Numerically $\sqrt{1450} \approx 38.08$, so $\cos\theta \approx 0.998$, $\theta \approx 3.5°$ — the lines are nearly parallel.
+
+**Example 3 — equation of a plane through 3 points.** Find the equation of the plane through $A(1, 1, 0)$, $B(1, 2, 1)$, $C(-2, 2, -1)$.
+
+Form two edge vectors: $\vec{AB} = (0, 1, 1)$, $\vec{AC} = (-3, 1, -1)$.
+
+Normal vector via cross product:
+
+$$\vec{n} = \vec{AB} \times \vec{AC} = \det\begin{pmatrix} \hat{i} & \hat{j} & \hat{k} \\ 0 & 1 & 1 \\ -3 & 1 & -1 \end{pmatrix} = (1 \cdot (-1) - 1 \cdot 1)\hat{i} - (0 \cdot (-1) - 1 \cdot (-3))\hat{j} + (0 \cdot 1 - 1 \cdot (-3))\hat{k} = -2\hat{i} - 3\hat{j} + 3\hat{k}.$$
+
+Plane through $A(1, 1, 0)$ with normal $(-2, -3, 3)$:
+
+$$-2(x - 1) - 3(y - 1) + 3(z - 0) = 0 \;\Longrightarrow\; -2x - 3y + 3z + 5 = 0 \;\Longrightarrow\; 2x + 3y - 3z = 5.$$
+
+**Example 4 — shortest distance between skew lines.** Find the shortest distance between $L_1: \vec{r} = \hat{i} + \hat{j} + \lambda(2\hat{i} - \hat{j} + \hat{k})$ and $L_2: \vec{r} = 2\hat{i} + \hat{j} - \hat{k} + \mu(3\hat{i} - 5\hat{j} + 2\hat{k})$.
+
+Components: $\vec{a}_1 = (1, 1, 0)$, $\vec{b}_1 = (2, -1, 1)$; $\vec{a}_2 = (2, 1, -1)$, $\vec{b}_2 = (3, -5, 2)$.
+
+$\vec{a}_2 - \vec{a}_1 = (1, 0, -1)$.
+
+Cross product:
+
+$$\vec{b}_1 \times \vec{b}_2 = \det\begin{pmatrix} \hat{i} & \hat{j} & \hat{k} \\ 2 & -1 & 1 \\ 3 & -5 & 2 \end{pmatrix} = ((-1)(2) - (1)(-5))\hat{i} - ((2)(2) - (1)(3))\hat{j} + ((2)(-5) - (-1)(3))\hat{k} = 3\hat{i} - \hat{j} - 7\hat{k}.$$
+
+Magnitude: $|\vec{b}_1 \times \vec{b}_2| = \sqrt{9 + 1 + 49} = \sqrt{59}$.
+
+Scalar triple product: $(\vec{a}_2 - \vec{a}_1) \cdot (\vec{b}_1 \times \vec{b}_2) = (1)(3) + (0)(-1) + (-1)(-7) = 3 + 7 = 10$.
+
+$$d = \frac{|10|}{\sqrt{59}} = \frac{10}{\sqrt{59}} \approx 1.30 \text{ units}.$$
+
 ## Python Verification
 
 ```python

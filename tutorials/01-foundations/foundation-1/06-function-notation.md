@@ -123,6 +123,53 @@ Not every input is allowed.  For example:
 
 ---
 
+### Worked examples (NCERT-style)
+
+**Example 1 — find domain and range of $f(x) = x^2 + 2$ over $\mathbb{R}$.**
+
+*Domain.* Squaring and adding 2 work for every real number. **Domain $= \mathbb{R}$**.
+
+*Range.* For any real $x$, $x^2 \ge 0$, so $x^2 + 2 \ge 2$. The minimum value $2$ is achieved at $x = 0$, and as $|x| \to \infty$ the value grows without bound. So $f(x)$ takes every value in $[2, \infty)$ and no smaller value.
+
+**Range $= [2, \infty)$**.
+
+**Example 2 — find domain and range of $f(x) = \sqrt{9 - x^2}$.**
+
+*Domain.* The square root requires its argument to be $\ge 0$:
+
+$$9 - x^2 \ge 0 \;\Longleftrightarrow\; x^2 \le 9 \;\Longleftrightarrow\; -3 \le x \le 3.$$
+
+So **domain $= [-3, 3]$**.
+
+*Range.* On the domain, $9 - x^2$ ranges from $0$ (at $x = \pm 3$) up to $9$ (at $x = 0$). Taking square roots (a non-negative result), $f(x) \in [0, 3]$.
+
+**Range $= [0, 3]$**.
+
+**Example 3 — find domain and range of $f(x) = \dfrac{1}{x - 7}$.**
+
+*Domain.* The denominator must be non-zero: $x - 7 \ne 0$, so $x \ne 7$. **Domain $= \mathbb{R} \setminus \{7\}$**.
+
+*Range.* Set $y = \dfrac{1}{x - 7}$ and solve for $x$ in terms of $y$:
+
+$$y(x - 7) = 1 \;\Longrightarrow\; x = 7 + \frac{1}{y}.$$
+
+Every $y \ne 0$ gives a valid $x$ (and the value $y = 0$ is unreachable, since $1/(x-7)$ is never zero). **Range $= \mathbb{R} \setminus \{0\}$**.
+
+**Example 4 — algebra of functions.** Given $f(x) = x^2$ on $\mathbb{R}$ and $g(x) = 2x + 1$ on $\mathbb{R}$, compute $(f + g)(x)$, $(f - g)(x)$, $(fg)(x)$, $(f/g)(x)$ and state the domain of each.
+
+$$\begin{aligned}
+(f + g)(x) &= x^2 + 2x + 1 = (x+1)^2 \\
+(f - g)(x) &= x^2 - 2x - 1 \\
+(fg)(x)    &= x^2 \cdot (2x + 1) = 2x^3 + x^2 \\
+(f/g)(x)   &= \frac{x^2}{2x + 1}
+\end{aligned}$$
+
+The first three are polynomials, defined on all of $\mathbb{R}$. The quotient $f/g$ is undefined when $g(x) = 0$, i.e. $x = -\tfrac{1}{2}$. So $(f/g)$ has domain $\mathbb{R} \setminus \{-\tfrac{1}{2}\}$.
+
+**Sum-and-quotient pitfall.** If instead $f(x) = x + 1$ on $\mathbb{R}$ and $g(x) = \sqrt{x}$ on $[0, \infty)$, then $(f + g)(x) = x + 1 + \sqrt{x}$ is defined only on the *intersection* $[0, \infty)$ — **not** the union. The sum function inherits the smaller of the two domains.
+
+---
+
 ### Visualisation
 
 ```python

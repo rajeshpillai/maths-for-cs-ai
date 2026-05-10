@@ -100,6 +100,40 @@ If discriminant $\ge 0$: ray hits sphere. The two roots give the
 entry and exit $t$ values. Standard ray-tracing code does this on
 every pixel of every frame.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — angle between two lines.** Find the angle between
+$L_1: \tfrac{x-1}{2} = \tfrac{y+1}{3} = \tfrac{z}{4}$ and
+$L_2: \tfrac{x+2}{3} = \tfrac{y}{4} = \tfrac{z-1}{5}$.
+
+Direction vectors $\vec{b}_1 = (2, 3, 4)$,
+$\vec{b}_2 = (3, 4, 5)$.
+
+$\cos\theta = \tfrac{6 + 12 + 20}{\sqrt{29}\sqrt{50}} = \tfrac{38}{\sqrt{1450}}
+\approx 0.998$, so $\theta \approx 3.5°$ — nearly parallel.
+
+**Example 2 — equation of a plane through three points.** Plane
+through $A(1, 1, 0)$, $B(1, 2, 1)$, $C(-2, 2, -1)$.
+
+Edge vectors: $\vec{AB} = (0, 1, 1)$, $\vec{AC} = (-3, 1, -1)$.
+
+Normal: $\vec{n} = \vec{AB} \times \vec{AC} = (-2, -3, 3)$.
+
+Plane: $-2(x - 1) - 3(y - 1) + 3z = 0$, i.e.
+$2x + 3y - 3z = 5$.
+
+**Example 3 — shortest distance, skew lines.** Lines
+$L_1: \vec{r} = (1, 1, 0) + \lambda(2, -1, 1)$ and
+$L_2: \vec{r} = (2, 1, -1) + \mu(3, -5, 2)$.
+
+$\vec{a}_2 - \vec{a}_1 = (1, 0, -1)$, $\vec{b}_1 \times \vec{b}_2
+= (3, -1, -7)$, $|\vec{b}_1 \times \vec{b}_2| = \sqrt{59}$.
+
+Scalar triple product: $(1, 0, -1) \cdot (3, -1, -7) = 3 + 0 + 7
+= 10$.
+
+$d = 10/\sqrt{59} \approx 1.30$.
+
 ## Interactive
 
 :::widget type=numeric-input prompt="Distance from origin to plane $x + 2y + 2z = 9$. $\\frac{|0 + 0 + 0 - 9|}{\\sqrt{1 + 4 + 4}} = \\frac{9}{?}$" answer=3 explain="$\\sqrt 9 = 3$. So distance is $9/3 = 3$.":::

@@ -110,6 +110,46 @@ $$\frac{\partial L}{\partial \mathbf{W}} = \frac{\partial L}{\partial \mathbf{y}
 
 This is matrix calculus, and it's what frameworks like PyTorch compute automatically.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — nested composition.** Differentiate $y = e^{\sin(x^2)}$.
+
+Three layers: $u = x^2$, $v = \sin u$, $y = e^v$. Apply chain rule:
+
+$$\frac{dy}{dx} = \frac{dy}{dv} \cdot \frac{dv}{du} \cdot \frac{du}{dx} = e^v \cdot \cos u \cdot 2x = 2x \cdot \cos(x^2) \cdot e^{\sin(x^2)}.$$
+
+**Example 2 — chain rule on $\sin(\cos(x^2))$.** Find $dy/dx$.
+
+Three layers from inside out: $x^2 \to \cos(\cdot) \to \sin(\cdot)$.
+
+$$\frac{dy}{dx} = \cos(\cos(x^2)) \cdot \bigl(-\sin(x^2)\bigr) \cdot 2x = -2x\,\sin(x^2)\,\cos(\cos(x^2)).$$
+
+**Example 3 — implicit chain rule.** Find $dy/dx$ for $\sin(xy) = x^2 + y^2$.
+
+Differentiate both sides w.r.t. $x$. The left side is a chain on $u = xy$ (with $u' = y + x\,dy/dx$):
+
+$$\cos(xy) \cdot \left(y + x\frac{dy}{dx}\right) = 2x + 2y\frac{dy}{dx}.$$
+
+Expand: $y\cos(xy) + x\cos(xy)\frac{dy}{dx} = 2x + 2y\frac{dy}{dx}$.
+
+Collect $dy/dx$ terms: $[x\cos(xy) - 2y]\frac{dy}{dx} = 2x - y\cos(xy)$.
+
+$$\frac{dy}{dx} = \frac{2x - y\cos(xy)}{x\cos(xy) - 2y}.$$
+
+**Example 4 — multivariable chain rule.** $f(x, y) = x^2 y$ where $x = \cos t$, $y = \sin t$. Find $df/dt$ at $t = \pi/4$.
+
+By the multivariable chain rule:
+
+$$\frac{df}{dt} = \frac{\partial f}{\partial x}\frac{dx}{dt} + \frac{\partial f}{\partial y}\frac{dy}{dt}.$$
+
+Compute pieces: $\partial f/\partial x = 2xy$, $\partial f/\partial y = x^2$, $dx/dt = -\sin t$, $dy/dt = \cos t$. So
+
+$$\frac{df}{dt} = 2xy(-\sin t) + x^2 \cos t.$$
+
+At $t = \pi/4$: $x = y = 1/\sqrt{2}$. Substitute:
+
+$$\frac{df}{dt} = 2 \cdot \tfrac{1}{2} \cdot \left(-\tfrac{1}{\sqrt{2}}\right) + \tfrac{1}{2} \cdot \tfrac{1}{\sqrt{2}} = -\tfrac{1}{\sqrt{2}} + \tfrac{1}{2\sqrt{2}} = -\tfrac{1}{2\sqrt{2}}.$$
+
 ## Python Verification
 
 ```python

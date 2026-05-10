@@ -94,6 +94,54 @@ $z_0 = 1$, $z_1 = e^{i2\pi/3} = -\frac{1}{2} + \frac{\sqrt{3}}{2}i$, $z_2 = e^{i
 
 These form an equilateral triangle on the unit circle.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — division to standard form $a + ib$.** Express $\dfrac{3 + 2i}{1 - i}$ in the form $a + ib$.
+
+Multiply numerator and denominator by the conjugate of the denominator, $1 + i$:
+
+$$\frac{3 + 2i}{1 - i} \cdot \frac{1 + i}{1 + i} = \frac{(3 + 2i)(1 + i)}{(1 - i)(1 + i)}.$$
+
+Numerator: $(3)(1) + (3)(i) + (2i)(1) + (2i)(i) = 3 + 3i + 2i + 2i^2 = 3 + 5i - 2 = 1 + 5i$.
+
+Denominator: $(1)(1) - (i)(i) = 1 - i^2 = 1 + 1 = 2$.
+
+$$\boxed{\frac{3 + 2i}{1 - i} = \frac{1 + 5i}{2} = \frac{1}{2} + \frac{5}{2}i.}$$
+
+**Example 2 — power of $i$.** Find $i^9 + i^{19}$.
+
+The cycle $i^1 = i, i^2 = -1, i^3 = -i, i^4 = 1$ repeats with period 4. Reduce exponents modulo 4:
+
+$$i^9 = i^{4 \cdot 2 + 1} = i^1 = i, \quad i^{19} = i^{4 \cdot 4 + 3} = i^3 = -i.$$
+
+So $i^9 + i^{19} = i + (-i) = \boxed{0}$.
+
+**Example 3 — square-root trap.** Compute $\sqrt{-2}\,\sqrt{-3}$.
+
+The identity $\sqrt{x}\sqrt{y} = \sqrt{xy}$ requires both $x, y \ge 0$. With negative inputs we **must** convert to $i$ first:
+
+$$\sqrt{-2} = i\sqrt{2}, \quad \sqrt{-3} = i\sqrt{3}.$$
+
+So
+
+$$\sqrt{-2}\,\sqrt{-3} = (i\sqrt{2})(i\sqrt{3}) = i^2 \sqrt{6} = -\sqrt{6}.$$
+
+Naively writing $\sqrt{(-2)(-3)} = \sqrt{6}$ gives the *wrong* sign. NCERT explicitly flags this as a chapter-favourite trap.
+
+**Example 4 — multiplicative inverse.** Find $z^{-1}$ for $z = 3 + 4i$.
+
+Use $z^{-1} = \bar{z}/|z|^2$. The conjugate is $\bar{z} = 3 - 4i$ and $|z|^2 = 3^2 + 4^2 = 25$. So
+
+$$z^{-1} = \frac{3 - 4i}{25} = \frac{3}{25} - \frac{4}{25}i.$$
+
+Verify: $z \cdot z^{-1} = (3 + 4i)\left(\tfrac{3}{25} - \tfrac{4}{25}i\right) = \tfrac{1}{25}\left[9 - 12i + 12i - 16i^2\right] = \tfrac{1}{25}(9 + 16) = 1$. ✓
+
+**Example 5 — De Moivre.** Compute $(\cos 15° + i\sin 15°)^{12}$.
+
+By De Moivre's theorem, $(\cos\theta + i\sin\theta)^n = \cos n\theta + i\sin n\theta$. Apply with $\theta = 15°$, $n = 12$:
+
+$$(\cos 15° + i\sin 15°)^{12} = \cos 180° + i\sin 180° = -1 + 0i = -1.$$
+
 ## Visualisation
 
 ```python

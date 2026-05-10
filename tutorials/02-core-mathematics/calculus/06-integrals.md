@@ -89,6 +89,54 @@ $u = x, dv = e^x\,dx$ → $du = dx, v = e^x$
 
 $= xe^x - \int e^x\,dx = xe^x - e^x + C = e^x(x - 1) + C$
 
+### Worked examples (NCERT-style)
+
+**Example 1 — partial fractions.** Evaluate $\displaystyle\int \frac{dx}{(x - 1)(x - 2)}$.
+
+Decompose: $\dfrac{1}{(x-1)(x-2)} = \dfrac{A}{x-1} + \dfrac{B}{x-2}$. Clear denominators:
+
+$$1 = A(x - 2) + B(x - 1).$$
+
+Set $x = 1$: $1 = -A \Rightarrow A = -1$. Set $x = 2$: $1 = B \Rightarrow B = 1$.
+
+$$\int \frac{dx}{(x-1)(x-2)} = -\int\frac{dx}{x-1} + \int\frac{dx}{x-2} = -\log|x - 1| + \log|x - 2| + C = \log\left|\frac{x - 2}{x - 1}\right| + C.$$
+
+**Example 2 — by parts (ILATE rule).** Evaluate $\displaystyle\int x \log x\,dx$.
+
+The **ILATE** rule says: pick $u$ as the higher item in *Inverse trig, Logarithmic, Algebraic, Trigonometric, Exponential*. Here $\log x$ is L (Logarithmic), $x$ is A (Algebraic). L outranks A, so $u = \log x$, $dv = x\,dx$.
+
+Then $du = \tfrac{1}{x}dx$, $v = \tfrac{x^2}{2}$. Apply $\int u\,dv = uv - \int v\,du$:
+
+$$\int x \log x\,dx = \frac{x^2}{2}\log x - \int \frac{x^2}{2} \cdot \frac{1}{x}\,dx = \frac{x^2}{2}\log x - \int \frac{x}{2}\,dx = \frac{x^2}{2}\log x - \frac{x^2}{4} + C.$$
+
+**Example 3 — trig substitution.** Evaluate $\displaystyle\int \frac{dx}{\sqrt{a^2 - x^2}}$.
+
+Let $x = a\sin\theta$, so $dx = a\cos\theta\,d\theta$ and $\sqrt{a^2 - x^2} = a\cos\theta$. The integral becomes
+
+$$\int \frac{a\cos\theta\,d\theta}{a\cos\theta} = \int d\theta = \theta + C = \sin^{-1}\!\left(\frac{x}{a}\right) + C.$$
+
+This is a standard NCERT result — recognise the $\sqrt{a^2 - x^2}$ pattern → use $x = a\sin\theta$.
+
+**Example 4 — definite integral with even-function shortcut.** Evaluate $\displaystyle\int_{-\pi/2}^{\pi/2} \cos x\,dx$.
+
+$\cos x$ is even, so $\int_{-a}^{a} f(x)\,dx = 2\int_0^a f(x)\,dx$:
+
+$$\int_{-\pi/2}^{\pi/2} \cos x\,dx = 2\int_0^{\pi/2} \cos x\,dx = 2[\sin x]_0^{\pi/2} = 2(1 - 0) = 2.$$
+
+(For odd functions like $\sin x$ on $[-a, a]$, the integral is $0$.)
+
+**Example 5 — using $1 - \cos 2x = 2\sin^2 x$ to integrate $\sin^2$.** Evaluate $\displaystyle\int \sin^2 x\,dx$.
+
+Don't expand as $\sin x \cdot \sin x$ — instead use the half-angle identity:
+
+$$\sin^2 x = \frac{1 - \cos 2x}{2}.$$
+
+So
+
+$$\int \sin^2 x\,dx = \int \frac{1 - \cos 2x}{2}\,dx = \frac{x}{2} - \frac{\sin 2x}{4} + C.$$
+
+(Verify: $\frac{d}{dx}\!\left[\frac{x}{2} - \frac{\sin 2x}{4}\right] = \frac{1}{2} - \frac{\cos 2x}{2} = \frac{1 - \cos 2x}{2} = \sin^2 x$. ✓)
+
 ## Python Verification
 
 ```python

@@ -111,6 +111,56 @@ $$\left(\begin{array}{ccc|c} 1 & 0 & 0 & 2 \\ 0 & 1 & 0 & 2 \\ 0 & 0 & 1 & 3 \en
 
 The solution is read directly: $x = 2, y = 2, z = 3$.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — solving $\mathbf{A}\mathbf{X} = \mathbf{B}$ by matrix inverse.** Solve
+
+$$2x + 3y = 11, \quad 3x + 5y = 17.$$
+
+Write as $\mathbf{A}\mathbf{X} = \mathbf{B}$ with
+
+$$\mathbf{A} = \begin{pmatrix} 2 & 3 \\ 3 & 5 \end{pmatrix}, \quad \mathbf{X} = \begin{pmatrix} x \\ y \end{pmatrix}, \quad \mathbf{B} = \begin{pmatrix} 11 \\ 17 \end{pmatrix}.$$
+
+$\det \mathbf{A} = 10 - 9 = 1 \ne 0$, so $\mathbf{A}^{-1}$ exists:
+
+$$\mathbf{A}^{-1} = \tfrac{1}{1}\begin{pmatrix} 5 & -3 \\ -3 & 2 \end{pmatrix} = \begin{pmatrix} 5 & -3 \\ -3 & 2 \end{pmatrix}.$$
+
+Therefore
+
+$$\mathbf{X} = \mathbf{A}^{-1}\mathbf{B} = \begin{pmatrix} 5 & -3 \\ -3 & 2 \end{pmatrix}\begin{pmatrix} 11 \\ 17 \end{pmatrix} = \begin{pmatrix} 55 - 51 \\ -33 + 34 \end{pmatrix} = \begin{pmatrix} 4 \\ 1 \end{pmatrix}.$$
+
+So $(x, y) = (4, 1)$.
+
+**Verify.** $2(4) + 3(1) = 11$ ✓, $3(4) + 5(1) = 17$ ✓.
+
+**Example 2 — system with $\det = 0$ (infinite solutions).** Classify
+
+$$x + y = 2, \quad 2x + 2y = 4.$$
+
+$\mathbf{A} = \begin{pmatrix} 1 & 1 \\ 2 & 2 \end{pmatrix}$, $\det \mathbf{A} = 0$. The matrix-inverse method fails. Inspect the augmented matrix:
+
+$$\left[\begin{array}{cc|c} 1 & 1 & 2 \\ 2 & 2 & 4 \end{array}\right] \xrightarrow{R_2 \to R_2 - 2R_1} \left[\begin{array}{cc|c} 1 & 1 & 2 \\ 0 & 0 & 0 \end{array}\right].$$
+
+The second equation is degenerate ($0 = 0$), so we have only one independent equation $x + y = 2$. **Infinitely many solutions** parametrised by $x = t,\ y = 2 - t$.
+
+**Example 3 — system with $\det = 0$ (no solution).** Classify
+
+$$x + y = 2, \quad 2x + 2y = 5.$$
+
+$\det \mathbf{A} = 0$ as before. Augmented matrix:
+
+$$\left[\begin{array}{cc|c} 1 & 1 & 2 \\ 2 & 2 & 5 \end{array}\right] \xrightarrow{R_2 \to R_2 - 2R_1} \left[\begin{array}{cc|c} 1 & 1 & 2 \\ 0 & 0 & 1 \end{array}\right].$$
+
+The second row is "$0 = 1$" — a contradiction. **No solution.** The lines $x + y = 2$ and $x + y = 5/2$ are parallel and distinct.
+
+**Summary of the trichotomy.**
+
+| Condition | Outcome |
+|---|---|
+| $\det \mathbf{A} \ne 0$ | Unique solution $\mathbf{X} = \mathbf{A}^{-1}\mathbf{B}$ |
+| $\det \mathbf{A} = 0$, augmented also degenerate | Infinitely many solutions |
+| $\det \mathbf{A} = 0$, augmented produces a contradiction | No solution |
+
 ## Python Verification
 
 ```python

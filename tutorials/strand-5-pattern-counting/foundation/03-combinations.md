@@ -99,6 +99,40 @@ Examples:
   order you draw them in doesn't matter once you have them.
   $\binom{52}{5}$.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — committee.** Choose a $3$-person committee from
+$10$ people. How many possible committees?
+
+$$\binom{10}{3} = \frac{10!}{3! \cdot 7!} = \frac{10 \cdot 9 \cdot 8}{3 \cdot 2 \cdot 1} = 120.$$
+
+**Example 2 — cricket team with constraint.** Pick an $11$-player
+team from $17$ players such that exactly $4$ are bowlers from the
+$5$ available bowlers (and $7$ are batters from the $12$ remaining).
+
+By the multiplication principle (one factor per group):
+
+$$\binom{5}{4} \cdot \binom{12}{7} = 5 \cdot 792 = 3\,960.$$
+
+**Example 3 — diagonals of an $n$-gon.** A polygon has $n$
+vertices. How many diagonals does it have?
+
+Pick any 2 vertices: $\binom{n}{2}$ pairs. But $n$ of those pairs
+are *adjacent* — they form sides, not diagonals. So:
+
+$$\text{diagonals} = \binom{n}{2} - n = \frac{n(n-1)}{2} - n = \frac{n(n-3)}{2}.$$
+
+Check: a hexagon ($n = 6$) has $\frac{6 \cdot 3}{2} = 9$
+diagonals. ✓
+
+**Example 4 — Pascal's identity numerically.** Verify
+$\binom{6}{3} = \binom{5}{2} + \binom{5}{3}$.
+
+$\binom{5}{2} = 10$, $\binom{5}{3} = 10$, sum $= 20$.
+$\binom{6}{3} = 20$. ✓
+
+This is the rule that builds Pascal's triangle row by row.
+
 ## Interactive
 
 :::widget type=numeric-input prompt="$\\binom{5}{2} = ?$" answer=10 explain="$\\dfrac{5!}{2! \\cdot 3!} = \\dfrac{5 \\cdot 4}{2} = 10$.":::

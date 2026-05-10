@@ -78,6 +78,36 @@ and the formula reduces to Pythagoras. Useful when you know SAS
 (two sides + included angle) or SSS (all three sides — solve for an
 angle).
 
+### Worked examples (NCERT-style)
+
+**Example 1 — derive $\sin 3x$.** Show
+$\sin 3x = 3\sin x - 4\sin^3 x$.
+
+$\sin 3x = \sin(2x + x) = \sin 2x\cos x + \cos 2x\sin x$.
+Substitute $\sin 2x = 2\sin x\cos x$ and
+$\cos 2x = 1 - 2\sin^2 x$:
+
+$\sin 3x = 2\sin x\cos^2 x + (1 - 2\sin^2 x)\sin x$.
+Replace $\cos^2 x = 1 - \sin^2 x$:
+
+$\sin 3x = 2\sin x(1 - \sin^2 x) + \sin x - 2\sin^3 x = 3\sin x - 4\sin^3 x.\;\checkmark$
+
+**Example 2 — exact value $\sin 15°$.**
+
+$\sin 15° = \sin(45° - 30°) = \sin 45°\cos 30° - \cos 45°\sin 30°
+= \tfrac{\sqrt{2}}{2}\tfrac{\sqrt{3}}{2} - \tfrac{\sqrt{2}}{2}\tfrac{1}{2}
+= \tfrac{\sqrt{6} - \sqrt{2}}{4}$.
+
+**Example 3 — R-formula maximum.** Find the maximum value of
+$5\sin\theta - 12\cos\theta$.
+
+Write $a\sin\theta + b\cos\theta = R\sin(\theta + \alpha)$ with
+$R = \sqrt{a^2 + b^2}$. Here $a = 5, b = -12$, so
+$R = \sqrt{25 + 144} = 13$.
+
+Maximum value $= R = 13$ (achieved when
+$\sin(\theta + \alpha) = 1$).
+
 ## Interactive
 
 :::widget type=numeric-input prompt="$\\sin(60°)$ — exact form $\\sqrt{3}/2$. Decimal? Round 4 dp." answer=0.8660 tolerance=0.001 explain="$\\approx 0.8660$.":::

@@ -78,6 +78,44 @@ The integral of a rate of change gives the net change.
 
 $$\int_0^2 3t^2\,dt = [t^3]_0^2 = 8 - 0 = 8 \text{ units}$$
 
+### Worked examples (NCERT-style)
+
+**Example 1 — direct FTC application.** Evaluate $\displaystyle\int_0^{\pi} \sin x\,dx$.
+
+An antiderivative of $\sin x$ is $-\cos x$. By the FTC:
+
+$$\int_0^{\pi} \sin x\,dx = [-\cos x]_0^{\pi} = -\cos\pi - (-\cos 0) = -(-1) - (-1) = 1 + 1 = 2.$$
+
+**Example 2 — king's rule.** Evaluate $\displaystyle I = \int_0^{\pi/2} \frac{\sin x}{\sin x + \cos x}\,dx$.
+
+Apply the property $\int_0^a f(x)\,dx = \int_0^a f(a - x)\,dx$ with $a = \pi/2$:
+
+$$I = \int_0^{\pi/2}\frac{\sin(\pi/2 - x)}{\sin(\pi/2 - x) + \cos(\pi/2 - x)}\,dx = \int_0^{\pi/2}\frac{\cos x}{\cos x + \sin x}\,dx.$$
+
+Add the two forms of $I$:
+
+$$2I = \int_0^{\pi/2}\frac{\sin x + \cos x}{\sin x + \cos x}\,dx = \int_0^{\pi/2} 1\,dx = \tfrac{\pi}{2}.$$
+
+So $I = \pi/4$. The trick is purely the king's rule — no antiderivative needed.
+
+**Example 3 — even/odd shortcut.** Evaluate $\displaystyle\int_{-2}^{2} (x^3 - 4x + \cos x)\,dx$.
+
+Split: $x^3$ is odd, $-4x$ is odd, $\cos x$ is even. So the odd parts integrate to $0$, leaving:
+
+$$\int_{-2}^{2}(x^3 - 4x + \cos x)\,dx = 0 + 0 + 2\int_0^2 \cos x\,dx = 2[\sin x]_0^2 = 2\sin 2 \approx 1.819.$$
+
+**Example 4 — splitting the interval.** Evaluate $\displaystyle\int_0^{2\pi} |\sin x|\,dx$.
+
+$|\sin x| = \sin x$ on $[0, \pi]$ (where $\sin x \ge 0$) and $|\sin x| = -\sin x$ on $[\pi, 2\pi]$ (where $\sin x \le 0$). Split:
+
+$$\int_0^{2\pi} |\sin x|\,dx = \int_0^{\pi} \sin x\,dx + \int_{\pi}^{2\pi} (-\sin x)\,dx.$$
+
+Evaluate each piece:
+
+$$= [-\cos x]_0^{\pi} + [\cos x]_{\pi}^{2\pi} = (1 + 1) + (1 - (-1)) = 2 + 2 = 4.$$
+
+This is the **total area** between the sine curve and the x-axis over one full period — twice the area under one hump.
+
 ## Python Verification
 
 ```python

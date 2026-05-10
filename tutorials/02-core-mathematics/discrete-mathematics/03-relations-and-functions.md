@@ -166,6 +166,42 @@ This is how mathematicians prove two infinite sets have the "same size" —
 e.g., $\mathbb{N}$ and $\mathbb{Z}$ have the same cardinality because we can
 construct a bijection: $0 \to 0, 1 \to 1, 2 \to -1, 3 \to 2, 4 \to -2, \dots$
 
+### Worked examples (NCERT-style)
+
+**Example 1 — recover a set from $A \times A$.** $n(A \times A) = 9$, and the pairs $(-1, 0)$ and $(0, 1)$ both lie in $A \times A$. Find $A$.
+
+Step 1 — fix $|A|$. $n(A \times A) = n(A)^2 = 9$, so $n(A) = 3$.
+
+Step 2 — collect components. Both coordinates of every pair come from $A$. From $(-1, 0)$: $-1 \in A$ and $0 \in A$. From $(0, 1)$: $0 \in A$ and $1 \in A$. Therefore $A \supseteq \{-1, 0, 1\}$ — but the right side already has 3 elements, matching $n(A) = 3$.
+
+$$A = \{-1, 0, 1\}.$$
+
+**Example 2 — function or not?** Decide which of these are functions $f : \mathbb{Z} \to \mathbb{Z}$:
+
+- $R_1 = \{(2, 1), (5, 1), (8, 1), (11, 1), (14, 1), (17, 1)\}$ — every first coordinate is unique. **Function** (a constant function on its domain).
+- $R_2 = \{(2, 1), (4, 2), (6, 3), (8, 4)\}$ — first coordinates all distinct. **Function**.
+- $R_3 = \{(1, 3), (1, 5), (2, 5)\}$ — the input $1$ is paired with both $3$ and $5$. **Not a function** (one input has two images).
+
+**Example 3 — equivalence relation.** On $\mathbb{Z}$, define $a R b$ iff $a - b$ is divisible by $5$. Check the three properties.
+
+- *Reflexive*: $a - a = 0$, and $5 \mid 0$. ✓
+- *Symmetric*: if $5 \mid (a - b)$, then $5 \mid -(a - b) = (b - a)$, so $b R a$. ✓
+- *Transitive*: if $5 \mid (a - b)$ and $5 \mid (b - c)$, then $5 \mid (a - b) + (b - c) = (a - c)$, so $a R c$. ✓
+
+So $R$ is an equivalence relation. The equivalence classes partition $\mathbb{Z}$ into the five residue classes mod $5$: $[0], [1], [2], [3], [4]$.
+
+**Example 4 — composition and inverse.** Let $f(x) = 2x + 3$ and $g(x) = (x - 3)/2$ on $\mathbb{R}$. Show $g = f^{-1}$.
+
+Compute $(f \circ g)(x)$:
+
+$$f(g(x)) = 2 \cdot \frac{x - 3}{2} + 3 = (x - 3) + 3 = x.$$
+
+Compute $(g \circ f)(x)$:
+
+$$g(f(x)) = \frac{(2x + 3) - 3}{2} = \frac{2x}{2} = x.$$
+
+Both compositions return the input, so $g$ is a two-sided inverse of $f$. Equivalently $f$ is bijective (injectivity from $f(a) = f(b) \Rightarrow 2a + 3 = 2b + 3 \Rightarrow a = b$; surjectivity from "every $y$ has pre-image $(y - 3)/2$").
+
 ## Python Verification
 
 ```python

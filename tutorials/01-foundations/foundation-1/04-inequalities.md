@@ -142,6 +142,48 @@ $$-2 \le x < 3$$
 
 ---
 
+### Worked Example 5 — Same inequality, different solution sets (NCERT-style)
+
+Solve $24x < 100$ for (i) $x \in \mathbb{N}$ (natural numbers), (ii) $x \in \mathbb{Z}$ (integers), (iii) $x \in \mathbb{R}$ (reals).
+
+Divide both sides by $24$ (positive — no flip):
+
+$$x < \tfrac{100}{24} = \tfrac{25}{6} \approx 4.166\ldots$$
+
+- (i) **Natural numbers** less than $25/6$: $\{1, 2, 3, 4\}$. (NCERT convention: $\mathbb{N}$ excludes $0$.)
+- (ii) **Integers** less than $25/6$: $\{\ldots, -3, -2, -1, 0, 1, 2, 3, 4\}$ — extending leftward without bound.
+- (iii) **Reals** less than $25/6$: the interval $(-\infty, 25/6)$.
+
+**Why this matters.** Same inequation, three different "solution sets" depending on the universe. Always check what the question asks.
+
+---
+
+### Worked Example 6 — Fractional inequality (NCERT-style)
+
+Solve $\dfrac{2x - 1}{3} \ge \dfrac{3x - 2}{4} - \dfrac{2 - x}{5}$ over the reals.
+
+Step 1 — combine the right side over the common denominator $20$:
+
+$$\frac{3x - 2}{4} - \frac{2 - x}{5} = \frac{5(3x - 2) - 4(2 - x)}{20} = \frac{15x - 10 - 8 + 4x}{20} = \frac{19x - 18}{20}.$$
+
+Step 2 — rewrite the inequality:
+
+$$\frac{2x - 1}{3} \ge \frac{19x - 18}{20}.$$
+
+Step 3 — cross-multiply by $60$ (positive — no flip), or equivalently multiply both sides by $20 \cdot 3 = 60$:
+
+$$20(2x - 1) \ge 3(19x - 18) \;\Longrightarrow\; 40x - 20 \ge 57x - 54.$$
+
+Step 4 — collect:
+
+$$54 - 20 \ge 57x - 40x \;\Longrightarrow\; 34 \ge 17x \;\Longrightarrow\; 2 \ge x \;\Longrightarrow\; x \le 2.$$
+
+**Solution.** $(-\infty, 2]$. Number-line: filled circle at $2$, arrow to the left.
+
+> **Caution on cross-multiplying.** Cross-multiplying by *constant* denominators (as here) is safe. With variable denominators like $(x - 1)$, the sign of the multiplier is unknown — you must split into cases or rearrange to one side and sign-chart.
+
+---
+
 ### Visualisation
 
 ```python

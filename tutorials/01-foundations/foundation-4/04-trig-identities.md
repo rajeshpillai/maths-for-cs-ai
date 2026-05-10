@@ -94,6 +94,64 @@ $\sin x = 1$ → $x = \pi/2$
 
 Solutions: $x = \pi/2, 7\pi/6, 11\pi/6$
 
+### Worked examples (NCERT-style)
+
+**Example 1 — derive $\sin 3x$ from compound angles.** Show $\sin 3x = 3\sin x - 4\sin^3 x$.
+
+Write $3x = 2x + x$ and apply the addition formula:
+
+$$\sin 3x = \sin(2x + x) = \sin 2x \cos x + \cos 2x \sin x.$$
+
+Substitute $\sin 2x = 2\sin x \cos x$ and $\cos 2x = 1 - 2\sin^2 x$:
+
+$$\sin 3x = (2\sin x \cos x) \cos x + (1 - 2\sin^2 x) \sin x.$$
+
+Distribute and simplify:
+
+$$\sin 3x = 2\sin x \cos^2 x + \sin x - 2\sin^3 x.$$
+
+Replace $\cos^2 x = 1 - \sin^2 x$:
+
+$$\sin 3x = 2\sin x (1 - \sin^2 x) + \sin x - 2\sin^3 x = 2\sin x - 2\sin^3 x + \sin x - 2\sin^3 x = 3\sin x - 4\sin^3 x. \;\checkmark$$
+
+**Example 2 — half-angle.** $\tan x = -4/3$ with $x$ in QII. Find $\sin(x/2), \cos(x/2), \tan(x/2)$.
+
+Step 1 — locate $x/2$. Since $x \in (\tfrac{\pi}{2}, \pi)$, $\tfrac{x}{2} \in (\tfrac{\pi}{4}, \tfrac{\pi}{2})$ — QI, so all three half-angle values are *positive*.
+
+Step 2 — find $\cos x$ from $1 + \tan^2 x = \sec^2 x$:
+
+$$\sec^2 x = 1 + \tfrac{16}{9} = \tfrac{25}{9} \;\Longrightarrow\; \sec x = \pm\tfrac{5}{3}.$$
+
+In QII, $\sec$ is negative, so $\sec x = -\tfrac{5}{3}$, giving $\cos x = -\tfrac{3}{5}$.
+
+Step 3 — apply half-angle:
+
+$$\cos\tfrac{x}{2} = \sqrt{\tfrac{1 + \cos x}{2}} = \sqrt{\tfrac{1 - 3/5}{2}} = \sqrt{\tfrac{1}{5}} = \tfrac{1}{\sqrt{5}}.$$
+
+$$\sin\tfrac{x}{2} = \sqrt{\tfrac{1 - \cos x}{2}} = \sqrt{\tfrac{1 + 3/5}{2}} = \sqrt{\tfrac{4}{5}} = \tfrac{2}{\sqrt{5}}.$$
+
+$$\tan\tfrac{x}{2} = \frac{\sin(x/2)}{\cos(x/2)} = \frac{2/\sqrt{5}}{1/\sqrt{5}} = 2.$$
+
+**Example 3 — general solution of $\cos x = 1/2$.**
+
+The principal value in $[0, \pi]$ where cosine is positive is $x = \pi/3$. Cosine has period $2\pi$ and is even (i.e. $\cos(-y) = \cos y$), so the general solution is
+
+$$x = 2n\pi \pm \tfrac{\pi}{3}, \quad n \in \mathbb{Z}.$$
+
+This combines both $x = \tfrac{\pi}{3}, \tfrac{5\pi}{3}, \tfrac{7\pi}{3}, \ldots$ ($+$ branch) and $x = -\tfrac{\pi}{3}, \tfrac{\pi}{3}, \ldots$ wait actually the $-$ branch gives $-\tfrac{\pi}{3}, \tfrac{5\pi}{3}, \ldots$ — both branches are needed because $\cos$ is symmetric about $0$ within each period.
+
+**Example 4 — R-formula.** Express $5\sin\theta - 12\cos\theta$ in the form $R\sin(\theta - \alpha)$ and find its maximum value.
+
+Compare with $R\sin(\theta - \alpha) = R(\sin\theta \cos\alpha - \cos\theta \sin\alpha)$:
+
+$$R\cos\alpha = 5, \quad R\sin\alpha = 12.$$
+
+Square and add: $R^2(\cos^2\alpha + \sin^2\alpha) = 25 + 144 = 169$, so $R = 13$.
+
+Divide: $\tan\alpha = 12/5$, so $\alpha = \tan^{-1}(12/5)$.
+
+So $5\sin\theta - 12\cos\theta = 13\sin(\theta - \tan^{-1}(12/5))$, with maximum value $\boxed{13}$ (attained when $\sin(\theta - \alpha) = 1$).
+
 ## Visualisation
 
 ```python

@@ -121,6 +121,42 @@ $$r \binom{n}{r} = n \binom{n-1}{r-1}$$
 them designated chair*: pick the committee then the chair (LHS), or pick the
 chair then their committee (RHS).
 
+### Worked examples (NCERT-style)
+
+**Example 1 — combinatorial identity from $(1 + x)^n$.** Prove $\displaystyle\sum_{r=0}^{n} 3^r \binom{n}{r} = 4^n$.
+
+Substitute $x = 3$ into the binomial expansion $(1 + x)^n = \sum_{r=0}^{n} \binom{n}{r}\,x^r$:
+
+$$(1 + 3)^n = \sum_{r=0}^{n} \binom{n}{r}\,3^r \;\Longrightarrow\; 4^n = \sum_{r=0}^{n}\binom{n}{r}\,3^r.$$
+
+The general technique: pick a clever $x$ in $(1 + x)^n$ and a binomial-coefficient identity drops out.
+
+**Example 2 — coefficient of a specific power.** Find the coefficient of $x^9$ in $(2 + 3x)^{13}$.
+
+The general term is
+
+$$T_{r+1} = \binom{13}{r}\,2^{13-r}(3x)^r = \binom{13}{r}\,2^{13-r}\,3^r\,x^r.$$
+
+Setting $r = 9$:
+
+$$\text{coefficient of } x^9 = \binom{13}{9}\,2^{4}\,3^{9} = 715 \cdot 16 \cdot 19\,683 = 225\,199\,720.$$
+
+(In an exam you'd usually leave the answer in factored form unless a numerical value is requested.)
+
+**Example 3 — symmetry.** Verify $\binom{10}{3} = \binom{10}{7}$.
+
+$\binom{10}{3} = \frac{10 \cdot 9 \cdot 8}{3!} = 120$. $\binom{10}{7} = \binom{10}{3} = 120$ by the symmetry $\binom{n}{r} = \binom{n}{n-r}$. The combinatorial reason: choosing $3$ to *include* is the same as choosing $7$ to *exclude*.
+
+**Example 4 — middle term of $(1 + x)^{10}$.** When $n$ is even, there is a unique middle term at $r = n/2 = 5$:
+
+$$T_6 = \binom{10}{5}\,x^5 = 252\,x^5.$$
+
+For $n$ odd (say $n = 9$), the *two* middle terms are at $r = 4$ and $r = 5$:
+
+$$T_5 = \binom{9}{4}\,x^4 = 126\,x^4, \quad T_6 = \binom{9}{5}\,x^5 = 126\,x^5.$$
+
+Both have the same coefficient $\binom{9}{4} = \binom{9}{5} = 126$ — by symmetry.
+
 ## Python Verification
 
 ```python

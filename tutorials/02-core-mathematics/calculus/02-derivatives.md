@@ -118,6 +118,50 @@ $f''(x) = 6x$
 At $x = 1$: $f''(1) = 6 > 0$ → **local minimum**, $f(1) = 0$
 At $x = -1$: $f''(-1) = -6 < 0$ → **local maximum**, $f(-1) = 4$
 
+### Worked examples (NCERT-style)
+
+**Example 1 — product rule.** Differentiate $f(x) = x^2 \sin x$.
+
+Apply $(uv)' = u'v + uv'$ with $u = x^2$, $v = \sin x$:
+
+$$f'(x) = 2x \cdot \sin x + x^2 \cdot \cos x = 2x \sin x + x^2 \cos x.$$
+
+**Example 2 — quotient rule.** Differentiate $f(x) = \dfrac{2x + 1}{x^2 + 3}$.
+
+Apply $(u/v)' = (u'v - uv')/v^2$ with $u = 2x + 1$, $v = x^2 + 3$:
+
+$$f'(x) = \frac{2(x^2 + 3) - (2x + 1)(2x)}{(x^2 + 3)^2} = \frac{2x^2 + 6 - 4x^2 - 2x}{(x^2 + 3)^2} = \frac{-2x^2 - 2x + 6}{(x^2 + 3)^2} = \frac{-2(x^2 + x - 3)}{(x^2 + 3)^2}.$$
+
+**Example 3 — implicit differentiation.** Find $\dfrac{dy}{dx}$ for the circle $x^2 + y^2 = 25$.
+
+Differentiate both sides w.r.t. $x$, treating $y$ as a function of $x$ (chain rule on $y^2$):
+
+$$2x + 2y \cdot \frac{dy}{dx} = 0 \;\Longrightarrow\; \frac{dy}{dx} = -\frac{x}{y}.$$
+
+At the point $(3, 4)$ on the circle: $dy/dx = -3/4$. The tangent line at $(3, 4)$ has slope $-3/4$ — perpendicular to the radius (slope $4/3$), as expected.
+
+**Example 4 — logarithmic differentiation.** Find $\dfrac{dy}{dx}$ for $y = x^x$ ($x > 0$).
+
+Neither $n x^{n-1}$ nor $a^x \ln a$ applies — both base and exponent are variable. Take $\log$ of both sides:
+
+$$\log y = x \log x.$$
+
+Differentiate both sides w.r.t. $x$ (using product rule on the right):
+
+$$\frac{1}{y} \cdot \frac{dy}{dx} = 1 \cdot \log x + x \cdot \frac{1}{x} = \log x + 1.$$
+
+Multiply by $y = x^x$:
+
+$$\frac{dy}{dx} = x^x (1 + \log x).$$
+
+**Example 5 — parametric form.** $x = a\cos\theta$, $y = a\sin\theta$. Find $dy/dx$.
+
+$\dfrac{dx}{d\theta} = -a\sin\theta$, $\dfrac{dy}{d\theta} = a\cos\theta$. So
+
+$$\frac{dy}{dx} = \frac{dy/d\theta}{dx/d\theta} = \frac{a\cos\theta}{-a\sin\theta} = -\cot\theta.$$
+
+(Geometrically: $(a\cos\theta, a\sin\theta)$ traces a circle of radius $a$, and the tangent slope at angle $\theta$ is $-\cot\theta$.)
+
 ## Python Verification
 
 ```python

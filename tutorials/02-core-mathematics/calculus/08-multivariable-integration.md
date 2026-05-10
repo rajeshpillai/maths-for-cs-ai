@@ -69,6 +69,48 @@ $$\iint f(x, y)\,dx\,dy = \int \int f(r\cos\theta, r\sin\theta) \cdot r\,dr\,d\t
 
 $$A = \int_0^{2\pi}\int_0^R r\,dr\,d\theta = \int_0^{2\pi}\frac{R^2}{2}\,d\theta = \pi R^2$$
 
+### Worked examples (NCERT-style)
+
+**Example 1 — area enclosed by an ellipse.** Find the area of the region enclosed by $\dfrac{x^2}{a^2} + \dfrac{y^2}{b^2} = 1$.
+
+By symmetry, compute the first-quadrant area and multiply by $4$. Solve for $y$:
+
+$$y = b\sqrt{1 - x^2/a^2} = \frac{b}{a}\sqrt{a^2 - x^2}.$$
+
+The first-quadrant area is
+
+$$A_1 = \int_0^{a} \frac{b}{a}\sqrt{a^2 - x^2}\,dx.$$
+
+Use $x = a\sin\theta$, $dx = a\cos\theta\,d\theta$. Limits: $x = 0 \to \theta = 0$; $x = a \to \theta = \pi/2$. And $\sqrt{a^2 - x^2} = a\cos\theta$:
+
+$$A_1 = \frac{b}{a}\int_0^{\pi/2} a\cos\theta \cdot a\cos\theta\,d\theta = ab\int_0^{\pi/2}\cos^2\theta\,d\theta.$$
+
+Using $\cos^2\theta = (1 + \cos 2\theta)/2$:
+
+$$A_1 = ab\left[\frac{\theta}{2} + \frac{\sin 2\theta}{4}\right]_0^{\pi/2} = ab \cdot \frac{\pi}{4}.$$
+
+Total area: $A = 4 A_1 = \pi a b$. (For $a = b = R$, this collapses to the circle area $\pi R^2$.)
+
+**Example 2 — area between a parabola and a line.** Find the area enclosed by $y^2 = 4x$ and the line $y = 2x - 4$.
+
+Step 1 — find intersection points. From the parabola, $x = y^2/4$. Substitute into the line:
+
+$$y = 2 \cdot \tfrac{y^2}{4} - 4 \;\Longrightarrow\; y = \tfrac{y^2}{2} - 4 \;\Longrightarrow\; y^2 - 2y - 8 = 0 \;\Longrightarrow\; (y - 4)(y + 2) = 0.$$
+
+So $y = 4$ or $y = -2$, giving intersections $(4, 4)$ and $(1, -2)$.
+
+Step 2 — slice horizontally (since both curves are easy to express as $x$ in terms of $y$):
+
+$$A = \int_{-2}^{4} \left[x_{\text{line}}(y) - x_{\text{parabola}}(y)\right] dy = \int_{-2}^{4}\left[\tfrac{y + 4}{2} - \tfrac{y^2}{4}\right] dy.$$
+
+Integrate term by term:
+
+$$\int_{-2}^{4}\frac{y + 4}{2}\,dy = \tfrac{1}{2}\!\left[\tfrac{y^2}{2} + 4y\right]_{-2}^{4} = \tfrac{1}{2}\![(8 + 16) - (2 - 8)] = \tfrac{1}{2}(30) = 15.$$
+
+$$\int_{-2}^{4}\frac{y^2}{4}\,dy = \tfrac{1}{4}\!\left[\tfrac{y^3}{3}\right]_{-2}^{4} = \tfrac{1}{12}(64 - (-8)) = \tfrac{72}{12} = 6.$$
+
+So $A = 15 - 6 = 9$ square units.
+
 ## Python Verification
 
 ```python

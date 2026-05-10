@@ -84,6 +84,34 @@ $$
 — but **only** if $\theta$ is in radians. In degrees, you'd need
 ugly $\pi/180$ factors. Strand 4 develops calculus, where this matters.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — degree to radian.** Convert $40°20'$ to radians.
+
+$1' = 1/60°$, so $20' = 1/3°$. Total: $40 + 1/3 = 121/3°$.
+
+$$\theta_{\text{rad}} = \tfrac{121}{3} \cdot \tfrac{\pi}{180} = \tfrac{121\pi}{540} \text{ rad}.$$
+
+**Example 2 — arc length.** A wheel of radius 25 cm rolls so that
+a point traces an arc of 30 cm. Find the angle swept (radians and
+degrees).
+
+$\theta = \ell/r = 30/25 = 1.2$ rad.
+
+In degrees: $1.2 \cdot 180/\pi \approx 68.75°$.
+
+**Example 3 — minute hand of a clock.** Through what angle (in
+radians) does a minute hand sweep in 40 min?
+
+A full revolution = 60 min = $2\pi$ rad. So 40 min sweeps
+$\tfrac{40}{60} \cdot 2\pi = \tfrac{4\pi}{3}$ rad $= 240°$.
+
+**Example 4 — coterminal-angle reduction.** Find $\sin\tfrac{19\pi}{3}$.
+
+Reduce modulo $2\pi$: $\tfrac{19\pi}{3} = 6\pi + \tfrac{\pi}{3}$,
+so $\tfrac{19\pi}{3}$ is coterminal with $\tfrac{\pi}{3}$.
+Therefore $\sin\tfrac{19\pi}{3} = \sin\tfrac{\pi}{3} = \tfrac{\sqrt{3}}{2}$.
+
 ## Interactive
 
 :::widget type=coordinate-plane points=[{"x":1,"y":0,"label":"0°"},{"x":0.866,"y":0.5,"label":"30°"},{"x":0.707,"y":0.707,"label":"45°"},{"x":0.5,"y":0.866,"label":"60°"},{"x":0,"y":1,"label":"90°"},{"x":-1,"y":0,"label":"180°"},{"x":0,"y":-1,"label":"270°"}] xMin=-1.5 xMax=1.5 yMin=-1.5 yMax=1.5:::

@@ -126,6 +126,48 @@ A function $f$ is **continuous at $a$** if:
 
 > ReLU is continuous everywhere. Sigmoid is continuous. Step function is **not** continuous at 0.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — power-rule limit.** Evaluate $\displaystyle\lim_{x \to 2} \frac{x^5 - 32}{x - 2}$.
+
+Recognise the standard form $\lim_{x \to a}(x^n - a^n)/(x - a) = n a^{n - 1}$ with $n = 5, a = 2$:
+
+$$\lim_{x \to 2}\frac{x^5 - 32}{x - 2} = 5 \cdot 2^4 = 80.$$
+
+(Equivalently, factor: $x^5 - 32 = (x - 2)(x^4 + 2x^3 + 4x^2 + 8x + 16)$, cancel, and substitute.)
+
+**Example 2 — trig limit.** Evaluate $\displaystyle\lim_{x \to 0} \frac{1 - \cos x}{x^2}$.
+
+Use $1 - \cos x = 2\sin^2(x/2)$:
+
+$$\frac{1 - \cos x}{x^2} = \frac{2\sin^2(x/2)}{x^2} = \frac{1}{2}\left(\frac{\sin(x/2)}{x/2}\right)^2.$$
+
+As $x \to 0$, $x/2 \to 0$, so $\sin(x/2)/(x/2) \to 1$:
+
+$$\lim_{x \to 0}\frac{1 - \cos x}{x^2} = \tfrac{1}{2} \cdot 1^2 = \tfrac{1}{2}.$$
+
+**Example 3 — exponential limit.** Evaluate $\displaystyle\lim_{x \to 0} \frac{e^{3x} - 1}{x}$.
+
+Use the standard limit $(e^u - 1)/u \to 1$ with $u = 3x$:
+
+$$\frac{e^{3x} - 1}{x} = 3 \cdot \frac{e^{3x} - 1}{3x} \xrightarrow{x \to 0} 3 \cdot 1 = 3.$$
+
+**Example 4 — $1^\infty$ form.** Evaluate $\displaystyle\lim_{x \to 0}(1 + 2x)^{1/x}$.
+
+Use $(1 + au)^{1/u} \to e^a$ as $u \to 0$. With $u = x, a = 2$:
+
+$$\lim_{x \to 0}(1 + 2x)^{1/x} = e^2.$$
+
+The same trick handles compound-interest limits: $\lim_{n \to \infty}(1 + r/n)^n = e^r$.
+
+**Example 5 — limit at infinity.** Evaluate $\displaystyle\lim_{x \to \infty}\frac{3x^3 + 5x - 1}{2x^3 - x + 7}$.
+
+For a rational function, the limit at infinity equals the ratio of leading coefficients (same degree top and bottom):
+
+$$\lim_{x \to \infty}\frac{3x^3 + 5x - 1}{2x^3 - x + 7} = \frac{3}{2}.$$
+
+(Formally: divide top and bottom by $x^3$; the lower-order terms vanish.)
+
 ## Python Verification
 
 ```python

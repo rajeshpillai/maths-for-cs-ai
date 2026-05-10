@@ -135,6 +135,44 @@ $R_2 \leftarrow R_2 - \frac{1}{2}R_1$: $\begin{pmatrix} 2 & 4 \\ 0 & 3 \end{pmat
 
 For upper triangular matrices, $\det$ = product of diagonal: $2 \times 3 = 6$ ✓
 
+### Worked examples (NCERT-style)
+
+**Example 1 — area of a triangle by determinant.** Find the area of the triangle with vertices $(1, 0)$, $(2, 4)$, $(5, 1)$.
+
+The determinant formula:
+
+$$\text{Area} = \tfrac{1}{2}\left|\det\begin{pmatrix} x_1 & y_1 & 1 \\ x_2 & y_2 & 1 \\ x_3 & y_3 & 1 \end{pmatrix}\right| = \tfrac{1}{2}\left|\det\begin{pmatrix} 1 & 0 & 1 \\ 2 & 4 & 1 \\ 5 & 1 & 1 \end{pmatrix}\right|.$$
+
+Cofactor expansion along row 1:
+
+$$\det = 1 \cdot \begin{vmatrix} 4 & 1 \\ 1 & 1 \end{vmatrix} - 0 \cdot \begin{vmatrix} 2 & 1 \\ 5 & 1 \end{vmatrix} + 1 \cdot \begin{vmatrix} 2 & 4 \\ 5 & 1 \end{vmatrix} = 1 \cdot (4 - 1) - 0 + 1 \cdot (2 - 20) = 3 - 18 = -15.$$
+
+$$\text{Area} = \tfrac{1}{2} \cdot 15 = 7.5 \text{ square units}.$$
+
+**Example 2 — collinearity test.** Are $(1, 1)$, $(2, 3)$, $(4, 7)$ collinear?
+
+If the area-formula determinant is zero, they lie on a single line:
+
+$$\det\begin{pmatrix} 1 & 1 & 1 \\ 2 & 3 & 1 \\ 4 & 7 & 1 \end{pmatrix} = 1 \cdot (3 - 7) - 1 \cdot (2 - 4) + 1 \cdot (14 - 12) = -4 + 2 + 2 = 0.$$
+
+Yes — collinear. (Sanity check: the slope $1\to2$ is $(3-1)/(2-1) = 2$ and $2\to3$ is $(7-3)/(4-2) = 2$. ✓)
+
+**Example 3 — solving a system by Cramer's rule.** Solve $2x + y = 5,\ 3x + 4y = 10$ using determinants.
+
+$$\det \mathbf{A} = \begin{vmatrix} 2 & 1 \\ 3 & 4 \end{vmatrix} = 8 - 3 = 5.$$
+
+For $x$, replace column 1 with the RHS:
+
+$$\det \mathbf{A}_x = \begin{vmatrix} 5 & 1 \\ 10 & 4 \end{vmatrix} = 20 - 10 = 10 \;\Longrightarrow\; x = \frac{10}{5} = 2.$$
+
+For $y$, replace column 2:
+
+$$\det \mathbf{A}_y = \begin{vmatrix} 2 & 5 \\ 3 & 10 \end{vmatrix} = 20 - 15 = 5 \;\Longrightarrow\; y = \frac{5}{5} = 1.$$
+
+Check: $2(2) + 1 = 5$ ✓, $3(2) + 4(1) = 10$ ✓. So $(x, y) = (2, 1)$.
+
+Cramer's rule works whenever $\det \mathbf{A} \ne 0$. If $\det \mathbf{A} = 0$, the system either has no solution or infinitely many — check via the augmented matrix.
+
 ## Visualisation — The Four Canonical Cases
 
 The fastest way to *see* what $\det(\mathbf{A})$ means is to take the unit

@@ -79,6 +79,32 @@ $30°$-$60°$-$90°$ and $45°$-$45°$-$90°$ "special triangles":
 
 Worth memorising. They appear constantly.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — given $\sin\theta$, find $\cos\theta$ and $\tan\theta$.**
+A right triangle has $\sin\theta = 3/5$. Find $\cos\theta$,
+$\tan\theta$, and the side ratios.
+
+By Pythagoras applied to the right triangle with opposite = 3,
+hypotenuse = 5: adjacent $= \sqrt{5^2 - 3^2} = \sqrt{16} = 4$.
+So $\cos\theta = 4/5$, $\tan\theta = 3/4$.
+
+This is the canonical $3$-$4$-$5$ right triangle.
+
+**Example 2 — exact value of $\sin 75°$.**
+Use $75° = 45° + 30°$ and the addition formula:
+
+$$\sin 75° = \sin(45° + 30°) = \sin 45°\cos 30° + \cos 45°\sin 30°.$$
+
+Substitute the special values:
+
+$$= \tfrac{\sqrt{2}}{2} \cdot \tfrac{\sqrt{3}}{2} + \tfrac{\sqrt{2}}{2} \cdot \tfrac{1}{2} = \tfrac{\sqrt{6} + \sqrt{2}}{4}.$$
+
+**Example 3 — Pythagorean identity check.** Verify
+$\sin^2 60° + \cos^2 60° = 1$ using exact values.
+
+$$\sin^2 60° + \cos^2 60° = \left(\tfrac{\sqrt{3}}{2}\right)^2 + \left(\tfrac{1}{2}\right)^2 = \tfrac{3}{4} + \tfrac{1}{4} = 1. \;\checkmark$$
+
 ## Interactive
 
 :::widget type=numeric-input prompt="$\\sin 30° = ?$ — type the decimal." answer=0.5 explain="$1/2$.":::

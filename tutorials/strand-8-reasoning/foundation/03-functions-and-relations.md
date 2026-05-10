@@ -79,6 +79,43 @@ defined and $f(x)$ is in $g$'s domain.
 **Inverse**: $f^{-1} \circ f = \text{id}_A$ and $f \circ f^{-1} =
 \text{id}_B$. Exists iff $f$ is bijective.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — function or not?**
+$R = \{(1, 3), (1, 5), (2, 5)\}$. The first coordinate $1$ pairs
+with both $3$ and $5$, so $R$ is **not** a function. Compare with
+$R' = \{(2, 1), (4, 2), (6, 3)\}$ — every first coordinate
+distinct — which **is** a function.
+
+**Example 2 — equivalence relation on $\mathbb{Z}$.** Define
+$a R b$ iff $a - b$ is divisible by $5$. Check it is an
+equivalence relation.
+
+- Reflexive: $a - a = 0$, and $5 \mid 0$. ✓
+- Symmetric: $5 \mid (a-b) \Rightarrow 5 \mid -(a-b) = (b-a)$. ✓
+- Transitive: $5 \mid (a-b)$ and $5 \mid (b-c) \Rightarrow
+  5 \mid (a-c)$. ✓
+
+The equivalence classes partition $\mathbb{Z}$ into five residue
+classes mod 5.
+
+**Example 3 — verify an inverse.** Let
+$f(x) = 2x + 3$ and $g(x) = (x - 3)/2$ on $\mathbb{R}$. Show
+$g = f^{-1}$.
+
+$f(g(x)) = 2 \cdot \tfrac{x - 3}{2} + 3 = x$. ✓
+$g(f(x)) = \tfrac{(2x + 3) - 3}{2} = x$. ✓
+
+Both compositions are the identity, so $g$ inverts $f$.
+
+**Example 4 — counting functions.** How many functions
+$f : \{a, b, c, d\} \to \{0, 1\}$ exist?
+
+Each of the 4 inputs has 2 independent output choices, so
+$2^4 = 16$ functions total. (Of these, $2$ are constant, and the
+others split between bijections — none, since
+$|A| = 4 \ne 2 = |B|$ — and surjections.)
+
 ## Computational
 
 ```python

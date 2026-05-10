@@ -94,6 +94,38 @@ combinations. We'll see this care in later lessons.
 }
 :::
 
+### Worked examples (NCERT-style)
+
+**Example 1 — clothing combinations.** A school student has $2$
+schoolbags, $3$ tiffin boxes, and $2$ water bottles. He picks one
+of each. How many distinct loadouts?
+
+By the multiplication principle: $2 \cdot 3 \cdot 2 = 12$
+loadouts.
+
+**Example 2 — 3-digit numbers, no repetition.** How many 3-digit
+numbers can be formed from $\{1, 2, 3, 4, 5\}$ with no digit
+repeated?
+
+Hundreds: $5$ choices. Tens: $4$ remaining. Units: $3$ remaining.
+
+$$5 \cdot 4 \cdot 3 = 60.$$
+
+**Example 3 — 3-digit numbers from $\{0, 1, \ldots, 9\}$ with
+repetition allowed.** Count carefully.
+
+Hundreds: **$9$** choices (cannot be $0$ — else it's a 2-digit
+number). Tens: $10$ choices. Units: $10$ choices.
+
+$$9 \cdot 10 \cdot 10 = 900.$$
+
+**Example 4 — addition rule.** A college lets a student take
+*either* one of $5$ science electives *or* one of $3$ humanities
+electives (exactly one elective). How many options?
+
+The two cases are mutually exclusive (you can't take both as your
+single elective), so by the addition rule: $5 + 3 = 8$ options.
+
 ## Symbolic
 
 The multiplication principle, formally:

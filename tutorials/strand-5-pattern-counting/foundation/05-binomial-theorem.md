@@ -101,6 +101,62 @@ notice that **row $n$ gives the coefficients of $(a + b)^n$**:
 So $(a + b)^7$ expands with coefficients $1, 7, 21, 35, 35, 21, 7, 1$
 — row $7$.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — direct expansion of $(1 - 2x)^5$.**
+
+Compare with $(a + b)^n$: $a = 1$, $b = -2x$, $n = 5$. Apply the
+binomial theorem term by term:
+
+$$(1 - 2x)^5 = \sum_{r=0}^{5} \binom{5}{r}(1)^{5-r}(-2x)^r.$$
+
+Computing each term ($r = 0, 1, 2, 3, 4, 5$):
+
+$$1 - 10x + 40x^2 - 80x^3 + 80x^4 - 32x^5.$$
+
+The signs alternate because $b = -2x$ has a negative.
+
+**Example 2 — term independent of $x$.** In the expansion of
+$\left(2x - \tfrac{1}{x}\right)^{10}$, find the term that does not
+contain $x$.
+
+General term: $T_{r+1} = \binom{10}{r}(2x)^{10-r}(-1/x)^r$.
+Simplify the $x$-exponent:
+
+$$T_{r+1} = \binom{10}{r}\,2^{10-r}\,(-1)^r\,x^{10-r}\,x^{-r} = \binom{10}{r}\,2^{10-r}\,(-1)^r\,x^{10-2r}.$$
+
+For independence from $x$, set $10 - 2r = 0 \Rightarrow r = 5$:
+
+$$T_6 = \binom{10}{5}\,2^5\,(-1)^5 = 252 \cdot 32 \cdot (-1) = -8064.$$
+
+**Example 3 — divisibility.** Show that $9^{n+1} - 8n - 9$ is
+divisible by $64$ for every positive integer $n$.
+
+Write $9 = 1 + 8$ and apply the binomial theorem:
+
+$$9^n = (1 + 8)^n = 1 + 8n + \binom{n}{2}\,8^2 + \binom{n}{3}\,8^3 + \cdots$$
+
+Multiply by $9$:
+
+$$9^{n+1} = 9 \cdot 9^n = 9 + 72n + 9\left[\binom{n}{2}\,8^2 + \binom{n}{3}\,8^3 + \cdots\right].$$
+
+Subtract $8n + 9$:
+
+$$9^{n+1} - 8n - 9 = (9 - 9) + (72n - 8n) + 9 \cdot \text{(higher 8-power terms)} = 64n + 9 \cdot 64 \cdot K$$
+
+for some integer $K$. So the expression is a multiple of $64$. ∎
+
+**Example 4 — numerical evaluation.** Compute $(99)^5$.
+
+Write $99 = 100 - 1$ and expand:
+
+$$(100 - 1)^5 = 100^5 - 5 \cdot 100^4 + 10 \cdot 100^3 - 10 \cdot 100^2 + 5 \cdot 100 - 1.$$
+
+$$= 10\,000\,000\,000 - 500\,000\,000 + 10\,000\,000 - 100\,000 + 500 - 1 = 9\,509\,900\,499.$$
+
+Much faster than direct multiplication — the binomial theorem is a
+practical computational tool.
+
 ## Symbolic
 
 The binomial theorem:

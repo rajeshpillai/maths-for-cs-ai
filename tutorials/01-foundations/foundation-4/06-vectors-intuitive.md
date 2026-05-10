@@ -101,6 +101,34 @@ $\hat{\mathbf{j}} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}$.
 
 Any vector: $\mathbf{v} = v_x \hat{\mathbf{i}} + v_y \hat{\mathbf{j}}$.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — direction cosines from a point.** Find the direction cosines of the line joining $A(2, 3, 4)$ to $B(-1, 1, 2)$.
+
+Direction ratios are just the components of $\vec{AB}$:
+
+$$\vec{AB} = (-1 - 2,\ 1 - 3,\ 2 - 4) = (-3, -2, -2).$$
+
+Magnitude: $|\vec{AB}| = \sqrt{(-3)^2 + (-2)^2 + (-2)^2} = \sqrt{9 + 4 + 4} = \sqrt{17}$.
+
+Direction cosines:
+
+$$\left(-\tfrac{3}{\sqrt{17}},\ -\tfrac{2}{\sqrt{17}},\ -\tfrac{2}{\sqrt{17}}\right).$$
+
+Check: $\tfrac{9}{17} + \tfrac{4}{17} + \tfrac{4}{17} = \tfrac{17}{17} = 1$. ✓ (The identity $l^2 + m^2 + n^2 = 1$ is automatic when you divide direction ratios by the magnitude.)
+
+**Example 2 — unit vector in a given direction.** Find a unit vector in the direction of $\vec{a} = 2\hat{i} + 3\hat{j} - \hat{k}$.
+
+$|\vec{a}| = \sqrt{4 + 9 + 1} = \sqrt{14}$. The unit vector is
+
+$$\hat{a} = \frac{\vec{a}}{|\vec{a}|} = \tfrac{1}{\sqrt{14}}(2\hat{i} + 3\hat{j} - \hat{k}) = \tfrac{2}{\sqrt{14}}\hat{i} + \tfrac{3}{\sqrt{14}}\hat{j} - \tfrac{1}{\sqrt{14}}\hat{k}.$$
+
+**Example 3 — section formula (vector form).** Find the position vector of the point $R$ that divides $\vec{AB}$ in the ratio $2:3$ internally, where $A$ has position vector $\vec{a} = \hat{i} + 2\hat{j} - \hat{k}$ and $B$ has $\vec{b} = -\hat{i} + \hat{j} + \hat{k}$.
+
+Section formula: $\vec{R} = \dfrac{m\vec{b} + n\vec{a}}{m + n}$ with $m:n = 2:3$:
+
+$$\vec{R} = \frac{2(-\hat{i} + \hat{j} + \hat{k}) + 3(\hat{i} + 2\hat{j} - \hat{k})}{2 + 3} = \frac{(-2 + 3)\hat{i} + (2 + 6)\hat{j} + (2 - 3)\hat{k}}{5} = \tfrac{1}{5}\hat{i} + \tfrac{8}{5}\hat{j} - \tfrac{1}{5}\hat{k}.$$
+
 ### Visualisation — vector addition diagram
 
 ```python

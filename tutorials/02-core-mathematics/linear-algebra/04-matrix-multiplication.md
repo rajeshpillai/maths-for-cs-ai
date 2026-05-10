@@ -110,6 +110,41 @@ $$\begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} 3 \\ 5 \end{pmatri
 
 This is why the identity matrix does nothing — it just reconstructs the vector from the standard basis.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — full $3 \times 2$ product.** With $\mathbf{A} = \begin{pmatrix} 1 & 1 & -1 \\ 2 & 0 & 3 \\ -1 & 2 & 0 \end{pmatrix}$ and $\mathbf{B} = \begin{pmatrix} 1 & 3 \\ 0 & 2 \\ -1 & 4 \end{pmatrix}$, compute $\mathbf{A}\mathbf{B}$.
+
+Sizes: $\mathbf{A}: 3 \times 3$, $\mathbf{B}: 3 \times 2$. Inner dimensions match (both $3$), so $\mathbf{A}\mathbf{B}: 3 \times 2$.
+
+Compute entry-by-entry: $(\mathbf{A}\mathbf{B})_{ij} = \text{(row } i \text{ of } \mathbf{A}\text{)} \cdot \text{(col } j \text{ of } \mathbf{B}\text{)}$.
+
+- $(\mathbf{A}\mathbf{B})_{11}$: row 1 = $(1, 1, -1)$, col 1 = $(1, 0, -1)^T$. Dot product: $1 \cdot 1 + 1 \cdot 0 + (-1)(-1) = 2$.
+- $(\mathbf{A}\mathbf{B})_{12}$: row 1, col 2 = $(3, 2, 4)^T$. $1 \cdot 3 + 1 \cdot 2 + (-1) \cdot 4 = 1$.
+- $(\mathbf{A}\mathbf{B})_{21}$: row 2 = $(2, 0, 3)$, col 1: $2 \cdot 1 + 0 \cdot 0 + 3 \cdot (-1) = -1$.
+- $(\mathbf{A}\mathbf{B})_{22}$: row 2, col 2: $2 \cdot 3 + 0 \cdot 2 + 3 \cdot 4 = 18$.
+- $(\mathbf{A}\mathbf{B})_{31}$: row 3 = $(-1, 2, 0)$, col 1: $(-1)(1) + 2 \cdot 0 + 0 \cdot (-1) = -1$.
+- $(\mathbf{A}\mathbf{B})_{32}$: row 3, col 2: $(-1)(3) + 2 \cdot 2 + 0 \cdot 4 = 1$.
+
+$$\mathbf{A}\mathbf{B} = \begin{pmatrix} 2 & 1 \\ -1 & 18 \\ -1 & 1 \end{pmatrix}.$$
+
+**Example 2 — $\mathbf{A}\mathbf{B} = \mathbf{O}$ without either being zero.** Find non-zero $\mathbf{A}, \mathbf{B}$ with $\mathbf{A}\mathbf{B} = \mathbf{O}$.
+
+$$\mathbf{A} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}, \quad \mathbf{B} = \begin{pmatrix} 0 & 0 \\ 0 & 1 \end{pmatrix} \;\Longrightarrow\; \mathbf{A}\mathbf{B} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}.$$
+
+Both $\mathbf{A}$ and $\mathbf{B}$ are non-zero, but their product is the zero matrix. Cancellation fails in matrix algebra — *do not* conclude "$\mathbf{B} = \mathbf{O}$" from "$\mathbf{A}\mathbf{B} = \mathbf{O}$".
+
+**Example 3 — $(\mathbf{A} + \mathbf{B})^2$ expanded correctly.** With $\mathbf{A} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}$, $\mathbf{B} = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$, compute $(\mathbf{A} + \mathbf{B})^2$ and verify it does *not* equal $\mathbf{A}^2 + 2\mathbf{A}\mathbf{B} + \mathbf{B}^2$.
+
+$\mathbf{A} + \mathbf{B} = \begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}$. Square: $(\mathbf{A} + \mathbf{B})^2 = \begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}\begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}$.
+
+Now $\mathbf{A}\mathbf{B} = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}$ and $\mathbf{B}\mathbf{A} = \begin{pmatrix} 0 & 0 \\ 0 & 0 \end{pmatrix}$ — they're not equal. The correct expansion is
+
+$$(\mathbf{A} + \mathbf{B})^2 = \mathbf{A}^2 + \mathbf{A}\mathbf{B} + \mathbf{B}\mathbf{A} + \mathbf{B}^2.$$
+
+Plugging in: $\mathbf{A}^2 = \mathbf{A}$, $\mathbf{B}^2 = \mathbf{O}$, so RHS $= \mathbf{A} + \mathbf{A}\mathbf{B} + \mathbf{O} + \mathbf{O} = \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} + \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 0 & 0 \end{pmatrix}$. ✓
+
+If you'd written $\mathbf{A}^2 + 2\mathbf{A}\mathbf{B} + \mathbf{B}^2$ you'd get $\begin{pmatrix} 1 & 2 \\ 0 & 0 \end{pmatrix}$ — wrong, because the cross-terms $\mathbf{A}\mathbf{B}$ and $\mathbf{B}\mathbf{A}$ differ.
+
 ## Python Verification
 
 ```python

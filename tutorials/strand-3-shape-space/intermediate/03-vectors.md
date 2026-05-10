@@ -119,6 +119,38 @@ $$
 |k \mathbf{v}| = |k| \cdot |\mathbf{v}|.
 $$
 
+### Worked examples (NCERT-style)
+
+**Example 1 — direction cosines.** Find the direction cosines of
+the line joining $A(2, 3, 4)$ and $B(-1, 1, 2)$.
+
+Direction ratios: $(-3, -2, -2)$. Magnitude:
+$\sqrt{9 + 4 + 4} = \sqrt{17}$. Direction cosines:
+
+$$\left(-\tfrac{3}{\sqrt{17}}, -\tfrac{2}{\sqrt{17}}, -\tfrac{2}{\sqrt{17}}\right).$$
+
+Check: $\tfrac{9 + 4 + 4}{17} = 1$. ✓
+
+**Example 2 — angle between two vectors.** Find the angle between
+$\vec{a} = (1, 1, 1)$ and $\vec{b} = (-1, 2, -2)$.
+
+$\vec{a} \cdot \vec{b} = -1 + 2 - 2 = -1$. $|\vec{a}| = \sqrt{3}$,
+$|\vec{b}| = 3$.
+
+$\cos\theta = -1/(3\sqrt{3}) \approx -0.192$, so
+$\theta \approx 101.1°$.
+
+**Example 3 — area of a parallelogram.** Find the area of the
+parallelogram whose adjacent sides are
+$\vec{a} = (1, 2, 4)$ and $\vec{b} = (3, -1, -2)$.
+
+$\vec{a} \times \vec{b} = (2 \cdot (-2) - 4 \cdot (-1),\ 4 \cdot 3
+- 1 \cdot (-2),\ 1 \cdot (-1) - 2 \cdot 3) = (0, 14, -7)$.
+
+Magnitude: $\sqrt{0 + 196 + 49} = \sqrt{245} = 7\sqrt{5}$.
+
+Area $= 7\sqrt{5}$.
+
 ## Computational
 
 ```python

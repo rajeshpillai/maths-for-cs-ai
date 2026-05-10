@@ -111,6 +111,36 @@ $$\mathbf{b} - \text{proj}_{\mathbf{a}} \mathbf{b} = \begin{pmatrix} 2 \\ 3 \end
 
 This residual is **orthogonal** to $\mathbf{a}$: $\begin{pmatrix} 4 \\ 0 \end{pmatrix} \cdot \begin{pmatrix} 0 \\ 3 \end{pmatrix} = 0$ ✓
 
+### Worked examples (NCERT-style)
+
+**Example 1 — angle between two vectors.** Find the angle between $\vec{a} = \hat{i} + \hat{j} + \hat{k}$ and $\vec{b} = -\hat{i} + 2\hat{j} - 2\hat{k}$.
+
+Dot product: $\vec{a} \cdot \vec{b} = -1 + 2 - 2 = -1$.
+
+Magnitudes: $|\vec{a}| = \sqrt{3}$, $|\vec{b}| = \sqrt{1 + 4 + 4} = 3$.
+
+$$\cos\theta = \frac{-1}{3\sqrt{3}} = -\frac{1}{3\sqrt{3}} \approx -0.192.$$
+
+So $\theta \approx 101.1°$.
+
+**Example 2 — orthogonality test.** For what value of $k$ are $\vec{a} = 2\hat{i} - \hat{j} + 3\hat{k}$ and $\vec{b} = k\hat{i} + 4\hat{j} + 2\hat{k}$ perpendicular?
+
+Two vectors are perpendicular iff $\vec{a} \cdot \vec{b} = 0$:
+
+$$\vec{a} \cdot \vec{b} = 2k - 4 + 6 = 2k + 2 = 0 \;\Longrightarrow\; k = -1.$$
+
+**Example 3 — projection of $\vec{a}$ on $\vec{b}$.** $\vec{a} = 2\hat{i} + 3\hat{j} + 2\hat{k}$, $\vec{b} = \hat{i} + 2\hat{j} + \hat{k}$.
+
+Scalar projection:
+
+$$\text{proj}_{\vec{b}} \vec{a} = \frac{\vec{a} \cdot \vec{b}}{|\vec{b}|} = \frac{2 + 6 + 2}{\sqrt{1 + 4 + 1}} = \frac{10}{\sqrt{6}} = \frac{10\sqrt{6}}{6} = \frac{5\sqrt{6}}{3}.$$
+
+**Example 4 — work done.** A force $\vec{F} = 4\hat{i} + \hat{j} - 3\hat{k}$ N acts on a body which is displaced from $A(1, 2, 3)$ to $B(5, 4, 1)$ (in metres). Compute the work done.
+
+The displacement is $\vec{d} = \vec{B} - \vec{A} = 4\hat{i} + 2\hat{j} - 2\hat{k}$.
+
+Work $= \vec{F} \cdot \vec{d} = (4)(4) + (1)(2) + (-3)(-2) = 16 + 2 + 6 = 24$ joules.
+
 ## Python Verification
 
 ```python

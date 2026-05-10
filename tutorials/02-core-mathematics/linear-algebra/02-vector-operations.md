@@ -132,6 +132,52 @@ $$\begin{pmatrix} 2 \\ 3 \\ 4 \end{pmatrix} \times \begin{pmatrix} 5 \\ 6 \\ 7 \
 
 $$\mathbf{a} \times \mathbf{b} = \det \begin{pmatrix} \hat{\mathbf{i}} & \hat{\mathbf{j}} & \hat{\mathbf{k}} \\ a_1 & a_2 & a_3 \\ b_1 & b_2 & b_3 \end{pmatrix}$$
 
+### Worked examples (NCERT-style)
+
+**Example 1 — angle between two vectors.** Find the angle between $\vec{a} = 2\hat{i} + 3\hat{j} - \hat{k}$ and $\vec{b} = -\hat{i} + \hat{j} + 2\hat{k}$.
+
+Dot product: $\vec{a} \cdot \vec{b} = (2)(-1) + (3)(1) + (-1)(2) = -2 + 3 - 2 = -1$.
+
+Magnitudes: $|\vec{a}| = \sqrt{4 + 9 + 1} = \sqrt{14}$, $|\vec{b}| = \sqrt{1 + 1 + 4} = \sqrt{6}$.
+
+$$\cos\theta = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}||\vec{b}|} = \frac{-1}{\sqrt{14}\sqrt{6}} = \frac{-1}{\sqrt{84}} \approx -0.109.$$
+
+So $\theta = \cos^{-1}(-1/\sqrt{84}) \approx 96.3°$. (The negative sign tells us the angle is obtuse.)
+
+**Example 2 — area of a triangle by cross product.** Find the area of the triangle with vertices $A(1, 1, 1)$, $B(2, 3, 5)$, $C(4, 0, -1)$.
+
+Form two edge vectors:
+
+$$\vec{AB} = (1, 2, 4), \quad \vec{AC} = (3, -1, -2).$$
+
+Cross product:
+
+$$\vec{AB} \times \vec{AC} = \det\begin{pmatrix} \hat{i} & \hat{j} & \hat{k} \\ 1 & 2 & 4 \\ 3 & -1 & -2 \end{pmatrix} = \hat{i}(2 \cdot (-2) - 4 \cdot (-1)) - \hat{j}(1 \cdot (-2) - 4 \cdot 3) + \hat{k}(1 \cdot (-1) - 2 \cdot 3).$$
+
+$$= \hat{i}(-4 + 4) - \hat{j}(-2 - 12) + \hat{k}(-1 - 6) = 0\hat{i} + 14\hat{j} - 7\hat{k}.$$
+
+Magnitude: $|\vec{AB} \times \vec{AC}| = \sqrt{0 + 196 + 49} = \sqrt{245} = 7\sqrt{5}$.
+
+Area $= \tfrac{1}{2} \cdot 7\sqrt{5} = \tfrac{7\sqrt{5}}{2}$ square units.
+
+**Example 3 — coplanarity test.** Are $\vec{a} = \hat{i} + 2\hat{j} - \hat{k}$, $\vec{b} = 3\hat{i} - 2\hat{k}$, $\vec{c} = 2\hat{i} + 4\hat{j} + \hat{k}$ coplanar?
+
+Three vectors are coplanar iff the **scalar triple product** is zero:
+
+$$[\vec{a}, \vec{b}, \vec{c}] = \vec{a} \cdot (\vec{b} \times \vec{c}) = \det\begin{pmatrix} 1 & 2 & -1 \\ 3 & 0 & -2 \\ 2 & 4 & 1 \end{pmatrix}.$$
+
+Expand along row 1:
+
+$$= 1 \cdot (0 \cdot 1 - (-2) \cdot 4) - 2 \cdot (3 \cdot 1 - (-2) \cdot 2) + (-1) \cdot (3 \cdot 4 - 0 \cdot 2) = 8 - 14 - 12 = -18.$$
+
+$-18 \ne 0$, so the three vectors are **not coplanar**.
+
+**Example 4 — projection of $\vec{a}$ on $\vec{b}$.** $\vec{a} = (3, 1, 2)$, $\vec{b} = (1, 2, 2)$. Find the (scalar) projection of $\vec{a}$ on $\vec{b}$.
+
+$$\text{proj}_{\vec{b}}\vec{a} = \frac{\vec{a} \cdot \vec{b}}{|\vec{b}|} = \frac{3 \cdot 1 + 1 \cdot 2 + 2 \cdot 2}{\sqrt{1 + 4 + 4}} = \frac{9}{3} = 3.$$
+
+(The full vector projection is $\text{proj}_{\vec{b}}\vec{a} \cdot \hat{b} = 3 \cdot \tfrac{1}{3}(1, 2, 2) = (1, 2, 2)$, but the scalar projection alone is enough for many problems.)
+
 ## Python Verification
 
 ```python

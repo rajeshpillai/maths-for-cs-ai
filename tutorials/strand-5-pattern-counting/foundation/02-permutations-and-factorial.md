@@ -104,6 +104,39 @@ all mean the same thing.
 When $k = n$, $P(n, n) = \dfrac{n!}{0!} = n!$ — full permutations.
 When $k = 1$, $P(n, 1) = n$ — just one position to fill.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — distinct words from `PERMUTATIONS`.** How many
+distinct arrangements of the $12$ letters of `PERMUTATIONS`?
+
+Only `T` repeats (twice). All other letters are distinct.
+
+$$\text{count} = \frac{12!}{2!} = 239\,500\,800.$$
+
+**Example 2 — vowels together.** Of those arrangements, how many
+have all five vowels (E, U, A, I, O) together?
+
+Treat the vowel block as a single unit, leaving $7$ consonants
+(one repeated `T`) plus $1$ block $= 8$ objects to permute:
+
+$$\text{outer} = \frac{8!}{2!} = 20\,160.$$
+
+Inside the block, the $5$ distinct vowels permute in $5! = 120$
+ways. Total: $20\,160 \cdot 120 = 2\,419\,200$.
+
+**Example 3 — circular permutation of $7$ people.** How many
+distinct seatings of $7$ people around a round table?
+
+Fix one person's seat (to break the rotational symmetry); the
+remaining $6$ permute in $6! = 720$ ways. So $(7-1)! = 720$
+seatings.
+
+If clockwise and anticlockwise are considered the same (necklace
+problem), divide by $2$: $720/2 = 360$.
+
+**Example 4 — 3-digit numbers from $\{1, 2, 3, 4, 5\}$ no
+repetition.** Direct application of $\,^5P_3 = 5!/2! = 60$.
+
 ## Interactive
 
 :::widget type=numeric-input prompt="How many ways can $5$ books be arranged in a row?" answer=120 explain="$5! = 5 \\cdot 4 \\cdot 3 \\cdot 2 \\cdot 1 = 120$.":::

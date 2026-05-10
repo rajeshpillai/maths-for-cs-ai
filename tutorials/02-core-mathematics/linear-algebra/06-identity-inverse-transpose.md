@@ -134,6 +134,50 @@ $$\mathbf{x} = \begin{pmatrix} 3 & -1 \\ -5 & 2 \end{pmatrix}\begin{pmatrix} 5 \
 
 **Verify:** $2(2) + 1(1) = 5$ ✓, $5(2) + 3(1) = 13$ ✓
 
+### Worked examples (NCERT-style)
+
+**Example 1 — inverse via row reduction.** Find $\mathbf{A}^{-1}$ for $\mathbf{A} = \begin{pmatrix} 2 & 5 \\ 1 & 3 \end{pmatrix}$ using elementary row operations.
+
+Form the augmented matrix $[\mathbf{A} \mid \mathbf{I}]$ and reduce until the left half becomes $\mathbf{I}$:
+
+$$\left[\begin{array}{cc|cc} 2 & 5 & 1 & 0 \\ 1 & 3 & 0 & 1 \end{array}\right]$$
+
+Swap $R_1 \leftrightarrow R_2$ to get a leading 1:
+
+$$\left[\begin{array}{cc|cc} 1 & 3 & 0 & 1 \\ 2 & 5 & 1 & 0 \end{array}\right]$$
+
+$R_2 \to R_2 - 2R_1$:
+
+$$\left[\begin{array}{cc|cc} 1 & 3 & 0 & 1 \\ 0 & -1 & 1 & -2 \end{array}\right]$$
+
+$R_2 \to -R_2$:
+
+$$\left[\begin{array}{cc|cc} 1 & 3 & 0 & 1 \\ 0 & 1 & -1 & 2 \end{array}\right]$$
+
+$R_1 \to R_1 - 3R_2$:
+
+$$\left[\begin{array}{cc|cc} 1 & 0 & 3 & -5 \\ 0 & 1 & -1 & 2 \end{array}\right]$$
+
+So $\mathbf{A}^{-1} = \begin{pmatrix} 3 & -5 \\ -1 & 2 \end{pmatrix}$.
+
+**Verify by formula.** $\det \mathbf{A} = 2 \cdot 3 - 5 \cdot 1 = 1$, so
+
+$$\mathbf{A}^{-1} = \tfrac{1}{1}\begin{pmatrix} 3 & -5 \\ -1 & 2 \end{pmatrix} \;\checkmark$$
+
+(The two methods agree, as they always must.)
+
+**Example 2 — $(\mathbf{A}\mathbf{B})^{-1} = \mathbf{B}^{-1}\mathbf{A}^{-1}$ — order reverses.** Verify with $\mathbf{A} = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}$ and $\mathbf{B} = \begin{pmatrix} 1 & 0 \\ 3 & 1 \end{pmatrix}$.
+
+$\mathbf{A}\mathbf{B} = \begin{pmatrix} 1 & 2 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ 3 & 1 \end{pmatrix} = \begin{pmatrix} 7 & 2 \\ 3 & 1 \end{pmatrix}$.
+
+$\det(\mathbf{A}\mathbf{B}) = 7 - 6 = 1$, so $(\mathbf{A}\mathbf{B})^{-1} = \begin{pmatrix} 1 & -2 \\ -3 & 7 \end{pmatrix}$.
+
+Now $\mathbf{A}^{-1} = \begin{pmatrix} 1 & -2 \\ 0 & 1 \end{pmatrix}$ and $\mathbf{B}^{-1} = \begin{pmatrix} 1 & 0 \\ -3 & 1 \end{pmatrix}$.
+
+$\mathbf{B}^{-1}\mathbf{A}^{-1} = \begin{pmatrix} 1 & 0 \\ -3 & 1 \end{pmatrix}\begin{pmatrix} 1 & -2 \\ 0 & 1 \end{pmatrix} = \begin{pmatrix} 1 & -2 \\ -3 & 7 \end{pmatrix}$. ✓
+
+In contrast, $\mathbf{A}^{-1}\mathbf{B}^{-1} = \begin{pmatrix} 1 & -2 \\ 0 & 1 \end{pmatrix}\begin{pmatrix} 1 & 0 \\ -3 & 1 \end{pmatrix} = \begin{pmatrix} 7 & -2 \\ -3 & 1 \end{pmatrix}$ — not equal to $(\mathbf{A}\mathbf{B})^{-1}$. The order matters.
+
 ## Python Verification
 
 ```python

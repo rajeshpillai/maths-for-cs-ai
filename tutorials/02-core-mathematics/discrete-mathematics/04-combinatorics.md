@@ -178,6 +178,48 @@ Simple but powerful.
 **Stronger form:** If $n$ items go into $m$ containers, at least one container
 has $\lceil n/m \rceil$ items.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — distinct words from `PERMUTATIONS`.** How many distinct arrangements of the letters of `PERMUTATIONS` exist?
+
+Step 1 — count letters and find repeats. The word has $12$ letters: P, E, R, M, U, T, A, T, I, O, N, S. Only `T` repeats (twice). All other letters are distinct.
+
+Step 2 — apply the formula for permutations with identical objects:
+
+$$\text{distinct arrangements} = \frac{12!}{2!} = \frac{479\,001\,600}{2} = 239\,500\,800.$$
+
+**Example 2 — words with all vowels together.** From the same word `PERMUTATIONS`, how many arrangements have all the vowels (E, U, A, I, O — five distinct vowels) together?
+
+Treat the vowel block as a single unit. We then permute $7$ consonants (one repeated `T`) plus $1$ vowel block $= 8$ objects:
+
+$$\text{outer} = \frac{8!}{2!} = 20\,160.$$
+
+Inside the block, the $5$ vowels permute in $5! = 120$ ways:
+
+$$\text{total} = \frac{8!}{2!} \cdot 5! = 20\,160 \cdot 120 = 2\,419\,200.$$
+
+**Example 3 — cricket team selection.** Select an $11$-player team from $17$ players such that exactly $4$ are bowlers chosen from the $5$ available bowlers (the other $12$ are batters).
+
+By the multiplication principle:
+
+$$\binom{5}{4} \cdot \binom{12}{7} = 5 \cdot 792 = 3\,960.$$
+
+(The first factor chooses the $4$ bowlers; the second chooses the remaining $7$ batters from $12$.)
+
+**Example 4 — 3-digit numbers from $\{0, 1, 2, \ldots, 9\}$ with repetition allowed.** How many?
+
+The hundreds digit cannot be $0$ (else it's a $2$-digit number) — $9$ choices. The tens digit has $10$ choices (any digit, repetition allowed). The units digit has $10$ choices.
+
+$$\text{total} = 9 \cdot 10 \cdot 10 = 900.$$
+
+**Example 5 — number of relations from $A$ to $B$ where $|A| = 3, |B| = 2$.**
+
+Each relation is a subset of $A \times B$. $|A \times B| = 3 \cdot 2 = 6$, so the number of subsets is
+
+$$2^6 = 64.$$
+
+So there are $64$ possible relations from $A$ to $B$.
+
 ## Python Verification
 
 ```python

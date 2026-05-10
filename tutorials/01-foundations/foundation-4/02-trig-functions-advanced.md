@@ -100,6 +100,46 @@ sides $1$, $\sqrt{3}$, $2$
 **Memory trick:** For sine at $0°, 30°, 45°, 60°, 90°$, write
 $\sqrt{0}/2, \sqrt{1}/2, \sqrt{2}/2, \sqrt{3}/2, \sqrt{4}/2$.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — given one ratio, find the rest.** $\tan x = -5/12$ and $x$ lies in the second quadrant. Find $\sin x$, $\cos x$, $\sec x$, $\csc x$, $\cot x$.
+
+Step 1 — use the Pythagorean identity $1 + \tan^2 x = \sec^2 x$:
+
+$$\sec^2 x = 1 + \tfrac{25}{144} = \tfrac{169}{144} \;\Longrightarrow\; \sec x = \pm \tfrac{13}{12}.$$
+
+In QII, $\sec$ is negative (since $\cos$ is negative there), so $\sec x = -\tfrac{13}{12}$, giving $\cos x = -\tfrac{12}{13}$.
+
+Step 2 — recover $\sin x$ from $\tan x = \sin x / \cos x$:
+
+$$\sin x = \tan x \cdot \cos x = \left(-\tfrac{5}{12}\right) \left(-\tfrac{12}{13}\right) = \tfrac{5}{13}.$$
+
+Positive — consistent with QII.
+
+Step 3 — reciprocals: $\csc x = \tfrac{13}{5}$, $\cot x = \tfrac{1}{\tan x} = -\tfrac{12}{5}$.
+
+**Example 2 — value at $\tfrac{19\pi}{3}$.** Find $\sin\tfrac{19\pi}{3}$ and $\cos\tfrac{19\pi}{3}$.
+
+Reduce modulo $2\pi$: $\tfrac{19\pi}{3} = 2\pi \cdot 3 + \tfrac{\pi}{3} = 6\pi + \tfrac{\pi}{3}$. So $\tfrac{19\pi}{3}$ and $\tfrac{\pi}{3}$ are coterminal:
+
+$$\sin\tfrac{19\pi}{3} = \sin\tfrac{\pi}{3} = \tfrac{\sqrt{3}}{2}, \quad \cos\tfrac{19\pi}{3} = \cos\tfrac{\pi}{3} = \tfrac{1}{2}.$$
+
+**Example 3 — sign-then-reduce.** Find $\cos(-1710°)$.
+
+Step 1 — use evenness of cosine: $\cos(-\theta) = \cos\theta$, so $\cos(-1710°) = \cos 1710°$.
+
+Step 2 — reduce modulo $360°$: $1710° = 4 \cdot 360° + 270° = 1440° + 270°$. So $\cos 1710° = \cos 270° = 0$.
+
+(For $\sin$, we'd use the *odd* property $\sin(-\theta) = -\sin\theta$, then reduce.)
+
+**Example 4 — `sin` $= 0$ trap.** Solve $\sin x = 0$ for general $x$.
+
+The zeros of sine on $[0, 2\pi)$ are $x = 0$ and $x = \pi$ — exactly the integer multiples of $\pi$. Since $\sin$ has period $2\pi$ but vanishes twice per period symmetrically, the *general* solution is
+
+$$x = n\pi, \quad n \in \mathbb{Z}.$$
+
+Note: students sometimes write only $x = 2n\pi$, missing $x = (2n+1)\pi$. The compact form $n\pi$ catches both.
+
 ### Visualisation — unit circle with special angles
 
 ```python

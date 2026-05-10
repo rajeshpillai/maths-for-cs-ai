@@ -137,6 +137,44 @@ and imaginary part on the vertical. Multiplying by $i$ rotates each
 point $90°$ counterclockwise. This is **why** complex numbers are
 the natural language for $2$D rotations.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — power of $i$.** Compute $i^9 + i^{19}$.
+
+The cycle of $i$ has period 4 ($i, -1, -i, 1$, repeat). Reduce
+exponents modulo 4: $9 \bmod 4 = 1$, so $i^9 = i$;
+$19 \bmod 4 = 3$, so $i^{19} = i^3 = -i$.
+
+Therefore $i^9 + i^{19} = i + (-i) = 0$.
+
+**Example 2 — quadratic with negative discriminant.** Solve
+$x^2 + x + 1 = 0$.
+
+Quadratic formula: $x = \dfrac{-1 \pm \sqrt{1 - 4}}{2} = \dfrac{-1 \pm \sqrt{-3}}{2}$.
+
+Convert $\sqrt{-3} = i\sqrt{3}$:
+
+$$x = \frac{-1 \pm i\sqrt{3}}{2}.$$
+
+Two complex conjugate roots. (Real-coefficient polynomials always
+have complex roots in conjugate pairs.)
+
+**Example 3 — square-root trap.** Why is
+$\sqrt{-2} \cdot \sqrt{-3} = -\sqrt{6}$ and not $+\sqrt{6}$?
+
+The identity $\sqrt{x}\sqrt{y} = \sqrt{xy}$ is valid only for
+$x, y \ge 0$. With negatives we must use $i$ first:
+
+$$\sqrt{-2}\sqrt{-3} = (i\sqrt{2})(i\sqrt{3}) = i^2\sqrt{6} = -\sqrt{6}.$$
+
+**Example 4 — multiplicative inverse via conjugate.** Find
+$(3 + 4i)^{-1}$.
+
+Use $z^{-1} = \bar{z}/|z|^2$. Here $\bar{z} = 3 - 4i$ and
+$|z|^2 = 9 + 16 = 25$. So
+
+$$(3 + 4i)^{-1} = \frac{3 - 4i}{25} = \tfrac{3}{25} - \tfrac{4}{25}i.$$
+
 ## Interactive
 
 :::widget type=numeric-input prompt="Compute $i^7$. (Use the cycle: $i^1, i^2, i^3, i^4, i^5, i^6, i^7$. Type 1 if the answer is $1$, $-1$ if $-1$, $2$ if $i$, $3$ if $-i$.)" answer=3 explain="$i^4 = 1$, so $i^7 = i^4 \\cdot i^3 = 1 \\cdot (-i) = -i$. Type **3** for $-i$. (The cycle: $i^1=i, i^2=-1, i^3=-i, i^4=1$, repeat.)":::

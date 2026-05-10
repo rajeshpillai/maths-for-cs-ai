@@ -96,6 +96,48 @@ $(-\pi, \pi]$ for all four quadrants.
 **Pen & paper:** Point $(-1, -1)$.  $\arctan((-1)/(-1)) = \arctan(1) = \pi/4$
 (wrong — that is Q1).  $\text{atan2}(-1, -1) = -3\pi/4$ (correct — Q3).
 
+### Worked examples (NCERT-style)
+
+**Example 1 — principal value of $\sin^{-1}(-1/2)$.**
+
+We seek the unique angle $\theta \in [-\pi/2, \pi/2]$ with $\sin\theta = -1/2$. Since $\sin$ is odd and $\sin(\pi/6) = 1/2$, we have $\sin(-\pi/6) = -1/2$, and $-\pi/6 \in [-\pi/2, \pi/2]$. So
+
+$$\sin^{-1}(-1/2) = -\pi/6.$$
+
+(*Trap.* Don't write $7\pi/6$ — that's outside the principal branch.)
+
+**Example 2 — out-of-branch composition.** Find $\sin^{-1}(\sin(2\pi/3))$.
+
+The naive answer "$2\pi/3$" is wrong because $2\pi/3 \notin [-\pi/2, \pi/2]$. Reduce $\sin(2\pi/3)$ first:
+
+$$\sin\tfrac{2\pi}{3} = \sin(\pi - \tfrac{2\pi}{3}) = \sin\tfrac{\pi}{3} = \tfrac{\sqrt{3}}{2}.$$
+
+So $\sin^{-1}(\sin(2\pi/3)) = \sin^{-1}(\sqrt{3}/2) = \pi/3$ (the unique angle in the principal branch with sine $\sqrt{3}/2$).
+
+**Example 3 — composition by complementary identity.** Compute $\cot(\tan^{-1} a + \cot^{-1} a)$.
+
+By the identity $\tan^{-1}a + \cot^{-1}a = \pi/2$ (valid for all real $a$):
+
+$$\cot(\tan^{-1}a + \cot^{-1}a) = \cot(\pi/2) = 0.$$
+
+Independent of $a$. The full power of the complementary identity: it collapses an apparently complex composition to a constant.
+
+**Example 4 — inside-out composition.** Compute $\tan^{-1}\!\bigl(2\cos\bigl(2\sin^{-1}(1/2)\bigr)\bigr)$.
+
+Innermost first: $\sin^{-1}(1/2) = \pi/6$. So $2\sin^{-1}(1/2) = \pi/3$.
+
+Next layer: $\cos(\pi/3) = 1/2$. So $2\cos(\pi/3) = 1$.
+
+Outer: $\tan^{-1}(1) = \pi/4$.
+
+$$\tan^{-1}\!\bigl(2\cos(2\sin^{-1}(1/2))\bigr) = \pi/4.$$
+
+**Example 5 — $\tan^{-1}$ sum formula.** Show $\tan^{-1}(1/2) + \tan^{-1}(1/3) = \pi/4$.
+
+Apply the sum formula (valid because $xy = (1/2)(1/3) = 1/6 < 1$):
+
+$$\tan^{-1}\tfrac{1}{2} + \tan^{-1}\tfrac{1}{3} = \tan^{-1}\!\left(\frac{1/2 + 1/3}{1 - (1/2)(1/3)}\right) = \tan^{-1}\!\left(\frac{5/6}{5/6}\right) = \tan^{-1}(1) = \tfrac{\pi}{4}.$$
+
 ### Visualisation — sin and arcsin side by side
 
 ```python

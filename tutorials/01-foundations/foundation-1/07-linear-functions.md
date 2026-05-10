@@ -143,6 +143,50 @@ $$y = -\frac{1}{3}x + 2 + 1 = -\frac{1}{3}x + 3$$
 
 ---
 
+### Worked examples (NCERT-style)
+
+**Example 1 — slope from inclination angle.** Find the slope of a line that makes angle $30°$ with the *positive y-axis*, measured anticlockwise.
+
+The inclination is measured from the *positive x-axis*. If the line is $30°$ from the y-axis, it is $90° + 30° = 120°$ from the x-axis. So:
+
+$$m = \tan 120° = \tan(180° - 60°) = -\tan 60° = -\sqrt{3}.$$
+
+**Example 2 — equation of a line through one point with given slope.** Find the equation of the line crossing the y-axis 2 units above the origin, inclined at $30°$ to the x-axis.
+
+The point is $(0, 2)$ and slope $m = \tan 30° = 1/\sqrt{3}$. Apply point-slope:
+
+$$y - 2 = \tfrac{1}{\sqrt{3}}(x - 0) \;\Longrightarrow\; \sqrt{3}\,(y - 2) = x \;\Longrightarrow\; x - \sqrt{3}\,y + 2\sqrt{3} = 0.$$
+
+**Example 3 — line through two points.** Find the equation of the line through $(-1, 1)$ and $(2, -4)$.
+
+Slope: $m = \dfrac{-4 - 1}{2 - (-1)} = \dfrac{-5}{3}$.
+
+Apply point-slope with $(-1, 1)$:
+
+$$y - 1 = -\tfrac{5}{3}(x + 1) \;\Longrightarrow\; 3(y - 1) = -5(x + 1) \;\Longrightarrow\; 3y - 3 = -5x - 5 \;\Longrightarrow\; 5x + 3y + 2 = 0.$$
+
+**Example 4 — right triangle by slopes.** Show the points $A(4, 4)$, $B(3, 5)$, $C(-1, -1)$ form a right triangle, *without* using the Pythagoras theorem.
+
+Slopes:
+
+$$\text{slope } AB = \frac{5 - 4}{3 - 4} = -1, \quad \text{slope } BC = \frac{-1 - 5}{-1 - 3} = \tfrac{3}{2}, \quad \text{slope } AC = \frac{-1 - 4}{-1 - 4} = 1.$$
+
+Check products: $\text{slope }AB \cdot \text{slope }AC = (-1)(1) = -1$.
+
+So $AB \perp AC$ — the right angle is at $A$. $\triangle ABC$ is a right triangle.
+
+**Example 5 — linear data model.** A copper rod has length $L = 124.942$ cm at $T = 20°\text{C}$ and $L = 125.134$ cm at $T = 110°\text{C}$. Assuming $L$ depends linearly on $T$, express $L$ in terms of $T$.
+
+Two data points: $(20, 124.942)$ and $(110, 125.134)$. Apply two-point form:
+
+$$L - 124.942 = \frac{125.134 - 124.942}{110 - 20}(T - 20) = \frac{0.192}{90}(T - 20).$$
+
+So $L(T) = 124.942 + \tfrac{0.192}{90}(T - 20)$.
+
+The slope $0.192/90 \approx 0.00213$ cm/$°\text{C}$ is the **coefficient of linear thermal expansion** for copper, multiplied by length — an engineering constant, recovered from data.
+
+---
+
 ### Visualisation
 
 ```python

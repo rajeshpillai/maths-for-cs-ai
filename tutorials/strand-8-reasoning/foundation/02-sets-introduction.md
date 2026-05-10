@@ -102,6 +102,41 @@ $$
 $|A \times B| = |A| \cdot |B|$ — the multiplication principle from
 Strand 5.
 
+### Worked examples (NCERT-style)
+
+**Example 1 — element vs subset.** Let $A = \{1, 2, \{3, 4\}, 5\}$.
+
+- $\{3, 4\} \in A$? **Yes** — $\{3, 4\}$ is *listed* as one element.
+- $\{3, 4\} \subseteq A$? **No** — for $\subseteq$ we'd need
+  $3 \in A$ and $4 \in A$; only the bracketed pair is in $A$.
+- $\{1\} \subseteq A$? **Yes** — because $1 \in A$.
+
+Mnemonic: to convert an element to a subset, wrap it in another
+pair of braces. The exception is $\varnothing$, which is a subset
+of every set without needing braces.
+
+**Example 2 — set-builder $\to$ roster.** Write
+$\{x : x \in \mathbb{Z},\ -3 < x < 7\}$ as a roster.
+
+The integers strictly between $-3$ and $7$ are
+$\{-2, -1, 0, 1, 2, 3, 4, 5, 6\}$ — nine elements (both
+endpoints excluded by the strict inequalities).
+
+**Example 3 — equal sets via solving.** Are
+$A = \{x : x \text{ solves } x^2 + 5x + 6 = 0\}$ and $B = \{2, 3\}$
+equal?
+
+Factor: $x^2 + 5x + 6 = (x + 2)(x + 3) = 0 \Rightarrow x = -2, -3$.
+So $A = \{-2, -3\} \ne B$. The trap is reading "$5x + 6$" and
+guessing positive roots without factoring.
+
+**Example 4 — power-set count.** $A = \varnothing$. Find $n(P(A))$.
+
+$n(A) = 0 \Rightarrow n(P(A)) = 2^0 = 1$. Indeed
+$P(\varnothing) = \{\varnothing\}$ — the empty set is itself a
+subset of $\varnothing$, so $P(\varnothing)$ is a singleton, *not*
+empty.
+
 ## Computational
 
 ```python
