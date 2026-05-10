@@ -287,6 +287,15 @@ In CS:
   brackets (every game's winner specified) is $2^{63} \approx 9.2
   \times 10^{18}$. Picking a perfect bracket is harder than any
   lottery.
+- **Board Exam / JEE (CBSE Class 11, Chapter 7 — Permutations and
+  Combinations)** — NCERT Ex 7.4 drills ${}^nC_r = n!/(r!\,(n-r)!)$
+  on selection problems where order doesn't matter. Standard JEE
+  setups: choose a cricket team of 11 from 17 with exactly 4
+  bowlers from the 5 available — ${}^5C_4 \cdot {}^{12}C_7$;
+  number of diagonals of an $n$-gon is ${}^nC_2 - n$; number of
+  handshakes among $n$ people is ${}^nC_2$. Memorise the symmetry
+  ${}^nC_r = {}^nC_{n-r}$ and Pascal's identity
+  ${}^nC_r + {}^nC_{r-1} = {}^{n+1}C_r$.
 
 ## Check Your Understanding
 

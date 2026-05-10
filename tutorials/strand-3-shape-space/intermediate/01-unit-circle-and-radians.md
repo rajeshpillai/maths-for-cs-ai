@@ -159,6 +159,15 @@ print(math.sin(math.pi + 100 * math.pi))    # ≈ 0 (with floating-point error)
   signals into sines and cosines.
 - **Astronomy**: orbital positions are described via angle in
   radians swept per unit time.
+- **Board Exam / JEE (CBSE Class 11, Chapter 3 — Trigonometric
+  Functions)** — NCERT Ex 3.1 drills degree ↔ radian conversion
+  ($\theta_{\text{rad}} = \theta_{\text{deg}} \cdot \pi/180$) and
+  the arc-length formula $\ell = r\theta$ (with $\theta$ in
+  radians). High-weightage JEE setups: minute-hand sweep angle in a
+  given time, finding $\theta$ from $\ell$ and $r$, computing trig
+  values for angles like $\tfrac{19\pi}{3}$ via reduction modulo
+  $2\pi$. Pitfall: writing "$2$" without a degree symbol means
+  **2 radians** — NCERT explicitly flags this.
 
 ## Check Your Understanding
 

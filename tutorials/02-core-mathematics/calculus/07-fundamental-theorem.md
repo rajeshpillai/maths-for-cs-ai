@@ -228,6 +228,7 @@ print(f"Gap (numerical vs FTC): {abs(riemann - (F(b) - F(a))):.2e}")
 - **Black-Scholes & Greeks (Quant Finance)** — option price is an integral over future payoffs; trading desks at Citadel and Jane Street differentiate this using the FTC to compute Delta and Gamma in real time.
 - **Odometer & flow-meter calibration (Industry)** — Bosch ABS and Schlumberger oilfield flow meters integrate velocity/flow rate over time to report distance/volume; the FTC guarantees the differentiated rate matches the sensor reading.
 - **Epidemiology dose-response (Public Health)** — cumulative infection counts in CDC and WHO models are integrals of incidence rates; the FTC lets epidemiologists recover R0 and effective contact rates from cumulative case curves.
+- **Board Exam / JEE (CBSE Class 12, Chapter 7 — Integrals)** — NCERT Ex 7.8 onwards drills the **Fundamental Theorem of Calculus** in its applied form: if $F$ is an antiderivative of $f$ on $[a, b]$, then $\int_a^b f(x)\,dx = F(b) - F(a)$. JEE Mains adds **definite-integral properties** that are exam staples: (i) $\int_a^b f(x)\,dx = \int_a^b f(a + b - x)\,dx$ (king's rule); (ii) $\int_0^{2a} f(x)\,dx = 2\int_0^a f(x)\,dx$ if $f(2a - x) = f(x)$, and $0$ if $f(2a - x) = -f(x)$; (iii) $\int_{-a}^{a} f(x)\,dx = 2\int_0^a f$ for even $f$, $0$ for odd $f$; (iv) $\int_0^a f(x)\,dx + \int_a^b f(x)\,dx = \int_0^b f(x)\,dx$. These often turn an unsolvable integral into a one-line calculation.
 
 ## Check Your Understanding
 

@@ -291,6 +291,7 @@ print(f"  Gap (smaller h → smaller gap)          = {abs(analytical - numerical
 - **Adjoint methods in engineering (Industry)** — Boeing CFD wing-shape optimisation and SpaceX rocket-trajectory design use reverse-mode AD (the chain rule applied backward) to compute sensitivities cheaply over millions of design variables.
 - **Pharmacokinetic compartment models (Pharma)** — clearance rates of one organ feeding the next compose by the chain rule; FDA submissions at Pfizer/AstraZeneca rely on this to derive plasma-concentration sensitivities to dosing schedules.
 - **Climate model attribution (Science)** — IPCC and NCAR run adjoint chain-rule passes through GCM (global climate model) code to attribute warming to specific emission sources.
+- **Board Exam / JEE (CBSE Class 12, Chapter 5 — Continuity and Differentiability)** — the chain rule is the workhorse of NCERT Ex 5.3–5.5. JEE Mains Q-types: (i) compositions like $\frac{d}{dx}\sin(\cos(x^2))$; (ii) implicit differentiation on $x^2 + y^2 = a^2$ etc., where $\frac{d}{dx}y^n = n y^{n-1}\frac{dy}{dx}$ is the chain rule applied with $y$ as the inner function of $x$; (iii) parametric form: $x = a\cos\theta, y = a\sin\theta \Rightarrow \frac{dy}{dx} = -\cot\theta$; (iv) **logarithmic differentiation** for $y = x^{\sin x}$, where neither $n x^{n-1}$ nor $a^x \ln a$ applies — take $\log$ both sides, differentiate by product rule + chain rule.
 
 ## Check Your Understanding
 

@@ -256,6 +256,17 @@ Beyond this strand:
   combinations, exhaustively testable. A function taking three
   $32$-bit integers has $2^{96}$ — exhaustive testing is impossible.
   This forces *property-based testing*.
+- **Board Exam / JEE (CBSE Class 11, Chapter 7 — Permutations and
+  Combinations)** — NCERT Ex 7.1 introduces this as the
+  **Fundamental Principle of Counting** (FPC). Multiplication rule
+  ("AND" between independent stages): $n_1 \cdot n_2 \cdots n_k$
+  ways. Addition rule ("OR" between mutually-exclusive
+  alternatives): $m + n$ ways. Standard JEE starter problems:
+  number of 4-digit codes for a lock is $10^4$; number of 3-digit
+  numbers from $\{1, \ldots, 5\}$ with no repetition is
+  $5 \cdot 4 \cdot 3 = 60$. Pitfall: leading-digit restrictions —
+  a 3-digit number from $\{0, \ldots, 9\}$ has only **9** choices
+  in the hundreds slot, not 10.
 
 ## Check Your Understanding
 

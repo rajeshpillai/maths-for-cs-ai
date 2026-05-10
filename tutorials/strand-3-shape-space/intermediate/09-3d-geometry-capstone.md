@@ -136,6 +136,19 @@ Each of these fields has its own depth, but the **vocabulary** —
 points, lines, vectors, distances, angles, projections — is now in
 your hands.
 
+### Board Exam / JEE (CBSE Class 12, Chapter 11 — Three-Dimensional Geometry)
+
+This capstone aligns with NCERT Class 12 Ch 11. The **direction
+cosines** $(l, m, n)$ with $l^2 + m^2 + n^2 = 1$, line equations
+in vector form $\vec{r} = \vec{a} + \lambda\vec{b}$ and Cartesian
+form $\frac{x - x_1}{a} = \frac{y - y_1}{b} = \frac{z - z_1}{c}$,
+plane equations $\vec{r} \cdot \hat{n} = d$, the angle-between
+formulas (lines, line-plane, plane-plane), and the **shortest
+distance between skew lines**
+$\big|((\vec{a_2} - \vec{a_1}) \cdot (\vec{b_1} \times \vec{b_2}))
+/ |\vec{b_1} \times \vec{b_2}|\big|$ are all standard JEE Mains
+items. Exercises 11.1–11.3 drill these as set pieces.
+
 ## Check Your Understanding
 
 :::widget type=numeric-input prompt="3D distance from origin to $(1, 2, 2)$." answer=3 explain="$\\sqrt{1 + 4 + 4} = 3$.":::

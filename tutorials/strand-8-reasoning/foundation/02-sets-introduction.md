@@ -135,6 +135,13 @@ print(powerset({1, 2, 3}))
 - **Probability**: events are sets of outcomes; Strand 6's
   probability axioms are stated in set language.
 - **Venn diagrams**: graphical depictions of set relationships.
+- **Board Exam / JEE (CBSE Class 11, Chapter 1 — Sets)** —
+  NCERT Exercises 1.1–1.6. Frequently tested: roster ↔ set-builder
+  conversion, power-set size $n(P(A)) = 2^{n(A)}$, De Morgan's
+  laws, and cardinality $n(A \cup B) = n(A) + n(B) - n(A \cap B)$.
+  Common traps: `φ` vs. `{φ}` (the latter is a singleton), and
+  element vs. subset (`1 ∈ A` does not mean `1 ⊆ A`; only `{1}` is
+  the subset).
 
 ## Check Your Understanding
 

@@ -249,6 +249,19 @@ else:
   $1000$ m of elevation in the troposphere — a slope-$-6.5$ line.
   Knowing this, you can estimate mountain-top temperatures from the
   base-station reading.
+- **Board Exam / JEE (CBSE Class 11, Chapter 10 — Straight
+  Lines)** — NCERT defines slope as $m = \tan\theta$ where
+  $\theta$ is the angle of inclination ($0° \le \theta < 180°$).
+  Ex 10.1–10.3 drill the **five standard forms** (slope-intercept,
+  point-slope, two-point, intercept, general $Ax + By + C = 0$),
+  the parallel ($m_1 = m_2$) and perpendicular ($m_1 m_2 = -1$)
+  conditions, and applications like "show three points form a
+  right triangle without using Pythagoras" (compute slopes,
+  product equals $-1$). JEE Mains adds the distance from a point
+  $(x_0, y_0)$ to the line $Ax + By + C = 0$:
+  $|Ax_0 + By_0 + C|/\sqrt{A^2 + B^2}$, and the angle between two
+  lines $\tan\phi = |(m_2 - m_1)/(1 + m_1 m_2)|$. Pitfall: a
+  vertical line has **undefined** slope — never write "infinity".
 
 ## Check Your Understanding
 

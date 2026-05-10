@@ -280,6 +280,8 @@ for n in [10, 100, 1000, 10000, 100000]:
 - **Steady-state analysis (Operations Research)** — call-centre staffing at AT&T and warehouse throughput at Amazon FBA are computed as the *long-run limit* of queueing-theory formulas (Little's Law: $L = \lambda W$ in steady state).
 - **Sensor calibration (Engineering)** — Tesla LIDAR and MRI scanners (Siemens, GE Healthcare) use limits-of-sequences in Kalman filters to converge noisy readings toward the true signal.
 - **Half-life and pharmacokinetics (Pharma/Industry)** — drug clearance curves at Pfizer/Moderna are exponential decays; dosing schedules use $\lim_{t\to\infty}$ blood-concentration to ensure steady-state therapeutic levels.
+- **Board Exam / JEE (CBSE Class 11 Ch 13 + Class 12 Ch 5)** — NCERT covers limits intuitively in Class 11 (Ex 13.1: standard limits $\sin x/x$, $\tan x/x \to 1$ as $x \to 0$; $\lim_{x \to a}(x^n - a^n)/(x - a) = n a^{n-1}$) and uses them for continuity and differentiability in Class 12 Ch 5. JEE Mains adds **L'Hôpital's rule** and the seven indeterminate forms ($0/0$, $\infty/\infty$, $0 \cdot \infty$, $\infty - \infty$, $0^0$, $1^\infty$, $\infty^0$). The $1^\infty$ form $\lim_{x \to 0}(1 + x)^{1/x} = e$ is a JEE staple.
+- **Common pitfalls drilled in NCERT** — (a) "$\lim_{x \to a}$" does **not** require $f$ to be defined at $a$; (b) LHL = RHL is the existence test — a one-sided limit alone is not "the limit"; (c) plugging $x = 0$ into $\sin x/x$ gives $0/0$, *not* the answer; the limit is $1$ but must be derived.
 
 ## Check Your Understanding
 

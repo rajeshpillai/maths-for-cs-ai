@@ -204,6 +204,8 @@ print(f"  sin(30°)  = {math.sin(math.radians(30)):.6f}")
 - **Cyclic seasonality models** — retail demand forecasters at Walmart fit Fourier-style trig regressions $\sum a_k \cos(2\pi k t/T) + b_k \sin(...)$ to capture weekly and yearly cycles in SKU sales.
 - **Solar position algorithms** — NREL's SPA algorithm uses sums of trig functions of all six families to compute sun azimuth/elevation; SunPower and Tesla's Solar Roof use it to schedule tracking arrays for maximum yield.
 - **Tide prediction** — NOAA uses 37 trig harmonic constituents (M2, S2, K1, etc.) to predict tides in U.S. ports; commercial shipping routes are scheduled around these tidal sums to maximise draft clearance.
+- **Board Exam / JEE (CBSE Class 11, Chapter 3 — Trigonometric Functions)** — covers all six functions across all four quadrants. NCERT Exercises 3.2–3.4 drill (i) computing trig values for angles like $1110°$, $-1845°$, $\tfrac{7\pi}{12}$ via reduction modulo $2\pi$ + ASTC rule; (ii) given one ratio plus a quadrant, find the rest using $1 + \tan^2 x = \sec^2 x$, etc.; (iii) values at non-standard angles like $15°, 75°, 22.5°$ via half-angle / compound-angle formulas. Frequent JEE Mains question: prove an identity such as $\sin 3x = 3\sin x - 4\sin^3 x$ from compound-angle expansion.
+- **Common pitfalls drilled in NCERT** — (a) the half-angle formulas have a $\pm$ that is fixed by the *quadrant of $x/2$*, not $x$ itself; (b) reciprocal identities $\csc x = 1/\sin x$ are undefined wherever the underlying ratio is $0$; (c) $\sin 2x = 2 \sin x \cos x$ is not the same as $2 \sin x$ — easy slip on a fast paper.
 
 ## Check Your Understanding
 

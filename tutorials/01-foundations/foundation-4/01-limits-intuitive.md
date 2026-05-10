@@ -188,6 +188,8 @@ print("  Values keep oscillating — no single limit")
 - **Continuous compounding** — the constant $e$ falls out of $\lim_{n\to\infty} (1 + r/n)^n$; banks like JP Morgan use continuous compounding to price zero-coupon bonds and forwards on Bloomberg.
 - **Aerospace stagnation analysis** — fluid dynamicists at NASA use limits as Mach $\to 0$ (incompressible flow) and Mach $\to 1$ (transonic) to validate CFD codes like STAR-CCM+ and Fluent across regimes.
 - **Crash-test instantaneous deceleration** — automotive safety engineers at IIHS measure peak g-loads as limits of $\Delta v/\Delta t$ on millisecond windows; the FMVSS 208 standard is written in this limit-of-rate language.
+- **Board Exam / JEE (CBSE Class 11, Chapter 13 — Limits and Derivatives)** — Class 11 introduces limits intuitively: $\lim_{x \to a} f(x) = L$ when LHL = RHL = $L$. Class 12 Ch 5 promotes this to **continuity** (limit equals function value at the point) and then to **differentiability**. NCERT standard limits to memorise: $\lim_{x \to 0} \sin x / x = 1$, $\lim_{x \to 0} (1 - \cos x)/x = 0$, $\lim_{x \to 0} (e^x - 1)/x = 1$, $\lim_{x \to 0} \log(1 + x)/x = 1$, $\lim_{x \to a} (x^n - a^n)/(x - a) = n a^{n-1}$. JEE Mains Q-types: evaluating $0/0$ forms via factorisation, rationalisation, or known standard limits.
+- **Common pitfalls drilled in NCERT** — (a) the **limit at $a$** does not depend on $f(a)$ — the function need not be defined at $a$ for the limit to exist; (b) LHL and RHL must both exist and be equal — a one-sided limit is *not* the limit; (c) $\sin x / x$ at $x = 0$ is $0/0$, but the limit is $1$ (must be derived, not "plugged in").
 
 ## Check Your Understanding
 

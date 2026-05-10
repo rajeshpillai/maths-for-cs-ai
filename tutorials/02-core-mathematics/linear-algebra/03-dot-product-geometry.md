@@ -283,6 +283,7 @@ keys are dot-producted to decide what to "look at").
 - **Finance — beta and tracking error** — a fund's beta to the S&P 500 is literally the projection of the fund's return vector onto the index return vector, the foundation of CAPM at firms like Vanguard and BlackRock.
 - **Engineering — solar panel orientation** — Tesla and SunPower trackers maximize $\cos(\theta) = \mathbf{n} \cdot \mathbf{s}$ between the panel normal and Sun direction to extract up to 25% more energy.
 - **Industry — semiconductor lithography alignment** — ASML's EUV scanners compute dot products between measured and reference grating patterns to align wafers within 1 nm at TSMC and Intel fabs.
+- **Board Exam / JEE (CBSE Class 12, Chapter 10 — Vector Algebra)** — NCERT Ex 10.3 drills the dot product $\vec{a} \cdot \vec{b} = |\vec{a}||\vec{b}|\cos\theta$ and its component form $a_1 b_1 + a_2 b_2 + a_3 b_3$. Standard JEE Mains question types: (i) angle between two vectors $\cos\theta = (\vec{a} \cdot \vec{b})/(|\vec{a}||\vec{b}|)$; (ii) **projection** of $\vec{a}$ on $\vec{b}$ is the scalar $(\vec{a} \cdot \vec{b})/|\vec{b}|$ — students often confuse this with a vector projection $(\vec{a} \cdot \hat{b})\hat{b}$; (iii) checking perpendicularity ($\vec{a} \cdot \vec{b} = 0$); (iv) the work-done formula $W = \vec{F} \cdot \vec{d}$ from physics. Pitfall: the dot product is **commutative** ($\vec{a} \cdot \vec{b} = \vec{b} \cdot \vec{a}$) but the *cross* product is anti-commutative — don't confuse them.
 
 ## Check Your Understanding
 

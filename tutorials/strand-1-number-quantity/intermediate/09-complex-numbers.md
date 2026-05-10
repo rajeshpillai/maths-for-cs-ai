@@ -328,6 +328,17 @@ nothing further is needed.
 - **Mandelbrot set**: defined by iterating $z \to z^2 + c$ with
   complex $c$. The boundary is a fractal; visualising it depends
   entirely on complex arithmetic.
+- **Board Exam / JEE (CBSE Class 11, Chapter 5 — Complex Numbers
+  and Quadratic Equations)** — NCERT calls $i$ **iota** and the
+  complex plane the **Argand plane**. Ex 5.1–5.3 drill: bringing
+  expressions to $a + ib$ form (especially divisions — multiply by
+  the conjugate of the denominator), computing $|z|$, finding
+  $z^{-1} = \bar{z}/|z|^2$, and solving $x^2 + x + 1 = 0$ with
+  negative discriminant. JEE Mains adds **De Moivre's theorem**
+  $(\cos\theta + i\sin\theta)^n = \cos n\theta + i\sin n\theta$
+  and the $n$-th roots of unity. Pitfall NCERT explicitly flags:
+  $\sqrt{-2}\,\sqrt{-3} = -\sqrt{6}$, *not* $+\sqrt{6}$ —
+  $\sqrt{x}\sqrt{y} = \sqrt{xy}$ fails when both are negative.
 
 ## Check Your Understanding
 

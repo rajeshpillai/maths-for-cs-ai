@@ -239,6 +239,7 @@ print(f"  Exact π·R²: {np.pi * R**2:.4f}")
 - **Computational fluid dynamics (Engineering)** — ANSYS Fluent and Siemens StarCCM+ integrate momentum and energy equations over 3D control volumes to design jet engines (Rolls-Royce Trent), chemical reactors, and HVAC for skyscrapers.
 - **Geophysical reserves estimation (Industry)** — ExxonMobil and Saudi Aramco evaluate triple integrals over oil-reservoir grids to estimate "in-place hydrocarbons" — directly driving billion-dollar capex decisions.
 - **Radiation therapy dose planning (Medical)** — Varian and Elekta linac treatment planners (Eclipse, Monaco) compute triple integrals of radiation dose over tumor volumes to maximize tumor exposure while sparing organs at risk.
+- **Board Exam / JEE (CBSE Class 12, Chapter 8 — Application of Integrals)** — NCERT Ch 8 uses single-variable definite integrals for **2-D area** problems: area under a curve, area between two curves, area enclosed by an ellipse $x^2/a^2 + y^2/b^2 = 1$ ($\pi a b$, derived as $4\int_0^a (b/a)\sqrt{a^2 - x^2}\,dx$), area between a parabola and a chord. Class 11 / 12 NCERT does not formally cover **double / triple integrals** — those appear at JEE Advanced level and in undergraduate multivariable calculus (this lesson). The connection back to NCERT: the geometric strip-and-sum reasoning in Ch 8 generalises to slabs in higher dimensions, and the 2-D area formula $A = \int_a^b f(x)\,dx$ is just a 1-D collapse of $A = \iint_R 1\,dA$.
 
 ## Check Your Understanding
 

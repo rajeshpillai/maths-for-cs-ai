@@ -251,6 +251,21 @@ The binomial theorem connects deep:
   distribution. Balls drop through pegs, each peg deflecting them
   left or right with $50\%$ probability. The bins fill up in a
   bell-curve pattern that matches $\binom{n}{k} / 2^n$.
+- **Board Exam / JEE (CBSE Class 11, Chapter 8 — Binomial
+  Theorem)** — NCERT covers the positive-integer-index theorem
+  $(a + b)^n = \sum {}^nC_r\, a^{n-r}\, b^r$ with the **general
+  term** $T_{r+1} = {}^nC_r\, a^{n-r}\, b^r$ as the workhorse.
+  Exercises 8.1–8.2 drill: (i) the $k$-th term — set $r + 1 = k$;
+  (ii) the **term independent of $x$** — solve for the $r$ that
+  makes the total $x$-exponent zero (e.g. in $(2x - 1/x)^{10}$,
+  $r = 5$ gives $T_6 = -8064$); (iii) the **middle term(s)** — one
+  middle term at $r = n/2$ if $n$ even, two middle terms at
+  $r = (n-1)/2$ and $(n+1)/2$ if $n$ odd; (iv) **divisibility
+  proofs** — show $9^{n+1} - 8n - 9$ is divisible by $64$ by
+  writing $9 = 1 + 8$ and using the binomial expansion. JEE Mains
+  high-weightage: numerical evaluations like $(99)^5 = (100-1)^5$,
+  inequality proofs like $(1.1)^{10000} > 1000$. Pitfall: the
+  $(r+1)$-th term — *not* the $r$-th — is ${}^nC_r\,a^{n-r}\,b^r$.
 
 ## Check Your Understanding
 

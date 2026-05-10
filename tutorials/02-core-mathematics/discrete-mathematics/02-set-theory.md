@@ -482,6 +482,9 @@ Let $f(x) = -x^2 + 4x$ and $S = \{0, 1, 2, 3, 4\}$.
 > - Classification output: $\hat{y} = \arg\max_k P(y = k \mid x)$ — pick the class with highest probability.
 > - Training: $\hat{w} = \arg\min_w \mathcal{L}(w)$ — find the weights that minimise the loss function.
 
+- **Board Exam / JEE (CBSE Class 11, Chapter 1 — Sets)** — appears in NCERT Exercises 1.1 (well-defined collections), 1.3 (subsets, intervals as subsets of $\mathbb{R}$), 1.4–1.5 (operations, complement, De Morgan's laws). In JEE Mains the high-weightage question types are: (i) set-builder ↔ roster conversion, especially with constraints like $\{x : x = 2^n,\ n \in \mathbb{N},\ 1 \le n \le 5\}$; (ii) counting subsets / power-set size $n(P(A)) = 2^{n(A)}$; (iii) De Morgan's laws applied to expressions like $(A \cup B)' \cap C'$; (iv) cardinality identities like $n(A \cup B) = n(A) + n(B) - n(A \cap B)$.
+- **Common pitfalls drilled in NCERT** — (a) `φ` vs. `{φ}` (the second is a singleton, not empty); (b) element vs. subset confusion: `1 ∈ A` does *not* imply `1 ⊆ A`, but `{1} ⊆ A` does; (c) `A − B ≠ B − A` in general; (d) "good", "best", "talented" are vague terms — collections defined this way are *not* sets; (e) leaving out the type clause `n ∈ ℕ` in set-builder form (without it, `x = 2n` admits non-integer `n`).
+
 ## Check Your Understanding
 
 1. **Pen & paper:** Let $C = \{a, b, c, d\}$ and $D = \{c, d, e, f\}$. Find $C \cup D$, $C \cap D$, $C \setminus D$, $C \triangle D$.

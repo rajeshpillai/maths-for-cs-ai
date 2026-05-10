@@ -309,6 +309,14 @@ In CS:
   gather has $5! = 120$ possible orderings to do them in.
   Speedrunners optimise by computing route times for the best of
   these.
+- **Board Exam / JEE (CBSE Class 11, Chapter 7 — Permutations and
+  Combinations)** — NCERT Ex 7.2–7.3 drill ${}^nP_r = n!/(n-r)!$
+  on word-arrangement problems. Standard JEE setups: distinct
+  arrangements of `PERMUTATIONS` (one repeated letter `T`) is
+  $12!/2!$; with all vowels together, clump them into a block,
+  permute 8 objects ($8!/2!$) and 5 vowels inside ($5!$). Circular
+  permutations: $(n-1)!$, with $/2$ for necklaces (clockwise =
+  anticlockwise).
 
 ## Check Your Understanding
 

@@ -298,6 +298,7 @@ debugging.
 - **Operations — Google AdWords auction matrix** — bid-ranking computes a matrix product of advertiser bid vectors with quality-score matrices billions of times per day to choose ad slots.
 - **Engineering — finite element analysis (ANSYS, Abaqus)** — stress analysis on Boeing 787 wings or Tesla chassis assembles a global stiffness matrix $\mathbf{K}$ and solves $\mathbf{K}\mathbf{u} = \mathbf{f}$ with billions of MAC operations.
 - **Industry — TPU and NVIDIA H100 systolic arrays** — Google's TPU v5 and NVIDIA Tensor Cores are silicon designed to do nothing but $\mathbf{C} \mathrel{+}= \mathbf{A}\mathbf{B}$ at hundreds of teraFLOPS, the engine behind ChatGPT inference.
+- **Board Exam / JEE (CBSE Class 12, Chapter 3 — Matrices)** — NCERT Ex 3.2 introduces the **compatibility rule** ($A: m \times p$ times $B: p \times n$ gives $AB: m \times n$ — the inner dimensions must match) and the entry formula $(AB)_{ij} = \sum_k a_{ik}\,b_{kj}$, i.e. row of $A$ dotted with column of $B$. JEE Mains Q-types: (i) verify associativity $(AB)C = A(BC)$ on $3 \times 3$ examples; (ii) demonstrate non-commutativity by exhibiting $AB \neq BA$; (iii) compute $A^n$ using $A = I + B$ where $B$ is nilpotent; (iv) prove identities like $(A + B)^2 = A^2 + AB + BA + B^2$. Pitfall: do not write $(A+B)^2 = A^2 + 2AB + B^2$ — that's only valid when $A$ and $B$ commute.
 
 ## Check Your Understanding
 

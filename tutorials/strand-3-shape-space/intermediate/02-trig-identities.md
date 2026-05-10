@@ -143,6 +143,18 @@ print(law_of_cosines(5, 7, 60))   # 6.245
   with phase shift.
 - **GPS triangulation**: distances/angles to satellites + law of
   cosines.
+- **Board Exam / JEE (CBSE Class 11, Chapter 3 — Trigonometric
+  Functions)** — the Class 11 master identity
+  $\cos(x - y) = \cos x \cos y + \sin x \sin y$ generates every
+  compound, double, triple, half, and sum-to-product formula in the
+  chapter. NCERT Ex 3.3 derives them all; JEE Mains repeatedly
+  asks (i) prove an identity by reducing to a compound-angle form;
+  (ii) general solutions: $\sin x = \sin y \Rightarrow
+  x = n\pi + (-1)^n y$, $\cos x = \cos y \Rightarrow
+  x = 2n\pi \pm y$, $\tan x = \tan y \Rightarrow x = n\pi + y$;
+  (iii) the R-formula $a\sin\theta + b\cos\theta = R\sin(\theta +
+  \alpha)$ with $R = \sqrt{a^2 + b^2}$ for finding extrema.
+  Pitfall: $\sin(A + B) \neq \sin A + \sin B$.
 
 ## Check Your Understanding
 

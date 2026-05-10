@@ -303,6 +303,16 @@ Beyond:
 - **Path counting**: in a grid where you can move right or up, the
   number of paths from $(0,0)$ to $(a, b)$ is $\binom{a+b}{a}$ —
   another Pascal entry.
+- **Board Exam / JEE (CBSE Class 11, Chapter 8 — Binomial
+  Theorem)** — Pascal's triangle is the visual mnemonic for the
+  binomial coefficients ${}^nC_r$. NCERT Ex 8.1 uses Pascal's
+  identity ${}^nC_r + {}^nC_{r-1} = {}^{n+1}C_r$ — the same rule
+  that builds the triangle row by row — and the symmetry
+  ${}^nC_r = {}^nC_{n-r}$. Substituting $x = 1$ and $x = -1$ into
+  $(1 + x)^n$ gives the row-sum identities
+  $\sum_{r=0}^{n} {}^nC_r = 2^n$ and the alternating-sum identity
+  $\sum_{r=0}^{n} (-1)^r\,{}^nC_r = 0$ — both standard JEE
+  starters.
 
 ## Check Your Understanding
 

@@ -151,6 +151,14 @@ print(s ** 2 + c ** 2)   # 0.9999... (≈ 1)
   over run" via tangent.
 - **Ladder-against-wall**: a $5$ m ladder at $75°$ reaches $5 \sin
   75° \approx 4.83$ m up the wall.
+- **Board Exam / JEE (CBSE Class 11, Chapter 3 — Trigonometric
+  Functions)** — SOH-CAH-TOA on right triangles is the entry point
+  to the chapter. NCERT Ex 3.2 tests special-angle values
+  ($30°, 45°, 60°$) computed from $30$-$60$-$90$ and
+  $45$-$45$-$90$ triangles, and the Pythagorean identities
+  $\sin^2 + \cos^2 = 1$, $1 + \tan^2 = \sec^2$,
+  $1 + \cot^2 = \csc^2$. Common JEE Mains setup: given one ratio
+  + a quadrant, find the rest using these identities.
 
 ## Check Your Understanding
 

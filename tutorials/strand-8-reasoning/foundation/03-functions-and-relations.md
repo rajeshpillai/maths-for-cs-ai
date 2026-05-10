@@ -104,6 +104,20 @@ print(square_then_add(3))   # 10
   $\mathbb{Z} \to \text{strings}$.
 - **Random number generators**: should approximately bijection
   (uniform distribution over output space).
+- **Board Exam / JEE (CBSE Class 11 Ch 2 + Class 12 Ch 1 — Relations and Functions)** —
+  Class 11 introduces ordered pairs, $A \times B$, relations, and special
+  functions (identity, modulus, signum, greatest-integer); Class 12
+  promotes these to equivalence relations and bijections. JEE Mains
+  hits: (i) classifying a relation as reflexive / symmetric /
+  transitive; (ii) finding domain and range of $f(x) = \sqrt{9-x^2}$
+  or $f(x) = 1/(x-7)$; (iii) computing $f \circ g$ and $f^{-1}$
+  when $f$ is bijective; (iv) counting: number of relations from
+  an $m$-set to an $n$-set is $2^{mn}$, number of functions is
+  $n^m$.
+- **Common pitfalls** — $(a, b) \neq \{a, b\}$ (order matters for
+  pairs); $A \times B \neq B \times A$ in general;
+  $\lfloor -2.5 \rfloor = -3$, not $-2$; range $\subseteq$
+  codomain with equality only when $f$ is onto.
 
 ## Check Your Understanding
 

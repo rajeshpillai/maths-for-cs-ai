@@ -244,6 +244,7 @@ plt.show()
 - **Business / Finance** — $\binom{n}{k}$ identities power American-option
   binomial-tree pricing models (Cox–Ross–Rubinstein); rebalancing volume
   in tree models depends on the hockey-stick partial sum.
+- **Board Exam / JEE (CBSE Class 11, Chapter 8 — Binomial Theorem)** — NCERT introduces Pascal's identity ${}^nC_r + {}^nC_{r-1} = {}^{n+1}C_r$ alongside the binomial expansion $(a + b)^n = \sum {}^nC_r\,a^{n-r}\,b^r$ and the symmetry ${}^nC_r = {}^nC_{n-r}$. JEE Mains questions routinely ask: (i) prove $\sum 3^r\,{}^nC_r = 4^n$ by setting $x = 3$ in $(1+x)^n$; (ii) compute coefficients like the coefficient of $x^9$ in $(2 + 3x)^{13}$ — set $r = 9$ in the general term; (iii) row-sum identity $\sum {}^nC_r = 2^n$ from $x = 1$ in $(1+x)^n$; (iv) hockey-stick identity for sums along a Pascal diagonal.
 
 ## Check Your Understanding
 

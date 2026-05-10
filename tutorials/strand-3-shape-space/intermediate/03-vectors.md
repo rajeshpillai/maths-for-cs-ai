@@ -145,6 +145,18 @@ print(np.linalg.norm(v_hat))   # 1.0
 - **ML features**: a data point is a vector in feature space.
   Distance and dot products (Lesson 04) compute similarity.
 - **Wind/current**: described by speed (magnitude) and direction.
+- **Board Exam / JEE (CBSE Class 12, Chapter 10 — Vector
+  Algebra)** — NCERT defines $\vec{a} = a_1\hat{i} + a_2\hat{j} +
+  a_3\hat{k}$ with $|\vec{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2}$.
+  Ex 10.1–10.4 drill: dot product $\vec{a} \cdot \vec{b}$ and the
+  angle formula $\cos\theta = (\vec{a} \cdot \vec{b}) /
+  (|\vec{a}||\vec{b}|)$; cross product $\vec{a} \times \vec{b} =
+  (|\vec{a}||\vec{b}|\sin\theta)\hat{n}$ and area of a parallelogram
+  $|\vec{a} \times \vec{b}|$; **direction cosines**
+  $\cos\alpha, \cos\beta, \cos\gamma$ satisfying
+  $\cos^2\alpha + \cos^2\beta + \cos^2\gamma = 1$. JEE Mains adds
+  the **scalar triple product** $[\vec{a}, \vec{b}, \vec{c}] =
+  \vec{a} \cdot (\vec{b} \times \vec{c})$ (zero ⟺ coplanar).
 
 ## Check Your Understanding
 
