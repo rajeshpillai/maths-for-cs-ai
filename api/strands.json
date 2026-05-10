@@ -1,0 +1,738 @@
+[
+  {
+    "id": "strand-1-number-quantity",
+    "title": "Number & Quantity",
+    "description": "How big? How many? Number sense, mental arithmetic, place value in any base, fractions as ratios, and decimals as base-10 fractions. Builds the bedrock that everything else in computing and AI sits on.",
+    "levels": [
+      {
+        "id": "foundation",
+        "title": "Foundation",
+        "tier_id": "strand-1-number-quantity-foundation",
+        "lessons": [
+          "00-counting-and-correspondence",
+          "01-place-value-any-base",
+          "02-mental-addition-subtraction",
+          "03-mental-multiplication",
+          "04-mental-division",
+          "05-negative-numbers",
+          "06-fractions-as-ratios",
+          "07-fraction-arithmetic",
+          "08-decimals-and-place-value",
+          "09-repeating-decimals"
+        ]
+      },
+      {
+        "id": "intermediate",
+        "title": "Intermediate",
+        "tier_id": "strand-1-number-quantity-intermediate",
+        "lessons": [
+          "00-primes-and-factorisation",
+          "01-gcd-and-euclid",
+          "02-lcm-via-primes",
+          "03-modular-arithmetic",
+          "04-divisibility-rules",
+          "05-powers-and-exponent-rules",
+          "06-logarithms",
+          "07-surds-and-exact-arithmetic",
+          "08-floating-point-base-2",
+          "09-complex-numbers"
+        ]
+      },
+      {
+        "id": "advanced",
+        "title": "Advanced",
+        "tier_id": "strand-1-number-quantity-advanced",
+        "lessons": [
+          "00-fermat-and-euler-totient",
+          "01-rsa-deep-dive",
+          "02-multiplicative-order-and-primitive-roots",
+          "03-continued-fractions",
+          "04-algebraic-and-transcendental",
+          "05-constructibility",
+          "06-quadratic-reciprocity",
+          "07-p-adic-numbers",
+          "08-pell-equation",
+          "09-number-theory-capstone"
+        ]
+      },
+      {
+        "id": "master",
+        "title": "Master",
+        "tier_id": "strand-1-number-quantity-master",
+        "lessons": [
+          "00-riemann-zeta",
+          "01-prime-number-theorem",
+          "02-l-functions",
+          "03-modular-forms",
+          "04-elliptic-curves-arith",
+          "05-bsd-conjecture",
+          "06-class-field-theory",
+          "07-langlands-program",
+          "08-additive-combinatorics",
+          "09-number-theory-master-capstone"
+        ]
+      },
+      {
+        "id": "research",
+        "title": "Research-adjacent",
+        "tier_id": "strand-1-number-quantity-research",
+        "lessons": [
+          "00-p-adic-hodge-theory",
+          "01-iwasawa-theory",
+          "02-anabelian-geometry",
+          "03-perfectoid-spaces",
+          "04-geometric-langlands-glimpse",
+          "05-motives",
+          "06-deep-l-functions",
+          "07-arithmetic-statistics",
+          "08-circle-method",
+          "09-number-theory-research-capstone"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "strand-2-structure",
+    "title": "Structure",
+    "description": "What is sameness? What operations make sense? Algebraic structures from first principles — operations, identity, inverse, groups, rings, fields. The mathematical home of symmetry, cryptography, and the foundation of abstract reasoning.",
+    "levels": [
+      {
+        "id": "foundation",
+        "title": "Foundation",
+        "tier_id": "strand-2-structure-foundation",
+        "lessons": [
+          "00-operations-and-properties",
+          "01-identity-and-inverse",
+          "02-equivalence-relations",
+          "03-modular-arithmetic-as-structure",
+          "04-groups",
+          "05-permutation-groups",
+          "06-symmetry-groups",
+          "07-subgroups-and-lagrange",
+          "08-rings-and-fields",
+          "09-structure-capstone"
+        ]
+      },
+      {
+        "id": "intermediate",
+        "title": "Intermediate",
+        "tier_id": "strand-2-structure-intermediate",
+        "lessons": [
+          "00-group-homomorphisms",
+          "01-isomorphisms",
+          "02-cosets-revisited",
+          "03-normal-subgroups",
+          "04-cyclic-classification",
+          "05-group-actions",
+          "06-polynomial-rings",
+          "07-vector-spaces",
+          "08-field-extensions",
+          "09-structure-capstone-2"
+        ]
+      },
+      {
+        "id": "advanced",
+        "title": "Advanced",
+        "tier_id": "strand-2-structure-advanced",
+        "lessons": [
+          "00-ideals",
+          "01-quotient-rings",
+          "02-pid-and-ufd",
+          "03-splitting-fields",
+          "04-galois-groups",
+          "05-galois-correspondence",
+          "06-solvability-by-radicals",
+          "07-modules",
+          "08-tensor-products",
+          "09-structure-capstone-3"
+        ]
+      },
+      {
+        "id": "master",
+        "title": "Master",
+        "tier_id": "strand-2-structure-master",
+        "lessons": [
+          "00-noetherian-rings",
+          "01-localization",
+          "02-nullstellensatz",
+          "03-schemes-intro",
+          "04-sheaves-cohomology",
+          "05-representation-theory",
+          "06-homological-algebra",
+          "07-category-theory-deeper",
+          "08-monoidal-categories",
+          "09-structure-master-capstone"
+        ]
+      },
+      {
+        "id": "research",
+        "title": "Research-adjacent",
+        "tier_id": "strand-2-structure-research",
+        "lessons": [
+          "00-infinity-categories",
+          "01-derived-algebraic-geometry",
+          "02-condensed-mathematics",
+          "03-operads",
+          "04-higher-categorical-physics",
+          "05-tannakian-formalism",
+          "06-quantum-groups",
+          "07-perverse-sheaves",
+          "08-non-commutative-geometry",
+          "09-structure-research-capstone"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "strand-3-shape-space",
+    "title": "Shape & Space",
+    "description": "What stays the same when you move things? Geometry from first principles — the coordinate plane, Pythagoras, lines, triangles, circles, and transformations. The mathematical foundation of computer graphics, robotics, physics simulation, and architecture.",
+    "levels": [
+      {
+        "id": "foundation",
+        "title": "Foundation",
+        "tier_id": "strand-3-shape-space-foundation",
+        "lessons": [
+          "00-coordinate-plane",
+          "01-distance-and-pythagoras",
+          "02-lines-and-slope",
+          "03-angles-and-triangles",
+          "04-triangle-theorems",
+          "05-area-of-polygons",
+          "06-circles-and-pi",
+          "07-similarity-and-scaling",
+          "08-transformations",
+          "09-real-geometry-problems"
+        ]
+      },
+      {
+        "id": "intermediate",
+        "title": "Intermediate",
+        "tier_id": "strand-3-shape-space-intermediate",
+        "lessons": [
+          "00-right-triangle-trig",
+          "01-unit-circle-and-radians",
+          "02-trig-identities",
+          "03-vectors",
+          "04-dot-product",
+          "05-cross-product-3d",
+          "06-conics-ellipse-parabola",
+          "07-conics-hyperbola",
+          "08-polar-coordinates",
+          "09-3d-geometry-capstone"
+        ]
+      },
+      {
+        "id": "advanced",
+        "title": "Advanced",
+        "tier_id": "strand-3-shape-space-advanced",
+        "lessons": [
+          "00-projective-coordinates",
+          "01-projective-transformations",
+          "02-curves-and-curvature",
+          "03-surfaces-fundamental-forms",
+          "04-gauss-curvature",
+          "05-geodesics",
+          "06-topology-basics",
+          "07-fundamental-group",
+          "08-homology-intro",
+          "09-shape-space-capstone-3"
+        ]
+      },
+      {
+        "id": "master",
+        "title": "Master",
+        "tier_id": "strand-3-shape-space-master",
+        "lessons": [
+          "00-smooth-manifolds",
+          "01-tangent-bundles",
+          "02-differential-forms",
+          "03-riemannian-geometry",
+          "04-lie-groups",
+          "05-fiber-bundles",
+          "06-symplectic-geometry",
+          "07-cw-and-homotopy",
+          "08-algebraic-topology-deeper",
+          "09-shape-master-capstone"
+        ]
+      },
+      {
+        "id": "research",
+        "title": "Research-adjacent",
+        "tier_id": "strand-3-shape-space-research",
+        "lessons": [
+          "00-mirror-symmetry",
+          "01-fukaya-categories",
+          "02-geometric-langlands-deeper",
+          "03-non-abelian-hodge",
+          "04-geometric-measure-theory",
+          "05-ricci-flow-deeper",
+          "06-symplectic-frontier",
+          "07-tda-frontier",
+          "08-optimal-transport-geometry",
+          "09-shape-research-capstone"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "strand-4-change",
+    "title": "Change",
+    "description": "How does one quantity vary with another? Calculus from first principles — limits, derivatives, integrals, and the fundamental theorem connecting them. The mathematical engine behind physics, ML training, and modern science.",
+    "levels": [
+      {
+        "id": "foundation",
+        "title": "Foundation",
+        "tier_id": "strand-4-change-foundation",
+        "lessons": [
+          "00-rates-of-change",
+          "01-limits-intuitively",
+          "02-derivative-as-tangent-slope",
+          "03-derivative-rules",
+          "04-product-quotient-chain",
+          "05-applications-of-derivatives",
+          "06-riemann-sums",
+          "07-antiderivatives",
+          "08-fundamental-theorem",
+          "09-calculus-capstone"
+        ]
+      },
+      {
+        "id": "intermediate",
+        "title": "Intermediate",
+        "tier_id": "strand-4-change-intermediate",
+        "lessons": [
+          "00-derivatives-of-trig-log-exp",
+          "01-implicit-and-related-rates",
+          "02-lhopital",
+          "03-integration-by-substitution",
+          "04-integration-by-parts",
+          "05-partial-fractions",
+          "06-improper-integrals",
+          "07-taylor-series",
+          "08-power-series",
+          "09-change-capstone"
+        ]
+      },
+      {
+        "id": "advanced",
+        "title": "Advanced",
+        "tier_id": "strand-4-change-advanced",
+        "lessons": [
+          "00-partial-derivatives",
+          "01-directional-derivatives",
+          "02-multivariable-chain-rule",
+          "03-critical-points",
+          "04-lagrange-multipliers",
+          "05-multiple-integrals",
+          "06-change-of-variables",
+          "07-vector-fields-and-line-integrals",
+          "08-stokes-and-divergence",
+          "09-change-capstone-2"
+        ]
+      },
+      {
+        "id": "master",
+        "title": "Master",
+        "tier_id": "strand-4-change-master",
+        "lessons": [
+          "00-calculus-of-variations",
+          "01-ode-theory",
+          "02-pde-introduction",
+          "03-fourier-and-distributions",
+          "04-functional-analysis",
+          "05-stochastic-calculus",
+          "06-numerical-pdes",
+          "07-reverse-mode-ad",
+          "08-information-geometry",
+          "09-change-master-capstone"
+        ]
+      },
+      {
+        "id": "research",
+        "title": "Research-adjacent",
+        "tier_id": "strand-4-change-research",
+        "lessons": [
+          "00-rough-paths",
+          "01-kpz-equation",
+          "02-mean-field-games",
+          "03-nn-approximation-theory",
+          "04-ntk-feature-learning",
+          "05-deep-learning-dynamics",
+          "06-diffusion-models-deeper",
+          "07-generative-flows",
+          "08-pde-on-manifolds",
+          "09-change-research-capstone"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "strand-5-pattern-counting",
+    "title": "Pattern & Counting",
+    "description": "How many arrangements? How many ways to choose? How are pieces connected? Combinatorics from first principles — multiplication and addition rules, permutations, combinations, Pascal's triangle, recursion, Fibonacci. The mathematical home of CS theory and the language behind probability counts.",
+    "levels": [
+      {
+        "id": "foundation",
+        "title": "Foundation",
+        "tier_id": "strand-5-pattern-counting-foundation",
+        "lessons": [
+          "00-multiplication-principle",
+          "01-tree-diagrams",
+          "02-permutations-and-factorial",
+          "03-combinations",
+          "04-pascals-triangle",
+          "05-binomial-theorem",
+          "06-stars-and-bars",
+          "07-pigeonhole-principle",
+          "08-fibonacci-and-recursion",
+          "09-counting-in-real-problems"
+        ]
+      },
+      {
+        "id": "intermediate",
+        "title": "Intermediate",
+        "tier_id": "strand-5-pattern-counting-intermediate",
+        "lessons": [
+          "00-multinomial-coefficients",
+          "01-inclusion-exclusion",
+          "02-generating-functions",
+          "03-recurrences-and-closed-forms",
+          "04-derangements",
+          "05-catalan-numbers",
+          "06-bijective-combinatorics",
+          "07-partitions",
+          "08-burnside-counting-symmetry",
+          "09-counting-capstone"
+        ]
+      },
+      {
+        "id": "advanced",
+        "title": "Advanced",
+        "tier_id": "strand-5-pattern-counting-advanced",
+        "lessons": [
+          "00-generating-functions",
+          "01-closed-form-recurrences",
+          "02-catalan-and-ballot",
+          "03-inclusion-exclusion-advanced",
+          "04-polya-enumeration",
+          "05-asymptotic-combinatorics",
+          "06-probabilistic-method",
+          "07-graph-theory-advanced",
+          "08-extremal-combinatorics",
+          "09-pattern-counting-capstone-3"
+        ]
+      },
+      {
+        "id": "master",
+        "title": "Master",
+        "tier_id": "strand-5-pattern-counting-master",
+        "lessons": [
+          "00-young-tableaux",
+          "01-symmetric-functions",
+          "02-cluster-algebras",
+          "03-tropical-mathematics",
+          "04-matroids",
+          "05-random-graphs",
+          "06-additive-combinatorics-deeper",
+          "07-discrete-fourier-additive",
+          "08-extremal-and-ramsey-deeper",
+          "09-pattern-master-capstone"
+        ]
+      },
+      {
+        "id": "research",
+        "title": "Research-adjacent",
+        "tier_id": "strand-5-pattern-counting-research",
+        "lessons": [
+          "00-geometric-group-theory",
+          "01-coarse-geometry",
+          "02-knot-invariants-frontier",
+          "03-combinatorial-physics",
+          "04-tilings-aperiodic",
+          "05-randomness-extraction",
+          "06-symmetric-functions-frontier",
+          "07-tropical-geometry-deeper",
+          "08-conjectures-frontier",
+          "09-pattern-research-capstone"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "strand-6-uncertainty",
+    "title": "Uncertainty",
+    "description": "How do we reason about events that haven't happened yet? Probability from first principles — coin flips, dice, and the long-run patterns that emerge from short-run randomness. Builds directly on Strand 1's fractions and counting.",
+    "levels": [
+      {
+        "id": "foundation",
+        "title": "Foundation",
+        "tier_id": "strand-6-uncertainty-foundation",
+        "lessons": [
+          "00-what-is-probability",
+          "01-sample-spaces-and-outcomes",
+          "02-equally-likely-outcomes",
+          "03-simulating-probability",
+          "04-complement-and-not",
+          "05-independent-events-and-rule",
+          "06-mutually-exclusive-or-rule",
+          "07-conditional-probability-intuition",
+          "08-expected-value",
+          "09-applied-uncertainty"
+        ]
+      },
+      {
+        "id": "intermediate",
+        "title": "Intermediate",
+        "tier_id": "strand-6-uncertainty-intermediate",
+        "lessons": [
+          "00-random-variables",
+          "01-expected-value-and-variance",
+          "02-binomial-distribution",
+          "03-geometric-and-poisson",
+          "04-bayes-theorem",
+          "05-normal-distribution",
+          "06-central-limit-theorem",
+          "07-confidence-intervals",
+          "08-significance-testing",
+          "09-applied-statistics"
+        ]
+      },
+      {
+        "id": "advanced",
+        "title": "Advanced",
+        "tier_id": "strand-6-uncertainty-advanced",
+        "lessons": [
+          "00-why-measure-theory",
+          "01-sigma-algebras",
+          "02-lebesgue-measure",
+          "03-random-variables-measure",
+          "04-convergence",
+          "05-laws-of-large-numbers",
+          "06-clt-rigorous",
+          "07-martingales",
+          "08-markov-chains",
+          "09-uncertainty-capstone-3"
+        ]
+      },
+      {
+        "id": "master",
+        "title": "Master",
+        "tier_id": "strand-6-uncertainty-master",
+        "lessons": [
+          "00-brownian-motion",
+          "01-stochastic-processes",
+          "02-large-deviations",
+          "03-ergodic-theory",
+          "04-information-theory-deeper",
+          "05-empirical-processes",
+          "06-spde-rough-paths",
+          "07-optimal-transport",
+          "08-causal-inference",
+          "09-uncertainty-master-capstone"
+        ]
+      },
+      {
+        "id": "research",
+        "title": "Research-adjacent",
+        "tier_id": "strand-6-uncertainty-research",
+        "lessons": [
+          "00-sle-and-2d-models",
+          "01-liouville-quantum-gravity",
+          "02-rmt-universality",
+          "03-free-probability",
+          "04-statistical-learning-theory",
+          "05-rl-theory",
+          "06-bayesian-deep-learning",
+          "07-causal-frontier",
+          "08-stochastic-homogenisation",
+          "09-uncertainty-research-capstone"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "strand-7-computation",
+    "title": "Computation",
+    "description": "How do we actually do it on a finite machine? Number representation, algorithms, complexity, numerical methods, and automatic differentiation. The mathematical foundation of CS as a discipline.",
+    "levels": [
+      {
+        "id": "foundation",
+        "title": "Foundation",
+        "tier_id": "strand-7-computation-foundation",
+        "lessons": [
+          "00-algorithms-intuition",
+          "01-number-representation",
+          "02-floating-point",
+          "03-big-o-intuition",
+          "04-sorting-and-searching",
+          "05-recursion-foundations",
+          "06-hashing-foundations",
+          "07-newton-method",
+          "08-numerical-integration",
+          "09-computation-capstone"
+        ]
+      },
+      {
+        "id": "intermediate",
+        "title": "Intermediate",
+        "tier_id": "strand-7-computation-intermediate",
+        "lessons": [
+          "00-dynamic-programming",
+          "01-graph-bfs-dfs",
+          "02-shortest-paths",
+          "03-minimum-spanning-trees",
+          "04-heaps-and-priority-queues",
+          "05-tries-and-string-algos",
+          "06-complexity-classes",
+          "07-np-completeness",
+          "08-automata-and-regex",
+          "09-computation-capstone-2"
+        ]
+      },
+      {
+        "id": "advanced",
+        "title": "Advanced",
+        "tier_id": "strand-7-computation-advanced",
+        "lessons": [
+          "00-numerical-linear-algebra",
+          "01-iterative-solvers",
+          "02-svd-and-pca",
+          "03-rsa-deep",
+          "04-elliptic-curves",
+          "05-aes-and-symmetric",
+          "06-probabilistic-data-structures",
+          "07-network-flow-advanced",
+          "08-approximation-algorithms",
+          "09-computation-capstone-3"
+        ]
+      },
+      {
+        "id": "master",
+        "title": "Master",
+        "tier_id": "strand-7-computation-master",
+        "lessons": [
+          "00-parallel-computing",
+          "01-gpu-programming",
+          "02-quantum-algorithms",
+          "03-recursion-theory",
+          "04-kolmogorov-complexity",
+          "05-streaming-sublinear",
+          "06-fhe-and-zk",
+          "07-differential-privacy",
+          "08-formal-verification-deep",
+          "09-computation-master-capstone"
+        ]
+      },
+      {
+        "id": "research",
+        "title": "Research-adjacent",
+        "tier_id": "strand-7-computation-research",
+        "lessons": [
+          "00-p-vs-np-frontier",
+          "01-fault-tolerant-quantum",
+          "02-post-quantum-frontier",
+          "03-mpc-and-verifiable-computation",
+          "04-ai-alignment-formal",
+          "05-mechanistic-interpretability",
+          "06-algorithmic-game-theory-frontier",
+          "07-tcs-frontier-codes-pcps",
+          "08-quantum-supremacy-frontier",
+          "09-computation-research-capstone"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "strand-8-reasoning",
+    "title": "Reasoning",
+    "description": "How do we know any of this is true? Logic, sets, functions, proof techniques, and cardinality. The infrastructure of mathematical thought — and the foundation of formal verification, type theory, and theoretical CS.",
+    "levels": [
+      {
+        "id": "foundation",
+        "title": "Foundation",
+        "tier_id": "strand-8-reasoning-foundation",
+        "lessons": [
+          "00-statements-and-truth",
+          "01-logical-connectives",
+          "02-sets-introduction",
+          "03-functions-and-relations",
+          "04-direct-proof",
+          "05-proof-by-contradiction",
+          "06-proof-by-induction",
+          "07-cardinality",
+          "08-quantifiers",
+          "09-reasoning-capstone"
+        ]
+      },
+      {
+        "id": "intermediate",
+        "title": "Intermediate",
+        "tier_id": "strand-8-reasoning-intermediate",
+        "lessons": [
+          "00-predicate-logic-deeper",
+          "01-zfc-axioms",
+          "02-equivalence-revisit",
+          "03-peano-axioms",
+          "04-strong-induction",
+          "05-constructive-vs-classical",
+          "06-russell-paradox",
+          "07-function-proofs",
+          "08-structural-induction",
+          "09-reasoning-capstone-2"
+        ]
+      },
+      {
+        "id": "advanced",
+        "title": "Advanced",
+        "tier_id": "strand-8-reasoning-advanced",
+        "lessons": [
+          "00-higher-order-logic",
+          "01-dependent-types",
+          "02-categorical-logic",
+          "03-topos-theory",
+          "04-forcing-and-independence",
+          "05-reverse-mathematics",
+          "06-realizability",
+          "07-modal-logic",
+          "08-temporal-logic",
+          "09-reasoning-capstone-3"
+        ]
+      },
+      {
+        "id": "master",
+        "title": "Master",
+        "tier_id": "strand-8-reasoning-master",
+        "lessons": [
+          "00-martin-lof-type-theory",
+          "01-homotopy-type-theory",
+          "02-ordinal-analysis",
+          "03-cut-elimination",
+          "04-descriptive-complexity",
+          "05-model-theory",
+          "06-cubical-and-univalent",
+          "07-game-semantics",
+          "08-realizability-deeper",
+          "09-reasoning-master-capstone"
+        ]
+      },
+      {
+        "id": "research",
+        "title": "Research-adjacent",
+        "tier_id": "strand-8-reasoning-research",
+        "lessons": [
+          "00-infinity-topos-theory",
+          "01-cohesive-types",
+          "02-modal-type-theory",
+          "03-proof-complexity-frontier",
+          "04-ai-safety-formal",
+          "05-categorical-quantum",
+          "06-infinity-cosmoi",
+          "07-univalent-foundations",
+          "08-emerging-foundations",
+          "09-reasoning-research-capstone"
+        ]
+      }
+    ]
+  }
+]

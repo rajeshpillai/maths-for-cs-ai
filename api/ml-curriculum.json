@@ -1,0 +1,99 @@
+{
+  "title": "Mathematics for Machine Learning",
+  "description": "Master the essential mathematical foundations for AI/ML: linear algebra, multivariable calculus, and probability & statistics. From first principles, with paper and pen.",
+  "outcome": "On completing this curriculum, you will be prepared for university-level machine learning courses covering gradient descent, neural networks, backpropagation, SVMs, PCA, and Gaussian mixture models.",
+  "units": [
+    {
+      "name": "Unit 1: Sets, Logic & Foundations",
+      "icon": "{}",
+      "tiers": [
+        { "tier": "discrete-mathematics", "lessons": ["01", "02"], "label": "Logic & Set Theory" }
+      ]
+    },
+    {
+      "name": "Unit 2: Vectors, Matrices & Systems",
+      "icon": "\u27e8\u27e9",
+      "tiers": [
+        { "tier": "linear-algebra", "lessons": ["01", "02", "03", "04", "05", "06", "07", "08"], "label": "Vectors through Gaussian Elimination" }
+      ]
+    },
+    {
+      "name": "Unit 3: Vector Spaces",
+      "icon": "\u2295",
+      "tiers": [
+        { "tier": "linear-algebra", "lessons": ["09", "10", "11", "12"], "label": "Span, Independence, Bases, Rank-Nullity" }
+      ]
+    },
+    {
+      "name": "Unit 4: Eigenvalues & Diagonalization",
+      "icon": "\u03bb",
+      "tiers": [
+        { "tier": "linear-algebra", "lessons": ["13", "14", "15"], "label": "Eigenvalues, Diagonalization, Spectral Theorem" }
+      ]
+    },
+    {
+      "name": "Unit 5: Norms, Orthogonality & Projections",
+      "icon": "\u22a5",
+      "tiers": [
+        { "tier": "linear-algebra", "lessons": ["16", "17", "18", "19"], "label": "Norms, Cauchy-Schwarz, Projections, Gram-Schmidt" }
+      ]
+    },
+    {
+      "name": "Unit 6: Quadratic Forms & SVD",
+      "icon": "\u03a3",
+      "tiers": [
+        { "tier": "linear-algebra", "lessons": ["20", "21", "22"], "label": "Definiteness, SVD, PCA" }
+      ]
+    },
+    {
+      "name": "Unit 7: Calculus & Optimization",
+      "icon": "\u2207",
+      "tiers": [
+        { "tier": "calculus", "lessons": ["01", "02", "03", "04", "05"], "label": "Limits, Derivatives, Gradient, Chain Rule, Jacobian" },
+        { "tier": "calculus", "lessons": ["06", "07", "09"], "label": "Integrals, FTC, Taylor Series" }
+      ]
+    },
+    {
+      "name": "Unit 8: Optimization Algorithms",
+      "icon": "\u2193",
+      "tiers": [
+        { "tier": "optimisation", "lessons": ["01", "02", "03", "04", "05", "06"], "label": "Loss Functions, GD, SGD, Adam, Convexity, Lagrange" }
+      ]
+    },
+    {
+      "name": "Unit 9: Probability & Random Variables",
+      "icon": "P",
+      "tiers": [
+        { "tier": "probability-statistics", "lessons": ["01", "02", "03", "04"], "label": "Axioms, Bayes, Random Variables, Expectation" }
+      ]
+    },
+    {
+      "name": "Unit 10: Distributions",
+      "icon": "\ud835\udca9",
+      "tiers": [
+        { "tier": "probability-statistics", "lessons": ["05", "06"], "label": "Discrete & Continuous Distributions" }
+      ]
+    },
+    {
+      "name": "Unit 11: Joint Distributions & Covariance",
+      "icon": "\u03c1",
+      "tiers": [
+        { "tier": "probability-statistics", "lessons": ["10", "11", "12", "13"], "label": "Covariance, Joint Distributions, Bivariate Normal" }
+      ]
+    },
+    {
+      "name": "Unit 12: Inference & Estimation",
+      "icon": "\u03b8\u0302",
+      "tiers": [
+        { "tier": "probability-statistics", "lessons": ["07", "08", "14", "15"], "label": "CLT, MLE, Sampling Distributions, Confidence Intervals" }
+      ]
+    },
+    {
+      "name": "Unit 13: Neural Networks & Backpropagation",
+      "icon": "\ud83e\udde0",
+      "tiers": [
+        { "tier": "neural-networks", "lessons": ["01", "02", "03", "04", "05", "06"], "label": "Neuron, Activations, Forward Pass, Backprop, From Scratch" }
+      ]
+    }
+  ]
+}
